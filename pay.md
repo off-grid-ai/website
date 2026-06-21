@@ -11,6 +11,10 @@ description: Buy Off Grid Pro. Enter your email and check out. $50 one-time, no 
   <p class="early-access-sub">Off Grid Pro adds voice, custom personas, and tool integrations. All of it runs on your phone, the same as the rest. Enter your email below to check out. Your email is the account the purchase attaches to, so use the one you sign into the app with.</p>
 </div>
 
+<div class="offer-closing" role="note">
+  <strong>This offer closes July 1.</strong> After June 30 the one-time $50 Pro deal goes away in favour of <a href="{{ '/early-access' | relative_url }}">Off Grid AI</a>, our background intelligence layer for desktop and mobile, priced monthly. Buy Pro now and you keep it for life, including Off Grid AI Pro free, forever. This is the last window to lock in a one-time price.
+</div>
+
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
     <div class="ea-inline-group">
