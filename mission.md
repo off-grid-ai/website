@@ -95,4 +95,8 @@ That's what we're building with Off Grid.
 
 ---
 
+This is happening now, not someday. 100,000+ downloads, 2,500+ stars, a 500-strong community - on the app that ships today. The Personal AI OS that unifies your phone and your laptop over your own network is in private alpha.
+
+[See the vision]({{ '/vision' | relative_url }}) · [Join early access]({{ '/early-access' | relative_url }})
+
 *Open source. No account. No telemetry. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download the app](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mission)*

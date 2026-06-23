@@ -755,6 +755,34 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   line-height: 1.5;
 }
 
+/* ─── Stats row ───────────────────────────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 28px 0 36px;
+}
+.stat-card {
+  padding: 18px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  text-align: center;
+}
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 7px;
+  line-height: 1.4;
+}
+
 /* ─── Mobile ────────────────────────────────────────────────────────────────── */
 .mobile-topbar {
   display: none;
@@ -784,6 +812,10 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   .hero-buttons { gap: 8px; }
   .btn { padding: 10px 14px; font-size: 0.8125rem; }
   .early-access-perks { grid-template-columns: 1fr; }
+  .stats-row { gap: 8px; }
+  .stat-card { padding: 14px 8px; }
+  .stat-number { font-size: 1.375rem; }
+  .stat-label { font-size: 0.7rem; }
   .early-access-hero h1 { font-size: 1.875rem; }
   .ea-essay-links { grid-template-columns: 1fr; }
   .essay-early-access { flex-direction: column; align-items: flex-start; }

@@ -72,4 +72,8 @@ The same intelligence layer that made some people more effective for two centuri
 
 ---
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision). Open source. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision).*
+This is the world we're building. The app is the first piece of it, already in 100,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. The full Personal AI OS that spans your phone and your laptop is in private alpha now: [join early access]({{ '/early-access' | relative_url }}).
+
+---
+
+*Read [the ethos]({{ '/ethos' | relative_url }}) and [the mission]({{ '/mission' | relative_url }}). [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision).*
