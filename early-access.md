@@ -18,7 +18,7 @@ description: Join the waitlist for Off Grid AI. Background intelligence that cap
       <button type="submit" class="ea-submit">Join the waitlist</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">Pro is $39/month, pre-launch founder rate. There is a free version too. Early access locks the rate in for good, and existing Pro members get Pro free, for life.</p>
+      <p class="ea-pricing-note">Pro is $39/month, pre-launch founder rate. Early access locks the rate in for good, and existing Pro members get Pro free, for life.</p>
     </div>
     <p class="ea-status" id="wlStatus" aria-live="polite"></p>
   </form>
@@ -116,7 +116,7 @@ The catch with that kind of assistant has always been the price: to be useful it
 
 A small number of people will run this before it ships. They will not just get in first. They will shape what it becomes, watch their bugs get fixed, and steer the roadmap. And they lock in a price no one else will get.
 
-There is a free version, and it stays free. The Pro components that run real compute and do the real work are $39/month, but early access holds a lower pre-launch founder rate to your seat for good. Existing Pro members get all of it free, this one is on us. This is the window. Put your email in.
+The Pro components that run real compute and do the real work are $39/month, but early access holds a lower pre-launch founder rate to your seat for good. Existing Pro members get all of it free, this one is on us. This is the window. Put your email in.
 
 <script>
   (function() {
