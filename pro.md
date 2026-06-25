@@ -261,7 +261,7 @@ No training on your data. No selling it. No server to leak. The system has no me
 
 The free app runs models, with no account and no subscription. Pro adds the layer that sees, remembers, and acts.
 
-Pro is **$39/month** at the pre-launch founder rate, locked in for early members for as long as you hold your seat. Existing Off Grid Pro members get all of it free, for life.
+Pro is **$39/month** for up to 5 devices at the pre-launch founder rate, locked in for early members for as long as you hold your seat. Existing Off Grid Pro members get all of it free, for life.
 
 There is one window to lock in a one-time price. Buy [Off Grid Pro]({{ '/pay' | relative_url }}) for **$50 once** before July 1 and you keep it forever, including Off Grid AI Pro free. If Pro does not ship within 12 weeks of your purchase, email us for a full refund.
 

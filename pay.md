@@ -9,7 +9,7 @@ description: Buy Off Grid Pro. Enter your email and check out. $50 one-time, no 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid Pro</div>
   <h1>Pay once.<br>Run it forever.</h1>
-  <p class="early-access-sub">Off Grid Pro adds voice, custom personas, and tool integrations. All of it runs on your phone, the same as the rest. Enter your email below to check out. Your email is the account the purchase attaches to, so use the one you sign into the app with.</p>
+  <p class="early-access-sub">Off Grid Pro adds voice, custom personas, and tool integrations. All of it runs on your phone, the same as the rest. Enter your email below to check out. After you pay we send you a license key — enter it in the app to unlock Pro on up to 5 devices.</p>
 </div>
 
 <div class="offer-closing" role="note">
@@ -68,7 +68,7 @@ description: Buy Off Grid Pro. Enter your email and check out. $50 one-time, no 
     </div>
     <div>
       <div class="perk-title">Pay once, keep it</div>
-      <div class="perk-desc"><strong>$50 one-time</strong>. No subscription, no surprise pricing. Have a promo code? Enter it at checkout to adjust the price.</div>
+      <div class="perk-desc"><strong>$50 one-time</strong>. No subscription, no surprise pricing. One license key, good on up to 5 devices. Have a promo code? Enter it at checkout to adjust the price.</div>
     </div>
   </div>
 </div>
@@ -77,7 +77,7 @@ description: Buy Off Grid Pro. Enter your email and check out. $50 one-time, no 
 
 ## How checkout works
 
-You enter your email and we send you to RevenueCat's hosted checkout with that email attached. The purchase is tied to your email, so sign into the app with the same address to unlock Pro.
+You enter your email and we send you to RevenueCat's hosted checkout with that email attached. Once you pay, we send a license key to that address. Enter the key in the app to unlock Pro on up to 5 devices.
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 

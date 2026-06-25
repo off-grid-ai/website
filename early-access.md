@@ -125,7 +125,7 @@ The catch with that kind of assistant has always been the price: to be useful it
 
 A small number of people will run this before it ships. They will not just get in first. They will shape what it becomes, watch their bugs get fixed, and steer the roadmap. And they lock in a price no one else will get.
 
-The Pro components that run real compute and do the real work are $39/month, but early access holds a lower pre-launch founder rate to your seat for good. Existing Pro members get all of it free, this one is on us. This is the window. Put your email in.
+The Pro components that run real compute and do the real work are $39/month for up to 5 devices, but early access holds a lower pre-launch founder rate to your seat for good. Existing Pro members get all of it free, this one is on us. This is the window. Put your email in.
 
 <script>
   (function() {
