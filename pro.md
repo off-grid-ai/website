@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Pro Features
-nav_order: 4
+nav_order: 3
 description: Off Grid AI Pro is a private intelligence layer for your laptop. It captures your day, remembers everything, and drafts the next move, on your own hardware. No cloud round trips. See every feature.
 ---
 
@@ -271,13 +271,15 @@ There is one window to lock in a one-time price. Buy [Off Grid Pro]({{ '/pay' | 
 
 ---
 
-## For teams and enterprises
+## For companies: Off Grid Console
 
-Putting AI in front of employees, customers, or agents raises a different problem: knowing what runs, on what data, at what cost, and whether it is safe. That is the Off Grid Console.
+Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the Off Grid Console.
 
 The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail a regulator can defend.
 
 It runs on your own infrastructure, built entirely on open source. No per-token fees, no per-seat AI licence, nothing routed through a server we own.
+
+Console is licensed separately from Pro. Buying Pro does not include it, and you do not need Pro to run it.
 
 <div class="hero-buttons">
   <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>

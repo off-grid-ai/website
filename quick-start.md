@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Quick Start
-nav_order: 2
+nav_order: 6
 description: Download Off Grid and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
 ---
 

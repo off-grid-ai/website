@@ -204,6 +204,68 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .sidebar-cta-android:hover { background: var(--accent-subtle); color: var(--accent); }
 
+.home-console-banner {
+  display: block;
+  margin: 22px 0 6px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent-subtle);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.home-console-banner:hover { border-color: var(--accent); transform: translateY(-1px); }
+.home-console-banner-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.home-console-banner-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 5px;
+}
+.home-console-banner-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.sidebar-console {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  margin-top: 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: border-color 0.15s, background 0.15s;
+}
+.sidebar-console:hover { border-color: var(--accent); background: var(--accent-subtle); }
+.sidebar-console svg { color: var(--accent); flex-shrink: 0; }
+.sidebar-console-tag {
+  margin-left: auto;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 .sidebar-links { display: flex; gap: 12px; margin: 10px 0 8px; }
 .sidebar-links a { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: var(--text-muted); text-decoration: none; }
 .sidebar-links a:hover { color: var(--text-primary); }
