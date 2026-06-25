@@ -143,7 +143,15 @@
 
       <nav class="sidebar-nav">
         {% assign top_pages = site.pages | where_exp: "p", "p.nav_order != nil and p.parent == nil" | sort: "nav_order" %}
+        {% assign current_group = "" %}
         {% for p in top_pages %}
+          {% assign grp = p.nav_group | default: "" %}
+          {% if grp != current_group %}
+            {% assign current_group = grp %}
+            {% if grp != "" %}
+              <div class="nav-group-label">{{ grp }}</div>
+            {% endif %}
+          {% endif %}
           {% assign is_current = false %}
           {% if page.url == p.url %}{% assign is_current = true %}{% endif %}
           {% assign in_section = false %}

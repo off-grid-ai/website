@@ -2,6 +2,7 @@
 layout: default
 title: Pro Features
 nav_order: 3
+nav_group: Products
 description: Off Grid AI Pro is a private intelligence layer for your laptop. It captures your day, remembers everything, and drafts the next move, on your own hardware. No cloud round trips. See every feature.
 ---
 

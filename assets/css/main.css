@@ -204,6 +204,17 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .sidebar-cta-android:hover { background: var(--accent-subtle); color: var(--accent); }
 
+.nav-group-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  padding: 0 8px;
+  margin: 16px 0 6px;
+}
+.nav-group-label:first-child { margin-top: 8px; }
+
 .home-console-banner {
   display: block;
   margin: 22px 0 6px;

@@ -2,6 +2,7 @@
 layout: default
 title: Console
 nav_order: 2
+nav_group: Products
 description: Off Grid Console is the on-prem control plane for agentic AI. One governed chokepoint for every model call, agent action, and byte of data. Self-hosted, auditable, open source. No per-token or per-seat fees.
 ---
 
