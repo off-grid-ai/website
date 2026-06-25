@@ -74,6 +74,10 @@ Your phone knows your life. Your laptop knows your work. Today neither has the f
 Nothing is sent anywhere, because there is no server to send it to. It is open source, so you can check.
 
 <div class="ea-essay-links">
+  <a href="{{ '/pro' | relative_url }}" class="ea-essay-card">
+    <div class="ea-essay-title">See Pro features →</div>
+    <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you. Capture, memory, replay, a CRM that builds itself, and actions you approve.</div>
+  </a>
   <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Join early access →</div>
     <div class="ea-essay-desc">A small group will run it before it ships, shape what it becomes, and lock in a founder rate no one else will get.</div>
@@ -82,6 +86,74 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
     <div class="ea-essay-title">Read the vision →</div>
     <div class="ea-essay-desc">What the world looks like when intelligence is ambient, personal, and private - on the hardware you already own.</div>
   </a>
+</div>
+
+---
+
+## Off Grid Pro: it was in the room
+
+The free app runs models. Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. You never brief it. It briefs you.
+
+<div class="early-access-perks">
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Capture, on device</div>
+      <div class="perk-desc">It quietly takes in what you see and do, on your screen and in your meetings, and turns it into memory. Opt-in per device, with a recording indicator. The pixels never leave your disk.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">One search across everything</div>
+      <div class="perk-desc">Find the message, the page, the meeting, the screen from last week, all in one place that only you can read. The end of where did that go.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">A CRM that builds itself</div>
+      <div class="perk-desc">It maps the people, projects, and companies you work with, and what is open with each. A relationship graph you never have to update.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Replay your whole day</div>
+      <div class="perk-desc">Scrub through your day like a recording. Every screen, in order, on device. The thing you swear you saw three hours ago is right there.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Where your time really went</div>
+      <div class="perk-desc">You start no timer and tag nothing. At day's end the breakdown is just there: 4h on the rewrite, 50m on Slack, 30m you will wish you had back.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">It acts, you approve</div>
+      <div class="perk-desc">It drafts the reply, files the ticket, finds the commitment you made in an email. Every action is a proposal you approve, and every approval is logged.</div>
+    </div>
+  </div>
+</div>
+
+<div class="hero-buttons">
+  <a href="{{ '/pro' | relative_url }}" class="btn btn-green">See all Pro features</a>
+  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Join early access (free)</a>
 </div>
 
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Off Grid AI
-nav_order: 4
+nav_order: 5
 description: Join the waitlist for Off Grid AI. Background intelligence that captures, remembers, and acts across your devices. Completely offline, completely private, running on the hardware you already own.
 ---
 

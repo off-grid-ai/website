@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Get Pro
-nav_order: 4
+nav_order: 6
 description: Buy Off Grid Pro. Enter your email and check out. $50 one-time, no subscription. Have a promo code? Apply it at checkout.
 ---
 
