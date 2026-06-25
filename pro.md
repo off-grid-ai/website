@@ -269,6 +269,20 @@ There is one window to lock in a one-time price. Buy [Off Grid Pro]({{ '/pay' | 
   <a href="{{ '/pay' | relative_url }}" class="btn btn-outline">Pay $50 once, keep it for life</a>
 </div>
 
+---
+
+## For teams and enterprises
+
+Putting AI in front of employees, customers, or agents raises a different problem: knowing what runs, on what data, at what cost, and whether it is safe. That is the Off Grid Console.
+
+The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail a regulator can defend.
+
+It runs on your own infrastructure, built entirely on open source. No per-token fees, no per-seat AI licence, nothing routed through a server we own.
+
+<div class="hero-buttons">
+  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+</div>
+
 <div class="ea-essay-links">
   <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Join early access →</div>

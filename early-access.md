@@ -89,11 +89,15 @@ description: Join the waitlist for Off Grid AI. Background intelligence that cap
 
 ---
 
-## Three products, one loop
+## One suite, one loop
 
-It started as three problems solved out of need. They turned out to be one thing: a private intelligence layer that lives across your laptop and your phone, learns your work and your life in the background, and gets ahead of you.
+It started as problems solved out of need. They turned out to be one thing: a private intelligence layer that lives across your devices, learns your work and your life in the background, and gets ahead of you. Four parts, all on hardware you control.
 
 <div class="ea-essay-links">
+  <div class="ea-essay-card">
+    <div class="ea-essay-title">Off Grid Mobile</div>
+    <div class="ea-essay-desc">On-device intelligence in your pocket: chat, image, vision, voice, and documents, all local. It doubles as an offline recorder with proper meeting detection, voice transcription, and speaker diarization, processed on device and never shared. An AI recorder for your life, not just your meetings.</div>
+  </div>
   <div class="ea-essay-card">
     <div class="ea-essay-title">Off Grid Desktop</div>
     <div class="ea-essay-desc">The intelligence layer for your laptop. It captures your day there: meetings, email, the work context that makes the rest useful. Tuned for people who build, it speaks issues, PRs, cycles, and tickets.</div>
@@ -102,10 +106,10 @@ It started as three problems solved out of need. They turned out to be one thing
     <div class="ea-essay-title">Off Grid Sync</div>
     <div class="ea-essay-desc">The private backbone between your phone and your laptop. Captures, memory, and context move device to device over your own network, never through a cloud relay. Your laptop's work and your phone's life merge into one model of your day.</div>
   </div>
-  <div class="ea-essay-card">
-    <div class="ea-essay-title">Off Grid Mobile</div>
-    <div class="ea-essay-desc">On-device intelligence in your pocket: chat, image, vision, voice, and documents, all local. It doubles as an offline recorder with proper meeting detection, voice transcription, and speaker diarization, processed on device and never shared. An AI recorder for your life, not just your meetings.</div>
-  </div>
+  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="ea-essay-card">
+    <div class="ea-essay-title">Off Grid Console →</div>
+    <div class="ea-essay-desc">The control plane for agentic AI in a company. One gateway every model call and agent passes through, with guardrails, a private knowledge brain, agent evals, and a regulator-grade audit trail. Self-hosted, open source, no per-token or per-seat fees.</div>
+  </a>
 </div>
 
 ---
