@@ -11,6 +11,10 @@ description: Join the waitlist for Off Grid AI. Background intelligence that cap
   <p class="early-access-sub">Off Grid AI is background intelligence for knowledge workers. It sees your day, remembers it, and gets ahead of you, the way a chief of staff would. The model runs in your own hardware's memory, with no cloud round trips. Nothing is sent anywhere, because there is no server to send it to. A small group will run it before it ships. Join the waitlist.</p>
 </div>
 
+<div class="offer-closing" role="note">
+  <strong>This offer closes July 1.</strong> After June 30 the one-time $50 <a href="{{ '/pay' | relative_url }}">Pro deal</a> goes away in favour of Off Grid AI, our background intelligence layer for desktop and mobile, priced monthly. Buy Pro now and you keep it for life, including Off Grid AI Pro free, forever. This is the last window to lock in a one-time price.
+</div>
+
 <div class="early-access-form-section ea-form-top">
   <form id="waitlistForm" class="early-access-form" novalidate>
     <div class="ea-inline-group">
