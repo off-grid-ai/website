@@ -279,3 +279,49 @@ There is one window to lock in a one-time price. Buy [Off Grid Pro]({{ '/pay' | 
     <div class="ea-essay-desc">What the world looks like when intelligence is ambient, personal, and private, on the hardware you already own.</div>
   </a>
 </div>
+
+<script>
+  // Track Pro page CTA clicks (buttons + cards), tagged with the section they
+  // sit in (nearest preceding heading) so we can see which features drive intent.
+  (function() {
+    var article = document.querySelector('.content');
+    if (!article) return;
+
+    function sectionFor(el) {
+      var node = el;
+      while (node && node !== article) {
+        var sib = node.previousElementSibling;
+        while (sib) {
+          if (/^H[1-4]$/.test(sib.tagName)) return sib.textContent.replace(/#$/, '').trim();
+          sib = sib.previousElementSibling;
+        }
+        node = node.parentElement;
+      }
+      return 'page';
+    }
+
+    article.addEventListener('click', function(e) {
+      var link = e.target.closest('a.btn, a.ea-essay-card');
+      if (!link || !article.contains(link)) return;
+      var href = link.getAttribute('href') || '';
+      var destination = href.indexOf('/pay') !== -1 ? 'pay'
+        : href.indexOf('/early-access') !== -1 ? 'early-access'
+        : href.indexOf('/vision') !== -1 ? 'vision'
+        : href;
+      var label = (link.querySelector('.ea-essay-title') || link).textContent
+        .replace(/→/g, '').replace(/#$/, '').trim();
+      if (typeof posthog === 'undefined') return;
+      try {
+        posthog.capture('pro_cta_click', {
+          destination: destination,
+          href: href,
+          label: label,
+          section: sectionFor(link),
+          source: window.location.pathname
+        });
+      } catch (err) {
+        console.warn('PostHog tracking failed:', err);
+      }
+    });
+  })();
+</script>
