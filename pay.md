@@ -7,9 +7,9 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Pro · Live now</div>
+  <div class="early-access-badge">Off Grid AI Pro · Desktop + Mobile</div>
   <h1>Pay $50 once.<br>Never pay $39 a month.</h1>
-  <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. Pay $50 once before July 1 and you keep it for life, every release included. After July 1 it is $39/month, then $99. Enter your email, check out, and we email your license key. Enter it in the app to unlock Pro on up to 5 devices.</p>
+  <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. One purchase covers both: desktop and mobile, on a single license key, up to 5 devices in total. Pay $50 once before July 1 and you keep it for life, every release included. After July 1 it is $39/month, then $99. Enter your email, check out, and we email your key.</p>
 </div>
 
 <div class="offer-closing" role="note">
@@ -23,7 +23,7 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <button type="submit" class="ea-submit" id="paySubmit" disabled>Lock in $50 for life</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">$50 once · no subscription · 5 devices · live today on desktop and mobile</p>
+      <p class="ea-pricing-note">$50 once · no subscription · one key for desktop + mobile · up to 5 devices</p>
     </div>
     <p class="ea-status" id="payStatus" aria-live="polite"></p>
   </form>
@@ -79,7 +79,7 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
 
 ## What your $50 buys
 
-One payment unlocks Off Grid AI Pro across every part of Off Grid AI, on hardware you already own.
+One payment, one license key, unlocks Off Grid AI Pro on both your laptop and your phone, up to 5 devices in total, on hardware you already own.
 
 <div class="early-access-perks">
   <div class="perk-card">
