@@ -14,7 +14,7 @@ description: A private intelligence layer that runs on the hardware you already 
 
 **A private AI that runs on the hardware you already own.**
 
-Chat, images, vision, voice, documents - all on your phone, all offline, nothing sent anywhere. And it is becoming something bigger: one intelligence layer across your phone and your laptop, ambient and proactive, that never leaves your hands.
+Chat, images, vision, voice, documents - all on your phone, all offline, nothing sent anywhere. And it is now something bigger: Off Grid AI Pro, one intelligence layer across your phone and your laptop, ambient and proactive, that never leaves your hands. The layer that merges the two is landing through July.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
@@ -84,9 +84,9 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
     <div class="ea-essay-title">See Pro features →</div>
     <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you. Capture, memory, replay, a CRM that builds itself, and actions you approve.</div>
   </a>
-  <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
-    <div class="ea-essay-title">Join early access →</div>
-    <div class="ea-essay-desc">A small group will run it before it ships, shape what it becomes, and lock in a founder rate no one else will get.</div>
+  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
+    <div class="ea-essay-title">Get Off Grid AI Pro →</div>
+    <div class="ea-essay-desc">Live now on desktop and mobile. Pay $50 once before July 1 and keep it for life, before the price becomes $39/month, then $99.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>
@@ -96,9 +96,9 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
 
 ---
 
-## Off Grid Pro: it was in the room
+## Off Grid AI Pro: it was in the room
 
-The free app runs models. Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. You never brief it. It briefs you.
+The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -158,8 +158,8 @@ The free app runs models. Pro adds the layer that sees your day, remembers it, a
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pro' | relative_url }}" class="btn btn-green">See all Pro features</a>
-  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Join early access (free)</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, $50 once</a>
+  <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See all Pro features</a>
 </div>
 
 ---

@@ -1,29 +1,29 @@
 ---
 layout: default
-title: Off Grid AI
+title: Founder Rate
 nav_order: 4
 nav_group: Products
-description: Join the waitlist for Off Grid AI. Background intelligence that captures, remembers, and acts across your devices. Completely offline, completely private, running on the hardware you already own.
+description: Off Grid AI is live now on desktop and mobile. Lock the $39/month founder rate before it becomes $99, or pay $50 once before July 1 and keep it for life.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Private Alpha</div>
+  <div class="early-access-badge">Founder rate · Closes July 1</div>
   <h1>It already knows<br>what you did today.</h1>
-  <p class="early-access-sub">Off Grid AI is background intelligence for knowledge workers. It sees your day, remembers it, and gets ahead of you, the way a chief of staff would. The model runs in your own hardware's memory, with no cloud round trips. Nothing is sent anywhere, because there is no server to send it to. A small group will run it before it ships. Join the waitlist.</p>
+  <p class="early-access-sub">Off Grid AI is background intelligence for knowledge workers. It sees your day, remembers it, and gets ahead of you, the way a chief of staff would. The model runs in your own hardware's memory, with no cloud round trips. It is live now on your laptop and your phone, and the layer that merges them is landing through July. Lock the founder rate before it goes up.</p>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>This offer closes July 1.</strong> After June 30 the one-time $50 <a href="{{ '/pay' | relative_url }}">Pro deal</a> goes away in favour of Off Grid AI, our background intelligence layer for desktop and mobile, priced monthly. Buy Pro now and you keep it for life, including Off Grid AI Pro free, forever. This is the last window to lock in a one-time price.
+  <strong>The price only goes up.</strong> Pay <a href="{{ '/pay' | relative_url }}">$50 once</a> before July 1 and keep Off Grid AI Pro for life. Miss that window and it is $39/month, the founder rate. Miss that and it is $99/month. Lock your seat below and you hold $39/month for as long as you keep it, before the standing price ever applies.
 </div>
 
 <div class="early-access-form-section ea-form-top">
   <form id="waitlistForm" class="early-access-form" novalidate>
     <div class="ea-inline-group">
       <input type="email" id="wlEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" required>
-      <button type="submit" class="ea-submit">Join the waitlist</button>
+      <button type="submit" class="ea-submit">Lock my $39/month rate</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">Pro is $39/month, pre-launch founder rate. Early access locks the rate in for good, and existing Pro members get Pro free, for life.</p>
+      <p class="ea-pricing-note">Founder rate is $39/month, held for as long as you keep it. The best deal is still <a href="{{ '/pay' | relative_url }}">$50 once</a> before July 1. Existing Off Grid AI Pro members keep everything, free.</p>
     </div>
     <p class="ea-status" id="wlStatus" aria-live="polite"></p>
   </form>
@@ -65,7 +65,7 @@ description: Join the waitlist for Off Grid AI. Background intelligence that cap
     </div>
     <div>
       <div class="perk-title">One mind across your devices</div>
-      <div class="perk-desc">Your laptop knows your work, your phone knows your life. They sync over your own network, never a cloud relay, into a single picture of your day. Nothing is stranded on one screen.</div>
+      <div class="perk-desc">Your laptop knows your work, your phone knows your life. The layer that merges them over your own network, never a cloud relay, is landing through July. When it lands, nothing is stranded on one screen.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -83,7 +83,7 @@ description: Join the waitlist for Off Grid AI. Background intelligence that cap
     </div>
     <div>
       <div class="perk-title">Founder rate, locked in</div>
-      <div class="perk-desc">Off Grid AI Pro is $39/month, locked in at the pre-launch founder rate for early members and kept low for as long as you hold your seat. Existing Pro members get all of it free, for life.</div>
+      <div class="perk-desc">Lock $39/month now and hold it for as long as you keep your seat, before the price becomes $99. Or pay $50 once before July 1 and never pay monthly at all. Existing Off Grid AI Pro members keep everything, free.</div>
     </div>
   </div>
 </div>
@@ -96,16 +96,16 @@ It started as problems solved out of need. They turned out to be one thing: a pr
 
 <div class="ea-essay-links">
   <div class="ea-essay-card">
-    <div class="ea-essay-title">Off Grid Mobile</div>
-    <div class="ea-essay-desc">On-device intelligence in your pocket: chat, image, vision, voice, and documents, all local. It doubles as an offline recorder with proper meeting detection, voice transcription, and speaker diarization, processed on device and never shared. An AI recorder for your life, not just your meetings.</div>
+    <div class="ea-essay-title">Off Grid AI Mobile</div>
+    <div class="ea-essay-desc">On-device intelligence in your pocket: chat, image, vision, voice in and out, and documents, all local. Pro adds voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve before they send. Full intelligence in your hand, nothing shared.</div>
   </div>
   <div class="ea-essay-card">
-    <div class="ea-essay-title">Off Grid Desktop</div>
-    <div class="ea-essay-desc">The intelligence layer for your laptop. It captures your day there: meetings, email, the work context that makes the rest useful. Tuned for people who build, it speaks issues, PRs, cycles, and tickets.</div>
+    <div class="ea-essay-title">Off Grid AI Desktop</div>
+    <div class="ea-essay-desc">The intelligence layer for your laptop. It captures your day there: screens, meetings, email, the work context that makes the rest useful. Search, replay, and act on all of it. Tuned for people who build, it speaks issues, PRs, cycles, and tickets.</div>
   </div>
   <div class="ea-essay-card">
-    <div class="ea-essay-title">Off Grid Sync</div>
-    <div class="ea-essay-desc">The private backbone between your phone and your laptop. Captures, memory, and context move device to device over your own network, never through a cloud relay. Your laptop's work and your phone's life merge into one model of your day.</div>
+    <div class="ea-essay-title">Off Grid AI Sync, landing through July</div>
+    <div class="ea-essay-desc">The private backbone between your phone and your laptop, rolling out through July. When it lands, captures, memory, and context move device to device over your own network, never through a cloud relay, and your work and your life merge into one model of your day.</div>
   </div>
   <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="ea-essay-card">
     <div class="ea-essay-title">Off Grid Console →</div>
@@ -119,13 +119,13 @@ It started as problems solved out of need. They turned out to be one thing: a pr
 
 Imagine opening your laptop and the day is already laid out. The 9am is with someone you have not spoken to in three months. There is an open item you never closed. A draft reply is waiting for the email you have been avoiding. You did not ask for any of it. It noticed, because it was there with you all day.
 
-That is what you are joining. An assistant that remembers everything you did, finds the commitments you made and the asks aimed at you, and gets ahead of you instead of waiting to be opened. It works the way a chief of staff would, except it never forgets and it never logs off.
+That is what is live now. An assistant that remembers everything you did, finds the commitments you made and the asks aimed at you, and gets ahead of you instead of waiting to be opened. It works the way a chief of staff would, except it never forgets and it never logs off.
 
-The catch with that kind of assistant has always been the price: to be useful it has to know everything about you, and until now that meant handing everything to someone's cloud. Off Grid AI runs the model on your own hardware, with no cloud round trips. Your phone and laptop sync over your own network, never a relay in between, so your work and your life become one picture of your day. The phone doubles as an offline recorder, with real meeting detection, voice, and speaker diarization, all on device. Nothing is sent anywhere, because there is no server to send it to. It is open source under AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.
+The catch with that kind of assistant has always been the price: to be useful it has to know everything about you, and until now that meant handing everything to someone's cloud. Off Grid AI runs the model on your own hardware, with no cloud round trips. The desktop captures your day, records and transcribes your meetings, separates who said what, and files it all into one local memory you can search and replay. The layer that joins your phone and your laptop into a single picture is landing through July. Nothing is sent anywhere, because there is no server to send it to. It is open source under AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.
 
-A small number of people will run this before it ships. They will not just get in first. They will shape what it becomes, watch their bugs get fixed, and steer the roadmap. And they lock in a price no one else will get.
+It is live now, and it is still early. Get in before July 1 and you do not just pay the least. You shape what it becomes, watch your bugs get fixed, and steer the roadmap, on a rate no one after you will hold.
 
-The Pro components that run real compute and do the real work are $39/month for up to 5 devices, but early access holds a lower pre-launch founder rate to your seat for good. Existing Pro members get all of it free, this one is on us. This is the window. Put your email in.
+Off Grid AI Pro runs real compute on up to 5 devices. Pay $50 once before July 1 and keep it for life. After that it is $39/month, the founder rate you lock here, on the way to $99 for everyone else. Existing members get all of it, free. This is the window. Put your email in.
 
 <script>
   (function() {
@@ -149,7 +149,7 @@ The Pro components that run real compute and do the real work are $39/month for 
         });
       }
       emailInput.value = '';
-      status.textContent = "You're on the list.";
+      status.textContent = "Your founder rate is locked. Check your inbox.";
       status.className = 'ea-status ea-status-success';
       form.querySelector('.ea-submit').disabled = true;
     });

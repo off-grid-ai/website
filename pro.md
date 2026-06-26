@@ -7,18 +7,18 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop. It
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Pro</div>
+  <div class="early-access-badge">Off Grid AI Pro · Live now</div>
   <h1>The assistant that<br>was in the room.</h1>
-  <p class="early-access-sub">The free app runs models. Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. You never brief it. It briefs you. Nothing is sent anywhere, because there is no server to send it to.</p>
+  <p class="early-access-sub">The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you. Nothing is sent anywhere, because there is no server to send it to.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/early-access' | relative_url }}" class="btn btn-green">Join early access (free)</a>
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-outline">Pay once, keep it for life</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, $50 once</a>
+  <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Pro ships July 2026.</strong> The pre-launch founder rate is $39/month, locked in for early members for as long as you hold your seat. Buy <a href="{{ '/pay' | relative_url }}">Off Grid Pro</a> before July 1 and you get all of Pro free, for life. This is the last window for the one-time price.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Pay $50 once before July 1 and you keep it for life. After July 1 it moves to the $39/month founder rate, and to $99/month once that window closes. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships. This is the lowest price it will ever carry.
 </div>
 
 ---
@@ -202,11 +202,11 @@ Pro is tuned for software, design, and product. It speaks issues, PRs, cycles, a
 
 ---
 
-## Sync: one brain across your devices
+## Sync: one brain across your devices, landing through July
 
-Your laptop knows your work. Your phone knows your life. Today neither has the full picture.
+Your laptop knows your work. Your phone knows your life. Today neither has the full picture. Off Grid AI Sync is the private backbone that closes the loop, and it is rolling out through July 2026.
 
-Off Grid Sync is the private backbone that closes the loop. Captures, memory, and context move device to device over your own network, never through a cloud relay. Your work and your life merge into one model of your day, and it is one you alone can read.
+When it lands, captures, memory, and context move device to device over your own network, never through a cloud relay. Your work and your life merge into one model of your day, and it is one you alone can read. Buy now and every piece arrives the day it ships, at no extra cost.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -232,8 +232,8 @@ Off Grid Sync is the private backbone that closes the loop. Captures, memory, an
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
     </div>
     <div>
-      <div class="perk-title">Your phone, an offline recorder</div>
-      <div class="perk-desc">Off Grid Mobile doubles as a recorder for your life, not just your meetings, with real meeting detection, voice transcription, and speaker diarization, all processed on device and never shared. The thing your partner said about dinner becomes a calendar event, not a forgotten text.</div>
+      <div class="perk-title">Your phone, a Pro device</div>
+      <div class="perk-desc">Off Grid AI Mobile adds Pro voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve, all on device. Everything you do there is yours, and joins your laptop's memory once Sync lands.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -259,15 +259,19 @@ No training on your data. No selling it. No server to leak. The system has no me
 
 ## What it costs
 
-The free app runs models, with no account and no subscription. Pro adds the layer that sees, remembers, and acts.
+The free app runs models, with no account and no subscription. Off Grid AI Pro adds the layer that sees, remembers, and acts, on up to 5 devices.
 
-Pro is **$39/month** for up to 5 devices at the pre-launch founder rate, locked in for early members for as long as you hold your seat. Existing Off Grid Pro members get all of it free, for life.
+The price climbs on a schedule, so the day you buy is the price you beat:
 
-There is one window to lock in a one-time price. Buy [Off Grid Pro]({{ '/pay' | relative_url }}) for **$50 once** before July 1 and you keep it forever, including Off Grid AI Pro free. If Pro does not ship within 12 weeks of your purchase, email us for a full refund.
+- **$50 once, before July 1.** Pay one time and keep Off Grid AI Pro for life. No subscription, ever.
+- **$39/month, after July 1.** The founder rate, for everyone who comes after the one-time window.
+- **$99/month, later.** Once the founder window closes, this is the standing price.
+
+Take the $50 one-time deal and you make it back in five weeks against the founder rate, and in two weeks against the standing one. Every release lands free for life, including the cross-device layer as it ships through July.
 
 <div class="hero-buttons">
-  <a href="{{ '/early-access' | relative_url }}" class="btn btn-green">Join early access (free)</a>
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-outline">Pay $50 once, keep it for life</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Pay $50 once, keep it for life</a>
+  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Lock the $39/month rate</a>
 </div>
 
 ---
@@ -288,8 +292,8 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 
 <div class="ea-essay-links">
   <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
-    <div class="ea-essay-title">Join early access →</div>
-    <div class="ea-essay-desc">A small group runs Pro before it ships, shapes what it becomes, and locks in a founder rate no one else gets.</div>
+    <div class="ea-essay-title">Lock the founder rate →</div>
+    <div class="ea-essay-desc">Get in before July 1 and hold the $39/month rate for good, before it becomes $99. Existing members get every new piece free.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>

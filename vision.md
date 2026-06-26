@@ -72,7 +72,7 @@ The same intelligence layer that made some people more effective for two centuri
 
 ---
 
-This is the world we're building. The app is the first piece of it, already in 100,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. The full Personal AI OS that spans your phone and your laptop is in private alpha now: [join early access]({{ '/early-access' | relative_url }}).
+This is the world we're building. The app is the first piece of it, already in 100,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. Off Grid AI Pro is live now on your phone and your laptop. The layer that spans them into one intelligence over your own network is landing through July 2026: [get Off Grid AI Pro]({{ '/pro' | relative_url }}).
 
 ---
 

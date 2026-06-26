@@ -55,8 +55,8 @@ That's what we're building.
 
 ---
 
-This isn't a someday. Over 100,000 people already run Off Grid on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. The full Personal AI OS, the one intelligence layer that spans your phone and your laptop, is in private alpha now.
+This isn't a someday. Over 100,000 people already run Off Grid on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. The one intelligence layer that spans them over your own network is landing through July 2026, shipping in the open as it lands.
 
-[Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Join early access]({{ '/early-access' | relative_url }})
+[Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
 *Off Grid is open source. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) or [join the community on Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).*
