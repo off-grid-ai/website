@@ -284,6 +284,9 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .sidebar-copy { color: var(--text-muted); font-size: 0.7rem; margin-top: 2px; }
 .sidebar-copy a { color: var(--text-muted); text-decoration: underline; }
 .sidebar-copy a:hover { color: var(--text-primary); }
+.sidebar-legal { display: flex; gap: 6px; align-items: center; margin: 6px 0 4px; font-size: 0.7rem; color: var(--text-muted); }
+.sidebar-legal a { color: var(--text-muted); text-decoration: none; }
+.sidebar-legal a:hover { color: var(--text-primary); text-decoration: underline; }
 
 /* ─── Newsletter form ────────────────────────────────────────────────────────── */
 .newsletter-form { margin: 10px 0 10px; }
