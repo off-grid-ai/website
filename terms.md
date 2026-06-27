@@ -3,7 +3,7 @@ layout: default
 title: Terms of Service
 nav_order: 8
 nav_group: Learn
-description: The terms that govern your use of Off Grid software, apps, and services. By using Off Grid you agree to these terms.
+description: The terms that govern your use of Off Grid AI software, apps, and services. By using Off Grid AI you agree to these terms.
 ---
 
 # Terms of Service
@@ -12,7 +12,7 @@ description: The terms that govern your use of Off Grid software, apps, and serv
 
 These Terms apply to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of these Terms in effect at the time of that use.
 
-These Terms of Service ("Terms") are a legal agreement between you and Wednesday Solutions ("Off Grid", "we", "us", or "our") covering the Off Grid Desktop and Off Grid Mobile applications, the Off Grid Console, the `@offgrid/*` software, our websites, and any related services (together, the "Service").
+These Terms of Service ("Terms") are a legal agreement between you and Wednesday Solutions ("Off Grid AI", "we", "us", or "our") covering the Off Grid AI Desktop and Off Grid AI Mobile applications, the Off Grid AI Console, the `@offgrid/*` software, our websites, and any related services (together, the "Service").
 
 **By downloading, installing, accessing, or using any part of the Service, you agree to be bound by these Terms.** If you do not agree, do not use the Service. Your continued use of the Service after any change to these Terms constitutes acceptance of the updated Terms.
 
@@ -28,7 +28,7 @@ Use of the Service is itself your agreement to these Terms, whether or not you c
 
 ## 2. The Service
 
-Off Grid provides local-first software that runs on your own devices. Where the Service processes data, it is designed to do so on your devices. Features, availability, and behavior may change, be added, or be removed at any time without notice. We do not guarantee that any particular feature will be available, continue to be offered, or function in any particular way.
+Off Grid AI provides local-first software that runs on your own devices. Where the Service processes data, it is designed to do so on your devices. Features, availability, and behavior may change, be added, or be removed at any time without notice. We do not guarantee that any particular feature will be available, continue to be offered, or function in any particular way.
 
 The Service is provided as a tool. It is not a substitute for professional advice (legal, medical, financial, or otherwise), and you are solely responsible for any decisions you make using it.
 
@@ -102,7 +102,7 @@ Some jurisdictions do not allow certain limitations, so some of the above may no
 
 ## 10. Indemnification
 
-You agree to indemnify, defend, and hold harmless Off Grid, Wednesday Solutions, and its owners, employees, and contributors from and against any claims, damages, liabilities, losses, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your content or data, or your violation of these Terms or of any law or third-party right.
+You agree to indemnify, defend, and hold harmless Off Grid AI, Wednesday Solutions, and its owners, employees, and contributors from and against any claims, damages, liabilities, losses, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your content or data, or your violation of these Terms or of any law or third-party right.
 
 ---
 
@@ -132,4 +132,4 @@ If any provision of these Terms is found unenforceable, the remaining provisions
 
 ## 15. Contact
 
-Questions about these Terms? Email the Off Grid Support Team at **support@offgridmobileai.co**.
+Questions about these Terms? Email the Off Grid AI Support Team at **support@offgridmobileai.co**.

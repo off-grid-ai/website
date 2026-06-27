@@ -3,7 +3,7 @@ layout: default
 title: Privacy Policy
 nav_order: 9
 nav_group: Learn
-description: How Off Grid handles data. Off Grid is local-first by architecture - your captured data stays on your devices.
+description: How Off Grid AI handles data. Off Grid AI is local-first by architecture - your captured data stays on your devices.
 ---
 
 # Privacy Policy
@@ -12,7 +12,7 @@ description: How Off Grid handles data. Off Grid is local-first by architecture 
 
 This Policy applies to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of this Policy in effect at the time of that use.
 
-This Privacy Policy explains how Wednesday Solutions ("Off Grid", "we", "us") handles information in connection with the Off Grid Desktop and Off Grid Mobile applications, the Off Grid Console, the `@offgrid/*` software, and our websites (together, the "Service").
+This Privacy Policy explains how Wednesday Solutions ("Off Grid AI", "we", "us") handles information in connection with the Off Grid AI Desktop and Off Grid AI Mobile applications, the Off Grid AI Console, the `@offgrid/*` software, and our websites (together, the "Service").
 
 **By using the Service, you agree to this Policy.** If you do not agree, do not use the Service.
 
@@ -20,7 +20,7 @@ This Privacy Policy explains how Wednesday Solutions ("Off Grid", "we", "us") ha
 
 ## 1. Our core principle: local by architecture
 
-Off Grid is built so that the data you capture, store, and process - screen captures, audio, transcripts, memory, clipboard, files, and the content you connect - stays on your own devices. This is privacy by architecture, not merely by promise.
+Off Grid AI is built so that the data you capture, store, and process - screen captures, audio, transcripts, memory, clipboard, files, and the content you connect - stays on your own devices. This is privacy by architecture, not merely by promise.
 
 We do not receive, store, or have access to your captured content in the ordinary operation of the local applications. Where data syncs between your own devices, it is designed to move directly between devices you control.
 
@@ -97,4 +97,4 @@ We may update this Policy at any time by posting the revised version. Changes ar
 
 ## 12. Contact
 
-Questions about this Policy or your data? Email the Off Grid Support Team at **support@offgridmobileai.co**.
+Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@offgridmobileai.co**.

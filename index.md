@@ -2,19 +2,19 @@
 layout: default
 title: Home
 nav_order: 1
-description: A private intelligence layer that runs on the hardware you already own. 100k+ downloads, 2500+ GitHub stars. One AI across your phone and laptop - ambient, proactive, and completely offline. Your data never leaves your device.
+description: A private intelligence layer that runs on the hardware you already own. 100k+ downloads, 2,500+ GitHub stars. One AI across your phone and laptop - ambient, proactive, on-device. Your captured data stays on your device; the connectors you authorize are the only exception.
 ---
 
-<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid - Private AI. No cloud. No compromise." class="hero-cover">
+<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
 
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
-  <h1>Off Grid</h1>
+  <h1>Off Grid AI</h1>
 </div>
 
 **A private AI that runs on the hardware you already own.**
 
-Chat, images, vision, voice, documents - all on your phone, all offline, nothing sent anywhere. And it is now something bigger: Off Grid AI Pro, one intelligence layer across your phone and your laptop, ambient and proactive, that never leaves your hands. The layer that merges the two is landing through July.
+Chat, images, vision, voice, documents - all on your phone, running offline, with nothing sent anywhere unless you connect something yourself. And it is now something bigger: Off Grid AI Pro, an ambient, proactive layer that runs on your laptop and your phone today. The layer that merges the two into one is landing through July.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
@@ -31,26 +31,26 @@ Chat, images, vision, voice, documents - all on your phone, all offline, nothing
   </a>
 </div>
 
-<div class="stats-row">
-  <div class="stat-card">
+<div class="stats-row" data-fx-reveal>
+  <div class="stat-card fx-spot" data-fx-spot>
     <div class="stat-number">100k+</div>
     <div class="stat-label">downloads<br>Play Store, App Store &amp; GitHub</div>
   </div>
-  <div class="stat-card">
+  <div class="stat-card fx-spot" data-fx-spot>
     <div class="stat-number">2,500+</div>
     <div class="stat-label">stars on GitHub</div>
   </div>
-  <div class="stat-card">
+  <div class="stat-card fx-spot" data-fx-spot>
     <div class="stat-number">500+</div>
     <div class="stat-label">strong community</div>
   </div>
 </div>
 
-Over 100,000 people already run AI on their own phone with Off Grid. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid makes it do exactly that.
+Over 100,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
 
-<a href="{{ '/console' | relative_url }}" class="home-console-banner">
+<a href="{{ '/console' | relative_url }}" class="home-console-banner" data-fx-reveal>
   <div class="home-console-banner-tag">For organizations</div>
-  <div class="home-console-banner-title">Off Grid Console: govern every AI call in your company →</div>
+  <div class="home-console-banner-title">Off Grid AI Console: govern every AI call in your company →</div>
   <div class="home-console-banner-desc">The control plane for agentic AI. One governed gateway for every model call and agent, on your own infrastructure, fully auditable, built on open source. No per-token or per-seat fees.</div>
 </a>
 
@@ -75,20 +75,20 @@ Over 100,000 people already run AI on their own phone with Off Grid. No account,
 
 The app is the first piece. The whole is a Personal AI OS: a private intelligence layer that lives across your phone and your laptop, learns your day in the background, and gets ahead of you the way a chief of staff would.
 
-Your phone knows your life. Your laptop knows your work. Today neither has the full picture. Off Grid unifies them into one working model of who you are and what you are doing. It syncs over your own network, never a cloud relay. It does not wait to be opened - it briefs you on the day, surfaces the item you left open, and drafts the reply before you remember you owe it.
+Your phone knows your life. Your laptop knows your work. Today neither has the full picture. Off Grid AI Pro already gets ahead of you on each device - it does not wait to be opened; it briefs you on the day, surfaces the item you left open, and drafts the reply before you remember you owe it. What is landing through July is the link between them: unifying phone and laptop into one model, synced over your own network rather than a cloud relay.
 
-Nothing is sent anywhere, because there is no server to send it to. It is open source, so you can check.
+There is no central server in the middle. The free core is open source, so you can audit it; Pro is the paid layer, closed source but running entirely on your own hardware.
 
-<div class="ea-essay-links">
-  <a href="{{ '/pro' | relative_url }}" class="ea-essay-card">
+<div class="ea-essay-links" data-fx-reveal>
+  <a href="{{ '/pro' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
     <div class="ea-essay-title">See Pro features →</div>
     <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you. Capture, memory, replay, a CRM that builds itself, and actions you approve.</div>
   </a>
-  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
+  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
-    <div class="ea-essay-desc">Live now on desktop and mobile. Pay $50 once before July 1 and keep it for life, before the price becomes $39/month, then $99.</div>
+    <div class="ea-essay-desc">Live now on desktop and mobile. Pay $50 once before July 1 and keep it for life, or lock the $39/month founder rate after.</div>
   </a>
-  <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
+  <a href="{{ '/vision' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
     <div class="ea-essay-title">Read the vision →</div>
     <div class="ea-essay-desc">What the world looks like when intelligence is ambient, personal, and private - on the hardware you already own.</div>
   </a>
@@ -100,8 +100,8 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
 
 The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
     </div>
@@ -110,7 +110,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
       <div class="perk-desc">It quietly takes in what you see and do, on your screen and in your meetings, and turns it into memory. Opt-in per device, with a recording indicator. The pixels never leave your disk.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     </div>
@@ -119,7 +119,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
       <div class="perk-desc">Find the message, the page, the meeting, the screen from last week, all in one place that only you can read. The end of where did that go.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
@@ -128,7 +128,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
       <div class="perk-desc">It maps the people, projects, and companies you work with, and what is open with each. A relationship graph you never have to update.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
     </div>
@@ -137,7 +137,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
       <div class="perk-desc">Scrub through your day like a recording. Every screen, in order, on device. The thing you swear you saw three hours ago is right there.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
     </div>
@@ -146,7 +146,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
       <div class="perk-desc">You start no timer and tag nothing. At day's end the breakdown is just there: 4h on the rewrite, 50m on Slack, 30m you will wish you had back.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
@@ -168,9 +168,9 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 
 When you run a query on a cloud AI service - ChatGPT, Gemini, Claude - it's logged on a server. Your prompt, the response, the time, your account. Stored indefinitely. Used to train future models. Subject to law enforcement requests. Readable by employees.
 
-With Off Grid, none of that applies. The model runs in your phone's memory. Inference happens on your CPU and GPU. Nothing is sent anywhere. Ever.
+With Off Grid AI, none of that applies. The model runs in your phone's memory. Inference happens on your CPU and GPU. By default nothing is sent anywhere - the only things that ever leave are a connector or remote server you turn on yourself.
 
-Privacy here isn't a setting or a promise. It's the default output of the architecture. The system has no mechanism to do otherwise - and because the code is open, anyone can verify it.
+Privacy here isn't a setting or a promise. It's the default output of the architecture: out of the box there is no path off your device, and anything you connect is opt-in and visible. Because the core is open source, anyone can verify it.
 
 ---
 
@@ -211,4 +211,4 @@ Privacy here isn't a setting or a promise. It's the default output of the archit
 
 Questions, feedback, and feature requests - [join the Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).
 
-Source code is open - [star the repo on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+Source code is open - [star the repo on GitHub](https://github.com/off-grid-ai/mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).

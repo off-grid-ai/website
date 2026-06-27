@@ -59,7 +59,7 @@ The only guarantee that your data stays yours is that it never leaves your devic
 
 Not a toggle. Not a promise. Not a trust-us. **Architecture.**
 
-Open source, so anyone can verify what the software actually does. No account required. No telemetry. No analytics. No data collection of any kind. If you can't audit it, you can't trust it. You shouldn't.
+The core is open source, so anyone can verify what the software actually does. No account required. No telemetry in the app, no training on your data, no selling it. (The website itself uses privacy-conscious analytics — see the Privacy Policy.) If you can't audit it, you can't trust it. You shouldn't.
 
 We hold this as a non-negotiable. Not because it's a better marketing position. Because it's the only honest answer to the question of who owns your intelligence.
 
@@ -77,7 +77,7 @@ For two hundred years, access to that layer was determined entirely by wealth an
 
 **The device in your pocket changes that equation permanently.**
 
-A Personal AI OS. One intelligence layer, running on your hardware, spanning your phone and laptop over your own network, with no server in between. It knows your messages, your calendar, your work, your life. It lives with you, not above you. It preps you for meetings before you ask. It defers what can wait and surfaces what can't. It handles the coordination overhead of your day the way a great assistant has always handled it for the people who could afford one.
+A Personal AI OS. One intelligence layer, running on your hardware, designed to span your phone and laptop over your own network, with no server in between. It knows your messages, your calendar, your work, your life. It lives with you, not above you. It preps you for meetings before you ask. It defers what can wait and surfaces what can't. It handles the coordination overhead of your day the way a great assistant has always handled it for the people who could afford one.
 
 Not AI making decisions while you sleep. Not autonomous agents acting on your behalf in ways you didn't sanction. A private digital secretary, proactive and aware, that makes your day a little easier and your attention a little freer.
 
@@ -91,7 +91,7 @@ The same thing that secretaries have been doing for the powerful for 200 years. 
 
 Make it personal. Make it private. Make it ambient. On the hardware people already own. Without asking them to trust anyone but themselves.
 
-That's what we're building with Off Grid.
+That's what we're building with Off Grid AI.
 
 ---
 
@@ -99,4 +99,4 @@ This is happening now, not someday. 100,000+ downloads, 2,500+ stars, a 500-stro
 
 [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
-*Open source. No account. No telemetry. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download the app](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mission)*
+*Open source. No account. No telemetry. [View on GitHub](https://github.com/off-grid-ai/mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download the app](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mission)*

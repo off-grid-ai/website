@@ -3,7 +3,7 @@ layout: default
 title: Quick Start
 nav_order: 6
 nav_group: Learn
-description: Download Off Grid and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
+description: Download Off Grid AI and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
 ---
 
 # Quick Start
@@ -12,13 +12,13 @@ Run your first local AI model in under 5 minutes. No account. No API key. No int
 
 ---
 
-## Step 1 - Download Off Grid
+## Step 1 - Download Off Grid AI
 
 **iOS:** [Download on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires iPhone 12 or newer (4GB RAM+)
 
 **Android:** [Get it on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires Android 10+, 4GB RAM+
 
-Or grab the latest APK directly from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+Or grab the latest APK directly from [GitHub Releases](https://github.com/off-grid-ai/mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
 
 ---
 
@@ -66,4 +66,4 @@ Put your phone in airplane mode. Everything still works.
 
 Stuck, or want to share what you're building? [Join the Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).
 
-The app is open source - [view it on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+The app is open source - [view it on GitHub](https://github.com/off-grid-ai/mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).

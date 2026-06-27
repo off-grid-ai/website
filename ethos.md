@@ -4,7 +4,7 @@ title: Ethos
 nav_order: 7
 nav_group: Learn
 has_children: true
-description: Why Off Grid exists. Intelligence should live on the devices you already own - private by architecture, not by policy.
+description: Why Off Grid AI exists. Intelligence should live on the devices you already own - private by architecture, not by policy.
 ---
 
 # Ethos
@@ -45,7 +45,7 @@ The devices people already carry will become intelligent. They will speak to eac
 
 ## What we're building
 
-Off Grid is not an autonomous agent that makes decisions on your behalf. It is a private digital secretary that reduces daily friction.
+Off Grid AI is not an autonomous agent that makes decisions on your behalf. It is a private digital secretary that reduces daily friction.
 
 It reads your messages, watches your calendar, defers your notifications, answers your questions, generates your images, listens to your voice. All of it, on your device. All of it, offline.
 
@@ -55,8 +55,8 @@ That's what we're building.
 
 ---
 
-This isn't a someday. Over 100,000 people already run Off Grid on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. The one intelligence layer that spans them over your own network is landing through July 2026, shipping in the open as it lands.
+This isn't a someday. Over 100,000 people already run Off Grid AI on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. The one intelligence layer that spans them over your own network is landing through July 2026, shipping in the open as it lands.
 
 [Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
-*Off Grid is open source. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) or [join the community on Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).*
+*Off Grid AI is open source. [View on GitHub](https://github.com/off-grid-ai/mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) or [join the community on Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).*

@@ -6,14 +6,14 @@ nav_group: Products
 description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on desktop and mobile. No subscription. Price rises to $39/month after July 1.
 ---
 
-<div class="early-access-hero">
+<div class="early-access-hero fx-dotbg" data-fx-reveal>
   <div class="early-access-badge">Off Grid AI Pro · Desktop + Mobile</div>
   <h1>Pay $50 once.<br>Never pay $39 a month.</h1>
   <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. One purchase covers both: desktop and mobile, on a single license key, up to 5 devices in total. Pay $50 once before July 1 and you keep it for life, every release included. After July 1 it is $39/month, then $99. Enter your email, check out, and we email your key.</p>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>This window closes July 1.</strong> After June 30 the one-time $50 deal is gone: Off Grid AI Pro moves to the $39/month founder rate, then to $99/month once that window closes. Buy now and you keep every release for life, at no extra cost, forever. This is the last day to turn a monthly bill into a single payment.
+  <strong>This window closes July 1.</strong> After June 30 the one-time $50 deal is gone and Off Grid AI Pro moves to the $39/month founder rate — a strong deal in its own right, locked for as long as you keep your seat, before the standing price settles at $99/month. Prefer to pay once? Buy now and keep every release for life at no extra cost.
 </div>
 
 <div class="early-access-form-section ea-form-top">
@@ -36,8 +36,8 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
 
 ## Do the math
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
     </div>
@@ -46,7 +46,7 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <div class="perk-desc">After July 1 Off Grid AI Pro is $39/month, on the way to $99. That is <strong>at least $468 a year</strong>, every year. Or you pay <strong>$50 once</strong>, now, and never see a bill again. You make the $50 back in five weeks.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
     </div>
@@ -55,7 +55,7 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <div class="perk-desc">Your $50 covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to 5 devices, with no upgrade fee, ever.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
@@ -64,13 +64,13 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <div class="perk-desc">Off Grid AI Pro is already live on desktop and mobile. You pay, the license key lands in your inbox, and you unlock it in minutes on both. You are buying a product you can run tonight, not a roadmap.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </div>
     <div>
       <div class="perk-title">100,000 already run the free app</div>
-      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. It is AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.</div>
+      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Pro is the paid layer and is closed source, but it runs entirely on your hardware — the only data that leaves is a connector action you approve. The core stays open (AGPL), so you can audit the foundation.</div>
     </div>
   </div>
 </div>
@@ -81,8 +81,8 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
 
 One payment, one license key, unlocks Off Grid AI Pro on both your laptop and your phone, up to 5 devices in total, on hardware you already own.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
     </div>
@@ -91,7 +91,7 @@ One payment, one license key, unlocks Off Grid AI Pro on both your laptop and yo
       <div class="perk-desc">The layer that watches your meeting, reads the thread, sees the ticket, and files it into one local memory you can search, replay, and act on. The model runs in your laptop's own memory. No cloud round trips, no account, no API key.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
     </div>
@@ -100,7 +100,7 @@ One payment, one license key, unlocks Off Grid AI Pro on both your laptop and yo
       <div class="perk-desc">Chat, image, vision, voice in and out, and documents, all local on the phone. Pro adds voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve before they send.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
     </div>
@@ -109,7 +109,7 @@ One payment, one license key, unlocks Off Grid AI Pro on both your laptop and yo
       <div class="perk-desc">The cross-device layer is rolling out through July. When it lands, your phone and laptop merge into one picture of your day over your own network, never a relay. Your purchase includes it the day it ships.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
     </div>

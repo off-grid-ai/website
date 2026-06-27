@@ -6,10 +6,10 @@ nav_group: Products
 description: Off Grid AI Pro is a private intelligence layer for your laptop. It captures your day, remembers everything, and drafts the next move, on your own hardware. No cloud round trips. See every feature.
 ---
 
-<div class="early-access-hero">
+<div class="early-access-hero fx-dotbg" data-fx-reveal>
   <div class="early-access-badge">Off Grid AI Pro · Live now</div>
   <h1>The assistant that<br>was in the room.</h1>
-  <p class="early-access-sub">The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you. Nothing is sent anywhere, because there is no server to send it to.</p>
+  <p class="early-access-sub">The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you. There is no central server in the middle — only the connector actions you approve ever leave your device.</p>
 </div>
 
 <div class="hero-buttons">
@@ -18,7 +18,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop. It
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Pay $50 once before July 1 and you keep it for life. After July 1 it moves to the $39/month founder rate, and to $99/month once that window closes. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships. This is the lowest price it will ever carry.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Pay $50 once before July 1 and you keep it for life. After July 1 it moves to the $39/month founder rate — locked for as long as you keep your seat — before the standing price settles at $99/month. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships.
 </div>
 
 ---
@@ -39,8 +39,8 @@ It moves through four stages: it **sees**, it **remembers**, it **acts**, and th
 
 Capture is one primitive, always your choice. Pro only sees what you let it see, per device, with a visible recording indicator. Pause it from the menu bar anytime. Off grid means in your control, not just off the cloud.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
     </div>
@@ -49,16 +49,16 @@ Capture is one primitive, always your choice. Pro only sees what you let it see,
       <div class="perk-desc">It quietly takes in what you see and do, turns it into text, and remembers it. Opt-in per device, with a recording indicator and a pause button in the menu bar. The pixels and the text never leave your disk.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
     </div>
     <div>
       <div class="perk-title">Meetings, recorded and transcribed</div>
-      <div class="perk-desc">It detects when a call starts, records it, transcribes it, and separates who said what, all on device. The decisions and the action items are searchable the moment the call ends. No bot joins your meeting. No audio is uploaded.</div>
+      <div class="perk-desc">It detects when a call starts, records it, and transcribes it, all on device. The decisions and the action items are searchable the moment the call ends. No bot joins your meeting. No audio is uploaded.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
     </div>
@@ -75,8 +75,8 @@ Capture is one primitive, always your choice. Pro only sees what you let it see,
 
 A second brain only works if you feed it. This one feeds itself. Capture, meetings, email, Notion, Linear, and Jira flow into one local memory without you copy-pasting anything.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
     </div>
@@ -85,7 +85,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
       <div class="perk-desc">Everything you see and do becomes memory you keep, even after you switch tools. Your conversations across ChatGPT, Claude, and Gemini end up in one place that is yours. Switch apps whenever you want. Your memory stays.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     </div>
@@ -94,7 +94,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
       <div class="perk-desc">Search your entire work life, not one app at a time. The message, the page, the meeting, the screen from last week, all in one place that only you can read. The end of where did that go.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
@@ -103,7 +103,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
       <div class="perk-desc">Pro maps the people, projects, and companies you work with, and what is open with each, with cross-source summaries. A relationship graph you never have to update, because it updates itself from what you already do.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
     </div>
@@ -120,8 +120,8 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
 
 Not hours logged. Mind share. Pro shows what you actually spent the day thinking about.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
     </div>
@@ -130,7 +130,7 @@ Not hours logged. Mind share. Pro shows what you actually spent the day thinking
       <div class="perk-desc">You start no timer and tag nothing. At day's end the breakdown is just there: 4h on the rewrite, 50m on Slack, 30m you will wish you had back, and how many times you context-switched to get it.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     </div>
@@ -147,8 +147,8 @@ Not hours logged. Mind share. Pro shows what you actually spent the day thinking
 
 Pro can draft the reply, file the ticket, update the doc. It never does it on its own. Every action is a proposal you approve, and every approval is logged. This is not an open-ended agent you hand the keys to. It is structured, with guardrails you set, so you stay in control.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
@@ -157,7 +157,7 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
       <div class="perk-desc">Drafts and changes land in a queue. You read, edit, and approve before anything leaves your device. Nothing acts on the world without your sign-off, and the sign-off is recorded.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
     </div>
@@ -166,7 +166,7 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
       <div class="perk-desc">You wrote we need to ship X by Friday in an email. Pro noticed and put it on a list. It finds the commitments you make and the asks aimed at you, across everything you touch.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
     </div>
@@ -175,7 +175,7 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
       <div class="perk-desc">Set a trigger, set an action. On a schedule, on a keyword, on an event. Pro runs the routine for you and routes anything that touches the outside world through the same approval gate.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.59 13.41a1.998 1.998 0 0 1 0-2.83l4.24-4.24a4 4 0 0 1 5.66 5.66l-1.41 1.41"/><path d="M13.41 10.59a1.998 1.998 0 0 1 0 2.83l-4.24 4.24a4 4 0 0 1-5.66-5.66l1.41-1.41"/></svg>
     </div>
@@ -208,8 +208,8 @@ Your laptop knows your work. Your phone knows your life. Today neither has the f
 
 When it lands, captures, memory, and context move device to device over your own network, never through a cloud relay. Your work and your life merge into one model of your day, and it is one you alone can read. Buy now and every piece arrives the day it ships, at no extra cost.
 
-<div class="early-access-perks">
-  <div class="perk-card">
+<div class="early-access-perks" data-fx-reveal>
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
     </div>
@@ -218,7 +218,7 @@ When it lands, captures, memory, and context move device to device over your own
       <div class="perk-desc">Your phone and laptop sync over your own network, never a server in the middle. There is no cloud copy to leak, subpoena, or train on. The transfer is between your devices and no one else.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </div>
@@ -227,7 +227,7 @@ When it lands, captures, memory, and context move device to device over your own
       <div class="perk-desc">You set nothing up each day. The two devices reconcile in the background, so the morning briefing already has both your work and your life in it. One picture, ready before you open the lid.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
     </div>
@@ -236,7 +236,7 @@ When it lands, captures, memory, and context move device to device over your own
       <div class="perk-desc">Off Grid AI Mobile adds Pro voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve, all on device. Everything you do there is yours, and joins your laptop's memory once Sync lands.</div>
     </div>
   </div>
-  <div class="perk-card">
+  <div class="perk-card fx-spot" data-fx-spot>
     <div class="perk-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 9l3 3 4-5"/></svg>
     </div>
@@ -253,7 +253,7 @@ When it lands, captures, memory, and context move device to device over your own
 
 Most private AI still uploads your screen to someone's cloud. Pro runs the model in your laptop's own memory.
 
-No training on your data. No selling it. No server to leak. The system has no mechanism to do any of that, by design. It is open source under AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.
+No training on your data. No selling it. No central server to leak. Off Grid AI Pro is the paid layer and is closed source, but it runs entirely in your laptop's own memory — the only data that ever leaves is a connector action you explicitly approve. The free core it builds on is open source (AGPL), so the foundation is auditable.
 
 ---
 
@@ -267,7 +267,7 @@ The price climbs on a schedule, so the day you buy is the price you beat:
 - **$39/month, after July 1.** The founder rate, for everyone who comes after the one-time window.
 - **$99/month, later.** Once the founder window closes, this is the standing price.
 
-Take the $50 one-time deal and you make it back in five weeks against the founder rate, and in two weeks against the standing one. Every release lands free for life, including the cross-device layer as it ships through July.
+Prefer to pay once? The $50 one-time deal pays for itself in about five weeks at the founder rate, and every release lands free for life, including the cross-device layer as it ships through July.
 
 <div class="hero-buttons">
   <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Pay $50 once, keep it for life</a>
@@ -276,26 +276,26 @@ Take the $50 one-time deal and you make it back in five weeks against the founde
 
 ---
 
-## For companies: Off Grid Console
+## For companies: Off Grid AI Console
 
-Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the Off Grid Console.
+Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the Off Grid AI Console.
 
-The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail a regulator can defend.
+The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail you can export for compliance.
 
 It runs on your own infrastructure, built entirely on open source. No per-token fees, no per-seat AI licence, nothing routed through a server we own.
 
 Console is licensed separately from Pro. Buying Pro does not include it, and you do not need Pro to run it.
 
 <div class="hero-buttons">
-  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid AI Console</a>
 </div>
 
-<div class="ea-essay-links">
-  <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
+<div class="ea-essay-links" data-fx-reveal>
+  <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
     <div class="ea-essay-title">Lock the founder rate →</div>
     <div class="ea-essay-desc">Get in before July 1 and hold the $39/month rate for good, before it becomes $99. Existing members get every new piece free.</div>
   </a>
-  <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
+  <a href="{{ '/vision' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
     <div class="ea-essay-title">Read the vision →</div>
     <div class="ea-essay-desc">What the world looks like when intelligence is ambient, personal, and private, on the hardware you already own.</div>
   </a>
