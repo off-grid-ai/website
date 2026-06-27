@@ -82,4 +82,4 @@ The output is not just the same work in less time. It is better work, done with 
 
 ---
 
-*Off Grid is building toward this. It starts with on-device AI that works fully offline on your phone: the foundation that makes everything above possible without your data ever leaving your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI is building toward this. It starts with on-device AI that works fully offline on your phone: the foundation that makes everything above possible without your data ever leaving your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

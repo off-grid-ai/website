@@ -4,7 +4,7 @@ title: Guides
 nav_order: 8
 nav_group: Learn
 has_children: true
-description: Step-by-step guides for running AI locally on your iPhone and Android phone with Off Grid.
+description: Step-by-step guides for running AI locally on your iPhone and Android phone with Off Grid AI.
 ---
 
 # Guides
@@ -79,7 +79,7 @@ Everything you need to get the most out of running AI locally on your phone.
   </a>
   <a href="{{ '/guides/knowledge-base' | relative_url }}" class="guide-card">
     <div class="guide-card-title">Knowledge Base and RAG</div>
-    <div class="guide-card-desc">Upload documents to a project. Off Grid embeds and indexes them on-device, retrieves context automatically.</div>
+    <div class="guide-card-desc">Upload documents to a project. Off Grid AI embeds and indexes them on-device, retrieves context automatically.</div>
   </a>
 </div>
 

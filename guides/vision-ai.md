@@ -3,9 +3,9 @@ layout: default
 title: Vision AI - Analyse Images and Documents On-Device
 parent: Guides
 nav_order: 11
-description: Use Off Grid's vision models to analyse photos, read documents, describe scenes, and answer questions about images - all on your phone with no cloud.
+description: Use Off Grid AI's vision models to analyse photos, read documents, describe scenes, and answer questions about images - all on your phone with no cloud.
 faq:
-  - q: Which models support vision in Off Grid?
+  - q: Which models support vision in Off Grid AI?
     a: SmolVLM (500M, 2.2B), Qwen3-VL (2B, 8B), and Gemma 4 (E2B, E4B). Gemma 4 models support both vision and thinking mode simultaneously.
   - q: Can I use vision AI completely offline?
     a: Yes. Vision inference runs entirely on-device using llama.rn multimodal. No image data is sent anywhere.
@@ -15,7 +15,7 @@ faq:
 
 # Vision AI - Analyse Images and Documents On-Device
 
-Off Grid's vision models can look at images and answer questions about them. Point your camera at a document, a product, a diagram, a receipt - and ask anything.
+Off Grid AI's vision models can look at images and answer questions about them. Point your camera at a document, a product, a diagram, a receipt - and ask anything.
 
 All inference runs on-device via llama.rn's multimodal support. No image is uploaded anywhere.
 
@@ -49,7 +49,7 @@ All inference runs on-device via llama.rn's multimodal support. No image is uplo
 
 ## How to use vision
 
-1. Open a chat in Off Grid
+1. Open a chat in Off Grid AI
 2. Tap the **attachment icon** → choose **Camera** or **Photo Library**
 3. Select or capture your image
 4. Type your question and send

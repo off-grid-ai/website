@@ -3,7 +3,7 @@ layout: default
 title: Document Analysis and Attachments
 parent: Guides
 nav_order: 14
-description: Attach PDFs, code files, CSVs, and other documents to your Off Grid conversations. The app extracts and passes content to your local model for analysis - entirely on-device.
+description: Attach PDFs, code files, CSVs, and other documents to your Off Grid AI conversations. The app extracts and passes content to your local model for analysis - entirely on-device.
 faq:
   - q: What file types can I attach?
     a: PDF, txt, md, most code file types (py, js, ts, java, swift, kt, go, rs, sql, sh, etc.), CSV, JSON, YAML, XML, HTML, and more. Maximum 5MB per file.
@@ -39,7 +39,7 @@ All processing happens on your device.
 
 ## How to attach a file
 
-1. Open a chat in Off Grid
+1. Open a chat in Off Grid AI
 2. Tap the **attachment icon** in the message bar
 3. Select **Document** from the picker
 4. Choose your file from the system file browser
@@ -56,7 +56,7 @@ Tap any document badge in the chat to open it with the system viewer - QuickLook
 
 ## Paste as attachment
 
-If you paste a large block of text into the message field, Off Grid offers to convert it to an attachment instead. This keeps the chat interface clean when you're passing in large context.
+If you paste a large block of text into the message field, Off Grid AI offers to convert it to an attachment instead. This keeps the chat interface clean when you're passing in large context.
 
 ---
 

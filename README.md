@@ -1,6 +1,6 @@
-# Off Grid Website
+# Off Grid AI Website
 
-Marketing site and documentation for [Off Grid](https://getoffgridai.co) — run powerful
+Marketing site and documentation for [Off Grid AI](https://getoffgridai.co) — run powerful
 AI models directly on your iPhone or Android phone, no internet required.
 
 Built with [Jekyll](https://jekyllrb.com/) and deployed to **https://getoffgridai.co**

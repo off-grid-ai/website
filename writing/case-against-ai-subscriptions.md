@@ -64,7 +64,7 @@ The subscription for AI is a choice to monetise ongoing usage of a tool whose un
 
 ## What we're building
 
-Off Grid is built on the premise that intelligence should be a tool you own.
+Off Grid AI is built on the premise that intelligence should be a tool you own.
 
 The models are open-weight. The software runs on your device. The core capability doesn't require a subscription - you download the app, download a model, and the AI works without any ongoing payment.
 
@@ -72,4 +72,4 @@ We may offer optional paid features. But the model - the intelligence layer itse
 
 You should pay for software. You shouldn't pay rent for intelligence that runs on hardware you already own.
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*[Download Off Grid AI for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

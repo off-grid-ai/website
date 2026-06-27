@@ -6,9 +6,9 @@ nav_order: 8
 description: Connect your Android phone to your home Ollama server and use larger models like Llama 3.1 70B over your local network - no cloud, completely private.
 faq:
   - q: Can I use Ollama from my Android phone?
-    a: Yes. Off Grid can connect to any Ollama server on your local network or accessible via VPN. You get access to any model loaded on your desktop from your phone.
+    a: Yes. Off Grid AI can connect to any Ollama server on your local network or accessible via VPN. You get access to any model loaded on your desktop from your phone.
   - q: Does connecting to Ollama require internet?
-    a: No. Off Grid connects to Ollama over your local WiFi network. No traffic goes to the internet.
+    a: No. Off Grid AI connects to Ollama over your local WiFi network. No traffic goes to the internet.
 ---
 
 # How to Use Ollama From Your Android Phone in 2026
@@ -20,7 +20,7 @@ Ollama lets you run large language models on your desktop. Models that are too b
 ## What you need
 
 - Desktop or laptop running [Ollama](https://ollama.ai) with at least one model loaded
-- Android phone with [Off Grid](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) installed
+- Android phone with [Off Grid AI](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) installed
 - Both devices on the same WiFi network (or Ollama accessible via VPN/Tailscale)
 
 ---
@@ -54,9 +54,9 @@ export OLLAMA_HOST=0.0.0.0
 
 ---
 
-## Step 3 - Connect from Off Grid
+## Step 3 - Connect from Off Grid AI
 
-1. Open Off Grid → **Settings** → **Remote Servers**
+1. Open Off Grid AI → **Settings** → **Remote Servers**
 2. Tap **Add Server**
 3. Enter: `http://192.168.1.42:11434` (replace with your desktop's IP)
 4. Tap **Test Connection** - it should show green

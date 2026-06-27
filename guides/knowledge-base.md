@@ -3,19 +3,19 @@ layout: default
 title: Knowledge Base and RAG - On-Device Document Search
 parent: Guides
 nav_order: 13
-description: Upload PDFs and documents to Off Grid's project knowledge base. The app embeds and indexes them on-device using MiniLM, then retrieves relevant context automatically during your conversations.
+description: Upload PDFs and documents to Off Grid AI's project knowledge base. The app embeds and indexes them on-device using MiniLM, then retrieves relevant context automatically during your conversations.
 faq:
   - q: Does the knowledge base send my documents to the cloud?
     a: No. Documents are processed entirely on-device. Text extraction, embedding, and retrieval all happen locally using a bundled MiniLM model stored in SQLite.
   - q: What is the embedding model used?
     a: all-MiniLM-L6-v2-Q8_0.gguf, bundled with the app (~24MB). It does not need to be downloaded.
   - q: How does retrieval work?
-    a: At query time, your question is embedded with the same MiniLM model. Off Grid scores all document chunks by cosine similarity and passes the top results to your LLM as context via the search_knowledge_base tool.
+    a: At query time, your question is embedded with the same MiniLM model. Off Grid AI scores all document chunks by cosine similarity and passes the top results to your LLM as context via the search_knowledge_base tool.
 ---
 
 # Knowledge Base and RAG - On-Device Document Search
 
-Each Off Grid project can have its own knowledge base. Upload PDFs, text files, or code - the app processes them entirely on-device and makes them searchable in your conversations.
+Each Off Grid AI project can have its own knowledge base. Upload PDFs, text files, or code - the app processes them entirely on-device and makes them searchable in your conversations.
 
 This is Retrieval-Augmented Generation (RAG) running completely locally. No document leaves your device.
 
@@ -43,12 +43,12 @@ The `search_knowledge_base` tool is automatically injected into any project conv
 
 ## Setting up a knowledge base
 
-1. Open Off Grid → **Projects**
+1. Open Off Grid AI → **Projects**
 2. Create a new project or tap an existing one
 3. Tap **Knowledge Base** → **Add Document**
 4. Select a PDF or text file from your device
 
-Off Grid extracts the text and runs it through the embedding pipeline. This takes a few seconds per document depending on length.
+Off Grid AI extracts the text and runs it through the embedding pipeline. This takes a few seconds per document depending on length.
 
 ---
 
@@ -75,7 +75,7 @@ You can also trigger it explicitly:
 
 ## Embedding model
 
-**all-MiniLM-L6-v2-Q8_0.gguf** - ships bundled with Off Grid (~24MB). It's always available, no download required, and runs fast enough that embedding a 20-page PDF takes under 10 seconds on a modern phone.
+**all-MiniLM-L6-v2-Q8_0.gguf** - ships bundled with Off Grid AI (~24MB). It's always available, no download required, and runs fast enough that embedding a 20-page PDF takes under 10 seconds on a modern phone.
 
 ---
 

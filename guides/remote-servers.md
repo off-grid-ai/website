@@ -3,12 +3,12 @@ layout: default
 title: Remote Servers - Connect Ollama, LM Studio, and LocalAI
 parent: Guides
 nav_order: 9
-description: Connect Off Grid to any OpenAI-compatible server on your local network - Ollama, LM Studio, LocalAI, vLLM. Access larger models from your desktop via your phone over WiFi.
+description: Connect Off Grid AI to any OpenAI-compatible server on your local network - Ollama, LM Studio, LocalAI, vLLM. Access larger models from your desktop via your phone over WiFi.
 faq:
-  - q: Which remote servers does Off Grid support?
+  - q: Which remote servers does Off Grid AI support?
     a: Any OpenAI-compatible server - Ollama, LM Studio, LocalAI, vLLM, and others. If it exposes a /v1/chat/completions endpoint, it works.
   - q: Does connecting to a remote server require internet?
-    a: No. Off Grid connects over your local WiFi network. No traffic goes to the internet. For access outside your home, use Tailscale.
+    a: No. Off Grid AI connects over your local WiFi network. No traffic goes to the internet. For access outside your home, use Tailscale.
   - q: Where are API keys stored?
     a: In your device's system keychain via react-native-keychain. Never in plain storage.
 ---
@@ -17,7 +17,7 @@ faq:
 
 Your phone can run impressive models locally, but your desktop or Mac can run much larger ones - Llama 3.1 70B, Mistral Large, DeepSeek, CodeLlama 34B.
 
-Off Grid connects to any OpenAI-compatible server on your local network, giving you access to those models from your phone over WiFi. No internet required.
+Off Grid AI connects to any OpenAI-compatible server on your local network, giving you access to those models from your phone over WiFi. No internet required.
 
 ---
 
@@ -75,9 +75,9 @@ ollama pull qwen2.5:14b
 
 ---
 
-## Connecting from Off Grid
+## Connecting from Off Grid AI
 
-1. Open Off Grid → **Settings** → **Remote Servers**
+1. Open Off Grid AI → **Settings** → **Remote Servers**
 2. Tap **Add Server**
 3. Enter the server URL:
    - Ollama: `http://192.168.1.42:11434`
@@ -86,7 +86,7 @@ ollama pull qwen2.5:14b
 5. Tap **Test Connection** → should show green
 6. Tap **Save**
 
-Off Grid will automatically discover all models available on the server via `/v1/models`.
+Off Grid AI will automatically discover all models available on the server via `/v1/models`.
 
 ---
 
@@ -94,13 +94,13 @@ Off Grid will automatically discover all models available on the server via `/v1
 
 Open the model picker. Remote models appear under your server name. Tap one to make it active.
 
-Off Grid streams responses via Server-Sent Events (SSE) in real time. Switching back to a local model is instant.
+Off Grid AI streams responses via Server-Sent Events (SSE) in real time. Switching back to a local model is instant.
 
 ---
 
 ## Vision and tool calling over remote servers
 
-Off Grid detects vision and tool calling support from model name patterns. If the model name includes `vision`, `vl`, `vlm`, or similar, Off Grid enables the camera attachment. Tool calling is similarly detected.
+Off Grid AI detects vision and tool calling support from model name patterns. If the model name includes `vision`, `vl`, `vlm`, or similar, Off Grid AI enables the camera attachment. Tool calling is similarly detected.
 
 For servers that support it (Ollama with compatible models, LM Studio), tool calling and vision both work without friction over the remote connection.
 
@@ -116,7 +116,7 @@ This gives you access to your home desktop's models from anywhere - coffee shop,
 
 ## Security note
 
-Off Grid warns you before connecting to a public internet endpoint (non-private IP range). For remote access, always use Tailscale or a similar private tunnel rather than exposing your server directly to the internet.
+Off Grid AI warns you before connecting to a public internet endpoint (non-private IP range). For remote access, always use Tailscale or a similar private tunnel rather than exposing your server directly to the internet.
 
 ---
 

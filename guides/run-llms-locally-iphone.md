@@ -6,7 +6,7 @@ nav_order: 5
 description: Run Qwen 3.5, Gemma 4, Mistral and other large language models directly on your iPhone with no internet connection and no subscription fee. Step-by-step guide for 2026.
 faq:
   - q: Can I run LLMs on iPhone without internet?
-    a: Yes. After the one-time model download, Off Grid runs fully offline using Apple's Metal GPU and Neural Engine. No internet required.
+    a: Yes. After the one-time model download, Off Grid AI runs fully offline using Apple's Metal GPU and Neural Engine. No internet required.
   - q: Which iPhones can run LLMs locally in 2026?
     a: iPhone 12 or newer (A14 chip or later). Smaller models like Qwen 3.5 0.8B and Qwen 3.5 2B run on any supported iPhone. Larger models like Qwen 3.5 9B need iPhone 15 Pro or newer with 8GB RAM.
   - q: Is running LLMs on iPhone as good as ChatGPT?
@@ -17,7 +17,7 @@ faq:
 
 Apple's Metal GPU and Neural Engine exist in every iPhone since 2017. They're dedicated AI accelerators, sitting mostly idle while you pay a monthly subscription to send queries to someone else's server.
 
-Off Grid changes that. Run Qwen 3.5, Gemma 4, Mistral, and other leading models directly on your iPhone - offline, private, with no ongoing cost. Inference runs via llama.cpp with Metal GPU acceleration.
+Off Grid AI changes that. Run Qwen 3.5, Gemma 4, Mistral, and other leading models directly on your iPhone - offline, private, with no ongoing cost. Inference runs via llama.cpp with Metal GPU acceleration.
 
 ---
 
@@ -30,7 +30,7 @@ Off Grid changes that. Run Qwen 3.5, Gemma 4, Mistral, and other leading models 
 
 ---
 
-## Step 1 - Install Off Grid
+## Step 1 - Install Off Grid AI
 
 [Download from the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
@@ -55,7 +55,7 @@ iPhone 12/13 users: start with **Qwen 3.5 2B**. iPhone 15 Pro / 16 users: try **
 
 ## Step 3 - Download, load, chat
 
-1. Open Off Grid → **Models**
+1. Open Off Grid AI → **Models**
 2. Tap a model → **Download**
 3. Tap **Load** - the model loads via Metal (Apple's GPU framework)
 4. Open **Chat**

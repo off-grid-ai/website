@@ -60,8 +60,8 @@ The Personal AI OS will be built phone-first. Not because desktop doesn't matter
 
 The phone is the device that earns the most trust from users and asks for the most data in return. The AI on your phone, built on the right architecture, is the AI that deserves that trust.
 
-That's where Off Grid starts.
+That's where Off Grid AI starts.
 
 ---
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*[Download Off Grid AI for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

@@ -50,7 +50,7 @@ The encrypted messaging moment for AI requires three things to align.
 
 The technology has to be good enough. When encrypted messaging went mainstream, it was already as fast and reliable as unencrypted messaging. Users didn't have to sacrifice quality for privacy. On-device AI is approaching that inflection point. Models like Qwen 3.5, Gemma 4, and Phi-4 run in real time on current flagship phones. The gap with cloud models is closing.
 
-The alternatives have to be visible. Users can't demand what they don't know exists. The role of products like Off Grid is partly technical and partly demonstrative: showing that capable AI running entirely on-device is a present reality, not a future possibility.
+The alternatives have to be visible. Users can't demand what they don't know exists. The role of products like Off Grid AI is partly technical and partly demonstrative: showing that capable AI running entirely on-device is a present reality, not a future possibility.
 
 The consequences have to be understood. For AI, the equivalent is users understanding that the context they hand to cloud AI (the full text of their messages, their health records, their financial patterns) is being stored, potentially used for training, and potentially accessible to parties they didn't intend. That understanding is spreading.
 
@@ -64,6 +64,6 @@ The major platforms are late to the architecture. Their on-device AI efforts are
 
 The opportunity is for software that builds the intelligence layer independently of the platforms. Software that runs on the hardware you already own. Software that treats the privacy guarantee as an architectural property, not a marketing claim.
 
-That's the bet Off Grid is making. Not on a new device or a new platform. On the architecture being right.
+That's the bet Off Grid AI is making. Not on a new device or a new platform. On the architecture being right.
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*[Download Off Grid AI for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

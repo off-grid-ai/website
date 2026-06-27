@@ -3,7 +3,7 @@ layout: default
 title: Android Setup
 parent: Guides
 nav_order: 3
-description: How to run LLMs locally on your Android phone in 2026 - no cloud, no account, no subscription. Complete setup guide for Off Grid on Android.
+description: How to run LLMs locally on your Android phone in 2026 - no cloud, no account, no subscription. Complete setup guide for Off Grid AI on Android.
 ---
 
 # Android Setup
@@ -21,7 +21,7 @@ Run a local AI model on your Android phone - completely offline, no account, no 
 
 ---
 
-## Step 1 - Install Off Grid
+## Step 1 - Install Off Grid AI
 
 [Download from Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
@@ -29,7 +29,7 @@ Run a local AI model on your Android phone - completely offline, no account, no 
 
 ## Step 2 - Download a model
 
-1. Open Off Grid
+1. Open Off Grid AI
 2. Tap **Models**
 3. Choose a model - **Qwen 3.5 0.8B** or **Qwen 3.5 2B** are the best starting points for most Android devices
 4. Tap **Download**
@@ -46,9 +46,9 @@ Run a local AI model on your Android phone - completely offline, no account, no 
 
 ## Android-specific notes
 
-**Vulkan acceleration** - On supported devices, Off Grid uses Vulkan for GPU inference. This significantly reduces response time compared to CPU-only. Devices with Snapdragon 8 Gen 2 and newer, Dimensity 9000+, and Exynos 2400 support this.
+**Vulkan acceleration** - On supported devices, Off Grid AI uses Vulkan for GPU inference. This significantly reduces response time compared to CPU-only. Devices with Snapdragon 8 Gen 2 and newer, Dimensity 9000+, and Exynos 2400 support this.
 
-**Background behaviour** - Android may kill the model process if the app is backgrounded for too long. Keep Off Grid in the foreground during long conversations, or enable "Don't optimise battery" for the app in settings.
+**Background behaviour** - Android may kill the model process if the app is backgrounded for too long. Keep Off Grid AI in the foreground during long conversations, or enable "Don't optimise battery" for the app in settings.
 
 **Storage** - Models are stored in app-private storage. They don't appear in your gallery or Files app, which means they also won't be accidentally deleted by a cleaner app.
 

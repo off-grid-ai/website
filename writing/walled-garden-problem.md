@@ -60,6 +60,6 @@ Independent Personal AI OS software will build the things platform AI cannot: fu
 
 The question for you is which matters more for the use case you care about. For casual AI features - text suggestions, notification summaries - platform AI is probably enough. For a genuine intelligence layer with access to your full context, the open architecture is necessary.
 
-Off Grid is building the latter.
+Off Grid AI is building the latter.
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing). [View the source on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*[Download Off Grid AI for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing). [View the source on GitHub](https://github.com/off-grid-ai/mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

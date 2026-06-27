@@ -1,4 +1,4 @@
-title: Off Grid
+title: Off Grid AI
 description: Run powerful AI models directly on your iPhone or Android phone — no internet required, no subscriptions, no cloud. Your data never leaves your device.
 url: https://getoffgridai.co
 baseurl: ""
@@ -32,3 +32,4 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - drafts

@@ -3,7 +3,7 @@ layout: default
 title: iOS Setup
 parent: Guides
 nav_order: 2
-description: How to run LLMs locally on your iPhone in 2026 - no cloud, no account, no subscription. Step-by-step setup guide for Off Grid on iOS.
+description: How to run LLMs locally on your iPhone in 2026 - no cloud, no account, no subscription. Step-by-step setup guide for Off Grid AI on iOS.
 ---
 
 # iOS Setup
@@ -21,7 +21,7 @@ Run a local AI model on your iPhone with no cloud dependency. This guide covers 
 
 ---
 
-## Step 1 - Install Off Grid
+## Step 1 - Install Off Grid AI
 
 [Download from the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
@@ -31,7 +31,7 @@ The app itself is under 50MB. Models are downloaded separately inside the app.
 
 ## Step 2 - Download a model
 
-1. Open Off Grid
+1. Open Off Grid AI
 2. Tap **Models** in the tab bar
 3. Select a model - if you're starting out, pick **Qwen 3.5 2B** (~1.5GB)
 4. Tap **Download**
@@ -52,7 +52,7 @@ You're now running AI entirely on your iPhone.
 
 ## Tips for better performance
 
-**Use Metal acceleration** - Off Grid automatically uses Apple's Metal GPU for inference. This makes models 3–5x faster than CPU-only.
+**Use Metal acceleration** - Off Grid AI automatically uses Apple's Metal GPU for inference. This makes models 3–5x faster than CPU-only.
 
 **Close background apps** - iOS may reclaim RAM from background apps. If the model unloads unexpectedly, close other apps and reload.
 
@@ -62,7 +62,7 @@ You're now running AI entirely on your iPhone.
 
 ## Offline use
 
-Once a model is downloaded, Off Grid works in airplane mode. Put your phone offline and it continues to work normally.
+Once a model is downloaded, Off Grid AI works in airplane mode. Put your phone offline and it continues to work normally.
 
 ---
 

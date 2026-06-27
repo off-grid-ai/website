@@ -6,7 +6,7 @@ nav_order: 7
 description: Generate AI images locally on your iPhone using Stable Diffusion and Core ML - no cloud, no API key, no subscription. Complete guide for iOS image generation.
 faq:
   - q: How does image generation work on iPhone?
-    a: Off Grid uses Apple's Core ML framework with Neural Engine (ANE) acceleration. The entire pipeline runs on-device - text encoding, UNet denoising, VAE decoding - with no data sent anywhere.
+    a: Off Grid AI uses Apple's Core ML framework with Neural Engine (ANE) acceleration. The entire pipeline runs on-device - text encoding, UNet denoising, VAE decoding - with no data sent anywhere.
   - q: Which iPhones support image generation?
     a: iPhone 12 or newer. Palettized models (~1GB) run on any supported iPhone. Full precision models (~4GB) run best on iPhone 14 Pro and newer with more RAM and a faster Neural Engine.
   - q: How long does image generation take on iPhone?
@@ -15,7 +15,7 @@ faq:
 
 # How to Run Stable Diffusion on Your iPhone (On-Device AI Image Generation)
 
-Off Grid uses Apple's Core ML pipeline with Neural Engine (ANE) acceleration to run Stable Diffusion entirely on your iPhone. No GPU server. No upload. No cost per image.
+Off Grid AI uses Apple's Core ML pipeline with Neural Engine (ANE) acceleration to run Stable Diffusion entirely on your iPhone. No GPU server. No upload. No cost per image.
 
 The pipeline: text prompt → CLIP tokenizer → text encoder → UNet (denoising, DPM-Solver scheduler) → VAE decoder → 512×512 image. All on-device.
 
@@ -30,7 +30,7 @@ The pipeline: text prompt → CLIP tokenizer → text encoder → UNet (denoisin
 
 ---
 
-## Step 1 - Install Off Grid
+## Step 1 - Install Off Grid AI
 
 [Download from the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
@@ -38,7 +38,7 @@ The pipeline: text prompt → CLIP tokenizer → text encoder → UNet (denoisin
 
 ## Step 2 - Download an image model
 
-Open Off Grid → **Models** → **Image** tab. Available Core ML models:
+Open Off Grid AI → **Models** → **Image** tab. Available Core ML models:
 
 | Model | Size | Best for |
 |---|---|---|
@@ -54,7 +54,7 @@ Open Off Grid → **Models** → **Image** tab. Available Core ML models:
 
 ## Step 3 - Generate an image
 
-1. Open Off Grid → **Image Generation**
+1. Open Off Grid AI → **Image Generation**
 2. Enter your prompt: `a misty forest at dawn, cinematic lighting, photorealistic`
 3. Tap **Generate**
 
@@ -78,7 +78,7 @@ You'll see a real-time preview update as the model denoises the image step by st
 
 ## Tips
 
-**Prompt enhancement** - Off Grid can use your loaded text model to expand a short prompt automatically. Type `a fox in a forest` and let the LLM write the detailed prompt for you.
+**Prompt enhancement** - Off Grid AI can use your loaded text model to expand a short prompt automatically. Type `a fox in a forest` and let the LLM write the detailed prompt for you.
 
 **Real-time preview** - Watch the image form step-by-step. You can cancel early if the composition is wrong without waiting for the full generation.
 
