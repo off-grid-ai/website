@@ -3,77 +3,185 @@ layout: default
 title: Vision
 parent: Ethos
 nav_order: 1
-description: What the world looks like when intelligence is ambient, personal, and private. One intelligence layer across all your devices, always on, always yours, never leaving your hands.
+description: Off Grid AI is the operating system of a knowledge worker. Remember everything locally, recall it precisely, and act with scoped permission. Access without surrender.
 ---
 
-# The world we're building toward.
+<div class="fx vision" markdown="0">
 
----
+<style>
+/* Vision page — structural layout only (effects live in fx.css). Built on the
+   site's own CSS variables, so it matches the site and flips light/dark. */
+.vision .v-kick{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-family:var(--font-mono);margin-bottom:18px;display:inline-block;}
+.vision .v-hero{padding:18px 0 6px;position:relative;}
+.vision .v-hero .fx-aurora{position:absolute;z-index:0;}
+.vision .v-hero h1{font-size:clamp(2rem,5.2vw,3.15rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;}
+.vision .v-hero h1 .em{color:var(--accent);}
+.vision .v-lede{font-size:1.12rem;color:var(--text-secondary);max-width:42rem;margin:0 0 14px;}
+.vision .v-one{display:block;font-family:var(--font-mono);font-size:1.02rem;color:var(--accent);border-left:2px solid var(--accent);padding:6px 0 6px 16px;margin:24px 0 28px;max-width:42rem;}
 
-Imagine waking up and your devices already know your day.
+/* terminal */
+.vision .v-term{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-subtle);overflow:hidden;max-width:42rem;margin:6px 0 0;font-family:var(--font-mono);font-size:.86rem;}
+.vision .v-term-bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid var(--border);}
+.vision .v-term-bar i{width:11px;height:11px;border-radius:50%;background:var(--bg-hover);}
+.vision .v-term-body{padding:18px;color:var(--text-muted);min-height:150px;}
+.vision .v-term-body .ln{margin:6px 0;opacity:0;transform:translateY(4px);}
+.vision .v-term-body .ln.show{opacity:1;transform:none;transition:.3s ease;}
+.vision .v-term .pr{color:var(--accent);}.vision .v-term .cmd{color:var(--text-primary);}
+.vision .v-term .warn{color:#d99a2b;}.vision .v-term .ok{color:var(--accent);}
 
-Not because they checked a server. Not because you opened an app and asked. Because the intelligence layer lives with you. On your hardware, across your phone and laptop, syncing over your home network while you slept. It read the messages that came in. It knows your calendar. It noticed that the meeting at 9am is with someone you haven't spoken to in three months and that the last conversation had an open item you never closed.
+/* sections */
+.vision .v-sec{margin:62px 0;}
+.vision .v-tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.vision .v-sec h2{font-size:1.7rem;letter-spacing:-.01em;margin:0 0 14px;border:0;padding:0;}
+.vision .v-sec p{color:var(--text-secondary);max-width:42rem;}
+.vision .v-sec p .hi{color:var(--text-primary);font-weight:600;}
 
-By the time you pick up your phone, the briefing is ready. You didn't ask for it. It was just there.
+/* compare grid */
+.vision .v-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:26px;}
+.vision .v-split>div{background:var(--bg);padding:22px;}
+.vision .v-split h3{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 14px;}
+.vision .v-split .bad h3{color:var(--text-muted);}.vision .v-split .good h3{color:var(--accent);}
+.vision .v-split ul{list-style:none;margin:0;padding:0;}
+.vision .v-split li{position:relative;padding:7px 0 7px 22px;color:var(--text-secondary);font-size:.94rem;}
+.vision .v-split .bad li::before{content:"\2715";position:absolute;left:0;color:var(--text-muted);}
+.vision .v-split .good li::before{content:"\2192";position:absolute;left:0;color:var(--accent);}
 
----
+/* ladder (component) */
+.vision .fx-ladder{margin-top:24px;}
+.vision .fx-rung{border:1px solid var(--border);border-left:3px solid var(--border);border-radius:var(--radius);background:var(--bg);margin-bottom:10px;transition:border-color .15s;}
+.vision .fx-rung:hover{border-color:var(--text-muted);}
+.vision .fx-rung.is-live{border-left-color:var(--accent);}
+.vision .fx-rung-head{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;}
+.vision .fx-rung-n{font-family:var(--font-mono);font-size:.8rem;color:var(--text-muted);width:22px;}
+.vision .fx-rung-name{font-size:1.05rem;font-weight:600;flex:1;}
+.vision .fx-rung-stat{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--border);border-radius:99px;color:var(--text-muted);}
+.vision .fx-rung.is-live .fx-rung-stat{color:var(--accent);border-color:var(--accent-subtle-border);background:var(--accent-subtle);}
+.vision .fx-rung-arrow{color:var(--text-muted);transition:transform .2s;}
+.vision .fx-rung.open .fx-rung-arrow{transform:rotate(90deg);color:var(--accent);}
+.vision .fx-rung-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.vision .fx-rung-body p{color:var(--text-secondary);font-size:.96rem;margin:0;padding:0 18px 0 54px;}
+.vision .fx-rung.open .fx-rung-body{max-height:220px;}
+.vision .fx-rung.open .fx-rung-body p{padding-bottom:18px;}
 
-## One brain. All your devices.
+/* surfaces */
+.vision .v-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;}
+.vision .v-card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);padding:22px;transition:border-color .15s,transform .15s;}
+.vision .v-card:hover{border-color:var(--text-muted);transform:translateY(-3px);}
+.vision .v-card .ico{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.vision .v-card h3{font-size:1.1rem;margin:0 0 8px;}
+.vision .v-card p{font-size:.9rem;color:var(--text-secondary);margin:0 0 14px;}
+.vision .v-card .pill{display:inline-block;font-family:var(--font-mono);font-size:.64rem;color:var(--accent);border:1px solid var(--accent-subtle-border);background:var(--accent-subtle);padding:2px 9px;border-radius:99px;}
 
-Your phone and your laptop are used by one person. Today, they don't know that. Each device holds a fragment of your context. Neither has the full picture. The intelligence they contain is isolated, sandboxed, unable to reason across both.
+@media (max-width:720px){.vision .v-split,.vision .v-cards{grid-template-columns:1fr;}}
+</style>
 
-In the world we're building, that changes.
+<div class="v-hero fx-dotbg fx-spot" data-fx-spot data-fx-reveal>
+  <div class="fx-aurora" aria-hidden="true"></div>
+  <div class="v-kick fx-shine">// the operating system of a knowledge worker</div>
+  <h1 class="fx-generate">
+    <span>Your</span> <span>tools</span> <span>want</span> <span>your</span> <span>data.</span><br>
+    <span>Give</span> <span>them</span> <span class="em">permission</span> <span>instead.</span>
+  </h1>
+  <p class="v-lede">Every app today must hold your email, your calendar, your conversations to be useful. So you hand your life to a dozen clouds — or you go without.</p>
+  <p class="v-lede">Off Grid AI is the layer underneath all of it. It remembers everything <span style="color:var(--text-primary);font-weight:600">on your devices</span>, and rents apps scoped, audited <span style="color:var(--accent)">action</span> — rather than handing over your raw data wholesale.</p>
+  <span class="v-one">remember everything locally → recall it precisely → act with scoped permission.</span>
+  <div class="hero-buttons">
+    <a href="{{ '/early-access' | relative_url }}" class="btn btn-green">Get early access</a>
+    <a href="#how-it-works" class="btn btn-outline">See how it works</a>
+  </div>
+</div>
 
-Your phone knows your life: messages, location, health, the texture of your day. Your laptop knows your work: documents, email, the projects you're actually thinking about. A Personal AI OS spans both. It holds the context from every device you own, unified into a single working model of who you are and what you're doing.
+<div class="v-term fx-beam" data-fx-type data-fx-reveal>
+  <div class="v-term-bar"><i></i><i></i><i></i></div>
+  <div class="v-term-body">
+    <div class="ln"><span class="pr">offgrid ❯</span> <span class="cmd">recall "the pricing thread with Ali"</span></div>
+    <div class="ln" data-quick>found 3 sources · email · meeting 06-21 · screen 14:02</div>
+    <div class="ln"><span class="pr">offgrid ❯</span> <span class="cmd">draft a reply and log it to the CRM</span></div>
+    <div class="ln" data-quick><span class="warn">⏸ proposed action → approval queue</span> (write · Attio, Gmail)</div>
+    <div class="ln"><span class="pr">offgrid ❯</span> <span class="ok">approved · sent · logged ✓</span></div>
+  </div>
+</div>
 
-It syncs over your own network. No cloud relay. No data leaving your home. Just two devices that finally talk to each other through the intelligence layer they share.
+<div class="v-sec" data-fx-reveal id="why">
+  <div class="v-tag">// the problem</div>
+  <h2>Access is all-or-nothing. So you lose either way.</h2>
+  <p>A CRM can't manage your relationships without deep access to your inbox, calendar, and calls. You <span class="hi">can't safely give it that</span> — so it stays half-blind, and you do the data entry it was supposed to save you. The data and the intelligence end up living in someone else's cloud. You become the guest in a system built on your own life.</p>
+  <div class="v-split">
+    <div class="bad">
+      <h3>The cloud deal</h3>
+      <ul>
+        <li>Hand over raw email, calendar, files</li>
+        <li>Your data is the product</li>
+        <li>Intelligence runs on their servers</li>
+        <li>You trust a policy, not an architecture</li>
+        <li>One breach exposes everything</li>
+      </ul>
+    </div>
+    <div class="good">
+      <h3>The Off Grid AI deal</h3>
+      <ul>
+        <li>Data never leaves your devices</li>
+        <li>The model runs locally, on your hardware</li>
+        <li>Apps get scoped, approved action</li>
+        <li>Every action logged and reversible</li>
+        <li>Privacy by architecture, not promise</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:26px"><span class="hi">Access without surrender.</span> The vendor gets the outcome it needs. You keep the data. That inversion is the whole product.</p>
+</div>
 
----
+<div class="v-sec" data-fx-reveal id="how-it-works">
+  <div class="v-tag">// how it works</div>
+  <h2>One idea, climbing one ladder.</h2>
+  <p>An OS that already remembers everything can stop waiting for you to assemble context — and start anticipating it. Each rung is a step from passive memory toward acting on your behalf.</p>
+  {% include fx/ladder.html open=2 %}
+</div>
 
-## Proactive, not reactive.
+<div class="v-sec" data-fx-reveal id="surfaces">
+  <div class="v-tag">// three surfaces, one OS</div>
+  <h2>It lives where you work.</h2>
+  <div class="v-cards">
+    <div class="v-card fx-spot" data-fx-spot>
+      <div class="ico">desktop</div>
+      <h3>The spine</h3>
+      <p>Captures your screen, meetings, and work into private memory. Replay your day, reflect on where your attention went, act on what matters.</p>
+      <span class="pill">shipping now</span>
+    </div>
+    <div class="v-card fx-spot" data-fx-spot>
+      <div class="ico">mobile</div>
+      <h3>In your pocket</h3>
+      <p>A full offline AI suite — chat, vision, image generation, voice — running entirely on your phone. No account, no cloud, no subscription.</p>
+      <span class="pill">live on iOS &amp; Android</span>
+    </div>
+    <div class="v-card fx-spot" data-fx-spot>
+      <div class="ico">console</div>
+      <h3>Across the org</h3>
+      <p>A control plane for a fleet of devices. Share scoped intelligence across a team — guardrails, audit, governance — without raw data leaving a device.</p>
+      <span class="pill">for teams</span>
+    </div>
+  </div>
+</div>
 
-Every AI product today waits for you to open it.
+<div class="v-sec" data-fx-reveal id="local">
+  <div class="v-tag">// why local wins</div>
+  <h2>A superpower on your device is surveillance in the cloud.</h2>
+  <p>An assistant that watches your screen, remembers everything, and acts for you is only safe if it <span class="hi">can't phone home</span>. Local isn't a constraint on the vision — it's the only thing that makes the vision acceptable. The free core is open source (AGPL-3.0) so the foundation is auditable; Off Grid AI Pro is the paid layer on top, closed source but running entirely on your own hardware. Either way there is no server to send your life to.</p>
+</div>
 
-That's a fundamental mismatch with how intelligence is actually useful. A great assistant doesn't wait to be asked. They notice things. They prepare you before you know you need it. They surface what matters and handle what doesn't require you.
+<div class="ea-essay-links" data-fx-reveal>
+  <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
+    <div class="ea-essay-title">Join the waitlist →</div>
+    <div class="ea-essay-desc">Run the personal AI OS before anyone else. Early access members get 6 months free.</div>
+  </a>
+  <a href="{{ '/pro' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
+    <div class="ea-essay-title">See Off Grid AI Pro →</div>
+    <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you — capture, memory, replay, and actions you approve.</div>
+  </a>
+  <a href="{{ '/console' | relative_url }}" class="ea-essay-card fx-spot" data-fx-spot>
+    <div class="ea-essay-title">Off Grid AI Console →</div>
+    <div class="ea-essay-desc">The control plane for a whole organization's AI — governed, auditable, on your own infrastructure.</div>
+  </a>
+</div>
 
-The Personal AI OS we're building works the same way.
-
-It sees your calendar fill up and notices when you're overcommitted. It reads an incoming message and decides whether it needs your attention now or can wait. It knows you have a meeting in 20 minutes and surfaces everything relevant without being asked: past conversations, open items, shared documents. It hears your partner mention dinner plans in a text and creates the calendar event.
-
-You don't pull intelligence out of it. It pushes what's relevant to you, at the right moment, on the right device. From reactive to proactive. From a tool you use to an intelligence that works alongside you.
-
----
-
-## Private by architecture. Always.
-
-In the world we're building, privacy isn't a setting. It's not a promise. It's not something you configure.
-
-It's the default output of the architecture.
-
-Your messages never leave your device. Your health data never touches a server. Your financial patterns, your relationships, your half-formed thoughts at midnight. All of it processed locally, stored locally, never transmitted. Not because we say so. Because the system has no mechanism to do otherwise.
-
-Open source means you don't have to take our word for it. Anyone can read the code. Anyone can verify what leaves the device and what doesn't. The answer is nothing. Checkable by anyone.
-
----
-
-## Intelligence for everyone.
-
-For two hundred years, having a personal intelligence layer was a privilege reserved for the powerful. Someone who managed your correspondence, prepared your meetings, tracked your commitments, and handled the coordination overhead of a consequential life.
-
-Not anymore.
-
-The device that 4 billion people already carry in their pocket has enough compute to run a capable AI model, fully offline, at real-time speed. The models are open-weight and free. The infrastructure costs nothing to run.
-
-The only thing standing between a billion people and their own private intelligence layer is software that takes it seriously.
-
-That's what we're building. Not for executives. Not for knowledge workers above a certain income threshold. For anyone with a phone. For anyone who has ever needed help thinking through a hard problem, tracking a commitment they made, preparing for a conversation that mattered, or just finding the message they know they received three weeks ago.
-
-The same intelligence layer that made some people more effective for two centuries. Now ambient, private, and in everyone's hands.
-
----
-
-This is the world we're building. The app is the first piece of it, already in 100,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. Off Grid AI Pro is live now on your phone and your laptop. The layer that spans them into one intelligence over your own network is landing through July 2026: [get Off Grid AI Pro]({{ '/pro' | relative_url }}).
-
----
-
-*Read [the ethos]({{ '/ethos' | relative_url }}) and [the mission]({{ '/mission' | relative_url }}). [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision).*
+</div>
