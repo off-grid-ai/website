@@ -2,59 +2,67 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --accent: #16a34a;
-  --accent-hover: #15803d;
-  --accent-subtle: #f0fdf4;
-  --accent-subtle-border: #bbf7d0;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --border: #e5e7eb;
-  --border-light: #f3f4f6;
+  /* Off Grid AI design tokens — source of truth: @offgrid/design (COLORS_LIGHT).
+     Brutalist/terminal: Menlo, emerald accent, pure-black + neutral grays. */
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-subtle: rgba(5, 150, 105, 0.08);
+  --accent-subtle-border: rgba(5, 150, 105, 0.28);
+  --text-primary: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #8a8a8a;
+  --border: #e5e5e5;
+  --border-light: #ebebeb;
   --bg: #ffffff;
-  --bg-subtle: #f9fafb;
-  --bg-hover: #f3f4f6;
-  --code-bg: #f3f4f6;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --bg-subtle: #f5f5f5;
+  --bg-hover: #ebebeb;
+  --code-bg: #f5f5f5;
+  --shadow-sm: none;
+  --shadow-md: none;
   --sidebar-width: 256px;
-  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  --font: "Menlo", ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace;
+  --font-mono: "Menlo", ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace;
   --radius: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
-    --border: #374151;
-    --border-light: #1f2937;
-    --bg: #111827;
-    --bg-subtle: #1f2937;
-    --bg-hover: #374151;
-    --code-bg: #1f2937;
-    --accent-subtle: #052e16;
-    --accent-subtle-border: #14532d;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    /* @offgrid/design COLORS_DARK — pure black, brighter emerald */
+    --accent: #34d399;
+    --accent-hover: #10b981;
+    --accent-subtle: rgba(52, 211, 153, 0.09);
+    --accent-subtle-border: rgba(52, 211, 153, 0.24);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
+    --border: #1e1e1e;
+    --border-light: #2a2a2a;
+    --bg: #0a0a0a;
+    --bg-subtle: #141414;
+    --bg-hover: #1e1e1e;
+    --code-bg: #141414;
+    --shadow-sm: none;
+    --shadow-md: none;
   }
 }
 
 [data-theme="dark"] {
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --border: #374151;
-  --border-light: #1f2937;
-  --bg: #111827;
-  --bg-subtle: #1f2937;
-  --bg-hover: #374151;
-  --code-bg: #1f2937;
-  --accent-subtle: #052e16;
-  --accent-subtle-border: #14532d;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  /* @offgrid/design COLORS_DARK — pure black, brighter emerald */
+  --accent: #34d399;
+  --accent-hover: #10b981;
+  --accent-subtle: rgba(52, 211, 153, 0.09);
+  --accent-subtle-border: rgba(52, 211, 153, 0.24);
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --border: #1e1e1e;
+  --border-light: #2a2a2a;
+  --bg: #0a0a0a;
+  --bg-subtle: #141414;
+  --bg-hover: #1e1e1e;
+  --code-bg: #141414;
+  --shadow-sm: none;
+  --shadow-md: none;
 }
 
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
@@ -187,7 +195,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   gap: 6px;
   padding: 8px 10px;
   background: var(--accent);
-  color: #fff;
+  color: #0a0a0a;
   border-radius: var(--radius);
   text-decoration: none;
   font-size: 0.75rem;
@@ -196,7 +204,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   transition: background 0.15s;
   letter-spacing: -0.01em;
 }
-.sidebar-cta:hover { background: var(--accent-hover); color: #fff; }
+.sidebar-cta:hover { background: var(--accent-hover); color: #0a0a0a; }
 .sidebar-cta-android {
   background: transparent;
   color: var(--accent);
@@ -312,7 +320,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   font-weight: 600;
   padding: 7px 10px;
   background: var(--accent);
-  color: #fff;
+  color: #0a0a0a;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -396,19 +404,19 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   color: var(--text-primary);
 }
 .content pre {
-  background: #0d1117;
-  border-radius: 10px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius);
   padding: 20px 24px;
   overflow-x: auto;
   margin: 20px 0;
-  border: 1px solid #21262d;
+  border: 1px solid var(--border);
 }
 .content pre code {
   font-size: 0.8125rem;
   background: none;
   border: none;
   padding: 0;
-  color: #e6edf3;
+  color: var(--text-primary);
 }
 
 .content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.875rem; }
@@ -474,10 +482,10 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .btn svg { flex-shrink: 0; }
 .btn-green {
   background: var(--accent);
-  color: #fff;
+  color: #0a0a0a;
   border-color: var(--accent);
 }
-.btn-green:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+.btn-green:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #0a0a0a; }
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
@@ -746,7 +754,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   font-weight: 600;
   padding: 12px 20px;
   background: var(--accent);
-  color: #fff;
+  color: #0a0a0a;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
@@ -784,7 +792,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   align-items: center;
   padding: 9px 18px;
   background: var(--accent);
-  color: #fff;
+  color: #0a0a0a;
   border-radius: var(--radius);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -793,7 +801,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   flex-shrink: 0;
   transition: background 0.15s;
 }
-.essay-ea-btn:hover { background: var(--accent-hover); color: #fff; }
+.essay-ea-btn:hover { background: var(--accent-hover); color: #0a0a0a; }
 
 /* ─── Early access essay link cards ────────────────────────────────────────── */
 .ea-essay-links {
