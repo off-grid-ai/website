@@ -1,0 +1,38 @@
+# The Off Grid AI maturity ladder. Edit here → the {% include fx/ladder.html %}
+# component re-renders everywhere it's used. (Jekyll data-driven component.)
+- n: "00"
+  name: Capture
+  live: true
+  stat: shipping
+  body: >
+    Remember everything — locally. Your screen, your meetings, your files become
+    private, searchable memory. The cheap half: writing it all down.
+- n: "01"
+  name: Recall
+  live: true
+  stat: shipping
+  body: >
+    Pull anything back in an instant. Search, replay your day, jump to any person
+    or project. The cure for context-switching: put me back where I was.
+- n: "02"
+  name: Proactive
+  live: true
+  stat: in Pro
+  body: >
+    It prepares before you ask. Your morning brief, meeting prep, the draft reply
+    waiting for your approval, "you left this unfinished two hours ago." Live in
+    Off Grid AI Pro today.
+- n: "03"
+  name: Ambient
+  live: false
+  stat: next
+  body: >
+    Zero-friction context. You open a file or land on a screen and the right
+    context is already staged for you — no attaching, no searching.
+- n: "04"
+  name: Autonomous
+  live: false
+  stat: the goal
+  body: >
+    It acts within scoped, approved bounds — and only because nothing leaves your
+    device and every action is logged. Trust, then autonomy. Never the reverse.

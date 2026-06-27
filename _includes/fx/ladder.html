@@ -1,0 +1,19 @@
+{%- comment -%}
+  fx/ladder.html — data-driven accordion component.
+  Renders site.data.ladder as an interactive ladder (fx.js handles the toggle).
+  Usage:  {% include fx/ladder.html open=2 %}
+    open = how many rungs start expanded (default 0)
+{%- endcomment -%}
+<div class="fx-ladder" data-fx-accordion data-fx-open="{{ include.open | default: 0 }}">
+  {%- for r in site.data.ladder -%}
+  <div class="fx-rung{% if r.live %} is-live{% endif %}">
+    <div class="fx-rung-head">
+      <span class="fx-rung-n">{{ r.n }}</span>
+      <span class="fx-rung-name">{{ r.name }}</span>
+      <span class="fx-rung-stat">{{ r.stat }}</span>
+      <span class="fx-rung-arrow" aria-hidden="true">▸</span>
+    </div>
+    <div class="fx-rung-body"><p>{{ r.body }}</p></div>
+  </div>
+  {%- endfor -%}
+</div>

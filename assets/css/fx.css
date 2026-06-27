@@ -1,0 +1,121 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Off Grid AI — fx.css
+   A small, reusable animation/interaction layer for the Jekyll site.
+   Ported (vanilla) from the Aceternity / Magic UI patterns the team already uses:
+     Spotlight · Card Spotlight · BorderBeam · GridAndDotBackground ·
+     AnimatedShinyText · TextGenerateEffect · scroll reveal.
+   Everything is namespaced under `.fx` and built on the site's own CSS variables
+   (--accent, --bg, --border, …) so it inherits the brand and flips light/dark
+   with zero per-page styling. Add behavior with `data-fx-*` (see fx.js).
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.fx{ --fx-glow: var(--accent); }
+
+/* ── GridAndDotBackground — subtle dotted field, masked so it fades out ──────── */
+.fx-dotbg{ position:relative; }
+.fx-dotbg::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:radial-gradient(rgba(128,128,128,0.18) 1px, transparent 1px);
+  background-size:22px 22px;
+  -webkit-mask:radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
+          mask:radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
+}
+.fx-dotbg > *{ position:relative; z-index:1; }
+
+/* ── Aurora — soft emerald glow behind a hero (decorative, opt-in) ───────────── */
+.fx-aurora{
+  position:absolute; z-index:0; top:-90px; left:50%; transform:translateX(-50%);
+  width:min(760px, 92%); height:340px; pointer-events:none; border-radius:50%;
+  background:radial-gradient(closest-side,
+            rgba(52,211,153,0.20), rgba(52,211,153,0.06) 48%, transparent 74%);
+  filter:blur(12px); animation:fx-aurora 7s ease-in-out infinite;
+}
+@keyframes fx-aurora{
+  0%,100%{ opacity:.6; transform:translateX(-50%) scale(1); }
+  50%    { opacity:1;  transform:translateX(-50%) scale(1.07); }
+}
+
+/* ── Spotlight / Card Spotlight — radial glow follows the cursor ─────────────── */
+.fx-spot{ position:relative; overflow:hidden; }
+.fx-spot::after{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  opacity:0; transition:opacity .35s ease;
+  background:radial-gradient(520px circle at var(--fx-mx,50%) var(--fx-my,50%),
+            rgba(16,185,129,0.20), transparent 60%);
+}
+.fx-spot:hover::after{ opacity:1; }
+.fx-spot > *{ position:relative; z-index:1; }
+
+/* ── BorderBeam — a light travels the border ────────────────────────────────── */
+@property --fx-beam{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
+.fx-beam{ position:relative; }
+.fx-beam::before{
+  content:""; position:absolute; inset:0; z-index:0; border-radius:inherit;
+  padding:1px; pointer-events:none;
+  background:conic-gradient(from var(--fx-beam),
+            transparent 0 72%, var(--accent) 86%, transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  animation:fx-beam-spin 4.5s linear infinite;
+}
+@keyframes fx-beam-spin{ to{ --fx-beam:360deg; } }
+/* Fallback when @property/conic isn't supported: a static accent hairline */
+@supports not (background:conic-gradient(from 1deg, #000, #000)){
+  .fx-beam{ border:1px solid var(--accent-subtle-border); }
+  .fx-beam::before{ display:none; }
+}
+
+/* ── AnimatedShinyText — sheen sweeps across text ───────────────────────────── */
+.fx-shine{
+  background:linear-gradient(90deg,
+            var(--text-muted) 35%, var(--accent) 50%, var(--text-muted) 65%);
+  background-size:220% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:fx-shine 5s linear infinite;
+}
+@keyframes fx-shine{ to{ background-position:-220% 0; } }
+
+/* ── TextGenerateEffect — words fade/de-blur in sequence (pure CSS) ──────────── */
+.fx-generate > span{
+  display:inline-block; opacity:0; filter:blur(6px); transform:translateY(2px);
+  animation:fx-generate .6s ease forwards;
+}
+@keyframes fx-generate{ to{ opacity:1; filter:blur(0); transform:none; } }
+/* stagger up to 14 words */
+.fx-generate > span:nth-child(1){animation-delay:.05s}
+.fx-generate > span:nth-child(2){animation-delay:.12s}
+.fx-generate > span:nth-child(3){animation-delay:.19s}
+.fx-generate > span:nth-child(4){animation-delay:.26s}
+.fx-generate > span:nth-child(5){animation-delay:.33s}
+.fx-generate > span:nth-child(6){animation-delay:.40s}
+.fx-generate > span:nth-child(7){animation-delay:.47s}
+.fx-generate > span:nth-child(8){animation-delay:.54s}
+.fx-generate > span:nth-child(9){animation-delay:.61s}
+.fx-generate > span:nth-child(10){animation-delay:.68s}
+.fx-generate > span:nth-child(11){animation-delay:.75s}
+.fx-generate > span:nth-child(12){animation-delay:.82s}
+.fx-generate > span:nth-child(13){animation-delay:.89s}
+.fx-generate > span:nth-child(14){animation-delay:.96s}
+
+/* ── Scroll reveal ──────────────────────────────────────────────────────────── */
+.fx-reveal{ opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+.fx-reveal.in{ opacity:1; transform:none; }
+
+/* ── Card affordances applied site-wide (subtle hover lift) ──────────────────── */
+.perk-card, .ea-essay-card, .stat-card, .home-console-banner{
+  transition: transform .15s ease, border-color .15s ease;
+}
+.perk-card:hover, .ea-essay-card:hover, .stat-card:hover, .home-console-banner:hover{
+  transform: translateY(-3px);
+}
+
+/* ── Reduced motion: everything resolves to its final, static state ─────────── */
+@media (prefers-reduced-motion:reduce){
+  .fx-beam::before{ animation:none; }
+  .fx-shine{ animation:none; color:var(--text-muted); }
+  .fx-generate > span{ opacity:1; filter:none; transform:none; animation:none; }
+  .fx-reveal{ opacity:1; transform:none; transition:none; }
+  .fx-aurora{ animation:none; }
+  .perk-card, .ea-essay-card, .stat-card, .home-console-banner{ transition:none; }
+}
