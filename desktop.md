@@ -19,6 +19,8 @@ description: Off Grid AI Desktop is a complete local AI studio for macOS - chat,
 
 <p class="ea-pricing-note" style="text-align:center;">macOS, Apple Silicon · signed and notarized · free to download</p>
 
+<p class="ea-pricing-note" style="text-align:center;">Want new features first? <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/download/nightly/OffGrid-nightly.dmg">Get the nightly build</a> · pre-release, updated on every change, expect rough edges</p>
+
 <p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">AI gateway · chat · vision · image · voice · projects · artifacts · connectors · auto meeting recording · dictation · clipboard history · screen memory · a CRM that builds itself · search · actions you approve · and more</p>
 
 <div class="offer-closing" role="note">
