@@ -13,12 +13,12 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop. It
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, $50 once</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</a>
   <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Pay $50 once before July 1 and you keep it for life. After July 1 it moves to the $39/month founder rate, and to $99/month once that window closes. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships. This is the lowest price it will ever carry.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }} and hold it for as long as you keep your seat, before the standing price settles at ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships. This is the lowest the rate will ever be.
 </div>
 
 ---
@@ -261,17 +261,16 @@ No training on your data. No selling it. No server to leak. The system has no me
 
 The free app runs models, with no account and no subscription. Off Grid AI Pro adds the layer that sees, remembers, and acts, on up to 5 devices.
 
-The price climbs on a schedule, so the day you buy is the price you beat:
+The price climbs on a schedule, so the day you lock in is the rate you hold:
 
-- **$50 once, before July 1.** Pay one time and keep Off Grid AI Pro for life. No subscription, ever.
-- **$39/month, after July 1.** The founder rate, for everyone who comes after the one-time window.
-- **$99/month, later.** Once the founder window closes, this is the standing price.
+- **${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}, before {{ site.data.pricing.deadline }}.** The founder rate. Lock it now and hold it for as long as you keep your seat.
+- **${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}, after {{ site.data.pricing.deadline }}.** Once the founder window closes, this is the standing price.
 
-Take the $50 one-time deal and you make it back in five weeks against the founder rate, and in two weeks against the standing one. Every release lands free for life, including the cross-device layer as it ships through July.
+Lock the founder rate today and you hold ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} for as long as you keep your seat — $60 a month less than the standing price, every release included, including the cross-device layer as it ships through July.
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Pay $50 once, keep it for life</a>
-  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Lock the $39/month rate</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Lock the founder rate</a>
 </div>
 
 ---
@@ -293,7 +292,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 <div class="ea-essay-links">
   <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Lock the founder rate →</div>
-    <div class="ea-essay-desc">Get in before July 1 and hold the $39/month rate for good, before it becomes $99. Existing members get every new piece free.</div>
+    <div class="ea-essay-desc">Get in before {{ site.data.pricing.deadline }} and hold the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} rate for good, before it becomes ${{ site.data.pricing.standing_price }}. Existing members get every new piece free.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>

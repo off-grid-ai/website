@@ -3,17 +3,17 @@ layout: default
 title: Founder Rate
 nav_order: 4
 nav_group: Products
-description: Off Grid AI is live now on desktop and mobile. Lock the $39/month founder rate before it becomes $99, or pay $50 once before July 1 and keep it for life.
+description: Off Grid AI is live now on desktop and mobile. Lock the $39/month founder rate before August 1, before the standing price rises to $99/month.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Founder rate · Closes July 1</div>
+  <div class="early-access-badge">Founder rate · Closes {{ site.data.pricing.deadline }}</div>
   <h1>It already knows<br>what you did today.</h1>
   <p class="early-access-sub">Off Grid AI is background intelligence for knowledge workers. It sees your day, remembers it, and gets ahead of you, the way a chief of staff would. The model runs in your own hardware's memory, with no cloud round trips. It is live now on your laptop and your phone, and the layer that merges them is landing through July. Lock the founder rate before it goes up.</p>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>The price only goes up.</strong> Pay <a href="{{ '/pay' | relative_url }}">$50 once</a> before July 1 and keep Off Grid AI Pro for life. Miss that window and it is $39/month, the founder rate. Miss that and it is $99/month. Lock your seat below and you hold $39/month for as long as you keep it, before the standing price ever applies.
+  <strong>The price only goes up.</strong> Lock the <a href="{{ '/pay' | relative_url }}">${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate</a> before {{ site.data.pricing.deadline }} and you hold it for as long as you keep your seat. Miss that window and the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. Existing Off Grid AI Pro members keep everything, free.
 </div>
 
 <div class="early-access-form-section ea-form-top">
@@ -23,7 +23,7 @@ description: Off Grid AI is live now on desktop and mobile. Lock the $39/month f
       <button type="submit" class="ea-submit">Lock my $39/month rate</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">Founder rate is $39/month, held for as long as you keep it. The best deal is still <a href="{{ '/pay' | relative_url }}">$50 once</a> before July 1. Existing Off Grid AI Pro members keep everything, free.</p>
+      <p class="ea-pricing-note">Founder rate is ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}, held for as long as you keep it, if you <a href="{{ '/pay' | relative_url }}">lock it before {{ site.data.pricing.deadline }}</a>. After that the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. Existing Off Grid AI Pro members keep everything, free.</p>
     </div>
     <p class="ea-status" id="wlStatus" aria-live="polite"></p>
   </form>
@@ -83,7 +83,7 @@ description: Off Grid AI is live now on desktop and mobile. Lock the $39/month f
     </div>
     <div>
       <div class="perk-title">Founder rate, locked in</div>
-      <div class="perk-desc">Lock $39/month now and hold it for as long as you keep your seat, before the price becomes $99. Or pay $50 once before July 1 and never pay monthly at all. Existing Off Grid AI Pro members keep everything, free.</div>
+      <div class="perk-desc">Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }} and hold it for as long as you keep your seat, even after the standing price rises to ${{ site.data.pricing.standing_price }}. Existing Off Grid AI Pro members keep everything, free.</div>
     </div>
   </div>
 </div>
@@ -123,9 +123,9 @@ That is what is live now. An assistant that remembers everything you did, finds 
 
 The catch with that kind of assistant has always been the price: to be useful it has to know everything about you, and until now that meant handing everything to someone's cloud. Off Grid AI runs the model on your own hardware, with no cloud round trips. The desktop captures your day, records and transcribes your meetings, separates who said what, and files it all into one local memory you can search and replay. The layer that joins your phone and your laptop into a single picture is landing through July. Nothing is sent anywhere, because there is no server to send it to. It is open source under AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.
 
-It is live now, and it is still early. Get in before July 1 and you do not just pay the least. You shape what it becomes, watch your bugs get fixed, and steer the roadmap, on a rate no one after you will hold.
+It is live now, and it is still early. Get in before {{ site.data.pricing.deadline }} and you do not just pay the least. You shape what it becomes, watch your bugs get fixed, and steer the roadmap, on a rate no one after you will hold.
 
-Off Grid AI Pro runs real compute on up to 5 devices. Pay $50 once before July 1 and keep it for life. After that it is $39/month, the founder rate you lock here, on the way to $99 for everyone else. Existing members get all of it, free. This is the window. Put your email in.
+Off Grid AI Pro runs real compute on up to 5 devices. Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }} and hold it for as long as you keep your seat, on the way to ${{ site.data.pricing.standing_price }} for everyone else. Existing members get all of it, free. This is the window. Put your email in.
 
 <script>
   (function() {

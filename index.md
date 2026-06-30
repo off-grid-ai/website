@@ -86,7 +86,7 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
   </a>
   <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
-    <div class="ea-essay-desc">Live now on desktop and mobile. Pay $50 once before July 1 and keep it for life, before the price becomes $39/month, then $99.</div>
+    <div class="ea-essay-desc">Live now on desktop and mobile. Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }}, before the standing price rises to ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>
@@ -158,7 +158,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, $50 once</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See all Pro features</a>
 </div>
 

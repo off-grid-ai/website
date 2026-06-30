@@ -1,0 +1,16 @@
+# Single source of truth for Off Grid AI Pro pricing.
+# Edit here → every page that uses {{ site.data.pricing.* }} updates at once
+# (pay.md, early-access.md, index.md, pro.md).
+#
+# NOTE: Jekyll does NOT render Liquid inside YAML front matter, so the
+# `description:` SEO lines on those pages still carry the numbers literally —
+# update those four lines by hand when the values below change.
+#
+# Current model: $39/month founder rate, locked if you join before the
+# deadline, then the $99/month standing price applies.
+
+founder_price: 39          # USD/month — the founder rate (lock before deadline)
+standing_price: 99         # USD/month — the standing price after the deadline
+period: month
+deadline: "August 1"       # founder window closes; lock the rate before this
+deadline_eve: "July 31"    # last day to lock the founder rate
