@@ -253,7 +253,7 @@ When it lands, captures, memory, and context move device to device over your own
 
 Most private AI still uploads your screen to someone's cloud. Pro runs the model in your laptop's own memory.
 
-No training on your data. No selling it. No server to leak. The system has no mechanism to do any of that, by design. The free core is open source under AGPL so you can audit the foundation; Pro is the paid layer, closed source but running entirely on your hardware — the only data that leaves is a connector action you approve.
+No training on your data. No selling it. No server to leak. Privacy first: it all runs on your own hardware, and your data does not leave your device.
 
 ---
 

@@ -70,7 +70,7 @@ description: Get Off Grid AI Pro for $39/month, the founder rate. Live now on de
     </div>
     <div>
       <div class="perk-title">100,000 already run the free app</div>
-      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. The core stays open under AGPL so you can audit the foundation; Pro is the paid layer, closed source but running entirely on your hardware — the only data that leaves is a connector action you approve.</div>
+      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
     </div>
   </div>
 </div>
