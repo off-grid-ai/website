@@ -3,27 +3,27 @@ layout: default
 title: Get Pro
 nav_order: 5
 nav_group: Products
-description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on desktop and mobile. No subscription. Price rises to $39/month after July 1.
+description: Get Off Grid AI Pro for $39/month, the founder rate. Live now on desktop and mobile. Lock $39/month before August 1, before the standing price rises to $99/month.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Pro · Desktop + Mobile</div>
-  <h1>Pay $50 once.<br>Never pay $39 a month.</h1>
-  <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. One purchase covers both: desktop and mobile, on a single license key, up to 5 devices in total. Pay $50 once before July 1 and you keep it for life, every release included. After July 1 it is $39/month, then $99. Enter your email, check out, and we email your key.</p>
+  <h1>Lock ${{ site.data.pricing.founder_price }} a month.<br>Before it becomes ${{ site.data.pricing.standing_price }}.</h1>
+  <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. One subscription covers both: desktop and mobile, on a single license key, up to 5 devices in total. Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }} and you hold it for as long as you keep your seat, every release included. After {{ site.data.pricing.deadline }} the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. Enter your email, check out, and we email your key.</p>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>This window closes July 1.</strong> After June 30 the one-time $50 deal is gone: Off Grid AI Pro moves to the $39/month founder rate, then to $99/month once that window closes. Buy now and you keep every release for life, at no extra cost, forever. This is the last day to turn a monthly bill into a single payment.
+  <strong>This window closes {{ site.data.pricing.deadline }}.</strong> After {{ site.data.pricing.deadline_eve }} the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate is gone and Off Grid AI Pro moves to the ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }} standing price. Lock your rate now and you hold ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} for as long as you keep your seat, every release included.
 </div>
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
     <div class="ea-inline-group">
       <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
-      <button type="submit" class="ea-submit" id="paySubmit" disabled>Lock in $50 for life</button>
+      <button type="submit" class="ea-submit" id="paySubmit" disabled>Lock in ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">$50 once · no subscription · one key for desktop + mobile · up to 5 devices</p>
+      <p class="ea-pricing-note">${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} · founder rate · one key for desktop + mobile · up to 5 devices</p>
     </div>
     <p class="ea-status" id="payStatus" aria-live="polite"></p>
   </form>
@@ -42,8 +42,8 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
     </div>
     <div>
-      <div class="perk-title">$50 today, or $468 a year</div>
-      <div class="perk-desc">After July 1 Off Grid AI Pro is $39/month, on the way to $99. That is <strong>at least $468 a year</strong>, every year. Or you pay <strong>$50 once</strong>, now, and never see a bill again. You make the $50 back in five weeks.</div>
+      <div class="perk-title">${{ site.data.pricing.founder_price }} now, or ${{ site.data.pricing.standing_price }} later</div>
+      <div class="perk-desc">After {{ site.data.pricing.deadline }} Off Grid AI Pro is <strong>${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}</strong>. Lock the founder rate today and you hold <strong>${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</strong> for as long as you keep your seat — $60 less every month, $720 less a year, for as long as you stay. Same product, locked at the founder price.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -51,8 +51,8 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
     </div>
     <div>
-      <div class="perk-title">Every release, free for life</div>
-      <div class="perk-desc">Your $50 covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to 5 devices, with no upgrade fee, ever.</div>
+      <div class="perk-title">Every release, included</div>
+      <div class="perk-desc">Your ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to 5 devices, with no upgrade fee.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -70,16 +70,16 @@ description: Buy Off Grid AI Pro for $50 once and keep it for life. Live now on 
     </div>
     <div>
       <div class="perk-title">100,000 already run the free app</div>
-      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. It is AGPL, so you can read exactly what leaves your device. The answer is nothing, and you can check.</div>
+      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
     </div>
   </div>
 </div>
 
 ---
 
-## What your $50 buys
+## What Off Grid AI Pro includes
 
-One payment, one license key, unlocks Off Grid AI Pro on both your laptop and your phone, up to 5 devices in total, on hardware you already own.
+One subscription, one license key, unlocks Off Grid AI Pro on both your laptop and your phone, up to 5 devices in total, on hardware you already own.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -106,7 +106,7 @@ One payment, one license key, unlocks Off Grid AI Pro on both your laptop and yo
     </div>
     <div>
       <div class="perk-title">Off Grid AI Sync, landing through July</div>
-      <div class="perk-desc">The cross-device layer is rolling out through July. When it lands, your phone and laptop merge into one picture of your day over your own network, never a relay. Your purchase includes it the day it ships.</div>
+      <div class="perk-desc">The cross-device layer is rolling out through July. When it lands, your phone and laptop merge into one picture of your day over your own network, never a relay. Your subscription includes it the day it ships.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -121,7 +121,7 @@ One payment, one license key, unlocks Off Grid AI Pro on both your laptop and yo
 </div>
 
 <div class="hero-buttons">
-  <a href="#payForm" class="btn btn-green">Lock in $50 before July 1</a>
+  <a href="#payForm" class="btn btn-green">Lock in ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} before {{ site.data.pricing.deadline }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Off Grid AI Pro does</a>
 </div>
 
@@ -133,7 +133,7 @@ You enter your email and we send you to RevenueCat's hosted checkout with that e
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-This is a one-time $50 purchase, not a subscription. There is no second charge and no renewal. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. After July 1 this one-time price is gone: it becomes $39/month, then $99/month once the founder window closes.
+This is a ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} subscription at the founder rate. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Lock it before {{ site.data.pricing.deadline }} and you hold ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} for as long as you keep your seat. After {{ site.data.pricing.deadline }} the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>
