@@ -270,7 +270,7 @@ Lock the founder rate today and you hold ${{ site.data.pricing.founder_price }}/
 
 <div class="hero-buttons">
   <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro, ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</a>
-  <a href="{{ '/early-access' | relative_url }}" class="btn btn-outline">Lock the founder rate</a>
+  <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
 ---
@@ -290,7 +290,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 </div>
 
 <div class="ea-essay-links">
-  <a href="{{ '/early-access' | relative_url }}" class="ea-essay-card">
+  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Lock the founder rate →</div>
     <div class="ea-essay-desc">Get in before {{ site.data.pricing.deadline }} and hold the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} rate for good, before it becomes ${{ site.data.pricing.standing_price }}. Existing members get every new piece free.</div>
   </a>
