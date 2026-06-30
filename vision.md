@@ -145,7 +145,7 @@ description: Off Grid AI is the operating system of a knowledge worker. Remember
     <div class="v-card fx-spot" data-fx-spot>
       <div class="ico">desktop</div>
       <h3>The spine</h3>
-      <p>Captures your screen, meetings, and work into private memory. Replay your day, reflect on where your attention went, act on what matters.</p>
+      <p>Captures your screen, meetings, and work into private memory — plus the notes you jot, in plain Obsidian-compatible markdown, auto-linked to the day they came from. Replay your day, reflect on where your attention went, act on what matters.</p>
       <span class="pill">shipping now</span>
     </div>
     <div class="v-card fx-spot" data-fx-spot>
