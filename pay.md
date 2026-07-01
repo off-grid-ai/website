@@ -12,12 +12,13 @@ description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mo
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
-    <div class="ea-inline-group">
-      <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
-      <button type="submit" class="ea-submit" id="paySubmit" disabled>Get Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
+    <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
+    <div class="ea-buy-row">
+      <button type="button" class="ea-submit" data-plan="annual" disabled>Get Annual — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
+      <button type="button" class="ea-submit ea-submit-alt" data-plan="lifetime" disabled>Own it forever — ${{ site.data.pricing.lifetime }}</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">${{ site.data.pricing.price }}/{{ site.data.pricing.period }} · one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices</p>
+      <p class="ea-pricing-note">one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
     </div>
     <p class="ea-status" id="payStatus" aria-live="polite"></p>
   </form>
@@ -134,16 +135,24 @@ Prefer to own it outright? Choose the **${{ site.data.pricing.lifetime }} lifeti
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>
   (function() {
-    var LINK_ID = {{ site.revenuecat_link_id | jsonify }};
+    // One RevenueCat purchase link per product; the buttons carry data-plan.
+    var LINKS = {
+      annual: {{ site.revenuecat_link_annual | jsonify }},
+      lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
+    };
     var form = document.getElementById('payForm');
     var emailInput = document.getElementById('payEmail');
-    var submit = document.getElementById('paySubmit');
+    var buttons = form ? form.querySelectorAll('button[data-plan]') : [];
     var status = document.getElementById('payStatus');
     if (!form || !window.RevenueCatLink) return;
 
-    // Sync the button state on load too - the browser may have autofilled the
-    // field (or restored it on back-navigation) without firing an input event.
-    submit.disabled = emailInput.value.trim() === '';
+    function setEnabled() {
+      var ok = emailInput.value.trim() !== '';
+      buttons.forEach(function(b) { b.disabled = !ok; });
+    }
+    // Sync on load too — the browser may autofill or restore the field without
+    // firing an input event.
+    setEnabled();
 
     function clearError() {
       emailInput.classList.remove('ea-input-error');
@@ -161,43 +170,39 @@ Prefer to own it outright? Choose the **${{ site.data.pricing.lifetime }} lifeti
       status.className = 'ea-status ea-status-error';
     }
 
-    // Enable the button only once something is typed; clear errors as they type.
-    emailInput.addEventListener('input', function() {
-      submit.disabled = emailInput.value.trim() === '';
-      clearError();
-    });
+    emailInput.addEventListener('input', function() { setEnabled(); clearError(); });
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = emailInput.value.trim();
-      if (!RevenueCatLink.isValidEmail(email)) {
-        showError('Enter a valid email address.');
-        emailInput.focus();
-        return;
-      }
-      var url = RevenueCatLink.buildPurchaseUrl(LINK_ID, email);
-      if (!url) {
-        // Email is valid, so a null URL means the link id is not configured.
-        showError('Checkout is not available right now. Please try again later.');
-        return;
-      }
-      if (typeof posthog !== 'undefined') {
-        // Never let an analytics failure (blocked, errored) stop the purchase.
-        try {
-          posthog.identify(email, { email: email });
-          posthog.capture('pro_checkout_started', {
-            email: email,
-            source: window.location.pathname
-          });
-        } catch (err) {
-          console.warn('PostHog tracking failed:', err);
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var plan = btn.dataset.plan;
+        var email = emailInput.value.trim();
+        if (!RevenueCatLink.isValidEmail(email)) {
+          showError('Enter a valid email address.');
+          emailInput.focus();
+          return;
         }
-      }
-      status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
-      status.className = 'ea-status ea-status-success';
-      // No features string: a non-empty one forces a popup window; '_blank'
-      // alone opens a real new tab and already defaults to noopener.
-      window.open(url, '_blank');
+        var url = RevenueCatLink.buildPurchaseUrl(LINKS[plan], email);
+        if (!url) {
+          showError('Checkout is not available right now. Please try again later.');
+          return;
+        }
+        if (typeof posthog !== 'undefined') {
+          // Never let an analytics failure (blocked, errored) stop the purchase.
+          try {
+            posthog.identify(email, { email: email });
+            posthog.capture('pro_checkout_started', {
+              email: email,
+              plan: plan,
+              source: window.location.pathname
+            });
+          } catch (err) {
+            console.warn('PostHog tracking failed:', err);
+          }
+        }
+        status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
+        status.className = 'ea-status ea-status-success';
+        window.open(url, '_blank');
+      });
     });
   })();
 </script>

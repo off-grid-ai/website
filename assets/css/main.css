@@ -755,7 +755,15 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   margin-top: 4px;
 }
 .ea-submit:hover { background: var(--accent-hover); }
-.ea-submit:disabled { background: var(--text-muted); cursor: default; }
+.ea-submit:disabled { background: var(--text-muted); cursor: default; opacity: 0.7; }
+
+/* Two-product buy row on /pay: annual (primary) + lifetime (outline). */
+.ea-buy-row { display: flex; gap: 10px; margin-top: 8px; }
+.ea-buy-row .ea-submit { margin-top: 0; }
+.ea-submit-alt { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.ea-submit-alt:hover { background: var(--accent-subtle); color: var(--accent); }
+.ea-submit-alt:disabled { background: transparent; color: var(--text-muted); border-color: var(--border); }
+@media (max-width: 560px) { .ea-buy-row { flex-direction: column; } }
 
 .ea-status { font-size: 0.8125rem; margin-top: 10px; min-height: 1.2em; }
 .ea-status-success { color: var(--accent); }
