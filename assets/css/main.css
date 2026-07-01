@@ -755,7 +755,15 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   margin-top: 4px;
 }
 .ea-submit:hover { background: var(--accent-hover); }
-.ea-submit:disabled { background: var(--text-muted); cursor: default; }
+.ea-submit:disabled { background: var(--text-muted); cursor: default; opacity: 0.7; }
+
+/* Two-product buy row on /pay: annual (primary) + lifetime (outline). */
+.ea-buy-row { display: flex; gap: 10px; margin-top: 8px; }
+.ea-buy-row .ea-submit { margin-top: 0; }
+.ea-submit-alt { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.ea-submit-alt:hover { background: var(--accent-subtle); color: var(--accent); }
+.ea-submit-alt:disabled { background: transparent; color: var(--text-muted); border-color: var(--border); }
+@media (max-width: 560px) { .ea-buy-row { flex-direction: column; } }
 
 .ea-status { font-size: 0.8125rem; margin-top: 10px; min-height: 1.2em; }
 .ea-status-success { color: var(--accent); }
@@ -895,4 +903,44 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   .early-access-hero h1 { font-size: 1.875rem; }
   .ea-essay-links { grid-template-columns: 1fr; }
   .essay-early-access { flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── Pricing cohort ladder (_includes/pricing-ladder.html) ─────────────────── */
+.og-ladder-wrap { max-width: 720px; margin: 8px auto 0; }
+.og-ladder-wrap .eyebrow { color: var(--accent); font-family: var(--font-mono); font-size: 14px; margin: 0 0 10px; }
+.og-ladder-wrap h1 { font-size: 30px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 6px; line-height: 1.2; }
+.og-ladder-wrap .sub { color: var(--text-muted); font-size: 14px; margin: 0 0 44px; }
+.og-ladder-wrap .sub strong { color: var(--text-primary); font-weight: 600; }
+
+.og-ladder { margin: 0 4px; font-family: var(--font-mono); }
+.og-ladder .row { display: grid; grid-template-columns: repeat(var(--og-n, 4), 1fr); }
+.og-ladder .price { font-size: 22px; font-weight: 600; text-align: center; color: var(--text-primary); }
+.og-ladder .price.past { color: var(--text-muted); text-decoration: line-through; text-decoration-thickness: 1.5px; font-weight: 500; }
+.og-ladder .price.future { color: var(--text-muted); }
+.og-ladder .price small { font-size: 13px; color: var(--text-muted); font-weight: 500; text-decoration: none; }
+
+.og-ladder .track { position: relative; height: 34px; margin: 14px 0 4px; }
+.og-ladder .track-line { position: absolute; top: 50%; left: 12.5%; right: 12.5%; height: 2px; background: var(--border); transform: translateY(-50%); }
+.og-ladder .track-fill { position: absolute; top: 50%; left: 12.5%; width: 0; height: 2px; background: var(--accent); transform: translateY(-50%); transition: width .4s ease; }
+.og-ladder .nodes { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(var(--og-n, 4), 1fr); }
+.og-ladder .node { display: flex; align-items: center; justify-content: center; }
+.og-ladder .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--border); border: 2px solid var(--bg); transition: background .2s ease; }
+.og-ladder .dot.filled { background: var(--accent); }
+.og-ladder .dot.current { width: 18px; height: 18px; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-subtle); }
+
+.og-ladder .labels { display: grid; grid-template-columns: repeat(var(--og-n, 4), 1fr); }
+.og-ladder .label { text-align: center; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); }
+.og-ladder .label.current { color: var(--text-secondary); }
+
+.og-spots { text-align: center; font-family: var(--font-mono); font-size: 14px; color: var(--text-secondary); margin: 28px 0 0; }
+.og-spots strong { color: var(--accent); font-weight: 700; }
+.og-spots span { color: var(--text-primary); font-weight: 600; }
+
+.og-lifetime { text-align: center; font-family: var(--font-mono); font-size: 13.5px; color: var(--text-muted); margin: 14px 0 0; }
+.og-lifetime strong { color: var(--text-primary); font-weight: 600; }
+
+@media (max-width: 560px) {
+  .og-ladder .price { font-size: 18px; }
+  .og-ladder .price small { display: block; }
+  .og-ladder-wrap h1 { font-size: 24px; }
 }

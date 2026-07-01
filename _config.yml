@@ -18,10 +18,12 @@ plugins:
 
 posthog_token: "phc_u7cnV9P3cTovsfPTE2nhB7g5G4qdtZJ5dgMzv7ryfKWs"
 
-# RevenueCat Web Purchase Link id (the path segment in pay.rev.cat/<id>/...).
-# This is public by design - it appears in every customer's checkout URL, so it
-# builds: https://pay.rev.cat/<revenuecat_link_id>/<app_user_id>?email=<email>
-revenuecat_link_id: "hieziumxtjjdfyeo"
+# RevenueCat Web Purchase Link ids (the path segment in pay.rev.cat/<id>/...).
+# Public by design - they appear in every customer's checkout URL, e.g.
+# https://pay.rev.cat/<id>/<app_user_id>?email=<email>. One per product so the
+# /pay page can offer the choice directly (annual vs lifetime).
+revenuecat_link_annual: "awiunwnoekgjmxxk"    # offgrid_pro_annual — $49/yr
+revenuecat_link_lifetime: "avvnmcnfsgbmjaee"  # Off Grid Lifetime Pro — $69 one-time
 
 logo: /assets/logo.png
 cover: /assets/cover.png

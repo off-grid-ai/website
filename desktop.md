@@ -220,11 +220,11 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>The founder rate is live: ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}.</strong> Lock it before {{ site.data.pricing.deadline }}, before the standing price becomes ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. One license covers up to 5 devices, on desktop and mobile.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</strong> The price climbs as we grow — never down — so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile.
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Pro, ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Pro does</a>
 </div>
 
@@ -254,7 +254,7 @@ Your local database is encrypted at rest. There is no account to create and no s
 
 **What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
 
-**What does Pro cost?** ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }}, then ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. One license covers 5 devices.
+**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow — the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime — about a year and a half up front, then yours forever — and it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>

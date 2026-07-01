@@ -3,27 +3,22 @@ layout: default
 title: Get Pro
 nav_order: 5
 nav_group: Products
-description: Get Off Grid AI Pro for $39/month, the founder rate. Live now on desktop and mobile. Lock $39/month before August 1, before the standing price rises to $99/month.
+description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mobile, up to 5 devices, every release included. The price climbs as we grow — lock it now.
 ---
 
-<div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Pro · Desktop + Mobile</div>
-  <h1>Lock ${{ site.data.pricing.founder_price }} a month.<br>Before it becomes ${{ site.data.pricing.standing_price }}.</h1>
-  <p class="early-access-sub">Off Grid AI Pro is live today on your laptop and your phone. It is the layer that sees your day, remembers it, and gets ahead of you. One subscription covers both: desktop and mobile, on a single license key, up to 5 devices in total. Lock the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate before {{ site.data.pricing.deadline }} and you hold it for as long as you keep your seat, every release included. After {{ site.data.pricing.deadline }} the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}. Enter your email, check out, and we email your key.</p>
-</div>
+{% include pricing-ladder.html %}
 
-<div class="offer-closing" role="note">
-  <strong>This window closes {{ site.data.pricing.deadline }}.</strong> After {{ site.data.pricing.deadline_eve }} the ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} founder rate is gone and Off Grid AI Pro moves to the ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }} standing price. Lock your rate now and you hold ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} for as long as you keep your seat, every release included.
-</div>
+<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One price covers both your laptop and your phone — a single license key, up to {{ site.data.pricing.devices }} devices, every release included. It runs on your own hardware; nothing you capture leaves your device. Enter your email, check out, and we email your key.</p>
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
-    <div class="ea-inline-group">
-      <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
-      <button type="submit" class="ea-submit" id="paySubmit" disabled>Lock in ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</button>
+    <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
+    <div class="ea-buy-row">
+      <button type="button" class="ea-submit" data-plan="annual" disabled>Get Annual — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
+      <button type="button" class="ea-submit ea-submit-alt" data-plan="lifetime" disabled>Own it forever — ${{ site.data.pricing.lifetime }}</button>
     </div>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} · founder rate · one key for desktop + mobile · up to 5 devices</p>
+      <p class="ea-pricing-note">one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
     </div>
     <p class="ea-status" id="payStatus" aria-live="polite"></p>
   </form>
@@ -42,8 +37,8 @@ description: Get Off Grid AI Pro for $39/month, the founder rate. Live now on de
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
     </div>
     <div>
-      <div class="perk-title">${{ site.data.pricing.founder_price }} now, or ${{ site.data.pricing.standing_price }} later</div>
-      <div class="perk-desc">After {{ site.data.pricing.deadline }} Off Grid AI Pro is <strong>${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}</strong>. Lock the founder rate today and you hold <strong>${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }}</strong> for as long as you keep your seat — $60 less every month, $720 less a year, for as long as you stay. Same product, locked at the founder price.</div>
+      <div class="perk-title">The price only goes up</div>
+      <div class="perk-desc">Off Grid AI Pro is <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> today. As more people join, the price steps up toward <strong>${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}</strong> — never down. Join at today's tier and that is the rate you hold. The earlier you are, the less you pay, for good.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -52,7 +47,7 @@ description: Get Off Grid AI Pro for $39/month, the founder rate. Live now on de
     </div>
     <div>
       <div class="perk-title">Every release, included</div>
-      <div class="perk-desc">Your ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to 5 devices, with no upgrade fee.</div>
+      <div class="perk-desc">Your ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to {{ site.data.pricing.devices }} devices, with no upgrade fee.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -121,7 +116,7 @@ One subscription, one license key, unlocks Off Grid AI Pro on both your laptop a
 </div>
 
 <div class="hero-buttons">
-  <a href="#payForm" class="btn btn-green">Lock in ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} before {{ site.data.pricing.deadline }}</a>
+  <a href="#payForm" class="btn btn-green">Get Off Grid AI Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Off Grid AI Pro does</a>
 </div>
 
@@ -133,21 +128,31 @@ You enter your email and we send you to RevenueCat's hosted checkout with that e
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-This is a ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} subscription at the founder rate. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Lock it before {{ site.data.pricing.deadline }} and you hold ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} for as long as you keep your seat. After {{ site.data.pricing.deadline }} the standing price is ${{ site.data.pricing.standing_price }}/{{ site.data.pricing.period }}.
+This is a ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} subscription. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Join at today's tier and that is the rate you hold — the price only steps up as more people join, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep using the version you paid for.
+
+Prefer to own it outright? Choose the **${{ site.data.pricing.lifetime }} lifetime** option at checkout — about a year and a half up front, then it's yours forever with no renewal. Lifetime climbs with the ladder too, so today's tier is the cheapest it will ever be.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>
   (function() {
-    var LINK_ID = {{ site.revenuecat_link_id | jsonify }};
+    // One RevenueCat purchase link per product; the buttons carry data-plan.
+    var LINKS = {
+      annual: {{ site.revenuecat_link_annual | jsonify }},
+      lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
+    };
     var form = document.getElementById('payForm');
     var emailInput = document.getElementById('payEmail');
-    var submit = document.getElementById('paySubmit');
+    var buttons = form ? form.querySelectorAll('button[data-plan]') : [];
     var status = document.getElementById('payStatus');
     if (!form || !window.RevenueCatLink) return;
 
-    // Sync the button state on load too - the browser may have autofilled the
-    // field (or restored it on back-navigation) without firing an input event.
-    submit.disabled = emailInput.value.trim() === '';
+    function setEnabled() {
+      var ok = emailInput.value.trim() !== '';
+      buttons.forEach(function(b) { b.disabled = !ok; });
+    }
+    // Sync on load too — the browser may autofill or restore the field without
+    // firing an input event.
+    setEnabled();
 
     function clearError() {
       emailInput.classList.remove('ea-input-error');
@@ -165,43 +170,39 @@ This is a ${{ site.data.pricing.founder_price }}/{{ site.data.pricing.period }} 
       status.className = 'ea-status ea-status-error';
     }
 
-    // Enable the button only once something is typed; clear errors as they type.
-    emailInput.addEventListener('input', function() {
-      submit.disabled = emailInput.value.trim() === '';
-      clearError();
-    });
+    emailInput.addEventListener('input', function() { setEnabled(); clearError(); });
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = emailInput.value.trim();
-      if (!RevenueCatLink.isValidEmail(email)) {
-        showError('Enter a valid email address.');
-        emailInput.focus();
-        return;
-      }
-      var url = RevenueCatLink.buildPurchaseUrl(LINK_ID, email);
-      if (!url) {
-        // Email is valid, so a null URL means the link id is not configured.
-        showError('Checkout is not available right now. Please try again later.');
-        return;
-      }
-      if (typeof posthog !== 'undefined') {
-        // Never let an analytics failure (blocked, errored) stop the purchase.
-        try {
-          posthog.identify(email, { email: email });
-          posthog.capture('pro_checkout_started', {
-            email: email,
-            source: window.location.pathname
-          });
-        } catch (err) {
-          console.warn('PostHog tracking failed:', err);
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var plan = btn.dataset.plan;
+        var email = emailInput.value.trim();
+        if (!RevenueCatLink.isValidEmail(email)) {
+          showError('Enter a valid email address.');
+          emailInput.focus();
+          return;
         }
-      }
-      status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
-      status.className = 'ea-status ea-status-success';
-      // No features string: a non-empty one forces a popup window; '_blank'
-      // alone opens a real new tab and already defaults to noopener.
-      window.open(url, '_blank');
+        var url = RevenueCatLink.buildPurchaseUrl(LINKS[plan], email);
+        if (!url) {
+          showError('Checkout is not available right now. Please try again later.');
+          return;
+        }
+        if (typeof posthog !== 'undefined') {
+          // Never let an analytics failure (blocked, errored) stop the purchase.
+          try {
+            posthog.identify(email, { email: email });
+            posthog.capture('pro_checkout_started', {
+              email: email,
+              plan: plan,
+              source: window.location.pathname
+            });
+          } catch (err) {
+            console.warn('PostHog tracking failed:', err);
+          }
+        }
+        status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
+        status.className = 'ea-status ea-status-success';
+        window.open(url, '_blank');
+      });
     });
   })();
 </script>
