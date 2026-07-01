@@ -254,7 +254,7 @@ Your local database is encrypted at rest. There is no account to create and no s
 
 **What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
 
-**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow — the tier you join at is the rate you hold. Prefer to own it? Lifetime is always {{ site.data.pricing.lifetime_multiplier }}× the current annual price — ${{ site.data.pricing.price | times: site.data.pricing.lifetime_multiplier }} once today, yours forever — so it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
+**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow — the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime — about two years up front, then yours forever — and it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>

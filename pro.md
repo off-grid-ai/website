@@ -265,7 +265,7 @@ The price climbs as we grow, so the tier you join at is the rate you hold:
 
 - **${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today.** One flat price for desktop and mobile, up to {{ site.data.pricing.devices }} devices. Every feature, every release — including the cross-device layer as it ships through July.
 - **Up to ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} later.** As more people join, the price steps up toward this — never down. The earlier you are, the less you pay, for good.
-- **Or ${{ site.data.pricing.price | times: site.data.pricing.lifetime_multiplier }} once, lifetime.** Lifetime is always {{ site.data.pricing.lifetime_multiplier }}× the current annual price, so it climbs with the ladder too — cheapest today. Pay once, yours forever, every release, no renewal.
+- **Or ${{ site.data.pricing.lifetime }} once, lifetime.** About two years up front, then it's yours forever — every release, no renewal. Lifetime climbs with the ladder too, so it's cheapest today.
 
 Join at today's tier and you hold that rate, every release included. Annual renews once a year; cancel anytime and you keep running the version you paid for.
 

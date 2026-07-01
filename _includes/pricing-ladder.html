@@ -2,12 +2,11 @@
   Annual cohort price ladder + standing lifetime option. Tiers come from
   _data/pricing.yml. The live "current" tier is chosen client-side from the real
   customer count served by the usercount worker (count.getoffgridai.co →
-  RevenueCat). Lifetime = current annual price × lifetime_multiplier, so it
-  climbs with the ladder. Renders correctly with no JS too: the baked-in
-  fallback count + first-tier lifetime below pick a sensible current state.
+  RevenueCat). Each tier carries its own lifetime price (~2× annual, ending in
+  9), so lifetime climbs with the ladder. Renders correctly with no JS too: the
+  baked-in fallback count + first-tier lifetime below pick a sensible state.
 {%- endcomment -%}
 {%- assign n = site.data.pricing.tiers | size -%}
-{%- assign mult = site.data.pricing.lifetime_multiplier -%}
 <div class="og-ladder-wrap">
   <p class="eyebrow"># Pricing</p>
   <h1>The price climbs as we grow.</h1>
@@ -15,8 +14,7 @@
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
-       data-mult="{{ mult }}"
-       data-tiers='[{% for t in site.data.pricing.tiers %}{"amount":{{ t.amount }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
+       data-tiers='[{% for t in site.data.pricing.tiers %}{"amount":{{ t.amount }},"lifetime":{{ t.lifetime }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
     <div class="row">
       {%- for t in site.data.pricing.tiers -%}
       <div class="price" data-tier="{{ forloop.index0 }}">${{ t.amount }}<small> /yr</small></div>
@@ -40,7 +38,7 @@
     </div>
   </div>
 
-  <p class="og-lifetime">Rather own it? Lifetime is always <strong>{{ mult }}×</strong> the current annual price — <strong id="og-lifetime-price">${{ site.data.pricing.price | times: mult }}</strong> today — so it climbs right alongside the ladder. Pay once, yours forever, every release included.</p>
+  <p class="og-lifetime">Rather own it? Lifetime is about two years up front — <strong id="og-lifetime-price">${{ site.data.pricing.lifetime }}</strong> today — then it's yours forever, every release included. It climbs with the ladder, so today is the cheapest it will be.</p>
 </div>
 
 <script>
@@ -48,7 +46,6 @@
   var ladder = document.getElementById('og-ladder');
   if (!ladder) return;
   var tiers = JSON.parse(ladder.dataset.tiers);
-  var mult = parseFloat(ladder.dataset.mult) || 2;
   var n = tiers.length;
 
   function currentTier(count) {
@@ -66,7 +63,7 @@
 
     // Lifetime tracks the current annual tier.
     var life = document.getElementById('og-lifetime-price');
-    if (life) life.textContent = '$' + (tiers[cur].amount * mult);
+    if (life) life.textContent = '$' + tiers[cur].lifetime;
 
     ladder.querySelectorAll('.price[data-tier]').forEach(function (el) {
       var t = +el.dataset.tier;

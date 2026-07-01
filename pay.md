@@ -3,7 +3,7 @@ layout: default
 title: Get Pro
 nav_order: 5
 nav_group: Products
-description: Get Off Grid AI Pro for $50/year. One flat price for desktop and mobile, up to 5 devices, every release included. The price climbs as we grow — lock it now.
+description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mobile, up to 5 devices, every release included. The price climbs as we grow — lock it now.
 ---
 
 {% include pricing-ladder.html %}
@@ -129,7 +129,7 @@ Have a promo code? Apply it on the checkout page, before you pay. The price upda
 
 This is a ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} subscription. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Join at today's tier and that is the rate you hold — the price only steps up as more people join, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep using the version you paid for.
 
-Prefer to own it outright? Choose the **${{ site.data.pricing.price | times: site.data.pricing.lifetime_multiplier }} lifetime** option at checkout. Lifetime is always {{ site.data.pricing.lifetime_multiplier }}× the current annual price, so it climbs with the ladder too — today's tier is the cheapest it will ever be. Pay once, yours forever, no renewal.
+Prefer to own it outright? Choose the **${{ site.data.pricing.lifetime }} lifetime** option at checkout — about two years up front, then it's yours forever with no renewal. Lifetime climbs with the ladder too, so today's tier is the cheapest it will ever be.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>

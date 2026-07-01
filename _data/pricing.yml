@@ -11,29 +11,34 @@
 #     never down. The live "current tier" is chosen client-side from the real
 #     customer count (count.getoffgridai.co → RevenueCat new_customers) by
 #     _includes/pricing-ladder.html.
-#   - Lifetime = the current annual price × `lifetime_multiplier` (2 = "two
-#     years, then own it forever"). So lifetime CLIMBS with the annual ladder:
-#     $50/yr→$100, $79/yr→$158, $99/yr→$198. Not a separate cohort — it tracks
-#     whatever tier is live. The original first-500 $50-lifetime founders are
-#     grandfathered and untouched.
+#   - Lifetime is ~2× the annual price of the same tier (about two years up
+#     front, then own it forever), charm-priced to end in 9. So lifetime CLIMBS
+#     with the ladder: $49/yr→$99, $79/yr→$159, $99/yr→$199. Not a separate
+#     cohort — it tracks whatever tier is live. The original first-500
+#     $50-lifetime founders are grandfathered and untouched.
 
-price: 50               # USD — the annual tier live right now (buttons + prose)
-period: year            # billing period for the current tier
-top_price: 99           # USD/year — the final, highest annual tier
-lifetime_multiplier: 2  # lifetime price = current annual price × this
-devices: 5              # devices per license
+# Convenience values for static copy (the CURRENT / final tiers).
+price: 49            # USD — the annual tier live right now (buttons + prose)
+period: year
+top_price: 99        # USD/year — the final, highest annual tier
+lifetime: 99         # USD — current lifetime price (~2× current annual)
+top_lifetime: 199    # USD — final lifetime price
+devices: 5
 count_endpoint: "https://count.getoffgridai.co"
 
-# The annual ladder, low → high. `amount` = annual price (USD, numeric).
-# `until` = cumulative customer count at which this tier closes (0 = final,
-# no cap). Keep thresholds in sync if cohorts change.
+# The ladder, low → high. `amount` = annual price, `lifetime` = own-it-forever
+# price for the same tier (~2× annual, ending in 9). `until` = cumulative
+# customer count at which this tier closes (0 = final, no cap).
 tiers:
-  - amount: 50
+  - amount: 49
+    lifetime: 99
     label: "first 1,500"
     until: 1500
   - amount: 79
+    lifetime: 159
     label: "next 5,000"
     until: 6500
   - amount: 99
+    lifetime: 199
     label: "after that"
     until: 0
