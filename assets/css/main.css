@@ -924,7 +924,11 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .og-ladder .label { text-align: center; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); }
 .og-ladder .label.current { color: var(--text-secondary); }
 
-.og-lifetime { text-align: center; font-family: var(--font-mono); font-size: 13.5px; color: var(--text-muted); margin: 32px 0 0; }
+.og-spots { text-align: center; font-family: var(--font-mono); font-size: 14px; color: var(--text-secondary); margin: 28px 0 0; }
+.og-spots strong { color: var(--accent); font-weight: 700; }
+.og-spots span { color: var(--text-primary); font-weight: 600; }
+
+.og-lifetime { text-align: center; font-family: var(--font-mono); font-size: 13.5px; color: var(--text-muted); margin: 14px 0 0; }
 .og-lifetime strong { color: var(--text-primary); font-weight: 600; }
 
 @media (max-width: 560px) {
