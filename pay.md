@@ -129,7 +129,7 @@ Have a promo code? Apply it on the checkout page, before you pay. The price upda
 
 This is a ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} subscription. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Join at today's tier and that is the rate you hold — the price only steps up as more people join, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep using the version you paid for.
 
-Prefer to own it outright? Choose the **${{ site.data.pricing.price | times: site.data.pricing.lifetime_multiplier }} lifetime** option at checkout — {{ site.data.pricing.lifetime_multiplier }} years up front, then it's yours forever with no renewal. Lifetime tracks the annual price, so today's tier is the cheapest it will ever be.
+Prefer to own it outright? Choose the **${{ site.data.pricing.price | times: site.data.pricing.lifetime_multiplier }} lifetime** option at checkout. Lifetime is always {{ site.data.pricing.lifetime_multiplier }}× the current annual price, so it climbs with the ladder too — today's tier is the cheapest it will ever be. Pay once, yours forever, no renewal.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>
