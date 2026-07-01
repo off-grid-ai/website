@@ -13,7 +13,7 @@ sitemap: false
   <script>location.replace({{ '/pay' | relative_url | jsonify }});</script>
 </head>
 <body>
-  <p>The founder rate is now available directly on the
+  <p>Off Grid AI Pro pricing is now available directly on the
   <a href="{{ '/pay' | relative_url }}">Get Pro page</a>.</p>
 </body>
 </html>

@@ -1,16 +1,39 @@
 # Single source of truth for Off Grid AI Pro pricing.
 # Edit here → every page that uses {{ site.data.pricing.* }} updates at once
-# (pay.md, early-access.md, index.md, pro.md).
+# (pay.md, pro.md, index.md, desktop.md, _layouts/default.html).
 #
 # NOTE: Jekyll does NOT render Liquid inside YAML front matter, so the
-# `description:` SEO lines on those pages still carry the numbers literally —
-# update those four lines by hand when the values below change.
+# `description:` SEO line on pay.md carries the number literally — update it
+# by hand when `price` below changes.
 #
-# Current model: $39/month founder rate, locked if you join before the
-# deadline, then the $99/month standing price applies.
+# Model: ANNUAL COHORT LADDER + standing LIFETIME option.
+#   - Annual is the headline: the price rises as user slots fill (`tiers`),
+#     never down. The live "current tier" is chosen client-side from the real
+#     customer count (count.getoffgridai.co → RevenueCat new_customers) by
+#     _includes/pricing-ladder.html.
+#   - Lifetime = the current annual price × `lifetime_multiplier` (2 = "two
+#     years, then own it forever"). So lifetime CLIMBS with the annual ladder:
+#     $50/yr→$100, $79/yr→$158, $99/yr→$198. Not a separate cohort — it tracks
+#     whatever tier is live. The original first-500 $50-lifetime founders are
+#     grandfathered and untouched.
 
-founder_price: 39          # USD/month — the founder rate (lock before deadline)
-standing_price: 99         # USD/month — the standing price after the deadline
-period: month
-deadline: "August 1"       # founder window closes; lock the rate before this
-deadline_eve: "July 31"    # last day to lock the founder rate
+price: 50               # USD — the annual tier live right now (buttons + prose)
+period: year            # billing period for the current tier
+top_price: 99           # USD/year — the final, highest annual tier
+lifetime_multiplier: 2  # lifetime price = current annual price × this
+devices: 5              # devices per license
+count_endpoint: "https://count.getoffgridai.co"
+
+# The annual ladder, low → high. `amount` = annual price (USD, numeric).
+# `until` = cumulative customer count at which this tier closes (0 = final,
+# no cap). Keep thresholds in sync if cohorts change.
+tiers:
+  - amount: 50
+    label: "first 1,500"
+    until: 1500
+  - amount: 79
+    label: "next 5,000"
+    until: 6500
+  - amount: 99
+    label: "after that"
+    until: 0

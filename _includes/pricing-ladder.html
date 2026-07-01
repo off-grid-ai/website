@@ -1,0 +1,106 @@
+{%- comment -%}
+  Annual cohort price ladder + standing lifetime option. Tiers come from
+  _data/pricing.yml. The live "current" tier is chosen client-side from the real
+  customer count served by the usercount worker (count.getoffgridai.co →
+  RevenueCat). Lifetime = current annual price × lifetime_multiplier, so it
+  climbs with the ladder. Renders correctly with no JS too: the baked-in
+  fallback count + first-tier lifetime below pick a sensible current state.
+{%- endcomment -%}
+{%- assign n = site.data.pricing.tiers | size -%}
+{%- assign mult = site.data.pricing.lifetime_multiplier -%}
+<div class="og-ladder-wrap">
+  <p class="eyebrow"># Pricing</p>
+  <h1>The price climbs as we grow.</h1>
+  <p class="sub"><strong id="og-count">570</strong> people are on it. Lock the rate now — it only goes up.</p>
+
+  <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
+       data-endpoint="{{ site.data.pricing.count_endpoint }}"
+       data-mult="{{ mult }}"
+       data-tiers='[{% for t in site.data.pricing.tiers %}{"amount":{{ t.amount }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
+    <div class="row">
+      {%- for t in site.data.pricing.tiers -%}
+      <div class="price" data-tier="{{ forloop.index0 }}">${{ t.amount }}<small> /yr</small></div>
+      {%- endfor -%}
+    </div>
+
+    <div class="track">
+      <div class="track-line"></div>
+      <div class="track-fill"></div>
+      <div class="nodes">
+        {%- for t in site.data.pricing.tiers -%}
+        <div class="node"><span class="dot" data-tier="{{ forloop.index0 }}"></span></div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="labels">
+      {%- for t in site.data.pricing.tiers -%}
+      <div class="label" data-tier="{{ forloop.index0 }}">{{ t.label }}</div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <p class="og-lifetime">Rather own it? <strong id="og-lifetime-price">${{ site.data.pricing.price | times: mult }}</strong> once — that's {{ mult }} years, then it's yours forever, every release included.</p>
+</div>
+
+<script>
+(function () {
+  var ladder = document.getElementById('og-ladder');
+  if (!ladder) return;
+  var tiers = JSON.parse(ladder.dataset.tiers);
+  var mult = parseFloat(ladder.dataset.mult) || 2;
+  var n = tiers.length;
+
+  function currentTier(count) {
+    for (var i = 0; i < n; i++) {
+      if (tiers[i].until === 0) return i;      // final, uncapped tier
+      if (count < tiers[i].until) return i;
+    }
+    return n - 1;
+  }
+
+  function apply(count) {
+    var cur = currentTier(count);
+    var c = document.getElementById('og-count');
+    if (c) c.textContent = count.toLocaleString();
+
+    // Lifetime tracks the current annual tier.
+    var life = document.getElementById('og-lifetime-price');
+    if (life) life.textContent = '$' + (tiers[cur].amount * mult);
+
+    ladder.querySelectorAll('.price[data-tier]').forEach(function (el) {
+      var t = +el.dataset.tier;
+      el.classList.toggle('past', t < cur);
+      el.classList.toggle('future', t > cur);
+    });
+    ladder.querySelectorAll('.dot[data-tier]').forEach(function (el) {
+      var t = +el.dataset.tier;
+      el.classList.toggle('filled', t < cur);
+      el.classList.toggle('current', t === cur);
+    });
+    ladder.querySelectorAll('.label[data-tier]').forEach(function (el) {
+      el.classList.toggle('current', +el.dataset.tier === cur);
+    });
+    // Nodes are evenly spaced; first/last sit half a column in. Fill the track
+    // up to the current node.
+    var half = 100 / (n * 2);
+    ladder.querySelector('.track-line').style.left = half + '%';
+    ladder.querySelector('.track-line').style.right = half + '%';
+    var fill = ladder.querySelector('.track-fill');
+    fill.style.left = half + '%';
+    fill.style.width = (cur * (100 / n)) + '%';
+  }
+
+  // Render the baked-in fallback immediately, then refresh from the worker.
+  var el = document.getElementById('og-count');
+  apply(el ? parseInt(el.textContent.replace(/[^0-9]/g, ''), 10) || 0 : 0);
+
+  var endpoint = ladder.dataset.endpoint;
+  if (endpoint) {
+    fetch(endpoint)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) { if (typeof d.count === 'number') apply(d.count); })
+      .catch(function () { /* keep fallback */ });
+  }
+})();
+</script>
