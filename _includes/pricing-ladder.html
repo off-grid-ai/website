@@ -2,7 +2,7 @@
   Annual cohort price ladder + standing lifetime option. Tiers come from
   _data/pricing.yml. The live "current" tier is chosen client-side from the real
   customer count served by the usercount worker (count.getoffgridai.co →
-  RevenueCat). Each tier carries its own lifetime price (~2× annual, ending in
+  RevenueCat). Each tier carries its own lifetime price (~1.5× annual, ending in
   9), so lifetime climbs with the ladder. Renders correctly with no JS too: the
   baked-in fallback count + first-tier lifetime below pick a sensible state.
 {%- endcomment -%}
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <p class="og-lifetime">Rather own it? Lifetime is about two years up front — <strong id="og-lifetime-price">${{ site.data.pricing.lifetime }}</strong> today — then it's yours forever, every release included. It climbs with the ladder, so today is the cheapest it will be.</p>
+  <p class="og-lifetime">Rather own it? Lifetime is about a year and a half up front — <strong id="og-lifetime-price">${{ site.data.pricing.lifetime }}</strong> today — then it's yours forever, every release included. It climbs with the ladder, so today is the cheapest it will be.</p>
 </div>
 
 <script>
