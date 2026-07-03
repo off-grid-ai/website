@@ -3,7 +3,7 @@ layout: default
 title: Mobile
 nav_order: 5
 nav_group: Products
-description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, voice, and documents, running on your own phone. Free and open source. No cloud, no account, no API key.
+description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, voice, and documents, running on your own phone. Free and open source, on-device, no cloud.
 ---
 
 <div class="early-access-hero">
@@ -101,7 +101,7 @@ A complete offline AI suite on your phone. Not a chatbot - text, image, vision, 
     </div>
     <div>
       <div class="perk-title">Offline by default</div>
-      <div class="perk-desc">No account, no API key, no sign-in. Works in airplane mode, on the subway, on a plane, anywhere.</div>
+      <div class="perk-desc">Inference runs on the phone, so nothing round-trips to the cloud. Works in airplane mode, on the subway, on a plane, anywhere.</div>
     </div>
   </div>
 </div>
@@ -171,7 +171,7 @@ The free app runs models on your phone. Pro is an optional, additive tier: it gi
 
 Privacy first by architecture. Your data never leaves your phone.
 
-The model runs in the phone's memory and answers on the phone's own chips. There is no account to create and no server to leak. 100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
+The model runs in the phone's memory and answers on the phone's own chips. There is no server to leak and nothing is logged. 100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
 
 <div class="hero-buttons">
   <a href="https://github.com/alichherawalla/off-grid-mobile" target="_blank" rel="noopener" class="btn btn-green">Star on GitHub</a>
@@ -187,7 +187,7 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 
 **Which phones?** iPhone 12 or newer on iOS 16+, and Android 10+ with 4GB of RAM or more.
 
-**Does it phone home?** No cloud inference, no account, no API key. The Pro draft-action tools reach out only to the services you connect, and sync runs over your own network, never a relay.
+**Does it phone home?** No cloud inference and nothing logged. Pro activates with a license key, not a cloud account. The Pro draft-action tools reach out only to the services you connect, and sync runs over your own network, never a relay.
 
 **What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to the Mac running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
 
