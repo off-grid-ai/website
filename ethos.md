@@ -59,4 +59,4 @@ This isn't a someday. Over 100,000 people already run Off Grid on their own phon
 
 [Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
-*Off Grid is open source. [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) or [join the community on Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).*
+*Off Grid is open source. [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) or [join the community on Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).*

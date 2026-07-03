@@ -76,4 +76,4 @@ This is the world we're building. The app is the first piece of it, already in 1
 
 ---
 
-*Read [the ethos]({{ '/ethos' | relative_url }}) and [the mission]({{ '/mission' | relative_url }}). [View on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision).*
+*Read [the ethos]({{ '/ethos' | relative_url }}) and [the mission]({{ '/mission' | relative_url }}). [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision).*

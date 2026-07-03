@@ -211,4 +211,4 @@ Privacy here isn't a setting or a promise. It's the default output of the archit
 
 Questions, feedback, and feature requests - [join the Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).
 
-Source code is open - [star the repo on GitHub](https://github.com/alichherawalla/off-grid-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+Source code is open - [star the repo on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
