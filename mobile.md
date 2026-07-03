@@ -15,6 +15,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
   <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://github.com/alichherawalla/off-grid-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
@@ -109,6 +110,7 @@ A complete offline AI suite on your phone. Not a chatbot - text, image, vision, 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
   <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://github.com/alichherawalla/off-grid-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
 ---
@@ -196,4 +198,5 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
   <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://github.com/alichherawalla/off-grid-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
