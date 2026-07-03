@@ -3,13 +3,13 @@ layout: default
 title: Mobile
 nav_order: 5
 nav_group: Products
-description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, and voice, running on your own phone. Free and open source. No cloud, no account, no API key.
+description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, voice, and documents, running on your own phone. Free and open source. No cloud, no account, no API key.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Mobile · iOS &amp; Android</div>
   <h1>The whole studio,<br>in your pocket.</h1>
-  <p class="early-access-sub">Off Grid AI Mobile runs real models on your phone - chat, vision, image, and voice, all on-device. Point it at the Mac running Off Grid AI Desktop and it uses those bigger models over your own network, no relay. With Pro, your phone and your laptop become one picture of your day. Nothing leaves your devices.</p>
+  <p class="early-access-sub">Off Grid AI Mobile runs real models on your phone - chat, vision, image, voice, and documents, all on-device. Point it at the Mac running Off Grid AI Desktop and it uses those bigger models over your own network, no relay. Pro adds a voice that talks back, personas, and draft actions you approve. Nothing leaves your devices.</p>
 </div>
 
 <div class="hero-buttons">
@@ -19,7 +19,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 
 <p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
 
-<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice · projects · any GGUF · your Mac's models over your own network · sync across your devices · and more</p>
+<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice input · projects · tools · any GGUF · your Mac's models over your own network · and more</p>
 
 <div class="offer-closing" role="note">
   The AI on your phone logs every prompt to someone else's server. Off Grid runs the model in your phone's memory instead. Turn on airplane mode and it still answers. The whole thing stays on the device in your hand.
@@ -29,7 +29,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 
 ## What you get for free
 
-A full AI studio, on your phone. The open core does what a cloud chat app does, without the cloud.
+A complete offline AI suite on your phone. Not a chatbot - text, image, vision, voice, and documents, all running on your own hardware.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -38,7 +38,7 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
     </div>
     <div>
       <div class="perk-title">Chat</div>
-      <div class="perk-desc">Text and vision, streaming, with a reasoning mode. Runs in your phone's RAM, inference on the phone's CPU and GPU.</div>
+      <div class="perk-desc">Text and vision, streaming, with a thinking mode. Qwen, Llama, Gemma, Phi, or any GGUF you bring. 15-30 tokens a second on a flagship phone.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -47,7 +47,16 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
     </div>
     <div>
       <div class="perk-title">Image generation</div>
-      <div class="perk-desc">Text-to-image on the phone's own silicon. No render queue, no upload, no watermark.</div>
+      <div class="perk-desc">On-device Stable Diffusion with a live preview. NPU-accelerated on Snapdragon, Core ML on iPhone. 5-10s an image on a flagship.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Vision AI</div>
+      <div class="perk-desc">Point your camera at anything and ask. Read a receipt, describe a scene, pull text off a document. On-device with SmolVLM, Qwen3-VL, or Gemma 3n.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -55,8 +64,8 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
     </div>
     <div>
-      <div class="perk-title">Voice</div>
-      <div class="perk-desc">Speech-to-text with Whisper and a hands-free voice mode, so you can talk to it walking down the street. On-device.</div>
+      <div class="perk-title">Voice input</div>
+      <div class="perk-desc">Hold to record and on-device Whisper turns your speech into text. No audio ever leaves your phone.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -65,7 +74,16 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
     </div>
     <div>
       <div class="perk-title">Projects</div>
-      <div class="perk-desc">Drop in PDFs, docs, and notes, then chat grounded in them with cited sources, right from your phone.</div>
+      <div class="perk-desc">Drop in PDFs and docs. They are chunked and embedded on-device, then chat grounded in them with cited sources.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Tools</div>
+      <div class="perk-desc">Built-in web search, calculator, date, and knowledge-base lookup, so a model that supports tool calling can act on live information.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -74,25 +92,7 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
     </div>
     <div>
       <div class="perk-title">Your Mac's models</div>
-      <div class="perk-desc">Off Grid finds the Mac running the desktop app on your network and runs its bigger models from your phone. Over your own LAN, never a relay.</div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-    </div>
-    <div>
-      <div class="perk-title">Any model</div>
-      <div class="perk-desc">A curated catalog plus direct Hugging Face search. Qwen, Gemma, Llama, or any GGUF your phone can hold.</div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.59 13.41a2 2 0 0 1 0-2.82l4.18-4.18a3 3 0 0 1 4.24 4.24l-1.41 1.41"/><path d="M13.41 10.59a2 2 0 0 1 0 2.82l-4.18 4.18a3 3 0 0 1-4.24-4.24l1.41-1.41"/></svg>
-    </div>
-    <div>
-      <div class="perk-title">Connectors</div>
-      <div class="perk-desc">Add any MCP server and use it inside chat, the same tools you run on the desktop.</div>
+      <div class="perk-desc">Off Grid finds the Mac running the desktop app on your network, or any Ollama and LM Studio server, and runs their bigger models from your phone. Over your own LAN, never a relay.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -113,27 +113,27 @@ A full AI studio, on your phone. The open core does what a cloud chat app does, 
 
 ---
 
-## Off Grid AI Pro: one mind across your devices
+## Off Grid AI Pro: a voice, personas, and actions
 
-The free app runs models. Pro joins your phone and your Mac into one picture of your day, reconciled over your own network. Opt-in, on your own hardware. Nothing leaves the device.
+The free app runs models on your phone. Pro is an optional, additive tier: it gives the assistant a voice that talks back, personas you shape, and the tools to draft real actions you approve. One license covers your phone and your Mac. All on-device.
 
 <div class="early-access-perks">
   <div class="perk-card">
     <div class="perk-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
     </div>
     <div>
-      <div class="perk-title">One mind across devices</div>
-      <div class="perk-desc">Your laptop knows your work, your phone knows your life. They reconcile over your own network, never a cloud relay, so the morning briefing has both.</div>
+      <div class="perk-title">Voice mode</div>
+      <div class="perk-desc">Free gives you speech-to-text. Pro adds on-device text-to-speech with Kokoro, so it talks back and you run the whole thing hands-free. The voice runs in your phone's RAM.</div>
     </div>
   </div>
   <div class="perk-card">
     <div class="perk-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     </div>
     <div>
-      <div class="perk-title">Voice mode, hands-free</div>
-      <div class="perk-desc">Talk to your whole memory and connectors from the phone, on-device, without touching the screen.</div>
+      <div class="perk-title">Custom personas</div>
+      <div class="perk-desc">Give each assistant its own system prompt, voice, and persistent memory, so it stays in character across conversations.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -142,16 +142,16 @@ The free app runs models. Pro joins your phone and your Mac into one picture of 
     </div>
     <div>
       <div class="perk-title">Draft, then approve</div>
-      <div class="perk-desc">Ask it to reply to an email or move a calendar event. It drafts through your connectors and waits. Nothing sends without your tap.</div>
+      <div class="perk-desc">Connect Calendar, email, and MCP servers like Linear, Notion, and GitHub. It drafts the reply or files the ticket and waits. Nothing sends without your tap.</div>
     </div>
   </div>
   <div class="perk-card">
     <div class="perk-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
     </div>
     <div>
-      <div class="perk-title">Full intelligence in your pocket</div>
-      <div class="perk-desc">Chat, image, vision, voice, and documents all run locally on the phone. No laptop required to get an answer.</div>
+      <div class="perk-title">Sync, landing through July</div>
+      <div class="perk-desc">Off Grid AI Sync is rolling out through July. When it lands, your phone and your Mac merge into one picture over your own network, never a relay. Your license includes it the day it ships.</div>
     </div>
   </div>
 </div>
@@ -181,15 +181,15 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 
 ## Questions
 
-**Is it really free?** The full studio is free and open source. Pro is the paid layer that syncs your devices and adds the acting layer.
+**Is it really free?** The full local studio is free and open source under MIT, and it keeps shipping. Pro is the optional add-on: voice output, personas, draft actions, and sync.
 
 **Does it work offline?** Yes. Inference runs on the phone. Airplane mode, the subway, a plane, anywhere.
 
 **Which phones?** iPhone 12 or newer on iOS 16+, and Android 10+ with 4GB of RAM or more.
 
-**Does it phone home?** No cloud inference, no account, no API key. Pro sync runs over your own network, never a relay.
+**Does it phone home?** No cloud inference, no account, no API key. The Pro draft-action tools reach out only to the services you connect, and sync runs over your own network, never a relay.
 
-**What models can I run?** Qwen, Gemma, Llama, and any GGUF small enough for your phone. Or connect to the Mac running Off Grid AI Desktop and run its bigger models over your LAN.
+**What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to the Mac running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
 
 **What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow — the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime. One license covers {{ site.data.pricing.devices }} devices, phone and laptop.
 
