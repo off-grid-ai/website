@@ -21,7 +21,7 @@ description: Off Grid AI Desktop is a private, local AI studio for macOS - chat,
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 100,000+ downloads · 2,500+ GitHub stars</p>
 
-<img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager">
+<a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
 ---
 
@@ -104,8 +104,8 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   </div>
 </div>
 
-<img class="hero-cover" src="{{ '/assets/img/desktop-artifacts.png' | relative_url }}" alt="Off Grid AI Desktop rendering a live artifact next to the chat on macOS." width="1760" height="983" loading="lazy">
-<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Artifacts render live next to the chat - HTML, React, SVG, and Mermaid.</p>
+<a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="Off Grid AI Desktop model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
+<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Run any model - a curated catalog plus direct Hugging Face search, all local.</p>
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
@@ -149,7 +149,7 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 
 The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
 
-<img class="hero-cover" src="{{ '/assets/img/pro-day.png' | relative_url }}" alt="Off Grid AI Pro showing Your Day - a journal, to-do list, and timeline of the day, on macOS." width="1760" height="797" loading="lazy">
+<a href="{{ '/pro' | relative_url }}" style="display:block"><img class="hero-cover" src="{{ '/assets/img/pro-day.png' | relative_url }}" alt="Off Grid AI Pro showing Your Day - a journal, to-do list, and timeline of the day, on macOS." width="1760" height="797" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Your Day - the brief a chief of staff would hand you each morning.</p>
 
 <div class="early-access-perks">
@@ -236,10 +236,10 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
   </div>
 </div>
 
-<img class="hero-cover" src="{{ '/assets/img/pro-reflect.png' | relative_url }}" alt="Off Grid AI Pro Reflect view - mind-share, time by app, and focus versus context-switching, on macOS." width="1760" height="641" loading="lazy">
+<a href="{{ '/pro' | relative_url }}" style="display:block"><img class="hero-cover" src="{{ '/assets/img/pro-reflect.png' | relative_url }}" alt="Off Grid AI Pro Reflect view - mind-share, time by app, and focus versus context-switching, on macOS." width="1760" height="641" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Reflect - where your attention actually went, by hour and by app.</p>
 
-<img class="hero-cover" src="{{ '/assets/img/pro-entities.png' | relative_url }}" alt="Off Grid AI Pro Entities view - the people, projects, and companies you touch, each with a running summary, on macOS." width="1760" height="596" loading="lazy">
+<a href="{{ '/pro' | relative_url }}" style="display:block"><img class="hero-cover" src="{{ '/assets/img/pro-entities.png' | relative_url }}" alt="Off Grid AI Pro Entities view - the people, projects, and companies you touch, each with a running summary, on macOS." width="1760" height="596" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Entities - the people, projects, and companies you touch, kept current for you.</p>
 
 <div class="offer-closing" role="note">
