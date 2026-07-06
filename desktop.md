@@ -3,13 +3,13 @@ layout: default
 title: Desktop
 nav_order: 4
 nav_group: Products
-description: Off Grid AI Desktop is a complete local AI studio for macOS - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
+description: Off Grid AI Desktop is a private, local AI studio for macOS - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Desktop · macOS</div>
-  <h1>The chief of staff<br>you never had.</h1>
-  <p class="early-access-sub">Off Grid AI Desktop sees your day, remembers all of it, and gets ahead of you. The meeting you half-remember, the task you promised on Tuesday, the thread you need right now. It has them ready before you ask. Hand it work the way you would a chief of staff, and it takes it from there. It never forgets, and it never logs off, all on your own Mac.</p>
+  <h1>A private AI<br>that runs on your Mac.</h1>
+  <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your Mac. Free and open source.</p>
 </div>
 
 <div class="hero-buttons">
@@ -17,21 +17,17 @@ description: Off Grid AI Desktop is a complete local AI studio for macOS - chat,
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">macOS, Apple Silicon · signed and notarized · free to download</p>
+<p class="ea-pricing-note" style="text-align:center;">macOS, Apple Silicon · signed and notarized · free and open source</p>
 
-<p class="ea-pricing-note" style="text-align:center;">Want new features first? <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/download/nightly/OffGrid-nightly.dmg">Get the nightly build</a> · pre-release, updated on every change, expect rough edges</p>
+<p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 100,000+ downloads · 2,500+ GitHub stars</p>
 
-<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">AI gateway · chat · vision · image · voice · projects · artifacts · connectors · auto meeting recording · dictation · clipboard history · screen memory · a CRM that builds itself · search · actions you approve · and more</p>
-
-<div class="offer-closing" role="note">
-  You forget what you did last Tuesday. Your Mac does not. Off Grid keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. The record runs on your own hardware, so it stays yours.
-</div>
+<img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager">
 
 ---
 
-## What you get for free
+## What you get, free
 
-A full AI studio, on-device. The open core does what a cloud chat app does, without the cloud.
+A full AI studio on your own machine. Everything a cloud chat app does, without the cloud, the account, or the bill.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -108,8 +104,26 @@ A full AI studio, on-device. The open core does what a cloud chat app does, with
   </div>
 </div>
 
+<img class="hero-cover" src="{{ '/assets/img/desktop-artifacts.png' | relative_url }}" alt="Off Grid AI Desktop rendering a live artifact next to the chat on macOS." width="1760" height="983" loading="lazy">
+<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Artifacts render live next to the chat - HTML, React, SVG, and Mermaid.</p>
+
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
+</div>
+
+<p class="ea-pricing-note" style="text-align:center;">Want new features first? <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/download/nightly/OffGrid-nightly.dmg">Get the nightly build</a> · pre-release, updated on every change, expect rough edges</p>
+
+---
+
+## Why you can trust it
+
+Your data never leaves your device, by architecture. No cloud inference, no account to create, no server that can leak. Your local database is encrypted at rest, and the whole app is open source under AGPL, so you can read exactly what it does.
+
+100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
+
+<div class="hero-buttons">
+  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
+  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
 ---
@@ -131,9 +145,12 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 
 ---
 
-## Off Grid AI Pro: the memory layer
+## The chief of staff you never had
 
-The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. Opt-in, with a recording indicator. Nothing leaves the device.
+The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
+
+<img class="hero-cover" src="{{ '/assets/img/pro-day.png' | relative_url }}" alt="Off Grid AI Pro showing Your Day - a journal, to-do list, and timeline of the day, on macOS." width="1760" height="797" loading="lazy">
+<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Your Day - the brief a chief of staff would hand you each morning.</p>
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -219,25 +236,19 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
   </div>
 </div>
 
+<img class="hero-cover" src="{{ '/assets/img/pro-reflect.png' | relative_url }}" alt="Off Grid AI Pro Reflect view - mind-share, time by app, and focus versus context-switching, on macOS." width="1760" height="641" loading="lazy">
+<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Reflect - where your attention actually went, by hour and by app.</p>
+
+<img class="hero-cover" src="{{ '/assets/img/pro-entities.png' | relative_url }}" alt="Off Grid AI Pro Entities view - the people, projects, and companies you touch, each with a running summary, on macOS." width="1760" height="596" loading="lazy">
+<p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Entities - the people, projects, and companies you touch, kept current for you.</p>
+
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</strong> The price climbs as we grow — never down — so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</strong> The price climbs as we grow - never down - so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile.
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Pro - ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Pro does</a>
-</div>
-
----
-
-## Why you can trust it
-
-Privacy first by architecture. Your data never leaves your device.
-
-Your local database is encrypted at rest. There is no account to create and no server to leak. 100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
-
-<div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-green">Star on GitHub</a>
 </div>
 
 ---
@@ -254,9 +265,11 @@ Your local database is encrypted at rest. There is no account to create and no s
 
 **What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
 
-**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow — the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime — about a year and a half up front, then yours forever — and it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
+**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow - the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime - about a year and a half up front, then yours forever - and it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
+</content>
+</invoke>

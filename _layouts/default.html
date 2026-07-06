@@ -368,15 +368,32 @@
       });
     });
 
-    // Track outbound download clicks
+    // Track outbound download and star clicks
     document.addEventListener('click', function(e) {
       var el = e.target.closest('a');
       if (!el) return;
       var href = el.getAttribute('href') || '';
+      if (typeof posthog === 'undefined') return;
+      var page = window.location.pathname;
+      // Mobile app-store downloads
       if (href.indexOf('apps.apple.com') !== -1 || href.indexOf('play.google.com') !== -1) {
-        if (typeof posthog !== 'undefined') {
-          posthog.capture('docs_download_click', { href: href, page: window.location.pathname });
-        }
+        posthog.capture('docs_download_click', { href: href, page: page });
+        return;
+      }
+      // Desktop .dmg downloads (stable + nightly)
+      if (href.indexOf('.dmg') !== -1) {
+        posthog.capture('desktop_download_click', {
+          href: href,
+          page: page,
+          build: href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'
+        });
+        return;
+      }
+      // Star on GitHub (repo root, not a release/download link)
+      if (/github\.com\/off-grid-ai\//.test(href) && href.indexOf('/releases') === -1) {
+        var product = href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
+          : (href.indexOf('off-grid-ai-mobile') !== -1 ? 'mobile' : 'github');
+        posthog.capture(product + '_github_star_click', { href: href, page: page });
       }
     });
   </script>
