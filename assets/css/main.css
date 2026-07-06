@@ -439,6 +439,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .hero-cover {
   display: block;
   width: 100%;
+  height: auto;
   border-radius: 12px;
   margin-bottom: 28px;
   box-shadow: var(--shadow-md);
