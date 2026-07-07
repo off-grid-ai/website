@@ -1,23 +1,25 @@
 {%- comment -%}
-  Annual cohort price ladder + standing lifetime option. Tiers come from
-  _data/pricing.yml. The live "current" tier is chosen client-side from the real
-  customer count served by the usercount worker (count.getoffgridai.co →
-  RevenueCat). Each tier carries its own lifetime price (~1.5× annual, ending in
-  9), so lifetime climbs with the ladder. Renders correctly with no JS too: the
-  baked-in fallback count + first-tier lifetime below pick a sensible state.
+  Lifetime cohort price ladder + standing yearly option. Tiers come from
+  _data/pricing.yml. The headline offer is LIFETIME (own it forever); yearly is
+  the smaller-commitment fallback. The live "current" tier is chosen client-side
+  from the real customer count served by the usercount worker
+  (count.getoffgridai.co -> RevenueCat). Each tier carries its own lifetime and
+  annual price (lifetime ~1.5x annual, ending in 9), so both climb with the
+  ladder. Renders correctly with no JS too: the baked-in fallback count picks a
+  sensible state.
 {%- endcomment -%}
 {%- assign n = site.data.pricing.tiers | size -%}
 <div class="og-ladder-wrap">
   <p class="eyebrow"># Pricing</p>
   <h1>The price climbs as we grow.</h1>
-  <p class="sub"><strong id="og-count">570</strong> people are on it. Lock the rate now — it only goes up.</p>
+  <p class="sub"><strong id="og-count">649</strong> people are on it. Lock the rate now — it only goes up.</p>
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
        data-tiers='[{% for t in site.data.pricing.tiers %}{"amount":{{ t.amount }},"lifetime":{{ t.lifetime }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
     <div class="row">
       {%- for t in site.data.pricing.tiers -%}
-      <div class="price" data-tier="{{ forloop.index0 }}">${{ t.amount }}<small> /yr</small></div>
+      <div class="price" data-tier="{{ forloop.index0 }}">${{ t.lifetime }}<small> once</small></div>
       {%- endfor -%}
     </div>
 
@@ -38,9 +40,9 @@
     </div>
   </div>
 
-  <p class="og-spots" id="og-spots"><strong id="og-spots-n">{{ site.data.pricing.tiers[0].until | minus: 570 }}</strong> spots left at <span id="og-spots-price">${{ site.data.pricing.tiers[0].amount }}</span>/yr before the price jumps to <span id="og-spots-next">${{ site.data.pricing.tiers[1].amount }}</span>.</p>
+  <p class="og-spots" id="og-spots"><strong id="og-spots-n">{{ site.data.pricing.tiers[0].until | minus: 649 }}</strong> spots left at <span id="og-spots-price">${{ site.data.pricing.tiers[0].lifetime }}</span> for life before the price jumps to <span id="og-spots-next">${{ site.data.pricing.tiers[1].lifetime }}</span>.</p>
 
-  <p class="og-lifetime">Rather own it? Lifetime is about a year and a half up front — <strong id="og-lifetime-price">${{ site.data.pricing.lifetime }}</strong> today — then it's yours forever, every release included. It climbs with the ladder, so today is the cheapest it will be.</p>
+  <p class="og-lifetime">Not ready to commit? Pay yearly instead — <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, a smaller step in. It climbs with the ladder too, so today is the cheapest it will be.</p>
 </div>
 
 <script>
@@ -63,9 +65,9 @@
     var c = document.getElementById('og-count');
     if (c) c.textContent = count.toLocaleString();
 
-    // Lifetime tracks the current annual tier.
-    var life = document.getElementById('og-lifetime-price');
-    if (life) life.textContent = '$' + tiers[cur].lifetime;
+    // Yearly price (the smaller-commitment option) tracks the current tier.
+    var ann = document.getElementById('og-annual-price');
+    if (ann) ann.textContent = '$' + tiers[cur].amount;
 
     ladder.querySelectorAll('.price[data-tier]').forEach(function (el) {
       var t = +el.dataset.tier;
@@ -81,7 +83,8 @@
       el.classList.toggle('current', +el.dataset.tier === cur);
     });
 
-    // Spots-left scarcity line: how many until this tier closes and the price jumps.
+    // Spots-left scarcity line: how many until this tier closes and the lifetime
+    // price jumps.
     var spots = document.getElementById('og-spots');
     if (spots) {
       if (tiers[cur].until === 0) {
@@ -90,18 +93,24 @@
         spots.style.display = '';
         document.getElementById('og-spots-n').textContent =
           Math.max(0, tiers[cur].until - count).toLocaleString();
-        document.getElementById('og-spots-price').textContent = '$' + tiers[cur].amount;
-        document.getElementById('og-spots-next').textContent = '$' + tiers[cur + 1].amount;
+        document.getElementById('og-spots-price').textContent = '$' + tiers[cur].lifetime;
+        document.getElementById('og-spots-next').textContent = '$' + tiers[cur + 1].lifetime;
       }
     }
-    // Nodes are evenly spaced; first/last sit half a column in. Fill the track
-    // up to the current node.
+    // Nodes are evenly spaced; first/last sit half a column in. Fill the track up
+    // to the current node, plus the progress made through the current tier toward
+    // the next node.
     var half = 100 / (n * 2);
     ladder.querySelector('.track-line').style.left = half + '%';
     ladder.querySelector('.track-line').style.right = half + '%';
+    var tierStart = cur > 0 ? tiers[cur - 1].until : 0;
+    var tierEnd = tiers[cur].until;   // 0 for the final, uncapped tier
+    var frac = tierEnd > tierStart
+      ? Math.min(1, Math.max(0, (count - tierStart) / (tierEnd - tierStart)))
+      : 0;
     var fill = ladder.querySelector('.track-fill');
     fill.style.left = half + '%';
-    fill.style.width = (cur * (100 / n)) + '%';
+    fill.style.width = ((cur + frac) * (100 / n)) + '%';
   }
 
   // Render the baked-in fallback immediately, then refresh from the worker.

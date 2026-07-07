@@ -243,11 +243,11 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Entities - the people, projects, and companies you touch, kept current for you.</p>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</strong> The price climbs as we grow - never down - so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> The price climbs as we grow - never down - so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Pro - ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Pro does</a>
 </div>
 
@@ -265,7 +265,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
 
-**What does Pro cost?** ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} as we grow - the tier you join at is the rate you hold. Prefer to own it? ${{ site.data.pricing.lifetime }} once today for lifetime - about a year and a half up front, then yours forever - and it climbs with the ladder too. One license covers {{ site.data.pricing.devices }} devices.
+**What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow, and the tier you join at is the price you hold. Not ready to commit? Pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} yearly instead, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>

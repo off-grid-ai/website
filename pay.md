@@ -3,7 +3,7 @@ layout: default
 title: Get Pro
 nav_order: 5
 nav_group: Products
-description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mobile, up to 5 devices, every release included. The price climbs as we grow — lock it now.
+description: Own Off Grid AI Pro forever for $69 - one flat price for desktop and mobile, up to 5 devices, every release included, no renewal. Prefer yearly? $49/year. The price climbs as we grow - lock it now.
 ---
 
 {% include pricing-ladder.html %}
@@ -14,8 +14,8 @@ description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mo
   <form id="payForm" class="early-access-form" novalidate>
     <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
     <div class="ea-buy-row">
-      <button type="button" class="ea-submit" data-plan="annual" disabled>Get Annual — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
-      <button type="button" class="ea-submit ea-submit-alt" data-plan="lifetime" disabled>Own it forever — ${{ site.data.pricing.lifetime }}</button>
+      <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever — ${{ site.data.pricing.lifetime }}</button>
+      <button type="button" class="ea-submit ea-submit-alt" data-plan="annual" disabled>Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
     </div>
     <div class="ea-form-footer">
       <p class="ea-pricing-note">one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
@@ -38,7 +38,7 @@ description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mo
     </div>
     <div>
       <div class="perk-title">The price only goes up</div>
-      <div class="perk-desc">Off Grid AI Pro is <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> today. As more people join, the price steps up toward <strong>${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}</strong> — never down. Join at today's tier and that is the rate you hold. The earlier you are, the less you pay, for good.</div>
+      <div class="perk-desc">Lifetime is <strong>${{ site.data.pricing.lifetime }}</strong> today. As more people join, it steps up toward <strong>${{ site.data.pricing.top_lifetime }}</strong> — never down. Own it at today's tier and that is the price you paid, forever. The earlier you are, the less you pay, for good.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -47,7 +47,7 @@ description: Get Off Grid AI Pro for $49/year. One flat price for desktop and mo
     </div>
     <div>
       <div class="perk-title">Every release, included</div>
-      <div class="perk-desc">Your ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to {{ site.data.pricing.devices }} devices, with no upgrade fee.</div>
+      <div class="perk-desc">Your ${{ site.data.pricing.lifetime }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to {{ site.data.pricing.devices }} devices, no renewal and no upgrade fee.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -116,7 +116,7 @@ One subscription, one license key, unlocks Off Grid AI Pro on both your laptop a
 </div>
 
 <div class="hero-buttons">
-  <a href="#payForm" class="btn btn-green">Get Off Grid AI Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
+  <a href="#payForm" class="btn btn-green">Own Off Grid AI Pro forever — ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Off Grid AI Pro does</a>
 </div>
 
@@ -128,9 +128,9 @@ You enter your email and we send you to RevenueCat's hosted checkout with that e
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-This is a ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} subscription. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Join at today's tier and that is the rate you hold — the price only steps up as more people join, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep using the version you paid for.
+Own it for **${{ site.data.pricing.lifetime }}** — about a year and a half of the yearly price up front, then it's yours forever with no renewal, every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold — it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
 
-Prefer to own it outright? Choose the **${{ site.data.pricing.lifetime }} lifetime** option at checkout — about a year and a half up front, then it's yours forever with no renewal. Lifetime climbs with the ladder too, so today's tier is the cheapest it will ever be.
+Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricing.period }}** at checkout instead — a smaller step in. It renews once a year, cancel anytime and you keep using the version you paid for, and it climbs with the ladder too, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>

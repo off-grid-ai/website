@@ -13,12 +13,12 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop. It
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever — ${{ site.data.pricing.lifetime }}</a>
   <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> It is <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> right now. The price climbs as more people join — never down — so today's tier is the lowest it will ever be, and the rate you join at is the rate you hold. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or pay <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> if you'd rather not commit. The price climbs as more people join — never down — so today's tier is the lowest it will ever be, and the rate you join at is the rate you hold. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships.
 </div>
 
 ---
@@ -263,14 +263,14 @@ The free app runs models, with no account and no subscription. Off Grid AI Pro a
 
 The price climbs as we grow, so the tier you join at is the rate you hold:
 
-- **${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today.** One flat price for desktop and mobile, up to {{ site.data.pricing.devices }} devices. Every feature, every release — including the cross-device layer as it ships through July.
-- **Up to ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }} later.** As more people join, the price steps up toward this — never down. The earlier you are, the less you pay, for good.
-- **Or ${{ site.data.pricing.lifetime }} once, lifetime.** About a year and a half up front, then it's yours forever — every release, no renewal. Lifetime climbs with the ladder too, so it's cheapest today.
+- **${{ site.data.pricing.lifetime }} once, yours forever.** One flat price for desktop and mobile, up to {{ site.data.pricing.devices }} devices. Every feature, every release — including the cross-device layer as it ships through July. No renewal, ever.
+- **Up to ${{ site.data.pricing.top_lifetime }} later.** As more people join, the price steps up toward this — never down. The earlier you are, the less you pay, for good.
+- **Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} if you'd rather not commit.** A smaller step in, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep running the version you paid for.
 
-Join at today's tier and you hold that rate, every release included. Annual renews once a year; cancel anytime and you keep running the version you paid for.
+Join at today's tier and you hold that price, every release included.
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Get Off Grid AI Pro — ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever — ${{ site.data.pricing.lifetime }}</a>
   <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
@@ -293,7 +293,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 <div class="ea-essay-links">
   <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Get Pro →</div>
-    <div class="ea-essay-desc">Off Grid AI Pro is ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} today and climbs as we grow — never down. Join now and hold the rate for good. Existing members get every new piece free.</div>
+    <div class="ea-essay-desc">Own Off Grid AI Pro forever for ${{ site.data.pricing.lifetime }} today, or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} if you'd rather not commit. The price climbs as we grow — never down. Join now and hold it for good. Existing members get every new piece free.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>
