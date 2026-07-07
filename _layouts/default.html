@@ -394,6 +394,16 @@
         var product = href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
           : (href.indexOf('off-grid-ai-mobile') !== -1 ? 'mobile' : 'github');
         posthog.capture(product + '_github_star_click', { href: href, page: page });
+        return;
+      }
+      // Any other CTA button (Get Pro, See what it does, Book a demo, etc.).
+      // Pages with their own richer CTA handler set window.__ctaTracked to opt out.
+      if (el.classList.contains('btn') && !window.__ctaTracked) {
+        posthog.capture('cta_click', {
+          label: (el.textContent || '').trim().replace(/\s+/g, ' '),
+          href: href,
+          page: page
+        });
       }
     });
   </script>

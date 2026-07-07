@@ -321,6 +321,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
       return 'page';
     }
 
+    window.__ctaTracked = true; // opt out of the layout's generic cta_click; this page tracks its own
     article.addEventListener('click', function(e) {
       var link = e.target.closest('a.btn, a.ea-essay-card');
       if (!link || !article.contains(link)) return;

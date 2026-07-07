@@ -193,6 +193,7 @@ Same principles at every scale: the model runs on hardware you control, the data
       }
       return 'page';
     }
+    window.__ctaTracked = true; // opt out of the layout's generic cta_click; this page tracks its own
     article.addEventListener('click', function(e) {
       var link = e.target.closest('a.btn');
       if (!link || !article.contains(link)) return;
