@@ -13,8 +13,8 @@ description: Off Grid Console is the on-prem control plane for agentic AI. One g
 </div>
 
 <div class="hero-buttons">
-  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
-  <a href="https://console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:14px;">On-prem · local-first · auditable · open source</p>
@@ -172,8 +172,8 @@ Off Grid is one private AI stack, from the phone in a pocket to the org's whole 
 Same principles at every scale: the model runs on hardware you control, the data stays yours, and the code is open so you can check. [See the consumer suite]({{ '/pro' | relative_url }}): Mobile, Desktop, and Sync.
 
 <div class="hero-buttons">
-  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
-  <a href="https://console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <script>

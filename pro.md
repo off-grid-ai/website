@@ -287,7 +287,7 @@ It runs on your own infrastructure, built entirely on open source. No per-token 
 Console is licensed separately from Pro. Buying Pro does not include it, and you do not need Pro to run it.
 
 <div class="hero-buttons">
-  <a href="https://console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
 </div>
 
 <div class="ea-essay-links">
