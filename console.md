@@ -3,19 +3,19 @@ layout: default
 title: Console
 nav_order: 2
 nav_group: Products
-description: Off Grid Console is the on-prem control plane for agentic AI. One governed chokepoint for every model call, agent action, and byte of data. Self-hosted, auditable, open source. No per-token or per-seat fees.
+description: Off Grid AI Console is AWS for AI — open source, and built on open source. One interface where AI is already safe to run: set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">For organizations</div>
-  <h1>Govern every AI call<br>in your company.</h1>
-  <p class="early-access-sub">Off Grid Console is the control plane for agentic AI. One governed gateway every model call, agent action, and byte of data passes through, running on your own infrastructure, fully auditable, built on open source. Manage a fleet of on-device nodes, ground them in your knowledge, and prove compliance to a regulator.</p>
+  <div class="early-access-badge">AWS for AI · Open source</div>
+  <h1>Put AI to work<br>across the whole company.</h1>
+  <p class="early-access-sub">Off Grid AI Console is <strong>AWS for AI</strong> — open source, and built on open source. One interface where AI is already safe to run: set your rules, guardrails, and knowledge once, and everyone builds governed AI on top. Every piece you'd otherwise wire together yourself — the gateway to the models, evals, guardrails, PII masking, pipelines, audit, lineage — is already here and connected, on your own infrastructure and fully auditable.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid AI Console</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
-  <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
@@ -180,9 +180,9 @@ Off Grid is one private AI stack, from the phone in a pocket to the org's whole 
 Same principles at every scale: the model runs on hardware you control, the data stays yours, and the code is open so you can check. [See the consumer suite]({{ '/pro' | relative_url }}): Mobile, Desktop, and Sync.
 
 <div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid AI Console</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
-  <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
@@ -217,7 +217,7 @@ Same principles at every scale: the model runs on hardware you control, the data
       if (typeof posthog === 'undefined') return;
       try {
         posthog.capture('console_cta_click', {
-          destination: href.indexOf('/waitlist') !== -1 ? 'demo' : 'console',
+          destination: href.indexOf('book=') !== -1 ? 'demo' : 'console',
           href: href,
           label: link.textContent.trim(),
           section: sectionFor(link),
