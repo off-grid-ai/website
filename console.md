@@ -14,8 +14,16 @@ description: Off Grid Console is the on-prem control plane for agentic AI. One g
 
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
   <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
+
+<p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
+  <strong>See it live</strong> — click through two fully-seeded example tenants:
+  <a href="https://bharatunion-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">a bank&nbsp;↗</a>
+  &nbsp;·&nbsp;
+  <a href="https://suraksha-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">an insurer&nbsp;↗</a>
+</p>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:14px;">On-prem · local-first · auditable · open source</p>
 
@@ -173,8 +181,16 @@ Same principles at every scale: the model runs on hardware you control, the data
 
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
   <a href="https://onprem-console.getoffgridai.co/waitlist" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
+
+<p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
+  <strong>See it live</strong>:
+  <a href="https://bharatunion-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">a bank&nbsp;↗</a>
+  &nbsp;·&nbsp;
+  <a href="https://suraksha-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">an insurer&nbsp;↗</a>
+</p>
 
 <script>
   // Track Console page CTA clicks, tagged with the section they sit in.
