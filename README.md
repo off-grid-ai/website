@@ -1,6 +1,6 @@
 # Off Grid Website
 
-Marketing site and documentation for [Off Grid](https://getoffgridai.co) — run powerful
+Marketing site and documentation for [Off Grid](https://getoffgridai.co) - run powerful
 AI models directly on your iPhone or Android phone, no internet required.
 
 Built with [Jekyll](https://jekyllrb.com/) and deployed to **https://getoffgridai.co**
@@ -18,12 +18,12 @@ The site is then available at http://localhost:4000.
 
 ## Structure
 
-- `index.md`, `mission.md`, `vision.md`, `ethos.md`, `early-access.md`, `quick-start.md` — top-level pages
-- `guides/` — setup and how-to guides
-- `writing/` — long-form articles
-- `_layouts/` — page templates
-- `assets/` — CSS, images, icons
-- `CNAME` — custom domain (`getoffgridai.co`)
+- `index.md`, `mission.md`, `vision.md`, `ethos.md`, `early-access.md`, `quick-start.md` - top-level pages
+- `guides/` - setup and how-to guides
+- `writing/` - long-form articles
+- `_layouts/` - page templates
+- `assets/` - CSS, images, icons
+- `CNAME` - custom domain (`getoffgridai.co`)
 
 ## Deployment
 

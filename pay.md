@@ -8,13 +8,13 @@ description: Own Off Grid AI Pro forever for $69 - one flat price for desktop an
 
 {% include pricing-ladder.html %}
 
-<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One price covers both your laptop and your phone — a single license key, up to {{ site.data.pricing.devices }} devices, every release included. It runs on your own hardware; nothing you capture leaves your device. Enter your email, check out, and we email your key.</p>
+<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One price covers both your laptop and your phone - a single license key, up to {{ site.data.pricing.devices }} devices, every release included. It runs on your own hardware; nothing you capture leaves your device. Enter your email, check out, and we email your key.</p>
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
     <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
     <div class="ea-buy-row">
-      <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever — ${{ site.data.pricing.lifetime }}</button>
+      <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>
       <button type="button" class="ea-submit ea-submit-alt" data-plan="annual" disabled>Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
     </div>
     <div class="ea-form-footer">
@@ -38,7 +38,7 @@ description: Own Off Grid AI Pro forever for $69 - one flat price for desktop an
     </div>
     <div>
       <div class="perk-title">The price only goes up</div>
-      <div class="perk-desc">Lifetime is <strong>${{ site.data.pricing.lifetime }}</strong> today. As more people join, it steps up toward <strong>${{ site.data.pricing.top_lifetime }}</strong> — never down. Own it at today's tier and that is the price you paid, forever. The earlier you are, the less you pay, for good.</div>
+      <div class="perk-desc">Lifetime is <strong>${{ site.data.pricing.lifetime }}</strong> today. As more people join, it steps up toward <strong>${{ site.data.pricing.top_lifetime }}</strong> - never down. Own it at today's tier and that is the price you paid, forever. The earlier you are, the less you pay, for good.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -116,7 +116,7 @@ One subscription, one license key, unlocks Off Grid AI Pro on both your laptop a
 </div>
 
 <div class="hero-buttons">
-  <a href="#payForm" class="btn btn-green">Own Off Grid AI Pro forever — ${{ site.data.pricing.lifetime }}</a>
+  <a href="#payForm" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Off Grid AI Pro does</a>
 </div>
 
@@ -128,9 +128,9 @@ You enter your email and we send you to RevenueCat's hosted checkout with that e
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-Own it for **${{ site.data.pricing.lifetime }}** — about a year and a half of the yearly price up front, then it's yours forever with no renewal, every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold — it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
+Own it for **${{ site.data.pricing.lifetime }}** - about a year and a half of the yearly price up front, then it's yours forever with no renewal, every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold - it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
 
-Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricing.period }}** at checkout instead — a smaller step in. It renews once a year, cancel anytime and you keep using the version you paid for, and it climbs with the ladder too, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}.
+Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricing.period }}** at checkout instead - a smaller step in. It renews once a year, cancel anytime and you keep using the version you paid for, and it climbs with the ladder too, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}.
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script>
@@ -150,7 +150,7 @@ Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricin
       var ok = emailInput.value.trim() !== '';
       buttons.forEach(function(b) { b.disabled = !ok; });
     }
-    // Sync on load too — the browser may autofill or restore the field without
+    // Sync on load too - the browser may autofill or restore the field without
     // firing an input event.
     setEnabled();
 

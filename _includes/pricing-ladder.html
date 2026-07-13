@@ -12,7 +12,7 @@
 <div class="og-ladder-wrap">
   <p class="eyebrow"># Pricing</p>
   <h1>The price climbs as we grow.</h1>
-  <p class="sub"><strong id="og-count">649</strong> people are on it. Lock the rate now — it only goes up.</p>
+  <p class="sub"><strong id="og-count">649</strong> people are on it. Lock the rate now - it only goes up.</p>
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
@@ -42,7 +42,7 @@
 
   <p class="og-spots" id="og-spots"><strong id="og-spots-n">{{ site.data.pricing.tiers[0].until | minus: 649 }}</strong> spots left at <span id="og-spots-price">${{ site.data.pricing.tiers[0].lifetime }}</span> for life before the price jumps to <span id="og-spots-next">${{ site.data.pricing.tiers[1].lifetime }}</span>.</p>
 
-  <p class="og-lifetime">Not ready to commit? Pay yearly instead — <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, a smaller step in. It climbs with the ladder too, so today is the cheapest it will be.</p>
+  <p class="og-lifetime">Not ready to commit? Pay yearly instead - <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, a smaller step in. It climbs with the ladder too, so today is the cheapest it will be.</p>
 </div>
 
 <script>
@@ -88,7 +88,7 @@
     var spots = document.getElementById('og-spots');
     if (spots) {
       if (tiers[cur].until === 0) {
-        spots.style.display = 'none';   // final tier — no jump ahead
+        spots.style.display = 'none';   // final tier - no jump ahead
       } else {
         spots.style.display = '';
         document.getElementById('og-spots-n').textContent =

@@ -90,7 +90,7 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
   </a>
   <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
-    <div class="ea-essay-desc">Live now on desktop and mobile. Own it forever — ${{ site.data.pricing.lifetime }} — climbing as we grow toward ${{ site.data.pricing.top_lifetime }}, so today's tier is the lowest it will be. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</div>
+    <div class="ea-essay-desc">Live now on desktop and mobile. Own it forever - ${{ site.data.pricing.lifetime }} - climbing as we grow toward ${{ site.data.pricing.top_lifetime }}, so today's tier is the lowest it will be. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>
@@ -162,7 +162,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever — ${{ site.data.pricing.lifetime }}</a>
+  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See all Pro features</a>
 </div>
 
