@@ -3,13 +3,13 @@ layout: default
 title: Console
 nav_order: 2
 nav_group: Products
-description: "Off Grid AI Console is AWS for AI — open source, and built on open source. One interface where AI is already safe to run: set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees."
+description: "Off Grid AI Console is AWS for AI. Open source, and built on open source. One interface where AI is already safe to run. Set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees."
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">AWS for AI · Open source</div>
   <h1>Put AI to work<br>across the whole company.</h1>
-  <p class="early-access-sub">Off Grid AI Console is <strong>AWS for AI</strong> — open source, and built on open source. One interface where AI is already safe to run: set your rules, guardrails, and knowledge once, and everyone builds governed AI on top. Every piece you'd otherwise wire together yourself — the gateway to the models, evals, guardrails, PII masking, pipelines, audit, lineage — is already here and connected, on your own infrastructure and fully auditable.</p>
+  <p class="early-access-sub">Off Grid AI Console is <strong>AWS for AI</strong>. Open source, and built on open source. One interface where AI is already safe to run. Set your rules, guardrails, and knowledge once, and everyone builds governed AI on top. Every piece you'd otherwise wire together yourself (the gateway to the models, evals, guardrails, PII masking, pipelines, audit, lineage) is already here and connected, on your own infrastructure and fully auditable.</p>
 </div>
 
 <div class="hero-buttons">
@@ -19,7 +19,7 @@ description: "Off Grid AI Console is AWS for AI — open source, and built on op
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
-  <strong>See it live</strong> — click through two fully-seeded example tenants:
+  <strong>See it live.</strong> Click through two fully-seeded example tenants:
   <a href="https://bharatunion-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">a bank&nbsp;↗</a>
   &nbsp;·&nbsp;
   <a href="https://suraksha-onprem-console.getoffgridai.co/overview" target="_blank" rel="noopener">an insurer&nbsp;↗</a>
