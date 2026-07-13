@@ -3,7 +3,7 @@ layout: default
 title: Console
 nav_order: 2
 nav_group: Products
-description: Off Grid AI Console is AWS for AI — open source, and built on open source. One interface where AI is already safe to run: set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees.
+description: "Off Grid AI Console is AWS for AI — open source, and built on open source. One interface where AI is already safe to run: set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees."
 ---
 
 <div class="early-access-hero">
