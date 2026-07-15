@@ -27,7 +27,7 @@ A full AI studio in your pocket. Chat, vision, image, voice, and documents, all 
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-outline">Android APK (direct)</a>
 </div>
 
-<p class="ea-pricing-note">Current stable: <strong>0.0.102</strong> · iOS 16+ and Android 12+ · <a href="{{ '/mobile/releases/' | relative_url }}">See what's new</a>. Want new features first? The beta ships weekly - <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">grab it from GitHub releases</a>.</p>
+<p class="ea-pricing-note">Current stable: <strong>0.0.103</strong> · iOS 16+ and Android 12+ · <a href="{{ '/mobile/releases/' | relative_url }}">See what's new</a>. Want new features first? The beta ships weekly - <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">grab it from GitHub releases</a>.</p>
 
 ---
 

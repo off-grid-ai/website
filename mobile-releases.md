@@ -14,20 +14,20 @@ Everything that ships to your phone, in the order it shipped. Two tracks:
 - **Stable** - the tested build on the [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile). What you get if you just install the app.
 - **Beta** - new features first, weekly, from [GitHub releases](https://github.com/off-grid-ai/off-grid-ai-mobile/releases). Expect the occasional rough edge.
 
-<p class="ea-pricing-note">Current stable: <strong>0.0.102</strong> · Current beta: <strong>0.0.103-beta.3</strong>. Full per-build history lives on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
+<p class="ea-pricing-note">Current stable: <strong>0.0.103</strong> · Current beta: <strong>0.0.103-beta.4</strong>. Full per-build history lives on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
 
 ---
 
-## 0.0.103 · beta · July 15, 2026
+## 0.0.103 · stable · July 15, 2026
 
-Control over what runs, and voice that just works.
+The big one. Real control over memory, and a hard pass over the things that were breaking.
 
-- **Choose how hard your phone works.** New loading modes - Lean, Balanced, Aggressive - let you decide how many models stay in memory at once.
-- **See what's using your RAM.** The model selector shows what's loaded and how much memory it's holding, with a per-model eject and an Eject All that frees everything.
-- **Voice you can trust.** Voice notes and dictation transcribe reliably and drop the text into the input box instead of failing silently. The mic turns into a Stop button while the model is speaking.
-- **Downloads that recover.** Failed downloads show up instead of vanishing, retry works on iOS again, and queued downloads survive an app restart.
-- **Vision that pairs correctly.** Vision models pick the right projector file and refuse a mismatched one, with a Repair action when a file is missing.
-- **Stopping keeps your reply.** Stop generation and you keep the partial answer you already saw, reasoning included - no more mislabeling a stopped turn as an error.
+- **Choose how hard your phone works.** New loading modes - Lean, Balanced, Aggressive - let you decide how much memory models are allowed to use.
+- **See and free your RAM.** The model manager shows what's loaded and how much each model is holding, with a per-model eject and an Eject All that frees everything, voice and transcription included.
+- **Bigger models, no crashes.** 9B models load and run fast on iOS and Android, and switching models is memory-aware, so a new one loads without running out of RAM. Over budget? Load Anyway measures your real free memory first.
+- **Voice you can trust.** Voice notes and dictation transcribe reliably and send as text the model can read, spoken replies no longer read tool-call text aloud, and stopping speech stops cleanly.
+- **Downloads that recover.** Failed and app-killed downloads come back as retryable cards instead of vanishing, and queued downloads survive a restart.
+- **Stopping keeps your reply.** Stop mid-stream and you keep what was written, reasoning included - no more mislabeling a stopped turn as a token-limit cutoff, and remote LM Studio and Ollama reasoning now shows in the Thinking block.
 
 ## 0.0.102 · stable · July 7, 2026
 
