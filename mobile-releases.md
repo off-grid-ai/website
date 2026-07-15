@@ -14,7 +14,7 @@ Everything that ships to your phone, in the order it shipped. Two tracks:
 - **Stable** - the tested build on the [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile). What you get if you just install the app.
 - **Beta** - new features first, weekly, from [GitHub releases](https://github.com/off-grid-ai/off-grid-ai-mobile/releases). Expect the occasional rough edge.
 
-<p class="ea-pricing-note">Current stable: <strong>0.0.103</strong> · Current beta: <strong>0.0.103-beta.4</strong>. Full per-build history lives on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
+<p class="ea-pricing-note">Current stable: <strong>0.0.103</strong>, the newest build on both tracks. New features land on the beta first, then graduate to stable - when a build is ahead of this, it shows up on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>, where the full per-build history lives.</p>
 
 ---
 
