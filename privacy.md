@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Privacy Policy
-nav_order: 9
+nav_order: 11
 nav_group: Learn
 description: How Off Grid handles data. Off Grid is local-first by architecture - your captured data stays on your devices.
 ---

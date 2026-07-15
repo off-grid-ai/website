@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terms of Service
-nav_order: 8
+nav_order: 10
 nav_group: Learn
 description: The terms that govern your use of Off Grid software, apps, and services. By using Off Grid you agree to these terms.
 ---

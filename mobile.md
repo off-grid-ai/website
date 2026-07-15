@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Mobile
-nav_order: 5
+nav_order: 6
 nav_group: Products
+has_children: true
 description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, voice, and documents, running on your own phone. Free and open source, on-device, no cloud.
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Get Pro
-nav_order: 5
+nav_order: 7
 nav_group: Products
 description: Own Off Grid AI Pro forever for $69 - one flat price for desktop and mobile, up to 5 devices, every release included, no renewal. Prefer yearly? $49/year. The price climbs as we grow - lock it now.
 ---
