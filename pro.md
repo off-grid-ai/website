@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Pro Features
-nav_order: 4
+title: Pro
+nav_order: 6
 nav_group: Products
-description: Off Grid AI Pro is a private intelligence layer for your laptop. It captures your day, remembers everything, and drafts the next move, on your own hardware. No cloud round trips. See every feature.
+description: Off Grid AI Pro is a private intelligence layer for your laptop and phone. It captures your day, remembers everything, and drafts the next move, on your own hardware. Live now - own it forever for $69, or $49/year. See every feature and get your key.
 ---
 
 <div class="early-access-hero">
@@ -13,12 +13,81 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop. It
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
+  <a href="#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
 </div>
 
 <div class="offer-closing" role="note">
   <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or pay <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> if you'd rather not commit. The price climbs as more people join - never down - so today's tier is the lowest it will ever be, and the rate you join at is the rate you hold. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships.
+</div>
+
+---
+
+## Get Pro
+{: #buy}
+
+{% include pricing-ladder.html %}
+
+<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One price covers both your laptop and your phone - a single license key, up to {{ site.data.pricing.devices }} devices, every release included. It runs on your own hardware; nothing you capture leaves your device. Enter your email, check out, and we email your key.</p>
+
+<div class="early-access-form-section ea-form-top">
+  <form id="payForm" class="early-access-form" novalidate>
+    <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
+    <div class="ea-buy-row">
+      <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>
+      <button type="button" class="ea-submit ea-submit-alt" data-plan="annual" disabled>Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
+    </div>
+    <div class="ea-form-footer">
+      <p class="ea-pricing-note">one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
+    </div>
+    <p class="ea-status" id="payStatus" aria-live="polite"></p>
+  </form>
+  <p class="ea-slack-direct">
+    Have a promo code? Enter it on the checkout page before you pay. Checkout is handled by RevenueCat. Nothing on this page touches your devices, your models, or your data.
+  </p>
+</div>
+
+---
+
+## Do the math
+
+<div class="early-access-perks">
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">The price only goes up</div>
+      <div class="perk-desc">Lifetime is <strong>${{ site.data.pricing.lifetime }}</strong> today. As more people join, it steps up toward <strong>${{ site.data.pricing.top_lifetime }}</strong> - never down. Own it at today's tier and that is the price you paid, forever. The earlier you are, the less you pay, for good.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Every release, included</div>
+      <div class="perk-desc">Your ${{ site.data.pricing.lifetime }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to {{ site.data.pricing.devices }} devices, no renewal and no upgrade fee.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Working today, not a promise</div>
+      <div class="perk-desc">Off Grid AI Pro is already live on desktop and mobile. You pay, the license key lands in your inbox, and you unlock it in minutes on both. You are buying a product you can run tonight, not a roadmap.</div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">100,000 already run the free app</div>
+      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
+    </div>
+  </div>
 </div>
 
 ---
@@ -257,21 +326,18 @@ No training on your data. No selling it. No server to leak. Privacy first: it al
 
 ---
 
-## What it costs
+## How checkout works
 
-The free app runs models, with no account and no subscription. Off Grid AI Pro adds the layer that sees, remembers, and acts, on up to {{ site.data.pricing.devices }} devices.
+You enter your email and we send you to RevenueCat's hosted checkout with that email attached. Once you pay, we email a license key to that address. Enter the key in the app to unlock Off Grid AI Pro on up to {{ site.data.pricing.devices }} devices, on desktop and mobile, right away.
 
-The price climbs as we grow, so the tier you join at is the rate you hold:
+Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-- **${{ site.data.pricing.lifetime }} once, yours forever.** One flat price for desktop and mobile, up to {{ site.data.pricing.devices }} devices. Every feature, every release - including the cross-device layer as it ships through July. No renewal, ever.
-- **Up to ${{ site.data.pricing.top_lifetime }} later.** As more people join, the price steps up toward this - never down. The earlier you are, the less you pay, for good.
-- **Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} if you'd rather not commit.** A smaller step in, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. It renews once a year; cancel anytime and you keep running the version you paid for.
+Own it for **${{ site.data.pricing.lifetime }}** - about a year and a half of the yearly price up front, then it's yours forever with no renewal, every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold - it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
 
-Join at today's tier and you hold that price, every release included.
+Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricing.period }}** at checkout instead - a smaller step in. It renews once a year, cancel anytime and you keep using the version you paid for, and it climbs with the ladder too, toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}.
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
-  <a href="#what-pro-is" class="btn btn-outline">See what it does</a>
+  <a href="#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
 </div>
 
 ---
@@ -291,7 +357,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 </div>
 
 <div class="ea-essay-links">
-  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
+  <a href="#buy" class="ea-essay-card">
     <div class="ea-essay-title">Get Pro →</div>
     <div class="ea-essay-desc">Own Off Grid AI Pro forever for ${{ site.data.pricing.lifetime }} today, or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} if you'd rather not commit. The price climbs as we grow - never down. Join now and hold it for good. Existing members get every new piece free.</div>
   </a>
@@ -300,6 +366,81 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
     <div class="ea-essay-desc">What the world looks like when intelligence is ambient, personal, and private, on the hardware you already own.</div>
   </a>
 </div>
+
+<script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
+<script>
+  (function() {
+    // One RevenueCat purchase link per product; the buttons carry data-plan.
+    var LINKS = {
+      annual: {{ site.revenuecat_link_annual | jsonify }},
+      lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
+    };
+    var form = document.getElementById('payForm');
+    var emailInput = document.getElementById('payEmail');
+    var buttons = form ? form.querySelectorAll('button[data-plan]') : [];
+    var status = document.getElementById('payStatus');
+    if (!form || !window.RevenueCatLink) return;
+
+    function setEnabled() {
+      var ok = emailInput.value.trim() !== '';
+      buttons.forEach(function(b) { b.disabled = !ok; });
+    }
+    // Sync on load too - the browser may autofill or restore the field without
+    // firing an input event.
+    setEnabled();
+
+    function clearError() {
+      emailInput.classList.remove('ea-input-error');
+      emailInput.setAttribute('aria-invalid', 'false');
+      if (status.classList.contains('ea-status-error')) {
+        status.textContent = '';
+        status.className = 'ea-status';
+      }
+    }
+
+    function showError(message) {
+      emailInput.classList.add('ea-input-error');
+      emailInput.setAttribute('aria-invalid', 'true');
+      status.textContent = message;
+      status.className = 'ea-status ea-status-error';
+    }
+
+    emailInput.addEventListener('input', function() { setEnabled(); clearError(); });
+
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var plan = btn.dataset.plan;
+        var email = emailInput.value.trim();
+        if (!RevenueCatLink.isValidEmail(email)) {
+          showError('Enter a valid email address.');
+          emailInput.focus();
+          return;
+        }
+        var url = RevenueCatLink.buildPurchaseUrl(LINKS[plan], email);
+        if (!url) {
+          showError('Checkout is not available right now. Please try again later.');
+          return;
+        }
+        if (typeof posthog !== 'undefined') {
+          // Never let an analytics failure (blocked, errored) stop the purchase.
+          try {
+            posthog.identify(email, { email: email });
+            posthog.capture('pro_checkout_started', {
+              email: email,
+              plan: plan,
+              source: window.location.pathname
+            });
+          } catch (err) {
+            console.warn('PostHog tracking failed:', err);
+          }
+        }
+        status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
+        status.className = 'ea-status ea-status-success';
+        window.open(url, '_blank');
+      });
+    });
+  })();
+</script>
 
 <script>
   // Track Pro page CTA clicks (buttons + cards), tagged with the section they
@@ -326,9 +467,9 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
       var link = e.target.closest('a.btn, a.ea-essay-card');
       if (!link || !article.contains(link)) return;
       var href = link.getAttribute('href') || '';
-      var destination = href.indexOf('/pay') !== -1 ? 'pay'
-        : href.indexOf('/early-access') !== -1 ? 'early-access'
+      var destination = href.indexOf('#buy') !== -1 ? 'buy'
         : href.indexOf('/vision') !== -1 ? 'vision'
+        : href.indexOf('console') !== -1 ? 'console'
         : href;
       var label = (link.querySelector('.ea-essay-title') || link).textContent
         .replace(/→/g, '').replace(/#$/, '').trim();

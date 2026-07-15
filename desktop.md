@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Desktop
-nav_order: 5
+nav_order: 4
 nav_group: Products
 has_children: true
 description: Off Grid AI Desktop is a private, local AI studio for macOS - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
@@ -248,7 +248,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Pro forever - ${{ site.data.pricing.lifetime }}</a>
+  <a href="{{ '/pro' | relative_url }}#buy" class="btn btn-green">Own Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See everything Pro does</a>
 </div>
 

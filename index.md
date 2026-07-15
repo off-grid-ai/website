@@ -88,7 +88,7 @@ Nothing is sent anywhere, because there is no server to send it to. It is open s
     <div class="ea-essay-title">See Pro features →</div>
     <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you. Capture, memory, replay, a CRM that builds itself, and actions you approve.</div>
   </a>
-  <a href="{{ '/pay' | relative_url }}" class="ea-essay-card">
+  <a href="{{ '/pro' | relative_url }}#buy" class="ea-essay-card">
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
     <div class="ea-essay-desc">Live now on desktop and mobile. Own it forever - ${{ site.data.pricing.lifetime }} - climbing as we grow toward ${{ site.data.pricing.top_lifetime }}, so today's tier is the lowest it will be. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</div>
   </a>
@@ -162,7 +162,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 </div>
 
 <div class="hero-buttons">
-  <a href="{{ '/pay' | relative_url }}" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
+  <a href="{{ '/pro' | relative_url }}#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
   <a href="{{ '/pro' | relative_url }}" class="btn btn-outline">See all Pro features</a>
 </div>
 
