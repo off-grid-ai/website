@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: Private AI for iOS, Android, macOS, and Windows, running on hardware you own. 100k+ downloads, 2500+ GitHub stars. Your data never leaves your device.
+description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 100k+ downloads, 2500+ GitHub stars.
 ---
 
 <img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid - Private AI. No cloud. No compromise." class="hero-cover">
@@ -14,7 +14,7 @@ description: Private AI for iOS, Android, macOS, and Windows, running on hardwar
 
 **A private AI that runs on the hardware you already own.**
 
-Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Nothing you do is sent anywhere. Off Grid AI Pro adds one intelligence layer across your phone and laptop. The layer that merges the two is landing through July.
+Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid sends requests only to the server you choose. Off Grid AI Pro adds one intelligence layer across your phone and laptop. The layer that merges the two is landing through July.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">

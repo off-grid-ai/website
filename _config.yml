@@ -1,5 +1,5 @@
 title: Off Grid
-description: Run AI on iOS, Android, macOS, and Windows using hardware you own. No cloud or account. Your data never leaves your device.
+description: Run AI on iOS, Android, macOS, and Windows using hardware you own. Local models keep your prompts on your device; remote models connect only to servers you choose.
 url: https://getoffgridai.co
 baseurl: ""
 

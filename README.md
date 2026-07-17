@@ -6,7 +6,7 @@ that runs on hardware you own, with no cloud or account. Off Grid is available o
 - **iOS** - stable 0.0.103 on the App Store (iOS 17+)
 - **Android** - stable on Google Play (Android 10+)
 - **macOS** - stable 0.0.38 for Apple Silicon, plus a nightly track
-- **Windows** - x64 nightly 0.0.39-beta.66; pre-release, with no stable build yet
+- **Windows** - x64 nightly 0.0.39-beta.66; free core app only, with no stable build or Pro support yet
 
 Built with [Jekyll](https://jekyllrb.com/) and deployed to **https://getoffgridai.co**
 via GitHub Pages (see `.github/workflows/pages.yml`). Search is powered by
