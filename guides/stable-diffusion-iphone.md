@@ -24,7 +24,7 @@ The pipeline: text prompt → CLIP tokenizer → text encoder → UNet (denoisin
 ## Requirements
 
 - iPhone 12 or newer (A14 Bionic or later)
-- iOS 16 or later
+- iOS 17 or later
 - 2GB free storage minimum (palettized models ~1GB, full precision ~4GB)
 - Internet once for the model download
 

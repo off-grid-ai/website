@@ -4,25 +4,26 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: Off Grid AI Desktop is a private, local AI studio for macOS - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
+description: Off Grid AI Desktop is a private, local AI studio for macOS and Windows - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Desktop · macOS</div>
-  <h1>A private AI<br>that runs on your Mac.</h1>
-  <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your Mac. Free and open source.</p>
+  <div class="early-access-badge">Off Grid AI Desktop - macOS + Windows</div>
+  <h1>A private AI<br>that runs on your computer.</h1>
+  <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your computer. Free and open source.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-outline">Download Windows x64 nightly</a>
+  <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">macOS, Apple Silicon · signed and notarized · free and open source</p>
+<p class="ea-pricing-note" style="text-align:center;">macOS stable 0.0.38: Apple Silicon, signed and notarized. Windows x64 nightly 0.0.39-beta.66: free core app, pre-release, expect rough edges. There is no stable Windows build yet.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 100,000+ downloads · 2,500+ GitHub stars</p>
 
-<a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
 ---
 
@@ -105,14 +106,15 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   </div>
 </div>
 
-<a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="Off Grid AI Desktop model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="Off Grid AI Desktop model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Run any model - a curated catalog plus direct Hugging Face search, all local.</p>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-outline">Download Windows x64 nightly</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">Want new features first? <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/download/nightly/OffGrid-nightly.dmg">Get the nightly build</a> · pre-release, updated on every change, expect rough edges</p>
+<p class="ea-pricing-note" style="text-align:center;">Want new features first on macOS? <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">Get the macOS nightly</a>. On Windows, <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.39-beta.66">0.0.39-beta.66</a> is the current pre-release. Nightly builds can have rough edges.</p>
 
 ---
 
@@ -123,8 +125,9 @@ Your data never leaves your device, by architecture. No cloud inference, no acco
 100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-outline">Download Windows x64 nightly</a>
+  <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
 ---
@@ -149,6 +152,8 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 ## The chief of staff you never had
 
 The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
+
+<p class="ea-pricing-note">Pro is available on macOS only today. It is not included in the Windows nightly.</p>
 
 <a href="{{ '/pro' | relative_url }}" style="display:block"><img class="hero-cover" src="{{ '/assets/img/pro-day.png' | relative_url }}" alt="Off Grid AI Pro showing Your Day - a journal, to-do list, and timeline of the day, on macOS." width="1760" height="797" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Your Day - the brief a chief of staff would hand you each morning.</p>
@@ -262,6 +267,8 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
+**What about Windows?** The free core app is available for Windows x64 as a nightly pre-release. The current release is 0.0.39-beta.66. There is no stable Windows build yet, and Pro is not included.
+
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 
 **What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
@@ -269,8 +276,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 **What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow, and the tier you join at is the price you hold. Not ready to commit? Pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} yearly instead, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/off-grid-ai-desktop" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-outline">Download Windows x64 nightly</a>
+  <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
-</content>
-</invoke>

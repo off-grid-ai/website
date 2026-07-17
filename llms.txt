@@ -1,6 +1,6 @@
 # Off Grid
 
-Off Grid is a mobile app for iOS and Android that lets users run large language models (LLMs) and image generation models directly on their device — with no internet connection, no cloud dependency, no account, and no subscription fee.
+Off Grid is private AI for iOS, Android, macOS, and Windows. Large language models and image generation run on hardware the user owns, with no cloud dependency or account. The core apps are free and open source.
 
 ## What it does
 
@@ -8,6 +8,7 @@ Off Grid is a mobile app for iOS and Android that lets users run large language 
 - Generate images with Stable Diffusion without a cloud GPU
 - Connect to remote Ollama or LM Studio servers over a local network or VPN
 - Works in airplane mode, on restricted networks, in any country
+- Runs on phones and computers: stable builds for iOS, Android, and macOS; a nightly pre-release for Windows
 
 ## Who it's for
 
@@ -26,6 +27,9 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Supported model formats: GGUF
 - Minimum specs: iPhone 12 / Android with 4GB RAM
 - Recommended specs: iPhone 15 Pro / flagship Android with 8GB RAM
+- Current iOS release: 0.0.103
+- Current macOS stable release: 0.0.38 (Apple Silicon)
+- Current Windows nightly release: 0.0.39-beta.66 (x64, pre-release)
 
 ## Links
 
@@ -33,6 +37,9 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Android App: https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download
 - GitHub: https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github
 - GitHub Releases (APK): https://github.com/off-grid-ai/off-grid-ai-mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github
+- macOS stable: https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg
+- Windows nightly: https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe
+- Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ
 - Docs: https://getoffgridai.co
 - Author: Mohammed Ali Chherawalla (https://dev.to/alichherawalla)

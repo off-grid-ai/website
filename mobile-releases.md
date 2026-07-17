@@ -14,13 +14,13 @@ Everything that ships to your phone, in the order it shipped. Two tracks:
 - **Stable** - the tested build on the [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile). What you get if you just install the app.
 - **Beta** - new features first, weekly, from [GitHub releases](https://github.com/off-grid-ai/off-grid-ai-mobile/releases). Expect the occasional rough edge.
 
-<p class="ea-pricing-note">Current stable: <strong>0.0.103</strong>, the newest build on both tracks. New features land on the beta first, then graduate to stable - when a build is ahead of this, it shows up on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>, where the full per-build history lives.</p>
+<p class="ea-pricing-note">Current App Store release: <strong>iOS 0.0.103</strong>. For Android, <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile" target="_blank" rel="noopener">see the current Google Play release</a>. New beta builds and the full per-build history live on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
 
 ---
 
-## 0.0.103 · stable · July 15, 2026
+## 0.0.103 - iOS stable - July 17, 2026
 
-The big one. Real control over memory, and a hard pass over the things that were breaking.
+Now live on the App Store. Real control over memory, and a hard pass over the things that were breaking.
 
 - **Choose how hard your phone works.** New loading modes - Lean, Balanced, Aggressive - let you decide how much memory models are allowed to use.
 - **See and free your RAM.** The model manager shows what's loaded and how much each model is holding, with a per-model eject and an Eject All that frees everything, voice and transcription included.

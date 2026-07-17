@@ -24,7 +24,7 @@ Off Grid changes that. Run Qwen 3.5, Gemma 4, Mistral, and other leading models 
 ## Requirements
 
 - iPhone 12 or newer (A14 Bionic or later)
-- iOS 16 or later
+- iOS 17 or later
 - 3GB free storage minimum
 - Internet once for the model download
 
