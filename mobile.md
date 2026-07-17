@@ -10,7 +10,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Mobile · iOS &amp; Android</div>
   <h1>The whole studio,<br>in your pocket.</h1>
-  <p class="early-access-sub">Off Grid AI Mobile runs real models on your phone - chat, vision, image, voice, and documents, all on-device. Point it at the Mac running Off Grid AI Desktop and it uses those bigger models over your own network, no relay. Pro adds a voice that talks back, personas, and draft actions you approve. Nothing leaves your devices.</p>
+  <p class="early-access-sub">Off Grid AI Mobile runs real models on your phone - chat, vision, image, voice, and documents, all on-device. Point it at a computer running Off Grid AI Desktop and it uses those bigger models over your own network, no relay. Pro adds a voice that talks back, personas, and draft actions you approve. Nothing leaves your devices.</p>
 </div>
 
 <div class="hero-buttons">
@@ -19,9 +19,11 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
+<p class="ea-pricing-note" style="text-align:center;">iOS 0.0.103 is live on the App Store - <a href="{{ '/mobile/releases/' | relative_url }}">see what shipped</a></p>
+
 <p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
 
-<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice input · projects · tools · any GGUF · your Mac's models over your own network · and more</p>
+<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice input · projects · tools · any GGUF · your computer's models over your own network · and more</p>
 
 <div class="offer-closing" role="note">
   The AI on your phone logs every prompt to someone else's server. Off Grid runs the model in your phone's memory instead. Turn on airplane mode and it still answers. The whole thing stays on the device in your hand.
@@ -188,11 +190,11 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 
 **Does it work offline?** Yes. Inference runs on the phone. Airplane mode, the subway, a plane, anywhere.
 
-**Which phones?** iPhone 12 or newer on iOS 16+, and Android 10+ with 4GB of RAM or more.
+**Which phones?** iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.
 
 **Does it phone home?** No cloud inference and nothing logged. Pro activates with a license key, not a cloud account. The Pro draft-action tools reach out only to the services you connect, and sync runs over your own network, never a relay.
 
-**What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to the Mac running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
+**What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to a computer running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
 
 **What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow, and the tier you join at is the price you hold. Not ready to commit? Pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} yearly instead, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. One license covers {{ site.data.pricing.devices }} devices, phone and laptop.
 

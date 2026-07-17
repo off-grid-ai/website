@@ -384,18 +384,19 @@
         posthog.capture('docs_download_click', { href: href, page: page });
         return;
       }
-      // Desktop .dmg downloads (stable + nightly)
-      if (href.indexOf('.dmg') !== -1) {
+      // Desktop installers (macOS stable/nightly + Windows nightly)
+      if (href.indexOf('.dmg') !== -1 || href.indexOf('.exe') !== -1) {
         posthog.capture('desktop_download_click', {
           href: href,
           page: page,
-          build: href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'
+          build: href.indexOf('nightly') !== -1 ? 'nightly' : 'stable',
+          platform: href.indexOf('.exe') !== -1 ? 'windows' : 'macos'
         });
         return;
       }
       // Star on GitHub (repo root, not a release/download link)
       if (/github\.com\/off-grid-ai\//.test(href) && href.indexOf('/releases') === -1) {
-        var product = href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
+        var product = href.indexOf('/OGAD') !== -1 || href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
           : (href.indexOf('off-grid-ai-mobile') !== -1 ? 'mobile' : 'github');
         posthog.capture(product + '_github_star_click', { href: href, page: page });
         return;

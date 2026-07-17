@@ -15,7 +15,7 @@ Run a local AI model on your iPhone with no cloud dependency. This guide covers 
 ## Requirements
 
 - iPhone 12 or newer (A14 Bionic chip or later)
-- iOS 16 or later
+- iOS 17 or later
 - At least 3GB free storage (for the app + one model)
 - Internet connection for the initial model download only
 
