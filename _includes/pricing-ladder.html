@@ -5,14 +5,17 @@
   from the real customer count served by the usercount worker
   (count.getoffgridai.co -> RevenueCat). Each tier carries its own lifetime and
   annual price (lifetime ~1.5x annual, ending in 9), so both climb with the
-  ladder. Renders correctly with no JS too: the baked-in fallback count picks a
-  sensible state.
+  ladder. Until the live count arrives, the customer total and scarcity line
+  remain unavailable instead of presenting a made-up fallback.
 {%- endcomment -%}
 {%- assign n = site.data.pricing.tiers | size -%}
 <div class="og-ladder-wrap">
   <p class="eyebrow"># Pricing</p>
   <h1>The price climbs as we grow.</h1>
-  <p class="sub"><strong id="og-count">649</strong> people are on it. Lock the rate now - it only goes up.</p>
+  <p class="sub" id="og-count-line" role="status" aria-live="polite">
+    <span class="og-count-loading" id="og-count-loading"><span class="og-loader" aria-hidden="true"></span>Loading customer count...</span>
+    <span id="og-count-ready" hidden><strong id="og-count"></strong> people are on it. Lock the rate now - it only goes up.</span>
+  </p>
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
@@ -40,7 +43,7 @@
     </div>
   </div>
 
-  <p class="og-spots" id="og-spots"><strong id="og-spots-n">{{ site.data.pricing.tiers[0].until | minus: 649 }}</strong> spots left at <span id="og-spots-price">${{ site.data.pricing.tiers[0].lifetime }}</span> for life before the price jumps to <span id="og-spots-next">${{ site.data.pricing.tiers[1].lifetime }}</span>.</p>
+  <p class="og-spots" id="og-spots" hidden><strong id="og-spots-n"></strong> spots left at <span id="og-spots-price"></span> for life before the price jumps to <span id="og-spots-next"></span>.</p>
 
   <p class="og-lifetime">Not ready to commit? Pay yearly instead - <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, a smaller step in. It climbs with the ladder too, so today is the cheapest it will be.</p>
 </div>
@@ -64,6 +67,8 @@
     var cur = currentTier(count);
     var c = document.getElementById('og-count');
     if (c) c.textContent = count.toLocaleString();
+    document.getElementById('og-count-loading').hidden = true;
+    document.getElementById('og-count-ready').hidden = false;
 
     // Yearly price (the smaller-commitment option) tracks the current tier.
     var ann = document.getElementById('og-annual-price');
@@ -88,9 +93,9 @@
     var spots = document.getElementById('og-spots');
     if (spots) {
       if (tiers[cur].until === 0) {
-        spots.style.display = 'none';   // final tier - no jump ahead
+        spots.hidden = true;   // final tier - no jump ahead
       } else {
-        spots.style.display = '';
+        spots.hidden = false;
         document.getElementById('og-spots-n').textContent =
           Math.max(0, tiers[cur].until - count).toLocaleString();
         document.getElementById('og-spots-price').textContent = '$' + tiers[cur].lifetime;
@@ -113,16 +118,17 @@
     fill.style.width = ((cur + frac) * (100 / n)) + '%';
   }
 
-  // Render the baked-in fallback immediately, then refresh from the worker.
-  var el = document.getElementById('og-count');
-  apply(el ? parseInt(el.textContent.replace(/[^0-9]/g, ''), 10) || 0 : 0);
-
   var endpoint = ladder.dataset.endpoint;
   if (endpoint) {
     fetch(endpoint)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) { if (typeof d.count === 'number') apply(d.count); })
-      .catch(function () { /* keep fallback */ });
+      .then(function (d) {
+        if (typeof d.count !== 'number') throw new Error('Invalid customer count');
+        apply(d.count);
+      })
+      .catch(function () {
+        document.getElementById('og-count-loading').textContent = 'Customer count unavailable.';
+      });
   }
 })();
 </script>

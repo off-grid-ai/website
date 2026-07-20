@@ -9,7 +9,8 @@
 # Model: ANNUAL COHORT LADDER + standing LIFETIME option.
 #   - Annual is the headline: the price rises as user slots fill (`tiers`),
 #     never down. The live "current tier" is chosen client-side from the real
-#     customer count (count.getoffgridai.co → RevenueCat new_customers) by
+#     cumulative customer count (count.getoffgridai.co → RevenueCat Charts v3
+#     customers_new total) by
 #     _includes/pricing-ladder.html.
 #   - Lifetime is ~1.5× the annual price of the same tier (about a year and a
 #     half up front, then own it forever), charm-priced to end in 9. So lifetime
@@ -24,7 +25,7 @@ top_price: 99        # USD/year - the final, highest annual tier
 lifetime: 69         # USD - current lifetime price (~1.5× current annual)
 top_lifetime: 149    # USD - final lifetime price
 devices: 5
-count_endpoint: "https://count.getoffgridai.co"
+count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 
 # The ladder, low → high. `amount` = annual price, `lifetime` = own-it-forever
 # price for the same tier (~1.5× annual, ending in 9). `until` = cumulative
