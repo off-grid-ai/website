@@ -60,11 +60,13 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 
 Over 100,000 people already run AI on their own phone with Off Grid. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid makes it do exactly that.
 
+<div class="home-console-banner-wrap">
 <a href="{{ '/console' | relative_url }}" class="home-console-banner">
   <div class="home-console-banner-tag">For organizations</div>
   <div class="home-console-banner-title">Off Grid Console: govern every AI call in your company →</div>
   <div class="home-console-banner-desc">The control plane for agentic AI. One governed gateway for every model call and agent, on your own infrastructure, fully auditable, built on open source. No per-token or per-seat fees.</div>
 </a>
+</div>
 
 ---
 
