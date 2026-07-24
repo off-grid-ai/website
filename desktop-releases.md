@@ -4,10 +4,10 @@ title: Releases
 parent: Desktop
 nav_order: 1
 permalink: /desktop/releases/
-description: Off Grid AI Desktop releases for macOS and Windows. macOS has stable and nightly builds. The free core app is available for Windows x64 as a nightly pre-release, with no stable build yet.
+description: OGAD releases for macOS and Windows. macOS has stable and nightly builds. The free core app is available for Windows x64 as a nightly pre-release, with no stable build yet.
 ---
 
-# Off Grid AI Desktop - releases
+# OGAD - releases
 
 Everything that ships to your Mac or Windows PC, in the order it shipped. Platform availability differs:
 

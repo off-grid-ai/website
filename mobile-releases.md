@@ -4,10 +4,10 @@ title: Releases
 parent: Mobile
 nav_order: 1
 permalink: /mobile/releases/
-description: Off Grid AI Mobile release notes - what shipped, and when, for iPhone and Android. Two tracks, stable and beta, both on-device and free.
+description: OGAM release notes - what shipped, and when, for iPhone and Android. Two tracks, stable and beta, both on-device and free.
 ---
 
-# Off Grid AI Mobile - releases
+# OGAM - releases
 
 Everything that ships to your phone, in the order it shipped. Two tracks:
 

@@ -302,7 +302,7 @@ When it lands, captures, memory, and context move device to device over your own
     </div>
     <div>
       <div class="perk-title">Your phone, a Pro device</div>
-      <div class="perk-desc">Off Grid AI Mobile adds Pro voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve, all on device. Everything you do there is yours, and joins your laptop's memory once Sync lands.</div>
+      <div class="perk-desc">OGAM adds Pro voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve, all on device. Everything you do there is yours, and joins your laptop's memory once Sync lands.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -342,9 +342,9 @@ Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricin
 
 ---
 
-## For companies: Off Grid Console
+## For companies: OGAC
 
-Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the Off Grid Console.
+Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the OGAC.
 
 The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail a regulator can defend.
 
@@ -353,7 +353,7 @@ It runs on your own infrastructure, built entirely on open source. No per-token 
 Console is licensed separately from Pro. Buying Pro does not include it, and you do not need Pro to run it.
 
 <div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
 </div>
 
 <div class="ea-essay-links">

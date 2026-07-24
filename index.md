@@ -63,7 +63,7 @@ Over 100,000 people already run AI on their own phone with Off Grid. No account,
 <div class="home-console-banner-wrap">
 <a href="{{ '/console' | relative_url }}" class="home-console-banner">
   <div class="home-console-banner-tag">For organizations</div>
-  <div class="home-console-banner-title">Off Grid Console: govern every AI call in your company →</div>
+  <div class="home-console-banner-title">OGAC: govern every AI call in your company →</div>
   <div class="home-console-banner-desc">The control plane for agentic AI. One governed gateway for every model call and agent, on your own infrastructure, fully auditable, built on open source. No per-token or per-seat fees.</div>
 </a>
 </div>

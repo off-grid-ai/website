@@ -12,7 +12,7 @@ description: The terms that govern your use of Off Grid software, apps, and serv
 
 These Terms apply to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of these Terms in effect at the time of that use.
 
-These Terms of Service ("Terms") are a legal agreement between you and Wednesday Solutions ("Off Grid", "we", "us", or "our") covering the Off Grid Desktop and Off Grid Mobile applications, the Off Grid Console, the `@offgrid/*` software, our websites, and any related services (together, the "Service").
+These Terms of Service ("Terms") are a legal agreement between you and Wednesday Solutions ("Off Grid", "we", "us", or "our") covering the OGAD (Off Grid AI Desktop) and OGAM (Off Grid AI Mobile) applications, the OGAC (Off Grid AI Console), the `@offgrid/*` software, our websites, and any related services (together, the "Service").
 
 **By downloading, installing, accessing, or using any part of the Service, you agree to be bound by these Terms.** If you do not agree, do not use the Service. Your continued use of the Service after any change to these Terms constitutes acceptance of the updated Terms.
 

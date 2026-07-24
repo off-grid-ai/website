@@ -12,7 +12,7 @@ description: How Off Grid handles data. Off Grid is local-first by architecture 
 
 This Policy applies to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of this Policy in effect at the time of that use.
 
-This Privacy Policy explains how Wednesday Solutions ("Off Grid", "we", "us") handles information in connection with the Off Grid Desktop and Off Grid Mobile applications, the Off Grid Console, the `@offgrid/*` software, and our websites (together, the "Service").
+This Privacy Policy explains how Wednesday Solutions ("Off Grid", "we", "us") handles information in connection with the OGAD (Off Grid AI Desktop) and OGAM (Off Grid AI Mobile) applications, the OGAC (Off Grid AI Console), the `@offgrid/*` software, and our websites (together, the "Service").
 
 **By using the Service, you agree to this Policy.** If you do not agree, do not use the Service.
 

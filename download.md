@@ -4,7 +4,7 @@ title: Download
 nav_order: 2
 nav_group: Products
 permalink: /download/
-description: Download Off Grid - one private AI layer across your phone, your computer, and your company. Off Grid AI on iPhone and Android, Off Grid AI Desktop for macOS and Windows, and Off Grid AI Console for the enterprise. Free, open source, on hardware you own.
+description: Download Off Grid - one private AI layer across your phone, your computer, and your company. Off Grid AI on iPhone and Android, OGAD for macOS and Windows, and OGAC for the enterprise. Free, open source, on hardware you own.
 ---
 
 <div class="early-access-hero">
@@ -31,7 +31,7 @@ A full AI studio in your pocket. Chat, vision, image, voice, and documents, all 
 
 ---
 
-## Off Grid AI Desktop - macOS and Windows
+## OGAD - macOS and Windows
 
 A private AI studio on your computer. Chat, vision, image, and voice stay on your own hardware. On a flagship Mac, you get 15-30 tokens a second. Free and open source.
 
@@ -45,7 +45,7 @@ A private AI studio on your computer. Chat, vision, image, and voice stay on you
 
 ---
 
-## Off Grid AI Console - the enterprise
+## OGAC - the enterprise
 
 Put AI to work across the whole company, governed, on infrastructure you own. One gateway for every model, composable governed pipelines, and apps your whole team builds in plain language. Open source, and built on open source.
 

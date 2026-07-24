@@ -4,11 +4,11 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: Off Grid AI Desktop is a private, local AI studio for macOS and Windows - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
+description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS and Windows - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Desktop - macOS + Windows</div>
+  <div class="early-access-badge">OGAD - macOS + Windows</div>
   <h1>A private AI<br>that runs on your computer.</h1>
   <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your computer. Free and open source.</p>
 </div>
@@ -23,7 +23,7 @@ description: Off Grid AI Desktop is a private, local AI studio for macOS and Win
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 100,000+ downloads · 2,500+ GitHub stars</p>
 
-<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="Off Grid AI Desktop running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="OGAD running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
 ---
 
@@ -106,7 +106,7 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   </div>
 </div>
 
-<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="Off Grid AI Desktop model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="OGAD model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Run any model - a curated catalog plus direct Hugging Face search, all local.</p>
 
 <div class="hero-buttons">

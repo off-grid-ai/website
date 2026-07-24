@@ -3,17 +3,17 @@ layout: default
 title: Console
 nav_order: 5
 nav_group: Products
-description: "Off Grid AI Console is AWS for AI. Open source, and built on open source. One interface where AI is already safe to run. Set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees."
+description: "OGAC (the Off Grid AI Console) is AWS for AI. Open source, and built on open source. One interface where AI is already safe to run. Set your rules once, and everyone builds governed AI on top. On your own infrastructure, auditable. No per-token or per-seat fees."
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">AWS for AI · Open source</div>
   <h1>Put AI to work<br>across the whole company.</h1>
-  <p class="early-access-sub">Off Grid AI Console is <strong>AWS for AI</strong>. Open source, and built on open source. One interface where AI is already safe to run. Set your rules, guardrails, and knowledge once, and everyone builds governed AI on top. Every piece you'd otherwise wire together yourself (the gateway to the models, evals, guardrails, PII masking, pipelines, audit, lineage) is already here and connected, on your own infrastructure and fully auditable.</p>
+  <p class="early-access-sub">OGAC (the Off Grid AI Console) is <strong>AWS for AI</strong>. Open source, and built on open source. One interface where AI is already safe to run. Set your rules, guardrails, and knowledge once, and everyone builds governed AI on top. Every piece you'd otherwise wire together yourself (the gateway to the models, evals, guardrails, PII masking, pipelines, audit, lineage) is already here and connected, on your own infrastructure and fully auditable.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid AI Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
   <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
@@ -33,7 +33,7 @@ description: "Off Grid AI Console is AWS for AI. Open source, and built on open 
 
 Your people are already using AI. The question is whether you can see it.
 
-Today model calls leave through a dozen tools, on data you cannot track, at a cost no one owns. Console puts one chokepoint in front of all of it. Every call is routed, observed, costed, and kill-switchable. Nothing runs that you did not allow, and everything that runs is on a record you can defend.
+Today model calls leave through a dozen tools, on data you cannot track, at a cost no one owns. OGAC puts one chokepoint in front of all of it. Every call is routed, observed, costed, and kill-switchable. Nothing runs that you did not allow, and everything that runs is on a record you can defend.
 
 ---
 
@@ -180,7 +180,7 @@ Off Grid is one private AI stack, from the phone in a pocket to the org's whole 
 Same principles at every scale: the model runs on hardware you control, the data stays yours, and the code is open so you can check. [See the consumer suite]({{ '/pro' | relative_url }}): Mobile, Desktop, and Sync.
 
 <div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore Off Grid AI Console</a>
+  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
   <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
