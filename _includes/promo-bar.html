@@ -1,0 +1,63 @@
+{% assign promo = site.data.promo %}
+{% if promo.active %}
+<div class="promo-bar" id="promoBar" data-promo-code="{{ promo.code }}" data-promo-until="{{ promo.until }}" data-pagefind-ignore hidden>
+  <div class="promo-bar-inner">
+    <span class="promo-bar-tag">{{ promo.tag }}</span>
+    <span class="promo-bar-text">{{ promo.text }}</span>
+    <button type="button" class="promo-bar-code" id="promoBarCode" title="Copy code">
+      <span class="promo-bar-code-label">{{ promo.discount }} with</span>
+      <span class="promo-bar-code-value">{{ promo.code }}</span>
+      <span class="promo-bar-code-copied" aria-hidden="true">copied</span>
+    </button>
+    <span class="promo-bar-meta">{{ promo.meta }}</span>
+    <a class="promo-bar-cta" href="{{ promo.url | relative_url }}{{ promo.anchor }}">{{ promo.cta }} →</a>
+  </div>
+  <button type="button" class="promo-bar-close" id="promoBarClose" aria-label="Dismiss offer">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </button>
+</div>
+<script>
+  (function() {
+    var bar = document.getElementById('promoBar');
+    if (!bar) return;
+    var code = bar.getAttribute('data-promo-code');
+    var until = bar.getAttribute('data-promo-until');
+    // Expired offers never render, even from a cached page.
+    if (until && new Date(until + 'T23:59:59') < new Date()) return;
+    if (localStorage.getItem('promo-dismissed:' + code) === '1') return;
+    bar.hidden = false;
+    document.documentElement.classList.add('has-promo-bar');
+
+    var copyBtn = document.getElementById('promoBarCode');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        var done = function() {
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.classList.remove('copied'); }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function() {});
+        }
+        if (typeof posthog !== 'undefined') posthog.capture('promo_code_copy', { code: code, page: window.location.pathname });
+      });
+    }
+
+    var closeBtn = document.getElementById('promoBarClose');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        bar.hidden = true;
+        document.documentElement.classList.remove('has-promo-bar');
+        localStorage.setItem('promo-dismissed:' + code, '1');
+        if (typeof posthog !== 'undefined') posthog.capture('promo_bar_dismiss', { code: code, page: window.location.pathname });
+      });
+    }
+
+    var cta = bar.querySelector('.promo-bar-cta');
+    if (cta) {
+      cta.addEventListener('click', function() {
+        if (typeof posthog !== 'undefined') posthog.capture('promo_bar_cta_click', { code: code, page: window.location.pathname });
+      });
+    }
+  })();
+</script>
+{% endif %}

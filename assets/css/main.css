@@ -60,8 +60,174 @@
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
 body { font-family: var(--font); color: var(--text-primary); background: var(--bg); line-height: 1.6; transition: background 0.2s, color 0.2s; }
 
+/* ─── Promo bar ─────────────────────────────────────────────────────────────── */
+.promo-bar {
+  --promo-bar-h: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--promo-bar-h);
+  padding: 7px 14px;
+  background: var(--accent-subtle);
+  border-bottom: 1px solid var(--accent-subtle-border);
+}
+.promo-bar[hidden] { display: none; }
+.promo-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  flex: 1;
+  min-width: 0;
+}
+.promo-bar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid var(--accent-subtle-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.promo-bar-text {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.promo-bar-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  border: 1px dashed var(--accent);
+  border-radius: 5px;
+  padding: 2px 8px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+.promo-bar-code:hover { background: var(--bg-hover); }
+.promo-bar-code-label { font-size: 0.75rem; }
+.promo-bar-code-value {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.promo-bar-code-copied {
+  display: none;
+  font-size: 0.68rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.promo-bar-code.copied .promo-bar-code-copied { display: inline; }
+.promo-bar-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.promo-bar-cta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.promo-bar-cta:hover { border-bottom-color: var(--accent); }
+.promo-bar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.promo-bar-close:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+@media (max-width: 900px) {
+  .promo-bar-text, .promo-bar-meta { display: none; }
+}
+@media (max-width: 560px) {
+  .promo-bar { gap: 4px; padding: 6px 8px; }
+  .promo-bar-tag { display: none; }
+  .promo-bar-code { padding: 2px 6px; }
+  .promo-bar-code-label { font-size: 0.7rem; }
+  .promo-bar-code-value { font-size: 0.74rem; }
+  .promo-bar-cta { font-size: 0.74rem; }
+}
+
+/* Promo code block (in-page, e.g. the alpha join section) */
+.promo-code-box {
+  max-width: 420px;
+  margin: 26px auto 22px;
+  padding: 18px 20px;
+  text-align: center;
+  background: var(--accent-subtle);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+}
+.promo-code-box-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+}
+.promo-code-box-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0 6px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+.promo-code-box-value:hover { color: var(--accent); }
+.promo-code-box-copied {
+  display: none;
+  font-family: var(--font);
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.promo-code-box-value.copied .promo-code-box-copied { display: inline; }
+.promo-code-box-note { font-size: 0.78rem; color: var(--text-muted); }
+
 /* ─── Layout ────────────────────────────────────────────────────────────────── */
 .layout { display: flex; min-height: 100vh; }
+/* Keep the sticky sidebar inside the viewport once the promo bar takes a slice. */
+.has-promo-bar .sidebar { height: calc(100vh - 42px); }
 
 /* ─── Sidebar ────────────────────────────────────────────────────────────────── */
 .sidebar {
@@ -719,6 +885,8 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .ea-input::placeholder { color: var(--text-muted); }
 .ea-input:focus { border-color: var(--accent); }
+/* Applied by the pay + OGAP forms on a bad email; had no style until now. */
+.ea-input-error, .ea-input-error:focus { border-color: #ef4444; }
 
 .ea-form-footer { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
 .ea-pricing-note { font-size: 0.75rem; color: var(--text-muted); margin: 0; }

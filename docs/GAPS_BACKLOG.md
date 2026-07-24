@@ -4,7 +4,7 @@ Open gaps, surfaced honestly. Close with evidence, then mark resolved.
 
 ## Open
 
-_None._
+- **Pages overflow horizontally at 390px** (found 2026-07-25). At a 390x844 viewport the document is wider than the viewport, so hero copy and button rows are clipped on the right. Reproduced on `/mobile/` and `/pro/` with the promo bar disabled, so it predates the promo bar and is not caused by it. Next step: find the element forcing `scrollWidth > 390` (suspect a fixed-width block in the shared content styles) and cap it, then re-verify the main journey at 390px.
 
 ## Resolved
 

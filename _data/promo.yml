@@ -1,0 +1,15 @@
+# Site-wide promo bar (top of every page). Rendered by _includes/promo-bar.html.
+# Flip `active: false` to pull it down instantly. The bar ALSO hides itself
+# client-side once `until` has passed, so a cached page never shows a dead offer.
+
+active: true
+code: ALPHA_20
+discount: 20% off
+until: 2026-08-15         # last day the code works (inclusive, viewer's local time)
+until_label: Aug 15
+tag: Private alpha
+text: Private alpha - your phone catches your whole day, 24/7, on device.
+meta: ends Aug 15
+cta: See the recorder
+url: /mobile/recorder
+anchor: ""

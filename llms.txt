@@ -42,4 +42,5 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ
 - Docs: https://getoffgridai.co
+- Mobile recorder, private alpha (on-device all-day recording, transcription, and insights): https://getoffgridai.co/mobile/recorder/
 - Author: Mohammed Ali Chherawalla (https://dev.to/alichherawalla)
