@@ -2,7 +2,7 @@
 layout: default
 title: Releases
 parent: Mobile
-nav_order: 1
+nav_order: 2
 permalink: /mobile/releases/
 description: OGAM release notes - what shipped, and when, for iPhone and Android. Two tracks, stable and beta, both on-device and free.
 ---
