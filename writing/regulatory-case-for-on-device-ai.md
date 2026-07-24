@@ -66,4 +66,4 @@ The products that built their architecture around on-device processing from the 
 
 This is not the primary argument for building on-device AI. The primary argument is that it's better for you. But in a regulatory environment that's moving in one direction, the architecture that's right for users also happens to be the architecture that ages well.
 
-*Off Grid processes all data on-device. No cloud. No telemetry. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI processes all data on-device. No cloud. No telemetry. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

@@ -151,7 +151,7 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 
 ## The chief of staff you never had
 
-The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
+The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid AI keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
 
 <p class="ea-pricing-note">Pro is available on macOS only today. It is not included in the Windows nightly.</p>
 

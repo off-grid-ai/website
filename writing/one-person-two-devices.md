@@ -79,7 +79,7 @@ Mobile platforms are app-centric operating systems. The primitive is the app, an
 
 A Personal AI OS requires inverting that model. Context is the primitive. Apps are sources of context. The intelligence layer sits above the apps, not inside any one of them, and operates across all your devices as a single system.
 
-That architecture does not exist at the platform level. It has to be built as a layer on top - which is exactly what Off Grid does on the device side, and what the next generation of local AI software will build out fully.
+That architecture does not exist at the platform level. It has to be built as a layer on top - which is exactly what Off Grid AI does on the device side, and what the next generation of local AI software will build out fully.
 
 ---
 
@@ -93,4 +93,4 @@ That is what it looks like when your devices actually know you.
 
 ---
 
-*Off Grid is building toward this. Start with the phone - the most context-rich device you own. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI is building toward this. Start with the phone - the most context-rich device you own. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

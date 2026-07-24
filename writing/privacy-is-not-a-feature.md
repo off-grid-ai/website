@@ -67,4 +67,4 @@ A product that runs inference on-device, stores context locally, and sends nothi
 
 This is the only version of personal AI that deserves access to your full context. Not because the company behind it is more trustworthy. But because the architecture makes trust irrelevant. The data never left your device.
 
-*Off Grid runs every model locally. No data leaves your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI runs every model locally. No data leaves your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

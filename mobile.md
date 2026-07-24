@@ -26,7 +26,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 <p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice input · projects · tools · any GGUF · your computer's models over your own network · and more</p>
 
 <div class="offer-closing" role="note">
-  The AI on your phone logs every prompt to someone else's server. Off Grid runs the model in your phone's memory instead. Turn on airplane mode and it still answers. The whole thing stays on the device in your hand.
+  The AI on your phone logs every prompt to someone else's server. Off Grid AI runs the model in your phone's memory instead. Turn on airplane mode and it still answers. The whole thing stays on the device in your hand.
 </div>
 
 ---
@@ -96,7 +96,7 @@ A complete offline AI suite on your phone. Not a chatbot - text, image, vision, 
     </div>
     <div>
       <div class="perk-title">Your Mac's models</div>
-      <div class="perk-desc">Off Grid finds the Mac running the desktop app on your network, or any Ollama and LM Studio server, and runs their bigger models from your phone. Over your own LAN, never a relay.</div>
+      <div class="perk-desc">Off Grid AI finds the Mac running the desktop app on your network, or any Ollama and LM Studio server, and runs their bigger models from your phone. Over your own LAN, never a relay.</div>
     </div>
   </div>
   <div class="perk-card">

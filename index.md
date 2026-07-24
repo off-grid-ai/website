@@ -5,16 +5,16 @@ nav_order: 1
 description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 100k+ downloads, 2500+ GitHub stars.
 ---
 
-<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid - Private AI. No cloud. No compromise." class="hero-cover">
+<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
 
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
-  <h1>Off Grid</h1>
+  <h1>Off Grid AI</h1>
 </div>
 
 **A private AI that runs on the hardware you already own.**
 
-Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid sends requests only to the server you choose. Off Grid AI Pro adds one intelligence layer across your phone and laptop. The layer that merges the two is landing through July.
+Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro adds one intelligence layer across your phone and laptop. The layer that merges the two is landing through July.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
@@ -58,7 +58,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
   </div>
 </div>
 
-Over 100,000 people already run AI on their own phone with Off Grid. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid makes it do exactly that.
+Over 100,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
 
 <div class="home-console-banner-wrap">
 <a href="{{ '/console' | relative_url }}" class="home-console-banner">
@@ -89,7 +89,7 @@ Over 100,000 people already run AI on their own phone with Off Grid. No account,
 
 The app is the first piece. The whole is a Personal AI OS: a private intelligence layer that lives across your phone and your laptop, learns your day in the background, and gets ahead of you the way a chief of staff would.
 
-Your phone knows your life. Your laptop knows your work. Today neither has the full picture. Off Grid unifies them into one working model of who you are and what you are doing. It syncs over your own network, never a cloud relay. It does not wait to be opened - it briefs you on the day, surfaces the item you left open, and drafts the reply before you remember you owe it.
+Your phone knows your life. Your laptop knows your work. Today neither has the full picture. Off Grid AI unifies them into one working model of who you are and what you are doing. It syncs over your own network, never a cloud relay. It does not wait to be opened - it briefs you on the day, surfaces the item you left open, and drafts the reply before you remember you owe it.
 
 Nothing is sent anywhere, because there is no server to send it to. It is open source, so you can check.
 
@@ -182,7 +182,7 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 
 When you run a query on a cloud AI service - ChatGPT, Gemini, Claude - it's logged on a server. Your prompt, the response, the time, your account. Stored indefinitely. Used to train future models. Subject to law enforcement requests. Readable by employees.
 
-With Off Grid, none of that applies. The model runs in your phone's memory. Inference happens on your CPU and GPU. Nothing is sent anywhere. Ever.
+With Off Grid AI, none of that applies. The model runs in your phone's memory. Inference happens on your CPU and GPU. Nothing is sent anywhere. Ever.
 
 Privacy here isn't a setting or a promise. It's the default output of the architecture. The system has no mechanism to do otherwise - and because the code is open, anyone can verify it.
 

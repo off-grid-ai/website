@@ -3,7 +3,7 @@ layout: default
 title: Quick Start
 nav_order: 8
 nav_group: Learn
-description: Download Off Grid and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
+description: Download Off Grid AI and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
 ---
 
 # Quick Start
@@ -12,7 +12,7 @@ Run your first local AI model in under 5 minutes. No account. No API key. No int
 
 ---
 
-## Step 1 - Download Off Grid
+## Step 1 - Download Off Grid AI
 
 **iOS:** [Download on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires iPhone 12 or newer (4GB RAM+)
 

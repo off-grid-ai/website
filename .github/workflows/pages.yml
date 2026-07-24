@@ -1,4 +1,4 @@
-name: Deploy Off Grid Website
+name: Deploy Off Grid AI Website
 
 on:
   push:

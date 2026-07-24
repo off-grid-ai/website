@@ -88,8 +88,8 @@ And it is not a product tied to a hardware platform. The AI features built into 
 
 The Personal AI OS is the software category that closes that gap. It is the first architecture that earns the right to your full context, because the data never leaves your hands.
 
-That's what we're building with [Off Grid]({{ '/' | relative_url }}).
+That's what we're building with [Off Grid AI]({{ '/' | relative_url }}).
 
 ---
 
-*[Download Off Grid for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*[Download Off Grid AI for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

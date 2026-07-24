@@ -64,7 +64,7 @@ Today model calls leave through a dozen tools, on data you cannot track, at a co
     </div>
     <div>
       <div class="perk-title">Your knowledge, grounded</div>
-      <div class="perk-desc">A private RAG brain over your own docs and systems, with verified citations, so answers are grounded in your context, not guessed. Off Grid distills how work actually happens into one brain every agent and person draws from.</div>
+      <div class="perk-desc">A private RAG brain over your own docs and systems, with verified citations, so answers are grounded in your context, not guessed. Off Grid AI distills how work actually happens into one brain every agent and person draws from.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -175,7 +175,7 @@ Nothing is all or nothing. Every capability is API-first and adoptable on its ow
 
 ## Where Console fits
 
-Off Grid is one private AI stack, from the phone in a pocket to the org's whole fleet. The consumer apps put it in millions of hands and make it a household name. The Console is where it runs a company.
+Off Grid AI is one private AI stack, from the phone in a pocket to the org's whole fleet. The consumer apps put it in millions of hands and make it a household name. The Console is where it runs a company.
 
 Same principles at every scale: the model runs on hardware you control, the data stays yours, and the code is open so you can check. [See the consumer suite]({{ '/pro' | relative_url }}): Mobile, Desktop, and Sync.
 

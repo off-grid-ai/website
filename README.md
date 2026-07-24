@@ -1,7 +1,7 @@
-# Off Grid Website
+# Off Grid AI Website
 
-Marketing site and documentation for [Off Grid](https://getoffgridai.co) - private AI
-that runs on hardware you own, with no cloud or account. Off Grid is available on:
+Marketing site and documentation for [Off Grid AI](https://getoffgridai.co) - private AI
+that runs on hardware you own, with no cloud or account. Off Grid AI is available on:
 
 - **iOS** - stable 0.0.103 on the App Store (iOS 17+)
 - **Android** - stable on Google Play (Android 10+)

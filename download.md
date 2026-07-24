@@ -4,11 +4,11 @@ title: Download
 nav_order: 2
 nav_group: Products
 permalink: /download/
-description: Download Off Grid - one private AI layer across your phone, your computer, and your company. Off Grid AI on iPhone and Android, OGAD for macOS and Windows, and OGAC for the enterprise. Free, open source, on hardware you own.
+description: Download Off Grid AI - one private AI layer across your phone, your computer, and your company. Off Grid AI on iPhone and Android, OGAD for macOS and Windows, and OGAC for the enterprise. Free, open source, on hardware you own.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Download Off Grid</div>
+  <div class="early-access-badge">Download Off Grid AI</div>
   <h1>Get the private<br>AI trinity.</h1>
   <p class="early-access-sub">One intelligence layer across your phone, your computer, and your whole company - running on hardware you already own. No account, no API key, nothing you do ever leaves your devices. Free and open source.</p>
 </div>

@@ -3,10 +3,10 @@ layout: default
 title: How to Run Stable Diffusion on Your Android Phone (On-Device AI Image Generation)
 parent: Guides
 nav_order: 6
-description: Generate AI images locally on your Android phone using Stable Diffusion - no cloud, no API key, no subscription. Complete guide for on-device image generation with Off Grid.
+description: Generate AI images locally on your Android phone using Stable Diffusion - no cloud, no API key, no subscription. Complete guide for on-device image generation with Off Grid AI.
 faq:
   - q: Can Android phones run Stable Diffusion locally?
-    a: Yes. All Android phones running Off Grid use the MNN backend (CPU-based, works on all devices). Phones with Snapdragon 8 Gen 1 or newer also get QNN NPU acceleration, which is 2-3x faster.
+    a: Yes. All Android phones running Off Grid AI use the MNN backend (CPU-based, works on all devices). Phones with Snapdragon 8 Gen 1 or newer also get QNN NPU acceleration, which is 2-3x faster.
   - q: How long does image generation take on Android?
     a: On Snapdragon 8 Gen 2/3 with QNN NPU, 512x512 images take roughly 5-10 seconds at 20 steps. CPU-only (MNN) takes around 15 seconds on the same chip.
   - q: Do I need a specific chipset for image generation?
@@ -17,7 +17,7 @@ faq:
 
 Every image you generate on Midjourney, DALL-E, or Adobe Firefly is stored on their servers. Your prompts, the images, metadata. It's used for training and stored indefinitely.
 
-Off Grid runs Stable Diffusion entirely on your phone using Alibaba's MNN framework (CPU) or Qualcomm's QNN engine (NPU). Nothing is uploaded.
+Off Grid AI runs Stable Diffusion entirely on your phone using Alibaba's MNN framework (CPU) or Qualcomm's QNN engine (NPU). Nothing is uploaded.
 
 ---
 
@@ -30,15 +30,15 @@ Off Grid runs Stable Diffusion entirely on your phone using Alibaba's MNN framew
 
 ---
 
-## Step 1 - Install Off Grid
+## Step 1 - Install Off Grid AI
 
-[Get Off Grid on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
+[Get Off Grid AI on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
 ---
 
 ## Step 2 - Download an image model
 
-1. Open Off Grid → **Models** → switch to the **Image** tab
+1. Open Off Grid AI → **Models** → switch to the **Image** tab
 2. Choose a model based on your chipset:
 
 **All devices (MNN/CPU):**
@@ -57,11 +57,11 @@ Off Grid runs Stable Diffusion entirely on your phone using Alibaba's MNN framew
 
 ## Step 3 - Generate your first image
 
-1. Open Off Grid → **Image Generation**
+1. Open Off Grid AI → **Image Generation**
 2. Type a prompt: `a mountain valley at sunset, photorealistic, golden hour`
 3. Tap **Generate**
 
-Off Grid automatically detects whether your device supports QNN NPU and uses it if available, falling back to MNN (CPU) otherwise.
+Off Grid AI automatically detects whether your device supports QNN NPU and uses it if available, falling back to MNN (CPU) otherwise.
 
 ---
 
@@ -80,7 +80,7 @@ Off Grid automatically detects whether your device supports QNN NPU and uses it 
 
 **Prompt structure** - `[subject], [style], [lighting], [quality descriptors]`. Example: `a red fox in a forest, digital art, golden hour lighting, highly detailed, sharp focus`
 
-**Use prompt enhancement** - Off Grid can use your loaded text model to automatically expand a short prompt into a detailed one. Enable it in the generation screen. Just type `a fox in a forest` and let the LLM do the rest.
+**Use prompt enhancement** - Off Grid AI can use your loaded text model to automatically expand a short prompt into a detailed one. Enable it in the generation screen. Just type `a fox in a forest` and let the LLM do the rest.
 
 **Steps** - 20 steps is a good default. 30 gives marginally better quality at the cost of ~50% more time.
 

@@ -7,7 +7,7 @@ description: A practical guide to choosing the right LLM for your iPhone or Andr
 faq:
   - q: What is the best model for a phone with 4GB RAM?
     a: Qwen 3.5 2B (Q4_K_M) is the best option for 4GB RAM devices. It supports 262K context, thinking mode, and runs comfortably within memory limits. For vision tasks, Gemma 4 E2B is the recommended choice.
-  - q: What quantisation does Off Grid use by default?
+  - q: What quantisation does Off Grid AI use by default?
     a: Q4_K_M. It gives the best balance of quality and size for mobile hardware and is the default for all recommended models.
   - q: What is the best model for on-device reasoning?
     a: Gemma 4 E4B or Qwen 3.5 9B on devices with 6–8GB+ RAM. Both support thinking mode - the model reasons step-by-step before answering, significantly improving accuracy on complex tasks.
@@ -17,7 +17,7 @@ faq:
 
 # Which Model Should I Use?
 
-Off Grid uses the actual models in the app - not generic suggestions. All recommendations below are sourced directly from the model catalogue. Default quantisation is **Q4_K_M** for everything.
+Off Grid AI uses the actual models in the app - not generic suggestions. All recommendations below are sourced directly from the model catalogue. Default quantisation is **Q4_K_M** for everything.
 
 ---
 
@@ -70,7 +70,7 @@ Use it for: complex reasoning, math, multi-step problems. Skip it for: quick Q&A
 
 ## Understanding Q4_K_M
 
-Off Grid defaults to **Q4_K_M** quantisation for all models. This means:
+Off Grid AI defaults to **Q4_K_M** quantisation for all models. This means:
 
 - ~4.5 bits per weight
 - ~5–8% quality loss vs the full-precision original
@@ -83,7 +83,7 @@ Don't go below Q4_K_S unless you're severely constrained on storage. Q2/Q3 model
 
 ## RAM safety thresholds
 
-Off Grid automatically checks if a model fits safely before loading:
+Off Grid AI automatically checks if a model fits safely before loading:
 
 - **4GB RAM devices**: model budget = 40% of total RAM
 - **6GB+ RAM devices**: model budget = 60% of total RAM
@@ -99,7 +99,7 @@ If a model is marked as incompatible with your device, this is why.
 **What is the best model for 4GB RAM?**
 Qwen 3.5 2B (Q4_K_M). For vision tasks, Gemma 4 E2B.
 
-**What quantisation does Off Grid use?**
+**What quantisation does Off Grid AI use?**
 Q4_K_M by default - the best balance of quality and size for mobile.
 
 **What is the best model for reasoning?**

@@ -174,4 +174,4 @@ Essays on where personal AI is going, how it should work, and why it matters.
 
 ---
 
-*Mohammed Ali Chherawalla is the creator of Off Grid. New essays go to [dev.to/alichherawalla](https://dev.to/alichherawalla) first.*
+*Mohammed Ali Chherawalla is the creator of Off Grid AI. New essays go to [dev.to/alichherawalla](https://dev.to/alichherawalla) first.*

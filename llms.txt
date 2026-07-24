@@ -1,6 +1,6 @@
-# Off Grid
+# Off Grid AI
 
-Off Grid is private AI for iOS, Android, macOS, and Windows. Large language models and image generation run on hardware the user owns, with no cloud dependency or account. The core apps are free and open source.
+Off Grid AI is private AI for iOS, Android, macOS, and Windows. Large language models and image generation run on hardware the user owns, with no cloud dependency or account. The core apps are free and open source.
 
 ## What it does
 
@@ -19,7 +19,7 @@ Off Grid is private AI for iOS, Android, macOS, and Windows. Large language mode
 
 ## Why it matters
 
-Cloud AI providers have routine access to every query sent to their models. Off Grid eliminates that by keeping inference entirely on the user's device. The model runs in the phone's RAM. Nothing is transmitted.
+Cloud AI providers have routine access to every query sent to their models. Off Grid AI eliminates that by keeping inference entirely on the user's device. The model runs in the phone's RAM. Nothing is transmitted.
 
 ## Technical details
 

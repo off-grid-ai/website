@@ -6,9 +6,9 @@ nav_order: 4
 description: Run Qwen 3.5, Gemma 4, Mistral and other large language models directly on your Android phone with no internet, no API key, and no subscription. Complete guide for 2026.
 faq:
   - q: Can I run LLMs on Android without an internet connection?
-    a: Yes. Once the model is downloaded, Off Grid runs entirely offline. No internet, no server calls, no cloud.
+    a: Yes. Once the model is downloaded, Off Grid AI runs entirely offline. No internet, no server calls, no cloud.
   - q: Do I need an account to run LLMs locally on Android?
-    a: No. Off Grid requires no account, no login, and no API key. Download the app and a model and you're done.
+    a: No. Off Grid AI requires no account, no login, and no API key. Download the app and a model and you're done.
   - q: What Android phones can run LLMs locally in 2026?
     a: Any Android phone with 4GB RAM running Android 10 or later can run Qwen 3.5 2B. For larger models like Qwen 3.5 9B you need 8GB RAM - flagship devices like the Pixel 8 Pro, Samsung S24, or OnePlus 12.
   - q: Which LLM runs best on Android in 2026?
@@ -19,7 +19,7 @@ faq:
 
 Every time you ask ChatGPT a question, it's logged on a server. Your query, the response, the time, your account. It's stored indefinitely. That data is used to improve models, inform advertising, comply with law enforcement requests.
 
-Off Grid removes that entire layer. The model runs in your phone's RAM via llama.cpp on ARM64. Nothing is sent anywhere.
+Off Grid AI removes that entire layer. The model runs in your phone's RAM via llama.cpp on ARM64. Nothing is sent anywhere.
 
 Here's how to set it up.
 
@@ -33,9 +33,9 @@ Here's how to set it up.
 
 ---
 
-## Step 1 - Download Off Grid
+## Step 1 - Download Off Grid AI
 
-[Get Off Grid on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
+[Get Off Grid AI on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download){: .btn .btn-green }
 
 ---
 
@@ -58,7 +58,7 @@ Start with **Qwen 3.5 2B** on a 4–6GB device. Start with **Qwen 3.5 9B** if yo
 
 ## Step 3 - Download and load
 
-1. Open Off Grid → tap **Models**
+1. Open Off Grid AI → tap **Models**
 2. Select your model → tap **Download**
 3. Once downloaded, tap **Load**
 4. Open **Chat** and start
@@ -77,7 +77,7 @@ This is the point. You now have a capable AI assistant that works without any ne
 
 ## Performance by device
 
-Off Grid uses llama.cpp on ARM64 with NEON, i8mm, and dotprod SIMD instructions. Optional OpenCL GPU offloading is available on Qualcomm Adreno GPUs.
+Off Grid AI uses llama.cpp on ARM64 with NEON, i8mm, and dotprod SIMD instructions. Optional OpenCL GPU offloading is available on Qualcomm Adreno GPUs.
 
 | Device | RAM | Recommended model | Approx tok/s |
 |---|---|---|---|

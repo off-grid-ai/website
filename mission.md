@@ -91,7 +91,7 @@ The same thing that secretaries have been doing for the powerful for 200 years. 
 
 Make it personal. Make it private. Make it ambient. On the hardware people already own. Without asking them to trust anyone but themselves.
 
-That's what we're building with Off Grid.
+That's what we're building with Off Grid AI.
 
 ---
 
