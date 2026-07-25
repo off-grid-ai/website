@@ -4,9 +4,11 @@ Open gaps, surfaced honestly. Close with evidence, then mark resolved.
 
 ## Open
 
-- **Pages overflow horizontally at 390px** (found 2026-07-25). At a 390x844 viewport the document is wider than the viewport, so hero copy and button rows are clipped on the right. Reproduced on `/mobile/` and `/pro/` with the promo bar disabled, so it predates the promo bar and is not caused by it. Next step: find the element forcing `scrollWidth > 390` (suspect a fixed-width block in the shared content styles) and cap it, then re-verify the main journey at 390px.
+_None._
 
 ## Resolved
+
+- **A reported horizontal overflow at 390px did not exist - the measurement was wrong** (2026-07-25). Headless Chrome/Brave on macOS clamps its window to a ~500px minimum layout width while still writing a PNG at the requested `--window-size` width, so `--window-size=390,844` laid the page out at 500px and cropped the image to 390px. The crop looked like clipped content. Instrumented the built page in the browser instead: at the narrowest honest render `clientWidth` and `scrollWidth` both report 500 and no element exceeds the viewport. **Verifying responsive layout below 500px needs real device-metrics emulation (Playwright/Puppeteer CDP), not `--window-size`** - a plain screenshot at those widths cannot be trusted.
 
 - **The pricing ladder showed a stale, fabricated fallback and used RevenueCat's rolling 28-day Overview count instead of the cumulative customer total** (2026-07-20). The counter worker now requests the cumulative RevenueCat Charts v3 `customers_new` total from the project's inception date, with pure parsing and URL-contract tests. The website has no numeric fallback: it shows a reduced-motion-safe loading status, reveals scarcity only after a verified response, and reports an unavailable state on failure. Verified against the production RevenueCat API, where the cumulative total is 795, plus worker tests, typecheck, dry-run bundle, production Jekyll build, rendered assertions, and live endpoint/page checks.
 
