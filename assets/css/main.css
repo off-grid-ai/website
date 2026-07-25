@@ -137,10 +137,13 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .promo-bar-code.copied .promo-bar-code-copied { display: inline; }
 .promo-bar-meta {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--text-secondary);
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* Final week: the deadline stops being metadata and starts being the point. */
+.promo-bar-meta.urgent { color: var(--accent); }
 .promo-bar-cta {
   font-size: 0.78rem;
   font-weight: 600;
@@ -166,16 +169,21 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .promo-bar-close:hover { color: var(--text-primary); background: var(--bg-hover); }
 
+/* The long sell drops on narrow screens; the code, the deadline and the CTA
+   never do - a bar without a deadline has no urgency left in it. */
 @media (max-width: 900px) {
-  .promo-bar-text, .promo-bar-meta { display: none; }
+  .promo-bar-text { display: none; }
 }
 @media (max-width: 560px) {
-  .promo-bar { gap: 4px; padding: 6px 8px; }
+  .promo-bar { gap: 4px; padding: 6px 8px; align-items: flex-start; }
   .promo-bar-tag { display: none; }
+  .promo-bar-inner { gap: 3px 8px; }
   .promo-bar-code { padding: 2px 6px; }
   .promo-bar-code-label { font-size: 0.7rem; }
   .promo-bar-code-value { font-size: 0.74rem; }
+  .promo-bar-meta { font-size: 0.7rem; }
   .promo-bar-cta { font-size: 0.74rem; }
+  .promo-bar-close { margin-top: 1px; }
 }
 
 /* Promo code block (in-page, e.g. the alpha join section) */

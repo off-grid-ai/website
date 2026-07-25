@@ -9,7 +9,7 @@
       <span class="promo-bar-code-value">{{ promo.code }}</span>
       <span class="promo-bar-code-copied" aria-hidden="true">copied</span>
     </button>
-    <span class="promo-bar-meta">{{ promo.meta }}</span>
+    <span class="promo-bar-meta" id="promoBarMeta">{{ promo.meta }}</span>
     <a class="promo-bar-cta" href="{{ promo.url | relative_url }}{{ promo.anchor }}">{{ promo.cta }} →</a>
   </div>
   <button type="button" class="promo-bar-close" id="promoBarClose" aria-label="Dismiss offer">
@@ -23,10 +23,22 @@
     var code = bar.getAttribute('data-promo-code');
     var until = bar.getAttribute('data-promo-until');
     // Expired offers never render, even from a cached page.
-    if (until && new Date(until + 'T23:59:59') < new Date()) return;
+    var ends = until ? new Date(until + 'T23:59:59') : null;
+    var now = new Date();
+    if (ends && ends < now) return;
     if (localStorage.getItem('promo-dismissed:' + code) === '1') return;
     bar.hidden = false;
     document.documentElement.classList.add('has-promo-bar');
+
+    // Urgency: the deadline is the one thing that never gets hidden, on any
+    // screen size. It sharpens into a countdown in the final week.
+    var meta = document.getElementById('promoBarMeta');
+    if (meta && ends) {
+      var daysLeft = Math.floor((ends - now) / 86400000);
+      if (daysLeft <= 0) meta.textContent = 'last day';
+      else if (daysLeft <= 7) meta.textContent = daysLeft === 1 ? '1 day left' : daysLeft + ' days left';
+      if (daysLeft <= 7) meta.classList.add('urgent');
+    }
 
     var copyBtn = document.getElementById('promoBarCode');
     if (copyBtn) {
