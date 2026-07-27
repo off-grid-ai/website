@@ -758,10 +758,17 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .ogap-theme-image { display: block; }
 .ogap-theme-image--dark { display: none; }
+.ogap-media--hero .ogap-theme-image {
+  aspect-ratio: 3 / 2;
+}
 .ogap-media img {
   display: block;
   width: 100%;
   height: auto;
+}
+.ogap-media--hero img {
+  height: 100%;
+  object-fit: cover;
 }
 .ogap-media figcaption {
   padding: 10px 12px;
@@ -819,7 +826,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   transform: translate(-50%, -50%);
 }
 .ogap-power-coil circle {
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-width: 2;
 }
 .ogap-power-cable-path {
@@ -839,24 +846,24 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   stroke-width: 5;
 }
 .ogap-power-cable-line {
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-dasharray: 2 2;
   stroke-width: 1.5;
 }
 .ogap-power-route-arrow {
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.5;
 }
 .ogap-power-port {
   fill: var(--bg);
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-width: 1.25;
 }
 .ogap-power-callout rect {
   fill: var(--bg-subtle);
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-width: 0.5;
 }
 .ogap-power-callout text {
@@ -867,7 +874,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   letter-spacing: 0.04em;
 }
 .ogap-power-callout path {
-  stroke: currentColor;
+  stroke: currentcolor;
   stroke-width: 0.75;
 }
 .ogap-power-copy { padding: 16px; }
@@ -1115,6 +1122,12 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   .early-access-hero h1 { font-size: 1.875rem; }
   .ea-essay-links { grid-template-columns: 1fr; }
   .essay-early-access { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .ogap-media--hero .ogap-theme-image {
+    aspect-ratio: 819 / 1024;
+  }
 }
 
 /* ─── Pricing cohort ladder (_includes/pricing-ladder.html) ─────────────────── */
