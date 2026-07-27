@@ -4,7 +4,7 @@ title: Recorder
 parent: Mobile
 nav_order: 1
 permalink: /mobile/recorder/
-description: The Off Grid AI Mobile recorder - leave it running and your phone catches your day, transcribes it, and hands you what mattered, entirely on-device. In private alpha; join with code ALPHA_20 for 20% off Pro.
+description: The Off Grid AI Mobile recorder - leave it running and your phone catches your day, transcribes it, and hands you what mattered, entirely on-device. The current private alpha cohort is full.
 faq:
   - q: What does the recorder do?
     a: You leave it running and your phone captures your day, transcribes it on-device, then a local model pulls out the summary, the key points and the follow-ups. Recordings land against your calendar, index into a searchable knowledge base, and you can open a chat scoped to any one of them and ask.
@@ -12,8 +12,8 @@ faq:
     a: No. Voice detection, transcription and the insights all run on the device. There is no server in the loop and no account holding your day - turn on airplane mode and it still works.
   - q: Does it record everything, all the time?
     a: It listens continuously but only keeps speech. An on-device voice-activity model gates the mic frame by frame, so silence is dropped before anything is written or transcribed. You can compress a recording after it is analysed, or strip it back to speech only and still restore the full timeline later.
-  - q: How do I get in?
-    a: Get Off Grid AI Pro and enter the code ALPHA_20 on the checkout page for 20% off. The code works until August 15, 2026. Your key turns the recorder on inside the Off Grid AI Mobile app you already have.
+  - q: Can I join the private alpha?
+    a: The current private alpha cohort is full. The recorder is still in testing, and we are not taking more people into this round.
   - q: Is it finished?
     a: No, and that is the point. Continuous capture, on-device transcription and local analysis in real time push hard against battery and heat. You run it daily, tell us what breaks, and shape what ships.
 ---
@@ -25,9 +25,10 @@ faq:
 </div>
 
 <div class="hero-buttons">
-  <a href="#join" class="btn btn-green">Join the private alpha - 20% off with ALPHA_20</a>
-  <a href="#what-it-does" class="btn btn-outline">See what it does</a>
+  <a href="#what-it-does" class="btn btn-green">See what it does</a>
 </div>
+
+<p class="ea-pricing-note" style="text-align:center;">The current private alpha is full. We are not taking more people into this round.</p>
 
 <div class="offer-closing" role="note">
   <strong>Think about everything you forgot today.</strong> The name you blanked on. The one line from the meeting you needed two hours later. The idea you had walking to lunch, gone before you sat down. Your memory leaks all day and you have learned to live with it. This is the thing that catches it, and it runs entirely on your phone.
@@ -115,42 +116,4 @@ Sync is being built right behind it, so the same memory follows you across your 
 
 Doing all of this on-device, privately, in real time is genuinely hard. Continuous capture plus transcription plus a local model pushes against real limits on battery and heat, and we are still finding the edges of it on real phones.
 
-We would rather get it right with a group who run it every day than ship something rough to everyone. That is what the private alpha is: you run it daily, tell us what works and what does not, and shape what this becomes.
-
----
-
-## Join the private alpha
-{: #join}
-
-Get Off Grid AI Pro and enter the code on the checkout page. Your key turns the recorder on, and covers everything else Pro does across your laptop and your phone.
-
-{% assign promo = site.data.promo %}
-<div class="promo-code-box">
-  <div class="promo-code-box-label">{{ promo.discount }} with code</div>
-  <button type="button" class="promo-code-box-value" id="alphaCodeCopy" title="Copy code">{{ promo.code }}<span class="promo-code-box-copied">copied</span></button>
-  <div class="promo-code-box-note">Enter it at checkout before you pay · works until {{ promo.until_label }}</div>
-</div>
-
-<div class="hero-buttons">
-  <a href="{{ '/pro' | relative_url }}#buy" class="btn btn-green">Claim a seat →</a>
-  <a href="{{ '/mobile' | relative_url }}" class="btn btn-outline">See what the free app already does</a>
-</div>
-
-<p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
-
-<script>
-  (function() {
-    var btn = document.getElementById('alphaCodeCopy');
-    if (!btn) return;
-    var code = {{ promo.code | jsonify }};
-    btn.addEventListener('click', function() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(code).then(function() {
-          btn.classList.add('copied');
-          setTimeout(function() { btn.classList.remove('copied'); }, 1600);
-        }, function() {});
-      }
-      if (typeof posthog !== 'undefined') posthog.capture('promo_code_copy', { code: code, page: window.location.pathname });
-    });
-  })();
-</script>
+We would rather get it right with a group who run it every day than ship something rough to everyone. The current private alpha cohort is full. They run it daily, tell us what works and what does not, and shape what this becomes.
