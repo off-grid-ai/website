@@ -24,6 +24,7 @@ posthog_token: "phc_u7cnV9P3cTovsfPTE2nhB7g5G4qdtZJ5dgMzv7ryfKWs"
 # /pay page can offer the choice directly (annual vs lifetime).
 revenuecat_link_annual: "awiunwnoekgjmxxk"    # offgrid_pro_annual - $49/yr
 revenuecat_link_lifetime: "avvnmcnfsgbmjaee"  # Off Grid AI Lifetime Pro - $69 one-time
+revenuecat_link_one_day: "ceizjfrnrgdclclr"   # Off Grid AI Pro - $1 for 24 hours
 revenuecat_link_ogap: "mvayfyykkdodnvxw"      # OGAP hardware pre-order - $49
 
 logo: /assets/logo.png

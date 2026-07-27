@@ -37,8 +37,9 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
       <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>
       <button type="button" class="ea-submit ea-submit-alt" data-plan="annual" disabled>Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
     </div>
+    <button type="button" class="ea-submit ea-submit-alt" data-plan="one_day" disabled>Try Off Grid AI Pro for 24 hours - ${{ site.data.pricing.one_day }}</button>
     <div class="ea-form-footer">
-      <p class="ea-pricing-note">one key for desktop + mobile · up to {{ site.data.pricing.devices }} devices · we email your key</p>
+      <p class="ea-pricing-note">Run the full Pro license for 24 hours for ${{ site.data.pricing.one_day }}. Every option gives you one key for desktop + mobile, up to {{ site.data.pricing.devices }} devices. We email your key.</p>
     </div>
     <p class="ea-status" id="payStatus" aria-live="polite"></p>
   </form>
@@ -373,7 +374,8 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
     // One RevenueCat purchase link per product; the buttons carry data-plan.
     var LINKS = {
       annual: {{ site.revenuecat_link_annual | jsonify }},
-      lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
+      lifetime: {{ site.revenuecat_link_lifetime | jsonify }},
+      one_day: {{ site.revenuecat_link_one_day | jsonify }}
     };
     var form = document.getElementById('payForm');
     var emailInput = document.getElementById('payEmail');
@@ -424,9 +426,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
         if (typeof posthog !== 'undefined') {
           // Never let an analytics failure (blocked, errored) stop the purchase.
           try {
-            posthog.identify(email, { email: email });
             posthog.capture('pro_checkout_started', {
-              email: email,
               plan: plan,
               source: window.location.pathname
             });
