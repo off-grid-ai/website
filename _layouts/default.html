@@ -386,7 +386,7 @@
         posthog.capture('docs_download_click', { href: href, page: page });
         return;
       }
-      // Desktop installers (macOS stable/nightly + Windows nightly)
+      // Desktop installers (macOS and Windows stable/nightly)
       if (href.indexOf('.dmg') !== -1 || href.indexOf('.exe') !== -1) {
         posthog.capture('desktop_download_click', {
           href: href,

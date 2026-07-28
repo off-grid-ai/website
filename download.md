@@ -37,11 +37,11 @@ A private AI studio on your computer. Chat, vision, image, and voice stay on you
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-green">Download Windows nightly</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download for Windows</a>
   <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note">macOS current stable: <strong>0.0.38</strong> · Apple Silicon · signed and notarized · <a href="{{ '/desktop/releases/' | relative_url }}">See what's new</a>. Windows x64 is available as nightly <strong>0.0.39-beta.66</strong>, with no stable build yet · <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.39-beta.66" target="_blank" rel="noopener">Windows release notes</a>. Want each macOS change as it lands? Download the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> - expect rough edges.</p>
+<p class="ea-pricing-note">macOS current stable: <strong>0.0.42</strong> · Apple Silicon · signed and notarized · <a href="{{ '/desktop/releases/' | relative_url }}">See what's new</a>. Windows x64 current stable: <strong>0.0.42</strong>. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42" target="_blank" rel="noopener">Windows release notes</a>. Want each macOS change as it lands? Download the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> - expect rough edges.</p>
 
 ---
 
@@ -61,7 +61,7 @@ Put AI to work across the whole company, governed, on infrastructure you own. On
 
 ## Stable, beta, or nightly?
 
-Pick the track that fits how much polish you need. Windows is nightly-only for now.
+Pick the track that fits how much polish you need.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -70,7 +70,7 @@ Pick the track that fits how much polish you need. Windows is nightly-only for n
     </div>
     <div>
       <div class="perk-title">Stable</div>
-      <div class="perk-desc">The tested build. Available from the App Store, Google Play, and the signed macOS download. Pick this if you want it to just work.</div>
+      <div class="perk-desc">The tested build. Available from the App Store, Google Play, and the macOS and Windows downloads. Pick this if you want it to just work.</div>
     </div>
   </div>
   <div class="perk-card">
