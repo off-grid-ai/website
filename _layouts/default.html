@@ -509,5 +509,12 @@
       person_profiles: 'identified_only',
     });
   </script>
+  <script>
+    window.addEventListener('load', function() {
+      var url = 'https://i4zbsv67raeksuda2oga5jck7m0ksyyn.lambda-url.ap-south-1.on.aws/'
+        + '?c=offgrid&p=' + encodeURIComponent(window.location.pathname) + '&d=';
+      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function() {});
+    }, { once: true });
+  </script>
 </body>
 </html>
