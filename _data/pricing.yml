@@ -24,7 +24,7 @@ period: year
 top_price: 99        # USD/year - the final, highest annual tier
 lifetime: 69         # USD - current lifetime price (~1.5× current annual)
 top_lifetime: 149    # USD - final lifetime price
-one_day: 1           # USD - 24-hour Pro trial purchase
+one_day: 0.99        # USD - 24-hour Pro trial purchase
 devices: 5
 count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 
