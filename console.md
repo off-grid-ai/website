@@ -133,12 +133,6 @@ Agree on the outcomes first. See them working on your systems. Then decide what 
   <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a call</a>
 </div>
 
-### Source availability
-
-**OFF GRID AI SOURCE-AVAILABLE LICENSE 1.0**
-
-Inspect, self-host, modify, and use Off Grid AI for business at no charge for up to 25 users. Larger deployments, proprietary embedding, hosted resale, and white-labelling require a commercial license. [Read the license](https://github.com/off-grid-ai/OGAC/blob/main/LICENSE).
-
 <script>
   (function() {
     var article = document.querySelector('.content');

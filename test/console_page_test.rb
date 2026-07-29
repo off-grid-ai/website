@@ -9,9 +9,7 @@ required = {
   "current product narrative" => "A department gets its own working product.",
   "decision-queue App shape" => "DECISION QUEUE",
   "job/report App shape" => "JOB / REPORT",
-  "canonical source repository" => "https://github.com/off-grid-ai/OGAC",
-  "accurate license name" => "OFF GRID AI SOURCE-AVAILABLE LICENSE 1.0",
-  "self-install limit" => "up to 25 users"
+  "canonical source repository" => "https://github.com/off-grid-ai/OGAC"
 }
 
 forbidden = {
@@ -19,7 +17,9 @@ forbidden = {
   "incorrect AGPL claim" => "AGPL",
   "stale source repository" => "github.com/off-grid-ai/console",
   "copied Console page visual system" => "console-page",
-  "copied product mockup" => "console-product-frame"
+  "copied product mockup" => "console-product-frame",
+  "removed source availability section" => "OFF GRID AI SOURCE-AVAILABLE LICENSE 1.0",
+  "removed self-install limit" => "up to 25 users"
 }
 
 failures = []
