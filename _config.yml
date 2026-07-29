@@ -28,7 +28,7 @@ revenuecat_link_one_day: "ceizjfrnrgdclclr"   # Off Grid AI Pro - $1 for 24 hour
 revenuecat_link_ogap: "mvayfyykkdodnvxw"      # OGAP hardware pre-order - $49
 
 logo: /assets/logo.png
-cover: /assets/cover.png
+cover: /assets/cover-democratizing-intelligence.png
 
 exclude:
   - README.md
