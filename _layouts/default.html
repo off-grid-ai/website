@@ -234,7 +234,7 @@
     </aside>
 
     <!-- Main -->
-    <div class="main">
+    <div class="main{% if page.wide %} main-wide{% endif %}">
       {% if page.parent %}
         <nav class="breadcrumb" aria-label="breadcrumb">
           <a href="{{ '/' | relative_url }}">Docs</a>
@@ -248,6 +248,7 @@
         </nav>
       {% endif %}
 
+      {% unless page.hide_reactions %}
       <div class="essay-reactions" id="essayReactions" data-pagefind-ignore>
         <span class="essay-reactions-label">Did this land?</span>
         <div class="essay-reactions-buttons">
@@ -260,8 +261,9 @@
         </div>
         <span class="essay-reaction-thanks" id="reactionThanks" hidden></span>
       </div>
+      {% endunless %}
 
-      <article class="content" data-pagefind-body>
+      <article class="content{% if page.page_class %} {{ page.page_class }}{% endif %}" data-pagefind-body>
         {{ content }}
       </article>
 
