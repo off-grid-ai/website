@@ -17,7 +17,9 @@ required = {
 forbidden = {
   "retired product analogy" => "AWS for AI",
   "incorrect AGPL claim" => "AGPL",
-  "stale source repository" => "github.com/off-grid-ai/console"
+  "stale source repository" => "github.com/off-grid-ai/console",
+  "copied Console page visual system" => "console-page",
+  "copied product mockup" => "console-product-frame"
 }
 
 failures = []
