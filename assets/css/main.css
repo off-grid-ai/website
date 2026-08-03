@@ -1,60 +1,97 @@
 /* ─── Reset & Base ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Token layer — see ../../brand/DESIGN_PHILOSOPHY.md. Section refs (§n) point at it. */
 :root {
-  --accent: #16a34a;
-  --accent-hover: #15803d;
-  --accent-subtle: #f0fdf4;
-  --accent-subtle-border: #bbf7d0;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --border: #e5e7eb;
-  --border-light: #f3f4f6;
+  /* §3 Accent: emerald, and only emerald. Light mode value. */
+  --accent: #059669;
+  --accent-rgb: 5 150 105;
+  --accent-hover: #047857;
+  --accent-on: #ffffff;                          /* text/icon sitting ON the accent */
+  --accent-subtle: rgba(5, 150, 105, 0.06);
+  --accent-subtle-border: rgba(5, 150, 105, 0.22);
+
+  /* §6 Hierarchy through size and weight — three text tiers, no color-coding. */
+  --text-primary: #18181b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+
+  /* §4 Base + tiered surfaces (background → surface → nested), high contrast. */
   --bg: #ffffff;
-  --bg-subtle: #f9fafb;
-  --bg-hover: #f3f4f6;
-  --code-bg: #f3f4f6;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --bg-rgb: 255 255 255;                         /* for translucent chrome */
+  --bg-subtle: #fafafa;
+  --bg-nested: #f4f4f5;
+  --bg-hover: #f4f4f5;
+  /* In a system with no shadows the border IS the edge, so light mode needs a
+     border with enough contrast to actually draw a card against white. */
+  --border: #d4d4d8;
+  --border-light: #e7e7e9;
+  --code-bg: #f4f4f5;
+
+  /* §4 Depth is borders and surface tiers, never shadow. Kept as no-ops so the
+     ~30 existing var(--shadow-*) references resolve to nothing. */
+  --shadow-sm: none;
+  --shadow-md: none;
+
   --sidebar-width: 256px;
-  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
-  --radius: 8px;
+  --main-max: 1200px;                            /* §9 fill the width */
+  --measure: 74ch;                               /* §9 reading column caps inside it */
+
+  /* §2 One family everywhere. Menlo ships 400/700 only, so §2's "light weights"
+     means we sit at 400 and get hierarchy from size and tracking instead. */
+  --font: "Menlo", ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", monospace;
+  --font-mono: var(--font);
+
+  --radius: 8px;                                 /* anti-pattern: no pill shapes */
+  --radius-sm: 4px;
+
+  /* §7 micro 120ms · hover 220ms · reveal 400ms */
+  --t-micro: 120ms;
+  --t-hover: 220ms;
+  --t-reveal: 400ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
-    --border: #374151;
-    --border-light: #1f2937;
-    --bg: #111827;
-    --bg-subtle: #1f2937;
-    --bg-hover: #374151;
-    --code-bg: #1f2937;
-    --accent-subtle: #052e16;
-    --accent-subtle-border: #14532d;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --accent: #34d399;
+    --accent-rgb: 52 211 153;
+    --accent-hover: #6ee7b7;
+    --accent-on: #0a0a0a;
+    --accent-subtle: rgba(52, 211, 153, 0.08);
+    --accent-subtle-border: rgba(52, 211, 153, 0.24);
+    --text-primary: #fafafa;
+    --text-secondary: #d4d4d4;
+    --text-muted: #8a8a8a;
+    --bg: #0a0a0a;
+    --bg-rgb: 10 10 10;
+    --bg-subtle: #121212;
+    --bg-nested: #1a1a1a;
+    --bg-hover: #1a1a1a;
+    --border: #262626;
+    --border-light: #1c1c1c;
+    --code-bg: #161616;
   }
 }
 
 [data-theme="dark"] {
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --border: #374151;
-  --border-light: #1f2937;
-  --bg: #111827;
-  --bg-subtle: #1f2937;
-  --bg-hover: #374151;
-  --code-bg: #1f2937;
-  --accent-subtle: #052e16;
-  --accent-subtle-border: #14532d;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --accent: #34d399;
+  --accent-rgb: 52 211 153;
+  --accent-hover: #6ee7b7;
+  --accent-on: #0a0a0a;
+  --accent-subtle: rgba(52, 211, 153, 0.08);
+  --accent-subtle-border: rgba(52, 211, 153, 0.24);
+  --text-primary: #fafafa;
+  --text-secondary: #d4d4d4;
+  --text-muted: #8a8a8a;
+  --bg: #0a0a0a;
+  --bg-rgb: 10 10 10;
+  --bg-subtle: #121212;
+  --bg-nested: #1a1a1a;
+  --bg-hover: #1a1a1a;
+  --border: #262626;
+  --border-light: #1c1c1c;
+  --code-bg: #161616;
 }
 
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
@@ -377,11 +414,13 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .newsletter-status.error { color: #ef4444; }
 
 /* ─── Main Content ─────────────────────────────────────────────────────────── */
+/* §9 The page fills the width; the reading measure is capped inside it
+   (see .content > p/li/h* rules in offgrid.css), not by centering the page. */
 .main {
   flex: 1;
   min-width: 0;
   padding: 48px 56px 80px;
-  max-width: 860px;
+  max-width: var(--main-max);
 }
 
 /* ─── Breadcrumb ────────────────────────────────────────────────────────────── */

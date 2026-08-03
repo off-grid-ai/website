@@ -6,3 +6,9 @@ vendor/
 node_modules/
 Gemfile.lock
 .DS_Store
+
+# Next app (marketing surfaces)
+next-site/node_modules/
+next-site/.next/
+next-site/out/
+next-site/next-env.d.ts

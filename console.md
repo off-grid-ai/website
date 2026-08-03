@@ -15,7 +15,7 @@ description: "OGAC (the Off Grid AI Console) is AWS for AI. Open source, and bui
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
-  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://cal.com/mohammed-ali-chherawalla-jlvdhw/discovery-ogac" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
@@ -182,7 +182,7 @@ Same principles at every scale: the model runs on hardware you control, the data
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
   <a href="https://github.com/off-grid-ai/console" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
-  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://cal.com/mohammed-ali-chherawalla-jlvdhw/discovery-ogac" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-top:18px;">
@@ -217,7 +217,7 @@ Same principles at every scale: the model runs on hardware you control, the data
       if (typeof posthog === 'undefined') return;
       try {
         posthog.capture('console_cta_click', {
-          destination: href.indexOf('book=') !== -1 ? 'demo' : 'console',
+          destination: href.indexOf('cal.com') !== -1 ? 'demo' : 'console',
           href: href,
           label: link.textContent.trim(),
           section: sectionFor(link),
