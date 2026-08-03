@@ -14,7 +14,7 @@ description: "Off Grid AI Console turns the processes your teams already run int
 
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">View the live product</a>
-  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a call</a>
+  <a href="https://cal.com/mohammed-ali-chherawalla-jlvdhw/discovery-ogac" target="_blank" rel="noopener" class="btn btn-outline">Book a call</a>
   <a href="https://github.com/off-grid-ai/OGAC" target="_blank" rel="noopener" class="btn btn-outline">View source</a>
 </div>
 
@@ -130,7 +130,7 @@ Agree on the outcomes first. See them working on your systems. Then decide what 
 
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">View the live product</a>
-  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a call</a>
+  <a href="https://cal.com/mohammed-ali-chherawalla-jlvdhw/discovery-ogac" target="_blank" rel="noopener" class="btn btn-outline">Book a call</a>
 </div>
 
 <script>

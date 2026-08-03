@@ -51,7 +51,7 @@ Put AI to work across the whole company, governed, on infrastructure you own. On
 
 <div class="hero-buttons">
   <a href="https://onprem-console.getoffgridai.co?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">Explore Console</a>
-  <a href="https://onprem-console.getoffgridai.co/?book=1" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
+  <a href="https://cal.com/mohammed-ali-chherawalla-jlvdhw/discovery-ogac" target="_blank" rel="noopener" class="btn btn-outline">Book a demo</a>
   <a href="https://github.com/off-grid-ai/OGAC?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Self-host from source</a>
 </div>
 
