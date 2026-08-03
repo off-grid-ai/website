@@ -1,0 +1,22 @@
+{%- comment -%}
+Homepage first-fold proof strip: the privacy claim is checkable, and here is
+where you check it. Repos and fallback star counts come from _data/repos.yml;
+assets/js/github-stars.js refreshes the counts live when GitHub answers.
+{%- endcomment -%}
+<div class="oss-strip">
+  <p class="oss-strip-copy">Don't take the privacy claim on faith - <strong>read the code</strong> that keeps your data on your device:</p>
+  <div class="oss-repos">
+    {%- for repo in site.data.repos %}
+    <a class="oss-repo" href="{{ repo.url }}" target="_blank" rel="noopener" data-repo="{{ repo.name }}">
+      <span class="oss-repo-name">{{ repo.name }}</span>
+      <span class="oss-repo-label">{{ repo.label }}</span>
+      <span class="oss-repo-stars">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+        <span class="oss-repo-count">{% if repo.stars >= 1000 %}{{ repo.stars | divided_by: 100.0 | round | divided_by: 10.0 }}k{% else %}{{ repo.stars }}{% endif %}</span>
+        <span class="visually-hidden">stars on GitHub</span>
+      </span>
+    </a>
+    {%- endfor %}
+  </div>
+</div>
+<script src="{{ '/assets/js/github-stars.js' | relative_url }}" defer></script>

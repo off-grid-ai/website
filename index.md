@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 100k+ downloads, 2500+ GitHub stars.
+description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 100k+ downloads, 2900+ GitHub stars.
 ---
 
 <img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
@@ -41,6 +41,8 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
   </a>
 </div>
 
+{% include open-source-strip.html %}
+
 <p class="ea-pricing-note" style="text-align:center;">iOS 0.0.103 is live on the App Store. macOS has a stable build. Windows stable <strong>0.0.42</strong> is available now. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42" target="_blank" rel="noopener">Windows release notes</a>.</p>
 
 <div class="stats-row">
@@ -49,7 +51,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
     <div class="stat-label">downloads<br>Play Store, App Store &amp; GitHub</div>
   </div>
   <div class="stat-card">
-    <div class="stat-number">2,500+</div>
+    <div class="stat-number">2,900+</div>
     <div class="stat-label">stars on GitHub</div>
   </div>
   <div class="stat-card">

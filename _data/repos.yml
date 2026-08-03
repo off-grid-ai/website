@@ -1,0 +1,18 @@
+# Public repos surfaced in the homepage "read the code" strip.
+#
+# `stars` is the server-rendered fallback so the strip is correct with JS off;
+# assets/js/github-stars.js refreshes it from the GitHub API when the request
+# succeeds. Keep these roughly current - they are a proof claim, so a number
+# that reads lower than reality costs us nothing, one that reads higher does.
+- name: OGAM
+  label: iOS &amp; Android
+  url: https://github.com/off-grid-ai/OGAM
+  stars: 2860
+- name: OGAD
+  label: macOS &amp; Windows
+  url: https://github.com/off-grid-ai/OGAD
+  stars: 52
+- name: OGAC
+  label: Console
+  url: https://github.com/off-grid-ai/OGAC
+  stars: 12
