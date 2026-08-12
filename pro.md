@@ -377,14 +377,11 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
       lifetime: {{ site.revenuecat_link_lifetime | jsonify }},
       one_day: {{ site.revenuecat_link_one_day | jsonify }}
     };
-    // Google Ads conversion, one label per plan. An empty label means "do not
-    // send" - see the google_ads_* block in _config.yml.
-    var ADS_ID = {{ site.google_ads_id | jsonify }};
-    var ADS_LABELS = {
-      annual: {{ site.google_ads_conversion_label_annual | default: site.google_ads_conversion_label | jsonify }},
-      lifetime: {{ site.google_ads_conversion_label_lifetime | default: site.google_ads_conversion_label | jsonify }},
-      one_day: {{ site.google_ads_conversion_label_one_day | default: site.google_ads_conversion_label | jsonify }}
-    };
+    // Google Ads: one "checkout started" conversion action for all three plans.
+    // An empty label means "do not send" - see the google_ads_* block in
+    // _config.yml.
+    var ADS_SEND_TO = {{ site.google_ads_id | jsonify }} + '/' + {{ site.google_ads_conversion_label | jsonify }};
+    var ADS_ENABLED = {{ site.google_ads_conversion_label | jsonify }} !== '';
     // The same numbers the buttons render, so the value we report to Ads can
     // never drift from the price the buyer actually clicked.
     var PLAN_VALUES = {
@@ -464,10 +461,10 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
         // Count the checkout click as the Google Ads conversion. Checkout opens
         // in a new tab, so this page is never unloaded and the beacon has time
         // to leave - no event_callback dance needed.
-        if (ADS_LABELS[plan] && typeof gtag === 'function') {
+        if (ADS_ENABLED && typeof gtag === 'function') {
           try {
             gtag('event', 'conversion', {
-              send_to: ADS_ID + '/' + ADS_LABELS[plan],
+              send_to: ADS_SEND_TO,
               value: PLAN_VALUES[plan],
               currency: 'USD',
               transaction_id: dedupeId(plan, email)
