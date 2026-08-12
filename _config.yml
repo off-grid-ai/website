@@ -18,6 +18,28 @@ plugins:
 
 posthog_token: "phc_u7cnV9P3cTovsfPTE2nhB7g5G4qdtZJ5dgMzv7ryfKWs"
 
+# Google Ads. The base tag (in _layouts/default.html) fires a page view on every
+# page - that powers remarketing audiences, but on its own it counts NOTHING as a
+# conversion. A conversion is only recorded when we send an explicit
+# `conversion` event with a send_to of "<id>/<label>".
+#
+# The label is the string after the slash in the snippet Google Ads shows you
+# under Goals > Conversions > <your action> > Tag setup ("Install the tag
+# yourself"). Paste JUST the label here, not the whole AW-.../ prefix.
+#
+# Leave a label empty and no conversion event is sent for that plan - the site
+# keeps working and the page view still fires. So it is safe to ship this before
+# the actions exist in Google Ads.
+google_ads_id: "AW-18343342706"
+# Shared fallback: used for any plan without its own label below.
+google_ads_conversion_label: ""
+# Optional per-plan overrides - use these if you create a separate conversion
+# action per product (worth it: a $0.99 trial click and a $69 lifetime click
+# deserve different bid targets).
+google_ads_conversion_label_lifetime: ""
+google_ads_conversion_label_annual: ""
+google_ads_conversion_label_one_day: ""
+
 # RevenueCat Web Purchase Link ids (the path segment in pay.rev.cat/<id>/...).
 # Public by design - they appear in every customer's checkout URL, e.g.
 # https://pay.rev.cat/<id>/<app_user_id>?email=<email>. One per product so the

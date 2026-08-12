@@ -377,6 +377,33 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
       lifetime: {{ site.revenuecat_link_lifetime | jsonify }},
       one_day: {{ site.revenuecat_link_one_day | jsonify }}
     };
+    // Google Ads conversion, one label per plan. An empty label means "do not
+    // send" - see the google_ads_* block in _config.yml.
+    var ADS_ID = {{ site.google_ads_id | jsonify }};
+    var ADS_LABELS = {
+      annual: {{ site.google_ads_conversion_label_annual | default: site.google_ads_conversion_label | jsonify }},
+      lifetime: {{ site.google_ads_conversion_label_lifetime | default: site.google_ads_conversion_label | jsonify }},
+      one_day: {{ site.google_ads_conversion_label_one_day | default: site.google_ads_conversion_label | jsonify }}
+    };
+    // The same numbers the buttons render, so the value we report to Ads can
+    // never drift from the price the buyer actually clicked.
+    var PLAN_VALUES = {
+      annual: {{ site.data.pricing.price }},
+      lifetime: {{ site.data.pricing.lifetime }},
+      one_day: {{ site.data.pricing.one_day }}
+    };
+
+    // Stable id per buyer+plan so a double-click - or a reload and re-click -
+    // reports ONE conversion instead of several; Google Ads dedups on
+    // transaction_id. Hashed, so the raw email never goes to Google from here.
+    function dedupeId(plan, email) {
+      var h = 5381;
+      for (var i = 0; i < email.length; i++) {
+        h = ((h << 5) + h + email.charCodeAt(i)) | 0;
+      }
+      return plan + '-' + (h >>> 0).toString(36);
+    }
+
     var form = document.getElementById('payForm');
     var emailInput = document.getElementById('payEmail');
     var buttons = form ? form.querySelectorAll('button[data-plan]') : [];
@@ -432,6 +459,21 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
             });
           } catch (err) {
             console.warn('PostHog tracking failed:', err);
+          }
+        }
+        // Count the checkout click as the Google Ads conversion. Checkout opens
+        // in a new tab, so this page is never unloaded and the beacon has time
+        // to leave - no event_callback dance needed.
+        if (ADS_LABELS[plan] && typeof gtag === 'function') {
+          try {
+            gtag('event', 'conversion', {
+              send_to: ADS_ID + '/' + ADS_LABELS[plan],
+              value: PLAN_VALUES[plan],
+              currency: 'USD',
+              transaction_id: dedupeId(plan, email)
+            });
+          } catch (err) {
+            console.warn('Google Ads conversion failed:', err);
           }
         }
         status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';

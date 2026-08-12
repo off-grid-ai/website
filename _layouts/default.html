@@ -11,14 +11,15 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script>!function(){var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||((!t)&&d))document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light')}()</script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18343342706"></script>
+  <!-- Google tag (gtag.js) - page view only. Conversions are sent explicitly
+       from the checkout buttons on /pro; see _config.yml (google_ads_*). -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_ads_id }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'AW-18343342706');
+    gtag('config', {{ site.google_ads_id | jsonify }});
   </script>
 
   <link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | relative_url }}">
