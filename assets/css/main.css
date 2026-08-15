@@ -334,7 +334,18 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   border-radius: 4px;
 }
 
-.sidebar-links { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 10px 0 8px; }
+/* Same label treatment as the nav's section headings, so the footer's two link
+   groups - the community's rooms, and the founder's own profiles - read as
+   sections rather than one undifferentiated row. */
+.sidebar-links-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin: 10px 0 5px;
+}
+.sidebar-links { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 0 0 8px; }
 .sidebar-links a { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: var(--text-muted); text-decoration: none; }
 .sidebar-links a:hover { color: var(--text-primary); }
 .sidebar-links svg { flex-shrink: 0; }
