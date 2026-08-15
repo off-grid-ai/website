@@ -19,15 +19,20 @@ description: Your Off Grid AI Pro purchase is complete. Your license key is on i
 
 <p class="ea-status" id="redeemSlot" hidden></p>
 
+<div class="offer-closing" role="note">
+  <strong>Check your spam folder before you do anything else.</strong> Your key arrives from <strong>keys@offgridmobileai.co</strong>, subject "Your Off Grid Pro license key". Filters send a lot of first-time mail there. If you find it in spam or promotions, open it and hit <strong>Not spam</strong> (Gmail) or <strong>Not junk</strong> (Apple Mail, Outlook), and add the address to your contacts. That one tap is what keeps everything that comes after - new releases, device limits, renewal notices, anything you actually need to act on - landing in your inbox instead of a folder you never open.
+</div>
+
 ---
 
 ## What to do next
 
-1. **Install Off Grid AI** on the machines you actually work on - macOS or Windows for the desktop layer, iPhone or Android for the phone. Both are on the [download page]({{ '/download/' | relative_url }}).
-2. **Paste your key** into the app on each device. That is the whole activation - no account, no sign-in.
-3. **Turn on capture** when you're ready. It is off until you switch it on, per device, and it shows a recording indicator the entire time it runs.
+1. **Find your key, spam folder included.** Search your mail for `keys@offgridmobileai.co`. Mark it **Not spam** the moment you find it there, so the next message reaches you.
+2. **Install Off Grid AI** on the machines you actually work on - macOS or Windows for the desktop layer, iPhone or Android for the phone. Both are on the [download page]({{ '/download/' | relative_url }}).
+3. **Paste your key** into the app on each device. That is the whole activation - no account, no sign-in.
+4. **Turn on capture** when you're ready. It is off until you switch it on, per device, and it shows a recording indicator the entire time it runs.
 
-No key after five minutes? Check spam first, then email **support@offgridmobileai.co** with the address you paid with and we'll get it to you.
+Still nothing after five minutes, spam checked? Email **support@offgridmobileai.co** from the address you paid with and we'll get your key to you.
 
 <script>
   (function () {
