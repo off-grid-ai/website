@@ -104,7 +104,12 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   white-space: nowrap;
 }
 .announcement-bar-cta:hover { text-decoration: underline; }
-.announcement-bar ~ .layout .sidebar { height: calc(100vh - 42px); }
+/* The sidebar is sticky at top:0, so it must be as tall as whatever the viewport
+   still shows below the bar. The bar scrolls away; a fixed 42px subtraction would
+   leave that much dead space under the sidebar for the rest of the page. The
+   variable tracks how much of the bar is actually on screen (see sidebar-fit.js);
+   42px is the correct unscrolled value when that script has not run. */
+.announcement-bar ~ .layout .sidebar { height: calc(100vh - var(--announce-visible, 42px)); }
 
 @media (max-width: 640px) {
   .announcement-bar { padding: 6px 8px; }
