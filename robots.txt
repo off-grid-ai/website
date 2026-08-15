@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# Post-purchase confirmation page. Reachable only by redirect from checkout,
+# and it fires a purchase conversion - keep crawlers out of it.
+Disallow: /thank-you/
 
 Sitemap: https://getoffgridai.co/sitemap.xml

@@ -30,15 +30,21 @@ posthog_token: "phc_u7cnV9P3cTovsfPTE2nhB7g5G4qdtZJ5dgMzv7ryfKWs"
 # Leave a label empty and no conversion event is sent for that plan - the site
 # keeps working and the page view still fires. So it is safe to ship this before
 # the actions exist in Google Ads.
-# One "Subscribe" conversion action covers all three buy buttons. Each button
-# still reports its own value - $69 lifetime, $49 annual, $0.99 trial - so the
-# plans stay distinguishable by value in reporting.
+# Two actions, two moments:
+#   - "Subscribe" (google_ads_conversion_label) fires when a buyer clicks a buy
+#     button on /pro and checkout opens. One action covers all three buttons;
+#     each still reports its own value - $69 lifetime, $49 annual, $0.99 trial -
+#     so the plans stay distinguishable by value in reporting.
+#   - "Purchase" (google_ads_purchase_label) fires on /thank-you/, the page
+#     RevenueCat sends the buyer to once payment actually clears. This is the
+#     money signal - point Ads bidding at this one, not at the click.
 #
 # The label is the "Conversion label" field on the action's Tag setup page
 # (Goals > Conversions > View all conversion actions > the action). Empty means
 # no conversion is sent, so it is safe to ship without one.
 google_ads_id: "AW-18343342706"
 google_ads_conversion_label: "ZL44CP2WleAcEPLk5KpE"
+google_ads_purchase_label: "dQrzCPbr_eEcEPLk5KpE"
 
 # RevenueCat Web Purchase Link ids (the path segment in pay.rev.cat/<id>/...).
 # Public by design - they appear in every customer's checkout URL, e.g.
