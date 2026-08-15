@@ -19,6 +19,8 @@ description: Your Off Grid AI Pro purchase is complete. Your license key is on i
 
 <p class="ea-status" id="redeemSlot" hidden></p>
 
+<script src="{{ '/assets/js/checkout-plan.js' | relative_url }}"></script>
+
 <div class="offer-closing" role="note">
   <strong>Check your spam folder before you do anything else.</strong> Your key arrives from <strong>keys@offgridmobileai.co</strong>, subject "Your Off Grid Pro license key". Filters send a lot of first-time mail there. If you find it in spam or promotions, open it and hit <strong>Not spam</strong> (Gmail) or <strong>Not junk</strong> (Apple Mail, Outlook), and add the address to your contacts. That one tap is what keeps everything that comes after - new releases, device limits, renewal notices, anything you actually need to act on - landing in your inbox instead of a folder you never open.
 </div>
@@ -44,9 +46,10 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     var ENABLED = {{ site.google_ads_purchase_label | jsonify }} !== '';
 
     // The same numbers the buy buttons render, so the value reported to Ads can
-    // never drift from the price the buyer actually paid. The plan arrives as
-    // ?plan= on the redirect URL configured for each Web Purchase Link; an
-    // unknown or missing plan still reports the conversion, just without a value.
+    // never drift from the price the buyer actually paid. A ?plan= on the
+    // redirect URL wins when one is configured; otherwise the plan comes from
+    // the cookie the buy button wrote (RevenueCat's redirect carries only
+    // app_user_id). With neither, the conversion still fires - just no value.
     var PLAN_VALUES = {
       annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }},
@@ -103,12 +106,20 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
 
     // ------------------------------------------------------------- I/O
 
-    var plan = param(location.search, 'plan');
+    // What the buyer picked, in order of trust: the redirect URL, then the
+    // cookie the buy button wrote on the way out.
+    var picked = window.CheckoutPlan ? CheckoutPlan.read() : null;
+    var queryPlan = param(location.search, 'plan');
+    var plan = PLAN_VALUES[queryPlan] ? queryPlan : (picked ? picked.plan : queryPlan);
+    var value = PLAN_VALUES[queryPlan] || (picked ? picked.value : 0);
     var appUserId = param(location.search, 'app_user_id');
     var txnId = transactionId(plan, appUserId);
 
-    // A reload must not count twice. sessionStorage covers the case where we
-    // have no transaction_id for Google to dedupe on.
+    // A reload must not count twice. Keyed on the buyer alone, never on the
+    // plan: the plan cookie is spent on the first load, so a plan-keyed guard
+    // would let the reload through under a second transaction_id and report the
+    // same sale twice. sessionStorage is per tab, so a genuine second purchase
+    // opens with a clean guard.
     function alreadyFired(key) {
       try {
         if (sessionStorage.getItem(key)) return true;
@@ -119,10 +130,12 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       return false;
     }
 
-    if (ENABLED && typeof gtag === 'function' && !alreadyFired('og_purchase_' + (txnId || plan || 'pro'))) {
+    var guardKey = 'og_purchase_' + (appUserId ? hash(appUserId) : 'anon');
+
+    if (ENABLED && typeof gtag === 'function' && !alreadyFired(guardKey)) {
       var payload = { send_to: SEND_TO };
-      if (PLAN_VALUES[plan]) {
-        payload.value = PLAN_VALUES[plan];
+      if (value > 0) {
+        payload.value = value;
         payload.currency = 'USD';
       }
       if (txnId) payload.transaction_id = txnId;
@@ -139,12 +152,15 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       try {
         posthog.capture('pro_purchase_completed', {
           plan: plan || 'unknown',
-          value: PLAN_VALUES[plan] || null
+          value: value || null
         });
       } catch (err) {
         console.warn('PostHog tracking failed:', err);
       }
     }
+
+    // One purchase, one use of that cookie.
+    if (picked && window.CheckoutPlan) CheckoutPlan.clear();
 
     // RevenueCat's own success page offers the redemption link when redemption
     // is enabled; we redirect past that page, so offer it here instead.

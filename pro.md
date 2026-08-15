@@ -369,6 +369,7 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 </div>
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/checkout-plan.js' | relative_url }}"></script>
 <script>
   (function() {
     // One RevenueCat purchase link per product; the buttons carry data-plan.
@@ -457,6 +458,12 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
           } catch (err) {
             console.warn('PostHog tracking failed:', err);
           }
+        }
+        // Hand the plan to /thank-you/. RevenueCat's redirect carries only the
+        // app user id, so this button is the last place that knows what was
+        // bought and what it cost.
+        if (window.CheckoutPlan) {
+          CheckoutPlan.remember(plan, PLAN_VALUES[plan]);
         }
         // Count the checkout click as the Google Ads conversion. Checkout opens
         // in a new tab, so this page is never unloaded and the beacon has time

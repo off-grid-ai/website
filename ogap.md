@@ -263,6 +263,7 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
 </div>
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/checkout-plan.js' | relative_url }}"></script>
 <script>
   (function() {
     var LINK = {{ site.revenuecat_link_ogap | jsonify }};
@@ -311,6 +312,11 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
       // so we can pick the S/M/L before the unit is packed.
       url += '&utm_source=offgrid-docs&utm_medium=website&utm_campaign=ogap-preorder';
       url += '&utm_term=' + encodeURIComponent(phoneModel.slice(0, 80));
+      // Hand the plan to /thank-you/ - the RevenueCat redirect carries only the
+      // app user id, so the purchase conversion learns the value from here.
+      if (window.CheckoutPlan) {
+        CheckoutPlan.remember('ogap', {{ site.data.ogap.price }});
+      }
       if (typeof posthog !== 'undefined') {
         try {
           posthog.capture('ogap_preorder_started', {
