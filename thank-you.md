@@ -54,7 +54,9 @@ No key after five minutes? Check spam first, then email **support@offgridmobilea
     function param(search, name) {
       if (typeof search !== 'string') return '';
       var query = search.charAt(0) === '?' ? search.slice(1) : search;
-      var pairs = query.split('&');
+      // Split on '?' as well as '&': RevenueCat appends app_user_id to the
+      // success URL, and a second '?' would otherwise swallow the plan.
+      var pairs = query.split(/[&?]/);
       for (var i = 0; i < pairs.length; i++) {
         var eq = pairs[i].indexOf('=');
         if (eq < 1 || pairs[i].slice(0, eq) !== name) continue;
