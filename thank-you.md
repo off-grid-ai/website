@@ -53,7 +53,6 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     var PLAN_VALUES = {
       annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }},
-      one_day: {{ site.data.pricing.one_day }},
       ogap: {{ site.data.ogap.price }}
     };
 
