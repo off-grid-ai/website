@@ -147,8 +147,22 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       }
     }
 
-    if (typeof posthog !== 'undefined') {
+    // The PostHog snippet lives at the END of the layout, thousands of bytes
+    // after this script, so `posthog` does NOT exist yet on a page like this
+    // one that reports at load time rather than from a click handler. Firing
+    // straight away silently dropped every purchase event; wait for the
+    // snippet instead. Give up after ~10s so a blocked loader costs nothing.
+    function capturePurchase() {
+      if (typeof posthog === 'undefined') return false;
       try {
+        // RevenueCat redirects here with app_user_id set to the buyer's email,
+        // the same id /pro identifies on. Claiming it again attaches the sale
+        // to the visits that led to it even when checkout finished in another
+        // tab. Anything that is not an email (an anonymous store id) is left
+        // alone.
+        if (appUserId && appUserId.indexOf('@') > 0) {
+          posthog.identify(appUserId, { email: appUserId });
+        }
         posthog.capture('pro_purchase_completed', {
           plan: plan || 'unknown',
           value: value || null
@@ -156,6 +170,14 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       } catch (err) {
         console.warn('PostHog tracking failed:', err);
       }
+      return true;
+    }
+
+    if (!capturePurchase()) {
+      var phTries = 0;
+      var phTimer = setInterval(function () {
+        if (capturePurchase() || ++phTries > 100) clearInterval(phTimer);
+      }, 100);
     }
 
     // One purchase, one use of that cookie.

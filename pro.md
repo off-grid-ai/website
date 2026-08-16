@@ -431,6 +431,41 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
 
     emailInput.addEventListener('input', function() { setEnabled(); clearError(); });
 
+    // The two steps between "landed on /pro" and "clicked buy". Without them a
+    // visitor who never scrolled as far as the form and one who read it and
+    // refused are the same row in the funnel. Both are anonymous counters and
+    // both fire at most once per page.
+    function reportOnce(name) {
+      var fired = false;
+      return function () {
+        if (fired || typeof posthog === 'undefined') return;
+        fired = true;
+        try {
+          posthog.capture(name, { source: window.location.pathname });
+        } catch (err) {
+          console.warn('PostHog tracking failed:', err);
+        }
+      };
+    }
+
+    var reportEmailEntered = reportOnce('pro_email_entered');
+    emailInput.addEventListener('input', function () {
+      if (emailInput.value.trim() !== '') reportEmailEntered();
+    });
+
+    if (typeof IntersectionObserver === 'function') {
+      var reportFormSeen = reportOnce('pro_buy_form_viewed');
+      var formObserver = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (!entries[i].isIntersecting) continue;
+          reportFormSeen();
+          formObserver.disconnect();
+          return;
+        }
+      }, { threshold: 0.4 });
+      formObserver.observe(form);
+    }
+
     buttons.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var plan = btn.dataset.plan;
@@ -448,7 +483,14 @@ Console is licensed separately from Pro. Buying Pro does not include it, and you
         if (typeof posthog !== 'undefined') {
           // Never let an analytics failure (blocked, errored) stop the purchase.
           try {
+            // The buyer's email is the RevenueCat app user id, so identifying
+            // on it here is what joins a purchase back to the visits that led
+            // to it - first touch, pages read, how long they took. The old
+            // /pay/ page did exactly this; the merge into /pro dropped it and
+            // the join went dark. Restored deliberately.
+            posthog.identify(email, { email: email });
             posthog.capture('pro_checkout_started', {
+              email: email,
               plan: plan,
               source: window.location.pathname
             });
