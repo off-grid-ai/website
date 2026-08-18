@@ -63,3 +63,10 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - next-site
+  - output
+  - social
+  - tmp
+  - tools
+  - AGENTS.md
+  - CLAUDE.md
