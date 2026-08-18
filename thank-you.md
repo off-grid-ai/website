@@ -105,13 +105,19 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
 
     // ------------------------------------------------------------- I/O
 
+    // The head scrubber strips app_user_id and redeem_url from the address
+    // bar before any vendor snippet runs, and stashes the original query in
+    // OG_QUERY for us. location.search is only the fallback for the scrubber
+    // somehow not having run.
+    var search = typeof window.OG_QUERY === 'string' ? window.OG_QUERY : location.search;
+
     // What the buyer picked, in order of trust: the redirect URL, then the
     // cookie the buy button wrote on the way out.
     var picked = window.CheckoutPlan ? CheckoutPlan.read() : null;
-    var queryPlan = param(location.search, 'plan');
+    var queryPlan = param(search, 'plan');
     var plan = PLAN_VALUES[queryPlan] ? queryPlan : (picked ? picked.plan : queryPlan);
     var value = PLAN_VALUES[queryPlan] || (picked ? picked.value : 0);
-    var appUserId = param(location.search, 'app_user_id');
+    var appUserId = param(search, 'app_user_id');
     var txnId = transactionId(plan, appUserId);
 
     // A reload must not count twice. Keyed on the buyer alone, never on the
@@ -144,6 +150,31 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
         gtag('event', 'conversion', payload);
       } catch (err) {
         console.warn('Google Ads conversion failed:', err);
+      }
+    }
+
+    // Meta Pixel "Purchase". Never a URL-based conversion: a bare visit to
+    // this page fires nothing. It needs evidence a checkout actually
+    // completed - RevenueCat's redirect param or the buy button's cookie -
+    // AND the plan must resolve to a Pro plan with its real price (annual or
+    // lifetime; the OGAP pre-order is deliberately not a Meta Purchase).
+    // The payload is value/currency/plan only - the buyer's email never goes
+    // to Meta: the head scrubber removed app_user_id from the URL the pixel
+    // sees, and here it is only hashed into the guard key and the eventID.
+    var FB_PLANS = { annual: true, lifetime: true };
+    var fbEvidence = appUserId !== '' || !!picked;
+    var fbGuardKey = 'og_fb_purchase_' + (appUserId ? hash(appUserId) : 'anon');
+    if (fbEvidence && FB_PLANS[plan] && value > 0 &&
+        typeof fbq === 'function' && !alreadyFired(fbGuardKey)) {
+      try {
+        // txnId is stable per buyer+plan, so Meta also dedups a return visit
+        // that outlives this tab's sessionStorage guard (and a future CAPI
+        // event for the same sale).
+        fbq('track', 'Purchase',
+          { value: value, currency: 'USD', content_name: plan },
+          txnId ? { eventID: txnId } : undefined);
+      } catch (err) {
+        console.warn('Meta Purchase failed:', err);
       }
     }
 
@@ -185,7 +216,7 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
 
     // RevenueCat's own success page offers the redemption link when redemption
     // is enabled; we redirect past that page, so offer it here instead.
-    var redeem = safeRedeemUrl(param(location.search, 'redeem_url'));
+    var redeem = safeRedeemUrl(param(search, 'redeem_url'));
     var slot = document.getElementById('redeemSlot');
     if (redeem && slot) {
       var link = document.createElement('a');

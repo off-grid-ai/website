@@ -11,6 +11,40 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script>!function(){var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||((!t)&&d))document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light')}()</script>
 
+  <script>
+    // Analytics vendors read the address bar: gtag's page_view and the Meta
+    // Pixel's PageView both ship the full URL. RevenueCat's post-payment
+    // redirect puts the buyer's EMAIL in that URL (?app_user_id=), and the
+    // redemption link is a bearer token - neither may reach a vendor. Stash
+    // the original query for the page's own scripts, then scrub it before any
+    // vendor snippet below runs. Ad click ids (gclid, fbclid) are kept.
+    (function () {
+      var SENSITIVE = /^(app_user_id|redeem_url|email)$/;
+      window.OG_QUERY = location.search;
+      var raw = location.search;
+      if (raw.charAt(0) === '?') raw = raw.slice(1);
+      if (!raw) return;
+      // Split on '?' as well as '&': RevenueCat appends its params to the
+      // success URL with a second '?' when one is already configured.
+      var pairs = raw.split(/[&?]/);
+      var kept = [];
+      var dropped = false;
+      for (var i = 0; i < pairs.length; i++) {
+        var eq = pairs[i].indexOf('=');
+        var name = eq < 0 ? pairs[i] : pairs[i].slice(0, eq);
+        if (SENSITIVE.test(name)) { dropped = true; continue; }
+        if (pairs[i]) kept.push(pairs[i]);
+      }
+      if (!dropped) return;
+      try {
+        history.replaceState(null, '',
+          location.pathname + (kept.length ? '?' + kept.join('&') : '') + location.hash);
+      } catch (err) {
+        /* Leave the URL alone rather than break the page. */
+      }
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) - page view only. Conversions are sent explicitly
        from the checkout buttons on /pro; see _config.yml (google_ads_*). -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_ads_id }}"></script>
