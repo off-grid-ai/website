@@ -176,7 +176,7 @@ The free app runs models on your phone. Pro is an optional, additive tier: it gi
 
 Privacy first by architecture. Your data never leaves your phone.
 
-The model runs in the phone's memory and answers on the phone's own chips. There is no server to leak and nothing is logged. 100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
+The model runs in the phone's memory and answers on the phone's own chips. There is no server to leak and nothing is logged. 180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-green">Star on GitHub</a>

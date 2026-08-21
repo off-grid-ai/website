@@ -21,7 +21,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS 
 
 <p class="ea-pricing-note" style="text-align:center;">macOS stable 0.0.42: Apple Silicon, signed and notarized. Windows x64 stable 0.0.42: free core app.</p>
 
-<p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 100,000+ downloads · 2,500+ GitHub stars</p>
+<p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
 <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="OGAD running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
@@ -122,7 +122,7 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
 
 Your data never leaves your device, by architecture. No cloud inference, no account to create, no server that can leak. Your local database is encrypted at rest, and the whole app is open source under AGPL, so you can read exactly what it does.
 
-100,000+ downloads across the apps, 2,500+ GitHub stars, a 500-strong community.
+180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>

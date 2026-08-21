@@ -7,8 +7,8 @@
 - name: OGAM
   label: iOS &amp; Android
   url: https://github.com/off-grid-ai/OGAM
-  stars: 2860
+  stars: 2958
 - name: OGAD
   label: macOS &amp; Windows
   url: https://github.com/off-grid-ai/OGAD
-  stars: 52
+  stars: 69

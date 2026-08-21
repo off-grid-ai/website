@@ -84,7 +84,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </div>
     <div>
-      <div class="perk-title">100,000 already run the free app</div>
+      <div class="perk-title">180,000+ already run the free app</div>
       <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
     </div>
   </div>

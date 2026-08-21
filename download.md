@@ -13,7 +13,7 @@ description: Download Off Grid AI for iPhone, Android, macOS, and Windows. Run p
   <p class="early-access-sub">One intelligence layer across your phone, your computer, and your whole company - running on hardware you already own. No account, no API key, nothing you do ever leaves your devices. Free and open source.</p>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">100,000+ downloads · 2,500+ GitHub stars · your data never leaves your device</p>
+<p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars · your data never leaves your device</p>
 
 ---
 

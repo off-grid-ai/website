@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 100k+ downloads, 2900+ GitHub stars.
+description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 180k+ downloads, 3k+ GitHub stars.
 ---
 
 <img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
@@ -55,20 +55,20 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 
 <div class="stats-row">
   <div class="stat-card">
-    <div class="stat-number">100k+</div>
+    <div class="stat-number">180k+</div>
     <div class="stat-label">downloads<br>Play Store, App Store &amp; GitHub</div>
   </div>
   <div class="stat-card">
-    <div class="stat-number">2,900+</div>
+    <div class="stat-number">3k+</div>
     <div class="stat-label">stars on GitHub</div>
   </div>
   <div class="stat-card">
-    <div class="stat-number">500+</div>
+    <div class="stat-number">600+</div>
     <div class="stat-label">strong community</div>
   </div>
 </div>
 
-Over 100,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
+Over 180,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
 
 ---
 

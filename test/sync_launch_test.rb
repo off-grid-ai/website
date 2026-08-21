@@ -33,6 +33,19 @@ required_download_content.each do |name, text|
   failures << "download: missing #{name}: #{text.inspect}" unless download.include?(text)
 end
 
+home = rendered.fetch("home")
+{
+  "download proof" => "180k+",
+  "GitHub proof" => "3k+",
+  "community proof" => "600+"
+}.each do |name, text|
+  failures << "home: missing current #{name}: #{text.inspect}" unless home.include?(text)
+end
+
+failures << "home: stale download proof remains" if home.match?(/100k\+|100,000/)
+failures << "home: stale GitHub proof remains" if home.match?(/2,500\+|2,900\+/)
+failures << "home: stale community proof remains" if home.match?(/500\+|500-strong/)
+
 launch_pages = rendered.values_at("home", "download", "pro", "mobile")
 failures << "Sync launch pages still describe Sync as beta" if launch_pages.any? { |page| page.match?(/sync.{0,40}beta|beta.{0,40}sync/i) }
 

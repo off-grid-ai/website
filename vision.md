@@ -72,7 +72,7 @@ The same intelligence layer that made some people more effective for two centuri
 
 ---
 
-This is the world we're building. The app is the first piece of it, already in 100,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
+This is the world we're building. The app is the first piece of it, already in 180,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
 
 ---
 
