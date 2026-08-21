@@ -14,7 +14,7 @@ description: Private AI for iOS, Android, macOS, and Windows. Local models run o
 
 **A private AI that runs on the hardware you already own.**
 
-Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro adds one intelligence layer across your phone and laptop. The layer that merges the two is landing through July.
+Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro now connects your phone and laptop with Sync.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
@@ -43,6 +43,14 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 
 {% include open-source-strip.html %}
 
+<div class="home-feature-banner-wrap">
+<a href="{{ '/download/' | relative_url }}#sync" class="home-feature-banner">
+  <div class="home-feature-banner-tag">Sync · Live</div>
+  <div class="home-feature-banner-title">Start on your phone. Continue on your laptop. →</div>
+  <div class="home-feature-banner-desc">Chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You choose whether copied text, new screenshots, and new downloads move too. No Off Grid AI server receives or stores the content you sync.</div>
+</a>
+</div>
+
 <p class="ea-pricing-note" style="text-align:center;">iOS 0.0.103 is live on the App Store. macOS has a stable build. Windows stable <strong>0.0.42</strong> is available now. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42" target="_blank" rel="noopener">Windows release notes</a>.</p>
 
 <div class="stats-row">
@@ -61,14 +69,6 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </div>
 
 Over 100,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
-
-<div class="home-console-banner-wrap">
-<a href="{{ '/console' | relative_url }}" class="home-console-banner">
-  <div class="home-console-banner-tag">For organizations</div>
-  <div class="home-console-banner-title">OGAC: govern every AI call in your company →</div>
-  <div class="home-console-banner-desc">The control plane for agentic AI. One governed gateway for every model call and agent, on your own infrastructure, fully auditable, built on open source. No per-token or per-seat fees.</div>
-</a>
-</div>
 
 ---
 
@@ -89,11 +89,11 @@ Over 100,000 people already run AI on their own phone with Off Grid AI. No accou
 
 ## Where this is going
 
-The app is the first piece. The whole is a Personal AI OS: a private intelligence layer that lives across your phone and your laptop, learns your day in the background, and gets ahead of you the way a chief of staff would.
+The app is the first piece. Sync is live now. Your chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You can also move copied text, new screenshots, new downloads, files, and compatible installed models. Each transfer is encrypted between paired devices, and no Off Grid AI server receives or stores the content you sync.
 
-Your phone knows your life. Your laptop knows your work. Today neither has the full picture. Off Grid AI unifies them into one working model of who you are and what you are doing. It syncs over your own network, never a cloud relay. It does not wait to be opened - it briefs you on the day, surfaces the item you left open, and drafts the reply before you remember you owe it.
+The next step is a Personal AI OS: a private intelligence layer that lives across your phone and laptop, learns your day in the background, and gets ahead of you the way a chief of staff would.
 
-Nothing is sent anywhere, because there is no server to send it to. It is open source, so you can check.
+The open-source code lets you check how it works.
 
 <div class="ea-essay-links">
   <a href="{{ '/pro' | relative_url }}" class="ea-essay-card">

@@ -155,8 +155,8 @@ The free app runs models on your phone. Pro is an optional, additive tier: it gi
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
     </div>
     <div>
-      <div class="perk-title">Sync, landing through July</div>
-      <div class="perk-desc">Off Grid AI Sync is rolling out through July. When it lands, your phone and your Mac merge into one picture over your own network, never a relay. Your license includes it the day it ships.</div>
+      <div class="perk-title">Sync is live</div>
+      <div class="perk-desc">Start a chat on your phone and continue it on your laptop. Chats, projects, model settings, generated images, and chat attachments stay in step after pairing. No Off Grid AI server receives or stores the content you sync.</div>
     </div>
   </div>
 </div>

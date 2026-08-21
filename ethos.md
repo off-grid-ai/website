@@ -55,7 +55,7 @@ That's what we're building.
 
 ---
 
-This isn't a someday. Over 100,000 people already run Off Grid AI on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. The one intelligence layer that spans them over your own network is landing through July 2026, shipping in the open as it lands.
+This isn't a someday. Over 100,000 people already run Off Grid AI on their own phone - 2,500+ stars on GitHub, a 500-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
 
 [Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
