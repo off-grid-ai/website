@@ -18,7 +18,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or pay <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> if you'd rather not commit. The price climbs as more people join - never down - so today's tier is the lowest it will ever be, and the rate you join at is the rate you hold. The layer that merges your phone and laptop into one is landing through July, and you run each piece the day it ships.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or pay <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong> if you'd rather not commit. The price climbs as more people join - never down - so today's tier is the lowest it will ever be, and the rate you join at is the rate you hold. Sync is live in the latest builds and is included with the same license.
 </div>
 
 ---
@@ -67,7 +67,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
     </div>
     <div>
       <div class="perk-title">Every release, included</div>
-      <div class="perk-desc">Your ${{ site.data.pricing.lifetime }} covers everything Off Grid AI Pro does today and everything it adds next, including the cross-device layer landing through July. One license key, good on up to {{ site.data.pricing.devices }} devices, no renewal and no upgrade fee.</div>
+      <div class="perk-desc">Your ${{ site.data.pricing.lifetime }} covers everything Off Grid AI Pro does today and everything it adds next, including Sync across your phone and laptop. One license key, good on up to {{ site.data.pricing.devices }} devices, no renewal and no upgrade fee.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -84,7 +84,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </div>
     <div>
-      <div class="perk-title">100,000 already run the free app</div>
+      <div class="perk-title">180,000+ already run the free app</div>
       <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
     </div>
   </div>
@@ -271,11 +271,12 @@ Pro is tuned for software, design, and product. It speaks issues, PRs, cycles, a
 
 ---
 
-## Sync: one brain across your devices, landing through July
+## Sync is live across your devices
+{: #sync}
 
-Your laptop knows your work. Your phone knows your life. Today neither has the full picture. Off Grid AI Sync is the private backbone that closes the loop, and it is rolling out through July 2026.
+Start a chat on your phone. Continue it on your laptop. Chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices.
 
-When it lands, captures, memory, and context move device to device over your own network, never through a cloud relay. Your work and your life merge into one model of your day, and it is one you alone can read. Buy now and every piece arrives the day it ships, at no extra cost.
+You choose whether copied text, new screenshots, and new downloads move too. You can also send files and compatible installed models directly. Sync traffic is encrypted between paired devices, and no Off Grid AI server receives or stores the content you sync.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -283,8 +284,8 @@ When it lands, captures, memory, and context move device to device over your own
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
     </div>
     <div>
-      <div class="perk-title">Device to device, no relay</div>
-      <div class="perk-desc">Your phone and laptop sync over your own network, never a server in the middle. There is no cloud copy to leak, subpoena, or train on. The transfer is between your devices and no one else.</div>
+      <div class="perk-title">Continue on another device</div>
+      <div class="perk-desc">Your chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -292,8 +293,8 @@ When it lands, captures, memory, and context move device to device over your own
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </div>
     <div>
-      <div class="perk-title">Merges while you sleep</div>
-      <div class="perk-desc">You set nothing up each day. The two devices reconcile in the background, so the morning briefing already has both your work and your life in it. One picture, ready before you open the lid.</div>
+      <div class="perk-title">Direct and encrypted</div>
+      <div class="perk-desc">Paired devices connect over local routes. Sync traffic is encrypted, and no Off Grid AI server receives or stores the content you sync.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -301,8 +302,8 @@ When it lands, captures, memory, and context move device to device over your own
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
     </div>
     <div>
-      <div class="perk-title">Your phone, a Pro device</div>
-      <div class="perk-desc">OGAM adds Pro voice mode, MCP servers like Linear and Notion, and draft email and calendar actions you approve, all on device. Everything you do there is yours, and joins your laptop's memory once Sync lands.</div>
+      <div class="perk-title">You choose what else moves</div>
+      <div class="perk-desc">Choose whether copied text, new screenshots, and new downloads move between your devices.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -310,10 +311,16 @@ When it lands, captures, memory, and context move device to device over your own
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 9l3 3 4-5"/></svg>
     </div>
     <div>
-      <div class="perk-title">Full intelligence in your pocket</div>
-      <div class="perk-desc">Chat, image, vision, voice, and documents run locally on the phone itself, no laptop required. The same memory you capture on the desktop is there in your hand, so the assistant has the full picture wherever you are.</div>
+      <div class="perk-title">Send what you need</div>
+      <div class="perk-desc">Send a file or a compatible installed model directly to another paired device.</div>
     </div>
   </div>
+</div>
+
+<div class="hero-buttons">
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg" class="btn btn-green">Latest Sync build for macOS</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-green">Latest Sync build for Windows</a>
+  <a href="{{ '/download/' | relative_url }}#sync" class="btn btn-outline">Get the mobile build</a>
 </div>
 
 ---
@@ -338,22 +345,6 @@ Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricin
 
 <div class="hero-buttons">
   <a href="#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
-</div>
-
----
-
-## For companies: OGAC
-
-Pro is the personal layer. Companies have a different problem: knowing what AI runs across the org, on what data, at what cost, and whether it is safe. That is a separate product, the OGAC.
-
-The Console is the control plane for agentic AI. One gateway every model call and agent passes through, so you can route it, observe it, cost it, and kill-switch it. The end of shadow AI. PII and prompt-injection screening on every request, role-based access to models and tools, a private RAG brain over your own docs with verified citations, agent evals and drift detection, and an append-only audit trail a regulator can defend.
-
-It runs on your own infrastructure, built entirely on open source. No per-token fees, no per-seat AI licence, nothing routed through a server we own.
-
-Console is licensed separately from Pro. Buying Pro does not include it, and you do not need Pro to run it.
-
-<div class="hero-buttons">
-  <a href="https://onprem-console.getoffgridai.co" target="_blank" rel="noopener" class="btn btn-green">Explore OGAC</a>
 </div>
 
 <div class="ea-essay-links">

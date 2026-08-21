@@ -272,7 +272,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 }
 .nav-group-label:first-child { margin-top: 8px; }
 
-.home-console-banner {
+.home-feature-banner {
   display: block;
   margin: 22px 0 6px;
   padding: 18px 20px;
@@ -283,8 +283,8 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   text-decoration: none;
   transition: border-color 0.15s, transform 0.15s;
 }
-.home-console-banner:hover { border-color: var(--accent); transform: translateY(-1px); }
-.home-console-banner-tag {
+.home-feature-banner:hover { border-color: var(--accent); transform: translateY(-1px); }
+.home-feature-banner-tag {
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -292,46 +292,17 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   color: var(--accent);
   margin-bottom: 6px;
 }
-.home-console-banner-title {
+.home-feature-banner-title {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
   margin-bottom: 5px;
 }
-.home-console-banner-desc {
+.home-feature-banner-desc {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.5;
-}
-
-.sidebar-console {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 10px;
-  margin-top: 7px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  transition: border-color 0.15s, background 0.15s;
-}
-.sidebar-console:hover { border-color: var(--accent); background: var(--accent-subtle); }
-.sidebar-console svg { color: var(--accent); flex-shrink: 0; }
-.sidebar-console-tag {
-  margin-left: auto;
-  font-size: 0.6rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--accent);
-  background: var(--accent-subtle);
-  padding: 2px 6px;
-  border-radius: 4px;
 }
 
 /* Same label treatment as the nav's section headings, so the footer's two link
@@ -1189,6 +1160,7 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 
 @media (max-width: 768px) {
   .mobile-topbar { display: flex; }
+  .content [id] { scroll-margin-top: 70px; }
   .layout { display: block; }
   .sidebar { position: fixed; left: -280px; top: 0; height: 100vh; width: 280px; z-index: 100; transition: left 0.25s ease; box-shadow: none; }
   .sidebar.open { left: 0; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }

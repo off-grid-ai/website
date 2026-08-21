@@ -108,7 +108,7 @@ That is not a policy you have to take on faith - it is how it is built. Whisper 
 
 Everyone else records your life onto someone else's server. This never leaves your hand.
 
-Sync is being built right behind it, so the same memory follows you across your devices, starting with your workspaces, projects, chats, and settings - over your own network, with no relay in the middle.
+Sync is live. Chats, projects, model settings, generated images, and chat attachments move between paired devices. No Off Grid AI server receives or stores the synced content.
 
 ---
 

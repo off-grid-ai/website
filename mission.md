@@ -95,7 +95,7 @@ That's what we're building with Off Grid AI.
 
 ---
 
-This is happening now, not someday. 100,000+ downloads, 2,500+ stars, a 500-strong community - on the app that ships today. Off Grid AI Pro is live on your laptop and your phone. The layer that unifies them into one intelligence over your own network is landing through July 2026, and you can run it as it ships.
+This is happening now, not someday. 180,000+ downloads, 3,000+ stars, a 600-strong community - on the app that ships today. Off Grid AI Pro is live on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
 
 [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
