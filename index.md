@@ -51,7 +51,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">iOS 0.0.103 is live on the App Store. macOS has a stable build. Windows stable <strong>0.0.42</strong> is available now. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42" target="_blank" rel="noopener">Windows release notes</a>.</p>
+<p class="ea-pricing-note" style="text-align:center;">iOS and Android are live. Desktop stable <strong>0.0.43</strong> is available for macOS and Windows. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.43" target="_blank" rel="noopener">Desktop release notes</a>.</p>
 
 <div class="stats-row">
   <div class="stat-card">

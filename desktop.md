@@ -19,7 +19,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS 
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">macOS stable 0.0.42: Apple Silicon, signed and notarized. Windows x64 stable 0.0.42: free core app.</p>
+<p class="ea-pricing-note" style="text-align:center;">macOS stable 0.0.43: Apple Silicon, signed and notarized. Windows x64 stable 0.0.43 is available now.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
@@ -267,7 +267,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows?** The free core app is available for Windows x64 as stable version 0.0.42. A nightly track is also available if you want new work sooner and are comfortable with rough edges. Pro is not included.
+**What about Windows?** Stable version 0.0.43 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 

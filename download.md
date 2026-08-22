@@ -25,8 +25,8 @@ Start a chat on your phone. Continue it on your laptop. Chats, projects, model s
 Sync traffic is encrypted between paired devices. No Off Grid AI server receives or stores the content you sync. Sync is included with Pro, and one key covers up to {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg" class="btn btn-green">Latest Sync build for macOS</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe" class="btn btn-green">Latest Sync build for Windows</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a>
   <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener" class="btn btn-outline">Latest mobile builds</a>
 </div>
 
@@ -58,7 +58,7 @@ A private AI studio on your computer. Chat, vision, image, and voice stay on you
   <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note">macOS current stable: <strong>0.0.42</strong> · Apple Silicon · signed and notarized · <a href="{{ '/desktop/releases/' | relative_url }}">See what's new</a>. Windows x64 current stable: <strong>0.0.42</strong>. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42" target="_blank" rel="noopener">Windows release notes</a>. Want each macOS change as it lands? Download the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> - expect rough edges.</p>
+<p class="ea-pricing-note">macOS current stable: <strong>0.0.43</strong> · Apple Silicon · signed and notarized. Windows x64 current stable: <strong>0.0.43</strong>. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.43" target="_blank" rel="noopener">Read the release notes</a>. Want each change as it lands? Nightly builds remain available on <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">GitHub</a>.</p>
 
 ---
 
