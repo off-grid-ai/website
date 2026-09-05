@@ -6,3 +6,10 @@ vendor/
 node_modules/
 Gemfile.lock
 .DS_Store
+**/.DS_Store
+**/__pycache__/
+*.pyc
+*.tsbuildinfo
+/next-site/.next/
+/output/
+/tmp/
