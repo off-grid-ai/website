@@ -20,9 +20,10 @@ description: Your Off Grid AI Pro purchase is complete. Your license key is on i
 <p class="ea-status" id="redeemSlot" hidden></p>
 
 <script src="{{ '/assets/js/checkout-plan.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/purchase-confirmation.js' | relative_url }}"></script>
 
 <div class="offer-closing" role="note">
-  <strong>Check your spam folder before you do anything else.</strong> Your key arrives from <strong>keys@offgridmobileai.co</strong>, subject "Your Off Grid Pro license key". Filters send a lot of first-time mail there. If you find it in spam or promotions, open it and hit <strong>Not spam</strong> (Gmail) or <strong>Not junk</strong> (Apple Mail, Outlook), and add the address to your contacts. That one tap is what keeps everything that comes after - new releases, device limits, renewal notices, anything you actually need to act on - landing in your inbox instead of a folder you never open.
+  <strong>Check your spam folder before you do anything else.</strong> Your key arrives from <strong>keys@offgridmobileai.co</strong>, subject "Your Off Grid AI Pro license key". Filters send a lot of first-time mail there. If you find it in spam or promotions, open it and hit <strong>Not spam</strong> (Gmail) or <strong>Not junk</strong> (Apple Mail, Outlook), and add the address to your contacts. That one tap is what keeps everything that comes after - new releases, device limits, renewal notices, anything you actually need to act on - landing in your inbox instead of a folder you never open.
 </div>
 
 ---
@@ -38,18 +39,14 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
 
 <script>
   (function () {
-    // Google Ads "Purchase" conversion. This page is the only place a real
-    // purchase is observable from the browser: RevenueCat hosts checkout, then
-    // redirects the buyer here once payment clears. The earlier checkout-CLICK
-    // action fires on /pro - see the google_ads_* block in _config.yml.
+    // RevenueCat's webhook is the payment authority. This page polls the
+    // first-party receipt endpoint and reports browser Purchase/PostHog only
+    // after that server confirmation exists.
     var SEND_TO = {{ site.google_ads_id | jsonify }} + '/' + {{ site.google_ads_purchase_label | jsonify }};
     var ENABLED = {{ site.google_ads_purchase_label | jsonify }} !== '';
 
-    // The same numbers the buy buttons render, so the value reported to Ads can
-    // never drift from the price the buyer actually paid. A ?plan= on the
-    // redirect URL wins when one is configured; otherwise the plan comes from
-    // the cookie the buy button wrote (RevenueCat's redirect carries only
-    // app_user_id). With neither, the conversion still fires - just no value.
+    // These values resolve the selected plan only. The confirmed receipt owns
+    // the actual charged value and currency, including discounts.
     var PLAN_VALUES = {
       annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }},
@@ -76,24 +73,6 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       return '';
     }
 
-    // Our App User ID is the buyer's email, so hash it - the raw address never
-    // goes to Google from here. Same djb2 as the /pro checkout event.
-    function hash(value) {
-      var h = 5381;
-      for (var i = 0; i < value.length; i++) {
-        h = ((h << 5) + h + value.charCodeAt(i)) | 0;
-      }
-      return (h >>> 0).toString(36);
-    }
-
-    // Stable per buyer+plan, so a reload or a back-button return reports ONE
-    // purchase - Google Ads dedups on transaction_id. Empty when RevenueCat
-    // sent no app_user_id, in which case the session guard below does the work.
-    function transactionId(plan, appUserId) {
-      if (!appUserId) return '';
-      return (plan || 'pro') + '-' + hash(appUserId);
-    }
-
     // Only RevenueCat's own redemption link may be rendered as a button - the
     // value arrives in the URL, so anything else is somebody else's link.
     function safeRedeemUrl(raw) {
@@ -116,99 +95,20 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     var picked = window.CheckoutPlan ? CheckoutPlan.read() : null;
     var queryPlan = param(search, 'plan');
     var plan = PLAN_VALUES[queryPlan] ? queryPlan : (picked ? picked.plan : queryPlan);
-    var value = PLAN_VALUES[queryPlan] || (picked ? picked.value : 0);
-    var appUserId = param(search, 'app_user_id');
-    var txnId = transactionId(plan, appUserId);
-
-    // A reload must not count twice. Keyed on the buyer alone, never on the
-    // plan: the plan cookie is spent on the first load, so a plan-keyed guard
-    // would let the reload through under a second transaction_id and report the
-    // same sale twice. sessionStorage is per tab, so a genuine second purchase
-    // opens with a clean guard.
-    function alreadyFired(key) {
-      try {
-        if (sessionStorage.getItem(key)) return true;
-        sessionStorage.setItem(key, '1');
-      } catch (err) {
-        /* Private mode or storage disabled: fall back to transaction_id. */
-      }
-      return false;
+    var checkoutId = picked ? picked.checkoutId : '';
+    function startPurchaseConfirmation() {
+      PurchaseConfirmation.start({
+        endpoint: 'https://license.getoffgridai.co/meta/purchase-status',
+        checkoutId: checkoutId,
+        plan: plan,
+        googleSendTo: SEND_TO,
+        googleEnabled: ENABLED
+      });
     }
-
-    var guardKey = 'og_purchase_' + (appUserId ? hash(appUserId) : 'anon');
-
-    if (ENABLED && typeof gtag === 'function' && !alreadyFired(guardKey)) {
-      var payload = { send_to: SEND_TO };
-      if (value > 0) {
-        payload.value = value;
-        payload.currency = 'USD';
-      }
-      if (txnId) payload.transaction_id = txnId;
-      // Never let an analytics failure (blocked, errored) break the page the
-      // buyer lands on straight after paying.
-      try {
-        gtag('event', 'conversion', payload);
-      } catch (err) {
-        console.warn('Google Ads conversion failed:', err);
-      }
-    }
-
-    // Meta Pixel "Purchase". Never a URL-based conversion: a bare visit to
-    // this page fires nothing. It needs evidence a checkout actually
-    // completed - RevenueCat's redirect param or the buy button's cookie -
-    // AND the plan must resolve to a Pro plan with its real price (annual or
-    // lifetime; the OGAP pre-order is deliberately not a Meta Purchase).
-    // The payload is value/currency/plan only - the buyer's email never goes
-    // to Meta: the head scrubber removed app_user_id from the URL the pixel
-    // sees, and here it is only hashed into the guard key and the eventID.
-    var FB_PLANS = { annual: true, lifetime: true };
-    var fbEvidence = appUserId !== '' || !!picked;
-    var fbGuardKey = 'og_fb_purchase_' + (appUserId ? hash(appUserId) : 'anon');
-    if (fbEvidence && FB_PLANS[plan] && value > 0 &&
-        typeof fbq === 'function' && !alreadyFired(fbGuardKey)) {
-      try {
-        // txnId is stable per buyer+plan, so Meta also dedups a return visit
-        // that outlives this tab's sessionStorage guard (and a future CAPI
-        // event for the same sale).
-        fbq('track', 'Purchase',
-          { value: value, currency: 'USD', content_name: plan },
-          txnId ? { eventID: txnId } : undefined);
-      } catch (err) {
-        console.warn('Meta Purchase failed:', err);
-      }
-    }
-
-    // The PostHog snippet lives at the END of the layout, thousands of bytes
-    // after this script, so `posthog` does NOT exist yet on a page like this
-    // one that reports at load time rather than from a click handler. Firing
-    // straight away silently dropped every purchase event; wait for the
-    // snippet instead. Give up after ~10s so a blocked loader costs nothing.
-    function capturePurchase() {
-      if (typeof posthog === 'undefined') return false;
-      try {
-        // RevenueCat redirects here with app_user_id set to the buyer's email,
-        // the same id /pro identifies on. Claiming it again attaches the sale
-        // to the visits that led to it even when checkout finished in another
-        // tab. Anything that is not an email (an anonymous store id) is left
-        // alone.
-        if (appUserId && appUserId.indexOf('@') > 0) {
-          posthog.identify(appUserId, { email: appUserId });
-        }
-        posthog.capture('pro_purchase_completed', {
-          plan: plan || 'unknown',
-          value: value || null
-        });
-      } catch (err) {
-        console.warn('PostHog tracking failed:', err);
-      }
-      return true;
-    }
-
-    if (!capturePurchase()) {
-      var phTries = 0;
-      var phTimer = setInterval(function () {
-        if (capturePurchase() || ++phTries > 100) clearInterval(phTimer);
-      }, 100);
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', startPurchaseConfirmation);
+    } else {
+      startPurchaseConfirmation();
     }
 
     // One purchase, one use of that cookie.

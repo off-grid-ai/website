@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Off Grid AI free forever - V2</title>
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --paper: #f6f8f7;
+        --surface: #ffffff;
+        --nested: #eef2f0;
+        --ink: #111412;
+        --muted: #6e7772;
+        --line: #d7ddda;
+        --dark-line: #29302d;
+        --emerald: #059669;
+        --emerald-dark: #34d399;
+        --emerald-soft: #e2f3ec;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #cfd5d2;
+        color: var(--ink);
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      body {
+        display: grid;
+        gap: 40px;
+        padding: 40px;
+      }
+
+      .slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--paper);
+        isolation: isolate;
+      }
+
+      .slide.linkedin {
+        width: 1080px;
+        height: 1350px;
+        padding: 68px 72px 58px;
+      }
+
+      .slide.x {
+        width: 1600px;
+        height: 900px;
+        padding: 52px 64px 44px;
+      }
+
+      .slide.dark {
+        background: var(--black);
+        color: #f4f6f5;
+      }
+
+      .grid::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background-image:
+          linear-gradient(to right, rgba(5, 150, 105, 0.075) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(5, 150, 105, 0.075) 1px, transparent 1px);
+        background-size: 54px 54px;
+        content: "";
+      }
+
+      .dark.grid::before {
+        background-image:
+          linear-gradient(to right, rgba(52, 211, 153, 0.085) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(52, 211, 153, 0.085) 1px, transparent 1px);
+      }
+
+      .masthead,
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .masthead {
+        min-height: 58px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 18px;
+      }
+
+      .dark .masthead,
+      .dark .footer {
+        border-color: var(--dark-line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-size: 18px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow,
+      .number,
+      .meta,
+      .micro,
+      .status,
+      .label {
+        color: var(--muted);
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .dark .eyebrow,
+      .dark .meta,
+      .dark .micro,
+      .dark .label {
+        color: #939c97;
+      }
+
+      .number,
+      .status {
+        color: var(--emerald);
+      }
+
+      .number {
+        flex: 0 0 auto;
+      }
+
+      .dark .number,
+      .dark .status {
+        color: var(--emerald-dark);
+      }
+
+      .content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 0 42px;
+      }
+
+      .x .content {
+        padding: 28px 0 22px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 940px;
+        font-size: 78px;
+        font-weight: 400;
+        letter-spacing: -0.055em;
+        line-height: 0.99;
+      }
+
+      h2 {
+        max-width: 940px;
+        font-size: 58px;
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 1.04;
+      }
+
+      .x h1 {
+        max-width: 1220px;
+        font-size: 82px;
+      }
+
+      .x h2 {
+        max-width: 1260px;
+        font-size: 58px;
+      }
+
+      .accent {
+        color: var(--emerald);
+      }
+
+      .dark .accent {
+        color: var(--emerald-dark);
+      }
+
+      .lede {
+        max-width: 910px;
+        margin-top: 34px;
+        color: #424b46;
+        font-size: 29px;
+        line-height: 1.48;
+      }
+
+      .dark .lede {
+        color: #bac2be;
+      }
+
+      .x .lede {
+        max-width: 1220px;
+        margin-top: 24px;
+        font-size: 27px;
+        line-height: 1.42;
+      }
+
+      .footer {
+        min-height: 44px;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
+
+      .wednesday {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .wednesday img {
+        width: 112px;
+        height: auto;
+      }
+
+      .wednesday span {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-number {
+        color: var(--emerald-dark);
+        font-size: 150px;
+        font-weight: 400;
+        letter-spacing: -0.08em;
+        line-height: 0.8;
+      }
+
+      .hero-rule {
+        width: 100%;
+        height: 10px;
+        margin: 46px 0;
+        background: linear-gradient(to right, var(--emerald-dark) 0 72%, #dde3df 72% 100%);
+      }
+
+      .mechanism {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 42px;
+      }
+
+      .mechanism-item {
+        min-height: 124px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 22px;
+      }
+
+      .dark .mechanism-item {
+        border-color: var(--dark-line);
+        background: #111412;
+      }
+
+      .mechanism-item strong {
+        display: block;
+        font-size: 21px;
+        font-weight: 400;
+      }
+
+      .mechanism-item span {
+        display: block;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.38;
+      }
+
+      .funding-model {
+        display: grid;
+        grid-template-columns: 1fr 74px 1fr;
+        align-items: stretch;
+        margin-top: 58px;
+      }
+
+      .funding-box {
+        display: flex;
+        min-height: 280px;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 28px;
+      }
+
+      .funding-box.emerald {
+        border-color: var(--emerald);
+        background: var(--emerald-soft);
+      }
+
+      .funding-box strong {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .funding-box span {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.42;
+      }
+
+      .connector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--emerald);
+        font-size: 34px;
+      }
+
+      .service-chain {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 44px;
+      }
+
+      .chain-node {
+        display: flex;
+        min-height: 112px;
+        align-items: flex-end;
+        border: 1px solid var(--dark-line);
+        background: #111412;
+        padding: 18px;
+        color: #b8c0bc;
+        font-size: 17px;
+        line-height: 1.3;
+      }
+
+      .chain-node:nth-child(2),
+      .chain-node:nth-child(4),
+      .chain-node:nth-child(5),
+      .chain-node:nth-child(7) {
+        transform: translateY(14px);
+      }
+
+      .chain-cost {
+        margin-top: 54px;
+        border-left: 5px solid var(--emerald-dark);
+        padding-left: 22px;
+        color: #c8cfcb;
+        font-size: 27px;
+        line-height: 1.42;
+      }
+
+      .path {
+        display: grid;
+        gap: 10px;
+        margin-top: 44px;
+      }
+
+      .path-row {
+        display: grid;
+        grid-template-columns: 64px 230px 1fr;
+        min-height: 102px;
+        align-items: center;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .path-index,
+      .path-name,
+      .path-copy {
+        padding: 20px;
+      }
+
+      .path-index {
+        color: var(--emerald);
+        font-size: 17px;
+        text-align: center;
+      }
+
+      .path-name {
+        border-left: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+
+      .path-copy {
+        border-left: 1px solid var(--line);
+        color: #525b56;
+        font-size: 19px;
+        line-height: 1.38;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 44px;
+      }
+
+      .workflow-step {
+        display: flex;
+        min-height: 202px;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--dark-line);
+        background: #111412;
+        padding: 18px;
+      }
+
+      .workflow-step strong {
+        color: #f4f6f5;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 1.25;
+      }
+
+      .workflow-step span {
+        color: #858f8a;
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .stack-line {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .stack-caption {
+        margin-top: 18px;
+        color: #858f8a;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stack-service {
+        border-top: 1px solid var(--emerald-dark);
+        padding-top: 10px;
+        color: var(--emerald-dark);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .verification {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 36px;
+        border: 1px solid var(--emerald-dark);
+        padding: 18px 22px;
+      }
+
+      .verification strong {
+        color: var(--emerald-dark);
+        font-size: 22px;
+        font-weight: 400;
+      }
+
+      .verification span {
+        color: #9ca59f;
+        font-size: 15px;
+        letter-spacing: 0.08em;
+      }
+
+      .inheritance {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 44px;
+      }
+
+      .inherit-card {
+        min-height: 156px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 22px;
+      }
+
+      .inherit-card strong {
+        display: block;
+        font-size: 21px;
+        font-weight: 400;
+      }
+
+      .inherit-card p {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.42;
+      }
+
+      .dark .inherit-card {
+        border-color: var(--dark-line);
+        background: #111412;
+      }
+
+      .dark .inherit-card strong {
+        color: #f4f6f5;
+      }
+
+      .dark .inherit-card p {
+        color: #aab3ae;
+      }
+
+      .inherit-result {
+        margin-top: 22px;
+        border: 1px solid var(--emerald);
+        background: var(--emerald-soft);
+        padding: 20px 22px;
+        color: #175841;
+        font-size: 22px;
+        line-height: 1.4;
+      }
+
+      .pilot-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+        margin-top: 40px;
+      }
+
+      .pilot-steps,
+      .scorecard {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 24px;
+      }
+
+      .pilot-step {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 15px 0;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .pilot-step:last-child {
+        border-bottom: 0;
+      }
+
+      .pilot-step span:first-child {
+        color: var(--emerald);
+      }
+
+      .scorecard .label {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .metric {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding: 18px 0;
+        font-size: 18px;
+      }
+
+      .metric span:last-child {
+        color: var(--emerald);
+      }
+
+      .risk-reversal {
+        margin-top: 22px;
+        border-left: 5px solid var(--emerald);
+        padding: 8px 0 8px 20px;
+        color: #46504a;
+        font-size: 21px;
+        line-height: 1.42;
+      }
+
+      .dark .risk-reversal {
+        color: #bac2be;
+      }
+
+      .partner-count {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .partner-count strong {
+        color: var(--emerald-dark);
+        font-size: 148px;
+        font-weight: 400;
+        letter-spacing: -0.07em;
+        line-height: 0.8;
+      }
+
+      .partner-count span {
+        max-width: 430px;
+        color: #bac2be;
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .partner-areas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 38px;
+      }
+
+      .partner-area {
+        border: 1px solid var(--dark-line);
+        background: #111412;
+        padding: 18px;
+        color: #b8c0bc;
+        font-size: 18px;
+      }
+
+      .offer {
+        margin-top: 26px;
+        border: 1px solid var(--emerald-dark);
+        padding: 20px;
+        color: var(--emerald-dark);
+        font-size: 20px;
+        line-height: 1.42;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 42px;
+      }
+
+      .price-card {
+        min-height: 250px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 24px;
+      }
+
+      .price-card.featured {
+        border-color: var(--emerald);
+        background: var(--emerald-soft);
+      }
+
+      .price-card strong {
+        display: block;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+      }
+
+      .price {
+        display: block;
+        margin-top: 42px;
+        font-size: 46px;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+
+      .price-card p {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.42;
+      }
+
+      .x .pricing-grid {
+        margin-top: 24px;
+      }
+
+      .x .price-card {
+        min-height: 180px;
+        padding: 18px;
+      }
+
+      .x .price {
+        margin-top: 24px;
+        font-size: 36px;
+      }
+
+      .x-columns {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 44px;
+        align-items: center;
+      }
+
+      .x .hero-number {
+        font-size: 116px;
+      }
+
+      .x .mechanism {
+        margin-top: 20px;
+      }
+
+      .x .mechanism-item {
+        min-height: 94px;
+        padding: 16px;
+      }
+
+      .x .mechanism-item span {
+        margin-top: 8px;
+        font-size: 14px;
+      }
+
+      .x .service-chain {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 0;
+      }
+
+      .x .chain-node {
+        min-height: 80px;
+        padding: 14px;
+        font-size: 14px;
+      }
+
+      .x .workflow {
+        margin-top: 0;
+      }
+
+      .x .workflow-step {
+        min-height: 140px;
+        padding: 14px;
+      }
+
+      .x .workflow-step strong {
+        font-size: 15px;
+      }
+
+      .x .workflow-step span {
+        font-size: 12px;
+      }
+
+      .x .verification {
+        margin-top: 18px;
+        padding: 12px 16px;
+      }
+
+      .x .pilot-grid {
+        margin-top: 0;
+      }
+
+      .x .pilot-step {
+        padding: 10px 0;
+        font-size: 15px;
+      }
+
+      .x .metric {
+        padding: 12px 0;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- LinkedIn final: 11 slides, 1080 x 1350 -->
+    <section class="slide linkedin dark grid" data-deck="linkedin" data-slide="01">
+      <header class="masthead">
+        <div class="brand"><img src="../../../assets/logo.png" alt="Off Grid AI" /><div><div class="brand-name">Off Grid AI</div><div class="micro">A Wednesday story</div></div></div>
+        <div class="number">01 / 11</div>
+      </header>
+      <main class="content">
+        <div class="hero-number">120,000</div>
+        <div class="hero-rule"></div>
+        <h1>people downloaded Off Grid AI.</h1>
+        <p class="lede">The next goal: make <span class="accent">OGAM + OGAD free forever.</span></p>
+        <div class="verification"><strong>2,800 GITHUB STARS</strong><span>BUILT IN THE OPEN</span></div>
+      </main>
+      <footer class="footer"><div class="meta">Population-scale private intelligence.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin grid" data-deck="linkedin" data-slide="02">
+      <header class="masthead"><div class="eyebrow">The contradiction</div><div class="number">02 / 11</div></header>
+      <main class="content">
+        <h2>Your work lives across devices. Its context does not.</h2>
+        <p class="lede">Knowledge workers spend most of their waking hours moving between screens. Yet the tools carrying the work remain disconnected.</p>
+        <div class="mechanism">
+          <div class="mechanism-item"><strong>APP SILOS</strong><span>Apps on the same device do not share enough context.</span></div>
+          <div class="mechanism-item"><strong>DEVICE SILOS</strong><span>The phone, desktop and other devices remember different fragments.</span></div>
+          <div class="mechanism-item"><strong>HUMAN MIDDLEWARE</strong><span>People search, copy, repeat and reconnect the context themselves.</span></div>
+          <div class="mechanism-item"><strong>LOST JUDGMENT</strong><span>Useful decisions and conversations disappear between systems.</span></div>
+        </div>
+        <div class="risk-reversal">The devices see the work. The system does not understand the person.</div>
+      </main>
+      <footer class="footer"><div class="meta">Most waking hours. Fragmented context.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin" data-deck="linkedin" data-slide="03">
+      <header class="masthead"><div class="eyebrow">The destination</div><div class="number">03 / 11</div></header>
+      <main class="content">
+        <h2>Give every knowledge worker a private chief of staff.</h2>
+        <p class="lede">The kind of support once reserved for people who could hire it. Personal, contextual and on-device.</p>
+        <div class="mechanism">
+          <div class="mechanism-item"><strong>PLANS THE DAY</strong><span>Turns priorities and commitments into a workable plan.</span></div>
+          <div class="mechanism-item"><strong>PREPARES THE PERSON</strong><span>Builds the briefing before the meeting starts.</span></div>
+          <div class="mechanism-item"><strong>PROTECTS ATTENTION</strong><span>Surfaces what matters now and delays what can wait.</span></div>
+          <div class="mechanism-item"><strong>STAYS ON-DEVICE</strong><span>Uses personal context without sending that life away.</span></div>
+        </div>
+      </main>
+      <footer class="footer"><div class="meta">This is what OGAM + OGAD are being built to do.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin grid" data-deck="linkedin" data-slide="04">
+      <header class="masthead"><div class="eyebrow">The model</div><div class="number">04 / 11</div></header>
+      <main class="content">
+        <h2>Free still has to fund the work.</h2>
+        <p class="lede">Enterprise value can pay for consumer access.</p>
+        <div class="funding-model">
+          <div class="funding-box"><strong>ENTERPRISE VALUE</strong><span>Organizations pay for important workflows that improve revenue, throughput and quality.</span></div>
+          <div class="connector">-&gt;</div>
+          <div class="funding-box emerald"><strong>CONSUMER ACCESS</strong><span>The enterprise business funds private, on-device intelligence for everyone.</span></div>
+        </div>
+      </main>
+      <footer class="footer"><div class="meta">One side makes the other sustainable.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin dark" data-deck="linkedin" data-slide="05">
+      <header class="masthead"><div class="eyebrow">The outcome</div><div class="number">05 / 11</div></header>
+      <main class="content">
+        <h2>Every enterprise should become an intelligent enterprise.</h2>
+        <p class="lede">Its best knowledge and judgment reach every person at the moment of work.</p>
+        <div class="mechanism">
+          <div class="mechanism-item"><strong>MORE EFFICIENT</strong><span>Work moves faster and costs less.</span></div>
+          <div class="mechanism-item"><strong>MORE EFFECTIVE</strong><span>Decisions and outputs reach a higher standard.</span></div>
+          <div class="mechanism-item"><strong>NEWLY CAPABLE</strong><span>People can do work the organization could not do before.</span></div>
+          <div class="mechanism-item"><strong>SAFE TO SCALE</strong><span>AI remains reliable, auditable and compliant in regulated work.</span></div>
+        </div>
+        <div class="offer">Faster. Lower cost. Higher quality. New capability.</div>
+      </main>
+      <footer class="footer"><div class="meta">The destination.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin grid" data-deck="linkedin" data-slide="06">
+      <header class="masthead"><div class="eyebrow">The platform</div><div class="number">06 / 11</div></header>
+      <main class="content">
+        <h2>Implement AI without losing control.</h2>
+        <p class="lede">OGAC gives you a reliable, auditable and compliant path from the first workflow to an intelligent enterprise.</p>
+        <div class="mechanism">
+          <div class="mechanism-item"><strong>USE YOUR ENVIRONMENT</strong><span>Connect the data, systems and models already in place.</span></div>
+          <div class="mechanism-item"><strong>CONTROL EVERY RUN</strong><span>Apply access, policy, guardrails and human authority.</span></div>
+          <div class="mechanism-item"><strong>PROVE WHAT HAPPENED</strong><span>Retain evidence, lineage, evaluation and audit.</span></div>
+          <div class="mechanism-item"><strong>OPERATE RELIABLY</strong><span>Observe, recover and improve production workloads.</span></div>
+        </div>
+        <div class="offer">OGAC is AWS for AI: one governed foundation beneath both enterprise wedges.</div>
+      </main>
+      <footer class="footer"><div class="meta">Built for regulated work.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin dark grid" data-deck="linkedin" data-slide="07">
+      <header class="masthead"><div class="eyebrow">Wedge 01 / Enterprise builder</div><div class="number">07 / 11</div></header>
+      <main class="content">
+        <h2>Every employee can build safe enterprise AI.</h2>
+        <p class="lede">Lovable, Bolt or Replit for your enterprise: describe the app, agent or workflow in plain English.</p>
+        <div class="inheritance">
+          <div class="inherit-card"><strong>INHERITS YOUR DATA</strong><p>Uses approved sources and connectors already available.</p></div>
+          <div class="inherit-card"><strong>INHERITS YOUR RULES</strong><p>Applies organizational policies and access automatically.</p></div>
+          <div class="inherit-card"><strong>INHERITS YOUR CONTROLS</strong><p>Guardrails, evidence, audit and evaluation follow every run.</p></div>
+          <div class="inherit-card"><strong>INCLUDES YOUR PEOPLE</strong><p>Human review and sign-off remain part of the work.</p></div>
+        </div>
+        <div class="offer">Your people build the capability. OGAC supplies the enterprise controls.</div>
+      </main>
+      <footer class="footer"><div class="meta">From idea to governed production.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin grid" data-deck="linkedin" data-slide="08">
+      <header class="masthead"><div class="eyebrow">Wedge 02 / Intelligent nodes</div><div class="number">08 / 11</div></header>
+      <main class="content">
+        <h2>Every managed device becomes an intelligent node.</h2>
+        <p class="lede">OGAD and OGAM see, hear, remember and help locally. The sync layer shares only approved knowledge with the organization.</p>
+        <div class="inheritance">
+          <div class="inherit-card"><strong>HELPS THE PERSON</strong><p>Briefings, priorities and context arrive when the work happens.</p></div>
+          <div class="inherit-card"><strong>KEEPS RAW DATA LOCAL</strong><p>Screenshots, audio and conversations remain on the device.</p></div>
+          <div class="inherit-card"><strong>GOVERNS THE SYNC</strong><p>Policy, role and approval decide what can leave.</p></div>
+          <div class="inherit-card"><strong>BUILDS ORGANIZATIONAL MEMORY</strong><p>Approved facts, patterns and SOPs improve the whole enterprise.</p></div>
+        </div>
+        <div class="risk-reversal">Traditional device management controls the node. Off Grid makes the node intelligent.</div>
+      </main>
+      <footer class="footer"><div class="meta">A private context layer at every node.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin" data-deck="linkedin" data-slide="09">
+      <header class="masthead"><div class="eyebrow">Prove the value</div><div class="number">09 / 11</div></header>
+      <main class="content">
+        <h2>Start with one important outcome.</h2>
+        <p class="lede">An intelligent enterprise proves value one workflow at a time.</p>
+        <div class="mechanism">
+          <div class="mechanism-item"><strong>PROCESS MORE CLAIMS</strong><span>The same team handles more cases with evidence and approval intact.</span></div>
+          <div class="mechanism-item"><strong>INTERVENE EARLIER</strong><span>Identify delinquency risk and act before it rolls forward.</span></div>
+          <div class="mechanism-item"><strong>GROW CUSTOMER VALUE</strong><span>Give relationship managers compliant next-best actions.</span></div>
+          <div class="mechanism-item"><strong>RELEASE RELIABLE AI</strong><span>Gate models and workflows on quality, drift and policy.</span></div>
+        </div>
+        <div class="risk-reversal">Faster. Lower cost. Higher quality. Newly possible.</div>
+      </main>
+      <footer class="footer"><div class="meta">Business outcomes, not AI demos.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin grid" data-deck="linkedin" data-slide="10">
+      <header class="masthead"><div class="eyebrow">Transparent pricing</div><div class="number">10 / 11</div></header>
+      <main class="content">
+        <h2><span class="accent">$2.99 per user per month.</span></h2>
+        <p class="lede">Simple enough to start without an enterprise-software procurement project.</p>
+        <div class="pricing-grid">
+          <div class="price-card"><strong>1-50 USERS</strong><span class="price">$149.50</span><p>per month</p></div>
+          <div class="price-card featured"><strong>51-500 USERS</strong><span class="price">$2.99</span><p>per user / month</p></div>
+          <div class="price-card"><strong>501+ USERS</strong><span class="price">ENTERPRISE</span><p>licensing</p></div>
+        </div>
+        <div class="risk-reversal">Design partners get discovery, setup and the first implementation included. Billing begins only after the PoC works and its owner signs off.</div>
+      </main>
+      <footer class="footer"><div class="meta">No hidden setup fee. No paid discovery.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide linkedin dark grid" data-deck="linkedin" data-slide="11">
+      <header class="masthead"><div class="eyebrow">The ask</div><div class="number">11 / 11</div></header>
+      <main class="content">
+        <h2>The community can open the first enterprise doors.</h2>
+        <p class="lede"><span class="accent">Bring a workflow that matters. Or introduce the person who owns it.</span></p>
+        <div class="partner-areas"><div class="partner-area">OWN AN IMPORTANT WORKFLOW</div><div class="partner-area">KNOW THE PERSON WHO DOES</div><div class="partner-area">WANT TO BUILD THE FIRST PROOF</div><div class="partner-area">THINK THE THESIS IS WRONG</div></div>
+        <div class="offer">Help build the intelligence infrastructure companies run on. Keep OGAM + OGAD free forever.</div>
+      </main>
+      <footer class="footer"><div class="meta">Let us work together.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <!-- X final: 4 cards, 1600 x 900 -->
+    <section class="slide x dark grid" data-deck="x" data-slide="01">
+      <header class="masthead"><div class="brand"><img src="../../../assets/logo.png" alt="Off Grid AI" /><div><div class="brand-name">Off Grid AI</div><div class="micro">A Wednesday story</div></div></div><div class="number">01 / 04</div></header>
+      <main class="content x-columns"><div><div class="hero-number">120,000</div><p class="lede">people downloaded Off Grid AI.</p></div><div><h1>The next goal: make <span class="accent">OGAM + OGAD free forever.</span></h1></div></main>
+      <footer class="footer"><div class="meta">2,800 GitHub stars. Built in the open.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide x" data-deck="x" data-slide="02">
+      <header class="masthead"><div class="eyebrow">The problem and opportunity</div><div class="number">02 / 04</div></header>
+      <main class="content x-columns"><div><h2>Your work lives across devices. Its context does not.</h2><p class="lede">Apps on the same device barely talk. Different devices know even less.</p></div><div><h2>Give every knowledge worker a private chief of staff.</h2><p class="lede">Plans, prepares and protects attention using private, on-device context.</p></div></main>
+      <footer class="footer"><div class="meta">The person should not be the integration layer.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide x dark" data-deck="x" data-slide="03">
+      <header class="masthead"><div class="eyebrow">The intelligent enterprise</div><div class="number">03 / 04</div></header>
+      <main class="content x-columns"><div><h2>Implement AI without losing control.</h2><p class="lede">OGAC gives you a reliable, auditable and compliant path from the first workflow to an intelligent enterprise.</p></div><div><div class="partner-areas"><div class="partner-area">WEDGE 01 / ENTERPRISE BUILDER</div><div class="partner-area">WEDGE 02 / PRIVATE CONTEXT AT EVERY NODE</div></div><div class="risk-reversal">OGAC is AWS for AI: the infrastructure beneath both wedges.</div></div></main>
+      <footer class="footer"><div class="meta">Efficient. Effective. Newly capable.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo-dark.svg" alt="Wednesday" /></div></footer>
+    </section>
+
+    <section class="slide x grid" data-deck="x" data-slide="04">
+      <header class="masthead"><div class="eyebrow">Transparent pricing</div><div class="number">04 / 04</div></header>
+      <main class="content x-columns"><div><h2><span class="accent">$2.99 per user per month.</span></h2><p class="lede">Discovery, setup and the first implementation are included for design partners. Billing starts after the PoC works and the owner signs off.</p></div><div><div class="partner-areas"><div class="partner-area">OWN A WORKFLOW</div><div class="partner-area">KNOW THE OWNER</div><div class="partner-area">BECOME A DESIGN PARTNER</div><div class="partner-area">CHALLENGE THE THESIS</div></div><div class="risk-reversal">Become an intelligent enterprise. Keep OGAM + OGAD free.</div></div></main>
+      <footer class="footer"><div class="meta">Let us work together.</div><div class="wednesday"><span>Built by</span><img src="../../../../mobile/src/assets/wednesday-logo.svg" alt="Wednesday" /></div></footer>
+    </section>
+  </body>
+</html>

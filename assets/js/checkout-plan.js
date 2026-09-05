@@ -23,16 +23,21 @@
   // A checkout is minutes, not days. Short enough that an abandoned attempt
   // cannot attach itself to a purchase made much later.
   var MAX_AGE_SECONDS = 6 * 60 * 60;
-  var PLAN_RE = /^[a-z_]{1,20}$/;
+  var PLANS = { annual: true, lifetime: true, ogap: true };
+  var EVENT_ID_RE = /^[0-9a-f-]{36}$/i;
 
   // ---------------------------------------------------------------- pure
 
-  // "lifetime.69" - plan and the price the button actually showed.
-  function serialize(plan, value) {
-    if (!PLAN_RE.test(String(plan))) return null;
+  // "lifetime.69.<checkout uuid>" - the selected plan, display value, and
+  // exact checkout attempt. Older two-part cookies remain readable during the
+  // deployment transition.
+  function serialize(plan, value, checkoutId) {
+    if (!PLANS[String(plan)]) return null;
     var amount = Number(value);
     if (!isFinite(amount) || amount < 0) return null;
-    return plan + '.' + amount;
+    var id = checkoutId ? String(checkoutId) : '';
+    if (id && !EVENT_ID_RE.test(id)) return null;
+    return plan + '.' + amount + (id ? '.' + id : '');
   }
 
   function deserialize(raw) {
@@ -40,9 +45,12 @@
     var dot = raw.indexOf('.');
     if (dot < 1) return null;
     var plan = raw.slice(0, dot);
-    var amount = Number(raw.slice(dot + 1));
-    if (!PLAN_RE.test(plan) || !isFinite(amount) || amount < 0) return null;
-    return { plan: plan, value: amount };
+    var secondDot = raw.indexOf('.', dot + 1);
+    var amount = Number(secondDot < 0 ? raw.slice(dot + 1) : raw.slice(dot + 1, secondDot));
+    var checkoutId = secondDot < 0 ? '' : raw.slice(secondDot + 1);
+    if (!PLANS[plan] || !isFinite(amount) || amount < 0) return null;
+    if (checkoutId && !EVENT_ID_RE.test(checkoutId)) return null;
+    return { plan: plan, value: amount, checkoutId: checkoutId };
   }
 
   // ----------------------------------------------------------------- I/O
@@ -61,8 +69,8 @@
 
   // Stores the plan the buyer just clicked. Never throws: a cookie we cannot
   // write costs us a reporting value, not the sale.
-  function remember(plan, value) {
-    var encoded = serialize(plan, value);
+  function remember(plan, value, checkoutId) {
+    var encoded = serialize(plan, value, checkoutId);
     if (!encoded) return false;
     try {
       return write(encoded, MAX_AGE_SECONDS);

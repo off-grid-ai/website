@@ -267,6 +267,7 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
 <script>
   (function() {
     var LINK = {{ site.revenuecat_link_ogap | jsonify }};
+    var PACKAGE_ID = {{ site.data.ogap.revenuecat_package_id | jsonify }};
     var form = document.getElementById('ogapForm');
     var input = document.getElementById('ogapEmail');
     var phone = document.getElementById('ogapPhone');
@@ -301,7 +302,9 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
       });
       // Same App User ID convention as Pro: the email itself, so a customer who
       // buys both lands on one RevenueCat customer.
-      var url = window.RevenueCatLink && RevenueCatLink.buildPurchaseUrl(LINK, email);
+      var url = window.RevenueCatLink && RevenueCatLink.buildPurchaseUrl(LINK, email, {
+        packageId: PACKAGE_ID
+      });
       if (!url) {
         status.textContent = 'Checkout is not available right now. Please try again later.';
         status.className = 'ea-status ea-status-error';
@@ -312,8 +315,9 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
       // so we can pick the S/M/L before the unit is packed.
       url += '&utm_source=offgrid-docs&utm_medium=website&utm_campaign=ogap-preorder';
       url += '&utm_term=' + encodeURIComponent(phoneModel.slice(0, 80));
-      // Hand the plan to /thank-you/ - the RevenueCat redirect carries only the
-      // app user id, so the purchase conversion learns the value from here.
+      // Keep the hardware checkout distinct from a Pro purchase. RevenueCat's
+      // OGAP link owns its success route, while this value remains available
+      // for checkout attribution.
       if (window.CheckoutPlan) {
         CheckoutPlan.remember('ogap', {{ site.data.ogap.price }});
       }

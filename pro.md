@@ -360,162 +360,25 @@ Not ready to commit? Choose **${{ site.data.pricing.price }}/{{ site.data.pricin
 
 <script src="{{ '/assets/js/revenuecat-link.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/checkout-plan.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/pro-checkout.js' | relative_url }}"></script>
 <script>
-  (function() {
-    // One RevenueCat purchase link per product; the buttons carry data-plan.
-    var LINKS = {
+  ProCheckout.mount({
+    links: {
       annual: {{ site.revenuecat_link_annual | jsonify }},
       lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
-    };
-    // Google Ads: one "checkout started" conversion action for both plans.
-    // An empty label means "do not send" - see the google_ads_* block in
-    // _config.yml.
-    var ADS_SEND_TO = {{ site.google_ads_id | jsonify }} + '/' + {{ site.google_ads_conversion_label | jsonify }};
-    var ADS_ENABLED = {{ site.google_ads_conversion_label | jsonify }} !== '';
-    // The same numbers the buttons render, so the value we report to Ads can
-    // never drift from the price the buyer actually clicked.
-    var PLAN_VALUES = {
+    },
+    values: {
       annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }}
-    };
-
-    // Stable id per buyer+plan so a double-click - or a reload and re-click -
-    // reports ONE conversion instead of several; Google Ads dedups on
-    // transaction_id. Hashed, so the raw email never goes to Google from here.
-    function dedupeId(plan, email) {
-      var h = 5381;
-      for (var i = 0; i < email.length; i++) {
-        h = ((h << 5) + h + email.charCodeAt(i)) | 0;
-      }
-      return plan + '-' + (h >>> 0).toString(36);
-    }
-
-    var form = document.getElementById('payForm');
-    var emailInput = document.getElementById('payEmail');
-    var buttons = form ? form.querySelectorAll('button[data-plan]') : [];
-    var status = document.getElementById('payStatus');
-    if (!form || !window.RevenueCatLink) return;
-
-    function setEnabled() {
-      var ok = emailInput.value.trim() !== '';
-      buttons.forEach(function(b) { b.disabled = !ok; });
-    }
-    // Sync on load too - the browser may autofill or restore the field without
-    // firing an input event.
-    setEnabled();
-
-    function clearError() {
-      emailInput.classList.remove('ea-input-error');
-      emailInput.setAttribute('aria-invalid', 'false');
-      if (status.classList.contains('ea-status-error')) {
-        status.textContent = '';
-        status.className = 'ea-status';
-      }
-    }
-
-    function showError(message) {
-      emailInput.classList.add('ea-input-error');
-      emailInput.setAttribute('aria-invalid', 'true');
-      status.textContent = message;
-      status.className = 'ea-status ea-status-error';
-    }
-
-    emailInput.addEventListener('input', function() { setEnabled(); clearError(); });
-
-    // The two steps between "landed on /pro" and "clicked buy". Without them a
-    // visitor who never scrolled as far as the form and one who read it and
-    // refused are the same row in the funnel. Both are anonymous counters and
-    // both fire at most once per page.
-    function reportOnce(name) {
-      var fired = false;
-      return function () {
-        if (fired || typeof posthog === 'undefined') return;
-        fired = true;
-        try {
-          posthog.capture(name, { source: window.location.pathname });
-        } catch (err) {
-          console.warn('PostHog tracking failed:', err);
-        }
-      };
-    }
-
-    var reportEmailEntered = reportOnce('pro_email_entered');
-    emailInput.addEventListener('input', function () {
-      if (emailInput.value.trim() !== '') reportEmailEntered();
-    });
-
-    if (typeof IntersectionObserver === 'function') {
-      var reportFormSeen = reportOnce('pro_buy_form_viewed');
-      var formObserver = new IntersectionObserver(function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          if (!entries[i].isIntersecting) continue;
-          reportFormSeen();
-          formObserver.disconnect();
-          return;
-        }
-      }, { threshold: 0.4 });
-      formObserver.observe(form);
-    }
-
-    buttons.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var plan = btn.dataset.plan;
-        var email = emailInput.value.trim();
-        if (!RevenueCatLink.isValidEmail(email)) {
-          showError('Enter a valid email address.');
-          emailInput.focus();
-          return;
-        }
-        var url = RevenueCatLink.buildPurchaseUrl(LINKS[plan], email);
-        if (!url) {
-          showError('Checkout is not available right now. Please try again later.');
-          return;
-        }
-        if (typeof posthog !== 'undefined') {
-          // Never let an analytics failure (blocked, errored) stop the purchase.
-          try {
-            // The buyer's email is the RevenueCat app user id, so identifying
-            // on it here is what joins a purchase back to the visits that led
-            // to it - first touch, pages read, how long they took. The old
-            // /pay/ page did exactly this; the merge into /pro dropped it and
-            // the join went dark. Restored deliberately.
-            posthog.identify(email, { email: email });
-            posthog.capture('pro_checkout_started', {
-              email: email,
-              plan: plan,
-              source: window.location.pathname
-            });
-          } catch (err) {
-            console.warn('PostHog tracking failed:', err);
-          }
-        }
-        // Hand the plan to /thank-you/. RevenueCat's redirect carries only the
-        // app user id, so this button is the last place that knows what was
-        // bought and what it cost.
-        if (window.CheckoutPlan) {
-          CheckoutPlan.remember(plan, PLAN_VALUES[plan]);
-        }
-        // Count the checkout click as the Google Ads conversion. Checkout opens
-        // in a new tab, so this page is never unloaded and the beacon has time
-        // to leave - no event_callback dance needed.
-        if (ADS_ENABLED && typeof gtag === 'function') {
-          try {
-            gtag('event', 'conversion', {
-              send_to: ADS_SEND_TO,
-              value: PLAN_VALUES[plan],
-              currency: 'USD',
-              transaction_id: dedupeId(plan, email)
-            });
-          } catch (err) {
-            console.warn('Google Ads conversion failed:', err);
-          }
-        }
-        status.innerHTML = 'Checkout opened in a new tab. <a href="' + url + '" target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.';
-        status.className = 'ea-status ea-status-success';
-        window.open(url, '_blank');
-      });
-    });
-  })();
+    },
+    productIds: {
+      annual: 'offgrid_pro_annual',
+      lifetime: 'offgrid_pro_lifetime_69'
+    },
+    attributionEndpoint: 'https://license.getoffgridai.co/meta/attribution',
+    googleSendTo: {{ site.google_ads_id | jsonify }} + '/' + {{ site.google_ads_conversion_label | jsonify }},
+    googleEnabled: {{ site.google_ads_conversion_label | jsonify }} !== ''
+  });
 </script>
 
 <script>

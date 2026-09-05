@@ -1,0 +1,717 @@
+/* ============================================================================
+   Off Grid — presentation layer
+   Loaded after main.css so it wins. Content files are never touched: every
+   selector here already exists in the markup.
+
+   The structural patterns are lifted from right-suite (card anatomy, uppercase
+   micro-labels, mouse-follow spotlight, staggered scroll reveal, count-up
+   stats). The skin is Off Grid law — ../../brand/DESIGN_PHILOSOPHY.md, whose
+   sections are cited as (§n):
+
+     §2 one family (Menlo), hierarchy from size + tracking
+     §3 emerald and only emerald
+     §4 depth from tiered surfaces and 1px borders, never shadow
+     §7 motion clarifies, never decorates — transform/opacity only
+     §9 fill the width; cap the reading measure inside it
+
+   Dropped from right-suite on purpose: the green→teal gradient, multi-layer
+   tinted shadows, 14–28px radii, pill shapes, Instrument Serif italics.
+   ========================================================================== */
+
+/* ─── Typography ──────────────────────────────────────────────────────────────
+   Menlo is wide and only ships 400/700. Headings stay at 400 and separate
+   themselves by size and negative tracking instead of weight (§2, §6). */
+
+.content h1 {
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+.content h2 {
+  font-size: 1.375rem;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  margin-top: 64px;
+  padding-bottom: 10px;
+}
+.content h3 {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.content h4 {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.content strong { font-weight: 700; }
+
+/* Mono needs a touch more leading than a sans face at the same size. */
+.content p,
+.content li { line-height: 1.75; }
+
+/* §9 The reading measure is capped here — the page itself stays full width.
+   Grids, cards and media below deliberately opt out and fill. */
+.content > p,
+.content > ul,
+.content > ol,
+.content > h1,
+.content > h2,
+.content > h3,
+.content > h4,
+.content > blockquote { max-width: var(--measure); }
+
+/* Links: emerald, underlined at a muted weight until hovered. */
+.content a:not(.btn) {
+  text-decoration-color: var(--accent-subtle-border);
+  text-underline-offset: 3px;
+}
+
+/* §4 Flat, sharp, bordered — no rounded code slabs. */
+.content pre {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.content pre code { color: var(--text-secondary); }
+.content blockquote {
+  border-radius: 0;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  background: var(--bg-subtle);
+}
+
+/* Tables read as data: mono numerals, emerald rule under the head. */
+.content table { font-size: 0.8125rem; }
+.content th {
+  font-weight: 400;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--accent);
+  padding: 10px 12px;
+}
+.content td {
+  padding: 11px 12px;
+  font-variant-numeric: tabular-nums;
+}
+.content tr:hover td { background: var(--bg-subtle); }
+
+.content hr { border-top: 1px solid var(--border); margin: 56px 0; }
+
+/* ─── Card system ─────────────────────────────────────────────────────────────
+   right-suite's flip-card anatomy (gtm-flip-card.tsx): accent rule across the
+   top edge, hover lift, mouse-follow spotlight. Re-skinned: 8px radius instead
+   of 24px, a 1px flat emerald rule instead of the 1.5px gradient strip, a
+   surface tier instead of white-on-shadow. */
+
+/* These cards are <a> elements sitting inside .content, so the global
+   `.content a:not(.btn) { text-decoration: underline }` was underlining every
+   line of text inside them. Cards are surfaces, not links in prose. */
+:is(.ea-essay-card, .guide-card, .home-console-banner, .page-nav-item),
+:is(.ea-essay-card, .guide-card, .home-console-banner, .page-nav-item):hover {
+  text-decoration: none;
+}
+:is(.ea-essay-card, .guide-card, .home-console-banner, .page-nav-item) * {
+  text-decoration: none;
+}
+
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+) {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  transition:
+    border-color var(--t-hover) var(--ease),
+    transform var(--t-hover) var(--ease);
+}
+
+/* Accent rule wipes in from the left on hover — an affordance, not ornament:
+   it marks which card is live (§7). */
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--t-hover) var(--ease);
+}
+
+/* Mouse-follow spotlight. Port of gtm-flip-card.tsx:57, retinted to emerald at
+   0.07 and driven by --mx/--my, which motion.js writes on pointermove.
+   z-index:-1 paints it over the card's own background but under its text. */
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-hover) var(--ease);
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(var(--accent-rgb) / 0.07),
+    transparent 45%
+  );
+}
+
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+):hover {
+  border-color: var(--accent-subtle-border);
+  transform: translateY(-1px);
+  background: var(--bg-subtle);
+}
+
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+):hover::before { transform: scaleX(1); }
+
+:is(
+  .perk-card,
+  .ea-essay-card,
+  .stat-card,
+  .guide-card,
+  .home-console-banner,
+  .page-nav-item
+):hover::after { opacity: 1; }
+
+/* §9 Grids fill the available width rather than locking to two columns. */
+.early-access-perks,
+.ea-essay-links,
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  gap: 12px;
+}
+.early-access-perks { margin: 32px 0 40px; }
+
+.perk-card { padding: 18px 20px; gap: 14px; }
+
+/* §4 The icon chip loses its tinted fill; a 1px border does the work. */
+.perk-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--accent-subtle-border);
+  color: var(--accent);
+  transition: border-color var(--t-hover) var(--ease);
+}
+.perk-card:hover .perk-icon { border-color: var(--accent); }
+
+.perk-title,
+.ea-essay-title,
+.guide-card-title {
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+.perk-desc,
+.ea-essay-desc,
+.guide-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* The trailing "→" already in the content copy gets the emerald tell on hover
+   (right-suite's "Read →" footer state) without touching the markup. */
+.ea-essay-card:hover .ea-essay-title,
+.guide-card:hover .guide-card-title { color: var(--accent); }
+
+/* ─── Stats ───────────────────────────────────────────────────────────────────
+   Proof, so it reads as data: left-aligned, mono, tabular so the count-up in
+   motion.js does not reflow the row mid-animation. */
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 32px 0 40px;
+}
+.stat-card {
+  padding: 20px;
+  text-align: left;
+}
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+/* ─── Console banner ─────────────────────────────────────────────────────────
+   Keeps its emerald edge marker (functional emphasis) but drops the tinted
+   fill for a surface tier (§4). The tag becomes an uppercase micro-label. */
+
+.home-console-banner {
+  padding: 20px 22px;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-subtle);
+  margin: 28px 0 8px;
+}
+.home-console-banner::before { display: none; }   /* the left edge already marks it */
+.home-console-banner-tag {
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.home-console-banner-title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin-bottom: 7px;
+}
+.home-console-banner-desc {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: var(--measure);
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────────────────── */
+
+.hero-cover {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: none;                                /* §4 */
+  margin-bottom: 32px;
+}
+.page-title-row img { border-radius: var(--radius); }
+.page-title-row h1 { letter-spacing: -0.05em; }
+
+.ea-pricing-note {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────────
+   right-suite's ShimmerButton minus the gradient, the shimmer sweep and the
+   layered glow. What survives is the 1px lift and the border tell. */
+
+.btn {
+  border-radius: var(--radius);
+  border-width: 1px;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  padding: 11px 18px;
+  transition:
+    background var(--t-micro) var(--ease),
+    border-color var(--t-micro) var(--ease),
+    color var(--t-micro) var(--ease),
+    transform var(--t-micro) var(--ease);
+}
+.btn-green {
+  background: var(--accent);
+  color: var(--accent-on);
+  border-color: var(--accent);
+}
+.btn-green:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-on);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+.btn-outline:hover {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ─── Chrome ──────────────────────────────────────────────────────────────────
+   Anti-pattern sweep: no pills, no tinted fills, 8px radius ceiling. */
+
+/* :not() keeps the filled-button text color off the outline variant, which
+   carries both classes and would otherwise go white-on-transparent in light. */
+.sidebar-cta:not(.sidebar-cta-android) { border-radius: var(--radius); font-weight: 400; color: var(--accent-on); }
+.sidebar-cta:not(.sidebar-cta-android):hover { color: var(--accent-on); }
+.sidebar-cta-android { border-radius: var(--radius); border-width: 1px; font-weight: 400; color: var(--accent); background: transparent; }
+.sidebar-cta-android:hover { color: var(--accent); border-color: var(--accent); background: transparent; }
+.nav-item.active,
+.nav-child.active { font-weight: 400; color: var(--accent); }
+.nav-group-label { font-weight: 400; letter-spacing: 0.18em; font-size: 0.625rem; }
+.logo-text { font-weight: 400; letter-spacing: -0.02em; }
+.essay-reactions { border-radius: var(--radius); box-shadow: none; }
+.reaction-btn { border-radius: var(--radius-sm); }
+.sidebar-console-tag { border-radius: var(--radius-sm); font-weight: 400; background: transparent; border: 1px solid var(--accent-subtle-border); }
+.search-trigger kbd { border-radius: var(--radius-sm); }
+.search-modal-box { border-radius: var(--radius); box-shadow: none; }
+.page-nav-label { font-weight: 400; letter-spacing: 0.18em; }
+.page-nav-title { font-weight: 400; letter-spacing: -0.02em; }
+
+/* Orphans: referenced in content markdown but defined nowhere in main.css, so
+   they rendered unstyled. .ogap-media--fit and .ea-slack-direct are used on
+   other pages and stay minimal until those pages get their pass. */
+.home-console-banner-wrap { margin: 28px 0 8px; }
+.ogap-media--fit { display: block; }
+.ea-slack-direct { display: block; margin-top: 12px; }
+
+/* ============================================================================
+   LANDING SHELL  (.is-landing — home page only)
+
+   A marketing page inside a documentation shell reads as documentation no
+   matter how good the tokens are. On the home page the 256px docs sidebar and
+   the 74ch measure both come off: top nav, full-bleed bands, and a headline at
+   frontier scale. Everything is scoped under .is-landing, so the other 63
+   pages keep the docs layout untouched.
+   ========================================================================== */
+
+.is-landing .sidebar,
+.is-landing .breadcrumb,
+.is-landing .essay-reactions { display: none; }
+
+.is-landing .layout { display: block; }
+.is-landing .main {
+  max-width: none;
+  padding: 0;
+}
+
+/* One container width for the whole page; sections band edge to edge and their
+   contents line up on this measure. */
+/* The container owns the width and the gutters. Children are plain block-level
+   and left-aligned inside it — putting `max-width` + `margin:auto` on every
+   child centered anything narrower than the container. */
+.is-landing .content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  column-gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+/* Default: full width of the container, no centering. */
+.is-landing .content > * {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Prose keeps a readable measure without re-centering the page (§9). */
+.is-landing .content > p,
+.is-landing .content > ul,
+.is-landing .content > ol { max-width: 68ch; }
+
+/* ─── Landing header ─────────────────────────────────────────────────────── */
+
+.lp-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--border);
+  background: rgb(var(--bg-rgb, 10 10 10) / 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.lp-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px clamp(20px, 5vw, 64px);
+}
+.lp-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.lp-nav-brand img { border-radius: var(--radius-sm); }
+.lp-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-right: auto;
+}
+.lp-nav-links a {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--t-micro) var(--ease);
+}
+.lp-nav-links a:hover { color: var(--text-primary); }
+.lp-nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.lp-nav-actions .btn { padding: 9px 16px; font-size: 0.75rem; }
+
+@media (max-width: 900px) {
+  .lp-nav-links { display: none; }
+  .lp-nav-brand { margin-right: auto; }
+}
+
+/* ─── Hero ────────────────────────────────────────────────────────────────────
+   The cover art already carries the logotype at display size, so the duplicate
+   logo + <h1> row underneath it is removed. The bold lead line — the only
+   sentence on the page that makes a claim about the reader — is promoted to
+   the headline it always was. Both are CSS; not a word of copy changes. */
+
+/* Clipped, not display:none. The cover art already shows the logotype, so the
+   row is visually redundant — but it holds the page's only <h1>, and
+   display:none would take it out of the accessibility tree and the document
+   outline. This keeps it for screen readers and crawlers, hidden to the eye. */
+.is-landing .page-title-row {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hero: copy stacked in column 1, cover art in column 2 — right-suite's
+   two-column hero shape. Rows are placed explicitly because auto-placement
+   would put the DOM-first image in row 1 and push the copy underneath it.
+
+   No `ch` caps anywhere in here: `ch` resolves against the element's OWN
+   font-size, so a cap on the 15px paragraph produced a ~216px box that the
+   68px text inside then wrapped one word per line. The grid column is the
+   constraint. */
+
+.is-landing .content > p:nth-of-type(2):has(> strong:only-child) {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none;
+  margin-bottom: 24px;
+}
+.is-landing .content > p:nth-of-type(2):has(> strong:only-child) strong {
+  display: block;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1.08;
+  color: var(--text-primary);
+}
+
+/* Standfirst. */
+.is-landing .content > p:nth-of-type(3) {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: none;
+  margin-bottom: 28px;
+}
+
+/* The first .hero-buttons only — selected by what precedes it, since there is a
+   second one further down the page. */
+.is-landing .content > p:nth-of-type(3) + .hero-buttons {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0 0 16px;
+}
+.is-landing .content > p:nth-of-type(3) + .hero-buttons + .ea-pricing-note {
+  grid-column: 1;
+  grid-row: 4;
+  text-align: left !important;
+  margin: 0;
+  align-self: start;
+}
+
+/* Cover art fills column 2 across all four copy rows. */
+.is-landing .content > p:first-of-type {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: stretch;
+  max-width: none;
+  margin: 0;
+}
+.is-landing .hero-cover {
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* Give the hero room to breathe above the first band. */
+.is-landing .content { padding-top: clamp(36px, 6vw, 80px); }
+
+@media (max-width: 900px) {
+  /* Single column: copy first, art after it. */
+  .is-landing .content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .is-landing .content > p:nth-of-type(2):has(> strong:only-child) { grid-row: 1; }
+  .is-landing .content > p:nth-of-type(3) { grid-row: 2; }
+  .is-landing .content > p:nth-of-type(3) + .hero-buttons { grid-row: 4; }
+  .is-landing .content > p:nth-of-type(3) + .hero-buttons + .ea-pricing-note { grid-row: 5; }
+  .is-landing .content > p:first-of-type {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 4px 0 24px;
+  }
+}
+
+/* ─── Bands ───────────────────────────────────────────────────────────────────
+   The `---` rules in the markdown are the section boundaries. Rather than draw
+   a line, each one opens a new band of vertical space, which is what separates
+   sections on a landing page. */
+
+.is-landing .content > hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  max-width: none;
+  padding: 0;
+  margin: clamp(64px, 9vw, 120px) 0 clamp(40px, 6vw, 72px);
+}
+
+.is-landing .content > h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  letter-spacing: -0.045em;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 30ch;
+}
+
+.is-landing .stats-row,
+.is-landing .early-access-perks,
+.is-landing .ea-essay-links,
+.is-landing .guide-grid { margin-top: 28px; margin-bottom: 40px; }
+
+.is-landing .stat-card { padding: 26px 24px; }
+.is-landing .stat-number { font-size: clamp(2.25rem, 4vw, 3rem); }
+
+.is-landing .content > table { font-size: 0.8125rem; }
+
+/* ─── Motion ──────────────────────────────────────────────────────────────────
+   §7: transform and opacity only. Every class here is applied by motion.js, so
+   with JS off nothing is hidden — the page just renders static. */
+
+/* Scroll reveal. right-suite card-deck.tsx:91-94 — 12px rise, 0.4s, ~50ms
+   stagger, fires once, 40px before the element reaches the fold. */
+.og-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--t-reveal) var(--ease),
+    transform var(--t-reveal) var(--ease);
+  transition-delay: calc(var(--i, 0) * 55ms);
+}
+.og-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Headline reveal. design.md:263-266 — blur 4px → 0 with a 12px rise, 500ms,
+   60ms per word. */
+.og-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(4px);
+  animation: og-word-in 500ms var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+@keyframes og-word-in {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .content h1 { font-size: 1.75rem; }
+  .content h2 { font-size: 1.1875rem; margin-top: 48px; }
+  .stat-number { font-size: 1.875rem; }
+}
+
+/* §7 Always honor the preference. Motion is enhancement, never structure. */
+@media (prefers-reduced-motion: reduce) {
+  .og-reveal,
+  .og-reveal.is-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .og-word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  :is(
+    .perk-card,
+    .ea-essay-card,
+    .stat-card,
+    .guide-card,
+    .home-console-banner,
+    .page-nav-item
+  )::after { display: none; }
+}

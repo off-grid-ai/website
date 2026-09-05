@@ -4,6 +4,8 @@ Open gaps, surfaced honestly. Close with evidence, then mark resolved.
 
 ## Open
 
+- **The dedicated OGAP success route is prepared but is not the live RevenueCat redirect yet.** `/ogap/thank-you/` must be deployed before the OGAP Web Purchase Link can safely change from `/thank-you/`. After deployment, update the RevenueCat redirect and verify one sandbox purchase from an existing Pro customer reaches the hardware confirmation page.
+
 - **The global newsletter form identifies subscribers to PostHog with their email address.** The Pro checkout now keeps analytics anonymous, but `_layouts/default.html` still calls `posthog.identify(email)` after newsletter signup. Remove that PII or add explicit analytics consent in a dedicated privacy change, then verify the newsletter journey still submits successfully.
 
 ## Resolved

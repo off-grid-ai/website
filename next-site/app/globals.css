@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+   Off Grid — token layer
+
+   Same decisions as the Jekyll build's main.css, expressed as a Tailwind v4
+   @theme so the copied right-suite components pick them up through utilities.
+   Source of truth: ../../../brand/DESIGN_PHILOSOPHY.md, cited below as (§n).
+
+   Dark-first: this product is a terminal, and #0A0A0A is its resting state.
+   ========================================================================== */
+
+@theme {
+  /* §2 One family everywhere. Menlo ships with the OS — no webfont request,
+     which also means a privacy product never calls a font CDN. */
+  --font-sans: Menlo, ui-monospace, SFMono-Regular, 'SF Mono', 'Cascadia Code', monospace;
+  --font-mono: var(--font-sans);
+
+  /* §4 Base + tiered surfaces. Depth is borders and tiers, never shadow. */
+  --color-bg: #0a0a0a;
+  --color-surface: #121212;
+  --color-nested: #1a1a1a;
+  --color-line: #262626;
+  --color-line-strong: #333333;
+
+  /* §6 Three text tiers. Hierarchy is size and spacing, not colour. */
+  --color-fg: #fafafa;
+  --color-fg-2: #d4d4d4;
+  --color-fg-3: #8a8a8a;
+
+  /* §3 Emerald, and only emerald. No second accent, ever. */
+  --color-accent: #34d399;
+  --color-accent-bright: #6ee7b7;
+  --color-accent-on: #0a0a0a;
+
+  /* Anti-pattern list: ~8px radius, no pill shapes. */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+
+  /* §7 micro 120ms · hover 220ms · reveal 400ms */
+  --ease-og: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode is a guest here, not the default. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #fafafa;
+    --color-nested: #f4f4f5;
+    --color-line: #d4d4d8;
+    --color-line-strong: #a1a1aa;
+    --color-fg: #18181b;
+    --color-fg-2: #3f3f46;
+    --color-fg-3: #71717a;
+    --color-accent: #059669;
+    --color-accent-bright: #047857;
+    --color-accent-on: #ffffff;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+  /* Menlo has no light weights, so §2's "keep weights light" resolves to 400
+     everywhere and hierarchy comes from size and negative tracking instead. */
+  h1, h2, h3, h4 {
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-on);
+  }
+}
+
+/* ─── Keyframes the copied components depend on ──────────────────────────────
+   border-beam.tsx animates `.border-beam-dot`; marquee.tsx animates
+   `.animate-marquee`; retro-grid.tsx animates `.animate-grid`. Without these
+   the components render but sit still. */
+
+@keyframes border-beam {
+  0%   { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+.border-beam-dot { animation: border-beam linear infinite; }
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12px)); }
+}
+.animate-marquee { animation: marquee var(--duration, 40s) linear infinite; }
+.marquee-reverse .animate-marquee { animation-direction: reverse; }
+
+@keyframes grid {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+.animate-grid { animation: grid 20s linear infinite; }
+
+/* Headline word reveal — RevealWords. `both` fill so the word holds its start
+   state during its stagger delay and its end state afterwards. */
+@keyframes og-word-in {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to   { opacity: 1; transform: none;             filter: blur(0); }
+}
+.og-word {
+  animation: og-word-in 0.5s var(--ease-og) both;
+}
+
+/* §7 Always honour the preference. Motion is enhancement, never structure. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

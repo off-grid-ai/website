@@ -49,7 +49,7 @@ google_ads_purchase_label: "dQrzCPbr_eEcEPLk5KpE"
 # RevenueCat Web Purchase Link ids (the path segment in pay.rev.cat/<id>/...).
 # Public by design - they appear in every customer's checkout URL, e.g.
 # https://pay.rev.cat/<id>/<app_user_id>?email=<email>. One per product so the
-# /pay page can offer the choice directly (annual vs lifetime).
+# /pro page can offer the public choice directly (annual vs lifetime).
 revenuecat_link_annual: "awiunwnoekgjmxxk"    # offgrid_pro_annual - $49/yr
 revenuecat_link_lifetime: "avvnmcnfsgbmjaee"  # Off Grid AI Lifetime Pro - $69 one-time
 revenuecat_link_ogap: "mvayfyykkdodnvxw"      # OGAP hardware pre-order - $49

@@ -56,23 +56,12 @@
     gtag('config', {{ site.google_ads_id | jsonify }});
   </script>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '3137229433277919');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=3137229433277919&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- Capture first-party attribution before the Pixel reads this landing URL.
+       The public Pixel id comes from the Worker environment, not this bundle. -->
+  <script src="{{ '/assets/js/meta-attribution.js' | relative_url }}"></script>
+  <script>if (window.MetaAttribution) { MetaAttribution.remember(); }</script>
+  <script src="{{ '/assets/js/meta-pixel.js' | relative_url }}"
+          data-config-url="https://license.getoffgridai.co/meta/config"></script>
 
   <link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
