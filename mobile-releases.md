@@ -4,17 +4,17 @@ title: Releases
 parent: Mobile
 nav_order: 2
 permalink: /mobile/releases/
-description: OGAM release notes - what shipped, and when, for iPhone and Android. Two tracks, stable and beta, both on-device and free.
+description: OGAM 0.0.110 GitHub release and mobile release history for iPhone and Android.
 ---
 
 # OGAM - releases
 
-Everything that ships to your phone, in the order it shipped. Two tracks:
+OGAM [0.0.110 is available on GitHub](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110). Choose a track:
 
 - **Stable** - the tested build on the [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile). What you get if you just install the app.
-- **Beta** - new features first, weekly, from [GitHub releases](https://github.com/off-grid-ai/off-grid-ai-mobile/releases). Expect the occasional rough edge.
+- **GitHub releases** - [OGAM 0.0.110](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110) and other builds are available directly from the OGAM repository. Store rollout can follow a different schedule.
 
-<p class="ea-pricing-note">Current App Store release: <strong>iOS 0.0.103</strong>. For Android, <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile" target="_blank" rel="noopener">see the current Google Play release</a>. New beta builds and the full per-build history live on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
+<p class="ea-pricing-note">Latest GitHub release: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a>. App Store and Google Play versions can differ; check each store for its current rollout. <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">Full GitHub release history</a>.</p>
 
 ---
 
@@ -57,4 +57,4 @@ Tools, membership, and routing that thinks.
 
 ---
 
-<p class="ea-pricing-note">Looking for an older build or the exact commit list? Every version, with full notes and downloads, is on <a href="https://github.com/off-grid-ai/off-grid-ai-mobile/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
+<p class="ea-pricing-note">Looking for an older build or the exact commit list? Every version, with full notes and downloads, is on <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
