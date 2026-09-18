@@ -1,12 +1,9 @@
 {%- comment -%}
-  Lifetime cohort price ladder + yearly and monthly options. Tiers come from
-  _data/pricing.yml. The headline offer is LIFETIME (own it forever); yearly is
-  a smaller-commitment option. Monthly stays at $4.99. The live "current" tier is chosen client-side
-  from the real customer count served by the usercount worker
-  (count.getoffgridai.co -> RevenueCat). Each tier carries its own lifetime and
-  annual price (lifetime ~1.5x annual, ending in 9), so both climb with the
-  ladder. Until the live count arrives, the customer total and scarcity line
-  remain unavailable instead of presenting a made-up fallback.
+  Lifetime cohort price ladder + monthly option. Tiers come from
+  _data/pricing.yml. Monthly stays at $4.99. The live current tier is chosen
+  client-side from the real customer count served by the usercount worker
+  (count.getoffgridai.co -> RevenueCat). Until the live count arrives, the
+  customer total and scarcity line remain unavailable.
 {%- endcomment -%}
 {%- assign n = site.data.pricing.tiers | size -%}
 <div class="og-ladder-wrap">
@@ -14,12 +11,12 @@
   <h1>Own it now, before the price climbs.</h1>
   <p class="sub" id="og-count-line" role="status" aria-live="polite">
     <span class="og-count-loading" id="og-count-loading"><span class="og-loader" aria-hidden="true"></span>Loading customer count...</span>
-    <span id="og-count-ready" hidden><strong id="og-count"></strong> people are on it. The annual and lifetime prices rise as more people join.</span>
+    <span id="og-count-ready" hidden><strong id="og-count"></strong> people are on it. The lifetime price rises as more people join.</span>
   </p>
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
-       data-tiers='[{% for t in site.data.pricing.tiers %}{"amount":{{ t.amount }},"lifetime":{{ t.lifetime }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
+       data-tiers='[{% for t in site.data.pricing.tiers %}{"lifetime":{{ t.lifetime }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
     <div class="row">
       {%- for t in site.data.pricing.tiers -%}
       <div class="price" data-tier="{{ forloop.index0 }}">${{ t.lifetime }}<small> once</small></div>
@@ -45,7 +42,7 @@
 
   <p class="og-spots" id="og-spots" hidden><strong id="og-spots-n"></strong> spots left at <span id="og-spots-price"></span> for life before the price jumps to <span id="og-spots-next"></span>.</p>
 
-  <p class="og-lifetime">Prefer a subscription? Pay <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, or ${{ site.data.pricing.monthly }}/month. The annual price climbs with the lifetime ladder; the monthly price stays fixed.</p>
+  <p class="og-lifetime">Prefer a subscription? Pay ${{ site.data.pricing.monthly }}/month. The monthly price stays fixed.</p>
 </div>
 
 <script>
@@ -69,10 +66,6 @@
     if (c) c.textContent = count.toLocaleString();
     document.getElementById('og-count-loading').hidden = true;
     document.getElementById('og-count-ready').hidden = false;
-
-    // Yearly price (the smaller-commitment option) tracks the current tier.
-    var ann = document.getElementById('og-annual-price');
-    if (ann) ann.textContent = '$' + tiers[cur].amount;
 
     ladder.querySelectorAll('.price[data-tier]').forEach(function (el) {
       var t = +el.dataset.tier;

@@ -3,45 +3,32 @@
 # (pay.md, pro.md, index.md, desktop.md, _layouts/default.html).
 #
 # NOTE: Jekyll does NOT render Liquid inside YAML front matter, so the
-# `description:` SEO line on pay.md carries the number literally - update it
-# by hand when `price` below changes.
+# `description:` SEO line on pro.md carries the numbers literally.
 #
-# Model: ANNUAL + LIFETIME COHORT LADDER, with a standing MONTHLY option.
-#   - Annual is the headline: the price rises as user slots fill (`tiers`),
-#     never down. The live "current tier" is chosen client-side from the real
-#     cumulative customer count (count.getoffgridai.co → RevenueCat Charts v3
-#     customers_new total) by
-#     _includes/pricing-ladder.html.
-#   - Lifetime is ~1.5× the annual price of the same tier (about a year and a
-#     half up front, then own it forever), charm-priced to end in 9. So lifetime
-#     CLIMBS with the ladder: $49/yr→$69, $79/yr→$119, $99/yr→$149. Not a
-#     separate cohort - it tracks whatever tier is live. The original first-500
-#     $50-lifetime founders are grandfathered and untouched.
+# Model: LIFETIME COHORT LADDER, with a standing MONTHLY option.
+#   - Lifetime rises as user slots fill (`tiers`), never down. The live
+#     current tier is chosen client-side from the real cumulative customer
+#     count (count.getoffgridai.co → RevenueCat Charts v3 customers_new total)
+#     by _includes/pricing-ladder.html. The original first-500 $50-lifetime
+#     founders are grandfathered and untouched.
 #   - Monthly is a fixed-price subscription and does not follow the ladder.
 
-# Convenience values for static copy (the CURRENT / final tiers).
-price: 49            # USD - the annual tier live right now (buttons + prose)
+# Convenience values for static copy (the CURRENT / final lifetime tiers).
 monthly: 4.99        # USD/month - standing monthly subscription
-period: year
-top_price: 99        # USD/year - the final, highest annual tier
-lifetime: 69         # USD - current lifetime price (~1.5× current annual)
+lifetime: 69         # USD - current lifetime price
 top_lifetime: 149    # USD - final lifetime price
 devices: 5
 count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 
-# The ladder, low → high. `amount` = annual price, `lifetime` = own-it-forever
-# price for the same tier (~1.5× annual, ending in 9). `until` = cumulative
-# customer count at which this tier closes (0 = final, no cap).
+# The ladder, low → high. `until` = cumulative customer count at which this
+# lifetime tier closes (0 = final, no cap).
 tiers:
-  - amount: 49
-    lifetime: 69
+  - lifetime: 69
     label: "first 1,500"
     until: 1500
-  - amount: 79
-    lifetime: 119
+  - lifetime: 119
     label: "next 5,000"
     until: 6500
-  - amount: 99
-    lifetime: 149
+  - lifetime: 149
     label: "after that"
     until: 0

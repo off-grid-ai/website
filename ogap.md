@@ -258,7 +258,7 @@ Pre-order yours at **${{ site.data.ogap.price }}, shipping included anywhere in 
   </a>
   <a href="{{ '/pro' | relative_url }}#buy" class="ea-essay-card">
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
-    <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you, on your own hardware. ${{ site.data.pricing.lifetime }} to own forever, or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</div>
+    <div class="ea-essay-desc">The layer that sees your day, remembers it, and gets ahead of you, on your own hardware. ${{ site.data.pricing.lifetime }} to own forever, or ${{ site.data.pricing.monthly }}/month.</div>
   </a>
 </div>
 

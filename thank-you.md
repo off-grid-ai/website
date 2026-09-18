@@ -52,7 +52,6 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     // app_user_id). With neither, the conversion still fires - just no value.
     var PLAN_VALUES = {
       monthly: {{ site.data.pricing.monthly }},
-      annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }},
       ogap: {{ site.data.ogap.price }}
     };
@@ -157,14 +156,14 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     // Meta Pixel "Purchase". Never a URL-based conversion: a bare visit to
     // this page fires nothing. It needs evidence a checkout actually
     // completed - RevenueCat's redirect param or the buy button's cookie -
-    // AND the plan must resolve to annual or lifetime Pro with its real price.
+    // AND the plan must resolve to lifetime Pro with its real price.
     // Monthly is sent by the RevenueCat webhook Worker with the event ID; its
     // browser ID differs, so firing both would double-count that purchase.
     // The OGAP pre-order is deliberately excluded.
     // The payload is value/currency/plan only - the buyer's email never goes
     // to Meta: the head scrubber removed app_user_id from the URL the pixel
     // sees, and here it is only hashed into the guard key and the eventID.
-    var FB_PLANS = { annual: true, lifetime: true };
+    var FB_PLANS = { lifetime: true };
     var fbEvidence = appUserId !== '' || !!picked;
     var fbGuardKey = 'og_fb_purchase_' + (appUserId ? hash(appUserId) : 'anon');
     if (fbEvidence && FB_PLANS[plan] && value > 0 &&

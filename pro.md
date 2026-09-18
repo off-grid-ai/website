@@ -3,7 +3,7 @@ layout: default
 title: Pro
 nav_order: 6
 nav_group: Products
-description: Off Grid AI Pro is a private intelligence layer for your laptop and phone. It captures your day, remembers everything, and drafts the next move, on your own hardware. Live now - $4.99/month, $49/year, or $69 lifetime. See every feature and get your key.
+description: Off Grid AI Pro is a private intelligence layer for your laptop and phone. It captures your day, remembers everything, and drafts the next move, on your own hardware. Live now - $4.99/month or $69 lifetime. See every feature and get your key.
 ---
 
 <div class="early-access-hero">
@@ -18,7 +18,7 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, pay <strong>${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</strong>, or start at <strong>${{ site.data.pricing.monthly }}/month</strong>. The annual and lifetime prices climb as more people join; today's tier is their lowest. Sync is live in the latest builds and is included with the same license.
+  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or subscribe for <strong>${{ site.data.pricing.monthly }}/month</strong>. The lifetime price climbs as more people join; today's tier is its lowest. Sync is live in the latest builds and is included with the same license.
 </div>
 
 ---
@@ -35,7 +35,6 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
     <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
     <div class="ea-buy-row">
       <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>
-      <button type="button" class="ea-submit ea-submit-alt" data-plan="annual" disabled>Or ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}</button>
       <button type="button" class="ea-submit ea-submit-alt" data-plan="monthly" disabled>Or ${{ site.data.pricing.monthly }}/month</button>
     </div>
     <div class="ea-form-footer">
@@ -340,9 +339,9 @@ You enter your email and we send you to RevenueCat's hosted checkout with that e
 
 Have a promo code? Apply it on the checkout page, before you pay. The price updates once the code is accepted.
 
-Own it for **${{ site.data.pricing.lifetime }}** - about a year and a half of the yearly price up front, then it's yours forever with no renewal, every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold - it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
+Own it for **${{ site.data.pricing.lifetime }}** once, then it's yours forever with no renewal and every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold - it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
 
-Prefer a subscription? Choose **${{ site.data.pricing.price }}/{{ site.data.pricing.period }}** or **${{ site.data.pricing.monthly }}/month** at checkout. Both renew until you cancel. The annual price climbs with the ladder toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}; the monthly price stays at ${{ site.data.pricing.monthly }}.
+Prefer a subscription? Choose **${{ site.data.pricing.monthly }}/month** at checkout. It renews until you cancel; the monthly price stays at ${{ site.data.pricing.monthly }}.
 
 <div class="hero-buttons">
   <a href="#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
@@ -351,7 +350,7 @@ Prefer a subscription? Choose **${{ site.data.pricing.price }}/{{ site.data.pric
 <div class="ea-essay-links">
   <a href="#buy" class="ea-essay-card">
     <div class="ea-essay-title">Get Pro →</div>
-    <div class="ea-essay-desc">Own Off Grid AI Pro forever for ${{ site.data.pricing.lifetime }} today, or subscribe for ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} or ${{ site.data.pricing.monthly }}/month. Annual and lifetime prices climb as we grow. Every new release is included.</div>
+    <div class="ea-essay-desc">Own Off Grid AI Pro forever for ${{ site.data.pricing.lifetime }} today, or subscribe for ${{ site.data.pricing.monthly }}/month. The lifetime price climbs as we grow. Every new release is included.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>
@@ -366,7 +365,6 @@ Prefer a subscription? Choose **${{ site.data.pricing.price }}/{{ site.data.pric
     // One RevenueCat purchase link per product; the buttons carry data-plan.
     var LINKS = {
       monthly: {{ site.revenuecat_link_monthly | jsonify }},
-      annual: {{ site.revenuecat_link_annual | jsonify }},
       lifetime: {{ site.revenuecat_link_lifetime | jsonify }}
     };
     // Google Ads: one "checkout started" conversion action for all plans.
@@ -378,7 +376,6 @@ Prefer a subscription? Choose **${{ site.data.pricing.price }}/{{ site.data.pric
     // never drift from the price the buyer actually clicked.
     var PLAN_VALUES = {
       monthly: {{ site.data.pricing.monthly }},
-      annual: {{ site.data.pricing.price }},
       lifetime: {{ site.data.pricing.lifetime }}
     };
 
