@@ -19,7 +19,7 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">iOS 0.0.103 is live on the App Store - <a href="{{ '/mobile/releases/' | relative_url }}">see what shipped</a></p>
+<p class="ea-pricing-note" style="text-align:center;">OGAM 0.0.110 is on GitHub (App Store availability may differ) - <a href="{{ '/mobile/releases/' | relative_url }}">see what shipped</a></p>
 
 <p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
 
