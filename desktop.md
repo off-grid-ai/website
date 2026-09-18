@@ -19,7 +19,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS 
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">macOS stable 0.0.43: Apple Silicon, signed and notarized. Windows x64 stable 0.0.43 is available now.</p>
+<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.45 preview is available on <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91">GitHub</a>; stable 0.0.45 is coming soon. Current macOS and Windows x64 stable is 0.0.43.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
@@ -114,7 +114,7 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">Want new features first? Get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>. Nightly builds can have rough edges.</p>
+<p class="ea-pricing-note" style="text-align:center;">For OGAD 0.0.45 preview builds, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>. Nightly builds can have rough edges.</p>
 
 ---
 
