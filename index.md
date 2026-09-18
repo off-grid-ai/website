@@ -51,7 +51,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">New on GitHub: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener">OGAD 0.0.45 preview</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile. Desktop stable 0.0.45 is coming soon; current stable is 0.0.43.</p>
+<p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46" target="_blank" rel="noopener">OGAD 0.0.46 stable</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>
 
 <div class="stats-row">
   <div class="stat-card">

@@ -4,19 +4,19 @@ title: Releases
 parent: Desktop
 nav_order: 1
 permalink: /desktop/releases/
-description: OGAD releases for macOS and Windows. Stable 0.0.43 and nightly builds are available for both platforms.
+description: OGAD releases for macOS and Windows. Stable 0.0.46 and nightly builds are available for both platforms.
 ---
 
 # OGAD - releases
 
-OGAD 0.0.45 preview is available for macOS and Windows on [GitHub](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). The stable 0.0.45 release is coming soon. Choose a track below:
+OGAD 0.0.46 is the current stable release for macOS and Windows. [Read its release notes on GitHub](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46). Choose a track below:
 
-- **macOS stable** - version 0.0.43 is tested, signed and notarized for Apple Silicon. [Download macOS stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg).
-- **macOS nightly / 0.0.45 preview** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg) or [view the 0.0.45 preview release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). Nightlies rebuild on each change; expect rough edges.
-- **Windows x64 stable** - version 0.0.43 is tested for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.43).
-- **Windows x64 nightly / 0.0.45 preview** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe) or [view the 0.0.45 preview release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). Expect rough edges.
+- **macOS stable** - version 0.0.46 for Apple Silicon. [Download macOS stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg).
+- **macOS nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg). Nightlies rebuild on each change; expect rough edges.
+- **Windows x64 stable** - version 0.0.46 for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46).
+- **Windows x64 nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe). Expect rough edges.
 
-<p class="ea-pricing-note">Current 0.0.45 preview: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener">GitHub release</a>. Stable macOS and Windows downloads currently provide 0.0.43. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and nightly history</a>.</p>
+<p class="ea-pricing-note">Current stable: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46" target="_blank" rel="noopener">OGAD 0.0.46 on GitHub</a> for macOS and Windows. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and nightly history</a>.</p>
 
 ---
 

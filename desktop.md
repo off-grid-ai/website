@@ -19,7 +19,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS 
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.45 preview is available on <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91">GitHub</a>; stable 0.0.45 is coming soon. Current macOS and Windows x64 stable is 0.0.43.</p>
+<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.46 is the current macOS and Windows x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46">See the GitHub release</a>.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
@@ -114,7 +114,7 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">For OGAD 0.0.45 preview builds, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>. Nightly builds can have rough edges.</p>
+<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>. Nightly builds can have rough edges.</p>
 
 ---
 
@@ -267,7 +267,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows?** Stable version 0.0.43 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
+**What about Windows?** Stable version 0.0.46 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 

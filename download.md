@@ -26,7 +26,7 @@ Sync traffic is encrypted between paired devices. No Off Grid AI server receives
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a> <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.45 preview</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a> <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.46 release</a>
   <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener" class="btn btn-outline">OGAM 0.0.110 release</a>
 </div>
 
@@ -55,10 +55,10 @@ A private AI studio on your computer. Chat, vision, image, and voice stay on you
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download for Windows</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.45 preview</a> <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.46 release</a> <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note">OGAD <strong>0.0.45</strong> preview is available on <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener">GitHub</a> for macOS and Windows. Stable downloads currently provide 0.0.43; 0.0.45 stable is coming soon. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">See all releases and nightly builds</a>.</p>
+<p class="ea-pricing-note">OGAD <strong>0.0.46</strong> is the current stable release for macOS and Windows. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46" target="_blank" rel="noopener">Read the release notes</a> or <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">see all releases and nightly builds</a>.</p>
 
 ---
 
