@@ -9,14 +9,14 @@ description: OGAD releases for macOS and Windows. Stable 0.0.43 and nightly buil
 
 # OGAD - releases
 
-Everything that ships to your Mac or Windows PC, in the order it shipped. Platform availability differs:
+OGAD 0.0.45 preview is available for macOS and Windows on [GitHub](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). The stable 0.0.45 release is coming soon. Choose a track below:
 
 - **macOS stable** - version 0.0.43 is tested, signed and notarized for Apple Silicon. [Download macOS stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg).
-- **macOS nightly** - the [nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg) rebuilds on every change, so you get new features first. Expect rough edges.
+- **macOS nightly / 0.0.45 preview** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg) or [view the 0.0.45 preview release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). Nightlies rebuild on each change; expect rough edges.
 - **Windows x64 stable** - version 0.0.43 is tested for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.43).
-- **Windows x64 nightly** - the [nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe) is available if you want new work sooner. Expect rough edges.
+- **Windows x64 nightly / 0.0.45 preview** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe) or [view the 0.0.45 preview release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91). Expect rough edges.
 
-<p class="ea-pricing-note">Current macOS stable: <strong>0.0.43</strong> - Apple Silicon. Current Windows x64 stable: <strong>0.0.43</strong>. Full per-build history lives on <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
+<p class="ea-pricing-note">Current 0.0.45 preview: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91" target="_blank" rel="noopener">GitHub release</a>. Stable macOS and Windows downloads currently provide 0.0.43. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and nightly history</a>.</p>
 
 ---
 
