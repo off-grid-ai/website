@@ -162,7 +162,7 @@ The free app runs models on your phone. Pro is an optional, additive tier: it gi
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> The price climbs as we grow - never down - so today's tier is the lowest it will be. One license covers up to {{ site.data.pricing.devices }} devices, on mobile and desktop. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> Annual and lifetime prices climb as we grow. One license covers up to {{ site.data.pricing.devices }} devices, on mobile and desktop. Subscribe for ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} or ${{ site.data.pricing.monthly }}/month.
 </div>
 
 <div class="hero-buttons">
@@ -196,7 +196,7 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 
 **What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to a computer running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
 
-**What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow, and the tier you join at is the price you hold. Not ready to commit? Pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} yearly instead, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}. One license covers {{ site.data.pricing.devices }} devices, phone and laptop.
+**What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow. You can also pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }} yearly, climbing toward ${{ site.data.pricing.top_price }}/{{ site.data.pricing.period }}, or ${{ site.data.pricing.monthly }}/month. One license covers {{ site.data.pricing.devices }} devices, phone and laptop.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>

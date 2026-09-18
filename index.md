@@ -102,7 +102,7 @@ The open-source code lets you check how it works.
   </a>
   <a href="{{ '/pro' | relative_url }}#buy" class="ea-essay-card">
     <div class="ea-essay-title">Get Off Grid AI Pro →</div>
-    <div class="ea-essay-desc">Live now on desktop and mobile. Own it forever - ${{ site.data.pricing.lifetime }} - climbing as we grow toward ${{ site.data.pricing.top_lifetime }}, so today's tier is the lowest it will be. Prefer yearly? ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}.</div>
+    <div class="ea-essay-desc">Live now on desktop and mobile. Own it forever for ${{ site.data.pricing.lifetime }}, pay ${{ site.data.pricing.price }}/{{ site.data.pricing.period }}, or start at ${{ site.data.pricing.monthly }}/month. Annual and lifetime prices climb as we grow.</div>
   </a>
   <a href="{{ '/vision' | relative_url }}" class="ea-essay-card">
     <div class="ea-essay-title">Read the vision →</div>

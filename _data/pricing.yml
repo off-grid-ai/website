@@ -6,7 +6,7 @@
 # `description:` SEO line on pay.md carries the number literally - update it
 # by hand when `price` below changes.
 #
-# Model: ANNUAL COHORT LADDER + standing LIFETIME option.
+# Model: ANNUAL + LIFETIME COHORT LADDER, with a standing MONTHLY option.
 #   - Annual is the headline: the price rises as user slots fill (`tiers`),
 #     never down. The live "current tier" is chosen client-side from the real
 #     cumulative customer count (count.getoffgridai.co → RevenueCat Charts v3
@@ -17,9 +17,11 @@
 #     CLIMBS with the ladder: $49/yr→$69, $79/yr→$119, $99/yr→$149. Not a
 #     separate cohort - it tracks whatever tier is live. The original first-500
 #     $50-lifetime founders are grandfathered and untouched.
+#   - Monthly is a fixed-price subscription and does not follow the ladder.
 
 # Convenience values for static copy (the CURRENT / final tiers).
 price: 49            # USD - the annual tier live right now (buttons + prose)
+monthly: 4.99        # USD/month - standing monthly subscription
 period: year
 top_price: 99        # USD/year - the final, highest annual tier
 lifetime: 69         # USD - current lifetime price (~1.5× current annual)

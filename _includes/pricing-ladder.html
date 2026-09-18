@@ -1,7 +1,7 @@
 {%- comment -%}
-  Lifetime cohort price ladder + standing yearly option. Tiers come from
+  Lifetime cohort price ladder + yearly and monthly options. Tiers come from
   _data/pricing.yml. The headline offer is LIFETIME (own it forever); yearly is
-  the smaller-commitment fallback. The live "current" tier is chosen client-side
+  a smaller-commitment option. Monthly stays at $4.99. The live "current" tier is chosen client-side
   from the real customer count served by the usercount worker
   (count.getoffgridai.co -> RevenueCat). Each tier carries its own lifetime and
   annual price (lifetime ~1.5x annual, ending in 9), so both climb with the
@@ -11,10 +11,10 @@
 {%- assign n = site.data.pricing.tiers | size -%}
 <div class="og-ladder-wrap">
   <p class="eyebrow"># Pricing</p>
-  <h1>The price climbs as we grow.</h1>
+  <h1>Own it now, before the price climbs.</h1>
   <p class="sub" id="og-count-line" role="status" aria-live="polite">
     <span class="og-count-loading" id="og-count-loading"><span class="og-loader" aria-hidden="true"></span>Loading customer count...</span>
-    <span id="og-count-ready" hidden><strong id="og-count"></strong> people are on it. Lock the rate now - it only goes up.</span>
+    <span id="og-count-ready" hidden><strong id="og-count"></strong> people are on it. The annual and lifetime prices rise as more people join.</span>
   </p>
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
@@ -45,7 +45,7 @@
 
   <p class="og-spots" id="og-spots" hidden><strong id="og-spots-n"></strong> spots left at <span id="og-spots-price"></span> for life before the price jumps to <span id="og-spots-next"></span>.</p>
 
-  <p class="og-lifetime">Not ready to commit? Pay yearly instead - <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, a smaller step in. It climbs with the ladder too, so today is the cheapest it will be.</p>
+  <p class="og-lifetime">Prefer a subscription? Pay <strong id="og-annual-price">${{ site.data.pricing.price }}</strong>/{{ site.data.pricing.period }} today, or ${{ site.data.pricing.monthly }}/month. The annual price climbs with the lifetime ladder; the monthly price stays fixed.</p>
 </div>
 
 <script>
