@@ -18,7 +18,7 @@ Run your first local AI model in under 5 minutes. No account. No API key. No int
 
 **Android:** [Get it on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires Android 10+, 4GB RAM+
 
-Or grab the latest APK directly from [GitHub Releases](https://github.com/off-grid-ai/off-grid-ai-mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+Or download the [OGAM 0.0.110 APK from GitHub](https://github.com/off-grid-ai/OGAM/releases/download/v0.0.110/OffgridMobile-0.0.110.apk).
 
 ---
 

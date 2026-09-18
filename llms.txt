@@ -27,20 +27,23 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Supported model formats: GGUF
 - Minimum specs: iPhone 12 / Android with 4GB RAM
 - Recommended specs: iPhone 15 Pro / flagship Android with 8GB RAM
-- Current iOS release: 0.0.103
-- Current macOS stable release: 0.0.42 (Apple Silicon)
-- Current Windows stable release: 0.0.42 (x64, free core app)
+- Current OGAM GitHub release: 0.0.110 (App Store and Google Play rollout may differ)
+- Current macOS stable release: 0.0.43 (Apple Silicon)
+- Current Windows stable release: 0.0.43 (x64, free core app)
+- OGAD 0.0.45 preview: available on GitHub; stable release coming soon
 - Windows nightly track: x64 pre-release builds are also available
 
 ## Links
 
 - iOS App: https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download
 - Android App: https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download
-- GitHub: https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github
-- GitHub Releases (APK): https://github.com/off-grid-ai/off-grid-ai-mobile/releases/latest?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github
+- Mobile GitHub: https://github.com/off-grid-ai/OGAM
+- OGAM 0.0.110 APK: https://github.com/off-grid-ai/OGAM/releases/download/v0.0.110/OffgridMobile-0.0.110.apk
+- OGAM 0.0.110 release notes: https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110
 - macOS stable: https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg
 - Windows stable: https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe
-- Windows 0.0.42 release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.42
+- Windows 0.0.43 release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.43
+- OGAD 0.0.45 preview release: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.45-beta.91
 - Windows nightly: https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe
 - Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ
