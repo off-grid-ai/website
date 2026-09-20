@@ -19,7 +19,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS 
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.46 is the current macOS and Windows x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46">See the GitHub release</a>.</p>
+<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.48 is the current macOS and Windows x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48">See the GitHub release</a>.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
@@ -237,7 +237,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
     </div>
     <div>
       <div class="perk-title">You delegate, it acts</div>
-      <div class="perk-desc">Hand it a task and it understands what you mean. It drafts the reply, files the ticket, lines up the next move. Nothing runs without your approval.</div>
+      <div class="perk-desc">Hand it a task and it works through the controls already on your screen. If accessibility control stalls, vision handles one blocked step, then returns the task to the faster accessibility path. Nothing runs without your approval.</div>
     </div>
   </div>
 </div>
@@ -267,7 +267,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows?** Stable version 0.0.46 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
+**What about Windows?** Stable version 0.0.48 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 

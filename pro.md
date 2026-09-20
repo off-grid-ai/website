@@ -253,6 +253,15 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
       <div class="perk-desc">Slack, Gmail, Calendar, Notion, Linear, Jira, GitHub, any MCP server, connected in one click. Read tools run freely. Write tools route to the approval queue. You approve every action that leaves the machine.</div>
     </div>
   </div>
+  <div class="perk-card">
+    <div class="perk-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9h8M8 13h5"/><path d="m15 16 2 2 4-4"/></svg>
+    </div>
+    <div>
+      <div class="perk-title">Computer Use that recovers</div>
+      <div class="perk-desc">Accessibility controls keep routine steps fast. When the task reaches a control it cannot resolve, vision handles one step and returns control to the accessibility path. A bounded task memory keeps confirmed work without carrying a full screen transcript.</div>
+    </div>
+  </div>
 </div>
 
 ---

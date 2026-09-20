@@ -28,8 +28,8 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Minimum specs: iPhone 12 / Android with 4GB RAM
 - Recommended specs: iPhone 15 Pro / flagship Android with 8GB RAM
 - Current OGAM GitHub release: 0.0.110 (App Store and Google Play rollout may differ)
-- Current macOS stable release: 0.0.46 (Apple Silicon)
-- Current Windows stable release: 0.0.46 (x64, free core app)
+- Current macOS stable release: 0.0.48 (Apple Silicon)
+- Current Windows stable release: 0.0.48 (x64, free core app)
 - Windows nightly track: x64 pre-release builds are also available
 
 ## Links
@@ -41,7 +41,7 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - OGAM 0.0.110 release notes: https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110
 - macOS stable: https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg
 - Windows stable: https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe
-- OGAD 0.0.46 stable release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.46
+- OGAD 0.0.48 stable release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48
 - Windows nightly: https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe
 - Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ
