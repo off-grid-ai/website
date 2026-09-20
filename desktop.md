@@ -149,6 +149,11 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 
 ---
 
+## Computer Use and Web Use are live
+{: #computer-use}
+
+Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, with Pause, Stop, Take Over, and live guidance while they work.
+
 ## The chief of staff you never had
 
 The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid AI keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
@@ -236,7 +241,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
     </div>
     <div>
-      <div class="perk-title">You delegate, it acts</div>
+      <div class="perk-title">Computer Use and Web Use</div>
       <div class="perk-desc">Hand it a task and it works through the controls already on your screen. If accessibility control stalls, vision handles one blocked step, then returns the task to the faster accessibility path. Nothing runs without your approval.</div>
     </div>
   </div>

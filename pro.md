@@ -258,8 +258,8 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9h8M8 13h5"/><path d="m15 16 2 2 4-4"/></svg>
     </div>
     <div>
-      <div class="perk-title">Computer Use that recovers</div>
-      <div class="perk-desc">Accessibility controls keep routine steps fast. When the task reaches a control it cannot resolve, vision handles one step and returns control to the accessibility path. A bounded task memory keeps confirmed work without carrying a full screen transcript.</div>
+      <div class="perk-title">Computer Use and Web Use are live</div>
+      <div class="perk-desc">Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks. Pause, stop, take over, or give new guidance while they work.</div>
     </div>
   </div>
 </div>

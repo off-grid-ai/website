@@ -24,6 +24,11 @@ Start a chat on your phone. Continue it on your laptop. Chats, projects, model s
 
 Sync traffic is encrypted between paired devices. No Off Grid AI server receives or stores the content you sync. Sync is included with Pro, and one key covers up to {{ site.data.pricing.devices }} devices.
 
+## Computer Use and Web Use are live
+{: #computer-use}
+
+Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, so you can pause, stop, take over, or give new guidance while they work.
+
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a> <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.48 release</a>

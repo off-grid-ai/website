@@ -28,7 +28,7 @@ A full AI studio on your own machine, everything the cloud chat apps do without 
 - **Image generation** - text-to-image and image-to-image on your own GPU. Ships Z-Image-Turbo and SDXL-Lightning, with a live per-step preview.
 - **Voice** - speech-to-text with Whisper, text-to-speech with Kokoro, and a hands-free voice mode, all on-device.
 - **Your model library** - a catalog of local models with sizes, plus Hugging Face search.
-- **Computer Use** - accessibility controls handle most steps. A vision-capable Decider can use the current screenshot, and vision handles one blocked step before accessibility control resumes.
+- **Computer Use and Web Use are live** - Web Use works inside the browser. Computer Use uses accessibility controls for most screen actions, with vision for a blocked step. Both run as supervised tasks.
 - **Task continuity** - a bounded record of confirmed outcomes helps long tasks move forward without replaying the same screen history.
 
 [Read the full 0.0.48 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48).

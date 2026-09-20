@@ -51,6 +51,14 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </a>
 </div>
 
+<div class="home-feature-banner-wrap">
+<a href="{{ '/desktop/' | relative_url }}#computer-use" class="home-feature-banner">
+  <div class="home-feature-banner-tag">Computer Use + Web Use - Live</div>
+  <div class="home-feature-banner-title">Give it the task. Stay in control. &rarr;</div>
+  <div class="home-feature-banner-desc">Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, with Pause, Stop, Take Over, and live guidance while they work.</div>
+</a>
+</div>
+
 <p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48" target="_blank" rel="noopener">OGAD 0.0.48 stable</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>
 
 <div class="stats-row">

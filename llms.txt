@@ -30,6 +30,7 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Current OGAM GitHub release: 0.0.110 (App Store and Google Play rollout may differ)
 - Current macOS stable release: 0.0.48 (Apple Silicon)
 - Current Windows stable release: 0.0.48 (x64, free core app)
+- Computer Use and Web Use: live in Off Grid AI Desktop as supervised tasks
 - Windows nightly track: x64 pre-release builds are also available
 
 ## Links
