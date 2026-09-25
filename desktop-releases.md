@@ -4,19 +4,19 @@ title: Releases
 parent: Desktop
 nav_order: 1
 permalink: /desktop/releases/
-description: OGAD releases for macOS and Windows. Stable 0.0.51 for macOS and 0.0.50 for Windows, with nightly builds for both platforms.
+description: OGAD releases for macOS and Windows. Stable 0.0.51 and nightly builds are available for both platforms.
 ---
 
 # OGAD - releases
 
-OGAD 0.0.51 is the current stable release for macOS. Windows x64 is on 0.0.50. Choose a track below:
+OGAD 0.0.51 is the current stable release for macOS and Windows. Choose a track below:
 
 - **macOS stable** - version 0.0.51 for Apple Silicon. [Download macOS stable](https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg).
 - **macOS nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg). Nightlies rebuild on each change; expect rough edges.
-- **Windows x64 stable** - version 0.0.50 for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.50/OffGrid-latest-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.50).
+- **Windows x64 stable** - version 0.0.51 for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51).
 - **Windows x64 nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe). Expect rough edges.
 
-<p class="ea-pricing-note">Current stable: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener">0.0.51 for macOS</a> and <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.50" target="_blank" rel="noopener">0.0.50 for Windows x64</a>. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and nightly history</a>.</p>
+<p class="ea-pricing-note">Current stable: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener">OGAD 0.0.51 on GitHub</a> for macOS and Windows. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and nightly history</a>.</p>
 
 ---
 
@@ -31,7 +31,7 @@ A full AI studio on your own machine, everything the cloud chat apps do without 
 - **Computer Use and Web Use are live** - Web Use works inside the browser. Computer Use uses accessibility controls for most screen actions, with vision for a blocked step. Both run as supervised tasks.
 - **Task continuity** - a bounded record of confirmed outcomes helps long tasks move forward without replaying the same screen history.
 
-### 0.0.51 - macOS stable - September 25, 2026
+### 0.0.51 - stable - September 25, 2026
 
 This is a maintenance release with no user-facing changes.
 

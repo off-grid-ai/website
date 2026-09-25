@@ -6,7 +6,7 @@ that runs on hardware you own, with no cloud or account. Off Grid AI is availabl
 - **iOS** - stable 0.0.103 on the App Store (iOS 17+)
 - **Android** - stable on Google Play (Android 10+)
 - **macOS** - stable 0.0.51 for Apple Silicon, plus a nightly track
-- **Windows** - stable 0.0.50 for x64, plus a nightly track
+- **Windows** - stable 0.0.51 for x64, plus a nightly track
 
 Built with [Jekyll](https://jekyllrb.com/) and deployed to **https://getoffgridai.co**
 via GitHub Pages (see `.github/workflows/pages.yml`). Search is powered by

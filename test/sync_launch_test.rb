@@ -26,9 +26,9 @@ end
 download = rendered.fetch("download")
 required_download_content = {
   "macOS stable build" => "OffGrid-latest.dmg",
-  "Windows stable build" => "v0.0.50/OffGrid-latest-setup.exe",
+  "Windows stable build" => "v0.0.51/OffGrid-latest-setup.exe",
   "current macOS stable release" => "0.0.51",
-  "current Windows stable release" => "0.0.50",
+  "current Windows stable release" => "0.0.51",
   "mobile latest builds" => "https://github.com/off-grid-ai/OGAM/releases",
   "Sync anchor" => 'id="sync"'
 }
