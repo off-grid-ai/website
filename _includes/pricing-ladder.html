@@ -1,6 +1,6 @@
 {%- comment -%}
   Lifetime cohort price ladder + monthly option. Tiers come from
-  _data/pricing.yml. Monthly stays at $4.99. The live current tier is chosen
+  _data/pricing.yml. The live current tier is chosen
   client-side from the real customer count served by the usercount worker
   (count.getoffgridai.co -> RevenueCat). Until the live count arrives, the
   customer total and scarcity line remain unavailable.
@@ -16,7 +16,7 @@
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
-       data-tiers='[{% for t in site.data.pricing.tiers %}{"lifetime":{{ t.lifetime }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
+       data-tiers='[{% for t in site.data.pricing.tiers %}{"lifetime":{{ t.lifetime }},"monthly":{{ t.monthly }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
     <div class="row">
       {%- for t in site.data.pricing.tiers -%}
       <div class="price" data-tier="{{ forloop.index0 }}">${{ t.lifetime }}<small> once</small></div>
@@ -42,7 +42,7 @@
 
   <p class="og-spots" id="og-spots" hidden><strong id="og-spots-n"></strong> spots left at <span id="og-spots-price"></span> for life before the price jumps to <span id="og-spots-next"></span>.</p>
 
-  <p class="og-lifetime">Prefer a subscription? Pay ${{ site.data.pricing.monthly }}/month. The monthly price stays fixed.</p>
+  <p class="og-lifetime" id="og-monthly">Prefer a subscription? Pay ${{ site.data.pricing.monthly }}/month before it rises to $7.99, then ${{ site.data.pricing.top_monthly }}.</p>
 </div>
 
 <script>
@@ -93,6 +93,16 @@
           Math.max(0, tiers[cur].until - count).toLocaleString();
         document.getElementById('og-spots-price').textContent = '$' + tiers[cur].lifetime;
         document.getElementById('og-spots-next').textContent = '$' + tiers[cur + 1].lifetime;
+      }
+    }
+    var monthly = document.getElementById('og-monthly');
+    if (monthly) {
+      if (cur === n - 1) {
+        monthly.textContent = 'Prefer a subscription? Pay $' + tiers[cur].monthly + '/month.';
+      } else if (cur === n - 2) {
+        monthly.textContent = 'Prefer a subscription? Pay $' + tiers[cur].monthly + '/month before it rises to $' + tiers[cur + 1].monthly + '.';
+      } else {
+        monthly.textContent = 'Prefer a subscription? Pay $' + tiers[cur].monthly + '/month before it rises to $' + tiers[cur + 1].monthly + ', then $' + tiers[n - 1].monthly + '.';
       }
     }
     // Nodes are evenly spaced; first/last sit half a column in. Fill the track up

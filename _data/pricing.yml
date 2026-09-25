@@ -5,17 +5,18 @@
 # NOTE: Jekyll does NOT render Liquid inside YAML front matter, so the
 # `description:` SEO line on pro.md carries the numbers literally.
 #
-# Model: LIFETIME COHORT LADDER, with a standing MONTHLY option.
-#   - Lifetime rises as user slots fill (`tiers`), never down. The live
+# Model: LIFETIME AND MONTHLY COHORT LADDER.
+#   - Both prices rise as user slots fill (`tiers`), never down. The live
 #     current tier is chosen client-side from the real cumulative customer
 #     count (count.getoffgridai.co → RevenueCat Charts v3 customers_new total)
 #     by _includes/pricing-ladder.html. The original first-500 $50-lifetime
 #     founders are grandfathered and untouched.
-#   - Monthly is a fixed-price subscription and does not follow the ladder.
+#   - Customers keep the price that applies when they buy or subscribe.
 
 # Convenience values for static copy (the CURRENT / final lifetime tiers).
-monthly: 4.99        # USD/month - standing monthly subscription
+monthly: 4.99        # USD/month - current monthly price
 lifetime: 69         # USD - current lifetime price
+top_monthly: 9.99    # USD/month - final monthly price
 top_lifetime: 149    # USD - final lifetime price
 devices: 5
 count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
@@ -24,11 +25,14 @@ count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 # lifetime tier closes (0 = final, no cap).
 tiers:
   - lifetime: 69
+    monthly: 4.99
     label: "first 1,500"
     until: 1500
   - lifetime: 119
+    monthly: 7.99
     label: "next 5,000"
     until: 6500
   - lifetime: 149
+    monthly: 9.99
     label: "after that"
     until: 0

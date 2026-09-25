@@ -328,7 +328,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.50/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a>
   <a href="{{ '/download/' | relative_url }}#sync" class="btn btn-outline">Get the mobile build</a>
 </div>
 
@@ -350,7 +350,7 @@ Have a promo code? Apply it on the checkout page, before you pay. The price upda
 
 Own it for **${{ site.data.pricing.lifetime }}** once, then it's yours forever with no renewal and every release included. Off Grid AI Pro is live today on both platforms, so you get it the moment you enter your key. Own it at today's tier and that is the price you hold - it only steps up as more people join, toward ${{ site.data.pricing.top_lifetime }}, never down.
 
-Prefer a subscription? Choose **${{ site.data.pricing.monthly }}/month** at checkout. It renews until you cancel; the monthly price stays at ${{ site.data.pricing.monthly }}.
+Prefer a subscription? Choose **${{ site.data.pricing.monthly }}/month** at checkout. The monthly price rises to $7.99, then ${{ site.data.pricing.top_monthly }}, as more people join. Subscribe at today's tier and that is the price you keep.
 
 <div class="hero-buttons">
   <a href="#buy" class="btn btn-green">Own Off Grid AI Pro forever - ${{ site.data.pricing.lifetime }}</a>
