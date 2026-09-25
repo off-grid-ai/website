@@ -28,7 +28,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
   <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-outline">
     macOS
   </a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest-setup.exe" class="btn btn-outline">
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.50/OffGrid-latest-setup.exe" class="btn btn-outline">
     Windows
   </a>
   <a href="https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ" target="_blank" rel="noopener" class="btn btn-outline">
@@ -59,7 +59,7 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.48" target="_blank" rel="noopener">OGAD 0.0.48 stable</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>
+<p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: OGAD <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener">0.0.51 for macOS</a>, <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.50" target="_blank" rel="noopener">0.0.50 for Windows</a>, and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>
 
 <div class="stats-row">
   <div class="stat-card">

@@ -3,6 +3,7 @@
 pages = {
   "home" => File.expand_path("../_site/index.html", __dir__),
   "download" => File.expand_path("../_site/download/index.html", __dir__),
+  "desktop_releases" => File.expand_path("../_site/desktop/releases/index.html", __dir__),
   "pro" => File.expand_path("../_site/pro/index.html", __dir__),
   "mobile" => File.expand_path("../_site/mobile/index.html", __dir__),
   "mission" => File.expand_path("../_site/mission/index.html", __dir__),
@@ -25,13 +26,26 @@ end
 download = rendered.fetch("download")
 required_download_content = {
   "macOS stable build" => "OffGrid-latest.dmg",
-  "Windows stable build" => "OffGrid-latest-setup.exe",
-  "current desktop stable release" => "0.0.48",
+  "Windows stable build" => "v0.0.50/OffGrid-latest-setup.exe",
+  "current macOS stable release" => "0.0.51",
+  "current Windows stable release" => "0.0.50",
   "mobile latest builds" => "https://github.com/off-grid-ai/OGAM/releases",
   "Sync anchor" => 'id="sync"'
 }
 required_download_content.each do |name, text|
   failures << "download: missing #{name}: #{text.inspect}" unless download.include?(text)
+end
+
+desktop_releases = rendered.fetch("desktop_releases")
+failures << "desktop releases: missing 0.0.51 release notes" unless desktop_releases.include?("0.0.51")
+
+pro = rendered.fetch("pro")
+{
+  "current monthly price" => "$4.99/month",
+  "second monthly tier" => "$7.99",
+  "final monthly tier" => "$9.99"
+}.each do |name, text|
+  failures << "pro: missing #{name}: #{text.inspect}" unless pro.include?(text)
 end
 
 home = rendered.fetch("home")
