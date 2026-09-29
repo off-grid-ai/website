@@ -5,14 +5,20 @@ nav_order: 1
 description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 180k+ downloads, 3k+ GitHub stars.
 ---
 
-<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
-
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
   <h1>Off Grid AI</h1>
 </div>
 
 **A private AI that runs on the hardware you already own.**
+
+> **What would you like to do with Off Grid AI?**
+>
+> Tell us what you want to do and which device you use. If a feature is missing, tell us.
+>
+> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+
+<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
 
 Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro now connects your phone and laptop with Sync.
 
@@ -77,12 +83,6 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </div>
 
 Over 180,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
-
-> **What would you like to do with Off Grid AI?**
->
-> Tell us what you want to do and which device you use. If a feature is missing, tell us.
->
-> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 ---
 
