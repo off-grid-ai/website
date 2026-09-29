@@ -4,7 +4,9 @@ title: "How to Analyze Images From Your Phone Using Your Computer's AI in 2026"
 description: "Use your computer’s local vision model from your phone. Send a photo across your own network and read the answer on Android or iPhone."
 date: "2026-09-29"
 permalink: /articles/how-to-analyze-images-from-your-phone-using-your-computer-s-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T09:07:47.677Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770008
 devto_url: "https://dev.to/alichherawalla/how-to-analyze-images-from-your-phone-using-your-computers-ai-in-2026-169g"

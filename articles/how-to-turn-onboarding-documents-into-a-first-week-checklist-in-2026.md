@@ -4,7 +4,9 @@ title: "How to Turn Onboarding Documents Into a First-Week Checklist in 2026"
 description: "Turn onboarding documents into a practical first-week checklist with local AI, clear priorities, and questions for your manager."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-onboarding-documents-into-a-first-week-checklist-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:09:36.834Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772013
 devto_url: "https://dev.to/alichherawalla/how-to-turn-onboarding-documents-into-a-first-week-checklist-in-2026-52o0"

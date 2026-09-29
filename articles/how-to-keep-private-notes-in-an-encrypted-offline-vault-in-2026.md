@@ -4,7 +4,9 @@ title: "How to Keep Private Notes in an Encrypted Offline Vault in 2026"
 description: "Save sensitive text in OGAD's local Secure Note entries on Mac or Windows. Find the note by title, reveal it when needed, and lock the vault after use."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-private-notes-in-an-encrypted-offline-vault-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:01:11.090Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770427
 devto_url: "https://dev.to/alichherawalla/how-to-keep-private-notes-in-an-encrypted-offline-vault-in-2026-5ag2"

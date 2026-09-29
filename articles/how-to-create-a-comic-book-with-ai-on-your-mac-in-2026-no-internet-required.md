@@ -4,7 +4,9 @@ title: "How to Create a Comic Book With AI on Your Mac in 2026 (No Internet Requ
 description: "Turn a story brief into illustrated comic pages and an offline reader with OGAD. Choose the style, plan the story, and generate the pages on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-comic-book-with-ai-on-your-mac-in-2026-no-internet-required/
-article_category: "Desktop"
+published_at: "2026-09-29T09:24:20.726Z"
+article_topic: "Images & vision"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770134
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-comic-book-with-ai-on-your-mac-in-2026-no-internet-required-4183"

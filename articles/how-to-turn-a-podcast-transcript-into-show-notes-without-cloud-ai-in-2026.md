@@ -4,7 +4,9 @@ title: "How to Turn a Podcast Transcript Into Show Notes Without Cloud AI in 202
 description: "Use local AI to draft podcast show notes from a checked transcript, preserve the guest's meaning, and verify links and episode details before publishing."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-podcast-transcript-into-show-notes-without-cloud-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:51:55.704Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772253
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-podcast-transcript-into-show-notes-without-cloud-ai-in-2026-2mjf"

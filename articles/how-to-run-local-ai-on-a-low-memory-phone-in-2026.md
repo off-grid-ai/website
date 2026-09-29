@@ -4,7 +4,9 @@ title: "How to Run Local AI on a Low-Memory Phone in 2026"
 description: "Choose smaller local models, release unused model memory, and keep context manageable on a phone with limited RAM. "
 date: "2026-09-29"
 permalink: /articles/how-to-run-local-ai-on-a-low-memory-phone-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:47:18.691Z"
+article_topic: "Models & performance"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770776
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-a-low-memory-phone-in-2026-1e6l"

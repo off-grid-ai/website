@@ -4,7 +4,9 @@ title: "How to Transcribe Phone Audio Using Your Computer in 2026"
 description: "Dictate on Android or iPhone and let a transcription model on your own computer turn it into editable text. Use OGAM and OGAD over your local network."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-phone-audio-using-your-computer-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T08:46:17.387Z"
+article_topic: "Voice & audio"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769870
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-phone-audio-using-your-computer-in-2026-lm0"

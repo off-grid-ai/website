@@ -4,7 +4,9 @@ title: "How to Talk to AI Hands-Free on Your iPhone in 2026 (Completely Offline)
 description: "Have a local spoken AI conversation on iPhone. Prepare the speech and chat models, set Hands-free turns, and test questions and replies in airplane mode."
 date: "2026-09-29"
 permalink: /articles/how-to-talk-to-ai-hands-free-on-your-iphone-in-2026-completely-offline/
-article_category: "Mobile"
+published_at: "2026-09-29T08:10:04.337Z"
+article_topic: "Voice & audio"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4769665
 devto_url: "https://dev.to/alichherawalla/how-to-talk-to-ai-hands-free-on-your-iphone-in-2026-completely-offline-258i"

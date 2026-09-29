@@ -4,7 +4,9 @@ title: "How to Transcribe Audio in Multiple Languages on Android in 2026 (No Int
 description: "Turn speech into text on Android with local AI. Choose a multilingual model, set your language, and transcribe offline after the first download."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-audio-in-multiple-languages-on-android-in-2026-no-internet-required/
-article_category: "Mobile"
+published_at: "2026-09-29T06:38:27.103Z"
+article_topic: "Voice & audio"
+article_platform: "Android"
 devto_article: true
 devto_id: 4769019
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-audio-in-multiple-languages-on-your-android-phone-no-internet-required-3mok"

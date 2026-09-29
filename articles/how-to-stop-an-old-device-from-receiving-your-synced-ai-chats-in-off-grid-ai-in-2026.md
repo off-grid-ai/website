@@ -4,7 +4,9 @@ title: "How to Stop an Old Device From Receiving Your Synced AI Chats in Off Gri
 description: "End an old device’s sync trust and review the linked licence effect without assuming remote data is erased."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-an-old-device-from-receiving-your-synced-ai-chats-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:57:43.434Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771224
 devto_url: "https://dev.to/alichherawalla/how-to-stop-an-old-device-from-receiving-your-synced-ai-chats-in-off-grid-ai-in-2026-2bb8"

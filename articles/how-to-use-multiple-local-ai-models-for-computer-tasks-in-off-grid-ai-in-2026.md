@@ -4,7 +4,9 @@ title: "How to Use Multiple Local AI Models for Computer Tasks in Off Grid AI in
 description: "Use OGAD's beta Computer Use model roles to separate reasoning, action selection, and visual control on Mac. Start with a supervised local document task."
 date: "2026-09-29"
 permalink: /articles/how-to-use-multiple-local-ai-models-for-computer-tasks-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:42:28.148Z"
+article_topic: "Work & organization"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770741
 devto_url: "https://dev.to/alichherawalla/how-to-use-multiple-local-ai-models-for-computer-tasks-in-off-grid-ai-in-2026-37ec"

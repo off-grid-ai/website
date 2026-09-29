@@ -4,7 +4,9 @@ title: "What Works Without Internet in Off Grid AI in 2026?"
 description: "Understand which Off Grid AI workflows can run offline, what must be downloaded first, and which connections still need a network."
 date: "2026-09-29"
 permalink: /articles/what-works-without-internet-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:45:05.377Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772227
 devto_url: "https://dev.to/alichherawalla/what-works-without-internet-in-off-grid-ai-in-2026-4apb"

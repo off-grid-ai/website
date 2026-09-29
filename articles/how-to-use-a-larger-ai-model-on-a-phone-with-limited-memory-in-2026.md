@@ -4,7 +4,9 @@ title: "How to Use a Larger AI Model on a Phone With Limited Memory in 2026"
 description: "Use a model running on your own computer from an Android phone or iPhone. Keep the larger download and memory use on your home hardware with OGAM and OGAD."
 date: "2026-09-29"
 permalink: /articles/how-to-use-a-larger-ai-model-on-a-phone-with-limited-memory-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T08:44:07.541Z"
+article_topic: "Models & performance"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769857
 devto_url: "https://dev.to/alichherawalla/how-to-use-a-larger-ai-model-on-a-phone-with-limited-memory-in-2026-4ooo"

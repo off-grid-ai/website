@@ -4,7 +4,9 @@ title: "How to Use Your Home AI Models From Your Laptop Anywhere in 2026 (With T
 description: "Use a lightweight laptop to chat with AI running on your own home computer. Connect OGAD to a private Tailscale address and keep the model on your own hardware."
 date: "2026-09-29"
 permalink: /articles/how-to-use-your-home-ai-models-from-your-laptop-anywhere-in-2026-with-tailscale/
-article_category: "Desktop"
+published_at: "2026-09-29T08:47:14.316Z"
+article_topic: "Sync & sharing"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4769873
 devto_url: "https://dev.to/alichherawalla/how-to-use-your-home-ai-models-from-your-laptop-anywhere-in-2026-with-tailscale-1k71"

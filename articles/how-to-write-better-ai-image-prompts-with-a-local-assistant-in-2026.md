@@ -4,7 +4,9 @@ title: "How to Write Better AI Image Prompts With a Local Assistant in 2026"
 description: "Turn a rough image idea into a clear visual brief with OGAD. Compare prompt changes on your own computer and keep control of the result."
 date: "2026-09-29"
 permalink: /articles/how-to-write-better-ai-image-prompts-with-a-local-assistant-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:21:58.616Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770115
 devto_url: "https://dev.to/alichherawalla/how-to-write-better-ai-image-prompts-with-a-local-assistant-in-2026-5035"

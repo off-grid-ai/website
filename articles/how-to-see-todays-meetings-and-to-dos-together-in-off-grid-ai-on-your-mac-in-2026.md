@@ -4,7 +4,9 @@ title: "How to See Today’s Meetings and To-Dos Together in Off Grid AI on Your
 description: "See retained calendar events and open to-dos together in Off Grid AI’s Day view, then choose the next useful action."
 date: "2026-09-29"
 permalink: /articles/how-to-see-todays-meetings-and-to-dos-together-in-off-grid-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:45:36.895Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771168
 devto_url: "https://dev.to/alichherawalla/how-to-see-todays-meetings-and-to-dos-together-in-off-grid-ai-on-your-mac-in-2026-jb2"

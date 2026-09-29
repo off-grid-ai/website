@@ -4,7 +4,9 @@ title: "How to Point Your IDE and Apps at a Local AI Model (Private, On-Device)"
 description: "Point any OpenAI-compatible IDE extension, app, or script at a local endpoint for private, offline inference across your whole machine."
 date: "2026-06-25"
 permalink: /articles/how-to-point-your-ide-and-apps-at-a-local-ai-model-private-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:21:01.024Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984692
 devto_url: "https://dev.to/alichherawalla/how-to-point-your-ide-and-apps-at-a-local-ai-model-private-on-device-1643"

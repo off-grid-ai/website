@@ -4,7 +4,9 @@ title: "How to Turn Scattered Client Feedback Into a Revision Checklist in 2026"
 description: "Use local AI to organise saved client comments into a checked revision list, preserve asset versions, and separate accepted changes from open questions."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-scattered-client-feedback-into-a-revision-checklist-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:19:03.033Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772402
 devto_url: "https://dev.to/alichherawalla/how-to-turn-scattered-client-feedback-into-a-revision-checklist-in-2026-51od"

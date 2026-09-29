@@ -4,7 +4,9 @@ title: "How to Create SVG Graphics With Local AI in 2026"
 description: "Create a scalable graphic from a text description with a local model, then inspect and reuse its SVG code."
 date: "2026-09-29"
 permalink: /articles/how-to-create-svg-graphics-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:32:03.820Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770188
 devto_url: "https://dev.to/alichherawalla/how-to-create-svg-graphics-with-local-ai-in-2026-iab"

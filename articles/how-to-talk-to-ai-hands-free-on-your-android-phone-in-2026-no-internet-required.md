@@ -4,7 +4,9 @@ title: "How to Talk to AI Hands-Free on Your Android Phone in 2026 (No Internet 
 description: "Set up a local voice conversation on Android. Download speech and chat models, choose Hands-free turns, and talk without internet after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-talk-to-ai-hands-free-on-your-android-phone-in-2026-no-internet-required/
-article_category: "Mobile"
+published_at: "2026-09-29T08:09:00.763Z"
+article_topic: "Voice & audio"
+article_platform: "Android"
 devto_article: true
 devto_id: 4769659
 devto_url: "https://dev.to/alichherawalla/how-to-talk-to-ai-hands-free-on-your-android-phone-in-2026-no-internet-required-29b4"

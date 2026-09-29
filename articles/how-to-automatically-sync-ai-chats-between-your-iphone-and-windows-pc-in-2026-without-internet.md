@@ -4,7 +4,9 @@ title: "How to Automatically Sync AI Chats Between Your iPhone and Windows PC in
 description: "Continue iPhone AI chats on Windows over your local network. Set up automatic chat sync, check iOS permissions, and handle background and firewall limits."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-ai-chats-between-your-iphone-and-windows-pc-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:22:43.297Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769727
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-chats-between-your-iphone-and-windows-pc-in-2026-without-internet-2nad"

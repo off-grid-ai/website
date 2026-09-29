@@ -4,7 +4,9 @@ title: "How to Run DreamShaper XL Turbo Locally on Your Desktop (Fast Offline AI
 description: "Generate artwork in a handful of steps with DreamShaper XL Turbo, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-dreamshaper-xl-turbo-locally-on-your-desktop-fast-offline-ai-art/
-article_category: "Desktop"
+published_at: "2026-06-25T05:16:15.423Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984642
 devto_url: "https://dev.to/alichherawalla/how-to-run-dreamshaper-xl-turbo-locally-on-your-desktop-fast-offline-ai-art-3akh"

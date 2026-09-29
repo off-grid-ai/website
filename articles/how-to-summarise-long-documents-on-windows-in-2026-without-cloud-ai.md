@@ -4,7 +4,9 @@ title: "How to Summarise Long Documents on Windows in 2026 Without Cloud AI"
 description: "Build a source-checked summary of a long document on your Windows PC using local AI and section-by-section questions."
 date: "2026-09-29"
 permalink: /articles/how-to-summarise-long-documents-on-windows-in-2026-without-cloud-ai/
-article_category: "Desktop"
+published_at: "2026-09-29T08:54:22.611Z"
+article_topic: "Documents & research"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4769910
 devto_url: "https://dev.to/alichherawalla/how-to-summarise-long-documents-on-windows-in-2026-without-cloud-ai-38dj"

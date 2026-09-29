@@ -4,7 +4,9 @@ title: "How to Automatically Sync AI Chats Between Your Android Phone and Mac in
 description: "Continue an AI chat from Android on your Mac over your local network. Set up private device pairing, check both directions, and fix common sync problems."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-ai-chats-between-your-android-phone-and-mac-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:20:14.130Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769713
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-chats-between-your-android-phone-and-mac-in-2026-without-internet-d6j"

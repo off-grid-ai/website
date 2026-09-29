@@ -4,7 +4,9 @@ title: "How to Automate Repetitive Mac Tasks With Local AI in 2026"
 description: "Use local AI to complete a small app task, supervise the run, and check its result."
 date: "2026-09-29"
 permalink: /articles/how-to-automate-repetitive-mac-tasks-with-local-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:17:30.466Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770537
 devto_url: "https://dev.to/alichherawalla/how-to-automate-repetitive-mac-tasks-with-local-ai-in-2026-556c"

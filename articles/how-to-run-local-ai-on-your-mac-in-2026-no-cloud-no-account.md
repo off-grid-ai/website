@@ -4,7 +4,9 @@ title: "How to Run Local AI on Your Mac in 2026 (No Cloud, No Account)"
 description: "Chat, generate images, and talk to AI on your Mac, all on-device. No cloud, no account, no monthly bill. Free and open source."
 date: "2026-06-25"
 permalink: /articles/how-to-run-local-ai-on-your-mac-in-2026-no-cloud-no-account/
-article_category: "Desktop"
+published_at: "2026-06-25T05:10:04.517Z"
+article_topic: "Getting started"
+article_platform: "Mac"
 devto_article: true
 devto_id: 3984586
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-your-mac-in-2026-no-cloud-no-account-1899"

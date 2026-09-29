@@ -4,7 +4,9 @@ title: "How to Transcribe Long Audio Recordings on Your Mac in 2026 (No Cloud Up
 description: "Turn saved audio into a readable transcript on your Mac with local AI. Import the file, inspect the text, and handle long recordings without cloud uploads."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-long-audio-recordings-on-your-mac-in-2026-no-cloud-uploads/
-article_category: "Desktop"
+published_at: "2026-09-29T07:22:14.771Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769367
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-long-audio-recordings-without-uploading-them-48hf"

@@ -4,7 +4,9 @@ title: "A Local Code Sandbox: Run AI-Generated Code Safely On-Device (No Cloud)"
 description: "Off Grid AI Desktop renders model-written HTML, JS, and React in a sandboxed iframe with no network and no file access. On-device, no cloud."
 date: "2026-06-25"
 permalink: /articles/a-local-code-sandbox-run-ai-generated-code-safely-on-device-no-cloud/
-article_category: "Workflows"
+published_at: "2026-06-25T05:20:19.783Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984686
 devto_url: "https://dev.to/alichherawalla/a-local-code-sandbox-run-ai-generated-code-safely-on-device-no-cloud-1c7k"

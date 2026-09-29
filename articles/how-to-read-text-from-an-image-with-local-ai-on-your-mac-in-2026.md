@@ -4,7 +4,9 @@ title: "How to Read Text From an Image With Local AI on Your Mac in 2026"
 description: "Use a local vision model to read text from an image on Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-read-text-from-an-image-with-local-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:05:26.113Z"
+article_topic: "Images & vision"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769988
 devto_url: "https://dev.to/alichherawalla/how-to-read-text-from-an-image-with-local-ai-on-your-mac-in-2026-4ojf"

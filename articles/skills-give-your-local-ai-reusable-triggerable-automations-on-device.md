@@ -4,7 +4,9 @@ title: "Skills: Give Your Local AI Reusable, Triggerable Automations (On-Device)
 description: "Package instructions into reusable skills your local AI can run on command or on a schedule. Fully on-device, no cloud, no API keys."
 date: "2026-06-25"
 permalink: /articles/skills-give-your-local-ai-reusable-triggerable-automations-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:20:14.778Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984684
 devto_url: "https://dev.to/alichherawalla/skills-give-your-local-ai-reusable-triggerable-automations-on-device-5gp1"

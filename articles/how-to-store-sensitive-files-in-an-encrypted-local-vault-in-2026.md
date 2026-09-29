@@ -4,7 +4,9 @@ title: "How to Store Sensitive Files in an Encrypted Local Vault in 2026"
 description: "Keep a small sensitive file inside OGAD's encrypted local Vault on Mac or Windows. Add the file, verify the saved copy, and retrieve it when needed."
 date: "2026-09-29"
 permalink: /articles/how-to-store-sensitive-files-in-an-encrypted-local-vault-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:02:00.527Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770437
 devto_url: "https://dev.to/alichherawalla/how-to-store-sensitive-files-in-an-encrypted-local-vault-in-2026-4laf"

@@ -4,7 +4,9 @@ title: "How to Make Local AI Replies Faster on Your Computer in 2026"
 description: "Make local AI replies more practical by matching the model, context and answer length to your computer. Compare changes with one real task."
 date: "2026-09-29"
 permalink: /articles/how-to-make-local-ai-replies-faster-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:35:18.659Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770692
 devto_url: "https://dev.to/alichherawalla/how-to-make-local-ai-replies-faster-on-your-computer-in-2026-1gjn"

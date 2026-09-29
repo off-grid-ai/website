@@ -4,7 +4,9 @@ title: "How to Transfer AI Models Between Two Phones in 2026 Without Internet"
 description: "Move a compatible local AI model to your second phone over your own network. Reuse the download and prepare the receiving phone for offline work."
 date: "2026-09-29"
 permalink: /articles/how-to-transfer-ai-models-between-two-phones-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:35:12.328Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769800
 devto_url: "https://dev.to/alichherawalla/how-to-transfer-ai-models-between-two-phones-in-2026-without-internet-5ahc"

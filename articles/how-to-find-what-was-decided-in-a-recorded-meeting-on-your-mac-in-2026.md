@@ -4,7 +4,9 @@ title: "How to Find What Was Decided in a Recorded Meeting on Your Mac in 2026"
 description: "Recover a decision from a recorded meeting, then check the AI answer against its transcript and retained recording on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-find-what-was-decided-in-a-recorded-meeting-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:42:14.979Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770278
 devto_url: "https://dev.to/alichherawalla/how-to-find-what-was-decided-in-a-recorded-meeting-on-your-mac-in-2026-43ab"

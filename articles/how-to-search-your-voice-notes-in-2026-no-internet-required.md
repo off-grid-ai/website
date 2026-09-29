@@ -4,7 +4,9 @@ title: "How to Search Your Voice Notes in 2026 (No Internet Required)"
 description: "Ask questions about saved voice notes on Mac or Windows. Import audio into a local project, search the transcripts, and get answers with source filenames."
 date: "2026-09-29"
 permalink: /articles/how-to-search-your-voice-notes-in-2026-no-internet-required/
-article_category: "Workflows"
+published_at: "2026-09-29T07:32:04.216Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769463
 devto_url: "https://dev.to/alichherawalla/how-to-search-your-voice-notes-with-ai-without-internet-4nhf"

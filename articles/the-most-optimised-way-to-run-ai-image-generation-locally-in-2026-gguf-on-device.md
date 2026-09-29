@@ -4,7 +4,9 @@ title: "The Most Optimised Way to Run AI Image Generation Locally in 2026 (GGUF,
 description: "Quantized GGUF checkpoints on stable-diffusion.cpp are the leanest way to generate AI images on-device. Mac and Windows, no cloud, no Python."
 date: "2026-06-25"
 permalink: /articles/the-most-optimised-way-to-run-ai-image-generation-locally-in-2026-gguf-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:14:49.282Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984627
 devto_url: "https://dev.to/alichherawalla/the-most-optimised-way-to-run-ai-image-generation-locally-in-2026-gguf-on-device-2nho"

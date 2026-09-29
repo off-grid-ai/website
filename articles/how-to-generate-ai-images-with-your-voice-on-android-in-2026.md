@@ -4,7 +4,9 @@ title: "How to Generate AI Images With Your Voice on Android in 2026"
 description: "Dictate an image prompt on Android, check the words, and generate an image with local models after offline setup."
 date: "2026-09-29"
 permalink: /articles/how-to-generate-ai-images-with-your-voice-on-android-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T08:16:25.720Z"
+article_topic: "Voice & audio"
+article_platform: "Android"
 devto_article: true
 devto_id: 4769697
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-with-your-voice-on-android-in-2026-563i"

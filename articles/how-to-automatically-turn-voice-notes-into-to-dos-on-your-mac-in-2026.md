@@ -4,7 +4,9 @@ title: "How to Automatically Turn Voice Notes Into To-Dos on Your Mac in 2026"
 description: "Speak a short note and let Off Grid AI extract draft to-dos locally on your Mac, then review them in Actions."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-turn-voice-notes-into-to-dos-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:36:08.907Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771126
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-turn-voice-notes-into-to-dos-on-your-mac-in-2026-15i9"

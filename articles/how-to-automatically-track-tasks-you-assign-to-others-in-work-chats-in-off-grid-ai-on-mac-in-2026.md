@@ -4,7 +4,9 @@ title: "How to Automatically Track Tasks You Assign to Others in Work Chats in O
 description: "Keep a private waiting-on list from captured work chats, then check the person, deadline and source before following up."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-track-tasks-you-assign-to-others-in-work-chats-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:34:35.677Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771119
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-track-tasks-you-assign-to-others-in-work-chats-in-off-grid-ai-on-mac-in-2026-1d8m"

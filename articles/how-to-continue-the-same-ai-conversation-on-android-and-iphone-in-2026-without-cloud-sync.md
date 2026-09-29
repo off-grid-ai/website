@@ -4,7 +4,9 @@ title: "How to Continue the Same AI Conversation on Android and iPhone in 2026 W
 description: "Keep one AI conversation available on Android and iPhone through local device sync. Pair the phones, check chat updates, and prepare local models for each."
 date: "2026-09-29"
 permalink: /articles/how-to-continue-the-same-ai-conversation-on-android-and-iphone-in-2026-without-cloud-sync/
-article_category: "Mobile"
+published_at: "2026-09-29T08:27:44.442Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769746
 devto_url: "https://dev.to/alichherawalla/how-to-continue-the-same-ai-conversation-on-android-and-iphone-in-2026-without-cloud-sync-5dp4"

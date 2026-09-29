@@ -4,7 +4,9 @@ title: "How to Run Local AI on Your Windows PC in 2026 (No Cloud, No Account)"
 description: "Run chat, image generation, and voice AI on your own Windows PC. On-device, no cloud, no account, no API keys. Free and open source."
 date: "2026-06-25"
 permalink: /articles/how-to-run-local-ai-on-your-windows-pc-in-2026-no-cloud-no-account/
-article_category: "Desktop"
+published_at: "2026-06-25T05:10:09.590Z"
+article_topic: "Getting started"
+article_platform: "Windows"
 devto_article: true
 devto_id: 3984587
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-your-windows-pc-in-2026-no-cloud-no-account-47k3"

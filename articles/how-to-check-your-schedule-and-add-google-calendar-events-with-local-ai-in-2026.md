@@ -4,7 +4,9 @@ title: "How to Check Your Schedule and Add Google Calendar Events With Local AI 
 description: "Check Google calendar events and add a new appointment through your Mac with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-check-your-schedule-and-add-google-calendar-events-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:25:00.402Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770609
 devto_url: "https://dev.to/alichherawalla/how-to-check-your-schedule-and-add-google-calendar-events-with-local-ai-in-2026-55li"

@@ -4,7 +4,9 @@ title: "How to Turn Written Instructions Into a Flowchart With Offline AI in 202
 description: "Turn a written process into a readable flowchart with a local model and an offline diagram preview."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-written-instructions-into-a-flowchart-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:32:52.950Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770194
 devto_url: "https://dev.to/alichherawalla/how-to-turn-written-instructions-into-a-flowchart-with-offline-ai-in-2026-2aji"

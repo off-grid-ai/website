@@ -4,7 +4,9 @@ title: "How to Get Meeting Transcripts in Multiple Languages on Your Mac in 2026
 description: "Use a multilingual local speech model for meeting transcripts on Mac, then check recognition against the recording."
 date: "2026-09-29"
 permalink: /articles/how-to-get-meeting-transcripts-in-multiple-languages-on-your-mac-in-2026-no-cloud-uploads/
-article_category: "Desktop"
+published_at: "2026-09-29T09:39:22.696Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770256
 devto_url: "https://dev.to/alichherawalla/how-to-get-meeting-transcripts-in-multiple-languages-on-your-mac-in-2026-no-cloud-uploads-2mmm"

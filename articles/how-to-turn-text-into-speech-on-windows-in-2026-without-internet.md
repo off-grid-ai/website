@@ -4,7 +4,9 @@ title: "How to Turn Text Into Speech on Windows in 2026 Without Internet"
 description: "Hear English AI replies and review short drafts aloud on Windows with OGAD beta. Prepare a local voice once, then use it without internet."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-text-into-speech-on-windows-in-2026-without-internet/
-article_category: "Desktop"
+published_at: "2026-09-29T12:50:51.470Z"
+article_topic: "Voice & audio"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4771558
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-on-windows-in-2026-without-internet-55in"

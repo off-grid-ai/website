@@ -4,7 +4,9 @@ title: "How to Stop Long Local AI Chats From Using Too Much RAM on Your Phone in
 description: "Reduce local chat memory on your phone by setting a practical context length. Keep useful project details in a short handoff."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-long-local-ai-chats-from-using-too-much-ram-on-your-phone-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:34:31.994Z"
+article_topic: "Models & performance"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770681
 devto_url: "https://dev.to/alichherawalla/how-to-stop-long-local-ai-chats-from-using-too-much-ram-on-your-phone-in-2026-2ja4"

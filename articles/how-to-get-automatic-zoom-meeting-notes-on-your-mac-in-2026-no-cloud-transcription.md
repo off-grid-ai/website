@@ -4,7 +4,9 @@ title: "How to Get Automatic Zoom Meeting Notes on Your Mac in 2026 (No Cloud Tr
 description: "Create and review local transcripts and summaries from Zoom meetings on your Mac with OGAD Pro."
 date: "2026-09-29"
 permalink: /articles/how-to-get-automatic-zoom-meeting-notes-on-your-mac-in-2026-no-cloud-transcription/
-article_category: "Desktop"
+published_at: "2026-09-29T09:36:09.413Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770223
 devto_url: "https://dev.to/alichherawalla/how-to-get-automatic-zoom-meeting-notes-on-your-mac-in-2026-no-cloud-transcription-jgh"

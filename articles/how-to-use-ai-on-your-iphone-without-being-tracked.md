@@ -4,7 +4,9 @@ title: "How to Use AI on Your iPhone Without Being Tracked"
 description: "You probably assume your iPhone keeps things private. Apple markets privacy as a core feature. But..."
 date: "2026-03-01"
 permalink: /articles/how-to-use-ai-on-your-iphone-without-being-tracked/
-article_category: "Mobile"
+published_at: "2026-03-01T05:09:56.425Z"
+article_topic: "Privacy & control"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3297589
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-on-your-iphone-without-being-tracked-1g0g"

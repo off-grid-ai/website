@@ -4,7 +4,9 @@ title: "How to Store API Keys Securely on Your Computer in 2026 (No Cloud Vault)
 description: "Keep API keys and tokens in OGAD's encrypted local Vault on Mac or Windows. Label them clearly, reveal them when needed, and avoid leaving the only copy in a scratch file."
 date: "2026-09-29"
 permalink: /articles/how-to-store-api-keys-securely-on-your-computer-in-2026-no-cloud-vault/
-article_category: "Desktop"
+published_at: "2026-09-29T10:00:24.021Z"
+article_topic: "Privacy & control"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770414
 devto_url: "https://dev.to/alichherawalla/how-to-store-api-keys-securely-on-your-computer-in-2026-no-cloud-vault-3pnj"

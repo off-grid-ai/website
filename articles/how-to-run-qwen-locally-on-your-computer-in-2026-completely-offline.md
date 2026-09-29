@@ -4,7 +4,9 @@ title: "How to Run Qwen Locally on Your Computer in 2026 (Completely Offline)"
 description: "Run Alibaba's Qwen models on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-qwen-locally-on-your-computer-in-2026-completely-offline/
-article_category: "Desktop"
+published_at: "2026-06-25T05:12:52.681Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984610
 devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-locally-on-your-computer-in-2026-completely-offline-3m0f"

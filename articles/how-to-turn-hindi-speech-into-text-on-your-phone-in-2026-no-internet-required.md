@@ -4,7 +4,9 @@ title: "How to Turn Hindi Speech Into Text on Your Phone in 2026 (No Internet Re
 description: "Dictate Hindi notes on Android or iPhone with local AI. Select Hindi, review the transcript, and use speech-to-text offline after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-hindi-speech-into-text-on-your-phone-in-2026-no-internet-required/
-article_category: "Mobile"
+published_at: "2026-09-29T07:17:16.252Z"
+article_topic: "Voice & audio"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769318
 devto_url: "https://dev.to/alichherawalla/how-to-turn-hindi-speech-into-text-on-your-phone-no-internet-required-40p8"

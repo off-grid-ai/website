@@ -4,7 +4,9 @@ title: "How to Create Storybook Illustrations on Your Own Computer in 2026"
 description: "Turn a story idea into a set of illustrations with OGAD. Plan the scenes, repeat a clear character description, and generate the artwork on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-create-storybook-illustrations-on-your-own-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:21:12.235Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770102
 devto_url: "https://dev.to/alichherawalla/how-to-create-storybook-illustrations-on-your-own-computer-in-2026-214j"

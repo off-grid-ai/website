@@ -4,7 +4,9 @@ title: "How to Generate AI Images Locally on Your iPhone in 2026 (No Cloud, No S
 description: "You don't need Midjourney. You don't need a $20/month subscription. You don't need to upload your..."
 date: "2026-03-04"
 permalink: /articles/how-to-generate-ai-images-locally-on-your-iphone-in-2026-no-cloud-no-subscription/
-article_category: "Mobile"
+published_at: "2026-03-04T13:04:36.454Z"
+article_topic: "Images & vision"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3308777
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-locally-on-your-iphone-in-2026-no-cloud-no-subscription-l18"

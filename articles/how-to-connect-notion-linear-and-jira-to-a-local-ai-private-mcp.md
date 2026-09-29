@@ -4,7 +4,9 @@ title: "How to Connect Notion, Linear, and Jira to a Local AI (Private MCP)"
 description: "Connect Notion, Linear, and Jira to an on-device model that reasons over your data, with every action approval-gated and logged."
 date: "2026-06-25"
 permalink: /articles/how-to-connect-notion-linear-and-jira-to-a-local-ai-private-mcp/
-article_category: "Workflows"
+published_at: "2026-06-25T05:15:29.475Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984636
 devto_url: "https://dev.to/alichherawalla/how-to-connect-notion-linear-and-jira-to-a-local-ai-private-mcp-2f2h"

@@ -4,7 +4,9 @@ title: "How to Run Qwen-Image 2.1 on Windows in 2026 (No Cloud AI)"
 description: "Run Qwen-Image 2.1 on your Windows PC with OGAD beta. Install the complete local model stack, generate images and edit a reference without cloud uploads."
 date: "2026-09-29"
 permalink: /articles/how-to-run-qwen-image-2-1-on-windows-in-2026-no-cloud-ai/
-article_category: "Desktop"
+published_at: "2026-09-29T10:53:43.415Z"
+article_topic: "Images & vision"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4770814
 devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-image-21-on-windows-in-2026-no-cloud-ai-2a7l"

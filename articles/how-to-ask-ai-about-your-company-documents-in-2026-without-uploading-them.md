@@ -4,7 +4,9 @@ title: "How to Ask AI About Your Company Documents in 2026 Without Uploading The
 description: "Ask questions about approved company files on your own computer with local project search and source checks."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-ai-about-your-company-documents-in-2026-without-uploading-them/
-article_category: "Workflows"
+published_at: "2026-09-29T08:58:21.587Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769939
 devto_url: "https://dev.to/alichherawalla/how-to-ask-ai-about-your-company-documents-in-2026-without-uploading-them-684"

@@ -4,7 +4,9 @@ title: "How to Run Pony Diffusion V6 XL Locally on Your Desktop (Offline, No Clo
 description: "Run Pony Diffusion V6 XL for character art, anime, and stylized illustration fully on-device, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"
 permalink: /articles/how-to-run-pony-diffusion-v6-xl-locally-on-your-desktop-offline-no-cloud/
-article_category: "Desktop"
+published_at: "2026-06-25T05:17:32.194Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984654
 devto_url: "https://dev.to/alichherawalla/how-to-run-pony-diffusion-v6-xl-locally-on-your-desktop-offline-no-cloud-448m"

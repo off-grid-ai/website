@@ -4,7 +4,9 @@ title: "How to Test the Local API in Off Grid AI in 2026 Without Writing Code"
 description: "Open the local API reference and try a small chat request without writing a program."
 date: "2026-09-29"
 permalink: /articles/how-to-test-the-local-api-in-off-grid-ai-in-2026-without-writing-code/
-article_category: "Workflows"
+published_at: "2026-09-29T12:00:07.435Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771242
 devto_url: "https://dev.to/alichherawalla/how-to-test-the-local-api-in-off-grid-ai-in-2026-without-writing-code-25po"

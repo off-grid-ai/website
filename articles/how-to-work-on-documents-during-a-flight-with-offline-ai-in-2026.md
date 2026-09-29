@@ -4,7 +4,9 @@ title: "How to Work on Documents During a Flight With Offline AI in 2026"
 description: "Use local AI to review saved documents, draft useful outputs, and keep facts needing an online check clearly marked while you travel."
 date: "2026-09-29"
 permalink: /articles/how-to-work-on-documents-during-a-flight-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:22:47.869Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772436
 devto_url: "https://dev.to/alichherawalla/how-to-work-on-documents-during-a-flight-with-offline-ai-in-2026-4l0d"

@@ -4,7 +4,9 @@ title: "How to Keep Your Mac Screen History Out of AI Document Answers in Off Gr
 description: "Keep captured screen history out of project document retrieval. Use the project source control and check the context behind an answer."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-your-mac-screen-history-out-of-ai-document-answers-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:32:06.649Z"
+article_topic: "Documents & research"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771103
 devto_url: "https://dev.to/alichherawalla/how-to-keep-your-mac-screen-history-out-of-ai-document-answers-in-off-grid-ai-in-2026-1fan"

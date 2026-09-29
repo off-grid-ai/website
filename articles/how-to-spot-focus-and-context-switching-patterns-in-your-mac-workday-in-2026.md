@@ -4,7 +4,9 @@ title: "How to Spot Focus and Context-Switching Patterns in Your Mac Workday in 
 description: "Use OGAD's private workday reflection to see estimated focus blocks, context switches, and where captured activity was concentrated. Review patterns without a manual timer."
 date: "2026-09-29"
 permalink: /articles/how-to-spot-focus-and-context-switching-patterns-in-your-mac-workday-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:54:04.207Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770355
 devto_url: "https://dev.to/alichherawalla/how-to-spot-focus-and-context-switching-patterns-in-your-mac-workday-in-2026-3oo6"

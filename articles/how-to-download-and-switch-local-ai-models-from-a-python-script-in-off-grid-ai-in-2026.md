@@ -4,7 +4,9 @@ title: "How to Download and Switch Local AI Models From a Python Script in Off G
 description: "List the model catalog, download a chosen model, wait for a terminal state, and activate it through the local API."
 date: "2026-09-29"
 permalink: /articles/how-to-download-and-switch-local-ai-models-from-a-python-script-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T12:00:55.386Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771248
 devto_url: "https://dev.to/alichherawalla/how-to-download-and-switch-local-ai-models-from-a-python-script-in-off-grid-ai-in-2026-34ph"

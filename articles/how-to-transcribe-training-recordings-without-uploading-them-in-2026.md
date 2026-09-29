@@ -4,7 +4,9 @@ title: "How to Transcribe Training Recordings Without Uploading Them in 2026"
 description: "Create checked transcripts of training audio with local AI, preserve course terminology, and prepare useful material for lesson editing."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-training-recordings-without-uploading-them-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:28:30.906Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772128
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-training-recordings-without-uploading-them-in-2026-543k"

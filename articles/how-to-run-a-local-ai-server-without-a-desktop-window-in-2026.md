@@ -4,7 +4,9 @@ title: "How to Run a Local AI Server Without a Desktop Window in 2026"
 description: "Run the OGAD gateway without the desktop window. Serve downloaded local models to your scripts and manage models through HTTP."
 date: "2026-09-29"
 permalink: /articles/how-to-run-a-local-ai-server-without-a-desktop-window-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:37:44.027Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770711
 devto_url: "https://dev.to/alichherawalla/how-to-run-a-local-ai-server-without-a-desktop-window-in-2026-59g1"

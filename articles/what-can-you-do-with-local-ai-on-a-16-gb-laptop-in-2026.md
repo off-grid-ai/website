@@ -4,7 +4,9 @@ title: "What Can You Do With Local AI on a 16 GB Laptop in 2026?"
 description: "Start useful local AI tasks on a 16 GB laptop by choosing modest models, checking memory limits, and testing one workload at a time."
 date: "2026-09-29"
 permalink: /articles/what-can-you-do-with-local-ai-on-a-16-gb-laptop-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T14:58:20.003Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4772282
 devto_url: "https://dev.to/alichherawalla/what-can-you-do-with-local-ai-on-a-16-gb-laptop-in-2026-4epl"

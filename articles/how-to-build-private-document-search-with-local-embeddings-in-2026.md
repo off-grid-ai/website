@@ -4,7 +4,9 @@ title: "How to Build Private Document Search With Local Embeddings in 2026"
 description: "Build a small semantic document search in Python with local embeddings from OGAD. Keep source text and vector matching on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-build-private-document-search-with-local-embeddings-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:40:02.593Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770726
 devto_url: "https://dev.to/alichherawalla/how-to-build-private-document-search-with-local-embeddings-in-2026-1mlg"

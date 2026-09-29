@@ -4,7 +4,9 @@ title: "How to Run a Private AI Meeting Notetaker (Zoom and Google Meet, On-Devi
 description: "A consent-first meeting notetaker that records, transcribes, and summarizes on-device. A private alternative to Otter and Fireflies."
 date: "2026-06-25"
 permalink: /articles/how-to-run-a-private-ai-meeting-notetaker-zoom-and-google-meet-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:21:36.505Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984703
 devto_url: "https://dev.to/alichherawalla/how-to-run-a-private-ai-meeting-notetaker-zoom-and-google-meet-on-device-3jkc"

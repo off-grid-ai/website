@@ -4,7 +4,9 @@ title: "How to Run Juggernaut XL Locally on Your Desktop in 2026 (Photorealistic
 description: "Run Juggernaut XL v9 for photorealistic AI images entirely on-device, no cloud, no account, no API keys. Works on Mac and Windows."
 date: "2026-06-25"
 permalink: /articles/how-to-run-juggernaut-xl-locally-on-your-desktop-in-2026-photorealistic-ai-images-offline/
-article_category: "Desktop"
+published_at: "2026-06-25T05:16:56.270Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984648
 devto_url: "https://dev.to/alichherawalla/how-to-run-juggernaut-xl-locally-on-your-desktop-in-2026-photorealistic-ai-images-offline-15h5"

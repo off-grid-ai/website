@@ -4,7 +4,9 @@ title: "How to Simplify an English Document Before Translating It With Local AI 
 description: "Make an English source document clearer before translation with local AI, while preserving conditions, responsibilities, and technical meaning."
 date: "2026-09-29"
 permalink: /articles/how-to-simplify-an-english-document-before-translating-it-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:25:59.341Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772112
 devto_url: "https://dev.to/alichherawalla/how-to-simplify-an-english-document-before-translating-it-with-local-ai-in-2026-27f8"

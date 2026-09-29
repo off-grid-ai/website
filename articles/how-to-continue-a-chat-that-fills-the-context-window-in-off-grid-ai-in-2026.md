@@ -4,7 +4,9 @@ title: "How to Continue a Chat That Fills the Context Window in Off Grid AI in 2
 description: "Keep a long local AI conversation useful when context becomes tight. Understand compaction, restate critical facts and continue with a checked handoff brief."
 date: "2026-09-29"
 permalink: /articles/how-to-continue-a-chat-that-fills-the-context-window-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:32:09.739Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770663
 devto_url: "https://dev.to/alichherawalla/how-to-continue-a-chat-that-fills-the-context-window-in-off-grid-ai-in-2026-1h4p"

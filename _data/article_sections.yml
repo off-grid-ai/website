@@ -1,3 +1,22 @@
-- name: Mobile
-- name: Desktop
-- name: Workflows
+- name: Getting started
+  description: Set up Off Grid AI and take the first step.
+- name: Models & performance
+  description: Choose models and make them run well on your device.
+- name: Voice & audio
+  description: Transcribe, dictate, speak, and work with recordings.
+- name: Images & vision
+  description: Create images and understand photos or screenshots.
+- name: Documents & research
+  description: Work with files, papers, and your own knowledge.
+- name: Writing & learning
+  description: Draft, study, translate, and turn ideas into text.
+- name: Work & organization
+  description: Turn meetings, notes, and projects into useful work.
+- name: Sync & sharing
+  description: Move chats, files, and models between your devices.
+- name: Privacy & control
+  description: Keep control of local data, backups, and access.
+- name: Automation & tools
+  description: Let local AI use tools and handle repeat tasks.
+- name: Everyday tasks
+  description: Use local AI for common questions and daily plans.

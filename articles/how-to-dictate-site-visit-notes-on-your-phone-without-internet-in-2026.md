@@ -4,7 +4,9 @@ title: "How to Dictate Site Visit Notes on Your Phone Without Internet in 2026"
 description: "Dictate checked site-visit notes on Android or iPhone with local speech recognition, then copy them into your normal record system."
 date: "2026-09-29"
 permalink: /articles/how-to-dictate-site-visit-notes-on-your-phone-without-internet-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T14:34:27.595Z"
+article_topic: "Voice & audio"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4772166
 devto_url: "https://dev.to/alichherawalla/how-to-dictate-site-visit-notes-on-your-phone-without-internet-in-2026-3c6e"

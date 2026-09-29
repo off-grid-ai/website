@@ -4,7 +4,9 @@ title: "How to Find Answers Across Your Training Documents With Local AI in 2026
 description: "Build a local collection of training documents, ask practical questions, and check the source behind each answer before using it."
 date: "2026-09-29"
 permalink: /articles/how-to-find-answers-across-your-training-documents-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:30:09.930Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772136
 devto_url: "https://dev.to/alichherawalla/how-to-find-answers-across-your-training-documents-with-local-ai-in-2026-j31"

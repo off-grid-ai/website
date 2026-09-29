@@ -4,7 +4,9 @@ title: "How to Turn School Notices Into a Family Checklist With Offline AI in 20
 description: "Organise saved school notices into a checked family checklist with local AI, keeping dates, child-specific requirements, and open questions clear."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-school-notices-into-a-family-checklist-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:50:06.660Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772245
 devto_url: "https://dev.to/alichherawalla/how-to-turn-school-notices-into-a-family-checklist-with-offline-ai-in-2026-1gca"

@@ -4,7 +4,9 @@ title: "How to Search Your Chats, Meeting Notes, and Screen History Together in 
 description: "Search retained chats, meeting notes, project documents and captured screen activity together, then open the matching source in Off Grid AI."
 date: "2026-09-29"
 permalink: /articles/how-to-search-your-chats-meeting-notes-and-screen-history-together-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:38:51.194Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771142
 devto_url: "https://dev.to/alichherawalla/how-to-search-your-chats-meeting-notes-and-screen-history-together-in-off-grid-ai-on-mac-in-2026-4a7p"

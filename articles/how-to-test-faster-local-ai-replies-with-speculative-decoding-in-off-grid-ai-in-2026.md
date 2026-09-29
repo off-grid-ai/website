@@ -4,7 +4,9 @@ title: "How to Test Faster Local AI Replies With Speculative Decoding in Off Gri
 description: "Compare a local decoding option on your own task before downloading another model."
 date: "2026-09-29"
 permalink: /articles/how-to-test-faster-local-ai-replies-with-speculative-decoding-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T12:06:46.497Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771297
 devto_url: "https://dev.to/alichherawalla/how-to-test-faster-local-ai-replies-with-speculative-decoding-in-off-grid-ai-in-2026-7p"

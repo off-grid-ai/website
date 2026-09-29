@@ -4,7 +4,9 @@ title: "How to Turn Text Into Speech in Multiple Languages on Your Mac in 2026"
 description: "Read AI replies aloud on your Mac with local voices. Choose a language and speaker, download the required assets, and test playback offline."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-text-into-speech-in-multiple-languages-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T08:06:38.036Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769647
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-in-multiple-languages-on-your-mac-in-2026-3l15"

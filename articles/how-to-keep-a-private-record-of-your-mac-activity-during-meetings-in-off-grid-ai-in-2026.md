@@ -4,7 +4,9 @@ title: "How to Keep a Private Record of Your Mac Activity During Meetings in Off
 description: "Review captured Mac activity from a meeting’s time window alongside its saved local meeting record."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-a-private-record-of-your-mac-activity-during-meetings-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:54:32.669Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771206
 devto_url: "https://dev.to/alichherawalla/how-to-keep-a-private-record-of-your-mac-activity-during-meetings-in-off-grid-ai-in-2026-5n3"

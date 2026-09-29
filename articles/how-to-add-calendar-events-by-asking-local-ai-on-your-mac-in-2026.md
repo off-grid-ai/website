@@ -4,7 +4,9 @@ title: "How to Add Calendar Events by Asking Local AI on Your Mac in 2026"
 description: "Create a calendar event in the Mac Calendar app by asking a local AI model."
 date: "2026-09-29"
 permalink: /articles/how-to-add-calendar-events-by-asking-local-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:22:34.362Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770585
 devto_url: "https://dev.to/alichherawalla/how-to-add-calendar-events-by-asking-local-ai-on-your-mac-in-2026-1i30"

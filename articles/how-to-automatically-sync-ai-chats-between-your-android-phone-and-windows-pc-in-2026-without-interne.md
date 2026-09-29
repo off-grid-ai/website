@@ -4,7 +4,9 @@ title: "How to Automatically Sync AI Chats Between Your Android Phone and Window
 description: "Keep Android and Windows AI chats in sync over your local network. Pair the devices, check automatic updates, and handle Windows firewall and model setup."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-ai-chats-between-your-android-phone-and-windows-pc-in-2026-without-interne/
-article_category: "Mobile"
+published_at: "2026-09-29T08:21:25.128Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769721
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-chats-between-your-android-phone-and-windows-pc-in-2026-without-1bog"

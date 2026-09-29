@@ -4,7 +4,9 @@ title: "Fully Open Source, Fully Private: How Off Grid AI Desktop Keeps Your AI 
 description: "AGPL open source, everything on-device, no account, no telemetry, no API keys. What private actually means, and why open source is the proof."
 date: "2026-06-25"
 permalink: /articles/fully-open-source-fully-private-how-off-grid-ai-desktop-keeps-your-ai-on-device/
-article_category: "Desktop"
+published_at: "2026-06-25T05:13:33.405Z"
+article_topic: "Privacy & control"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984617
 devto_url: "https://dev.to/alichherawalla/fully-open-source-fully-private-how-off-grid-ai-desktop-keeps-your-ai-on-device-22m9"

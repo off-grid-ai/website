@@ -4,7 +4,9 @@ title: "How to Control Your Mac From Your Android Phone With AI in 2026"
 description: "Ask your Mac to complete a desktop task from your Android phone. Connect OGAM and OGAD, enable Assistant, and follow the task from your chat."
 date: "2026-09-29"
 permalink: /articles/how-to-control-your-mac-from-your-android-phone-with-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T08:48:04.575Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769878
 devto_url: "https://dev.to/alichherawalla/how-to-control-your-mac-from-your-android-phone-with-ai-in-2026-1n78"

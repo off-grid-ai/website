@@ -4,7 +4,9 @@ title: "What Is Free in Off Grid AI, and What Requires Pro in 2026?"
 description: "Choose the free local AI tools or Pro work features based on the result you need. Understand model setup, platform limits and optional service costs."
 date: "2026-09-29"
 permalink: /articles/what-is-free-in-off-grid-ai-and-what-requires-pro-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:11:31.657Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772363
 devto_url: "https://dev.to/alichherawalla/what-is-free-in-off-grid-ai-and-what-requires-pro-in-2026-2ajl"

@@ -4,7 +4,9 @@ title: "How to Build a Searchable Product Manual Library With Local AI in 2026"
 description: "Keep related product manuals in a local AI project and ask for the instructions you need with source filenames."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-searchable-product-manual-library-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:57:17.617Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769935
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-searchable-product-manual-library-with-local-ai-in-2026-3gmh"

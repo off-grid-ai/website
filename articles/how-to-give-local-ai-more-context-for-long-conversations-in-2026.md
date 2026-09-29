@@ -4,7 +4,9 @@ title: "How to Give Local AI More Context for Long Conversations in 2026"
 description: "Keep more relevant material in a local conversation while staying within your computer’s memory."
 date: "2026-09-29"
 permalink: /articles/how-to-give-local-ai-more-context-for-long-conversations-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T12:05:13.023Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771284
 devto_url: "https://dev.to/alichherawalla/how-to-give-local-ai-more-context-for-long-conversations-in-2026-47ik"

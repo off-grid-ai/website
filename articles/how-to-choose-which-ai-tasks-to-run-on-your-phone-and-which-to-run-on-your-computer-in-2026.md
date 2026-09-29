@@ -4,7 +4,9 @@ title: "How to Choose Which AI Tasks to Run on Your Phone and Which to Run on Yo
 description: "Choose where to run local AI tasks based on the files, model size, available hardware, and whether the task must work away from your network."
 date: "2026-09-29"
 permalink: /articles/how-to-choose-which-ai-tasks-to-run-on-your-phone-and-which-to-run-on-your-computer-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T14:39:47.623Z"
+article_topic: "Work & organization"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4772199
 devto_url: "https://dev.to/alichherawalla/how-to-choose-which-ai-tasks-to-run-on-your-phone-and-which-to-run-on-your-computer-in-2026-3o63"

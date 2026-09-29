@@ -4,7 +4,9 @@ title: "How to Search Equipment Manuals With AI Without Internet in 2026"
 description: "Prepare local AI search across equipment manuals before a site visit, with model-specific sources, revision checks, and links back to the instructions."
 date: "2026-09-29"
 permalink: /articles/how-to-search-equipment-manuals-with-ai-without-internet-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:33:36.437Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772165
 devto_url: "https://dev.to/alichherawalla/how-to-search-equipment-manuals-with-ai-without-internet-in-2026-16em"

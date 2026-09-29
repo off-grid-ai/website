@@ -4,7 +4,9 @@ title: "Can Local AI Help With Work Without Access to Your Email or Accounts in 
 description: "Use local AI for drafts, document questions, and checked notes without connecting your email, calendar, or work accounts."
 date: "2026-09-29"
 permalink: /articles/can-local-ai-help-with-work-without-access-to-your-email-or-accounts-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:42:30.294Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772213
 devto_url: "https://dev.to/alichherawalla/can-local-ai-help-with-work-without-access-to-your-email-or-accounts-in-2026-2ggi"

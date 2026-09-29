@@ -4,7 +4,9 @@ title: "How to Search Across Multiple Documents With Local AI in 2026"
 description: "Find relevant passages across project documents on your own computer, then check the source behind the answer."
 date: "2026-09-29"
 permalink: /articles/how-to-search-across-multiple-documents-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:54:52.051Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769915
 devto_url: "https://dev.to/alichherawalla/how-to-search-across-multiple-documents-with-local-ai-in-2026-42ge"

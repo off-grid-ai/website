@@ -4,7 +4,9 @@ title: "How to Choose a Local AI Model That Fits Your Computer’s RAM in 2026"
 description: "Choose a local AI model that leaves room for your work. Understand download size, RAM warnings and context before loading a model."
 date: "2026-09-29"
 permalink: /articles/how-to-choose-a-local-ai-model-that-fits-your-computers-ram-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:32:59.675Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770669
 devto_url: "https://dev.to/alichherawalla/how-to-choose-a-local-ai-model-that-fits-your-computers-ram-in-2026-47p"

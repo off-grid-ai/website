@@ -4,7 +4,9 @@ title: "How to Draft Product Descriptions From Your Own Product Notes Without Cl
 description: "Use local AI to turn verified product notes into clear descriptions, keep claims accurate, and review missing specifications before publishing."
 date: "2026-09-29"
 permalink: /articles/how-to-draft-product-descriptions-from-your-own-product-notes-without-cloud-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:56:28.309Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772277
 devto_url: "https://dev.to/alichherawalla/how-to-draft-product-descriptions-from-your-own-product-notes-without-cloud-ai-in-2026-4h0m"

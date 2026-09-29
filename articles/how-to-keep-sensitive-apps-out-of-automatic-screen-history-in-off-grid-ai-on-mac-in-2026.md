@@ -4,7 +4,9 @@ title: "How to Keep Sensitive Apps Out of Automatic Screen History in Off Grid A
 description: "Control when OGAD records your Mac screen. Pause capture before sensitive work, check the visible state, and understand the built-in exclusions."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-sensitive-apps-out-of-automatic-screen-history-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:57:57.529Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770380
 devto_url: "https://dev.to/alichherawalla/how-to-keep-sensitive-apps-out-of-your-macs-automatic-screen-history-in-2026-13j9"

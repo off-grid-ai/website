@@ -4,7 +4,9 @@ title: "How to Turn a Recorded Workshop Into a Decision Brief in 2026"
 description: "Turn workshop audio into a checked decision brief with local AI. Separate decisions, proposals, conditions, and questions that remain open."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-recorded-workshop-into-a-decision-brief-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:12:20.774Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772026
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-recorded-workshop-into-a-decision-brief-in-2026-dhf"

@@ -4,7 +4,9 @@ title: "How to Turn Spanish Speech Into Text on Your Phone in 2026 (Completely O
 description: "Dictate Spanish notes on Android or iPhone without uploading audio. Set up a local speech model, select Spanish, and check the text before sending."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-spanish-speech-into-text-on-your-phone-in-2026-completely-offline/
-article_category: "Mobile"
+published_at: "2026-09-29T07:18:23.536Z"
+article_topic: "Voice & audio"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769331
 devto_url: "https://dev.to/alichherawalla/how-to-turn-spanish-speech-into-text-on-your-phone-completely-offline-5ge1"

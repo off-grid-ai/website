@@ -4,7 +4,9 @@ title: "How to Turn a Document Into a Checklist in 2026 Without Internet"
 description: "Turn a readable procedure into a checked list of actions using AI on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-document-into-a-checklist-in-2026-without-internet/
-article_category: "Workflows"
+published_at: "2026-09-29T09:01:19.186Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769960
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-document-into-a-checklist-in-2026-without-internet-2hde"

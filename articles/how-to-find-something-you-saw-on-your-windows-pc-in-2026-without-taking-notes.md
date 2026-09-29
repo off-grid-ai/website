@@ -4,7 +4,9 @@ title: "How to Find Something You Saw on Your Windows PC in 2026 Without Taking 
 description: "Use opted-in screen history and Replay to find a page, document, or detail you saw earlier on Windows. Local models can process the captured activity."
 date: "2026-09-29"
 permalink: /articles/how-to-find-something-you-saw-on-your-windows-pc-in-2026-without-taking-notes/
-article_category: "Desktop"
+published_at: "2026-09-29T10:44:03.913Z"
+article_topic: "Work & organization"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4770749
 devto_url: "https://dev.to/alichherawalla/how-to-find-something-you-saw-on-your-windows-pc-in-2026-without-taking-notes-1oha"

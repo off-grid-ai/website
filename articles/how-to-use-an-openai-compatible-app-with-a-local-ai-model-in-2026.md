@@ -4,7 +4,9 @@ title: "How to Use an OpenAI-Compatible App With a Local AI Model in 2026"
 description: "Connect an app that supports a custom OpenAI-compatible endpoint to the model running on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-use-an-openai-compatible-app-with-a-local-ai-model-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:59:18.222Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771236
 devto_url: "https://dev.to/alichherawalla/how-to-use-an-openai-compatible-app-with-a-local-ai-model-in-2026-2mh4"

@@ -4,7 +4,9 @@ title: "How to Build a Personal Glossary From Your Team's Documents in 2026"
 description: "Find project terms in your own documents and turn them into a checked glossary with local AI on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-personal-glossary-from-your-team-s-documents-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T13:57:08.579Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771931
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-personal-glossary-from-your-teams-documents-in-2026-1i84"

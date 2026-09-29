@@ -4,7 +4,9 @@ title: "How to Use AI Models on Your Mac From Your Android Phone in 2026 (No Int
 description: "Use a local AI model on your Mac from your Android phone over your own network after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-use-ai-models-on-your-mac-from-your-android-phone-in-2026-no-internet-required/
-article_category: "Mobile"
+published_at: "2026-09-29T08:41:37.744Z"
+article_topic: "Models & performance"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769839
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-models-on-your-mac-from-your-android-phone-in-2026-no-internet-required-756"

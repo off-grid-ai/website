@@ -4,7 +4,9 @@ title: "How to Tailor Your CV to a Job Description Without Uploading It in 2026"
 description: "Use local AI to compare your CV with a job description, improve relevant wording, and keep every claim tied to your real experience."
 date: "2026-09-29"
 permalink: /articles/how-to-tailor-your-cv-to-a-job-description-without-uploading-it-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:15:47.821Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772047
 devto_url: "https://dev.to/alichherawalla/how-to-tailor-your-cv-to-a-job-description-without-uploading-it-in-2026-1io5"

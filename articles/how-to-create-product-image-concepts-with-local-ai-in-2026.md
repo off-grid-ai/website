@@ -4,7 +4,9 @@ title: "How to Create Product Image Concepts With Local AI in 2026"
 description: "Explore product scenes, lighting and backgrounds with local AI. Make concept drafts on your computer before investing in a finished product image."
 date: "2026-09-29"
 permalink: /articles/how-to-create-product-image-concepts-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:18:46.436Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770088
 devto_url: "https://dev.to/alichherawalla/how-to-create-product-image-concepts-with-local-ai-in-2026-3aa7"

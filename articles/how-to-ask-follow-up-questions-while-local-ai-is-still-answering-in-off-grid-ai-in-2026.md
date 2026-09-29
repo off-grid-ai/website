@@ -4,7 +4,9 @@ title: "How to Ask Follow-Up Questions While Local AI Is Still Answering in Off 
 description: "Keep writing your next question while a local AI reply is in progress, then let OGAD answer in order."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-follow-up-questions-while-local-ai-is-still-answering-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:48:31.072Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771176
 devto_url: "https://dev.to/alichherawalla/how-to-ask-follow-up-questions-while-local-ai-is-still-answering-in-off-grid-ai-in-2026-148a"

@@ -4,7 +4,9 @@ title: "How to Turn a Long Article Into a Presentation Outline Without Internet 
 description: "Use local AI to organise a saved article into a presentation outline, keep source claims accurate, and plan what each slide needs to explain."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-long-article-into-a-presentation-outline-without-internet-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:54:37.169Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772268
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-long-article-into-a-presentation-outline-without-internet-in-2026-50l"

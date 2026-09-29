@@ -4,7 +4,9 @@ title: "How to Use AI on Your Android Phone Without Being Tracked"
 description: "Every time you type something into ChatGPT, Gemini, or Copilot, your conversation gets sent to a..."
 date: "2026-03-01"
 permalink: /articles/how-to-use-ai-on-your-android-phone-without-being-tracked/
-article_category: "Mobile"
+published_at: "2026-03-01T05:08:23.385Z"
+article_topic: "Privacy & control"
+article_platform: "Android"
 devto_article: true
 devto_id: 3297586
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-on-your-android-phone-without-being-tracked-2ne3"

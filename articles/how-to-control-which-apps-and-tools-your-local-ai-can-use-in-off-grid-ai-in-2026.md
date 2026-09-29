@@ -4,7 +4,9 @@ title: "How to Control Which Apps and Tools Your Local AI Can Use in Off Grid AI
 description: "Choose which chat tools OGAD offers to the model, and separate tool access from app permissions."
 date: "2026-09-29"
 permalink: /articles/how-to-control-which-apps-and-tools-your-local-ai-can-use-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:50:59.949Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771188
 devto_url: "https://dev.to/alichherawalla/how-to-control-which-apps-and-tools-your-local-ai-can-use-in-off-grid-ai-in-2026-2hmh"

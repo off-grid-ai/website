@@ -4,7 +4,9 @@ title: "How to Create a Manga-Style Comic on Your Own Computer in 2026"
 description: "Plan and illustrate an original manga-style story locally with OGAD. Choose black-and-white artwork, set a short story brief, and read the generated pages on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-manga-style-comic-on-your-own-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:25:53.623Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770142
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-manga-style-comic-on-your-own-computer-in-2026-121k"

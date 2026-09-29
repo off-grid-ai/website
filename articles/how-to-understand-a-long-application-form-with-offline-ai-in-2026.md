@@ -4,7 +4,9 @@ title: "How to Understand a Long Application Form With Offline AI in 2026"
 description: "Use local AI to turn a saved application form into a clear preparation list, check conditional questions, and keep the original instructions in view."
 date: "2026-09-29"
 permalink: /articles/how-to-understand-a-long-application-form-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:46:24.856Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772232
 devto_url: "https://dev.to/alichherawalla/how-to-understand-a-long-application-form-with-offline-ai-in-2026-5hh8"

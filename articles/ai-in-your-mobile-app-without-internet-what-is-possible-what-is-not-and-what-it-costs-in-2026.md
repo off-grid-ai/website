@@ -4,7 +4,9 @@ title: "AI in Your Mobile App Without Internet: What Is Possible, What Is Not, a
 description: "A plain-language guide to what on-device AI can do today, what it cannot, and what each capability costs to add."
 date: "2026-04-26"
 permalink: /articles/ai-in-your-mobile-app-without-internet-what-is-possible-what-is-not-and-what-it-costs-in-2026/
-article_category: "Mobile"
+published_at: "2026-04-26T07:44:47.790Z"
+article_topic: "Getting started"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3552250
 devto_url: "https://dev.to/alichherawalla/ai-in-your-mobile-app-without-internet-what-is-possible-what-is-not-and-what-it-costs-in-2026-1i8p"

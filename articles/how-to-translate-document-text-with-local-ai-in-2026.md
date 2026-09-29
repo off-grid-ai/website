@@ -4,7 +4,9 @@ title: "How to Translate Document Text With Local AI in 2026"
 description: "Translate selected document text with a local model, then check meaning, names, numbers, and terminology."
 date: "2026-09-29"
 permalink: /articles/how-to-translate-document-text-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:02:10.827Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769964
 devto_url: "https://dev.to/alichherawalla/how-to-translate-document-text-with-local-ai-in-2026-42kh"

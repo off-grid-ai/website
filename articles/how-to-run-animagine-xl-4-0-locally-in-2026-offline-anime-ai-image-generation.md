@@ -4,7 +4,9 @@ title: "How to Run Animagine XL 4.0 Locally in 2026 (Offline Anime AI Image Gene
 description: "Generate anime art on your own machine with Animagine XL 4.0, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-animagine-xl-4-0-locally-in-2026-offline-anime-ai-image-generation/
-article_category: "Workflows"
+published_at: "2026-06-25T05:16:10.382Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984641
 devto_url: "https://dev.to/alichherawalla/how-to-run-animagine-xl-40-locally-in-2026-offline-anime-ai-image-generation-1ghp"

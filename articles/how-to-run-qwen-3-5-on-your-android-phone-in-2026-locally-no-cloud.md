@@ -4,7 +4,9 @@ title: "How to Run Qwen 3.5 on Your Android Phone in 2026 (Locally, No Cloud)"
 description: "Qwen 3.5 is the most capable open-weight small model family available right now. The small series..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-qwen-3-5-on-your-android-phone-in-2026-locally-no-cloud/
-article_category: "Mobile"
+published_at: "2026-04-14T04:30:28.323Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 3497469
 devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-35-on-your-android-phone-in-2026-locally-no-cloud-58pi"

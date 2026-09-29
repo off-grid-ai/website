@@ -4,7 +4,9 @@ title: "How to Find Details Across Founder Meeting Notes in 2026"
 description: "Find source-backed details across founder meeting notes with local AI, preserving dates, uncertainty, and changes between conversations."
 date: "2026-09-29"
 permalink: /articles/how-to-find-details-across-founder-meeting-notes-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:37:08.415Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772182
 devto_url: "https://dev.to/alichherawalla/how-to-find-details-across-founder-meeting-notes-in-2026-278p"

@@ -4,7 +4,9 @@ title: "How to Identify Missing Evidence in Your Promotion Case With Local AI in
 description: "Check a promotion case for unsupported claims, missing examples, and unclear links to the role criteria with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-identify-missing-evidence-in-your-promotion-case-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:20:45.654Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772074
 devto_url: "https://dev.to/alichherawalla/how-to-identify-missing-evidence-in-your-promotion-case-with-local-ai-in-2026-4m4c"

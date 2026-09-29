@@ -4,7 +4,9 @@ title: "How to Create a Client Handover From Your Saved Work History in 2026"
 description: "Use saved Mac activity to recover project context, verify the current state, and draft a client handover with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-client-handover-from-your-saved-work-history-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:15:39.422Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772386
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-client-handover-from-your-saved-work-history-in-2026-1n70"

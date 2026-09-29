@@ -4,7 +4,9 @@ title: "How to Review a Client Proposal With AI Without Uploading It in 2026"
 description: "Review a private client proposal with local AI, check its scope against the brief, and build a source-backed list of questions before you respond."
 date: "2026-09-29"
 permalink: /articles/how-to-review-a-client-proposal-with-ai-without-uploading-it-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T13:49:49.503Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771898
 devto_url: "https://dev.to/alichherawalla/how-to-review-a-client-proposal-with-ai-without-uploading-it-in-2026-1db5"

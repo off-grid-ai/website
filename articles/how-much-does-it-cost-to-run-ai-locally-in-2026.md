@@ -4,7 +4,9 @@ title: "How Much Does It Cost to Run AI Locally in 2026?"
 description: "Calculate the cost of a local AI setup using the app tier, hardware you already own, measured electricity use, storage, and support needs."
 date: "2026-09-29"
 permalink: /articles/how-much-does-it-cost-to-run-ai-locally-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:41:39.462Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772209
 devto_url: "https://dev.to/alichherawalla/how-much-does-it-cost-to-run-ai-locally-in-2026-45l"

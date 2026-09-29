@@ -4,7 +4,9 @@ title: "How to Set Up Offline AI on a New Android Phone in 2026 (Guided Model Se
 description: "Choose a compatible starter set for local chat, images, and speech input with OGAM Auto Setup. Download first, then use supported tasks offline."
 date: "2026-09-29"
 permalink: /articles/how-to-set-up-offline-ai-on-a-new-android-phone-in-2026-guided-model-setup/
-article_category: "Mobile"
+published_at: "2026-09-29T10:44:52.125Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 4770757
 devto_url: "https://dev.to/alichherawalla/how-to-set-up-offline-ai-on-a-new-android-phone-in-2026-guided-model-setup-49jo"

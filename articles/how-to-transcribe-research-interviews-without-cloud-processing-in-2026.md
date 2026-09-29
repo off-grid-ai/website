@@ -4,7 +4,9 @@ title: "How to Transcribe Research Interviews Without Cloud Processing in 2026"
 description: "Transcribe saved research interviews locally on your Mac, check participant wording, and prepare a reviewed transcript for analysis."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-research-interviews-without-cloud-processing-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:38:06.012Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772191
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-research-interviews-without-cloud-processing-in-2026-5ahg"

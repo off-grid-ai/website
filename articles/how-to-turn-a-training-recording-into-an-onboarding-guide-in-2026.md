@@ -4,7 +4,9 @@ title: "How to Turn a Training Recording Into an Onboarding Guide in 2026"
 description: "Use local AI to turn saved training audio into a checked onboarding guide with steps, exceptions, and questions for new staff."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-training-recording-into-an-onboarding-guide-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:00:58.685Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771955
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-training-recording-into-an-onboarding-guide-in-2026-3f10"

@@ -4,7 +4,9 @@ title: "How to Run Gemma 4 on Your Android Phone in 2026 (Locally, No Cloud)"
 description: "Google released Gemma 4 on April 2, 2026. It's their most capable open model yet — built on the same..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-gemma-4-on-your-android-phone-in-2026-locally-no-cloud/
-article_category: "Mobile"
+published_at: "2026-04-14T04:31:37.550Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 3497479
 devto_url: "https://dev.to/alichherawalla/how-to-run-gemma-4-on-your-android-phone-in-2026-locally-no-cloud-1e39"

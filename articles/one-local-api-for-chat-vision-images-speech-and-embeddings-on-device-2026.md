@@ -4,7 +4,9 @@ title: "One Local API for Chat, Vision, Images, Speech, and Embeddings (On-Devic
 description: "A single OpenAI-compatible endpoint that does text, vision, image generation, transcription, TTS, and embeddings, all on-device with no cloud."
 date: "2026-06-25"
 permalink: /articles/one-local-api-for-chat-vision-images-speech-and-embeddings-on-device-2026/
-article_category: "Workflows"
+published_at: "2026-06-25T05:20:55.740Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984691
 devto_url: "https://dev.to/alichherawalla/one-local-api-for-chat-vision-images-speech-and-embeddings-on-device-2026-2c2p"

@@ -4,7 +4,9 @@ title: "How to Use Ollama From Your iPhone in 2026 (No Configuration Required)"
 description: "You have Ollama running on your Mac or PC. You have models downloaded. Maybe Qwen 3.5 9B, maybe Llama..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-ollama-from-your-iphone-in-2026-no-configuration-required/
-article_category: "Mobile"
+published_at: "2026-03-18T18:00:07.643Z"
+article_topic: "Models & performance"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3368616
 devto_url: "https://dev.to/alichherawalla/how-to-use-ollama-from-your-iphone-in-2026-no-configuration-required-184c"

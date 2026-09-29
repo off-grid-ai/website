@@ -4,7 +4,9 @@ title: "How to Turn an Idea Into an Interactive HTML Prototype on Your Mac in 20
 description: "Turn a small interface idea into a working local HTML preview on Mac, then revise and export it."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-an-idea-into-an-interactive-html-prototype-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:31:15.070Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770183
 devto_url: "https://dev.to/alichherawalla/how-to-turn-an-idea-into-an-interactive-html-prototype-on-your-mac-in-2026-4ldp"

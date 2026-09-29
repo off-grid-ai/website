@@ -4,7 +4,9 @@ title: "How to Use Multiple AI Models in One Chat Without Paying for Any of Them
 description: "Most AI apps lock you into one model per conversation. If you want to compare how Llama handles a..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-multiple-ai-models-in-one-chat-without-paying-for-any-of-them/
-article_category: "Workflows"
+published_at: "2026-03-18T19:12:43.096Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3368795
 devto_url: "https://dev.to/alichherawalla/how-to-use-multiple-ai-models-in-one-chat-without-paying-for-any-of-them-40mb"

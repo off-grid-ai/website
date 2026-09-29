@@ -4,7 +4,9 @@ title: "How to Ask Questions About a PDF on iPhone in 2026 Without Internet"
 description: "Ask questions about a readable PDF on iPhone using local project search and an on-device AI model."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-questions-about-a-pdf-on-iphone-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:52:52.470Z"
+article_topic: "Documents & research"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4769905
 devto_url: "https://dev.to/alichherawalla/how-to-ask-questions-about-a-pdf-on-iphone-in-2026-without-internet-1dlj"

@@ -4,7 +4,9 @@ title: "How to Create Blog Illustrations in 2026 Without Cloud Image Generation"
 description: "Create an illustration that fits your article with a local AI model. Develop the visual idea, leave space for text and export the result from OGAD."
 date: "2026-09-29"
 permalink: /articles/how-to-create-blog-illustrations-in-2026-without-cloud-image-generation/
-article_category: "Workflows"
+published_at: "2026-09-29T09:19:35.348Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770094
 devto_url: "https://dev.to/alichherawalla/how-to-create-blog-illustrations-in-2026-without-cloud-image-generation-1kmm"

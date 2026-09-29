@@ -4,7 +4,9 @@ title: "How to Automate Repetitive Browser Tasks With Local AI in 2026"
 description: "Let local AI collect information from web pages while you review the result."
 date: "2026-09-29"
 permalink: /articles/how-to-automate-repetitive-browser-tasks-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:19:11.834Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770559
 devto_url: "https://dev.to/alichherawalla/how-to-automate-repetitive-browser-tasks-with-local-ai-in-2026-154b"

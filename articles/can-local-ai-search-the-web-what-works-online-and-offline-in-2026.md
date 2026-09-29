@@ -4,7 +4,9 @@ title: "Can Local AI Search the Web? What Works Online and Offline in 2026"
 description: "Use a local AI model with web search when you need current sources. Keep online retrieval separate from offline work with saved documents."
 date: "2026-09-29"
 permalink: /articles/can-local-ai-search-the-web-what-works-online-and-offline-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:09:51.516Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772349
 devto_url: "https://dev.to/alichherawalla/can-local-ai-search-the-web-what-works-online-and-offline-in-2026-1i9e"

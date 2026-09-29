@@ -4,7 +4,9 @@ title: "How to Run Local AI on Your Android Phone in 2026 (No Cloud, No Account)
 description: "Your Android phone has a GPU more powerful than most 2018 laptops. Modern Snapdragon chips have..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-local-ai-on-your-android-phone-in-2026-no-cloud-no-account/
-article_category: "Mobile"
+published_at: "2026-04-14T04:02:28.866Z"
+article_topic: "Getting started"
+article_platform: "Android"
 devto_article: true
 devto_id: 3497405
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-your-android-phone-in-2026-no-cloud-no-account-5cbp"

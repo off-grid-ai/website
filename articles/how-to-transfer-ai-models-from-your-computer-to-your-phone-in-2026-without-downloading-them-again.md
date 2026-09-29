@@ -4,7 +4,9 @@ title: "How to Transfer AI Models From Your Computer to Your Phone in 2026 Witho
 description: "Reuse a compatible AI model already on your Mac or Windows PC. Send it to your phone over your local network, then use it offline."
 date: "2026-09-29"
 permalink: /articles/how-to-transfer-ai-models-from-your-computer-to-your-phone-in-2026-without-downloading-them-again/
-article_category: "Mobile"
+published_at: "2026-09-29T08:34:40.356Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769795
 devto_url: "https://dev.to/alichherawalla/how-to-transfer-ai-models-from-your-computer-to-your-phone-in-2026-without-downloading-them-again-2al7"

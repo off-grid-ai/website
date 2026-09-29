@@ -4,7 +4,9 @@ title: "How to Recover Your Offline Password Vault in Off Grid AI on Mac in 2026
 description: "Recover an existing OGAD vault with its saved phrase and recovery data, then set a new master password."
 date: "2026-09-29"
 permalink: /articles/how-to-recover-your-offline-password-vault-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:50:30.889Z"
+article_topic: "Privacy & control"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770791
 devto_url: "https://dev.to/alichherawalla/how-to-recover-your-offline-password-vault-in-off-grid-ai-on-mac-in-2026-147b"

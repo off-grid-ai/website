@@ -4,7 +4,9 @@ title: "How to Transcribe Meetings Locally in 2026 (Whisper, On-Device)"
 description: "Record and transcribe Zoom and Google Meet calls entirely on-device with whisper.cpp. No cloud notetaker, no per-minute fees."
 date: "2026-06-25"
 permalink: /articles/how-to-transcribe-meetings-locally-in-2026-whisper-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:22:18.444Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984714
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-meetings-locally-in-2026-whisper-on-device-2ak7"

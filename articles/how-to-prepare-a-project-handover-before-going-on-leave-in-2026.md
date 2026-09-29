@@ -4,7 +4,9 @@ title: "How to Prepare a Project Handover Before Going on Leave in 2026"
 description: "Prepare a practical leave handover from current project notes with local AI, including owners, next actions, source links, and unresolved decisions."
 date: "2026-09-29"
 permalink: /articles/how-to-prepare-a-project-handover-before-going-on-leave-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:06:33.547Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771992
 devto_url: "https://dev.to/alichherawalla/how-to-prepare-a-project-handover-before-going-on-leave-in-2026-k5g"

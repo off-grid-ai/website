@@ -4,7 +4,9 @@ title: "How to Find the Reason Behind a Design Change in Your Project Notes in 2
 description: "Use local AI to trace a design change to its source notes, separate stated reasons from later guesses, and prepare a clear rationale for the team."
 date: "2026-09-29"
 permalink: /articles/how-to-find-the-reason-behind-a-design-change-in-your-project-notes-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:31:53.220Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772148
 devto_url: "https://dev.to/alichherawalla/how-to-find-the-reason-behind-a-design-change-in-your-project-notes-in-2026-4iog"

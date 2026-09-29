@@ -4,7 +4,9 @@ title: "How to Compare Flight Prices and Baggage Fees With Local AI in 2026"
 description: "Compare flight options with the bags, route, and timing that matter to your trip."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-flight-prices-and-baggage-fees-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:26:31.225Z"
+article_topic: "Everyday tasks"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770619
 devto_url: "https://dev.to/alichherawalla/how-to-compare-flight-prices-and-baggage-fees-with-local-ai-in-2026-46gp"

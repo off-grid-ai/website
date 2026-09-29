@@ -4,7 +4,9 @@ title: "How to Control Spotify by Asking Local AI on Your Mac in 2026"
 description: "Ask a local AI assistant to find and play the right music in Spotify on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-control-spotify-by-asking-local-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:28:09.860Z"
+article_topic: "Everyday tasks"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770633
 devto_url: "https://dev.to/alichherawalla/how-to-control-spotify-by-asking-local-ai-on-your-mac-in-2026-1253"

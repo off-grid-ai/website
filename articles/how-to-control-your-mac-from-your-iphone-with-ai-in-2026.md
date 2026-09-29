@@ -4,7 +4,9 @@ title: "How to Control Your Mac From Your iPhone With AI in 2026"
 description: "Start a Mac app task from your iPhone with OGAM and OGAD. Pair the devices, enable Assistant, and follow the work without retyping the request on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-control-your-mac-from-your-iphone-with-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T08:52:06.250Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769900
 devto_url: "https://dev.to/alichherawalla/how-to-control-your-mac-from-your-iphone-with-ai-in-2026-1ed1"

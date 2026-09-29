@@ -4,7 +4,9 @@ title: "How to Automatically Sync Chat Attachments in Off Grid AI in 2026 (Phone
 description: "Open the same attached files in an AI conversation on your phone and computer. Use direct device sync and understand pending files, local processing, and privacy limits."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-chat-attachments-in-off-grid-ai-in-2026-phone-to-computer-no-cloud-storage/
-article_category: "Mobile"
+published_at: "2026-09-29T08:30:06.548Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769755
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-chat-attachments-between-your-phone-and-computer-in-2026-no-cloud-j6p"

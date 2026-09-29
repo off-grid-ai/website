@@ -4,7 +4,9 @@ title: "How to Run Illustrious XL 2.0 Locally in 2026 (Offline Anime and Illustr
 description: "Run Illustrious XL v2.0 anime and illustration AI fully on-device on Mac or Windows. No cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-illustrious-xl-2-0-locally-in-2026-offline-anime-and-illustration-ai/
-article_category: "Workflows"
+published_at: "2026-06-25T05:16:50.978Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984647
 devto_url: "https://dev.to/alichherawalla/how-to-run-illustrious-xl-20-locally-in-2026-offline-anime-and-illustration-ai-5cif"

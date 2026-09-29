@@ -4,7 +4,9 @@ title: "How to Fix Local AI That Stops Responding in Off Grid AI on Your Compute
 description: "Use OGAD System health to find a stopped component, restart it, and check a small local request."
 date: "2026-09-29"
 permalink: /articles/how-to-fix-local-ai-that-stops-responding-in-off-grid-ai-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:51:56.379Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771192
 devto_url: "https://dev.to/alichherawalla/how-to-fix-local-ai-that-stops-responding-in-off-grid-ai-on-your-computer-in-2026-2he3"

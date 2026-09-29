@@ -4,7 +4,9 @@ title: "How to Automatically Delete Old Dictation Recordings in Off Grid AI on Y
 description: "Set age and count limits for Off Grid AI’s Voice library on Mac, and understand what automatic cleanup removes."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-delete-old-dictation-recordings-in-off-grid-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:37:14.756Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771131
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-delete-old-dictation-recordings-in-off-grid-ai-on-your-mac-in-2026-5c2f"

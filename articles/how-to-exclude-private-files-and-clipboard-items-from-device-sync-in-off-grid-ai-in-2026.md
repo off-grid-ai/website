@@ -4,7 +4,9 @@ title: "How to Exclude Private Files and Clipboard Items From Device Sync in Off
 description: "Set file and clipboard sharing rules before private material reaches another paired device."
 date: "2026-09-29"
 permalink: /articles/how-to-exclude-private-files-and-clipboard-items-from-device-sync-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:36:44.673Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769809
 devto_url: "https://dev.to/alichherawalla/how-to-stop-private-files-and-clipboard-items-from-syncing-to-other-devices-in-2026-40f4"

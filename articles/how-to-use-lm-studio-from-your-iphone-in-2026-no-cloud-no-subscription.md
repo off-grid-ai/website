@@ -4,7 +4,9 @@ title: "How to Use LM Studio From Your iPhone in 2026 (No Cloud, No Subscription
 description: "LM Studio turned your Mac into an AI workstation. You downloaded models, you chatted with them, you..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-lm-studio-from-your-iphone-in-2026-no-cloud-no-subscription/
-article_category: "Mobile"
+published_at: "2026-03-18T19:06:35.328Z"
+article_topic: "Models & performance"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3368780
 devto_url: "https://dev.to/alichherawalla/how-to-use-lm-studio-from-your-iphone-in-2026-no-cloud-no-subscription-4i3f"

@@ -4,7 +4,9 @@ title: "How to Batch-Transcribe Audio Files on Your Computer With a Local API in
 description: "Transcribe a folder of WAV recordings through a local API. Save one text file per recording without uploading the batch to cloud AI."
 date: "2026-09-29"
 permalink: /articles/how-to-batch-transcribe-audio-files-on-your-computer-with-a-local-api-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:40:54.460Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770735
 devto_url: "https://dev.to/alichherawalla/how-to-batch-transcribe-audio-files-on-your-computer-with-a-local-api-in-2026-5fon"

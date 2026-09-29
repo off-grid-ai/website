@@ -4,7 +4,9 @@ title: "How to Generate AI Images Locally on Your Mac in 2026 (No Cloud, No Subs
 description: "Generate SDXL and Z-Image-Turbo images on your Mac with Metal acceleration. On-device, no cloud, no subscription, no account. Free and open source."
 date: "2026-06-25"
 permalink: /articles/how-to-generate-ai-images-locally-on-your-mac-in-2026-no-cloud-no-subscription/
-article_category: "Desktop"
+published_at: "2026-06-25T05:10:44.975Z"
+article_topic: "Images & vision"
+article_platform: "Mac"
 devto_article: true
 devto_id: 3984593
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-locally-on-your-mac-in-2026-no-cloud-no-subscription-36i7"

@@ -4,7 +4,9 @@ title: "How to Restyle a Photo With AI in 2026 Without Uploading It"
 description: "Explore watercolor, pencil and poster treatments from your own photo with local image-to-image generation. Keep the source off cloud AI services."
 date: "2026-09-29"
 permalink: /articles/how-to-restyle-a-photo-with-ai-in-2026-without-uploading-it/
-article_category: "Workflows"
+published_at: "2026-09-29T09:17:58.576Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770084
 devto_url: "https://dev.to/alichherawalla/how-to-restyle-a-photo-with-ai-in-2026-without-uploading-it-eg4"

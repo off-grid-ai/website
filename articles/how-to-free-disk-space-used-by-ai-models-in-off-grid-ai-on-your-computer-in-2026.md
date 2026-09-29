@@ -4,7 +4,9 @@ title: "How to Free Disk Space Used by AI Models in Off Grid AI on Your Computer
 description: "Review downloaded models and incomplete downloads in OGAD, then remove the files you no longer need."
 date: "2026-09-29"
 permalink: /articles/how-to-free-disk-space-used-by-ai-models-in-off-grid-ai-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:52:46.573Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771197
 devto_url: "https://dev.to/alichherawalla/how-to-free-disk-space-used-by-ai-models-in-off-grid-ai-on-your-computer-in-2026-4ch4"

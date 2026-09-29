@@ -4,7 +4,9 @@ title: "How to Turn a Week of Client Work Into a Project Case Study in 2026"
 description: "Use saved work context to recover a project's story, verify outcomes, and draft a case study without inventing results or client approval."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-week-of-client-work-into-a-project-case-study-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:16:29.347Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772389
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-week-of-client-work-into-a-project-case-study-in-2026-5p1"

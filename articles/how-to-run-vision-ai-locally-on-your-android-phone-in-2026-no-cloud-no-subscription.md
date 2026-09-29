@@ -4,7 +4,9 @@ title: "How to Run Vision AI Locally on Your Android Phone in 2026 (No Cloud, No
 description: "Your phone has a camera and a processor powerful enough to run multimodal AI models. You can point it..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-vision-ai-locally-on-your-android-phone-in-2026-no-cloud-no-subscription/
-article_category: "Mobile"
+published_at: "2026-04-14T04:19:37.286Z"
+article_topic: "Images & vision"
+article_platform: "Android"
 devto_article: true
 devto_id: 3497443
 devto_url: "https://dev.to/alichherawalla/how-to-run-vision-ai-locally-on-your-android-phone-in-2026-no-cloud-no-subscription-d01"

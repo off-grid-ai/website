@@ -4,7 +4,9 @@ title: "How to Move Your Pro Licence to a New Phone in Off Grid AI in 2026"
 description: "Activate OGAM Pro on a replacement phone and manage the old device seat. Keep licence access separate from your data transfer. "
 date: "2026-09-29"
 permalink: /articles/how-to-move-your-pro-licence-to-a-new-phone-in-off-grid-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:46:30.435Z"
+article_topic: "Privacy & control"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770771
 devto_url: "https://dev.to/alichherawalla/how-to-move-your-pro-licence-to-a-new-phone-in-off-grid-ai-in-2026-le6"

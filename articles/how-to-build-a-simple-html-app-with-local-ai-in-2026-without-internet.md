@@ -4,7 +4,9 @@ title: "How to Build a Simple HTML App With Local AI in 2026 Without Internet"
 description: "Build and preview a small self-contained HTML tool with a local model, then download it to your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-simple-html-app-with-local-ai-in-2026-without-internet/
-article_category: "Workflows"
+published_at: "2026-09-29T09:29:27.938Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770172
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-simple-html-app-with-local-ai-in-2026-without-internet-j4f"

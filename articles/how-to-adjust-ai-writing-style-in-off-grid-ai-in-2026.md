@@ -4,7 +4,9 @@ title: "How to Adjust AI Writing Style in Off Grid AI in 2026"
 description: "Use a clear brief and local generation settings to compare focused instructions with more varied drafts."
 date: "2026-09-29"
 permalink: /articles/how-to-adjust-ai-writing-style-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:50:10.122Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771184
 devto_url: "https://dev.to/alichherawalla/how-to-adjust-ai-writing-style-in-off-grid-ai-in-2026-2mf0"

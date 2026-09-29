@@ -4,7 +4,9 @@ title: "How to Find Gaps in a Project Handover With Local AI in 2026"
 description: "Review a project handover for missing owners, unclear decisions, stale documents, and blocked next steps with AI running on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-find-gaps-in-a-project-handover-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:10:30.473Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772017
 devto_url: "https://dev.to/alichherawalla/how-to-find-gaps-in-a-project-handover-with-local-ai-in-2026-2gi5"

@@ -4,7 +4,9 @@ title: "How to Turn a Recorded Talk Into a Blog Draft Without Cloud AI in 2026"
 description: "Turn your own recorded talk into a source-grounded blog draft with local transcription and writing models, then edit it for readers."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-recorded-talk-into-a-blog-draft-without-cloud-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:03:33.541Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772323
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-recorded-talk-into-a-blog-draft-without-cloud-ai-in-2026-51do"

@@ -4,7 +4,9 @@ title: "How to Search User Research Transcripts With Local AI in 2026"
 description: "Find relevant passages in user research transcripts with local AI, check the original evidence, and keep interpretations separate from participant quotes."
 date: "2026-09-29"
 permalink: /articles/how-to-search-user-research-transcripts-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:03:57.504Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771971
 devto_url: "https://dev.to/alichherawalla/how-to-search-user-research-transcripts-with-local-ai-in-2026-3f3p"

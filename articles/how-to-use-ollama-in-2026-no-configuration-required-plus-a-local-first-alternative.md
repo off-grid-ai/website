@@ -4,7 +4,9 @@ title: "How to Use Ollama in 2026 (No Configuration Required), Plus a Local-Firs
 description: "Run local LLMs with Ollama in minutes, then see a GUI alternative that adds image gen, voice, and on-device memory. No cloud."
 date: "2026-06-25"
 permalink: /articles/how-to-use-ollama-in-2026-no-configuration-required-plus-a-local-first-alternative/
-article_category: "Workflows"
+published_at: "2026-06-25T05:11:25.505Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984597
 devto_url: "https://dev.to/alichherawalla/how-to-use-ollama-in-2026-no-configuration-required-plus-a-local-first-alternative-1h39"

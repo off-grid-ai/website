@@ -4,7 +4,9 @@ title: "Have you ever hesitated before typing something into ChatGPT or Claude? 
 description: "The full story of building Off Grid — a FOSS app that runs AI entirely on your phone, offline, with..."
 date: "2026-02-20"
 permalink: /articles/have-you-ever-hesitated-before-typing-something-into-chatgpt-or-claude-i-did-and-so-i-built-off-grid/
-article_category: "Workflows"
+published_at: "2026-02-20T08:00:40.022Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3270154
 devto_url: "https://dev.to/alichherawalla/from-personal-frustration-to-1-on-hacker-news-how-i-built-off-grid-and-hit-425-stars-4989"

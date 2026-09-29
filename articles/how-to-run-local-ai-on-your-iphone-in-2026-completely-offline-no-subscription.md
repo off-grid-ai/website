@@ -4,7 +4,9 @@ title: "How to Run Local AI on Your iPhone in 2026 (Completely Offline, No Subsc
 description: "The A17 Pro in your iPhone has a 16-core Neural Engine capable of 35 trillion operations per second...."
 date: "2026-04-14"
 permalink: /articles/how-to-run-local-ai-on-your-iphone-in-2026-completely-offline-no-subscription/
-article_category: "Mobile"
+published_at: "2026-04-14T04:06:04.410Z"
+article_topic: "Getting started"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3497414
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-your-iphone-in-2026-completely-offline-no-subscription-2lpd"

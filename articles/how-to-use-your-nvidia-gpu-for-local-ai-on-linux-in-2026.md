@@ -4,7 +4,9 @@ title: "How to Use Your NVIDIA GPU for Local AI on Linux in 2026"
 description: "Use the optional NVIDIA pack in Off Grid AI's Linux beta for local chat, images and transcription. Check the active backend and keep a CPU fallback."
 date: "2026-09-29"
 permalink: /articles/how-to-use-your-nvidia-gpu-for-local-ai-on-linux-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T12:54:44.186Z"
+article_topic: "Models & performance"
+article_platform: "Linux"
 devto_article: true
 devto_id: 4771577
 devto_url: "https://dev.to/alichherawalla/how-to-use-your-nvidia-gpu-for-local-ai-on-linux-in-2026-48bc"

@@ -4,7 +4,9 @@ title: "How to Create Image Concepts From a Written Campaign Brief With Local AI
 description: "Turn a campaign brief into distinct visual directions with local AI, generate a first concept, and review it against the actual communication goal."
 date: "2026-09-29"
 permalink: /articles/how-to-create-image-concepts-from-a-written-campaign-brief-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:55:34.404Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772271
 devto_url: "https://dev.to/alichherawalla/how-to-create-image-concepts-from-a-written-campaign-brief-with-local-ai-in-2026-4g2b"

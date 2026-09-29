@@ -4,7 +4,9 @@ title: "How to Run RealVisXL 5.0 Locally on Your Desktop (Photorealism, Offline)
 description: "Generate photorealistic images with RealVisXL 5.0 fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-realvisxl-5-0-locally-on-your-desktop-photorealism-offline/
-article_category: "Desktop"
+published_at: "2026-06-25T05:18:12.618Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984664
 devto_url: "https://dev.to/alichherawalla/how-to-run-realvisxl-50-locally-on-your-desktop-photorealism-offline-19m"

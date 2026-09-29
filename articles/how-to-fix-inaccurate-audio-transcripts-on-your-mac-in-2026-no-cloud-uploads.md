@@ -4,7 +4,9 @@ title: "How to Fix Inaccurate Audio Transcripts on Your Mac in 2026 (No Cloud Up
 description: "Reuse saved audio in Off Grid AI, select another local speech model, and compare transcripts without making a new recording."
 date: "2026-09-29"
 permalink: /articles/how-to-fix-inaccurate-audio-transcripts-on-your-mac-in-2026-no-cloud-uploads/
-article_category: "Desktop"
+published_at: "2026-09-29T07:34:10.764Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769470
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-a-recording-again-with-a-more-accurate-local-ai-model-4050"

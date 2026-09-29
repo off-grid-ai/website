@@ -4,7 +4,9 @@ title: "How to Remove Client Names From a Draft Using Local AI in 2026"
 description: "Use local AI to prepare a draft with client names replaced, then check identifiers, document metadata, and the final exported copy yourself."
 date: "2026-09-29"
 permalink: /articles/how-to-remove-client-names-from-a-draft-using-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T13:58:23.348Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771936
 devto_url: "https://dev.to/alichherawalla/how-to-remove-client-names-from-a-draft-using-local-ai-in-2026-31ma"

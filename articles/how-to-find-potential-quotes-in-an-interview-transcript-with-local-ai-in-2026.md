@@ -4,7 +4,9 @@ title: "How to Find Potential Quotes in an Interview Transcript With Local AI in
 description: "Use local AI to locate quote candidates in a checked interview transcript, preserve exact wording, and review attribution and context before publication."
 date: "2026-09-29"
 permalink: /articles/how-to-find-potential-quotes-in-an-interview-transcript-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:53:44.421Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772262
 devto_url: "https://dev.to/alichherawalla/how-to-find-potential-quotes-in-an-interview-transcript-with-local-ai-in-2026-35h7"

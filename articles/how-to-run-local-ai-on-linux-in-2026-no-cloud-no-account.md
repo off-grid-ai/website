@@ -4,7 +4,9 @@ title: "How to Run Local AI on Linux in 2026 (No Cloud, No Account)"
 description: "Run AI chat, image generation and voice on Ubuntu with Off Grid AI's Linux beta. Download models once, then use local models without internet."
 date: "2026-09-29"
 permalink: /articles/how-to-run-local-ai-on-linux-in-2026-no-cloud-no-account/
-article_category: "Workflows"
+published_at: "2026-09-29T12:53:56.306Z"
+article_topic: "Getting started"
+article_platform: "Linux"
 devto_article: true
 devto_id: 4771573
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-linux-in-2026-no-cloud-no-account-1bh0"

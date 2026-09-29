@@ -4,7 +4,9 @@ title: "How to Compare Two Documents in 2026 Without Sending Them to a Cloud Ser
 description: "Compare named sections of two documents with a local AI model, keeping the files on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-two-documents-in-2026-without-sending-them-to-a-cloud-service/
-article_category: "Workflows"
+published_at: "2026-09-29T08:55:43.312Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769922
 devto_url: "https://dev.to/alichherawalla/how-to-compare-two-documents-in-2026-without-sending-them-to-a-cloud-service-3ic6"

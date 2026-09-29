@@ -4,7 +4,9 @@ title: "How to Turn Spoken Ideas Into a First Draft in 2026 Without Internet"
 description: "Dictate a rough idea on your phone, check the transcript, and ask a local AI model for a first draft without internet after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-spoken-ideas-into-a-first-draft-in-2026-without-internet/
-article_category: "Workflows"
+published_at: "2026-09-29T08:14:38.602Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769685
 devto_url: "https://dev.to/alichherawalla/how-to-turn-spoken-ideas-into-a-first-draft-in-2026-without-internet-8e2"

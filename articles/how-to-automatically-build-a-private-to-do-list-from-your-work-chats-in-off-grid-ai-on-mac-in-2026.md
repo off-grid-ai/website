@@ -4,7 +4,9 @@ title: "How to Automatically Build a Private To-Do List From Your Work Chats in 
 description: "Turn captured work-chat commitments into a private list, check their source, and add or dismiss items in Off Grid AI on Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-build-a-private-to-do-list-from-your-work-chats-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:33:45.313Z"
+article_topic: "Privacy & control"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771112
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-build-a-private-to-do-list-from-your-work-chats-in-off-grid-ai-on-mac-in-2026-178m"

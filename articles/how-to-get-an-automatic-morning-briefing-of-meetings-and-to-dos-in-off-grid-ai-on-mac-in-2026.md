@@ -4,7 +4,9 @@ title: "How to Get an Automatic Morning Briefing of Meetings and To-Dos in Off G
 description: "Prepare Day context and local notifications so your Mac can deliver a morning overview without a new prompt."
 date: "2026-09-29"
 permalink: /articles/how-to-get-an-automatic-morning-briefing-of-meetings-and-to-dos-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T12:01:44.705Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771260
 devto_url: "https://dev.to/alichherawalla/how-to-get-an-automatic-morning-briefing-of-meetings-and-to-dos-in-off-grid-ai-on-mac-in-2026-375o"

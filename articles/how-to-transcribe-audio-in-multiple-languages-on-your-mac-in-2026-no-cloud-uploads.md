@@ -4,7 +4,9 @@ title: "How to Transcribe Audio in Multiple Languages on Your Mac in 2026 (No Cl
 description: "Turn speech into editable text on your Mac. Select a local multilingual model, set the spoken language, and transcribe without uploading audio."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-audio-in-multiple-languages-on-your-mac-in-2026-no-cloud-uploads/
-article_category: "Desktop"
+published_at: "2026-09-29T07:15:28.045Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769299
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-audio-in-multiple-languages-on-your-mac-no-cloud-uploads-2p8j"

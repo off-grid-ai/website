@@ -4,7 +4,9 @@ title: "Connector Support in Off Grid AI Desktop: Private, Approval-Gated Integr
 description: "Connect Notion, Linear, Jira, and any MCP tool locally. The on-device model reasons over the data; every action goes through an approval queue."
 date: "2026-06-25"
 permalink: /articles/connector-support-in-off-grid-ai-desktop-private-approval-gated-integrations/
-article_category: "Desktop"
+published_at: "2026-06-25T05:18:53.090Z"
+article_topic: "Privacy & control"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984673
 devto_url: "https://dev.to/alichherawalla/connector-support-in-off-grid-ai-desktop-private-approval-gated-integrations-433c"

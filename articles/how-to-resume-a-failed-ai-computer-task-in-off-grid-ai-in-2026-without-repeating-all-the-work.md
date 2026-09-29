@@ -4,7 +4,9 @@ title: "How to Resume a Failed AI Computer Task in Off Grid AI in 2026 Without R
 description: "Resume a failed computer or browser task from its saved context and check completed work."
 date: "2026-09-29"
 permalink: /articles/how-to-resume-a-failed-ai-computer-task-in-off-grid-ai-in-2026-without-repeating-all-the-work/
-article_category: "Desktop"
+published_at: "2026-09-29T10:19:58.611Z"
+article_topic: "Work & organization"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770565
 devto_url: "https://dev.to/alichherawalla/how-to-resume-a-failed-ai-computer-task-in-off-grid-ai-in-2026-without-repeating-all-the-work-ffp"

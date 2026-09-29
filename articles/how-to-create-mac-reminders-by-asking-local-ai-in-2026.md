@@ -4,7 +4,9 @@ title: "How to Create Mac Reminders by Asking Local AI in 2026"
 description: "Create a reminder in the Mac Reminders app by asking a local AI model."
 date: "2026-09-29"
 permalink: /articles/how-to-create-mac-reminders-by-asking-local-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:23:26.905Z"
+article_topic: "Getting started"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770591
 devto_url: "https://dev.to/alichherawalla/how-to-create-mac-reminders-by-asking-local-ai-in-2026-31dh"

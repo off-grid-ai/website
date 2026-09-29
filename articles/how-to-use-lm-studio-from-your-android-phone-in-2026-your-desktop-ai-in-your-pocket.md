@@ -4,7 +4,9 @@ title: "How to Use LM Studio From Your Android Phone in 2026 (Your Desktop AI in
 description: "LM Studio does not have a mobile app. If you want to use the models running on your desktop from your..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-lm-studio-from-your-android-phone-in-2026-your-desktop-ai-in-your-pocket/
-article_category: "Mobile"
+published_at: "2026-03-18T19:10:39.483Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 3368788
 devto_url: "https://dev.to/alichherawalla/how-to-use-lm-studio-from-your-android-phone-in-2026-your-desktop-ai-in-your-pocket-31gl"

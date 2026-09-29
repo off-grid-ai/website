@@ -4,7 +4,9 @@ title: "How to Copy Text on Android and Paste It on Your Mac in 2026 Without Int
 description: "Send selected Android text to your Mac over your local network, then paste it into an app. Set up clipboard sync and use the supported Android handoff."
 date: "2026-09-29"
 permalink: /articles/how-to-copy-text-on-android-and-paste-it-on-your-mac-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:31:44.708Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769763
 devto_url: "https://dev.to/alichherawalla/how-to-copy-text-on-android-and-paste-it-on-your-mac-in-2026-without-internet-31j0"

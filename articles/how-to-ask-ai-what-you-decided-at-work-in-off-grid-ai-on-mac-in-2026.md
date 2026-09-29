@@ -4,7 +4,9 @@ title: "How to Ask AI What You Decided at Work in Off Grid AI on Mac in 2026"
 description: "Ask questions about captured work on your Mac, recover a past decision, and check the answer against saved sources with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-ai-what-you-decided-at-work-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T12:03:38.975Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771271
 devto_url: "https://dev.to/alichherawalla/how-to-ask-ai-what-you-decided-at-work-in-off-grid-ai-on-mac-in-2026-4kho"

@@ -4,7 +4,9 @@ title: "How to Compare Alternative AI Answers in Off Grid AI on Your Computer in
 description: "Keep more than one answer to the same prompt and choose the version that fits your task."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-alternative-ai-answers-in-off-grid-ai-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:46:24.618Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771171
 devto_url: "https://dev.to/alichherawalla/how-to-compare-alternative-ai-answers-in-off-grid-ai-on-your-computer-in-2026-lf6"

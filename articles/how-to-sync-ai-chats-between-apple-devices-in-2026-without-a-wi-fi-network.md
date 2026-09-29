@@ -4,7 +4,9 @@ title: "How to Sync AI Chats Between Apple Devices in 2026 Without a Wi-Fi Netwo
 description: "Continue an AI conversation between nearby Apple devices using the local proximity connection after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-sync-ai-chats-between-apple-devices-in-2026-without-a-wi-fi-network/
-article_category: "Workflows"
+published_at: "2026-09-29T08:37:56.881Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769815
 devto_url: "https://dev.to/alichherawalla/how-to-sync-ai-chats-between-apple-devices-in-2026-without-a-wi-fi-network-4e37"

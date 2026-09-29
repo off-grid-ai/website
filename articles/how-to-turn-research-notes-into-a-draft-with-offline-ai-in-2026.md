@@ -4,7 +4,9 @@ title: "How to Turn Research Notes Into a Draft With Offline AI in 2026"
 description: "Use local AI to organize checked research notes into a first draft while keeping claims tied to sources."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-research-notes-into-a-draft-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:02:57.269Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769969
 devto_url: "https://dev.to/alichherawalla/how-to-turn-research-notes-into-a-draft-with-offline-ai-in-2026-3cd5"

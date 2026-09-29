@@ -4,7 +4,9 @@ title: "How to Turn Internal Documents Into a Public-Facing Draft With Local AI 
 description: "Create a public-facing draft from approved internal documents with local AI, while keeping confidential details and unsupported claims out of the copy."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-internal-documents-into-a-public-facing-draft-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:05:41.651Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771987
 devto_url: "https://dev.to/alichherawalla/how-to-turn-internal-documents-into-a-public-facing-draft-with-local-ai-in-2026-3ged"

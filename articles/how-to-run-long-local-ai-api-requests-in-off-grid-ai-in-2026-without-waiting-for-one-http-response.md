@@ -4,7 +4,9 @@ title: "How to Run Long Local AI API Requests in Off Grid AI in 2026 Without Wai
 description: "Submit a local API request, keep its request ID, and poll for completion without holding the original connection open."
 date: "2026-09-29"
 permalink: /articles/how-to-run-long-local-ai-api-requests-in-off-grid-ai-in-2026-without-waiting-for-one-http-response/
-article_category: "Workflows"
+published_at: "2026-09-29T12:04:26.072Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771279
 devto_url: "https://dev.to/alichherawalla/how-to-run-long-local-ai-api-requests-in-off-grid-ai-in-2026-without-waiting-for-one-http-response-34f7"

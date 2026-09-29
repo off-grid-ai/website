@@ -4,7 +4,9 @@ title: "How to Prepare for a Client Follow-Up Using Past Meeting Notes on Your M
 description: "Prepare a client follow-up from saved meeting notes on your Mac. Recover commitments, open questions and source-backed context before drafting your message."
 date: "2026-09-29"
 permalink: /articles/how-to-prepare-for-a-client-follow-up-using-past-meeting-notes-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:44:32.196Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770288
 devto_url: "https://dev.to/alichherawalla/how-to-prepare-for-a-client-follow-up-using-past-meeting-notes-on-your-mac-in-2026-hnp"

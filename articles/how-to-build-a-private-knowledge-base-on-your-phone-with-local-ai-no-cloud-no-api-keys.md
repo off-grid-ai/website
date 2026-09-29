@@ -4,7 +4,9 @@ title: "How to Build a Private Knowledge Base on Your Phone With Local AI (No Cl
 description: "Most RAG setups require a cloud database, an embedding API, and a hosted LLM. You upload your..."
 date: "2026-03-18"
 permalink: /articles/how-to-build-a-private-knowledge-base-on-your-phone-with-local-ai-no-cloud-no-api-keys/
-article_category: "Mobile"
+published_at: "2026-03-18T19:11:21.385Z"
+article_topic: "Privacy & control"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3368792
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-private-knowledge-base-on-your-phone-with-local-ai-no-cloud-no-api-keys-5d2c"

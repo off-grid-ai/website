@@ -4,7 +4,9 @@ title: "How to Practise Speaking Another Language With Offline AI in 2026"
 description: "Practise short spoken conversations on your phone with local speech recognition, a chat model, and optional offline spoken replies."
 date: "2026-09-29"
 permalink: /articles/how-to-practise-speaking-another-language-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:15:22.751Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769694
 devto_url: "https://dev.to/alichherawalla/how-to-practise-speaking-another-language-with-offline-ai-in-2026-1005"

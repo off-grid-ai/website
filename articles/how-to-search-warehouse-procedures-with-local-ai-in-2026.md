@@ -4,7 +4,9 @@ title: "How to Search Warehouse Procedures With Local AI in 2026"
 description: "Search approved warehouse procedures with local AI, keeping site, version, role, and source instructions clear before acting."
 date: "2026-09-29"
 permalink: /articles/how-to-search-warehouse-procedures-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:38:59.570Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772194
 devto_url: "https://dev.to/alichherawalla/how-to-search-warehouse-procedures-with-local-ai-in-2026-3l4"

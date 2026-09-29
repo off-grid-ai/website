@@ -4,7 +4,9 @@ title: "How to Rehearse a Presentation With Local AI Speech on Your Computer in 
 description: "Hear your presentation draft through local text-to-speech, find awkward passages, and revise the script before practising it in your own voice."
 date: "2026-09-29"
 permalink: /articles/how-to-rehearse-a-presentation-with-local-ai-speech-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T15:06:06.485Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4772336
 devto_url: "https://dev.to/alichherawalla/how-to-rehearse-a-presentation-with-local-ai-speech-on-your-computer-in-2026-35en"

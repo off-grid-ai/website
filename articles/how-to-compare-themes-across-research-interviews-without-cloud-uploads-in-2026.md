@@ -4,7 +4,9 @@ title: "How to Compare Themes Across Research Interviews Without Cloud Uploads i
 description: "Use local AI to compare checked interview excerpts, preserve participant differences, and build a theme table you can trace back to the source."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-themes-across-research-interviews-without-cloud-uploads-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:00:54.597Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772312
 devto_url: "https://dev.to/alichherawalla/how-to-compare-themes-across-research-interviews-without-cloud-uploads-in-2026-5agd"

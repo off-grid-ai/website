@@ -4,7 +4,9 @@ title: "How to Find a Document You Worked On Earlier on Your Mac in 2026"
 description: "Use saved Mac activity to recover the context of a document you worked on. Search a remembered phrase and inspect the captured screen before reopening the file."
 date: "2026-09-29"
 permalink: /articles/how-to-find-a-document-you-worked-on-earlier-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:50:36.928Z"
+article_topic: "Documents & research"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770335
 devto_url: "https://dev.to/alichherawalla/how-to-find-a-document-you-worked-on-earlier-on-your-mac-in-2026-oag"

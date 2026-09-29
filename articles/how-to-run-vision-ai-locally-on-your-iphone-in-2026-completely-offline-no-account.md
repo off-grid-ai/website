@@ -4,7 +4,9 @@ title: "How to Run Vision AI Locally on Your iPhone in 2026 (Completely Offline,
 description: "The Neural Engine in your iPhone runs 35 trillion operations per second. Apple uses it for photo..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-vision-ai-locally-on-your-iphone-in-2026-completely-offline-no-account/
-article_category: "Mobile"
+published_at: "2026-04-14T04:20:14.400Z"
+article_topic: "Images & vision"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3497445
 devto_url: "https://dev.to/alichherawalla/how-to-run-vision-ai-locally-on-your-iphone-in-2026-completely-offline-no-account-2c3f"

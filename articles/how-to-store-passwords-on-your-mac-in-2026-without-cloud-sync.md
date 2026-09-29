@@ -4,7 +4,9 @@ title: "How to Store Passwords on Your Mac in 2026 Without Cloud Sync"
 description: "Keep logins and app credentials in OGAD's encrypted local Vault. Save, find, reveal, and copy an entry without a required cloud password service."
 date: "2026-09-29"
 permalink: /articles/how-to-store-passwords-on-your-mac-in-2026-without-cloud-sync/
-article_category: "Desktop"
+published_at: "2026-09-29T09:59:35.069Z"
+article_topic: "Sync & sharing"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770402
 devto_url: "https://dev.to/alichherawalla/how-to-store-passwords-on-your-mac-in-2026-without-cloud-sync-5bij"

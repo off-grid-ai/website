@@ -4,7 +4,9 @@ title: "How to Practise Interview Answers With Offline AI in 2026"
 description: "Practise interview answers with a local AI model, use examples from your own experience, and review feedback without uploading your notes."
 date: "2026-09-29"
 permalink: /articles/how-to-practise-interview-answers-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:16:34.035Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772050
 devto_url: "https://dev.to/alichherawalla/how-to-practise-interview-answers-with-offline-ai-in-2026-53ej"

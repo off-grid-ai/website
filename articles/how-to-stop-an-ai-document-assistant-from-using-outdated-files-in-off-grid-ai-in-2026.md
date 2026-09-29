@@ -4,7 +4,9 @@ title: "How to Stop an AI Document Assistant From Using Outdated Files in Off Gr
 description: "Keep old drafts out of new document answers without deleting them. Choose which project files OGAD retrieves and check the sources behind the result."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-an-ai-document-assistant-from-using-outdated-files-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:31:15.385Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771101
 devto_url: "https://dev.to/alichherawalla/how-to-stop-an-ai-document-assistant-from-using-outdated-files-in-off-grid-ai-in-2026-1kfo"

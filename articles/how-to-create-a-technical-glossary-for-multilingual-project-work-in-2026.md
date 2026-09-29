@@ -4,7 +4,9 @@ title: "How to Create a Technical Glossary for Multilingual Project Work in 2026
 description: "Build a reviewed technical glossary for multilingual projects with local AI, source context, approved terms, and clear rules for names and codes."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-technical-glossary-for-multilingual-project-work-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:25:07.428Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772109
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-technical-glossary-for-multilingual-project-work-in-2026-2n7o"

@@ -4,7 +4,9 @@ title: "How to Speed Up Local AI With Your Android Phone’s GPU in 2026"
 description: "Try supported OpenCL GPU acceleration for local GGUF chat on Android. Compare a real prompt and keep a CPU fallback."
 date: "2026-09-29"
 permalink: /articles/how-to-speed-up-local-ai-with-your-android-phones-gpu-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:36:08.677Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 4770699
 devto_url: "https://dev.to/alichherawalla/how-to-speed-up-local-ai-with-your-android-phones-gpu-in-2026-8gb"

@@ -4,7 +4,9 @@ title: "How to Build a Performance Review From Your Work History in 2026"
 description: "Use saved work context to recover contributions, verify outcomes, and prepare a balanced performance-review draft with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-performance-review-from-your-work-history-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:17:20.002Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772394
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-performance-review-from-your-work-history-in-2026-1387"

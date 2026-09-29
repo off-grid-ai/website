@@ -4,7 +4,9 @@ title: "How to Check What Makes a Local AI Reply Slow in Off Grid AI on Your Com
 description: "Read time to first token, generation speed, and context use to make a useful next check when AI feels slow."
 date: "2026-09-29"
 permalink: /articles/how-to-check-what-makes-a-local-ai-reply-slow-in-off-grid-ai-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:49:20.141Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771181
 devto_url: "https://dev.to/alichherawalla/how-to-check-what-makes-a-local-ai-reply-slow-in-off-grid-ai-on-your-computer-in-2026-5eo6"

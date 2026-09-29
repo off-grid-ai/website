@@ -4,7 +4,9 @@ title: "How to Listen to AI Chat Replies in 2026 Without Internet"
 description: "Read an AI reply, then listen to it with a local voice. Set up offline playback on your phone or computer with Off Grid AI."
 date: "2026-09-29"
 permalink: /articles/how-to-listen-to-ai-chat-replies-in-2026-without-internet/
-article_category: "Workflows"
+published_at: "2026-09-29T08:07:25.112Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769652
 devto_url: "https://dev.to/alichherawalla/how-to-listen-to-ai-chat-replies-in-2026-without-internet-417a"

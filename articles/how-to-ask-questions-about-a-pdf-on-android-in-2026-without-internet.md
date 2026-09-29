@@ -4,7 +4,9 @@ title: "How to Ask Questions About a PDF on Android in 2026 Without Internet"
 description: "Ask questions about a readable PDF on Android using local project search and an on-device AI model."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-questions-about-a-pdf-on-android-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:52:27.583Z"
+article_topic: "Documents & research"
+article_platform: "Android"
 devto_article: true
 devto_id: 4769903
 devto_url: "https://dev.to/alichherawalla/how-to-ask-questions-about-a-pdf-on-android-in-2026-without-internet-n40"

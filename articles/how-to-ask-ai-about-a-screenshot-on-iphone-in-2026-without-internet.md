@@ -4,7 +4,9 @@ title: "How to Ask AI About a Screenshot on iPhone in 2026 Without Internet"
 description: "Ask a local vision model about a screenshot on iPhone. Read visible text, explain errors and make checklists without a cloud AI upload."
 date: "2026-09-29"
 permalink: /articles/how-to-ask-ai-about-a-screenshot-on-iphone-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T09:04:35.711Z"
+article_topic: "Images & vision"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4769977
 devto_url: "https://dev.to/alichherawalla/how-to-ask-ai-about-a-screenshot-on-iphone-in-2026-without-internet-1fd8"

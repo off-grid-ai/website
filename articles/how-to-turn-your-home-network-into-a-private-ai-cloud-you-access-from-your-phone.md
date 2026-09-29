@@ -4,7 +4,9 @@ title: "How to Turn Your Home Network Into a Private AI Cloud You Access From Yo
 description: "Your home network probably has more AI compute sitting idle than you think.  If you have a desktop or..."
 date: "2026-03-18"
 permalink: /articles/how-to-turn-your-home-network-into-a-private-ai-cloud-you-access-from-your-phone/
-article_category: "Mobile"
+published_at: "2026-03-18T16:01:10.366Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3368344
 devto_url: "https://dev.to/alichherawalla/how-to-turn-your-home-network-into-a-private-ai-cloud-you-access-from-your-phone-4a2l"

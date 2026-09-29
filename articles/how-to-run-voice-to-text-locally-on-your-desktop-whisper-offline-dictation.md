@@ -4,7 +4,9 @@ title: "How to Run Voice-to-Text Locally on Your Desktop (Whisper, Offline Dicta
 description: "Run private speech-to-text on your own Mac or PC with bundled whisper.cpp. Mic to text in the composer, on-device, no cloud transcription."
 date: "2026-06-25"
 permalink: /articles/how-to-run-voice-to-text-locally-on-your-desktop-whisper-offline-dictation/
-article_category: "Desktop"
+published_at: "2026-06-25T05:22:23.839Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984717
 devto_url: "https://dev.to/alichherawalla/how-to-run-voice-to-text-locally-on-your-desktop-whisper-offline-dictation-349p"

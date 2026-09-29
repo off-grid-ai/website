@@ -4,7 +4,9 @@ title: "Which Off Grid AI Features Work on Each Device in 2026?"
 description: "Choose a device for local chat, images, speech or private work history. A practical view of Off Grid AI platforms, Pro features and beta limits."
 date: "2026-09-29"
 permalink: /articles/which-off-grid-ai-features-work-on-each-device-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:10:41.291Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772357
 devto_url: "https://dev.to/alichherawalla/which-off-grid-ai-features-work-on-each-device-in-2026-4fjp"

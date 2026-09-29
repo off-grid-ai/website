@@ -4,7 +4,9 @@ title: "How to Turn a Sketch Into an AI Image on Your Computer in 2026"
 description: "Turn a rough sketch into a visual concept with a local image model. Use your own drawing as the starting image and refine one change at a time."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-sketch-into-an-ai-image-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:17:10.691Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770079
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-sketch-into-an-ai-image-on-your-computer-in-2026-210e"

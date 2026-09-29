@@ -4,7 +4,9 @@ title: "How to Keep Track of Client Feedback Across Creative Projects in 2026"
 description: "Organise creative feedback by project and version, find the source of a revision request, and keep approved decisions distinct from suggestions with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-track-of-client-feedback-across-creative-projects-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:31:03.993Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772139
 devto_url: "https://dev.to/alichherawalla/how-to-keep-track-of-client-feedback-across-creative-projects-in-2026-25ob"

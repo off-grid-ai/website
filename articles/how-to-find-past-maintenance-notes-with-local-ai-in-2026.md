@@ -4,7 +4,9 @@ title: "How to Find Past Maintenance Notes With Local AI in 2026"
 description: "Find earlier maintenance observations and follow-up notes with local AI, while checking asset identity, dates, and whether an action was completed."
 date: "2026-09-29"
 permalink: /articles/how-to-find-past-maintenance-notes-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:35:20.594Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772171
 devto_url: "https://dev.to/alichherawalla/how-to-find-past-maintenance-notes-with-local-ai-in-2026-154n"

@@ -4,7 +4,9 @@ title: "How to Run Local AI on Your Android Phone’s NPU in 2026 (Supported Dev
 description: "Try OGAM’s experimental NPU backend on a supported Android phone. Check compatibility, reload the model, and keep a working fallback. "
 date: "2026-09-29"
 permalink: /articles/how-to-run-local-ai-on-your-android-phones-npu-in-2026-supported-devices/
-article_category: "Mobile"
+published_at: "2026-09-29T10:48:06.474Z"
+article_topic: "Getting started"
+article_platform: "Android"
 devto_article: true
 devto_id: 4770778
 devto_url: "https://dev.to/alichherawalla/how-to-run-local-ai-on-your-android-phones-npu-in-2026-supported-devices-905"

@@ -4,7 +4,9 @@ title: "Can You Run Useful AI on a Computer Without an NVIDIA GPU in 2026?"
 description: "Try local AI through CPU, Apple Metal, or other supported backends, and verify a useful task before assuming you need an NVIDIA GPU."
 date: "2026-09-29"
 permalink: /articles/can-you-run-useful-ai-on-a-computer-without-an-nvidia-gpu-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T14:59:11.755Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4772288
 devto_url: "https://dev.to/alichherawalla/can-you-run-useful-ai-on-a-computer-without-an-nvidia-gpu-in-2026-419l"

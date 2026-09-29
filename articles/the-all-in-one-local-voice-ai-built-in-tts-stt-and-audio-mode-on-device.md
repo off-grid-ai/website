@@ -4,7 +4,9 @@ title: "The All-in-One Local Voice AI: Built-in TTS, STT, and Audio Mode (On-Dev
 description: "Talk to your AI and have it talk back, fully on-device. Built-in whisper.cpp for speech-to-text and Kokoro for text-to-speech. No cloud."
 date: "2026-06-25"
 permalink: /articles/the-all-in-one-local-voice-ai-built-in-tts-stt-and-audio-mode-on-device/
-article_category: "Workflows"
+published_at: "2026-06-25T05:14:13.772Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984623
 devto_url: "https://dev.to/alichherawalla/the-all-in-one-local-voice-ai-built-in-tts-stt-and-audio-mode-on-device-2g4c"

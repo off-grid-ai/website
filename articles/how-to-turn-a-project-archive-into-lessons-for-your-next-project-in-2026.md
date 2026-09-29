@@ -4,7 +4,9 @@ title: "How to Turn a Project Archive Into Lessons for Your Next Project in 2026
 description: "Use local AI to find decisions and recurring problems in an old project archive, then turn checked evidence into practical lessons."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-project-archive-into-lessons-for-your-next-project-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:11:28.433Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772021
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-project-archive-into-lessons-for-your-next-project-in-2026-24og"

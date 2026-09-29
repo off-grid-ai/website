@@ -4,7 +4,9 @@ title: "How to Build a Local AI Second Brain on Your Desktop in 2026 (100% Offli
 description: "Build a private second brain that builds itself. Opt-in screen capture to OCR to local LLM distills memory, on-device, no cloud and no account."
 date: "2026-06-25"
 permalink: /articles/how-to-build-a-local-ai-second-brain-on-your-desktop-in-2026-100-offline/
-article_category: "Desktop"
+published_at: "2026-06-25T05:19:39.246Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984681
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-local-ai-second-brain-on-your-desktop-in-2026-100-offline-1mhc"

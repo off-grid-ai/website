@@ -4,7 +4,9 @@ title: "How to Stop Local AI Replies From Becoming Too Long in 2026"
 description: "Get shorter local AI answers with a clear prompt, a response limit, and a stop control that keeps text already produced. Use OGAD on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-local-ai-replies-from-becoming-too-long-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:51:21.659Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770795
 devto_url: "https://dev.to/alichherawalla/how-to-stop-local-ai-replies-from-becoming-too-long-in-2026-44bb"

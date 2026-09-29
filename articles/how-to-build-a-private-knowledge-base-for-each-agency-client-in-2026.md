@@ -4,7 +4,9 @@ title: "How to Build a Private Knowledge Base for Each Agency Client in 2026"
 description: "Build a local source collection for each agency client, organise approved material, and ask questions with evidence before drafting client work."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-private-knowledge-base-for-each-agency-client-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:32:41.814Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772159
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-private-knowledge-base-for-each-agency-client-in-2026-3k1b"

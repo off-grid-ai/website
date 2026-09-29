@@ -4,7 +4,9 @@ title: "Your AI conversations shouldn't live on someone else's server. Here's ho
 description: "Every time you ask an AI chatbot a question, your words leave your phone, travel to a server you've..."
 date: "2026-03-01"
 permalink: /articles/your-ai-conversations-shouldn-t-live-on-someone-else-s-server-here-s-how-to-run-ai-locally-on-androi/
-article_category: "Mobile"
+published_at: "2026-03-01T05:34:04.056Z"
+article_topic: "Getting started"
+article_platform: "Android"
 devto_article: true
 devto_id: 3297615
 devto_url: "https://dev.to/alichherawalla/your-ai-conversations-shouldnt-live-on-someone-elses-server-heres-how-to-run-ai-locally-on-5834"

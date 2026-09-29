@@ -4,7 +4,9 @@ title: "How to Delete AI Chats and Images From Your Computer in Off Grid AI in 2
 description: "Clear selected OGAD data categories on your computer while keeping installed model files."
 date: "2026-09-29"
 permalink: /articles/how-to-delete-ai-chats-and-images-from-your-computer-in-off-grid-ai-in-2026-without-deleting-models/
-article_category: "Desktop"
+published_at: "2026-09-29T11:53:37.832Z"
+article_topic: "Sync & sharing"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771201
 devto_url: "https://dev.to/alichherawalla/how-to-delete-ai-chats-and-images-from-your-computer-in-off-grid-ai-in-2026-without-deleting-models-4cj2"

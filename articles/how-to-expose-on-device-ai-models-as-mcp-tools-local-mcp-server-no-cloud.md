@@ -4,7 +4,9 @@ title: "How to Expose On-Device AI Models as MCP Tools (Local MCP Server, No Clo
 description: "Turn your local chat, vision, image, speech, and embedding models into MCP tools any client can call, fully offline and on-device."
 date: "2026-06-25"
 permalink: /articles/how-to-expose-on-device-ai-models-as-mcp-tools-local-mcp-server-no-cloud/
-article_category: "Workflows"
+published_at: "2026-06-25T05:19:33.736Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984679
 devto_url: "https://dev.to/alichherawalla/how-to-expose-on-device-ai-models-as-mcp-tools-local-mcp-server-no-cloud-2f3"

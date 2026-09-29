@@ -4,7 +4,9 @@ title: "How to Chat With Your Documents Locally (Offline RAG, No Cloud)"
 description: "Upload PDFs, notes, and audio, then chat with cited sources entirely on-device. No cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-chat-with-your-documents-locally-offline-rag-no-cloud/
-article_category: "Workflows"
+published_at: "2026-06-25T05:14:54.215Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984628
 devto_url: "https://dev.to/alichherawalla/how-to-chat-with-your-documents-locally-offline-rag-no-cloud-4bjd"

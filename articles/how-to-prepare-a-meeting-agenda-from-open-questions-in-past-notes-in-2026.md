@@ -4,7 +4,9 @@ title: "How to Prepare a Meeting Agenda From Open Questions in Past Notes in 202
 description: "Use local AI to find open questions in past notes and build an agenda around decisions your next meeting needs to make."
 date: "2026-09-29"
 permalink: /articles/how-to-prepare-a-meeting-agenda-from-open-questions-in-past-notes-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:14:04.724Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772040
 devto_url: "https://dev.to/alichherawalla/how-to-prepare-a-meeting-agenda-from-open-questions-in-past-notes-in-2026-3nb9"

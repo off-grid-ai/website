@@ -4,7 +4,9 @@ title: "How to Prepare a Home Inventory From Photos and Notes With Local AI in 2
 description: "Use a local vision model to draft an inventory from room photos, then verify items and add details from your own records."
 date: "2026-09-29"
 permalink: /articles/how-to-prepare-a-home-inventory-from-photos-and-notes-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:50:58.588Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772247
 devto_url: "https://dev.to/alichherawalla/how-to-prepare-a-home-inventory-from-photos-and-notes-with-local-ai-in-2026-4ean"

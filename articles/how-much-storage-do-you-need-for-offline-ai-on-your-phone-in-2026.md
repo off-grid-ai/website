@@ -4,7 +4,9 @@ title: "How Much Storage Do You Need for Offline AI on Your Phone in 2026?"
 description: "Plan phone storage for offline AI models, voice files and generated images. Keep download size separate from memory and start with one useful model."
 date: "2026-09-29"
 permalink: /articles/how-much-storage-do-you-need-for-offline-ai-on-your-phone-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T15:08:02.683Z"
+article_topic: "Getting started"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4772344
 devto_url: "https://dev.to/alichherawalla/how-much-storage-do-you-need-for-offline-ai-on-your-phone-in-2026-2bld"

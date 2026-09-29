@@ -4,7 +4,9 @@ title: "How to Automatically Organize People and Projects From Your Mac Workday 
 description: "Build a private record of people and projects from activity you choose to capture. Review its sources and correct names without maintaining every entry by hand."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-organize-people-and-projects-from-your-mac-workday-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:55:13.288Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770361
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-organize-people-and-projects-from-your-mac-workday-in-2026-3bag"

@@ -4,7 +4,9 @@ title: "How to Turn Client Discovery Calls Into Searchable Project Notes in 2026
 description: "Turn saved client discovery calls into checked requirements and searchable project notes with local AI on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-client-discovery-calls-into-searchable-project-notes-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:00:04.632Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771944
 devto_url: "https://dev.to/alichherawalla/how-to-turn-client-discovery-calls-into-searchable-project-notes-in-2026-4805"

@@ -4,7 +4,9 @@ title: "How to Compare Online Product Prices With Local AI on Your Computer in 2
 description: "Compare the same product across stores with local AI and check the delivered total."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-online-product-prices-with-local-ai-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:25:47.334Z"
+article_topic: "Everyday tasks"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770614
 devto_url: "https://dev.to/alichherawalla/how-to-compare-online-product-prices-with-local-ai-on-your-computer-in-2026-4np"

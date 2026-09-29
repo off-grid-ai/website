@@ -4,7 +4,9 @@ title: "How to Document a Work Process From Notes, Screenshots and Recordings in
 description: "Combine checked notes, screenshot observations, and audio transcripts into a practical process draft with local AI, then verify the steps before sharing."
 date: "2026-09-29"
 permalink: /articles/how-to-document-a-work-process-from-notes-screenshots-and-recordings-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:20:27.234Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772413
 devto_url: "https://dev.to/alichherawalla/how-to-document-a-work-process-from-notes-screenshots-and-recordings-in-2026-48fl"

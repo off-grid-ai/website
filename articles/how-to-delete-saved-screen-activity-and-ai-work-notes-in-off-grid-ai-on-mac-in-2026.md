@@ -4,7 +4,9 @@ title: "How to Delete Saved Screen Activity and AI Work Notes in Off Grid AI on 
 description: "Use OGAD's Data & privacy controls to remove screen captures and memory records from your Mac. Choose a category or date cutoff and check what remains."
 date: "2026-09-29"
 permalink: /articles/how-to-delete-saved-screen-activity-and-ai-work-notes-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:58:43.651Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770387
 devto_url: "https://dev.to/alichherawalla/how-to-delete-saved-screen-activity-and-ai-work-notes-from-your-mac-in-2026-186g"

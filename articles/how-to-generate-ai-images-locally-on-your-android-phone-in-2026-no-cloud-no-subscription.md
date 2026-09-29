@@ -4,7 +4,9 @@ title: "How to Generate AI Images Locally on Your Android Phone in 2026 (No Clou
 description: "You don't need Midjourney. You don't need a $20/month subscription. You don't need to upload your..."
 date: "2026-03-04"
 permalink: /articles/how-to-generate-ai-images-locally-on-your-android-phone-in-2026-no-cloud-no-subscription/
-article_category: "Mobile"
+published_at: "2026-03-04T13:03:00.396Z"
+article_topic: "Images & vision"
+article_platform: "Android"
 devto_article: true
 devto_id: 3308773
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-locally-on-your-android-phone-in-2026-no-cloud-no-subscription-2g4j"

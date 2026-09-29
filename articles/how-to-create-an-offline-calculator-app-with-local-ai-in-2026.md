@@ -4,7 +4,9 @@ title: "How to Create an Offline Calculator App With Local AI in 2026"
 description: "Create a small local calculator, check it with known answers, and keep it as an offline HTML file."
 date: "2026-09-29"
 permalink: /articles/how-to-create-an-offline-calculator-app-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:30:16.616Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770176
 devto_url: "https://dev.to/alichherawalla/how-to-create-an-offline-calculator-app-with-local-ai-in-2026-5748"

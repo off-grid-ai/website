@@ -4,7 +4,9 @@ title: "How to Check Your Computer’s AI Task From Your Phone in Off Grid AI in
 description: "Use the task card in a synced phone chat to inspect desktop AI activity and saved steps."
 date: "2026-09-29"
 permalink: /articles/how-to-check-your-computers-ai-task-from-your-phone-in-off-grid-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:20:52.519Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770569
 devto_url: "https://dev.to/alichherawalla/how-to-check-your-computers-ai-task-from-your-phone-in-off-grid-ai-in-2026-59n2"

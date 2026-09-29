@@ -4,7 +4,9 @@ title: "How to Recover Something You Copied Earlier on Windows in 2026 (Automati
 description: "Find and reuse earlier copied text with OGAD's local clipboard history on Windows. Search saved clips and paste a previous item without returning to its source."
 date: "2026-09-29"
 permalink: /articles/how-to-recover-something-you-copied-earlier-on-windows-in-2026-automatic-clipboard-history/
-article_category: "Desktop"
+published_at: "2026-09-29T10:15:02.509Z"
+article_topic: "Sync & sharing"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4770519
 devto_url: "https://dev.to/alichherawalla/how-to-recover-something-you-copied-earlier-on-windows-in-2026-automatic-clipboard-history-1d5i"

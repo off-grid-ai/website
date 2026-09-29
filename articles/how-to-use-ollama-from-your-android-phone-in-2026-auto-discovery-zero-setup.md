@@ -4,7 +4,9 @@ title: "How to Use Ollama From Your Android Phone in 2026 (Auto-Discovery, Zero 
 description: "Every other guide for accessing Ollama from your phone starts the same way: open a terminal, set..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-ollama-from-your-android-phone-in-2026-auto-discovery-zero-setup/
-article_category: "Mobile"
+published_at: "2026-03-18T19:05:48.021Z"
+article_topic: "Models & performance"
+article_platform: "Android"
 devto_article: true
 devto_id: 3368778
 devto_url: "https://dev.to/alichherawalla/how-to-use-ollama-from-your-android-phone-in-2026-auto-discovery-zero-setup-35li"

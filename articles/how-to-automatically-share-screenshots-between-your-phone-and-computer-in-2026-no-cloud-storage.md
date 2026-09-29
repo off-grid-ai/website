@@ -4,7 +4,9 @@ title: "How to Automatically Share Screenshots Between Your Phone and Computer i
 description: "Have new screenshots reach your paired phone or computer automatically over your own network. Set a destination once, then test the first local transfer."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-share-screenshots-between-your-phone-and-computer-in-2026-no-cloud-storage/
-article_category: "Mobile"
+published_at: "2026-09-29T08:33:58.070Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769779
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-share-screenshots-between-your-phone-and-computer-in-2026-no-cloud-storage-15bc"

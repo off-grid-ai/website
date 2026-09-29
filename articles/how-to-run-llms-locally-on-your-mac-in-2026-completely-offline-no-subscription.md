@@ -4,7 +4,9 @@ title: "How to Run LLMs Locally on Your Mac in 2026 (Completely Offline, No Subs
 description: "Run real language models on Apple Silicon, fully on-device. No cloud, no account, no monthly bill. Free and open source."
 date: "2026-06-25"
 permalink: /articles/how-to-run-llms-locally-on-your-mac-in-2026-completely-offline-no-subscription/
-article_category: "Desktop"
+published_at: "2026-06-25T05:09:23.852Z"
+article_topic: "Models & performance"
+article_platform: "Mac"
 devto_article: true
 devto_id: 3984581
 devto_url: "https://dev.to/alichherawalla/how-to-run-llms-locally-on-your-mac-in-2026-completely-offline-no-subscription-3g7f"

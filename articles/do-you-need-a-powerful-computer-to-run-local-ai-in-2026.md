@@ -4,7 +4,9 @@ title: "Do You Need a Powerful Computer to Run Local AI in 2026?"
 description: "Check whether your current computer can run local AI. Start with one useful task, choose a model that fits, and test before buying hardware."
 date: "2026-09-29"
 permalink: /articles/do-you-need-a-powerful-computer-to-run-local-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T15:07:00.416Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4772341
 devto_url: "https://dev.to/alichherawalla/do-you-need-a-powerful-computer-to-run-local-ai-in-2026-3li0"

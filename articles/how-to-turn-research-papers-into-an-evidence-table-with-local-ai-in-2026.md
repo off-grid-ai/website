@@ -4,7 +4,9 @@ title: "How to Turn Research Papers Into an Evidence Table With Local AI in 2026
 description: "Organise saved research papers into a source-linked evidence table with local AI, preserving methods, findings, and limits for your own review."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-research-papers-into-an-evidence-table-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:01:47.741Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772316
 devto_url: "https://dev.to/alichherawalla/how-to-turn-research-papers-into-an-evidence-table-with-local-ai-in-2026-2i2b"

@@ -4,7 +4,9 @@ title: "How to Understand a Work Email in Another Language Without Internet in 2
 description: "Read and check a saved work email in another language with local AI, while preserving names, dates, requests, and uncertainty."
 date: "2026-09-29"
 permalink: /articles/how-to-understand-a-work-email-in-another-language-without-internet-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:22:24.512Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772093
 devto_url: "https://dev.to/alichherawalla/how-to-understand-a-work-email-in-another-language-without-internet-in-2026-58nk"

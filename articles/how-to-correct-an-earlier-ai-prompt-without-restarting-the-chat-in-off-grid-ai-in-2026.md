@@ -4,7 +4,9 @@ title: "How to Correct an Earlier AI Prompt Without Restarting the Chat in Off G
 description: "Fix an earlier prompt in a local AI conversation. Edit the message, understand which later turns are replaced and generate a new answer from the correction."
 date: "2026-09-29"
 permalink: /articles/how-to-correct-an-earlier-ai-prompt-without-restarting-the-chat-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:31:23.579Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770658
 devto_url: "https://dev.to/alichherawalla/how-to-correct-an-earlier-ai-prompt-without-restarting-the-chat-in-off-grid-ai-in-2026-jh8"

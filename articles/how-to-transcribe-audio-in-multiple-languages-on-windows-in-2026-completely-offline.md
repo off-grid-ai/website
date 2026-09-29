@@ -4,7 +4,9 @@ title: "How to Transcribe Audio in Multiple Languages on Windows in 2026 (Comple
 description: "Turn speech into editable text on Windows with local AI. Choose a multilingual model, set the spoken language, and record without internet after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-audio-in-multiple-languages-on-windows-in-2026-completely-offline/
-article_category: "Desktop"
+published_at: "2026-09-29T07:16:35.363Z"
+article_topic: "Voice & audio"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4769311
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-audio-in-multiple-languages-on-your-windows-pc-completely-offline-aki"

@@ -4,7 +4,9 @@ title: "How to Generate Images on Your Computer From Your Phone in 2026 Without 
 description: "Write an image prompt on your Android phone or iPhone and let your own computer generate it. Use OGAM and OGAD over local Wi-Fi after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-generate-images-on-your-computer-from-your-phone-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:45:14.156Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769865
 devto_url: "https://dev.to/alichherawalla/how-to-generate-images-on-your-computer-from-your-phone-in-2026-without-internet-36gm"

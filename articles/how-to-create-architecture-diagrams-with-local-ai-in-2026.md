@@ -4,7 +4,9 @@ title: "How to Create Architecture Diagrams With Local AI in 2026"
 description: "Describe system components and connections, then build a local architecture diagram you can check and revise."
 date: "2026-09-29"
 permalink: /articles/how-to-create-architecture-diagrams-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:33:44.021Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770200
 devto_url: "https://dev.to/alichherawalla/how-to-create-architecture-diagrams-with-local-ai-in-2026-4i7l"

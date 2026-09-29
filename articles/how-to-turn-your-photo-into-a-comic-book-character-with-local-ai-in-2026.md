@@ -4,7 +4,9 @@ title: "How to Turn Your Photo Into a Comic Book Character With Local AI in 2026
 description: "Use a personal photo as a hero reference for a locally generated comic in OGAD. Choose a compatible image model, set the story style, and review the character across pages."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-your-photo-into-a-comic-book-character-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:25:06.570Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770137
 devto_url: "https://dev.to/alichherawalla/how-to-turn-your-photo-into-a-comic-book-character-with-local-ai-in-2026-530g"

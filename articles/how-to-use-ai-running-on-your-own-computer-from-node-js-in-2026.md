@@ -4,7 +4,9 @@ title: "How to Use AI Running on Your Own Computer From Node.js in 2026"
 description: "Use JavaScript fetch to call AI running on your computer. Build a small Node.js script with a local model and no cloud provider key."
 date: "2026-09-29"
 permalink: /articles/how-to-use-ai-running-on-your-own-computer-from-node-js-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:39:18.341Z"
+article_topic: "Automation & tools"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770720
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-running-on-your-own-computer-from-nodejs-in-2026-2pi2"

@@ -4,7 +4,9 @@ title: "How to Edit an Image With a Reference Photo Using Local AI in 2026"
 description: "Use a photo as the starting point for a local AI variation. Explore composition and mood without uploading the source to cloud AI."
 date: "2026-09-29"
 permalink: /articles/how-to-edit-an-image-with-a-reference-photo-using-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:16:17.765Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770072
 devto_url: "https://dev.to/alichherawalla/how-to-edit-an-image-with-a-reference-photo-using-local-ai-in-2026-1755"

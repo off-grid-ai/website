@@ -4,7 +4,9 @@ title: "How to Return to a Stable Release in Off Grid AI After Trying a Beta in 
 description: "Choose the stable update channel, protect your portable data, and check the installed version before resuming work."
 date: "2026-09-29"
 permalink: /articles/how-to-return-to-a-stable-release-in-off-grid-ai-after-trying-a-beta-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T11:56:54.978Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771219
 devto_url: "https://dev.to/alichherawalla/how-to-return-to-a-stable-release-in-off-grid-ai-after-trying-a-beta-in-2026-1pgf"

@@ -4,7 +4,9 @@ title: "Run LLMs, Stable Diffusion, Vision AI, Whisper, and Tool Calling on Your
 description: "The complete technical reference for on-device AI in React Native -- architecture,..."
 date: "2026-02-25"
 permalink: /articles/run-llms-stable-diffusion-vision-ai-whisper-and-tool-calling-on-your-phone-using-react-native/
-article_category: "Mobile"
+published_at: "2026-02-25T19:15:38.025Z"
+article_topic: "Images & vision"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3285579
 devto_url: "https://dev.to/alichherawalla/run-llms-stable-diffusion-vision-ai-whisper-and-tool-calling-on-your-phone-44dd"

@@ -4,7 +4,9 @@ title: "Can a Gaming PC Run Your Everyday AI Tasks Locally in 2026?"
 description: "Test everyday local AI on the gaming PC you already own. Check model fit, actual processing backend, and useful results before changing hardware."
 date: "2026-09-29"
 permalink: /articles/can-a-gaming-pc-run-your-everyday-ai-tasks-locally-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T14:57:21.999Z"
+article_topic: "Work & organization"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4772280
 devto_url: "https://dev.to/alichherawalla/can-a-gaming-pc-run-your-everyday-ai-tasks-locally-in-2026-1hi"

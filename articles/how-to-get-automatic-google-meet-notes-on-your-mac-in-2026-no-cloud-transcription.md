@@ -4,7 +4,9 @@ title: "How to Get Automatic Google Meet Notes on Your Mac in 2026 (No Cloud Tra
 description: "Create and review local transcripts and summaries from Google Meet meetings on your Mac with OGAD Pro."
 date: "2026-09-29"
 permalink: /articles/how-to-get-automatic-google-meet-notes-on-your-mac-in-2026-no-cloud-transcription/
-article_category: "Desktop"
+published_at: "2026-09-29T09:36:57.332Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770231
 devto_url: "https://dev.to/alichherawalla/how-to-get-automatic-google-meet-notes-on-your-mac-in-2026-no-cloud-transcription-173f"

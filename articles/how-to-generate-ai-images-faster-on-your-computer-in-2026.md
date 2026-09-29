@@ -4,7 +4,9 @@ title: "How to Generate AI Images Faster on Your Computer in 2026"
 description: "Spend less time waiting for local AI image drafts. Use OGAD's model, size, step, and prompt controls to find a useful balance on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-generate-ai-images-faster-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:22:45.904Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770121
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-faster-on-your-computer-in-2026-1ce4"

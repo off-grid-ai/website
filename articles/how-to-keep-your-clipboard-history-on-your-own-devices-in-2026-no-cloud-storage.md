@@ -4,7 +4,9 @@ title: "How to Keep Your Clipboard History on Your Own Devices in 2026 (No Cloud
 description: "Keep copied text in a local OGAD history, then choose whether to share new copies with your paired devices. Separate capture, retention, and device sharing."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-your-clipboard-history-on-your-own-devices-in-2026-no-cloud-storage/
-article_category: "Workflows"
+published_at: "2026-09-29T10:16:43.078Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770531
 devto_url: "https://dev.to/alichherawalla/how-to-keep-your-clipboard-history-on-your-own-devices-in-2026-no-cloud-storage-11af"

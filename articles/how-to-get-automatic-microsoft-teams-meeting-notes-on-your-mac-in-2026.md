@@ -4,7 +4,9 @@ title: "How to Get Automatic Microsoft Teams Meeting Notes on Your Mac in 2026"
 description: "Create and review local transcripts and summaries from Microsoft Teams meetings on your Mac with OGAD Pro."
 date: "2026-09-29"
 permalink: /articles/how-to-get-automatic-microsoft-teams-meeting-notes-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:37:42.746Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770238
 devto_url: "https://dev.to/alichherawalla/how-to-get-automatic-microsoft-teams-meeting-notes-on-your-mac-in-2026-62f"

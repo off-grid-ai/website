@@ -4,7 +4,9 @@ title: "How to Turn a Recorded Brainstorm Into a Shortlist of Ideas in 2026"
 description: "Use local AI to organise a recorded brainstorm, preserve different ideas, and build a shortlist against criteria your team chooses."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-recorded-brainstorm-into-a-shortlist-of-ideas-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:14:55.228Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772044
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-recorded-brainstorm-into-a-shortlist-of-ideas-in-2026-3bbl"

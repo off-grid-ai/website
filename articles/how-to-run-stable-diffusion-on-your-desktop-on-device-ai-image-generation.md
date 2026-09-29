@@ -4,7 +4,9 @@ title: "How to Run Stable Diffusion on Your Desktop (On-Device AI Image Generati
 description: "Generate images with Stable Diffusion on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no credits."
 date: "2026-06-25"
 permalink: /articles/how-to-run-stable-diffusion-on-your-desktop-on-device-ai-image-generation/
-article_category: "Desktop"
+published_at: "2026-06-25T05:12:11.711Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984601
 devto_url: "https://dev.to/alichherawalla/how-to-run-stable-diffusion-on-your-desktop-on-device-ai-image-generation-3a9a"

@@ -4,7 +4,9 @@ title: "How to Turn Recorded Workshops Into Searchable Reference Material in 202
 description: "Turn workshop audio into checked topic notes and a local knowledge base you can query when you need an explanation again."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-recorded-workshops-into-searchable-reference-material-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:29:18.101Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772135
 devto_url: "https://dev.to/alichherawalla/how-to-turn-recorded-workshops-into-searchable-reference-material-in-2026-3jgc"

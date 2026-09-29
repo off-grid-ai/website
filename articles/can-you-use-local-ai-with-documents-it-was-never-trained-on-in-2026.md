@@ -4,7 +4,9 @@ title: "Can You Use Local AI With Documents It Was Never Trained On in 2026?"
 description: "Ask local AI about new documents through project retrieval, without retraining the model or assuming it knows the files beforehand."
 date: "2026-09-29"
 permalink: /articles/can-you-use-local-ai-with-documents-it-was-never-trained-on-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:00:04.535Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772297
 devto_url: "https://dev.to/alichherawalla/can-you-use-local-ai-with-documents-it-was-never-trained-on-in-2026-3epm"

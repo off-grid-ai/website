@@ -4,7 +4,9 @@ title: "How to Find a Web Page You Read on Your Mac in 2026 Without Remembering 
 description: "Find a page from a phrase or topic you remember. Search retained Mac screen activity, inspect the context and use it to return to the original page."
 date: "2026-09-29"
 permalink: /articles/how-to-find-a-web-page-you-read-on-your-mac-in-2026-without-remembering-its-title/
-article_category: "Desktop"
+published_at: "2026-09-29T09:49:21.819Z"
+article_topic: "Getting started"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770323
 devto_url: "https://dev.to/alichherawalla/how-to-find-a-web-page-you-read-on-your-mac-in-2026-without-remembering-its-title-5h10"

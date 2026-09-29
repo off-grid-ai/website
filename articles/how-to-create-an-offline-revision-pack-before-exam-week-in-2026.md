@@ -4,7 +4,9 @@ title: "How to Create an Offline Revision Pack Before Exam Week in 2026"
 description: "Build a checked revision pack from your own course notes with local AI, including practice questions, source references, and a list of topics to revisit."
 date: "2026-09-29"
 permalink: /articles/how-to-create-an-offline-revision-pack-before-exam-week-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:02:44.775Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772321
 devto_url: "https://dev.to/alichherawalla/how-to-create-an-offline-revision-pack-before-exam-week-in-2026-4he1"

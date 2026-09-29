@@ -4,7 +4,9 @@ title: "How to Search Your Recorded Meeting Transcripts on Your Mac in 2026"
 description: "Find a topic or phrase in saved meeting transcripts on your Mac. Search locally, open the matching meeting and check its transcript or retained recording."
 date: "2026-09-29"
 permalink: /articles/how-to-search-your-recorded-meeting-transcripts-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:41:12.823Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770272
 devto_url: "https://dev.to/alichherawalla/how-to-search-your-recorded-meeting-transcripts-on-your-mac-in-2026-9fm"

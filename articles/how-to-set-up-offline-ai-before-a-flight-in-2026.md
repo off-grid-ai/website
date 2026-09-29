@@ -4,7 +4,9 @@ title: "How to Set Up Offline AI Before a Flight in 2026"
 description: "Prepare local models and saved source files before travelling, then test the exact AI tasks you want to use without an internet connection."
 date: "2026-09-29"
 permalink: /articles/how-to-set-up-offline-ai-before-a-flight-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:21:52.836Z"
+article_topic: "Everyday tasks"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772428
 devto_url: "https://dev.to/alichherawalla/how-to-set-up-offline-ai-before-a-flight-in-2026-1hio"

@@ -4,7 +4,9 @@ title: "How to Write a Weekly Work Update From Automatically Saved Mac Activity 
 description: "Draft a weekly update from saved Mac activity. Review daily journals and source context, then turn verified outcomes into a concise local AI draft."
 date: "2026-09-29"
 permalink: /articles/how-to-write-a-weekly-work-update-from-automatically-saved-mac-activity-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:51:43.076Z"
+article_topic: "Writing & learning"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770338
 devto_url: "https://dev.to/alichherawalla/how-to-write-a-weekly-work-update-from-automatically-saved-mac-activity-in-2026-24no"

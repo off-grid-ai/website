@@ -4,7 +4,9 @@ title: "How to Turn Past Work Into a Portfolio Outline Without Cloud AI in 2026"
 description: "Build a portfolio outline from past projects with local AI, accurate contributions, approved evidence, and a clear story for each case study."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-past-work-into-a-portfolio-outline-without-cloud-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:21:34.247Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772077
 devto_url: "https://dev.to/alichherawalla/how-to-turn-past-work-into-a-portfolio-outline-without-cloud-ai-in-2026-2deo"

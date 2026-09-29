@@ -4,7 +4,9 @@ title: "How to Run a Local AI Image Studio on Your Desktop (SDXL, Z-Image, Offli
 description: "Generate images with SDXL and Z-Image-Turbo entirely on-device. No subscription, no cloud, no prompts leaving your machine."
 date: "2026-06-25"
 permalink: /articles/how-to-run-a-local-ai-image-studio-on-your-desktop-sdxl-z-image-offline/
-article_category: "Desktop"
+published_at: "2026-06-25T05:18:58.088Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984674
 devto_url: "https://dev.to/alichherawalla/how-to-run-a-local-ai-image-studio-on-your-desktop-sdxl-z-image-offline-2fhn"

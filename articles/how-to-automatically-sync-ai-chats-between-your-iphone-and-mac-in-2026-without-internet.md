@@ -4,7 +4,9 @@ title: "How to Automatically Sync AI Chats Between Your iPhone and Mac in 2026 W
 description: "Move from an iPhone AI chat to your Mac without cloud sync. Pair your devices, allow local network access, and check the conversation in both directions."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-ai-chats-between-your-iphone-and-mac-in-2026-without-internet/
-article_category: "Mobile"
+published_at: "2026-09-29T08:22:03.567Z"
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769724
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-chats-between-your-iphone-and-mac-in-2026-without-internet-156h"

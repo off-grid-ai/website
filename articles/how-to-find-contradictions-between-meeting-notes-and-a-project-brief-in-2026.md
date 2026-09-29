@@ -4,7 +4,9 @@ title: "How to Find Contradictions Between Meeting Notes and a Project Brief in 
 description: "Compare project notes and a brief with local AI, trace differences to source passages, and prepare clear questions before work follows the wrong requirement."
 date: "2026-09-29"
 permalink: /articles/how-to-find-contradictions-between-meeting-notes-and-a-project-brief-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:18:18.757Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772057
 devto_url: "https://dev.to/alichherawalla/how-to-find-contradictions-between-meeting-notes-and-a-project-brief-in-2026-571d"

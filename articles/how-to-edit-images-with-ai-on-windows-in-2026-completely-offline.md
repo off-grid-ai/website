@@ -4,7 +4,9 @@ title: "How to Edit Images With AI on Windows in 2026 (Completely Offline)"
 description: "Use a reference image and a local image model to make visual variations. Keep the source on your computer and compare each result before saving."
 date: "2026-09-29"
 permalink: /articles/how-to-edit-images-with-ai-on-windows-in-2026-completely-offline/
-article_category: "Desktop"
+published_at: "2026-09-29T09:09:23.631Z"
+article_topic: "Images & vision"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4770028
 devto_url: "https://dev.to/alichherawalla/how-to-edit-images-with-ai-on-windows-in-2026-completely-offline-42gd"

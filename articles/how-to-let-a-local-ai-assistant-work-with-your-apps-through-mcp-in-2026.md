@@ -4,7 +4,9 @@ title: "How to Let a Local AI Assistant Work With Your Apps Through MCP in 2026"
 description: "Connect a local AI model to an app through MCP and start with one read-only request."
 date: "2026-09-29"
 permalink: /articles/how-to-let-a-local-ai-assistant-work-with-your-apps-through-mcp-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:29:46.126Z"
+article_topic: "Automation & tools"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770647
 devto_url: "https://dev.to/alichherawalla/how-to-let-a-local-ai-assistant-work-with-your-apps-through-mcp-in-2026-pjh"

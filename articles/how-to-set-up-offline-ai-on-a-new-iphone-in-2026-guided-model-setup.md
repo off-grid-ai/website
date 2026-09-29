@@ -4,7 +4,9 @@ title: "How to Set Up Offline AI on a New iPhone in 2026 (Guided Model Setup)"
 description: "Choose a compatible starter set for local chat, images, and speech input with OGAM Auto Setup. Download first, then use supported tasks offline."
 date: "2026-09-29"
 permalink: /articles/how-to-set-up-offline-ai-on-a-new-iphone-in-2026-guided-model-setup/
-article_category: "Mobile"
+published_at: "2026-09-29T10:45:41.312Z"
+article_topic: "Models & performance"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4770765
 devto_url: "https://dev.to/alichherawalla/how-to-set-up-offline-ai-on-a-new-iphone-in-2026-guided-model-setup-5cb7"

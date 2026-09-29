@@ -4,7 +4,9 @@ title: "How to Connect Your Phone’s Local AI to Apps and Tools With MCP in 202
 description: "Connect a local phone model to an MCP server in OGAM. Start with a public repository lookup, then add only the tools your task needs."
 date: "2026-09-29"
 permalink: /articles/how-to-connect-your-phones-local-ai-to-apps-and-tools-with-mcp-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T10:49:41.811Z"
+article_topic: "Automation & tools"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770786
 devto_url: "https://dev.to/alichherawalla/how-to-connect-your-phones-local-ai-to-apps-and-tools-with-mcp-in-2026-4e8n"

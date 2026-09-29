@@ -4,7 +4,9 @@ title: "How to Turn Text Into Speech in Multiple Languages on iPhone in 2026 (Co
 description: "Listen to AI replies in supported languages on iPhone. Download a local voice, select its language, and play text aloud without internet after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-text-into-speech-in-multiple-languages-on-iphone-in-2026-completely-offline/
-article_category: "Mobile"
+published_at: "2026-09-29T07:47:41.979Z"
+article_topic: "Voice & audio"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4769545
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-in-multiple-languages-on-iphone-in-2026-completely-offline-5gke"

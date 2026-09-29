@@ -4,7 +4,9 @@ title: "How to Run Qwen 3.5 on Your iPhone in 2026 (Completely Offline, No Subsc
 description: "Qwen 3.5 is the most capable open-weight small model family available right now. The small series..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-qwen-3-5-on-your-iphone-in-2026-completely-offline-no-subscription/
-article_category: "Mobile"
+published_at: "2026-04-14T04:30:56.487Z"
+article_topic: "Models & performance"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3497475
 devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-35-on-your-iphone-in-2026-completely-offline-no-subscription-1e4m"

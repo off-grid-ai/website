@@ -4,7 +4,9 @@ title: "How to Find Unanswered Client Requests Before Sending a Project Update i
 description: "Review saved client requests and project notes with local AI, check for later answers, and prepare an update that makes unresolved items clear."
 date: "2026-09-29"
 permalink: /articles/how-to-find-unanswered-client-requests-before-sending-a-project-update-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:18:12.156Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772399
 devto_url: "https://dev.to/alichherawalla/how-to-find-unanswered-client-requests-before-sending-a-project-update-in-2026-288h"

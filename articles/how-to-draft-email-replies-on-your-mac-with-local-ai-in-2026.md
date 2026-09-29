@@ -4,7 +4,9 @@ title: "How to Draft Email Replies on Your Mac With Local AI in 2026"
 description: "Prepare an unsent email reply in your Mac mail app with a clear brief and local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-draft-email-replies-on-your-mac-with-local-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:21:48.151Z"
+article_topic: "Writing & learning"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770582
 devto_url: "https://dev.to/alichherawalla/how-to-draft-email-replies-on-your-mac-with-local-ai-in-2026-7a8"

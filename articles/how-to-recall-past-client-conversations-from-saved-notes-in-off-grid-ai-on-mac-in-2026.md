@@ -4,7 +4,9 @@ title: "How to Recall Past Client Conversations From Saved Notes in Off Grid AI 
 description: "Find the context behind a past client discussion in local work notes. Use person timelines and recorded sources to prepare for the next conversation."
 date: "2026-09-29"
 permalink: /articles/how-to-recall-past-client-conversations-from-saved-notes-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:56:14.322Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770369
 devto_url: "https://dev.to/alichherawalla/how-to-recall-past-client-conversations-from-private-notes-on-your-mac-in-2026-k62"

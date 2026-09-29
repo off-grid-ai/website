@@ -4,7 +4,9 @@ title: "How to Use LM Studio Models on Your iPhone or Android in 2026 (No Cloud,
 description: "You are already paying for the hardware that can run AI models better than most cloud services. You..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-lm-studio-models-on-your-iphone-or-android-in-2026-no-cloud-no-subscription/
-article_category: "Mobile"
+published_at: "2026-03-18T17:58:28.624Z"
+article_topic: "Models & performance"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 3368603
 devto_url: "https://dev.to/alichherawalla/how-to-use-lm-studio-models-on-your-iphone-or-android-in-2026-no-cloud-no-subscription-10pc"

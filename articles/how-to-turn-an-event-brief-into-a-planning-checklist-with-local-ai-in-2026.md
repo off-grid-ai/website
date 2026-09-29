@@ -4,7 +4,9 @@ title: "How to Turn an Event Brief Into a Planning Checklist With Local AI in 20
 description: "Use local AI to turn an event brief into a checked planning list with dependencies, open questions, and decisions your team needs to make."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-an-event-brief-into-a-planning-checklist-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:47:21.882Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772234
 devto_url: "https://dev.to/alichherawalla/how-to-turn-an-event-brief-into-a-planning-checklist-with-local-ai-in-2026-12gc"

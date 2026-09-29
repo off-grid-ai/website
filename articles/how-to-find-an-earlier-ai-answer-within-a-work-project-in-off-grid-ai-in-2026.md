@@ -4,7 +4,9 @@ title: "How to Find an Earlier AI Answer Within a Work Project in Off Grid AI in
 description: "Recover an earlier answer from a project conversation. Search saved chat content locally, open the matching conversation and check the original wording."
 date: "2026-09-29"
 permalink: /articles/how-to-find-an-earlier-ai-answer-within-a-work-project-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:30:34.371Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770654
 devto_url: "https://dev.to/alichherawalla/how-to-find-an-earlier-ai-answer-within-a-work-project-in-off-grid-ai-in-2026-5fjb"

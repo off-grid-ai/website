@@ -294,7 +294,7 @@
     </aside>
 
     <!-- Main -->
-    <div class="main">
+    <div class="main{% if page.wide %} main-wide{% endif %}">
       {% if page.parent %}
         <nav class="breadcrumb" aria-label="breadcrumb">
           <a href="{{ '/' | relative_url }}">Docs</a>

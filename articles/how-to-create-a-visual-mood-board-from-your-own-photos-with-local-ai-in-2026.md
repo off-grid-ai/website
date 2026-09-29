@@ -4,7 +4,9 @@ title: "How to Create a Visual Mood Board From Your Own Photos With Local AI in 
 description: "Use local vision AI to compare your own reference photos, name a visual direction, and plan a mood board you assemble in your normal design tool."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-visual-mood-board-from-your-own-photos-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:05:13.325Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772333
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-visual-mood-board-from-your-own-photos-with-local-ai-in-2026-4e9k"

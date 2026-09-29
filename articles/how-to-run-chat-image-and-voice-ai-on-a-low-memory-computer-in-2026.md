@@ -4,7 +4,9 @@ title: "How to Run Chat, Image, and Voice AI on a Low-Memory Computer in 2026"
 description: "Use local chat, image generation and speech on a Mac with a modest memory budget. Work one task at a time and unload models when needed."
 date: "2026-09-29"
 permalink: /articles/how-to-run-chat-image-and-voice-ai-on-a-low-memory-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:33:44.938Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770676
 devto_url: "https://dev.to/alichherawalla/how-to-run-chat-image-and-voice-ai-on-a-low-memory-computer-in-2026-2hkk"

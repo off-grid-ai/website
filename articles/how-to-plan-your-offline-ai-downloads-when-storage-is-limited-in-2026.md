@@ -4,7 +4,9 @@ title: "How to Plan Your Offline AI Downloads When Storage Is Limited in 2026"
 description: "Plan a small offline AI setup around real tasks, separate download size from memory, and keep space for documents and generated files."
 date: "2026-09-29"
 permalink: /articles/how-to-plan-your-offline-ai-downloads-when-storage-is-limited-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:40:45.072Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772205
 devto_url: "https://dev.to/alichherawalla/how-to-plan-your-offline-ai-downloads-when-storage-is-limited-in-2026-84p"

@@ -4,7 +4,9 @@ title: "How to Transcribe Audio When You Do Not Know the Language in 2026 (Offli
 description: "Let local speech recognition infer the spoken language on your phone or computer. Set up Auto-detect and know when to choose a language yourself."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-audio-when-you-do-not-know-the-language-in-2026-offline/
-article_category: "Workflows"
+published_at: "2026-09-29T07:20:54.920Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769356
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-detect-the-language-of-an-audio-recording-offline-17el"

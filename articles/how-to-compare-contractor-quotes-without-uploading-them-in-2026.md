@@ -4,7 +4,9 @@ title: "How to Compare Contractor Quotes Without Uploading Them in 2026"
 description: "Compare the stated scope, exclusions, and questions in contractor quotes with local AI, then verify every important detail against the original documents."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-contractor-quotes-without-uploading-them-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:48:14.812Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772237
 devto_url: "https://dev.to/alichherawalla/how-to-compare-contractor-quotes-without-uploading-them-in-2026-3fnn"

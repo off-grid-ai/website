@@ -4,7 +4,9 @@ title: "How to Restore a Backup in Off Grid AI in 2026 Without Losing Your Exist
 description: "Restore missing desktop AI chats and project files from a local backup while keeping the work already on your computer."
 date: "2026-09-29"
 permalink: /articles/how-to-restore-a-backup-in-off-grid-ai-in-2026-without-losing-your-existing-chats/
-article_category: "Workflows"
+published_at: "2026-09-29T08:40:30.633Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769832
 devto_url: "https://dev.to/alichherawalla/how-to-restore-an-ai-backup-in-2026-without-losing-your-existing-chats-3p6d"

@@ -4,7 +4,9 @@ title: "How to Check Whether a Deliverable Meets the Client’s Requirements in 
 description: "Check a draft against a client brief with a local AI review table, source evidence, and clear labels for missing or uncertain requirements."
 date: "2026-09-29"
 permalink: /articles/how-to-check-whether-a-deliverable-meets-the-clients-requirements-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:07:51.607Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772002
 devto_url: "https://dev.to/alichherawalla/how-to-check-whether-a-deliverable-meets-the-clients-requirements-in-2026-hon"

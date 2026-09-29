@@ -4,7 +4,9 @@ title: "How to Create Presentation Illustrations With Offline AI in 2026"
 description: "Create local AI illustrations for a slide deck. Design one clear visual per idea, keep text editable and export images for your presentation tool."
 date: "2026-09-29"
 permalink: /articles/how-to-create-presentation-illustrations-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:20:27.537Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770097
 devto_url: "https://dev.to/alichherawalla/how-to-create-presentation-illustrations-with-offline-ai-in-2026-5g28"

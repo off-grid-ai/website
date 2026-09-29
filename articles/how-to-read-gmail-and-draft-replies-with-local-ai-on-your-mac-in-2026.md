@@ -4,7 +4,9 @@ title: "How to Read Gmail and Draft Replies With Local AI on Your Mac in 2026"
 description: "Find Gmail messages and use a local model to write a reply you can check before sending."
 date: "2026-09-29"
 permalink: /articles/how-to-read-gmail-and-draft-replies-with-local-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:24:13.981Z"
+article_topic: "Writing & learning"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770595
 devto_url: "https://dev.to/alichherawalla/how-to-read-gmail-and-draft-replies-with-local-ai-on-your-mac-in-2026-4n5h"

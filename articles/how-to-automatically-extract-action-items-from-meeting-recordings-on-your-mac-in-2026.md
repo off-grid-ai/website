@@ -4,7 +4,9 @@ title: "How to Automatically Extract Action Items From Meeting Recordings on You
 description: "Turn recorded meeting commitments into reviewable to-dos with local AI. Check the source, keep clear next steps and follow through on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-extract-action-items-from-meeting-recordings-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:40:09.836Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770263
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-extract-action-items-from-meeting-recordings-on-your-mac-in-2026-32p"

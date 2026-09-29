@@ -4,7 +4,9 @@ title: "How to Generate AI Images Locally on Your Windows PC in 2026 (No Cloud, 
 description: "Generate SDXL and Z-Image-Turbo images on Windows with CUDA or Vulkan. On-device, no cloud, no subscription, no account. Free and open source."
 date: "2026-06-25"
 permalink: /articles/how-to-generate-ai-images-locally-on-your-windows-pc-in-2026-no-cloud-no-subscription/
-article_category: "Desktop"
+published_at: "2026-06-25T05:10:49.842Z"
+article_topic: "Images & vision"
+article_platform: "Windows"
 devto_article: true
 devto_id: 3984594
 devto_url: "https://dev.to/alichherawalla/how-to-generate-ai-images-locally-on-your-windows-pc-in-2026-no-cloud-no-subscription-1aod"

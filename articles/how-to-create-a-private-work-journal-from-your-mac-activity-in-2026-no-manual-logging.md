@@ -4,7 +4,9 @@ title: "How to Create a Private Work Journal From Your Mac Activity in 2026 (No 
 description: "Create a work journal from automatically captured Mac activity. Review the local Day summary and timeline instead of logging every task manually."
 date: "2026-09-29"
 permalink: /articles/how-to-create-a-private-work-journal-from-your-mac-activity-in-2026-no-manual-logging/
-article_category: "Desktop"
+published_at: "2026-09-29T09:48:14.324Z"
+article_topic: "Privacy & control"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770317
 devto_url: "https://dev.to/alichherawalla/how-to-create-a-private-work-journal-from-your-mac-activity-in-2026-no-manual-logging-42am"

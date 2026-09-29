@@ -4,7 +4,9 @@ title: "Fast Local AI: On-Device Text and Image Generation Without the Cloud"
 description: "Quantized GGUF on Metal or CUDA, few-step image models, no network round-trip. Why on-device AI feels fast, on your Mac or PC."
 date: "2026-06-25"
 permalink: /articles/fast-local-ai-on-device-text-and-image-generation-without-the-cloud/
-article_category: "Workflows"
+published_at: "2026-06-25T05:15:34.488Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984637
 devto_url: "https://dev.to/alichherawalla/fast-local-ai-on-device-text-and-image-generation-without-the-cloud-2dok"

@@ -4,7 +4,9 @@ title: "How to Find Questions Left Unanswered in a Meeting Recording in 2026"
 description: "Use local AI to review a meeting transcript for open questions, then check the recording before preparing focused follow-ups."
 date: "2026-09-29"
 permalink: /articles/how-to-find-questions-left-unanswered-in-a-meeting-recording-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:13:13.800Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772034
 devto_url: "https://dev.to/alichherawalla/how-to-find-questions-left-unanswered-in-a-meeting-recording-in-2026-666"

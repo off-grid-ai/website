@@ -4,7 +4,9 @@ title: "How to Turn Confidential Workshop Notes Into a Report With Local AI in 2
 description: "Turn private workshop notes into a clear report with decisions, unresolved questions, and source checks using AI running on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-confidential-workshop-notes-into-a-report-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:01:53.571Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771961
 devto_url: "https://dev.to/alichherawalla/how-to-turn-confidential-workshop-notes-into-a-report-with-local-ai-in-2026-2275"

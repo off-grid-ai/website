@@ -4,7 +4,9 @@ title: "How to Organise Questions About a Rental Agreement With Local AI in 2026
 description: "Use local AI to organise questions from a saved rental agreement, preserve the source clauses, and prepare a clear clarification list."
 date: "2026-09-29"
 permalink: /articles/how-to-organise-questions-about-a-rental-agreement-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:49:13.066Z"
+article_topic: "Everyday tasks"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772240
 devto_url: "https://dev.to/alichherawalla/how-to-organise-questions-about-a-rental-agreement-with-local-ai-in-2026-3g42"

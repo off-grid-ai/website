@@ -4,7 +4,9 @@ title: "How to Run a Local OpenAI-Compatible API on Your Desktop in 2026 (No Clo
 description: "Swap one base_url and your existing OpenAI code runs against on-device models for free, offline, with no API key."
 date: "2026-06-25"
 permalink: /articles/how-to-run-a-local-openai-compatible-api-on-your-desktop-in-2026-no-cloud-no-keys/
-article_category: "Desktop"
+published_at: "2026-06-25T05:14:08.893Z"
+article_topic: "Automation & tools"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984622
 devto_url: "https://dev.to/alichherawalla/how-to-run-a-local-openai-compatible-api-on-your-desktop-in-2026-no-cloud-no-keys-4e0n"

@@ -4,7 +4,9 @@ title: "How to Add Offline Speech, Image Understanding, and Image Generation to 
 description: "Add local image understanding, speech and image generation to an app through the OGAD gateway. Use the right local model for each task."
 date: "2026-09-29"
 permalink: /articles/how-to-add-offline-speech-image-understanding-and-image-generation-to-your-app-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:41:39.918Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770739
 devto_url: "https://dev.to/alichherawalla/how-to-add-offline-speech-image-understanding-and-image-generation-to-your-app-in-2026-109f"

@@ -4,7 +4,9 @@ title: "How to Explain a Chart With Local AI in 2026 Without Uploading the Image
 description: "Use a local vision model to explain a chart without a cloud AI upload."
 date: "2026-09-29"
 permalink: /articles/how-to-explain-a-chart-with-local-ai-in-2026-without-uploading-the-image/
-article_category: "Workflows"
+published_at: "2026-09-29T09:06:13.921Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769992
 devto_url: "https://dev.to/alichherawalla/how-to-explain-a-chart-with-local-ai-in-2026-without-uploading-the-image-36cc"

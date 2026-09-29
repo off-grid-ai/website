@@ -4,7 +4,9 @@ title: "How to Make Work App Data Searchable With Local AI in Off Grid AI on You
 description: "Pull a small set of connected work records into local search, then inspect the sources before relying on an answer."
 date: "2026-09-29"
 permalink: /articles/how-to-make-work-app-data-searchable-with-local-ai-in-off-grid-ai-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:58:30.773Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771229
 devto_url: "https://dev.to/alichherawalla/how-to-make-work-app-data-searchable-with-local-ai-in-off-grid-ai-on-your-mac-in-2026-5f81"

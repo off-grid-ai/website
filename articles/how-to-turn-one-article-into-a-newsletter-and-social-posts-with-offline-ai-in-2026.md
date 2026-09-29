@@ -4,7 +4,9 @@ title: "How to Turn One Article Into a Newsletter and Social Posts With Offline 
 description: "Use local AI to adapt your own article into a useful newsletter and distinct social drafts while preserving its claims, links, and voice."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-one-article-into-a-newsletter-and-social-posts-with-offline-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:04:21.577Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772326
 devto_url: "https://dev.to/alichherawalla/how-to-turn-one-article-into-a-newsletter-and-social-posts-with-offline-ai-in-2026-44ae"

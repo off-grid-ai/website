@@ -4,7 +4,9 @@ title: "How to Keep Writing With AI During an Internet Outage in 2026"
 description: "Prepare a local AI writing workflow so you can continue drafting and editing from saved material when your internet connection is unavailable."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-writing-with-ai-during-an-internet-outage-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:24:29.159Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772449
 devto_url: "https://dev.to/alichherawalla/how-to-keep-writing-with-ai-during-an-internet-outage-in-2026-563e"

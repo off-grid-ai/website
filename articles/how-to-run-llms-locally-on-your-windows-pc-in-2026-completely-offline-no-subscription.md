@@ -4,7 +4,9 @@ title: "How to Run LLMs Locally on Your Windows PC in 2026 (Completely Offline, 
 description: "Run real language models on your Windows GPU, fully on-device. CUDA, Vulkan, or CPU. No cloud, no account, no monthly bill."
 date: "2026-06-25"
 permalink: /articles/how-to-run-llms-locally-on-your-windows-pc-in-2026-completely-offline-no-subscription/
-article_category: "Desktop"
+published_at: "2026-06-25T05:09:29.145Z"
+article_topic: "Models & performance"
+article_platform: "Windows"
 devto_article: true
 devto_id: 3984582
 devto_url: "https://dev.to/alichherawalla/how-to-run-llms-locally-on-your-windows-pc-in-2026-completely-offline-no-subscription-14oa"

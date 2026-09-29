@@ -4,7 +4,9 @@ title: "How to Turn French Speech Into Text on Your Computer in 2026 (No Interne
 description: "Dictate French on Mac or Windows with local speech recognition. Select French, get editable text, and check names and numbers without uploading audio."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-french-speech-into-text-on-your-computer-in-2026-no-internet-required/
-article_category: "Desktop"
+published_at: "2026-09-29T07:19:55.503Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4769347
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-french-audio-locally-on-your-computer-3m4g"

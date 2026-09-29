@@ -4,7 +4,9 @@ title: "Can You Use Offline AI on a Phone Without a SIM Card in 2026?"
 description: "Use downloaded local AI models on a compatible phone without a SIM card, with Wi-Fi setup first and a clear offline readiness check."
 date: "2026-09-29"
 permalink: /articles/can-you-use-offline-ai-on-a-phone-without-a-sim-card-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T14:43:20.248Z"
+article_topic: "Getting started"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4772217
 devto_url: "https://dev.to/alichherawalla/can-you-use-offline-ai-on-a-phone-without-a-sim-card-in-2026-3bpc"

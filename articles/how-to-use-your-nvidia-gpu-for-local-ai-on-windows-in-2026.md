@@ -4,7 +4,9 @@ title: "How to Use Your NVIDIA GPU for Local AI on Windows in 2026"
 description: "Install Off Grid AI's optional NVIDIA components on Windows, run a local task and check which processing engine actually handled it."
 date: "2026-09-29"
 permalink: /articles/how-to-use-your-nvidia-gpu-for-local-ai-on-windows-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T12:53:06.461Z"
+article_topic: "Models & performance"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4771570
 devto_url: "https://dev.to/alichherawalla/how-to-use-your-nvidia-gpu-for-local-ai-on-windows-in-2026-7d1"

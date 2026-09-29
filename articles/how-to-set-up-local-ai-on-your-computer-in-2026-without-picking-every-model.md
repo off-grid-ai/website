@@ -4,7 +4,9 @@ title: "How to Set Up Local AI on Your Computer in 2026 Without Picking Every Mo
 description: "Let OGAD suggest a local model plan for your computer, review its download size, and start with chat."
 date: "2026-09-29"
 permalink: /articles/how-to-set-up-local-ai-on-your-computer-in-2026-without-picking-every-model/
-article_category: "Desktop"
+published_at: "2026-09-29T11:56:06.712Z"
+article_topic: "Models & performance"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771215
 devto_url: "https://dev.to/alichherawalla/how-to-set-up-local-ai-on-your-computer-in-2026-without-picking-every-model-kol"

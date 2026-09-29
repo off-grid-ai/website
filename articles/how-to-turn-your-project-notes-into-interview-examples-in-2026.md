@@ -4,7 +4,9 @@ title: "How to Turn Your Project Notes Into Interview Examples in 2026"
 description: "Build truthful interview examples from your project notes with local AI, clear personal contributions, and evidence you can explain."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-your-project-notes-into-interview-examples-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:19:07.079Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772066
 devto_url: "https://dev.to/alichherawalla/how-to-turn-your-project-notes-into-interview-examples-in-2026-32l4"

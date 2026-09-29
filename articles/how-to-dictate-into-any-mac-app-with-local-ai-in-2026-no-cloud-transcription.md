@@ -4,7 +4,9 @@ title: "How to Dictate Into Any Mac App With Local AI in 2026 (No Cloud Transcri
 description: "Write emails, notes, and documents by speaking on your Mac. Set up local dictation, paste at the cursor, and review the text before sending it."
 date: "2026-09-29"
 permalink: /articles/how-to-dictate-into-any-mac-app-with-local-ai-in-2026-no-cloud-transcription/
-article_category: "Desktop"
+published_at: "2026-09-29T08:10:49.717Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769669
 devto_url: "https://dev.to/alichherawalla/how-to-dictate-into-any-mac-app-with-local-ai-in-2026-no-cloud-transcription-4nim"

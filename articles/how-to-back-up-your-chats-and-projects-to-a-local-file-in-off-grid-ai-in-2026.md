@@ -4,7 +4,9 @@ title: "How to Back Up Your Chats and Projects to a Local File in Off Grid AI in
 description: "Save desktop AI chats, projects, and knowledge files in a portable ZIP that you choose where to store."
 date: "2026-09-29"
 permalink: /articles/how-to-back-up-your-chats-and-projects-to-a-local-file-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:39:11.428Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769825
 devto_url: "https://dev.to/alichherawalla/how-to-back-up-your-ai-chats-and-projects-to-a-local-file-in-2026-2g4c"

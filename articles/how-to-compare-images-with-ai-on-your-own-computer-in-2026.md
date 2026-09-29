@@ -4,7 +4,9 @@ title: "How to Compare Images With AI on Your Own Computer in 2026"
 description: "Use a local vision model to compare two images on your own computer."
 date: "2026-09-29"
 permalink: /articles/how-to-compare-images-with-ai-on-your-own-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:07:01.181Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4769999
 devto_url: "https://dev.to/alichherawalla/how-to-compare-images-with-ai-on-your-own-computer-in-2026-4l35"

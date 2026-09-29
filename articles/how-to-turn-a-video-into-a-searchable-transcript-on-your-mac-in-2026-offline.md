@@ -4,7 +4,9 @@ title: "How to Turn a Video Into a Searchable Transcript on Your Mac in 2026 (Of
 description: "Transcribe a saved video locally on your Mac with Off Grid AI Pro. Search its spoken words, replay the recording, and copy the transcript."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-video-into-a-searchable-transcript-on-your-mac-in-2026-offline/
-article_category: "Desktop"
+published_at: "2026-09-29T07:28:26.746Z"
+article_topic: "Getting started"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769423
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-saved-video-into-a-searchable-transcript-on-your-mac-5b7l"

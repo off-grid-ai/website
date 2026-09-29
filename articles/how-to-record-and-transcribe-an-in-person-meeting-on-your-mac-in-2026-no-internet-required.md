@@ -4,7 +4,9 @@ title: "How to Record and Transcribe an In-Person Meeting on Your Mac in 2026 (N
 description: "Use your Mac to record an in-person discussion and create a local transcript. Prepare models first, check the microphone and stop the recording explicitly."
 date: "2026-09-29"
 permalink: /articles/how-to-record-and-transcribe-an-in-person-meeting-on-your-mac-in-2026-no-internet-required/
-article_category: "Desktop"
+published_at: "2026-09-29T09:45:36.260Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770295
 devto_url: "https://dev.to/alichherawalla/how-to-record-and-transcribe-an-in-person-meeting-on-your-mac-in-2026-no-internet-required-3825"

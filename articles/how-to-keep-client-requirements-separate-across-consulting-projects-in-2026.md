@@ -4,7 +4,9 @@ title: "How to Keep Client Requirements Separate Across Consulting Projects in 2
 description: "Organise client requirements in separate local AI projects, check sources before drafting, and reduce confusion when you move between consulting engagements."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-client-requirements-separate-across-consulting-projects-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:27:38.592Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772123
 devto_url: "https://dev.to/alichherawalla/how-to-keep-client-requirements-separate-across-consulting-projects-in-2026-5i7"

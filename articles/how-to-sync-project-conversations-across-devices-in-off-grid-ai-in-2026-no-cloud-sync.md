@@ -4,7 +4,9 @@ title: "How to Sync Project Conversations Across Devices in Off Grid AI in 2026 
 description: "Continue an AI project on your phone or computer with the same conversations and instructions. Pair your devices and sync over your own local network."
 date: "2026-09-29"
 permalink: /articles/how-to-sync-project-conversations-across-devices-in-off-grid-ai-in-2026-no-cloud-sync/
-article_category: "Workflows"
+published_at: "2026-09-29T08:29:01.215Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769750
 devto_url: "https://dev.to/alichherawalla/how-to-keep-ai-project-conversations-in-sync-across-your-devices-in-2026-no-cloud-sync-2151"

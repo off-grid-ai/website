@@ -4,7 +4,9 @@ title: "What Does Off Grid AI Record When You Enable Background Capture in 2026?
 description: "Understand what background capture saves, how to control it and how to test it with a harmless example before relying on your work history."
 date: "2026-09-29"
 permalink: /articles/what-does-off-grid-ai-record-when-you-enable-background-capture-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:13:14.998Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772374
 devto_url: "https://dev.to/alichherawalla/what-does-off-grid-ai-record-when-you-enable-background-capture-in-2026-gn7"

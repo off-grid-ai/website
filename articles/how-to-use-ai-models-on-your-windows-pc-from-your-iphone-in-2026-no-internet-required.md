@@ -4,7 +4,9 @@ title: "How to Use AI Models on Your Windows PC From Your iPhone in 2026 (No Int
 description: "Use a local AI model on your Windows PC from your iPhone over your own network after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-use-ai-models-on-your-windows-pc-from-your-iphone-in-2026-no-internet-required/
-article_category: "Mobile"
+published_at: "2026-09-29T08:42:51.329Z"
+article_topic: "Models & performance"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 4769845
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-models-on-your-windows-pc-from-your-iphone-in-2026-no-internet-required-13c0"

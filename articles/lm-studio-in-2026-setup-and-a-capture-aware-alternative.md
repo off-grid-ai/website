@@ -4,7 +4,9 @@ title: "LM Studio in 2026: Setup, and a Capture-Aware Alternative"
 description: "Set up LM Studio for local LLM chat, then meet an open-source alternative that adds image gen, voice, RAG, and on-device memory."
 date: "2026-06-25"
 permalink: /articles/lm-studio-in-2026-setup-and-a-capture-aware-alternative/
-article_category: "Workflows"
+published_at: "2026-06-25T05:11:30.311Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984599
 devto_url: "https://dev.to/alichherawalla/lm-studio-in-2026-setup-and-a-capture-aware-alternative-590d"

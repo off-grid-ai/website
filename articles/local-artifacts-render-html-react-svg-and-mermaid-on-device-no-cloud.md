@@ -4,7 +4,9 @@ title: "Local Artifacts: Render HTML, React, SVG, and Mermaid On-Device (No Clou
 description: "Ask your local AI for a chart, a diagram, or a mini-app and watch it render live in a sandboxed iframe. Fully on-device, no cloud, no CDN."
 date: "2026-06-25"
 permalink: /articles/local-artifacts-render-html-react-svg-and-mermaid-on-device-no-cloud/
-article_category: "Workflows"
+published_at: "2026-06-25T05:18:17.568Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984666
 devto_url: "https://dev.to/alichherawalla/local-artifacts-render-html-react-svg-and-mermaid-on-device-no-cloud-208e"

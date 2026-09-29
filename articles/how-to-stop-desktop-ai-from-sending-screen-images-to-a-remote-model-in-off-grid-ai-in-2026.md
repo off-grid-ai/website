@@ -4,7 +4,9 @@ title: "How to Stop Desktop AI From Sending Screen Images to a Remote Model in O
 description: "Keep the screen-image permission off for a remote model server, or use local models for screen tasks."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-desktop-ai-from-sending-screen-images-to-a-remote-model-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:55:20.095Z"
+article_topic: "Images & vision"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4771210
 devto_url: "https://dev.to/alichherawalla/how-to-stop-desktop-ai-from-sending-screen-images-to-a-remote-model-in-off-grid-ai-in-2026-2kpi"

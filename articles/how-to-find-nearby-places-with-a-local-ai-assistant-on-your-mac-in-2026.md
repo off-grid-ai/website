@@ -4,7 +4,9 @@ title: "How to Find Nearby Places With a Local AI Assistant on Your Mac in 2026"
 description: "Ask OGAD to find nearby places from your Mac's location, then check the current sources. Keep model inference local while using the web for fresh listings."
 date: "2026-09-29"
 permalink: /articles/how-to-find-nearby-places-with-a-local-ai-assistant-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:43:15.446Z"
+article_topic: "Everyday tasks"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770744
 devto_url: "https://dev.to/alichherawalla/how-to-find-nearby-places-with-a-local-ai-assistant-on-your-mac-in-2026-3ejp"

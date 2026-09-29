@@ -4,7 +4,9 @@ title: "How to Turn a Webinar Into a Downloadable Checklist With Local AI in 202
 description: "Turn a webinar's checked transcript into a practical checklist with local AI, review each action, and export the final document through your usual editor."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-webinar-into-a-downloadable-checklist-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:52:50.899Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772258
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-webinar-into-a-downloadable-checklist-with-local-ai-in-2026-2cef"

@@ -4,7 +4,9 @@ title: "How to Continue an AI Image Chat From Phone to Computer in Off Grid AI i
 description: "Start an image idea on your phone and continue it on your computer with OGAM and OGAD. Sync the conversation and completed images, then make the next request on desktop."
 date: "2026-09-29"
 permalink: /articles/how-to-continue-an-ai-image-chat-from-phone-to-computer-in-off-grid-ai-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T09:27:33.225Z"
+article_topic: "Images & vision"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770154
 devto_url: "https://dev.to/alichherawalla/how-to-continue-an-ai-image-conversation-on-your-computer-after-starting-on-your-phone-in-2026-51em"

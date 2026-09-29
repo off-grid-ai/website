@@ -4,7 +4,9 @@ title: "Can You Use Local AI Without an Account or Subscription in 2026?"
 description: "Use local AI for useful work without creating an account or buying a subscription. Learn what the free core covers and where paid or connected services differ."
 date: "2026-09-29"
 permalink: /articles/can-you-use-local-ai-without-an-account-or-subscription-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:08:59.609Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772346
 devto_url: "https://dev.to/alichherawalla/can-you-use-local-ai-without-an-account-or-subscription-in-2026-o4n"

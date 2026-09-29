@@ -4,7 +4,9 @@ title: "How to Fix a Local AI Model That Cannot Read Images in Off Grid AI in 20
 description: "Restore a missing vision download for a supported model and check the result with a simple image."
 date: "2026-09-29"
 permalink: /articles/how-to-fix-a-local-ai-model-that-cannot-read-images-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T12:05:59.023Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4771290
 devto_url: "https://dev.to/alichherawalla/how-to-fix-a-local-ai-model-that-cannot-read-images-in-off-grid-ai-in-2026-323o"

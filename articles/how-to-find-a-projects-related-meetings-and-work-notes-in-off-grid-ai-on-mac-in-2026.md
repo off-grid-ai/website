@@ -4,7 +4,9 @@ title: "How to Find a Project’s Related Meetings and Work Notes in Off Grid AI
 description: "Recover project context from recorded meetings and captured work notes. Find related sources, check decisions, and correct project associations locally."
 date: "2026-09-29"
 permalink: /articles/how-to-find-a-projects-related-meetings-and-work-notes-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:57:10.321Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770376
 devto_url: "https://dev.to/alichherawalla/how-to-find-a-projects-related-meetings-and-work-notes-on-your-mac-in-2026-akk"

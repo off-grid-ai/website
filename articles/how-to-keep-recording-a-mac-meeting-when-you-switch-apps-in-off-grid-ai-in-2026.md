@@ -4,7 +4,9 @@ title: "How to Keep Recording a Mac Meeting When You Switch Apps in Off Grid AI 
 description: "Keep an agreed Mac meeting recording active while you open notes or a document, and stop it explicitly when you are finished."
 date: "2026-09-29"
 permalink: /articles/how-to-keep-recording-a-mac-meeting-when-you-switch-apps-in-off-grid-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T11:38:01.314Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771137
 devto_url: "https://dev.to/alichherawalla/how-to-keep-recording-a-mac-meeting-when-you-switch-apps-in-off-grid-ai-in-2026-j9g"

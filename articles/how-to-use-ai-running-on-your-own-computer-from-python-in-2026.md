@@ -4,7 +4,9 @@ title: "How to Use AI Running on Your Own Computer From Python in 2026"
 description: "Call a local AI model from Python with the standard library. Discover the selected model, send a prompt and read the answer through OGAD."
 date: "2026-09-29"
 permalink: /articles/how-to-use-ai-running-on-your-own-computer-from-python-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:38:30.876Z"
+article_topic: "Automation & tools"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770715
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-running-on-your-own-computer-from-python-in-2026-2oh9"

@@ -4,7 +4,9 @@ title: "How to Run Gemma 4 on Your iPhone in 2026 (Completely Offline, No Subscr
 description: "Google released Gemma 4 on April 2, 2026 — their most capable open model yet. Built on the same..."
 date: "2026-04-14"
 permalink: /articles/how-to-run-gemma-4-on-your-iphone-in-2026-completely-offline-no-subscription/
-article_category: "Mobile"
+published_at: "2026-04-14T04:33:38.651Z"
+article_topic: "Models & performance"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 3497485
 devto_url: "https://dev.to/alichherawalla/how-to-run-gemma-4-on-your-iphone-in-2026-completely-offline-no-subscription-i98"

@@ -4,7 +4,9 @@ title: "How to Learn a New Project From Its Existing Documents With Local AI in 
 description: "Learn an unfamiliar project from its existing documents with local AI, a source map, and a checked list of decisions and open questions."
 date: "2026-09-29"
 permalink: /articles/how-to-learn-a-new-project-from-its-existing-documents-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:08:43.502Z"
+article_topic: "Documents & research"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772006
 devto_url: "https://dev.to/alichherawalla/how-to-learn-a-new-project-from-its-existing-documents-with-local-ai-in-2026-5b18"

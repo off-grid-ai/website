@@ -4,7 +4,9 @@ title: "How to Find Something You Saw on Your Mac in 2026 Without Taking Notes"
 description: "Find a remembered phrase or screen in your saved Mac activity. Use opt-in local capture, Search and Replay to return to the context."
 date: "2026-09-29"
 permalink: /articles/how-to-find-something-you-saw-on-your-mac-in-2026-without-taking-notes/
-article_category: "Desktop"
+published_at: "2026-09-29T09:47:10.756Z"
+article_topic: "Work & organization"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770306
 devto_url: "https://dev.to/alichherawalla/how-to-find-something-you-saw-on-your-mac-in-2026-without-taking-notes-djd"

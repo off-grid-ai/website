@@ -4,7 +4,9 @@ title: "How to Run RealVisXL Lightning Locally in 2026 (Fast Photorealistic AI I
 description: "Run RealVisXL v5.0 Lightning for fast photorealistic AI images on-device in 4-8 steps, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"
 permalink: /articles/how-to-run-realvisxl-lightning-locally-in-2026-fast-photorealistic-ai-images-offline/
-article_category: "Workflows"
+published_at: "2026-06-25T05:17:37.146Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 3984656
 devto_url: "https://dev.to/alichherawalla/how-to-run-realvisxl-lightning-locally-in-2026-fast-photorealistic-ai-images-offline-182k"

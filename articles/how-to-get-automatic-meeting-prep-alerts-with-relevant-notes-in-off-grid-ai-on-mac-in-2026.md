@@ -4,7 +4,9 @@ title: "How to Get Automatic Meeting Prep Alerts With Relevant Notes in Off Grid
 description: "Get a local heads-up linked to available people and open items before a meeting, with clear setup and timing limits."
 date: "2026-09-29"
 permalink: /articles/how-to-get-automatic-meeting-prep-alerts-with-relevant-notes-in-off-grid-ai-on-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T12:02:32.153Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4771264
 devto_url: "https://dev.to/alichherawalla/how-to-get-automatic-meeting-prep-alerts-with-relevant-notes-in-off-grid-ai-on-mac-in-2026-d1b"

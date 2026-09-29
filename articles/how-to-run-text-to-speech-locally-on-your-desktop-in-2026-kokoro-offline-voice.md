@@ -4,7 +4,9 @@ title: "How to Run Text-to-Speech Locally on Your Desktop in 2026 (Kokoro, Offli
 description: "Run open-weight TTS on your own Mac or PC with Kokoro-82M. Per-message Speak and an auto-speak voice mode, on-device, no cloud TTS API."
 date: "2026-06-25"
 permalink: /articles/how-to-run-text-to-speech-locally-on-your-desktop-in-2026-kokoro-offline-voice/
-article_category: "Desktop"
+published_at: "2026-06-25T05:21:42.050Z"
+article_topic: "Voice & audio"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984706
 devto_url: "https://dev.to/alichherawalla/how-to-run-text-to-speech-locally-on-your-desktop-in-2026-kokoro-offline-voice-4a73"

@@ -4,7 +4,9 @@ title: "How to Pair Your Phone and Computer in Off Grid AI in 2026 (Local Chat a
 description: "Pair your phone and computer so AI conversations and their files can follow you over your own network."
 date: "2026-09-29"
 permalink: /articles/how-to-pair-your-phone-and-computer-in-off-grid-ai-in-2026-local-chat-and-file-sync/
-article_category: "Mobile"
+published_at: "2026-09-29T08:36:03.622Z"
+article_topic: "Sync & sharing"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4769804
 devto_url: "https://dev.to/alichherawalla/how-to-connect-your-phone-and-computer-for-local-ai-chat-and-file-sync-in-2026-421"

@@ -4,7 +4,9 @@ title: "How to Turn a Recorded Interview in Another Language Into an English Dra
 description: "Turn a saved interview in another language into a checked English working draft with local transcription and local text generation on your Mac."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-a-recorded-interview-in-another-language-into-an-english-draft-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:24:15.295Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772102
 devto_url: "https://dev.to/alichherawalla/how-to-turn-a-recorded-interview-in-another-language-into-an-english-draft-in-2026-5a0c"

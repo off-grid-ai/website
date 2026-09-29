@@ -4,7 +4,9 @@ title: "How to Switch Between Local and Remote LLMs on Your Phone (Without Two A
 description: "There are two ways to run AI on your phone in 2026. Both are good. But until now, you had to pick..."
 date: "2026-03-18"
 permalink: /articles/how-to-switch-between-local-and-remote-llms-on-your-phone-without-two-apps-or-two-workflows/
-article_category: "Mobile"
+published_at: "2026-03-18T17:59:31.631Z"
+article_topic: "Work & organization"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3368606
 devto_url: "https://dev.to/alichherawalla/how-to-switch-between-local-and-remote-llms-on-your-phone-without-two-apps-or-two-workflows-1o9l"

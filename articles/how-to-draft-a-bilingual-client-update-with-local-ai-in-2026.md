@@ -4,7 +4,9 @@ title: "How to Draft a Bilingual Client Update With Local AI in 2026"
 description: "Prepare matching client updates in two languages with local AI, a checked fact sheet, consistent terms, and a final review of commitments."
 date: "2026-09-29"
 permalink: /articles/how-to-draft-a-bilingual-client-update-with-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:23:27.559Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772098
 devto_url: "https://dev.to/alichherawalla/how-to-draft-a-bilingual-client-update-with-local-ai-in-2026-59lb"

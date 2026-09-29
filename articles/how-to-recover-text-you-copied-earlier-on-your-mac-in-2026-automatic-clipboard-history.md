@@ -4,7 +4,9 @@ title: "How to Recover Text You Copied Earlier on Your Mac in 2026 (Automatic Cl
 description: "Bring back an earlier copied passage with OGAD's local clipboard history. Search text or tags, use the quick-paste shortcut, and choose what the Mac retains."
 date: "2026-09-29"
 permalink: /articles/how-to-recover-text-you-copied-earlier-on-your-mac-in-2026-automatic-clipboard-history/
-article_category: "Desktop"
+published_at: "2026-09-29T10:15:53.294Z"
+article_topic: "Sync & sharing"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770525
 devto_url: "https://dev.to/alichherawalla/how-to-recover-text-you-copied-earlier-on-your-mac-in-2026-automatic-clipboard-history-353j"

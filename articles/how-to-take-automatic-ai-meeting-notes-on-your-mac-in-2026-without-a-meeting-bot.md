@@ -4,7 +4,9 @@ title: "How to Take Automatic AI Meeting Notes on Your Mac in 2026 Without a Mee
 description: "Create meeting transcripts and summary drafts locally on your Mac without inviting a separate bot participant."
 date: "2026-09-29"
 permalink: /articles/how-to-take-automatic-ai-meeting-notes-on-your-mac-in-2026-without-a-meeting-bot/
-article_category: "Desktop"
+published_at: "2026-09-29T09:38:33.023Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770246
 devto_url: "https://dev.to/alichherawalla/how-to-take-automatic-ai-meeting-notes-on-your-mac-in-2026-without-a-meeting-bot-16i4"

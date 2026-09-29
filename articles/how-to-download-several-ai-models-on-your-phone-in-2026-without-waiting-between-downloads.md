@@ -4,7 +4,9 @@ title: "How to Download Several AI Models on Your Phone in 2026 Without Waiting 
 description: "Queue several AI model downloads in OGAM, track their state, and prepare offline chat, images, and speech without watching each file. "
 date: "2026-09-29"
 permalink: /articles/how-to-download-several-ai-models-on-your-phone-in-2026-without-waiting-between-downloads/
-article_category: "Mobile"
+published_at: "2026-09-29T10:48:54.542Z"
+article_topic: "Models & performance"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4770781
 devto_url: "https://dev.to/alichherawalla/how-to-download-several-ai-models-on-your-phone-in-2026-without-waiting-between-downloads-3ec0"

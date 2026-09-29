@@ -4,7 +4,9 @@ title: "How to Summarise Long Documents on Your Mac in 2026 Without Uploading Th
 description: "Build a source-checked summary of a long document on your Mac using local AI and section-by-section questions."
 date: "2026-09-29"
 permalink: /articles/how-to-summarise-long-documents-on-your-mac-in-2026-without-uploading-them/
-article_category: "Desktop"
+published_at: "2026-09-29T08:53:37.043Z"
+article_topic: "Documents & research"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4769908
 devto_url: "https://dev.to/alichherawalla/how-to-summarise-long-documents-on-your-mac-in-2026-without-uploading-them-1997"

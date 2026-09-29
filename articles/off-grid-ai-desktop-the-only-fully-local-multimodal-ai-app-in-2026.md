@@ -4,7 +4,9 @@ title: "Off Grid AI Desktop: The Only Fully Local, Multimodal AI App in 2026"
 description: "Chat, vision, image generation, and voice in one app that runs entirely on your Mac or PC. No cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/off-grid-ai-desktop-the-only-fully-local-multimodal-ai-app-in-2026/
-article_category: "Desktop"
+published_at: "2026-06-25T05:13:28.567Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984616
 devto_url: "https://dev.to/alichherawalla/off-grid-ai-desktop-the-only-fully-local-multimodal-ai-app-in-2026-4a7g"

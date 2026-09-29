@@ -4,7 +4,9 @@ title: "How to Turn Lecture Recordings Into Study Notes in 2026 (Offline AI)"
 description: "Transcribe lecture audio on your computer, review the transcript, and turn it into study notes and practice questions with local AI."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-lecture-recordings-into-study-notes-in-2026-offline-ai/
-article_category: "Workflows"
+published_at: "2026-09-29T07:29:48.765Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769437
 devto_url: "https://dev.to/alichherawalla/how-to-turn-lecture-recordings-into-study-notes-with-local-ai-4apj"

@@ -4,7 +4,9 @@ title: "How to Prepare an Offline AI Travel Folder on Your Phone in 2026"
 description: "Prepare a local phone project with saved travel notes and documents, test questions before departure, and keep live travel information separate."
 date: "2026-09-29"
 permalink: /articles/how-to-prepare-an-offline-ai-travel-folder-on-your-phone-in-2026/
-article_category: "Mobile"
+published_at: "2026-09-29T15:23:40.371Z"
+article_topic: "Everyday tasks"
+article_platform: "Phone"
 devto_article: true
 devto_id: 4772445
 devto_url: "https://dev.to/alichherawalla/how-to-prepare-an-offline-ai-travel-folder-on-your-phone-in-2026-a6e"

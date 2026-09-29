@@ -4,7 +4,9 @@ title: "How to Automate Repetitive Windows Tasks With Local AI in 2026"
 description: "Use local AI to complete a small app task, supervise the run, and check its result."
 date: "2026-09-29"
 permalink: /articles/how-to-automate-repetitive-windows-tasks-with-local-ai-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T10:18:21.728Z"
+article_topic: "Automation & tools"
+article_platform: "Windows"
 devto_article: true
 devto_id: 4770548
 devto_url: "https://dev.to/alichherawalla/how-to-automate-repetitive-windows-tasks-with-local-ai-in-2026-4pf"

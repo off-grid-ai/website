@@ -4,7 +4,9 @@ title: "How to Transcribe Audio in Multiple Languages on iPhone in 2026 (Complet
 description: "Dictate notes in your language on iPhone with local speech recognition. Choose a multilingual model, check the text, and work offline after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-transcribe-audio-in-multiple-languages-on-iphone-in-2026-completely-offline/
-article_category: "Mobile"
+published_at: "2026-09-29T07:09:58.919Z"
+article_topic: "Voice & audio"
+article_platform: "iPhone"
 devto_article: true
 devto_id: 4769264
 devto_url: "https://dev.to/alichherawalla/how-to-transcribe-audio-in-multiple-languages-on-your-iphone-completely-offline-1igp"

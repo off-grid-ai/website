@@ -4,7 +4,9 @@ title: "A Local, Offline Alternative to ChatGPT for Your Desktop in 2026"
 description: "Chat, images, voice in and out, and document Q&A like ChatGPT, but on-device. No account, no subscription, open source."
 date: "2026-06-25"
 permalink: /articles/a-local-offline-alternative-to-chatgpt-for-your-desktop-in-2026/
-article_category: "Desktop"
+published_at: "2026-06-25T05:12:06.087Z"
+article_topic: "Getting started"
+article_platform: "Computer"
 devto_article: true
 devto_id: 3984600
 devto_url: "https://dev.to/alichherawalla/a-local-offline-alternative-to-chatgpt-for-your-desktop-in-2026-58l2"

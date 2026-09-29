@@ -4,7 +4,9 @@ title: "How Much Can Off Grid AI Remember About Your Work in 2026?"
 description: "Find out what Off Grid AI can recall from chats, documents and captured work, and how to ask useful questions without assuming perfect memory."
 date: "2026-09-29"
 permalink: /articles/how-much-can-off-grid-ai-remember-about-your-work-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:14:06.668Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772380
 devto_url: "https://dev.to/alichherawalla/how-much-can-off-grid-ai-remember-about-your-work-in-2026-1n0i"

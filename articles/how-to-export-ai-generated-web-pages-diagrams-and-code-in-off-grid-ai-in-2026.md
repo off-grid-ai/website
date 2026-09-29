@@ -4,7 +4,9 @@ title: "How to Export AI-Generated Web Pages, Diagrams, and Code in Off Grid AI 
 description: "Keep generated web pages and diagram previews as local files, or export a React project for your editor."
 date: "2026-09-29"
 permalink: /articles/how-to-export-ai-generated-web-pages-diagrams-and-code-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:35:22.521Z"
+article_topic: "Models & performance"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770217
 devto_url: "https://dev.to/alichherawalla/how-to-export-ai-generated-web-pages-diagrams-and-code-to-your-computer-in-2026-5d2b"

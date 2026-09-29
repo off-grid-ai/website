@@ -4,7 +4,9 @@ title: "How to Track Changing Project Decisions Across Recorded Meetings on Your
 description: "Compare recorded project discussions over time. Build a checked decision history from local meeting search, transcripts and source citations."
 date: "2026-09-29"
 permalink: /articles/how-to-track-changing-project-decisions-across-recorded-meetings-on-your-mac-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:43:18.399Z"
+article_topic: "Voice & audio"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770283
 devto_url: "https://dev.to/alichherawalla/how-to-track-changing-project-decisions-across-recorded-meetings-on-your-mac-in-2026-2lna"

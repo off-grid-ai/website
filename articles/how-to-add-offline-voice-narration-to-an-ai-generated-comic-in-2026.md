@@ -4,7 +4,9 @@ title: "How to Add Offline Voice Narration to an AI-Generated Comic in 2026"
 description: "Listen to your comic's story text with a local voice model in OGAD. Choose a voice, play a page, and hear the story without a cloud speech request."
 date: "2026-09-29"
 permalink: /articles/how-to-add-offline-voice-narration-to-an-ai-generated-comic-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:26:41.693Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770150
 devto_url: "https://dev.to/alichherawalla/how-to-add-offline-voice-narration-to-an-ai-generated-comic-in-2026-4lgf"

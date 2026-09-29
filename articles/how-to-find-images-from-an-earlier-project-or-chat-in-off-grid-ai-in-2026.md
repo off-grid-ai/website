@@ -4,7 +4,9 @@ title: "How to Find Images From an Earlier Project or Chat in Off Grid AI in 202
 description: "Find a previous AI image without regenerating it. OGAD groups saved images by conversation and project, with a gallery for browsing your local results."
 date: "2026-09-29"
 permalink: /articles/how-to-find-images-from-an-earlier-project-or-chat-in-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T09:23:32.669Z"
+article_topic: "Images & vision"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770127
 devto_url: "https://dev.to/alichherawalla/how-to-find-ai-images-from-an-earlier-project-or-conversation-in-2026-3plk"

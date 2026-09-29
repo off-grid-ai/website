@@ -4,7 +4,9 @@ title: "How to Automatically Share Downloaded Files Across Your Own Devices in 2
 description: "Stop sending downloaded files to yourself. Use a watched download source and local device sync to send new files automatically, with clear Android access limits."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-share-downloaded-files-across-your-own-devices-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T08:34:19.804Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769783
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-share-downloaded-files-across-your-own-devices-in-2026-1bh1"

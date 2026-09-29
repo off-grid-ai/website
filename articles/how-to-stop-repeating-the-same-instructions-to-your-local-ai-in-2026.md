@@ -4,7 +4,9 @@ title: "How to Stop Repeating the Same Instructions to Your Local AI in 2026"
 description: "Save project instructions once so new local AI chats start with the right working rules."
 date: "2026-09-29"
 permalink: /articles/how-to-stop-repeating-the-same-instructions-to-your-local-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T10:28:57.604Z"
+article_topic: "Getting started"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4770642
 devto_url: "https://dev.to/alichherawalla/how-to-stop-repeating-the-same-instructions-to-your-local-ai-in-2026-36ol"

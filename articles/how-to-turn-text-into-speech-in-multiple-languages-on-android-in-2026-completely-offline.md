@@ -4,7 +4,9 @@ title: "How to Turn Text Into Speech in Multiple Languages on Android in 2026 (C
 description: "Hear AI replies in supported languages on Android. Download a local voice, choose its language, and use text-to-speech offline after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-text-into-speech-in-multiple-languages-on-android-in-2026-completely-offline/
-article_category: "Mobile"
+published_at: "2026-09-29T07:35:12.875Z"
+article_topic: "Voice & audio"
+article_platform: "Android"
 devto_article: true
 devto_id: 4769475
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-in-multiple-languages-on-android-completely-offline-3p90"

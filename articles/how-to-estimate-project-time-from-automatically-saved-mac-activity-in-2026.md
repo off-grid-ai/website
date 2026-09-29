@@ -4,7 +4,9 @@ title: "How to Estimate Project Time From Automatically Saved Mac Activity in 20
 description: "Use sampled Mac activity to estimate where project time went. Review Reflect, check the captured context and separate estimates from exact time records."
 date: "2026-09-29"
 permalink: /articles/how-to-estimate-project-time-from-automatically-saved-mac-activity-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:53:02.174Z"
+article_topic: "Automation & tools"
+article_platform: "Mac"
 devto_article: true
 devto_id: 4770347
 devto_url: "https://dev.to/alichherawalla/how-to-estimate-project-time-from-automatically-saved-mac-activity-in-2026-3oj2"

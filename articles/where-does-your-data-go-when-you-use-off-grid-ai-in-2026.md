@@ -4,7 +4,9 @@ title: "Where Does Your Data Go When You Use Off Grid AI in 2026?"
 description: "Understand the data paths for local models, online tools, device sync and support requests in Off Grid AI. Choose the setup that matches your work."
 date: "2026-09-29"
 permalink: /articles/where-does-your-data-go-when-you-use-off-grid-ai-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T15:12:24.516Z"
+article_topic: "Privacy & control"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772367
 devto_url: "https://dev.to/alichherawalla/where-does-your-data-go-when-you-use-off-grid-ai-in-2026-5ccm"

@@ -4,7 +4,9 @@ title: "How to Run Gemma Locally on Your Computer in 2026 (Mac and Windows, No C
 description: "Run Google's Gemma models on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no API keys."
 date: "2026-06-25"
 permalink: /articles/how-to-run-gemma-locally-on-your-computer-in-2026-mac-and-windows-no-cloud/
-article_category: "Desktop"
+published_at: "2026-06-25T05:12:47.455Z"
+article_topic: "Models & performance"
+article_platform: "Across devices"
 devto_article: true
 devto_id: 3984607
 devto_url: "https://dev.to/alichherawalla/how-to-run-gemma-locally-on-your-computer-in-2026-mac-and-windows-no-cloud-18mf"

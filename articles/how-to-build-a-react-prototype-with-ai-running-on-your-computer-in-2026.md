@@ -4,7 +4,9 @@ title: "How to Build a React Prototype With AI Running on Your Computer in 2026"
 description: "Build a small React interaction with a local model and preview it in the app before exporting a project."
 date: "2026-09-29"
 permalink: /articles/how-to-build-a-react-prototype-with-ai-running-on-your-computer-in-2026/
-article_category: "Desktop"
+published_at: "2026-09-29T09:34:30.861Z"
+article_topic: "Automation & tools"
+article_platform: "Computer"
 devto_article: true
 devto_id: 4770209
 devto_url: "https://dev.to/alichherawalla/how-to-build-a-react-prototype-with-ai-running-on-your-computer-in-2026-435f"

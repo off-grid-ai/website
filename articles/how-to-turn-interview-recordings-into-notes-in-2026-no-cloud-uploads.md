@@ -4,7 +4,9 @@ title: "How to Turn Interview Recordings Into Notes in 2026 (No Cloud Uploads)"
 description: "Turn a saved interview into checked notes on your Mac. Transcribe locally, separate quotes from summaries, and use a local AI model to organize the text."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-interview-recordings-into-notes-in-2026-no-cloud-uploads/
-article_category: "Workflows"
+published_at: "2026-09-29T07:30:38.279Z"
+article_topic: "Voice & audio"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769447
 devto_url: "https://dev.to/alichherawalla/how-to-turn-interview-recordings-into-notes-without-cloud-transcription-28f"

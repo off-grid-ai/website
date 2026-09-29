@@ -4,7 +4,9 @@ title: "How to Check Names, Dates and Numbers in an AI Translation in 2026"
 description: "Check an AI translation for changed names, dates, numbers, units, and conditions using local AI plus direct source comparison."
 date: "2026-09-29"
 permalink: /articles/how-to-check-names-dates-and-numbers-in-an-ai-translation-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:26:49.817Z"
+article_topic: "Writing & learning"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772118
 devto_url: "https://dev.to/alichherawalla/how-to-check-names-dates-and-numbers-in-an-ai-translation-in-2026-coi"

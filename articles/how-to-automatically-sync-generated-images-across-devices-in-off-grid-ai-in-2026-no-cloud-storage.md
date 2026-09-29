@@ -4,7 +4,9 @@ title: "How to Automatically Sync Generated Images Across Devices in Off Grid AI
 description: "Generate an image on one device and open it on another through private local sync. Keep the image with its AI conversation without emailing files to yourself."
 date: "2026-09-29"
 permalink: /articles/how-to-automatically-sync-generated-images-across-devices-in-off-grid-ai-in-2026-no-cloud-storage/
-article_category: "Workflows"
+published_at: "2026-09-29T08:30:59.677Z"
+article_topic: "Sync & sharing"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4769759
 devto_url: "https://dev.to/alichherawalla/how-to-automatically-sync-ai-generated-images-between-your-devices-in-2026-no-cloud-storage-52f8"

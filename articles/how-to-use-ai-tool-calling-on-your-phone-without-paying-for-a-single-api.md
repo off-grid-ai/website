@@ -4,7 +4,9 @@ title: "How to Use AI Tool Calling on Your Phone Without Paying for a Single API
 description: "Tool calling is what separates a chatbot from an assistant. A chatbot gives you text. An assistant..."
 date: "2026-03-18"
 permalink: /articles/how-to-use-ai-tool-calling-on-your-phone-without-paying-for-a-single-api/
-article_category: "Mobile"
+published_at: "2026-03-18T19:12:01.646Z"
+article_topic: "Automation & tools"
+article_platform: "Phone"
 devto_article: true
 devto_id: 3368794
 devto_url: "https://dev.to/alichherawalla/how-to-use-ai-tool-calling-on-your-phone-without-paying-for-a-single-api-15m8"

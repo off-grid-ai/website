@@ -4,7 +4,9 @@ title: "What Should You Test Before Relying on Offline AI for Work in 2026?"
 description: "Test a complete offline AI workflow before using it for work, including local files, model readiness, source checks, and a usable saved result."
 date: "2026-09-29"
 permalink: /articles/what-should-you-test-before-relying-on-offline-ai-for-work-in-2026/
-article_category: "Workflows"
+published_at: "2026-09-29T14:44:12.624Z"
+article_topic: "Work & organization"
+article_platform: "Any device"
 devto_article: true
 devto_id: 4772221
 devto_url: "https://dev.to/alichherawalla/what-should-you-test-before-relying-on-offline-ai-for-work-in-2026-33hj"
