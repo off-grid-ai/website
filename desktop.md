@@ -4,26 +4,27 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS and Windows - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
+description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS, Windows, and Linux - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">OGAD - macOS + Windows</div>
+  <div class="early-access-badge">OGAD - macOS + Windows + Linux</div>
   <h1>A private AI<br>that runs on your computer.</h1>
   <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your computer. Free and open source.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.51 is the current macOS and Windows x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51">See the GitHub release</a>.</p>
+<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.54 is the current macOS, Windows x64, and Linux x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54">See the GitHub release</a>.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
 
-<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="OGAD running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="OGAD running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
 ---
 
@@ -106,15 +107,16 @@ A full AI studio on your own machine. Everything a cloud chat app does, without 
   </div>
 </div>
 
-<a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="OGAD model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
+<a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-models.png' | relative_url }}" alt="OGAD model library on macOS - a catalog of local models with sizes, plus Hugging Face search." width="1760" height="983" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Run any model - a curated catalog plus direct Hugging Face search, all local.</p>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>. Nightly builds can have rough edges.</p>
+<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>, or the <a href="{{ "/desktop/releases/" | relative_url }}">Linux beta AppImage and deb packages</a>. Preview builds can have rough edges.</p>
 
 ---
 
@@ -125,8 +127,9 @@ Your data never leaves your device, by architecture. No cloud inference, no acco
 180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
@@ -272,7 +275,7 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows?** Stable version 0.0.51 is available for Windows x64. A nightly track is also available if you want new work sooner and are comfortable with rough edges.
+**What about Windows and Linux?** Stable version 0.0.54 is available for Windows x64 and Linux x64. Windows has a nightly build. Linux has beta AppImage and deb packages on the [releases page]({{ "/desktop/releases/" | relative_url }}).
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 
@@ -281,7 +284,8 @@ The free app runs models. Pro adds the always-on layer that sees your work, reme
 **What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow. Or subscribe for ${{ site.data.pricing.monthly }}/month. One license covers {{ site.data.pricing.devices }} devices.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>

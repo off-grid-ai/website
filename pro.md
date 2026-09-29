@@ -327,8 +327,8 @@ You choose whether copied text, new screenshots, and new downloads move too. You
 </div>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download Windows stable</a>
   <a href="{{ '/download/' | relative_url }}#sync" class="btn btn-outline">Get the mobile build</a>
 </div>
 

@@ -30,7 +30,7 @@ description: Your Off Grid AI Pro purchase is complete. Your license key is on i
 ## What to do next
 
 1. **Find your key, spam folder included.** Search your mail for `keys@offgridmobileai.co`. Mark it **Not spam** the moment you find it there, so the next message reaches you.
-2. **Install Off Grid AI** on the machines you actually work on - macOS or Windows for the desktop layer, iPhone or Android for the phone. Both are on the [download page]({{ '/download/' | relative_url }}).
+2. **Install Off Grid AI** on the machines you actually work on - macOS, Windows, or Linux for the desktop layer, iPhone or Android for the phone. The apps are on the [download page]({{ '/download/' | relative_url }}).
 3. **Paste your key** into the app on each device. That is the whole activation - no account, no sign-in.
 4. **Turn on capture** when you're ready. It is off until you switch it on, per device, and it shows a recording indicator the entire time it runs.
 
