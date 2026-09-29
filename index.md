@@ -78,6 +78,12 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 
 Over 180,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
 
+> **What would you like to do with Off Grid AI?**
+>
+> Tell us what you want to do and which device you use. If a feature is missing, tell us.
+>
+> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+
 ---
 
 ## Start with the app
