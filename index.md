@@ -5,6 +5,8 @@ nav_order: 1
 description: Private AI for iOS, Android, macOS, and Windows. Local models run on hardware you own; remote models connect only to servers you choose. 180k+ downloads, 3k+ GitHub stars.
 ---
 
+<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover home-hero-cover">
+
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
   <h1>Off Grid AI</h1>
@@ -12,17 +14,9 @@ description: Private AI for iOS, Android, macOS, and Windows. Local models run o
 
 **A private AI that runs on the hardware you already own.**
 
-> **What would you like to do with Off Grid AI?**
->
-> Tell us what you want to do and which device you use. If a feature is missing, tell us.
->
-> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
-
-<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover">
-
 Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro now connects your phone and laptop with Sync.
 
-<div class="hero-buttons">
+<div class="hero-buttons home-hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.029 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
     App Store
@@ -48,6 +42,12 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, and Windows, ru
 </div>
 
 {% include open-source-strip.html %}
+
+> **What would you like to do with Off Grid AI?**
+>
+> Tell us what you want to do and which device you use. If a feature is missing, tell us.
+>
+> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 <div class="home-feature-banner-wrap">
 <a href="{{ '/download/' | relative_url }}#sync" class="home-feature-banner">

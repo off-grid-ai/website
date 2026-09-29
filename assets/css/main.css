@@ -483,6 +483,11 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   margin-bottom: 28px;
   box-shadow: var(--shadow-md);
 }
+.home-hero-cover { height: 260px; object-fit: cover; }
+.hero-buttons.home-hero-buttons { margin-bottom: 16px; }
+@media (max-width: 640px) {
+  .home-hero-cover { height: auto; }
+}
 
 .page-title-row {
   display: flex;
