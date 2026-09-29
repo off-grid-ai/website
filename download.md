@@ -4,7 +4,7 @@ title: Download
 nav_order: 2
 nav_group: Products
 permalink: /download/
-description: Download Off Grid AI for iPhone, Android, macOS, and Windows. Run private AI on hardware you own and keep your work in step across paired devices with Sync.
+description: Download Off Grid AI for iPhone, Android, macOS, Windows, and Linux. Run private AI on hardware you own and keep your work in step across paired devices with Sync.
 ---
 
 <div class="early-access-hero">
@@ -30,8 +30,10 @@ Sync traffic is encrypted between paired devices. No Off Grid AI server receives
 Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, so you can pause, stop, take over, or give new guidance while they work.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-green">Download Windows stable</a> <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.51 release</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download Windows stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-green">Download Linux stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.54 release</a>
   <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener" class="btn btn-outline">OGAM 0.0.110 release</a>
 </div>
 
@@ -53,17 +55,21 @@ A full AI studio in your pocket. Chat, vision, image, voice, and documents, all 
 
 ---
 
-## OGAD - macOS and Windows
+## OGAD - macOS, Windows, and Linux
 
 A private AI studio on your computer. Chat, vision, image, and voice stay on your own hardware. On a flagship Mac, you get 15-30 tokens a second. Free and open source.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/latest/download/OffGrid-latest.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.51/OffGrid-latest-setup.exe" class="btn btn-green">Download for Windows</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.51 release</a> <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download for macOS</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download for Windows</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-green">Linux AppImage</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb" class="btn btn-outline">Linux deb</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.54 release</a> <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note">OGAD <strong>0.0.51</strong> is the current stable release for macOS and Windows. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51" target="_blank" rel="noopener">Read the release notes</a> or <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">see all releases and nightly builds</a>.</p>
+<p class="ea-pricing-note">OGAD <strong>0.0.54</strong> is the current stable release for macOS, Windows x64, and Linux x64. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">Read the release notes</a>.</p>
+
+<p class="ea-pricing-note">Preview builds: <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows nightly</a> · <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="AppImage">Linux AppImage</a> · <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="deb">Linux deb</a>. Linux links find the newest published beta package when you open this page. Preview builds can have rough edges.</p>
 
 ---
 
@@ -78,7 +84,7 @@ Pick the track that fits how much polish you need.
     </div>
     <div>
       <div class="perk-title">Stable</div>
-      <div class="perk-desc">The tested build. Available from the App Store, Google Play, and the macOS and Windows downloads. Pick this if you want it to just work.</div>
+      <div class="perk-desc">The tested build. Available from the App Store, Google Play, and the macOS, Windows, and Linux downloads. Pick this if you want it to just work.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -87,9 +93,11 @@ Pick the track that fits how much polish you need.
     </div>
     <div>
       <div class="perk-title">Preview and nightly</div>
-      <div class="perk-desc">New features first, from GitHub releases on mobile and nightly builds on macOS and Windows. These builds ship often, so expect rough edges.</div>
+      <div class="perk-desc">Preview builds from GitHub releases on mobile, nightly builds on macOS and Windows, and beta packages on Linux. These builds can have rough edges.</div>
     </div>
   </div>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">Full version history: <a href="{{ '/mobile/releases/' | relative_url }}">Mobile releases</a> · <a href="{{ '/desktop/releases/' | relative_url }}">Desktop releases</a></p>
+
+<script defer src="{{ '/assets/js/linux-preview-download.js' | relative_url }}"></script>

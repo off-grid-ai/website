@@ -25,10 +25,14 @@ end
 
 download = rendered.fetch("download")
 required_download_content = {
-  "macOS stable build" => "OffGrid-latest.dmg",
-  "Windows stable build" => "v0.0.51/OffGrid-latest-setup.exe",
-  "current macOS stable release" => "0.0.51",
-  "current Windows stable release" => "0.0.51",
+  "macOS stable build" => "v0.0.54/OffGrid-0.0.54.dmg",
+  "Windows stable build" => "v0.0.54/off-grid-ai-0.0.54-setup.exe",
+  "Linux AppImage stable build" => "v0.0.54/off-grid-ai-0.0.54.AppImage",
+  "Linux deb stable build" => "v0.0.54/off-grid-ai_0.0.54_amd64.deb",
+  "Linux preview resolver" => 'data-linux-preview="AppImage"',
+  "Linux preview script" => "linux-preview-download.js",
+  "current macOS stable release" => "0.0.54",
+  "current Windows stable release" => "0.0.54",
   "mobile latest builds" => "https://github.com/off-grid-ai/OGAM/releases",
   "Sync anchor" => 'id="sync"'
 }
@@ -37,7 +41,8 @@ required_download_content.each do |name, text|
 end
 
 desktop_releases = rendered.fetch("desktop_releases")
-failures << "desktop releases: missing 0.0.51 release notes" unless desktop_releases.include?("0.0.51")
+failures << "desktop releases: missing 0.0.54 release notes" unless desktop_releases.include?("0.0.54")
+failures << "desktop releases: missing Linux beta deb link" unless desktop_releases.include?('data-linux-preview="deb"')
 
 pro = rendered.fetch("pro")
 {
