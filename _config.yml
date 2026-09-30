@@ -1,5 +1,5 @@
 title: Off Grid AI
-description: Run AI on iOS, Android, macOS, Windows, and Linux using hardware you own. Local models keep your prompts on your device; remote models connect only to servers you choose.
+description: Off Grid AI remembers your work and helps get tasks done. Your always-on AI for phone and computer. Your AI memory stays on your devices. Start free.
 url: https://getoffgridai.co
 baseurl: ""
 
@@ -69,3 +69,10 @@ exclude:
   - tools
   - AGENTS.md
   - CLAUDE.md
+
+# Shared social preview, unless a page provides its own image.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/cover-democratizing-intelligence.png

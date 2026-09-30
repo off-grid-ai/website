@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Home
+title: Your Always-On Personal AI
+nav_title: Home
 nav_order: 1
-description: Private AI for iOS, Android, macOS, Windows, and Linux. Local models run on hardware you own; remote models connect only to servers you choose. 180k+ downloads, 3k+ GitHub stars.
+description: Off Grid AI remembers your work and helps get tasks done. Your always-on AI for phone and computer. Your AI memory stays on your devices. Start free.
 ---
 
 <img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover home-hero-cover">
@@ -12,9 +13,13 @@ description: Private AI for iOS, Android, macOS, Windows, and Linux. Local model
   <h1>Off Grid AI</h1>
 </div>
 
-**A private AI that runs on the hardware you already own.**
+**Your own AI, already up to speed.**
 
-Chat, images, vision, voice, documents - on iOS, Android, macOS, Windows, and Linux, running on hardware you own. Local models keep your prompts on your device. If you connect a remote model, Off Grid AI sends requests only to the server you choose. Off Grid AI Pro now connects your phone and laptop with Sync.
+Off Grid AI is your always-on private assistant. It remembers meetings, screen activity, and conversations so you can find a decision, pick up a project, or prepare a follow-up.
+
+Talk to it in your own language, hands-free. Keep your phone and computer in sync. Let it carry out tasks in your apps and browser, with your approval. Your AI memory stays on your hardware.
+
+Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync, and actions.
 
 <div class="hero-buttons home-hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">

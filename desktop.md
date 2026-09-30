@@ -4,13 +4,13 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS, Windows, and Linux - chat, vision, image, and voice, running on your own hardware. Free and open source. No cloud, no account, no API key.
+description: Give your work a private AI assistant. Off Grid AI Desktop helps you remember meetings, find past work, and carry out tasks with your approval.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">OGAD - macOS + Windows + Linux</div>
-  <h1>A private AI<br>that runs on your computer.</h1>
-  <p class="early-access-sub">Chat, vision, image, and voice, all running on your own hardware. No account, no API key, nothing you type ever leaves your computer. Free and open source.</p>
+  <h1>Your work has history.<br>Your AI remembers it.</h1>
+  <p class="early-access-sub">Get help where your work happens. Start free with chat, writing, and document tools. Add Pro to remember meetings, search your day, and carry out tasks in your apps and browser.</p>
 </div>
 
 <div class="hero-buttons">
@@ -30,7 +30,7 @@ description: OGAD (Off Grid AI Desktop) is a private, local AI studio for macOS,
 
 ## What you get, free
 
-A full AI studio on your own machine. Everything a cloud chat app does, without the cloud, the account, or the bill.
+Write, research, and create with AI on your computer. Free to start. Your local models keep your prompts on your device.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -157,9 +157,9 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 
 Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, with Pause, Stop, Take Over, and live guidance while they work.
 
-## The chief of staff you never had
+## An assistant that knows your working day
 
-The free app runs models. Pro adds the always-on layer that sees your work, remembers it, reflects it back, and acts with your approval. You forget what you did last Tuesday. Your Mac does not. Off Grid AI keeps a quiet record of your work you can actually ask, and it hands you what you need before you go looking. Opt-in, with a recording indicator, and nothing leaves the device.
+Pro builds a private memory of the work you choose to record. Find a decision from a meeting. Revisit a screen. See what is still open, then ask your AI to help move it forward.
 
 <p class="ea-pricing-note">Pro is available on macOS only today. It is not included in Windows builds.</p>
 

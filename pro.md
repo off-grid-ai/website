@@ -3,13 +3,13 @@ layout: default
 title: Pro
 nav_order: 6
 nav_group: Products
-description: Off Grid AI Pro is a private intelligence layer for your laptop and phone. It captures your day, remembers everything, and drafts the next move, on your own hardware. Live now - $4.99/month or $69 lifetime. See every feature and get your key.
+description: Your work, remembered. Your next task, ready to move. Off Grid AI Pro brings private memory, Sync, and actions to your phone and computer.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Pro · Live now</div>
-  <h1>The assistant that<br>was in the room.</h1>
-  <p class="early-access-sub">The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you. Nothing is sent anywhere, because there is no server to send it to.</p>
+  <h1>Your day moves on.<br>Your AI keeps up.</h1>
+  <p class="early-access-sub">An always-on assistant that remembers your work and helps with what comes next. Find a meeting decision. Pick up an open task. Let your AI act with your approval. Your memory stays on your devices.</p>
 </div>
 
 <div class="hero-buttons">
@@ -104,19 +104,11 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
 
 ## What Pro is
 
-You do not remember what you did last Tuesday. Your laptop does.
-
-Pro is a quiet record of your work that you can actually ask. It watches the meeting, reads the thread, sees the ticket, then files all of it into one local memory you can search, replay, and act on. The model runs in your laptop's own memory. No cloud round trips, no account, no API key.
-
-A personal chief of staff used to be a privilege. The compute to run one now sits in your bag. Pro is that layer, private and in your hands, not rented from a company that reads your mail.
-
-It moves through four stages: it **sees**, it **remembers**, it **acts**, and then it gets **ahead of you**.
-
----
+Your meetings, conversations, and screen activity become a memory you can use. Ask what was decided. Find an unfinished task. Prepare the next action. Pro keeps the context close, on your own hardware.
 
 ## It sees
 
-Capture is one primitive, always your choice. Pro only sees what you let it see, per device, with a visible recording indicator. Pause it from the menu bar anytime. Off grid means in your control, not just off the cloud.
+Choose what your assistant can see. Record screens and meetings on your device. Pause capture at any time.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -224,7 +216,7 @@ Not hours logged. Mind share. Pro shows what you actually spent the day thinking
 
 ## It acts, you approve
 
-Pro can draft the reply, file the ticket, update the doc. It never does it on its own. Every action is a proposal you approve, and every approval is logged. This is not an open-ended agent you hand the keys to. It is structured, with guardrails you set, so you stay in control.
+Turn context into action. Pro can draft a reply, file a ticket, or update a document. Review the proposal and approve it.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -278,9 +270,9 @@ Pro can draft the reply, file the ticket, update the doc. It never does it on it
 
 ## It gets ahead of you
 
-Imagine opening your laptop and the day is already laid out. The 9am is with someone you have not spoken to in three months. There is an open item you never closed. A draft reply is waiting for the email you have been avoiding. You did not ask for any of it. It noticed, because it was there with you all day.
+Start your day with the context you need: upcoming meetings, open commitments, and follow-ups ready to review.
 
-That is the proactive secretary. It does not wait to be opened. It briefs you on the day, surfaces what matters, and drafts the next move before you remember you owe it. Every draft is still yours to approve.
+Your assistant uses what it remembers to help you prepare for what comes next.
 
 ---
 

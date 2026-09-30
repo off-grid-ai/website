@@ -4,13 +4,13 @@ title: Mobile
 nav_order: 3
 nav_group: Products
 has_children: true
-description: Off Grid AI Mobile is a complete local AI studio for iPhone and Android - chat, vision, image, voice, and documents, running on your own phone. Free and open source, on-device, no cloud.
+description: Take your private AI assistant with you. Talk hands-free, work with your documents, and continue desktop conversations on your phone with Off Grid AI Pro.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Mobile · iOS &amp; Android</div>
-  <h1>The whole studio,<br>in your pocket.</h1>
-  <p class="early-access-sub">Off Grid AI Mobile runs real models on your phone - chat, vision, image, voice, and documents, all on-device. Point it at a computer running Off Grid AI Desktop and it uses those bigger models over your own network, no relay. Pro adds a voice that talks back, personas, and draft actions you approve. Nothing leaves your devices.</p>
+  <h1>Your AI goes<br>where you go.</h1>
+  <p class="early-access-sub">Ask a question in your own language. Capture a thought. Get help with a document. Your private assistant is right there on your phone. Add Pro to talk hands-free and continue your desktop conversations with Sync.</p>
 </div>
 
 <div class="hero-buttons">
@@ -23,17 +23,16 @@ description: Off Grid AI Mobile is a complete local AI studio for iPhone and And
 
 <p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
 
-<p class="ea-pricing-note" style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.9;">chat · vision · image · voice input · projects · tools · any GGUF · your computer's models over your own network · and more</p>
 
 <div class="offer-closing" role="note">
-  The AI on your phone logs every prompt to someone else's server. Off Grid AI runs the model in your phone's memory instead. Turn on airplane mode and it still answers. The whole thing stays on the device in your hand.
+  Your local AI works offline after you download a model. Your prompts stay on your phone.
 </div>
 
 ---
 
 ## What you get for free
 
-A complete offline AI suite on your phone. Not a chatbot - text, image, vision, voice, and documents, all running on your own hardware.
+Write a draft, understand a photo, or ask about a document. Your phone runs the AI.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -118,7 +117,7 @@ A complete offline AI suite on your phone. Not a chatbot - text, image, vision, 
 
 ---
 
-## Off Grid AI Pro: a voice, personas, and actions
+## Keep your assistant close
 
 The free app runs models on your phone. Pro is an optional, additive tier: it gives the assistant a voice that talks back, personas you shape, and the tools to draft real actions you approve. One license covers your phone and your Mac. All on-device.
 
