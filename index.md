@@ -52,7 +52,7 @@ Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync
 {% include open-source-strip.html %}
 
 <div class="home-feature-banner-wrap">
-  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner">
+  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="home_card">
     <div class="home-feature-banner-tag">Design partners - Teams with fewer than 50 people</div>
     <div class="home-feature-banner-title">Build a solution for your daily work. Pay $0.</div>
     <div class="home-feature-banner-desc">Work directly with me on a business problem. Get free setup and lifetime access to any product based on your input. If your idea fits Off Grid AI, you also get free lifetime Pro. Bring your time and feedback.</div>

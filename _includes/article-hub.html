@@ -5,7 +5,7 @@
 {% endif %}
 
 <div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% endif %}>
-  <div class="article-search-row">
+  <div class="article-search-row" data-analytics-view="resource_hub_viewed" data-analytics-placement="{% if include.home %}home_resources{% else %}articles{% endif %}">
     <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% else %}articles{% endif %}</label>
     <input id="article-search" class="article-search-input" type="search" placeholder="Try transcription, PDF, Android, sync..." autocomplete="off">
   </div>
@@ -78,4 +78,3 @@
   <p id="article-empty" class="article-empty" hidden>No {% if include.home %}pages{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
   <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home %}pages{% else %}articles{% endif %}</button>
 </div>
-

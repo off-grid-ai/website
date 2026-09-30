@@ -27,7 +27,7 @@ description: Your own local AI, with a memory of your working day. Off Grid AI P
 {: #buy}
 
 <div class="home-feature-banner-wrap">
-  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner">
+  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="pro_card">
     <div class="home-feature-banner-tag">Run a business with fewer than 50 people?</div>
     <div class="home-feature-banner-title">You could get Off Grid AI Pro free for life.</div>
     <div class="home-feature-banner-desc">Become a design partner. If your idea is a good fit for Off Grid AI, you get free lifetime Pro, even if we do not build the full solution together. Your part is time and feedback. Your cost is $0.</div>
@@ -41,7 +41,7 @@ description: Your own local AI, with a memory of your working day. Off Grid AI P
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
-    <p class="ea-pricing-note"><strong>Before you pay:</strong> Teams with fewer than 50 people can get free lifetime Pro through our design partner offer if their idea is a good fit for Off Grid AI. <a href="{{ '/design-partners/' | relative_url }}">Read the offer</a>.</p>
+    <p class="ea-pricing-note" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="pro_payment_form"><strong>Before you pay:</strong> Teams with fewer than 50 people can get free lifetime Pro through our design partner offer if their idea is a good fit for Off Grid AI. <a href="{{ '/design-partners/' | relative_url }}" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_payment_form">Read the offer</a>.</p>
     <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
     <div class="ea-buy-row">
       <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>

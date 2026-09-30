@@ -76,6 +76,37 @@
   var resultLabel = hub.dataset.resultLabel || 'guides';
   var defaultTitle = hub.dataset.defaultTitle || 'Latest articles';
   var visible = pageSize;
+  var matchCount = 0;
+  var shownCount = 0;
+  var searchTimer;
+  var lastSearch = '';
+
+  function track(name, extra) {
+    if (!window.OffGridAnalytics) return;
+    var query = search.value.trim();
+    window.OffGridAnalytics.capture(name, Object.assign({
+      placement: hub.dataset.pageSize ? 'home_resources' : 'articles',
+      topic: selectedTopic || 'all',
+      device: platform.value || 'all',
+      sort: sort.value,
+      search_active: Boolean(query),
+      query_length: query.length,
+      term_count: query ? query.split(/\s+/).length : 0,
+      result_count: matchCount,
+      shown_count: shownCount
+    }, extra));
+  }
+
+  function reportSearch() {
+    window.clearTimeout(searchTimer);
+    var query = search.value.trim().toLocaleLowerCase();
+    if (query === lastSearch) return;
+    var hadSearch = Boolean(lastSearch);
+    lastSearch = query;
+    // Compare queries locally; never send the words someone typed.
+    if (query) track('resource_search_used');
+    else if (hadSearch) track('resource_search_cleared');
+  }
 
   function render() {
     var query = search.value.trim().toLocaleLowerCase();
@@ -112,6 +143,8 @@
       '0 ' + resultLabel;
     empty.hidden = matches.length > 0;
     more.hidden = matches.length <= visible;
+    matchCount = matches.length;
+    shownCount = Math.min(visible, matches.length);
     topics.forEach(function (button) {
       var active = button.dataset.topic === selectedTopic;
       button.classList.toggle('is-active', active);
@@ -124,14 +157,34 @@
       selectedTopic = selectedTopic === button.dataset.topic ? '' : button.dataset.topic;
       visible = pageSize;
       render();
+      track('resource_topic_selected');
     });
   });
   [search, platform, sort].forEach(function (control) {
     control.addEventListener('input', function () { visible = pageSize; render(); });
     control.addEventListener('change', function () { visible = pageSize; render(); });
   });
-  more.addEventListener('click', function () { visible += pageSize; render(); });
+  search.addEventListener('input', function () {
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(reportSearch, 750);
+  });
+  search.addEventListener('change', reportSearch);
+  search.addEventListener('blur', reportSearch);
+  search.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') reportSearch();
+  });
+  platform.addEventListener('change', function () { track('resource_device_selected'); });
+  sort.addEventListener('change', function () { track('resource_sort_changed'); });
+  more.addEventListener('click', function () {
+    reportSearch();
+    visible += pageSize;
+    render();
+    track('resource_more_clicked');
+  });
   clear.addEventListener('click', function () {
+    reportSearch();
+    track('resource_filters_cleared');
+    lastSearch = '';
     search.value = '';
     platform.value = '';
     sort.value = 'newest';
@@ -140,5 +193,20 @@
     render();
     search.focus();
   });
+  results.addEventListener('click', function (event) {
+    var link = event.target.closest('.article-result');
+    if (!link || !results.contains(link)) return;
+    reportSearch();
+    var displayed = Array.from(results.querySelectorAll('.article-result')).filter(function (item) {
+      return !item.hidden;
+    });
+    track('resource_result_clicked', {
+      destination: new URL(link.href, window.location.href).pathname,
+      result_topic: link.dataset.topic,
+      result_device: link.dataset.platform,
+      position: displayed.indexOf(link) + 1
+    });
+  });
+  window.addEventListener('pagehide', reportSearch);
   render();
 })();

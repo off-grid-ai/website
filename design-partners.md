@@ -35,7 +35,7 @@ I want to build around real work and learn from the people doing it.
 
 ## Start with a conversation
 
-Email [mac@getoffgridai.co](mailto:mac@getoffgridai.co?subject=Off%20Grid%20AI%20design%20partnership) with:
+Email <a href="mailto:design.partners@getoffgridai.co?subject=Off%20Grid%20AI%20design%20partnership" data-analytics-event="design_partner_email_clicked" data-analytics-placement="partner_page">design.partners@getoffgridai.co</a> with:
 
 - What your business does and how many people are on your team.
 - The task or process you want to improve.
