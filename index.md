@@ -46,26 +46,22 @@ Chat, images, vision, voice, documents - on iOS, Android, macOS, Windows, and Li
 
 {% include open-source-strip.html %}
 
-> **What would you like to do with Off Grid AI?**
->
-> Tell us what you want to do and which device you use. If a feature is missing, tell us.
->
-> Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
-
 <div class="home-feature-banner-wrap">
-<a href="{{ '/download/' | relative_url }}#sync" class="home-feature-banner">
-  <div class="home-feature-banner-tag">Sync · Live</div>
-  <div class="home-feature-banner-title">Start on your phone. Continue on your laptop. →</div>
-  <div class="home-feature-banner-desc">Chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You choose whether copied text, new screenshots, and new downloads move too. No Off Grid AI server receives or stores the content you sync.</div>
-</a>
+  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner">
+    <div class="home-feature-banner-tag">Design partners - Teams with fewer than 50 people</div>
+    <div class="home-feature-banner-title">Build a solution for your daily work. Pay $0.</div>
+    <div class="home-feature-banner-desc">Work directly with me on a business problem. Get free setup and lifetime access to any product based on your input. If your idea fits Off Grid AI, you also get free lifetime Pro. Bring your time and feedback.</div>
+    <div class="home-feature-banner-tag">See the design partner offer &rarr;</div>
+  </a>
 </div>
 
 <div class="home-feature-banner-wrap">
-<a href="{{ '/desktop/' | relative_url }}#computer-use" class="home-feature-banner">
-  <div class="home-feature-banner-tag">Computer Use + Web Use - Live</div>
-  <div class="home-feature-banner-title">Give it the task. Stay in control. &rarr;</div>
-  <div class="home-feature-banner-desc">Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, with Pause, Stop, Take Over, and live guidance while they work.</div>
-</a>
+  <section class="home-feature-banner" aria-labelledby="feedback-card-title">
+    <div class="home-feature-banner-tag">Help shape Off Grid AI</div>
+    <div class="home-feature-banner-title" id="feedback-card-title">What would you like to do with Off Grid AI?</div>
+    <div class="home-feature-banner-desc">Tell us what you want to do and which device you use. If a feature is missing, tell us.</div>
+    <div class="home-feature-banner-desc">Email <a href="mailto:support@offgridmobileai.co">support@offgridmobileai.co</a>, <a href="https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ">join our Slack community</a>, or <a href="https://www.reddit.com/r/off_grid_ai/">talk to us on Reddit</a>.</div>
+  </section>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">OGAD 0.0.54 stable</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>

@@ -26,12 +26,22 @@ description: Off Grid AI Pro is a private intelligence layer for your laptop and
 ## Get Pro
 {: #buy}
 
+<div class="home-feature-banner-wrap">
+  <a href="{{ '/design-partners/' | relative_url }}" class="home-feature-banner">
+    <div class="home-feature-banner-tag">Run a business with fewer than 50 people?</div>
+    <div class="home-feature-banner-title">You could get Off Grid AI Pro free for life.</div>
+    <div class="home-feature-banner-desc">Become a design partner. If your idea is a good fit for Off Grid AI, you get free lifetime Pro, even if we do not build the full solution together. Your part is time and feedback. Your cost is $0.</div>
+    <div class="home-feature-banner-tag">See the design partner offer &rarr;</div>
+  </a>
+</div>
+
 {% include pricing-ladder.html %}
 
-<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One price covers both your laptop and your phone - a single license key, up to {{ site.data.pricing.devices }} devices, every release included. It runs on your own hardware; nothing you capture leaves your device. Enter your email, check out, and we email your key.</p>
+<p class="early-access-sub" style="max-width:720px;margin:28px auto 0;">One license. Up to {{ site.data.pricing.devices }} devices. Every update included. Enter your email to get your key.</p>
 
 <div class="early-access-form-section ea-form-top">
   <form id="payForm" class="early-access-form" novalidate>
+    <p class="ea-pricing-note"><strong>Before you pay:</strong> Teams with fewer than 50 people can get free lifetime Pro through our design partner offer if their idea is a good fit for Off Grid AI. <a href="{{ '/design-partners/' | relative_url }}">Read the offer</a>.</p>
     <input type="email" id="payEmail" class="ea-input" placeholder="your@email.com" autocomplete="email" aria-invalid="false" aria-describedby="payStatus" required>
     <div class="ea-buy-row">
       <button type="button" class="ea-submit" data-plan="lifetime" disabled>Own it forever - ${{ site.data.pricing.lifetime }}</button>
