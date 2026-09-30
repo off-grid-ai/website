@@ -4,13 +4,13 @@ title: Mobile
 nav_order: 3
 nav_group: Products
 has_children: true
-description: Take your private AI assistant with you. Talk hands-free, work with your documents, and continue desktop conversations on your phone with Off Grid AI Pro.
+description: Run your own AI locally on your phone. Speak your language and get help with documents. Add Off Grid AI Pro for hands-free voice and Sync.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Mobile · iOS &amp; Android</div>
   <h1>Your AI goes<br>where you go.</h1>
-  <p class="early-access-sub">Ask a question in your own language. Capture a thought. Get help with a document. Your private assistant is right there on your phone. Add Pro to talk hands-free and continue your desktop conversations with Sync.</p>
+  <p class="early-access-sub">Ask a question in your own language. Capture a thought. Get help with a document. Your AI runs locally on your phone, using models you choose. Add Pro to talk hands-free and continue your desktop conversations with Sync.</p>
 </div>
 
 <div class="hero-buttons">

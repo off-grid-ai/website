@@ -3,7 +3,7 @@ layout: default
 title: Your Always-On Personal AI
 nav_title: Home
 nav_order: 1
-description: Off Grid AI remembers your work and helps get tasks done. Your always-on AI for phone and computer. Your AI memory stays on your devices. Start free.
+description: Run your own AI on your phone and computer. Off Grid AI remembers your work and acts with your approval. Your models. Your hardware. Start free.
 ---
 
 <img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover home-hero-cover">
@@ -15,9 +15,9 @@ description: Off Grid AI remembers your work and helps get tasks done. Your alwa
 
 **Your own AI, already up to speed.**
 
-Off Grid AI is your always-on private assistant. It remembers meetings, screen activity, and conversations so you can find a decision, pick up a project, or prepare a follow-up.
+Run your own AI locally, on hardware you own. Off Grid AI is an always-on assistant that remembers your meetings, screen activity, and conversations. Your context stays with you across your phone and computer.
 
-Talk to it in your own language, hands-free. Keep your phone and computer in sync. Let it carry out tasks in your apps and browser, with your approval. Your AI memory stays on your hardware.
+Speak your language, hands-free. Find a past decision. Let your AI carry out tasks in your apps and browser. You stay in control.
 
 Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync, and actions.
 

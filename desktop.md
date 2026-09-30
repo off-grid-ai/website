@@ -4,13 +4,13 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: Give your work a private AI assistant. Off Grid AI Desktop helps you remember meetings, find past work, and carry out tasks with your approval.
+description: Run your own AI locally on your computer. Off Grid AI Desktop helps you remember meetings, find past work, and carry out tasks with your approval.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">OGAD - macOS + Windows + Linux</div>
   <h1>Your work has history.<br>Your AI remembers it.</h1>
-  <p class="early-access-sub">Get help where your work happens. Start free with chat, writing, and document tools. Add Pro to remember meetings, search your day, and carry out tasks in your apps and browser.</p>
+  <p class="early-access-sub">Run your own AI where your work happens. Choose local models for chat, writing, and documents. Add Pro to remember meetings, search your day, and carry out tasks in your apps and browser.</p>
 </div>
 
 <div class="hero-buttons">

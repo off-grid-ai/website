@@ -1,6 +1,6 @@
 # Off Grid AI
 
-Off Grid AI is an always-on personal AI for your phone and computer. It remembers your work and helps get tasks done. Local AI memory stays on your devices.
+Off Grid AI lets you run your own models locally on your phone and computer, with an always-on personal assistant built around your work. It remembers your work and helps get tasks done. Local AI memory stays on your devices.
 
 The free core provides local AI chat, image generation, and document tools. Off Grid AI Pro adds memory, Sync between devices, and actions you approve. The apps are available on iOS, Android, macOS, Windows, and Linux.
 

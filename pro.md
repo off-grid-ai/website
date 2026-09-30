@@ -3,13 +3,13 @@ layout: default
 title: Pro
 nav_order: 6
 nav_group: Products
-description: Your work, remembered. Your next task, ready to move. Off Grid AI Pro brings private memory, Sync, and actions to your phone and computer.
+description: Your own local AI, with a memory of your working day. Off Grid AI Pro connects your devices, remembers your work, and acts with your approval.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Pro · Live now</div>
   <h1>Your day moves on.<br>Your AI keeps up.</h1>
-  <p class="early-access-sub">An always-on assistant that remembers your work and helps with what comes next. Find a meeting decision. Pick up an open task. Let your AI act with your approval. Your memory stays on your devices.</p>
+  <p class="early-access-sub">Your own local AI, with a memory of your working day. Find a meeting decision. Pick up an open task. Let your AI act with your approval. Your memory stays on your devices.</p>
 </div>
 
 <div class="hero-buttons">
