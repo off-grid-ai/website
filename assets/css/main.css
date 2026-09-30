@@ -1202,13 +1202,22 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .mobile-search-btn { background: none; border: none; cursor: pointer; color: var(--text-secondary); padding: 4px; }
 .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 99; }
 .mobile-overlay.visible { display: block; }
+.mobile-menu-close { display: none; }
 
 @media (max-width: 768px) {
   .mobile-topbar { display: flex; }
   .content [id] { scroll-margin-top: 70px; }
   .layout { display: block; }
-  .sidebar { position: fixed; left: -280px; top: 0; height: 100vh; width: 280px; z-index: 100; transition: left 0.25s ease; box-shadow: none; }
-  .sidebar.open { left: 0; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }
+  .sidebar, .announcement-bar ~ .layout .sidebar { position: fixed; left: 0; top: 0; height: 100dvh; width: min(320px, calc(100vw - 48px)); z-index: 102; transform: translateX(-100%); visibility: hidden; transition: transform 0.2s ease, visibility 0.2s; box-shadow: none; overscroll-behavior: contain; }
+  .sidebar.open, .announcement-bar ~ .layout .sidebar.open { transform: translateX(0); visibility: visible; }
+  .sidebar-nav { flex: none; overflow: visible; }
+  .sidebar > * { flex-shrink: 0; }
+  .sidebar-footer { margin-top: auto; padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+  .sidebar-logo { position: sticky; top: 0; background: var(--bg-subtle); z-index: 1; gap: 8px; }
+  .sidebar-logo .theme-toggle { margin-left: auto; }
+  .mobile-menu-close { display: block; }
+  .mobile-menu-btn, .mobile-menu-close { min-width: 44px; min-height: 44px; }
+  .mobile-overlay { z-index: 101; }
   .main { padding: 28px 20px 60px; max-width: 100%; }
   .content h1 { font-size: 1.5rem; }
   .hero-buttons { gap: 8px; }
@@ -1222,6 +1231,10 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   .early-access-hero h1 { font-size: 1.875rem; }
   .ea-essay-links { grid-template-columns: 1fr; }
   .essay-early-access { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .announcement-bar ~ .layout .sidebar { transition: none; }
 }
 
 @media (max-width: 640px) {
