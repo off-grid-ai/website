@@ -1,0 +1,81 @@
+{% if include.home %}
+{% assign articles = site.pages | where_exp: "item", "item.devto_article == true or item.parent == 'Perspectives' or item.parent == 'Ethos' or item.parent == 'Guides'" %}
+{% else %}
+{% assign articles = site.pages | where: "devto_article", true | sort: "published_at" | reverse %}
+{% endif %}
+
+<div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% endif %}>
+  <div class="article-search-row">
+    <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% else %}articles{% endif %}</label>
+    <input id="article-search" class="article-search-input" type="search" placeholder="Try transcription, PDF, Android, sync..." autocomplete="off">
+  </div>
+
+  {% if include.home %}
+  <div class="article-topics home-learning-topics" role="group" aria-label="Filter by section">
+    {% assign sections = 'Perspectives|Ethos|Articles|Guides' | split: '|' %}
+    {% for section in sections %}
+    {% if section == 'Articles' %}
+      {% assign matches = articles | where: 'devto_article', true %}
+    {% else %}
+      {% assign matches = articles | where: 'parent', section %}
+    {% endif %}
+    <button class="article-topic" type="button" data-topic="{{ section }}" aria-pressed="false">
+      <span class="article-topic-name">{{ section }}</span>
+      <span class="article-topic-count">{{ matches.size }} pages</span>
+      <span class="article-topic-desc">{% case section %}{% when 'Perspectives' %}Explore where personal AI is going and how it could change your daily work.{% when 'Ethos' %}Read why we build AI that runs on hardware you own, with your data under your control.{% when 'Articles' %}Find a task you want to do. Search articles by topic and device.{% when 'Guides' %}Set up the app, choose a model, and follow step-by-step instructions.{% endcase %}</span>
+    </button>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="article-topics" role="group" aria-label="Filter by topic">
+    <button class="article-topic is-active" type="button" data-topic="" aria-pressed="true">
+      <span class="article-topic-name">All topics</span>
+      <span class="article-topic-count">{{ articles.size }} guides</span>
+    </button>
+    {% for section in site.data.article_sections %}
+    {% assign matches = articles | where: "article_topic", section.name %}
+    <button class="article-topic" type="button" data-topic="{{ section.name | escape }}" aria-pressed="false">
+      <span class="article-topic-name">{{ section.name }}</span>
+      <span class="article-topic-count">{{ matches.size }} guides</span>
+      <span class="article-topic-desc">{{ section.description }}</span>
+    </button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="article-toolbar">
+    <div class="article-toolbar-title">
+      <h2 id="article-result-title">{% if include.home %}Latest updates{% else %}Latest articles{% endif %}</h2>
+      <p id="article-result-count" role="status" aria-live="polite"></p>
+    </div>
+    <div class="article-toolbar-controls">
+      <label for="article-platform">Device</label>
+      <select id="article-platform">
+        <option value="">All devices</option>
+        <option>Android</option><option>iPhone</option><option>Mac</option><option>Windows</option>
+        <option>Linux</option><option>Phone</option><option>Computer</option>
+        <option>Across devices</option><option>Any device</option>
+      </select>
+      <label for="article-sort">Sort</label>
+      <select id="article-sort"><option value="newest">Newest</option><option value="title">Title A–Z</option></select>
+      <button id="article-clear" class="article-clear" type="button">Clear filters</button>
+    </div>
+  </div>
+
+  <div id="article-results" class="article-results">
+    {% for article in articles %}
+    {% assign topic = article.article_topic %}
+    {% if include.home %}
+      {% if article.devto_article %}{% assign topic = 'Articles' %}{% else %}{% assign topic = article.parent %}{% endif %}
+    {% endif %}
+    <a class="guide-card article-result" href="{{ article.url | relative_url }}" data-topic="{{ topic | escape }}" data-keywords="{{ article.article_topic | escape }}" data-platform="{{ article.article_platform | default: 'Any device' | escape }}" data-date="{{ article.published_at | escape }}">
+      <span class="article-result-meta">{{ topic }} · {{ article.article_platform | default: 'Any device' }}{% if article.published_at %} · {{ article.published_at | date: "%d %b %Y" }}{% endif %}</span>
+      <span class="guide-card-title">{{ article.title | escape }}</span>
+      <span class="guide-card-desc">{{ article.description | escape }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  <p id="article-empty" class="article-empty" hidden>No {% if include.home %}pages{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
+  <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home %}pages{% else %}articles{% endif %}</button>
+</div>
+

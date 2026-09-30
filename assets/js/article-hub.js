@@ -12,21 +12,74 @@
   var count = document.getElementById('article-result-count');
   var results = document.getElementById('article-results');
   var topics = Array.from(hub.querySelectorAll('.article-topic'));
+  var topicPanel = hub.querySelector('.article-topics');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var topicsHidden = false;
+  var topicAnimation;
+  var contentAnimations = [];
+
+  function setTopicsHidden(hidden) {
+    if (hidden === topicsHidden) return;
+    topicsHidden = hidden;
+    if (topicAnimation) topicAnimation.cancel();
+    contentAnimations.forEach(function (animation) { animation.cancel(); });
+    contentAnimations = [];
+    // Exclude fading controls from keyboard navigation immediately.
+    topicPanel.inert = hidden;
+    topicPanel.setAttribute('aria-hidden', String(hidden));
+
+    function updateLayout() {
+      var following = [];
+      for (var element = topicPanel.nextElementSibling; element; element = element.nextElementSibling) {
+        if (!element.hidden) following.push({ element: element, top: element.getBoundingClientRect().top });
+      }
+      topicPanel.hidden = hidden;
+      if (reducedMotion.matches || !topicPanel.animate) return;
+      following.forEach(function (item) {
+        var offset = item.top - item.element.getBoundingClientRect().top;
+        if (!offset) return;
+        contentAnimations.push(item.element.animate([
+          { transform: 'translateY(' + offset + 'px)' },
+          { transform: 'translateY(0)' }
+        ], { duration: 200, easing: 'ease-out' }));
+      });
+    }
+
+    if (reducedMotion.matches || !topicPanel.animate) {
+      updateLayout();
+    } else if (hidden && !topicPanel.hidden) {
+      topicAnimation = topicPanel.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 150, easing: 'ease-out'
+      });
+      topicAnimation.onfinish = function () {
+        if (topicsHidden) updateLayout();
+      };
+    } else {
+      updateLayout();
+      topicAnimation = topicPanel.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 150, easing: 'ease-out'
+      });
+    }
+  }
   var entries = Array.from(hub.querySelectorAll('.article-result')).map(function (element) {
     var heading = element.querySelector('.guide-card-title').textContent;
     var description = element.querySelector('.guide-card-desc').textContent;
     return {
       element: element,
       heading: heading.toLocaleLowerCase(),
-      text: (heading + ' ' + description + ' ' + element.dataset.topic + ' ' + element.dataset.platform).toLocaleLowerCase(),
+      text: (heading + ' ' + description + ' ' + element.dataset.topic + ' ' + element.dataset.platform + ' ' + (element.dataset.keywords || '')).toLocaleLowerCase(),
       date: element.dataset.date
     };
   });
   var selectedTopic = '';
-  var visible = 24;
+  var pageSize = Number(hub.dataset.pageSize) || 24;
+  var resultLabel = hub.dataset.resultLabel || 'guides';
+  var defaultTitle = hub.dataset.defaultTitle || 'Latest articles';
+  var visible = pageSize;
 
   function render() {
     var query = search.value.trim().toLocaleLowerCase();
+    setTopicsHidden(Boolean(query));
     var terms = query.split(/\s+/).filter(Boolean);
     var device = platform.value;
     var matches = entries.filter(function (entry) {
@@ -53,10 +106,10 @@
       entry.element.hidden = false;
       results.appendChild(entry.element);
     });
-    title.textContent = query ? 'Search results' : (selectedTopic || 'Latest articles');
+    title.textContent = query ? (selectedTopic ? 'Search results in ' + selectedTopic : 'Search results') : (selectedTopic || defaultTitle);
     count.textContent = matches.length ?
-      'Showing ' + Math.min(visible, matches.length) + ' of ' + matches.length + ' guides' :
-      '0 guides';
+      'Showing ' + Math.min(visible, matches.length) + ' of ' + matches.length + ' ' + resultLabel :
+      '0 ' + resultLabel;
     empty.hidden = matches.length > 0;
     more.hidden = matches.length <= visible;
     topics.forEach(function (button) {
@@ -68,22 +121,22 @@
 
   topics.forEach(function (button) {
     button.addEventListener('click', function () {
-      selectedTopic = button.dataset.topic;
-      visible = 24;
+      selectedTopic = selectedTopic === button.dataset.topic ? '' : button.dataset.topic;
+      visible = pageSize;
       render();
     });
   });
   [search, platform, sort].forEach(function (control) {
-    control.addEventListener('input', function () { visible = 24; render(); });
-    control.addEventListener('change', function () { visible = 24; render(); });
+    control.addEventListener('input', function () { visible = pageSize; render(); });
+    control.addEventListener('change', function () { visible = pageSize; render(); });
   });
-  more.addEventListener('click', function () { visible += 24; render(); });
+  more.addEventListener('click', function () { visible += pageSize; render(); });
   clear.addEventListener('click', function () {
     search.value = '';
     platform.value = '';
     sort.value = 'newest';
     selectedTopic = '';
-    visible = 24;
+    visible = pageSize;
     render();
     search.focus();
   });

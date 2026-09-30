@@ -576,6 +576,9 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .article-search-input::placeholder { color: var(--text-muted); }
 .article-search-input:focus-visible, .article-topic:focus-visible, .article-toolbar select:focus-visible, .article-clear:focus-visible, .article-more:focus-visible, .article-result:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .article-topics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 32px; }
+.article-topics[hidden] { display: none; }
+.home-learning-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.content .home-learning-topics a { text-decoration: none; }
 .article-topic { min-height: 95px; padding: 14px 16px; text-align: left; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; font: inherit; transition: border-color .15s, background .15s; }
 .article-topic:hover { border-color: var(--accent); }
 .article-topic.is-active { border-color: var(--accent); background: var(--accent-subtle); }

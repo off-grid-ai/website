@@ -215,29 +215,14 @@ Privacy here isn't a setting or a promise. It's the default output of the archit
 - [Android Setup]({{ '/guides/android-setup' | relative_url }})
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 
-## Guides
+## Explore Off Grid AI
+{: #guides}
 
-**LLMs**
-- [How to Run LLMs Locally on Your Android Phone in 2026]({{ '/guides/run-llms-locally-android' | relative_url }})
-- [How to Run LLMs Locally on Your iPhone in 2026]({{ '/guides/run-llms-locally-iphone' | relative_url }})
+Find practical help, or read about the ideas behind Off Grid AI.
 
-**Image Generation**
-- [How to Run Stable Diffusion on Your Android Phone]({{ '/guides/stable-diffusion-android' | relative_url }})
-- [How to Run Stable Diffusion on Your iPhone]({{ '/guides/stable-diffusion-iphone' | relative_url }})
+{% include article-hub.html home=true %}
 
-**Vision, Voice and Documents**
-- [Vision AI - Analyse Images and Documents On-Device]({{ '/guides/vision-ai' | relative_url }})
-- [Voice Input - On-Device Speech-to-Text with Whisper]({{ '/guides/voice-stt' | relative_url }})
-- [Document Analysis and Attachments]({{ '/guides/document-analysis' | relative_url }})
-- [Knowledge Base and RAG]({{ '/guides/knowledge-base' | relative_url }})
-
-**Tools and Intelligence**
-- [Tool Calling - Web Search, Calculator, and More]({{ '/guides/tool-calling' | relative_url }})
-
-**Remote Servers**
-- [Remote Servers - Connect Ollama, LM Studio, and LocalAI]({{ '/guides/remote-servers' | relative_url }})
-- [How to Use Ollama From Your Android Phone in 2026]({{ '/guides/ollama-android' | relative_url }})
-- [How to Use LM Studio From Your Android Phone in 2026]({{ '/guides/lm-studio-android' | relative_url }})
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
 
 ---
 
