@@ -69,7 +69,7 @@ A private AI studio on your computer. Chat, vision, image, and voice stay on you
 
 <p class="ea-pricing-note">OGAD <strong>0.0.54</strong> is the current stable release for macOS, Windows x64, and Linux x64. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">Read the release notes</a>.</p>
 
-<p class="ea-pricing-note">Preview builds: <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows nightly</a> · <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="AppImage">Linux AppImage</a> · <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="deb">Linux deb</a>. Linux links find the newest published beta package when you open this page. Preview builds can have rough edges.</p>
+<p class="ea-pricing-note">Beta builds (0.0.55-beta.112): <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg">macOS beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe">Windows beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage" data-beta-download="AppImage">Linux AppImage beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb" data-beta-download="deb">Linux deb beta</a>. These links switch to any newer published beta when you open this page. Beta builds can have rough edges.</p>
 
 ---
 
@@ -92,12 +92,12 @@ Pick the track that fits how much polish you need.
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6m0 0l3-3m-3 3L9 5"/><path d="M5 12H2m20 0h-3"/><path d="M12 22v-6m0 0l3 3m-3-3l-3 3"/></svg>
     </div>
     <div>
-      <div class="perk-title">Preview and nightly</div>
-      <div class="perk-desc">Preview builds from GitHub releases on mobile, nightly builds on macOS and Windows, and beta packages on Linux. These builds can have rough edges.</div>
+      <div class="perk-title">Preview and beta</div>
+      <div class="perk-desc">Preview builds from GitHub releases on mobile, and beta builds on macOS, Windows, and Linux. These builds can have rough edges.</div>
     </div>
   </div>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">Full version history: <a href="{{ '/mobile/releases/' | relative_url }}">Mobile releases</a> · <a href="{{ '/desktop/releases/' | relative_url }}">Desktop releases</a></p>
 
-<script defer src="{{ '/assets/js/linux-preview-download.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/beta-download.js' | relative_url }}"></script>

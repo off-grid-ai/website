@@ -53,9 +53,12 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Linux AppImage stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage
 - Linux deb stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb
 - OGAD 0.0.54 stable release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54
-- macOS nightly: https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg
-- Windows nightly: https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe
-- Linux beta packages: https://github.com/off-grid-ai/OGAD/releases?q=beta (the website resolves the newest published beta AppImage and deb from GitHub releases)
+- macOS beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg
+- Windows beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe
+- Linux AppImage beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage
+- Linux deb beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb
+- OGAD 0.0.55-beta.112 release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.112
+- All beta releases: https://github.com/off-grid-ai/OGAD/releases?q=beta (the website resolves the newest published beta for each platform)
 - Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ
 - Docs: https://getoffgridai.co

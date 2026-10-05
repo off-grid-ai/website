@@ -4,7 +4,7 @@ title: Releases
 parent: Desktop
 nav_order: 1
 permalink: /desktop/releases/
-description: Off Grid AI Desktop releases for macOS, Windows, and Linux. Stable 0.0.54 and preview builds are available.
+description: Off Grid AI Desktop releases for macOS, Windows, and Linux. Stable 0.0.54 and beta 0.0.55-beta.112 are available.
 ---
 
 # OGAD - releases
@@ -12,11 +12,13 @@ description: Off Grid AI Desktop releases for macOS, Windows, and Linux. Stable 
 OGAD 0.0.54 is the current stable release for macOS, Windows x64, and Linux x64. Choose a track below:
 
 - **macOS stable** - version 0.0.54 for Apple Silicon. [Download macOS stable](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg).
-- **macOS nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg). Nightlies rebuild on each change; expect rough edges.
+- **macOS beta** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg">download the newest beta</a> (currently 0.0.55-beta.112). Betas ship ahead of stable; expect rough edges.
 - **Windows x64 stable** - version 0.0.54 for Windows x64. [Download Windows x64 stable](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54).
-- **Windows x64 nightly** - [get the nightly build](https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe). Expect rough edges.
+- **Windows x64 beta** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe">download the newest beta</a> (currently 0.0.55-beta.112). Expect rough edges.
 - **Linux x64 stable** - version 0.0.54. [Download AppImage](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage) or [download deb](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb).
-- **Linux x64 preview** - <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="AppImage">download the newest beta AppImage</a> or <a href="https://github.com/off-grid-ai/OGAD/releases?q=beta" data-linux-preview="deb">download the newest beta deb</a>. These links find the latest published beta packages when you open this page; Linux has no rolling nightly package.
+- **Linux x64 beta** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage" data-beta-download="AppImage">download the newest beta AppImage</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb" data-beta-download="deb">download the newest beta deb</a> (currently 0.0.55-beta.112).
+
+Beta links point at 0.0.55-beta.112 and switch to any newer published beta when you open this page. [Read the 0.0.55-beta.112 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.112).
 
 <p class="ea-pricing-note">Current stable: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">OGAD 0.0.54 on GitHub</a> for macOS, Windows, and Linux. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and preview history</a>.</p>
 
@@ -49,4 +51,4 @@ New work lands in preview builds before it reaches stable. Stable is the recomme
 
 <p class="ea-pricing-note">Every version, with full notes and downloads, is on <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">GitHub releases</a>.</p>
 
-<script defer src="{{ '/assets/js/linux-preview-download.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/beta-download.js' | relative_url }}"></script>

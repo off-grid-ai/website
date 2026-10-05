@@ -484,13 +484,13 @@
         return;
       }
       // Desktop installers
-      if (/\.(dmg|exe|AppImage|deb)(?:$|\?)/.test(href) || el.hasAttribute('data-linux-preview')) {
-        var linux = el.hasAttribute('data-linux-preview') || href.indexOf('.AppImage') !== -1 || href.indexOf('.deb') !== -1;
+      if (/\.(dmg|exe|AppImage|deb)(?:$|\?)/.test(href) || el.hasAttribute('data-beta-download')) {
+        var linux = href.indexOf('.AppImage') !== -1 || href.indexOf('.deb') !== -1 || /^(AppImage|deb)$/.test(el.getAttribute('data-beta-download') || '');
         posthog.capture('desktop_download_click', {
           href: href,
           page: page,
-          build: linux && el.hasAttribute('data-linux-preview') ? 'beta' : (href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'),
-          platform: linux ? 'linux' : (href.indexOf('.exe') !== -1 ? 'windows' : 'macos')
+          build: el.hasAttribute('data-beta-download') || /-beta\./.test(href) ? 'beta' : (href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'),
+          platform: linux ? 'linux' : (href.indexOf('.exe') !== -1 || el.getAttribute('data-beta-download') === 'exe' ? 'windows' : 'macos')
         });
         return;
       }

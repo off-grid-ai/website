@@ -1,6 +1,13 @@
 (function () {
-  var links = document.querySelectorAll('a[data-linux-preview]');
+  var links = document.querySelectorAll('a[data-beta-download]');
   if (!links.length) return;
+
+  var suffixes = {
+    dmg: '.dmg',
+    exe: '-setup.exe',
+    AppImage: '.AppImage',
+    deb: '_amd64.deb'
+  };
 
   fetch('https://api.github.com/repos/off-grid-ai/OGAD/releases?per_page=100', {
     headers: { Accept: 'application/vnd.github+json' }
@@ -17,8 +24,8 @@
       });
 
       links.forEach(function (link) {
-        var format = link.getAttribute('data-linux-preview');
-        var suffix = format === 'AppImage' ? '.AppImage' : '_amd64.deb';
+        var suffix = suffixes[link.getAttribute('data-beta-download')];
+        if (!suffix) return;
         var asset;
         betas.some(function (release) {
           asset = release.assets.find(function (item) {
@@ -30,6 +37,6 @@
       });
     })
     .catch(function () {
-      // The links still open GitHub's beta release list.
+      // The links keep their pinned beta download.
     });
 }());

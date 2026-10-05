@@ -116,7 +116,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly.dmg">macOS nightly</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/nightly/OffGrid-nightly-setup.exe">Windows x64 nightly</a>, or the <a href="{{ "/desktop/releases/" | relative_url }}">Linux beta AppImage and deb packages</a>. Preview builds can have rough edges.</p>
+<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the 0.0.55-beta.112 <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg">macOS beta</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe">Windows x64 beta</a>, or the <a href="{{ "/desktop/releases/" | relative_url }}">Linux beta AppImage and deb packages</a>. Beta builds can have rough edges.</p>
 
 ---
 
@@ -275,7 +275,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows and Linux?** Stable version 0.0.54 is available for Windows x64 and Linux x64. Windows has a nightly build. Linux has beta AppImage and deb packages on the [releases page]({{ "/desktop/releases/" | relative_url }}).
+**What about Windows and Linux?** Stable version 0.0.54 is available for Windows x64 and Linux x64. Both have beta builds, including Linux AppImage and deb packages, on the [releases page]({{ "/desktop/releases/" | relative_url }}).
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 
