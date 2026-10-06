@@ -419,6 +419,18 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   margin-bottom: 6px;
 }
 .content p { margin-bottom: 16px; color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; }
+
+/* Keep article images inside the text column without changing their proportions. */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+}
+.article-content p > img,
+.article-content p > a > img {
+  display: block;
+  margin-inline: auto;
+}
+
 .content strong { color: var(--text-primary); font-weight: 600; }
 .content a:not(.btn) { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-subtle-border); }
 .content a:not(.btn):hover { text-decoration-color: var(--accent); }

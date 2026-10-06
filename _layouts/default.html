@@ -317,7 +317,7 @@
         <span class="essay-reaction-thanks" id="reactionThanks" hidden></span>
       </div>
 
-      <article class="content" data-pagefind-body>
+      <article class="content{% if page.url contains '/articles/' %} article-content{% endif %}" data-pagefind-body>
         {{ content }}
       </article>
 
