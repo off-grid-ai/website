@@ -16,7 +16,7 @@ You can run an existing recording through another local speech model in OGAD (Of
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Current releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD](https://getoffgridai.co/assets/cover.png)
+![A recorded meeting in Off Grid AI Desktop with its transcript, plus the speech model and language pickers used to transcribe it again.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 

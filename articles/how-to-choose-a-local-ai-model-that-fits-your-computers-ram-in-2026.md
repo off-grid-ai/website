@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) shows model choices alongside memory guidance. Start 
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop: models on this computer and models to download, each with its size, plus size filters and an Import .gguf button.](https://getoffgridai.co/assets/img/home/app/models-vision-light-1760.webp)
 
 ---
 

@@ -76,6 +76,10 @@ Match the model to your memory, same as you would in LM Studio.
 | 16GB Mac / 32GB PC | Qwen 2.5 7B (q8_0) | Better reasoning and code |
 | 32GB+ | A 12B-14B class model | Top quality, slower first token |
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## How Hardware Acceleration Works
 
 On a Mac, models run on the GPU through Metal, and Apple Silicon shares one memory pool between CPU and GPU. That unified memory is why a laptop holds a 7B model and stays responsive.
@@ -112,11 +116,6 @@ Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your ch
 - More language and image models as they ship.
 - Unified search across chats, documents, and captured work.
 - A richer day view built from what the app remembers.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

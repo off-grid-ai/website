@@ -16,8 +16,6 @@ Your iPhone is often where you decide what to do next. OGAM (Off Grid AI Mobile)
 
 [Download OGAM for iPhone](https://getoffgridai.co/mobile/) | [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

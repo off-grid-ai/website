@@ -16,8 +16,6 @@ You can dictate a note in Hindi, Spanish, French, or another supported language 
 
 [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [iPhone setup guide](https://getoffgridai.co/guides/ios-setup/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) includes a **server-only** mode that starts the local
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![The Gateway in Off Grid AI Desktop: a local OpenAI-compatible API at 127.0.0.1 with endpoints for chat, images, speech, transcription and embeddings.](https://getoffgridai.co/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

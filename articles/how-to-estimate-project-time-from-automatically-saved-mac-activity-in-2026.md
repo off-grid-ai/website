@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can estimate the distribution from your captured Mac 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Reflect in Off Grid AI Desktop: time by project, person and app for the day, with focus and context-switching stats.](https://getoffgridai.co/assets/img/home/app/reflect-light-1760.webp)
 
 ---
 

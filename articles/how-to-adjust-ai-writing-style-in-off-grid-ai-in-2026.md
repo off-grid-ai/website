@@ -18,9 +18,6 @@ The setting that helps an AI brainstorm names may not give you the clearest step
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

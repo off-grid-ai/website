@@ -30,16 +30,12 @@ That's what Off Grid is.
 <table>
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/other-1-light-640.webp" alt="The Off Grid home screen once set up: downloaded models by type and a New Chat button" width="200" height="434" style="object-fit: cover;" />
-        <b>Home and downloaded models (iPhone)</b>
-      </td>
-      <td align="center">
         <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="OGAM on iPhone showing a draft reply for the Acme example project" width="200" height="434" style="object-fit: cover;" />
         <b>Example chat (iPhone)</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="OGAM generating a dog image locally on iPhone with a Core ML Stable Diffusion model" width="200" height="434" style="object-fit: cover;" />
-        <b>Local image generation (iPhone)</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." width="200" height="434" style="object-fit: cover;" />
+        <b>Image generation (iPhone)</b>
       </td>
 </tr>
 <tr>

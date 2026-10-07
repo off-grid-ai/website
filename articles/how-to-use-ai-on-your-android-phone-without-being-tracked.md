@@ -50,21 +50,15 @@ Here's what "completely on your device" actually means:
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
-
 <table>
     <tr>
-      <td align="center">
-        <img src="/assets/img/home/mobile/other-1-light-640.webp" alt="The Off Grid home screen once set up: downloaded models by type and a New Chat button" width="200" height="434" style="object-fit: cover;" />
-        <b>Home and downloaded models (iPhone)</b>
-      </td>
       <td align="center">
         <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="OGAM on iPhone showing a draft reply for the Acme example project" width="200" height="434" style="object-fit: cover;" />
         <b>Example chat (iPhone)</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
-        <b>Image generation (Android)</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." width="200" height="434" style="object-fit: cover;" />
+        <b>Image generation (shown on iPhone)</b>
       </td>
 </tr>
 <tr>

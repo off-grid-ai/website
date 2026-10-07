@@ -46,6 +46,10 @@ The image studio runs on `stable-diffusion.cpp`. For photoreal work, the control
 
 Every image lands on your disk and nowhere else. You can disconnect and keep generating.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## Prompting for Photorealism
 
 RealVisXL responds well to plain descriptive language plus photographic terms. Name the lens, the lighting, and the film look.
@@ -89,11 +93,6 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 - More curated GGUF image checkpoints in the Models browser.
 - Cross-device sync so your gallery follows you between machines.
 - Continued tuning of generation controls and the live preview.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

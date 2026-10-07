@@ -18,7 +18,7 @@ OGAM (Off Grid AI Mobile) exposes a **GPU (OpenCL)** backend for supported Andro
 
 [Get OGAM for Android](https://getoffgridai.co/mobile/)
 
-![Off Grid AI Mobile](https://getoffgridai.co/assets/cover.png)
+![The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs.](https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp)
 
 ---
 

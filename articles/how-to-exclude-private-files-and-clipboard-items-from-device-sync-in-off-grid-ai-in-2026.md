@@ -16,8 +16,6 @@ You want a conversation to follow you to your laptop, but not every screenshot o
 
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

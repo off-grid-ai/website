@@ -19,9 +19,9 @@ Your laptop has a GPU and 16GB of RAM that mostly idle while you tab between Not
 Free, open-source, runs offline.
 
 
-![Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-light-1760.webp)
 
-*Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
 ## What this gets you
 
@@ -68,6 +68,10 @@ Third, the app executes and logs. Only after your approval does the connector ru
 
 This is the opposite of an agent that fires off changes and tells you afterward. The model never touches your Jira board or your Notion workspace without a logged approval first.
 
+![Off Grid AI God: connected work with explicit Approve and Deny controls.](/assets/img/home/app/god-dark-1760.webp)
+
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
+
 ## How Hardware Acceleration Works
 
 The model runs on the bundled `llama.cpp` server. On a Mac it uses Metal and unified memory, so a quantized model shares one memory pool across CPU and GPU and runs at usable speed on M-series chips.
@@ -109,11 +113,6 @@ You still send credentials to the third-party services you connect, that is unav
 - More connectors beyond the current set.
 - Cross-device sync, so an approval queue on your laptop reflects on your other machines without a server in the middle.
 - Richer audit views for teams that need a clear history of what ran.
-
-
-![Off Grid AI God: connected work with explicit Approve and Deny controls.](/assets/img/home/app/god-dark-1760.webp)
-
-*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 

@@ -18,8 +18,6 @@ OGAM (Off Grid AI Mobile) lets you adjust **Context Length** for supported GGUF 
 
 [Get OGAM for Android or iPhone](https://getoffgridai.co/mobile/)
 
-![Off Grid AI Mobile](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

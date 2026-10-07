@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) brings those local model types into one app. On a Mac
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

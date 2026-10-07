@@ -18,9 +18,6 @@ Your local AI stops answering. Before you delete models or reinstall the app, ch
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

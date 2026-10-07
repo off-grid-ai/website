@@ -16,7 +16,7 @@ You have a picture in mind, but typing a detailed prompt on your iPhone is awkwa
 
 [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
+![OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture.](https://getoffgridai.co/assets/img/home/mobile/imagegen-ios-1-light-640.webp)
 
 ---
 

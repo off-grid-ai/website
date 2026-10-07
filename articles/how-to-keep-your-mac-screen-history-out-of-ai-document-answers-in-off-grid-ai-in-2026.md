@@ -18,9 +18,6 @@ OGAD (Off Grid AI Desktop) Pro lets you switch off **Include captured memory** f
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

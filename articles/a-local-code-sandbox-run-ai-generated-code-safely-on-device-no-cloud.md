@@ -116,11 +116,6 @@ Off Grid AI Desktop sees none of that, because there is no server in the loop. T
 - A shared local API so other on-device tools can reuse the same preview.
 - Cross-device sync so a sandbox you build on one machine shows up on another, still without a cloud middleman.
 
-
-![Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
-
-*Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.*
-
 ## FAQ
 
 ### Q: Is it really free?

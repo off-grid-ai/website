@@ -59,6 +59,10 @@ Off Grid AI Desktop bundles `whisper.cpp`, a C++ port of Whisper that runs witho
 
 **Pair it with the local LLM.** Dictate a rough question, let the on-device model answer, read the answer, dictate a follow-up. The whole loop stays on your hardware.
 
+![The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.](/assets/img/home/app/models-transcription-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.*
+
 ## How It Works
 
 The flow is short. You press the mic. The app records audio from your input device. `whisper.cpp` loads the model into memory and decodes the audio into text. The text appears in the composer. That is the entire path, and every step happens locally.
@@ -115,11 +119,6 @@ That is it. No sign-up wall, no key to paste.
 - Push-to-talk and hotkey dictation outside the composer
 - Tighter integration with the meeting recorder for live captions
 - Cross-device sync so a phrase dictated on one machine reaches another
-
-
-![The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.](/assets/img/home/app/models-transcription-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.*
 
 ## FAQ
 

@@ -17,7 +17,7 @@ A forgotten master password does not have to mean losing access to your saved lo
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![The locked Off Grid AI Vault asking for the master password, with the option to recover it with your recovery phrase.](https://getoffgridai.co/assets/img/home/app/vault-locked-light-1760.webp)
 
 ---
 

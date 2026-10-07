@@ -16,8 +16,6 @@ You can generate an AI image on your phone and open the result on your computer 
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

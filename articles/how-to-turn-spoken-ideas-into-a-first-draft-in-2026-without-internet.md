@@ -16,8 +16,6 @@ You know what the email needs to say, but putting it into sentences takes longer
 
 [Get OGAM for Android or iPhone](https://getoffgridai.co/mobile/) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

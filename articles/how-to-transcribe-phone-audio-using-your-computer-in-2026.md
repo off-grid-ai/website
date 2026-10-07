@@ -16,7 +16,7 @@ Speak into your phone. Let your computer handle the transcription. OGAM (Off Gri
 
 [Download OGAM](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
+![Voice in Off Grid AI Desktop: dictated notes and a transcribed audio file, each turned into text with its to-dos pulled out on your computer.](https://getoffgridai.co/assets/img/home/app/voice-light-1760.webp)
 
 ---
 

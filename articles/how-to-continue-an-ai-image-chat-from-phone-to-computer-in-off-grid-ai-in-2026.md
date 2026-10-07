@@ -16,8 +16,6 @@ Your image idea can start on the phone without staying there. OGAM (Off Grid AI 
 
 [Download OGAM](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

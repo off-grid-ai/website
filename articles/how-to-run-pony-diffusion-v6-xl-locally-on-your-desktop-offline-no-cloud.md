@@ -18,10 +18,6 @@ A mid-range gaming PC with an 8 GB graphics card has enough VRAM to run a full S
 
 Free, open-source, runs fully offline.
 
-
-
-*OGAD image chat example using RealVisXL Lightning. Select the model covered in this article for your own generation.*
-
 ## Why Pony Diffusion V6 XL
 
 Pony Diffusion V6 XL is a versatile SDXL checkpoint built for character work. It is strong at anime, stylized illustration, and original character art, and it stays consistent across poses and styles in a way base SDXL struggles with. It is one of the most popular community checkpoints for a reason: it does characters well.
@@ -56,6 +52,10 @@ The image studio lives inside a full local AI app. For character and illustratio
 - Keep every render in an artifacts gallery with a lightbox for comparing variations.
 
 The same window includes local LLM chat, voice in and out, and a Hugging Face model browser, so you can build a tag list with a local model and render it without leaving the app.
+
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## How Hardware Acceleration Works
 
@@ -99,11 +99,6 @@ city street at night, neon lights, anime style
 - More community checkpoints curated in the model browser.
 - Cross-device sync so your art moves between machines.
 - Unified search across your generated artifacts.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

@@ -20,8 +20,6 @@ This is a Pro device-sync workflow. Set up the apps and activate access while yo
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

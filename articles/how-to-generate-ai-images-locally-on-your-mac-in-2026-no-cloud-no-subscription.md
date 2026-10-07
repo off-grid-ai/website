@@ -61,6 +61,10 @@ Match the model to your memory and your patience.
 
 SDXL-Lightning and Z-Image-Turbo are the comfortable defaults on most Macs. They reach a usable image in far fewer steps than standard SDXL, which is the single biggest lever on how long you wait.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Hardware Acceleration Works
 
 Image generation is a denoising loop. The model starts from noise and refines it step by step, and each step is dense matrix math. Metal runs that math on your Mac's GPU cores directly.
@@ -100,11 +104,6 @@ Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no acco
 - Tighter integration between image generation and the rest of the local studio.
 
 Grounded roadmap. The local spine comes first.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

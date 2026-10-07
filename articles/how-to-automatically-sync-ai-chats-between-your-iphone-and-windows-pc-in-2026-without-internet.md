@@ -18,8 +18,6 @@ After pairing, chat updates move automatically over your local network without a
 
 [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Download OGAD for Windows](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

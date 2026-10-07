@@ -18,8 +18,6 @@ Off Grid is a free, open-source app that runs AI image generation on your iPhone
 
 [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
-
 ## What You Need
 
 **Minimum:** iPhone 12 (A14 Bionic), iOS 17+. Palettized models (about 1GB) will run. Expect 20 to 35 seconds per image.
@@ -37,8 +35,8 @@ The model starts with random noise and refines it over multiple denoising steps 
 <table align="center">
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="OGAM generating a dog image locally on iPhone with a Core ML Stable Diffusion model" width="200" height="434" style="object-fit: cover;" />
-        <b>Local image generation (iPhone)</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." width="200" height="434" style="object-fit: cover;" />
+        <b>Image generation (iPhone)</b>
       </td>
 </tr>
 </table>

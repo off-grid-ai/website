@@ -123,11 +123,6 @@ Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtim
 - Editing an artifact in place and re-rendering on the fly.
 - Saving artifacts into projects alongside your documents.
 
-
-![Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
-
-*Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.*
-
 ## FAQ
 
 ### Q: Is it really free?

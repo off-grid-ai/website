@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) can run Qwen-Image 2.1 locally for image generation a
 
 [Download OGAD beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

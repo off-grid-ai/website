@@ -87,6 +87,10 @@ Pick a model that fits your memory. Quantized GGUF files are small enough for co
 
 These are the same open-weight families Ollama pulls, so nothing here is locked in.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## How Hardware Acceleration Works
 
 On a Mac, the model runs on the GPU through Metal, and Apple Silicon shares one pool of memory between CPU and GPU. That unified memory is why a laptop can hold a 7B model and respond fast.
@@ -125,11 +129,6 @@ You are running local AI in a few minutes, with a real interface.
 - More image and language models as they ship.
 - Unified search across chats, documents, and captured work.
 - Deeper screen-capture-to-memory so the app remembers what you worked on.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

@@ -18,8 +18,6 @@ OGAM (Off Grid AI Mobile) Pro supports MCP servers on Android and iPhone. Add a 
 
 [Download OGAM](https://getoffgridai.co/mobile/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

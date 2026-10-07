@@ -19,7 +19,7 @@ The problem is that tool calling has always been a cloud feature. OpenAI functio
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) supports tool calling on your phone, with both on-device and remote models. No API keys. No cloud. No cost per call.
 
 <div style="width: 100%;">
-  <img width="320" alt="An answer in Off Grid on the phone; Tools sent in request (3) under it shows the model was handed tools for the reply" src="/assets/img/home/mobile/project-ios-2-light-640.webp" />
+  <img width="320" alt="OGAM on iPhone calling its calculator tool: the call 40 * 6 * 5 = 1200 is shown under Work done, then the answer of 1200 seat-days." src="/assets/img/home/mobile/tools-ios-1-light-640.webp" />
 </div>
 
 ## What tool calling actually does

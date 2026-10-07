@@ -18,10 +18,6 @@ The GPU in a modern laptop can run a full SDXL anime model without ever touching
 
 Animagine XL 4.0 is an anime-focused SDXL checkpoint. It uses tag-based prompting, the booru-style keyword approach anime models are trained on. You type tags, not paragraphs. The model knows the vocabulary. This guide shows you how to run it locally with no token meter and no upload of your prompts to anyone.
 
-
-
-*OGAD image chat example using RealVisXL Lightning. Select the model covered in this article for your own generation.*
-
 ## What You Need
 
 The model is a quantized GGUF build, so it fits in consumer memory. Pick your tier.
@@ -44,6 +40,10 @@ The image studio runs on `stable-diffusion.cpp`. You get a real workflow, not a 
 - Use style presets like Anime, Cinematic, and Sketch as a starting point, then refine with tags.
 
 Every one of those results stays on your disk. Nothing uploads. You can pull the wifi and keep working.
+
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## Tag-Based Prompting, Briefly
 
@@ -90,11 +90,6 @@ Off Grid AI Desktop runs the model on your machine. There is no account and no t
 - More curated GGUF image checkpoints in the Models browser.
 - Cross-device sync so your gallery follows you between machines.
 - Continued tuning of the live preview and generation controls.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

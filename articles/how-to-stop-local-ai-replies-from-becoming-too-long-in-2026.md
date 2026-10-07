@@ -18,9 +18,6 @@ OGAD (Off Grid AI Desktop) gives you two ways to control that: ask for a specifi
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

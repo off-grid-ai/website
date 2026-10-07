@@ -17,7 +17,7 @@ A local model can write an answer, but it needs a connection to read current inf
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](https://getoffgridai.co/assets/img/home/app/integrations-light-1760.webp)
 
 ---
 

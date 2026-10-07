@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) can read English assistant replies aloud on your Wind
 
 [Download OGAD beta for Windows](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,10 +18,6 @@ Off Grid is a free, open-source app that runs AI image generation on your phone'
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
-
-
-
 ## What You Need
 
 **Minimum:** 6GB RAM, any recent ARM64 processor. CPU-only generation works but expect 30 to 60 seconds per image.
@@ -40,8 +36,8 @@ A typical generation is 512x512 pixels at 20 denoising steps. That produces a cl
 <table>
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
-        <b>Image generation (Android)</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." width="200" height="434" style="object-fit: cover;" />
+        <b>Image generation (shown on iPhone)</b>
       </td>
 </tr>
   </table>

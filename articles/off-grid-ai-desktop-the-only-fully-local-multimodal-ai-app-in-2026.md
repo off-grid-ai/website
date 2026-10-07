@@ -47,6 +47,10 @@ Text in, text out is the easy part. Here is the rest of the stack, and it all ru
 
 You are not stitching seven apps together. You ask one assistant, and it reaches for whichever modality the task needs.
 
+![An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
+
+*An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.*
+
 ## Off Grid vs the alternatives
 
 | Capability | Off Grid AI Desktop | Ollama / LM Studio | ComfyUI / A1111 | Cloud apps (ChatGPT, etc.) |
@@ -104,11 +108,6 @@ There is no account, so there is no profile to leak. There is no telemetry, so n
 - Cross-device sync over a private mesh, so your paired devices share memory without a server.
 - Using the local gateway from other paired devices over that mesh.
 - More bundled models as quantized formats improve.
-
-
-![An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
-
-*An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.*
 
 ## FAQ
 

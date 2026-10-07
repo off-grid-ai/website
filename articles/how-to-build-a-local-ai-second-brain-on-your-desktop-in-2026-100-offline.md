@@ -73,6 +73,14 @@ Once the loop is running, your second brain shows up in five places. Each one is
 
 Everything in these views came from frames you chose to capture, read and summarized on your hardware.
 
+![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
+
+*Reflect in Off Grid AI Desktop shows where your attention went across the day.*
+
+![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
+
+*Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.*
+
 ## How Hardware Acceleration Works
 
 Running a chat model continuously is what makes the hardware matter.
@@ -117,18 +125,6 @@ No sign-up, no key, no cloud account.
 - Unified search across Day, Entities, and captured observations
 - More capture sources beyond the screen
 - Richer Reflect trends over longer time spans
-
-
-![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
-
-*Reflect in Off Grid AI Desktop shows where your attention went across the day.*
-
-
-*Replay is a scrubbable movie of your day, captured on-device.*
-
-![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
-
-*Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.*
 
 ## FAQ
 

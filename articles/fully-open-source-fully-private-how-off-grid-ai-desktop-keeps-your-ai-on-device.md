@@ -67,6 +67,10 @@ The split is simple. Connectors fetch the data. The on-device model reasons over
 
 And the app never acts on your behalf without you. Actions are approval-gated. There is an approval queue and an audit log. The model proposes; you approve; the log records what happened. Action items detected from your communication are reviewable and never auto-sent.
 
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-light-1760.webp)
+
+*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
+
 ## Why open source is the trust mechanism
 
 A closed app that promises privacy is asking for faith. An open app is offering evidence.
@@ -97,11 +101,6 @@ Off Grid ships an OpenAI-compatible API at `http://127.0.0.1:7878/v1`. Your own 
 - Cross-device sync over a private mesh, so paired devices share memory without a server in the middle.
 - Using the local gateway from other paired devices over that mesh.
 - More bundled open-weight models.
-
-
-![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
-
-*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
 ## FAQ
 

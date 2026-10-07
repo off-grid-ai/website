@@ -48,6 +48,10 @@ The model browser pulls the GGUF build straight from Hugging Face and manages th
 
 **Model page: [offgrid-ai/illustrious-xl-v2.0-GGUF](https://huggingface.co/offgrid-ai/illustrious-xl-v2.0-GGUF)**
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Tag Prompting Works
 
 Illustrious was trained on tagged image data, so it responds to tags, not prose. You write what you want as a list.
@@ -104,11 +108,6 @@ That is the whole loop. Once the model is on disk you can pull the network cable
 - More curated GGUF checkpoints in the model browser, across art styles.
 - Cross-device sync so your artifacts gallery follows you between machines.
 - Broader hardware coverage as `stable-diffusion.cpp` adds backends.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

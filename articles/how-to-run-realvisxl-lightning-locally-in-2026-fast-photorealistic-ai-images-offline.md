@@ -56,6 +56,10 @@ The image studio sits inside a full local AI app. For fast photorealistic work, 
 
 The same window gives you local LLM chat, voice in and out, and a Hugging Face model browser, so you can draft a prompt with a local model and render it without switching apps.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Hardware Acceleration Works
 
 On Windows, Off Grid AI Desktop runs `stable-diffusion.cpp` on CUDA for NVIDIA cards or Vulkan for broader GPU support, with a CPU fallback when no GPU is available. Lightning's low step count means even the CPU path stays usable for occasional renders.
@@ -99,11 +103,6 @@ soft shadows, sharp focus
 - More distilled few-step checkpoints in the model browser.
 - Cross-device sync so renders move between your machines.
 - Unified search across your generated artifacts.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

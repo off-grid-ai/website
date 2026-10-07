@@ -18,7 +18,7 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 
 [Get Off Grid AI](https://getoffgridai.co/) | [Read the privacy policy](https://getoffgridai.co/privacy/)
 
-![Off Grid AI on your own devices](https://getoffgridai.co/assets/cover.png)
+![Off Grid AI Desktop chat: a local Qwen 3.5 9B model answers a work question and cites the meeting and the document it used.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 

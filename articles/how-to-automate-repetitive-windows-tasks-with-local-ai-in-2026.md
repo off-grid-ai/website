@@ -17,7 +17,7 @@ A routine Windows job can mean the same sequence of clicks and typing every time
 [Get OGAD](https://getoffgridai.co/desktop/) | [Current desktop releases]({{ '/desktop/releases/' | relative_url }})
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

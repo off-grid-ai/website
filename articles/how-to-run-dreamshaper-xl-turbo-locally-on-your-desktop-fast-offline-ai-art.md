@@ -46,6 +46,10 @@ The image studio runs on `stable-diffusion.cpp`. The Turbo speed shows up clearl
 
 Because the round trip is short, you iterate quickly. Type, look, adjust, repeat. None of it leaves your disk.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## Why Few Steps Matters
 
 A standard SDXL model often wants 25 to 40 sampling steps for a clean result. Each step is GPU work. DreamShaper XL Turbo was distilled to give a usable image in a small fraction of that. Fewer steps means faster generations, which means you can explore more ideas in the same time.
@@ -84,11 +88,6 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 - More curated GGUF image checkpoints in the Models browser.
 - Cross-device sync so your gallery moves with you.
 - Ongoing improvements to the live preview and generation controls.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

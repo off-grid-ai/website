@@ -112,11 +112,6 @@ npm run dev
 - More bundled models as new open-weight releases land.
 - Unified search across your chats, documents, and captured work.
 
-
-![Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.](/assets/img/home/app/chat-dark-1760.webp)
-
-*Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.*
-
 ## FAQ
 
 ### Q: Is it really free?

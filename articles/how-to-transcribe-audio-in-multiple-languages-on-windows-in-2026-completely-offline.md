@@ -16,8 +16,6 @@ You can dictate a note in Hindi, Spanish, French, or another supported language 
 
 [Download OGAD for Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD brand artwork](https://getoffgridai.co/assets/cover-democratizing-intelligence.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

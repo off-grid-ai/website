@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you generate a blog illustration locally on your
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![An image generated in an Off Grid AI Desktop chat, with the prompt, size, steps, seed and model shown under it.](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 ---
 

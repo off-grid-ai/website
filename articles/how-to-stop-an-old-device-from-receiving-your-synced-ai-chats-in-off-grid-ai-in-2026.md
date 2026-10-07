@@ -16,9 +16,6 @@ You replaced a phone or stopped using a computer. It should no longer receive th
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Get OGAM (Off Grid AI Mobile)](https://getoffgridai.co/mobile/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

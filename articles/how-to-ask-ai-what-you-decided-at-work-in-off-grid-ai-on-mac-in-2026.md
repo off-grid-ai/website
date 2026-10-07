@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro lets you ask questions about work captured on you
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
+![Off Grid AI Desktop chat: a local Qwen 3.5 9B model answers a work question and cites the meeting and the document it used.](/assets/img/home/app/chat-light-1760.webp)
 
 ---
 

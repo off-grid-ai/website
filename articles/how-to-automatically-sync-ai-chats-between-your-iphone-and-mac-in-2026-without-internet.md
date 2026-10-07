@@ -18,8 +18,6 @@ Once paired, the apps sync chat updates automatically. The local-network setup b
 
 [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,8 +18,6 @@ You want local AI, but you do not want your first evening to become a comparison
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Models: text models with download sizes and device requirements.](/assets/img/home/app/models-text-light-1760.webp)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -48,6 +48,10 @@ You get text-to-image and image-to-image. Type a prompt and generate from scratc
 
 Finished images open in a lightbox for full-size viewing. Everything you make lands in an artifacts gallery, so your history is browsable on disk instead of locked in a web account. Style presets like Sketch, Cinematic, and Anime prepend tuned prompt fragments, so you get a consistent look without memorizing keyword soup.
 
+![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
+
+*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
+
 ## Which Models to Use
 
 Different models trade speed for fidelity. Pick one to match your hardware and your patience.
@@ -99,11 +103,6 @@ npm run dev
 - More image models as new open-weight releases ship.
 - Cross-device sync so your artifacts gallery follows you between machines.
 - Unified search across generated images and the rest of your captured work.
-
-
-![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
-
-*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
 
 ## FAQ
 

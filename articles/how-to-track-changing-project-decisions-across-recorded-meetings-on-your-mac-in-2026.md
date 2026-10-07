@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) helps you search past recorded meetings and compare w
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 

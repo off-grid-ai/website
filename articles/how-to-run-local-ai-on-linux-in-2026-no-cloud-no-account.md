@@ -20,8 +20,6 @@ Use **0.0.54 stable** for the core app or **0.0.55-beta.114 preview** for Linux 
 
 [Download for Linux]({{ '/download/' | relative_url }}) | [Off Grid AI](https://getoffgridai.co)
 
-![Off Grid AI — private AI on your own devices](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

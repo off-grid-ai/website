@@ -18,9 +18,6 @@ Start with the task, then decide whether you need Pro.
 
 [Try Off Grid AI](https://getoffgridai.co/) | [Desktop downloads](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

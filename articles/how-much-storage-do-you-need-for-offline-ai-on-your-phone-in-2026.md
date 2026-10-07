@@ -18,7 +18,7 @@ You want offline AI, without filling your phone first.
 
 [Get OGAM for your phone](https://getoffgridai.co/) | [Mobile releases](https://github.com/off-grid-ai/OGAM/releases)
 
-![Off Grid AI Mobile](https://getoffgridai.co/assets/cover.png)
+![The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs.](https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp)
 
 ---
 

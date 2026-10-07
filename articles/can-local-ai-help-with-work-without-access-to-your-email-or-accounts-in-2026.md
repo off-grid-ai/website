@@ -17,7 +17,7 @@ Yes. Local AI can help with work even if you do not connect an inbox, calendar, 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![A project chat in Off Grid AI Desktop answering from the project files and citing the PDF, the DOCX and the meeting it used.](https://getoffgridai.co/assets/img/home/app/projects-light-1760.webp)
 
 ---
 

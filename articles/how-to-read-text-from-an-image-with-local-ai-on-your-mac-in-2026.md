@@ -18,7 +18,7 @@ A photographed notice, a screenshot or a scanned page can contain the exact word
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop filtered to vision models, the local models that can read images, screenshots and documents.](https://getoffgridai.co/assets/img/home/app/models-vision-light-1760.webp)
 
 ---
 

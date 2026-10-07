@@ -71,6 +71,10 @@ For stylized and character work, **Pony Diffusion V6 XL** uses tag-based prompti
 
 You can keep several on disk and switch between them. They are all SDXL-class, so your prompts and settings carry over with minor tweaks.
 
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
+
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
+
 ## A Practical Speed Tip: Match Steps to the Model
 
 The single biggest lever on speed is step count, and it is tied to the model. A standard SDXL checkpoint wants a few dozen steps for a clean result. A Lightning or Turbo model is built to converge in a handful.
@@ -98,11 +102,6 @@ Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your 
 - More curated GGUF checkpoints across styles, added to the model browser.
 - Cross-device sync so your artifacts gallery follows you between machines.
 - Wider hardware support as `stable-diffusion.cpp` gains backends.
-
-
-![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
-
-*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## FAQ
 

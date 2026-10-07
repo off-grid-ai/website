@@ -17,7 +17,7 @@ You repeat a short set of app steps every week: open a document, enter the same 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Current desktop release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

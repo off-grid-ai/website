@@ -16,8 +16,6 @@ You want to practise speaking Spanish before a trip, but there is no conversatio
 
 [Get OGAM for Android or iPhone](https://getoffgridai.co/mobile/) | [Current release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,9 +18,6 @@ OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the peop
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

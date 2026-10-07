@@ -20,7 +20,7 @@ Download OGAD and a compatible image model first. Then the image-to-image workfl
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Image generation in an Off Grid AI Desktop chat: the picture, the prompt behind it and the model settings, all on your computer.](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 ---
 

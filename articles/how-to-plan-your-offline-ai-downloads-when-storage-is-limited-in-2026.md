@@ -16,8 +16,6 @@ You do not need every available model to build a useful offline AI setup. OGAD (
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Models: text models with download sizes and device requirements.](/assets/img/home/app/models-text-light-1760.webp)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

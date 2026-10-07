@@ -16,7 +16,7 @@ You can ask questions about saved voice notes without uploading them to a cloud 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop features and releases](https://github.com/off-grid-ai/OGAD)
 
-![OGAD brand artwork](https://getoffgridai.co/assets/cover-democratizing-intelligence.png)
+![Voice in Off Grid AI Desktop: dictated notes and a transcribed audio file, each turned into text with its to-dos pulled out on your computer.](https://getoffgridai.co/assets/img/home/app/voice-light-1760.webp)
 
 ---
 

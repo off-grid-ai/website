@@ -16,8 +16,6 @@ You can listen to AI replies in supported languages on your Mac without using a 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD brand artwork](https://getoffgridai.co/assets/cover-democratizing-intelligence.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

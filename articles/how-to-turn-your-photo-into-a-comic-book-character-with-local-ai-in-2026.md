@@ -17,7 +17,7 @@ You can put a photo-inspired hero into a comic made on your Mac. OGAD (Off Grid 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![Image generation in an Off Grid AI Desktop chat: the picture, the prompt behind it and the model settings, all on your computer.](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 ---
 

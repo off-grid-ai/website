@@ -66,6 +66,10 @@ The right model depends on whether you want speed or top quality.
 
 On a tight machine, start with SD 1.5. On a strong GPU, SDXL gives the best detail and SDXL-Lightning gives the fastest turnaround. Z-Image-Turbo is the new option when you want quality without a long wait.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Hardware Acceleration Works
 
 Off Grid AI Desktop runs the diffusion model on your GPU through the bundled stable-diffusion.cpp engine.
@@ -112,11 +116,6 @@ npm run dev
 - More image models as new open-weight releases land.
 - Cross-device sync, so your artifacts gallery follows you between machines, encrypted.
 - Unified search across your generated images and the rest of your work.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

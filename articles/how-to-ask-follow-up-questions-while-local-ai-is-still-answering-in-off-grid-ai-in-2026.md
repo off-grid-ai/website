@@ -19,7 +19,7 @@ You ask AI for an outline, then think of the next two things you need before it 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![Off Grid AI Desktop chat: a local Qwen 3.5 9B model answers a work question and cites the meeting and the document it used.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 

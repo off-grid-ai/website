@@ -18,9 +18,6 @@ You may want to clear old AI conversations and generated images without download
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**
