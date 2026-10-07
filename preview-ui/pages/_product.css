@@ -315,3 +315,7 @@
 .pp .planes-dots>div{gap:14px}
 .pp .planes-dots>div>*{margin:0!important}
 .pp .planes-dots button::after{inset:-14px -7px}
+/* The screen sits above the Magic UI frame (as on the home page's phone): no reliance on the SVG mask, whose id repeats per phone. */
+.pp-phone>.pp-screen{z-index:2}
+.pp-phone>div:last-child{z-index:1}
+.ms-tools .chip{display:inline-flex;align-items:center;gap:4px}

@@ -1350,3 +1350,5 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
   .walk-copy{top:6px!important}
 }
 .theme-light{display:none!important}.light .theme-light{display:block!important}.light .theme-dark{display:none!important}
+/* Explorer progress bar: sits below the copy, not under its last line */
+.pillar-tab .pillar-bar{bottom:-12px}

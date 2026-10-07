@@ -87,7 +87,7 @@ export function Wipe({ id, className = '', children }) {
 // Approved proof numbers.
 export function Proof() {
   return <div className="pp-proof">
-    {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
+    {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} startValue={Math.round(v * .92)} />+</b> {l}</span>)}
   </div>;
 }
 
@@ -218,7 +218,7 @@ export function Faq({ items }) {
 export function Phone({ children, time = '09:41', status }) {
   return <div className="pp-phone">
     <div className="pp-screen"><div className="pp-status"><span>{time}</span><span>{status || <><WifiSlash size={10} /> Offline</>}</span></div><div className="pp-screen-in">{children}</div></div>
-    <Iphone src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+    <Iphone />
   </div>;
 }
 // Real phone screens (assets/img/home/mobile, curated: no personal data), wiping left to right in a Magic UI Iphone.
@@ -233,7 +233,7 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
       <Wipe id={`${f}-${i}`}><img className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} src={mobSrc(f)} srcSet={`${mobSrc(f)} 640w, /assets/img/home/mobile/${f}.webp 1290w`} sizes="(max-width: 860px) 300px, 400px" alt={alt} /></Wipe>
     </div>
-    <Iphone src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+    <Iphone />
   </div>;
   if (!controls) return phone;
   return <>{phone}<AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Tap the phone for the next screen." /></>;
