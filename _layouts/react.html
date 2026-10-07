@@ -179,5 +179,6 @@
     if (window.AdClickId) { AdClickId.remember(); }
   </script>
   <script type="module" src="{{ '/assets/preview/pages/' | append: page.react | append: '.js' | relative_url }}?v={{ og_v | strip }}"></script>
+  {% include site-tracking.html %}
 </body>
 </html>
