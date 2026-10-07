@@ -3,67 +3,59 @@ layout: default
 title: Quick Start
 nav_order: 8
 nav_group: Learn
-description: Run your personal AI assistant on hardware you already own. Start with Off Grid AI on Android, iOS, macOS, Windows, or Linux. No account or API key.
+wide: true
+description: Set up Off Grid AI on Android, iOS, macOS, Windows, or Linux. Download a local model, start a chat, and add memory or approved tasks with Pro.
 ---
 
 # Quick Start
 
-Run your personal AI assistant on hardware you already own. No account or API key.
+Your personal AI on hardware you already own. Start free. No account or API key for local chat.
 
----
+## 1. Install
 
-## Step 1 - Choose your platform
-
-**macOS, Windows, and Linux:** [Download Off Grid AI Desktop]({{ '/download/' | relative_url }}). macOS requires Apple Silicon; Windows and Linux builds are x64. See [desktop details]({{ '/desktop/' | relative_url }}).
-
-**iOS:** [Download on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires iPhone 12 or newer (4GB RAM+)
-
-**Android:** [Get it on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires Android 10+, 4GB RAM+
-
-Or download the [OGAM 0.0.111 APK from GitHub](https://github.com/off-grid-ai/OGAM/releases/download/v0.0.111/OffgridMobile-0.0.111-beta.1.apk).
-
----
-
-## Step 2 - Pick a model
-
-Choose a model that fits your memory. These options are a starting point for phones:
-
-| You want | Start with | Size |
+| Platform | Get the app | Requirements |
 |---|---|---|
-| Fast chat, 3–4GB RAM | Qwen 3.5 0.8B | ~0.8GB |
-| Best for most phones | Qwen 3.5 2B | ~1.7GB |
-| Best quality (8GB RAM) | Qwen 3.5 9B | ~5.5GB |
-| Vision + reasoning | Gemma 4 E2B | ~1.5GB |
-| Image generation | SD 1.5 Palettized (iOS) / Absolute Reality (Android) | ~1GB |
+| <svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="macOS"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg> | [Download]({{ '/download/' | relative_url }}) | Apple Silicon |
+| <svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Windows"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg> | [Download]({{ '/download/' | relative_url }}) | x64 |
+| <svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Linux"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> | [AppImage or deb]({{ '/download/' | relative_url }}) | Ubuntu 24.04+, x64 |
+| <svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="iOS"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg> | [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | iOS 17+, iPhone 12+ |
+| <svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Android"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg> | [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | Android 10+, 4GB RAM+ |
 
-> **Not sure?** Pick Qwen 3.5 2B. It fits comfortably in 4GB RAM, supports 262K context, and is the best starting point for most phones.
+Start with stable. Use [preview builds]({{ '/download/' | relative_url }}) for the newest features.
 
----
+## 2. Prepare a model
 
-## Step 3 - Download and run
+**Desktop:** Use the setup flow, or open **Settings → Setup & health**. Review the model downloads and select **Configure**.
 
-Select a model, then **Download**. Keep internet connected until the download finishes.
+**Mobile:** Open **Models**. Choose a small text model, select **Download**, then **Load**.
 
-Select **Load**, then type a message. The model runs on your device.
+Choose a model that fits your available memory. Download size is not the total memory it needs. Add image or speech models when you need them.
 
----
+## 3. Start a chat
 
-## Step 4 - Go offline (optional)
+Open **Chat** with a local text model. Paste a short note and ask:
 
-Disconnect from the internet. Your downloaded local model still works. Online tools and remote models need a connection.
+> Rewrite this in three bullets. Keep the facts. Do not add details.
 
----
+Check the answer. Once the download is complete, local chat works offline. Web tools and remote models need a connection.
 
-## What's next
+## 4. Add memory and actions
 
-- [Which model should I use?]({{ '/guides/which-model' | relative_url }}) - full comparison table by device and use case
-- [Connect your home Ollama server]({{ '/guides/ollama-android' | relative_url }}) - use bigger models from your desktop via LAN
-- [Run Stable Diffusion on Android]({{ '/guides/stable-diffusion-android' | relative_url }}) - generate images completely on-device
+Activate Pro with your license key. Choose what your assistant can capture or remember. On desktop, approve a task in your apps or browser; pause, stop, or take over.
 
----
+Features differ by platform and release. [Check desktop support]({{ '/desktop/releases/' | relative_url }}) or [mobile support]({{ '/mobile/releases/' | relative_url }}).
 
-## Community
+## Next
 
-Stuck, or want to share what you're building? [Join the Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).
+- [Desktop setup and tasks]({{ '/guides/#desktop' | relative_url }})
+- [Mobile setup]({{ '/guides/#mobile' | relative_url }})
+- [Pair your devices]({{ '/articles/how-to-pair-your-phone-and-computer-in-off-grid-ai-in-2026-local-chat-and-file-sync/' | relative_url }}) with Pro Sync
+- [Find a guide for your task]({{ '/articles/' | relative_url }})
 
-The app is open source - [view it on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github).
+Need help? [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ).
+
+## Find your next task
+
+{% include article-hub.html guides=true %}
+
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
