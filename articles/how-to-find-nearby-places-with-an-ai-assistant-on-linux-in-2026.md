@@ -19,7 +19,7 @@ OGAD (Off Grid AI Desktop) can request your Linux computer's location and use it
 [Download OGAD for Linux](https://getoffgridai.co/desktop/)
 
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

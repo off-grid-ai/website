@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you find it in activity captured on your Lin
 
 [Download OGAD for Linux](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Search in Off Grid AI Desktop: one query returns matching chats, meetings, screen moments and people from your own history.](https://getoffgridai.co/assets/img/home/app/search-light-1760.webp)
 
 ---
 
