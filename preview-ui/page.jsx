@@ -32,6 +32,8 @@ import { Marquee } from '@magicui/marquee';
 import { MagicCard } from '@magicui/magic-card';
 import { Iphone } from '@magicui/iphone';
 import { MacbookPro } from '@eldoraui/macbook-pro';
+import { AnimatedGridPattern } from '@magicui/animated-grid-pattern';
+import { Particles } from '@magicui/particles';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import { Ripple } from '@magicui/ripple';
 import { AnimatedList } from '@magicui/animated-list';
@@ -90,37 +92,62 @@ function ModelChip({ name, kind, maker }) {
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
 // Header: where people want to go from any page. Home-only anchors live in the phone menu.
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
-const MENU = [...NAV, ['Articles', '/articles/'], ['Quick start', '/quick-start/'], ['Writing', '/writing/'], ['How it works', '/#how'], ['Privacy', '/#private'], ['Download', '/download/'], ['Get Pro', '/pro/#buy'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']];
+// Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
+const HEADER_MENUS = [
+  ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
+  ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
+  ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
+  ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
+  ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
+];
+const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
 
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261007g';
+// A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
+export function Device({ name, theme, alt, full = false }) {
+  const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
+  const fixed = mobile && n.match(/-(dark|light)$/); const base = fixed ? n.replace(/-(dark|light)$/, '') : n;
+  const src = `/assets/img/home/${mobile ? 'mobile' : 'app'}/${base}-${fixed ? fixed[1] : theme}${full ? '' : `-${mobile ? 640 : 1760}`}.webp?v=${SHOT_V}`;
+  return mobile ? <div className="shot-device-phone" role="img" aria-label={alt}><Iphone src={src} className="shot-device-image" aria-hidden="true" /></div>
+    : <div className="shot-device-mac" role="img" aria-label={alt}><MacbookPro className="shot-device-image" aria-hidden="true" /><div className="shot-device-screen"><img className="shot-device-shot" src={src} alt="" draggable={false} /></div></div>;
+}
+// Full-screen view in the same window. It shows the same composition as the page, in its device frames,
+// with a rotate control on phones for landscape.
+export function ShotView({ open, onOpenChange, alt, ratio, children }) {
+  return <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Portal>
+      <Dialog.Overlay className="screenshot-overlay" />
+      <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
+        <Dialog.Title className="sr-only">{alt}</Dialog.Title>
+        <div className="screenshot-stage" style={{ '--ar': ratio }}>{children}</div>
+        {ratio > 1.2 && <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>}
+        <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>;
+}
+const MAC_RATIO = 650 / 400; const PHONE_RATIO = 433 / 882;
 export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange, frame = false }) {
-  mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
+  const raw = name; mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
+  const [open, setOpen] = useState(false);
   const fixed = mobile && name.match(/-(dark|light)$/);
   const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
   // The Magic UI iPhone frame uses a fixed SVG mask id, so a framed shot renders only the current theme:
   // a hidden twin would own the mask and paint the screen grey.
   const themes = fixed ? [fixed[1]] : frame ? [theme] : ['dark', 'light'];
   const folder = mobile ? 'mobile' : 'app'; const width = mobile ? 640 : 1760;
+  const toggle = (v) => { setOpen(v); hold(v); onOpenChange?.(v); };
   return <>{themes.map(t => {
     const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
     const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
-    return <Dialog.Root key={t} onOpenChange={(open) => { hold(open); onOpenChange?.(open); }}>
-      <Dialog.Trigger asChild><button type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()}>
-        {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
-      </button></Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="screenshot-overlay" />
-        <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
-          <Dialog.Title className="sr-only">{alt}</Dialog.Title>
-          <img src={full} alt={alt} className="screenshot-full" />
-          <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>
-          <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>;
-  })}</>;
+    return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} onClick={() => toggle(true)}>
+      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
+    </button>;
+  })}
+  {open && <ShotView open onOpenChange={toggle} alt={alt} ratio={mobile ? PHONE_RATIO : MAC_RATIO}><Device name={mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw} theme={theme} alt={alt} full /></ShotView>}
+  </>;
 }
 
 // Replays a looping demo: the returned key changes every `ms` while mounted.
@@ -194,9 +221,11 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['PRODUCT', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/pro/#buy'], ['Download', '/download/'], ['Hardware', '/ogap/']]],
-  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']]],
-  ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Design partners', '/design-partners/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
+  ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Releases', '/desktop/releases/']]],
+  ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
+  ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
+  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
+  ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@offgridmobileai.co']]],
 ];
 
@@ -497,6 +526,19 @@ const SHOT_PAIRS = {
   'mobile/voice-ios-1': ['mobile/chat-ios-1', 'The same reply shown as text before its spoken version.'],
   'mobile/vision-ios-1': ['mobile/remote-ios-1', 'The phone connected to the Mac that runs its vision model.'],
 };
+// Desktop and phone shown together; either device opens the same pair, framed, full screen.
+function ShotPair({ pair, name, alt }) {
+  const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
+  const [open, setOpen] = useState(false); const toggle = (v) => { setOpen(v); hold(v); };
+  const phones = pair[0].startsWith('mobile/');
+  const items = (full, Tag) => [pair, [name, alt]].map(([screen, description], index) => <Tag key={screen} {...(Tag === 'button' ? { type: 'button', 'aria-label': `Enlarge screenshot: ${description}`, onPointerDown: e => e.stopPropagation(), onClick: () => toggle(true) } : {})} className={`shot-pair-item${index === 0 ? ' shot-pair-companion' : ''}`}>
+    <Device name={screen} theme={theme} alt={description} full={full} />
+  </Tag>);
+  return <>
+    {items(false, 'button')}
+    {open && <ShotView open onOpenChange={toggle} alt={`${pair[1]} ${alt}`} ratio={phones ? 1.05 : 5 / 3}><div className={`zoom-pair wt-shot-pair${phones ? ' wt-shot-pair-phones' : ''}`}>{items(true, 'div')}</div></ShotView>}
+  </>;
+}
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
@@ -509,10 +551,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
-          {pair ? [pair, [name, alt]].map(([screen, description], index) => <div key={screen} className={`shot-pair-item${index === 0 ? ' shot-pair-companion' : ''}`}>
-            {screen.startsWith('mobile/') ? <div className="shot-device-phone"><Shot name={screen} alt={description} lazy={false} frame /></div>
-              : <div className="shot-device-mac"><MacbookPro className="shot-device-image" aria-hidden="true" /><div className="shot-device-screen"><Shot name={screen} alt={description} lazy={false} /></div></div>}
-          </div>) : <Shot name={name} alt={alt} lazy={false} />}
+          {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : <Shot name={name} alt={alt} lazy={false} />}
           {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
         </motion.div>
       </AnimatePresence>
@@ -558,7 +597,7 @@ function CommandBar({ onRun }) {
     <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
       label="Open the example shown" submitLabel="Open example chapter"
       onVanishComplete={(text) => onRun((PROMPTS.find(prompt => prompt.label === text) || PROMPTS[0]).id)} />
-    <p className="cmd-note">Select the field or press Enter to open the example. Or choose an option below.</p>
+    <p className="cmd-note">Press Enter to see it work, or pick one below.</p>
   </div>;
 }
 
@@ -576,7 +615,7 @@ function Walkthrough({ reduce, theme }) {
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
   const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
-  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
+  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const [wheelR, setWheelR] = useState(360); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
   const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false });
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
@@ -585,8 +624,9 @@ function Walkthrough({ reduce, theme }) {
     ro.observe(el); return () => ro.disconnect();
   }, []);
   useEffect(() => {
-    const fitWheel = () => { const mob = innerWidth <= 860; const w = wheelBox.current?.parentElement?.clientWidth || 320;
-      setWz(mob ? Math.min(.62, (innerWidth - 24) / 680) : Math.max(.36, Math.min(w / 680, (innerHeight - 68 - 170) / 680, .62))); };
+    const fitWheel = () => { const mob = innerWidth <= 860; const par = wheelBox.current?.parentElement; const w = par ? par.clientWidth - parseFloat(getComputedStyle(par).paddingLeft) - parseFloat(getComputedStyle(par).paddingRight) : 320;
+      // Desktop: radius 360 (diameter 800); phones keep radius 300 (diameter 680) so the visible arc keeps 44px targets.
+      setWz(mob ? Math.min(.62, (innerWidth - 24) / 680) : Math.max(.32, Math.min(w / 800, (innerHeight - 68 - 170) / 800, .72))); setWheelR(mob ? 300 : 360); };
     fitWheel(); addEventListener('resize', fitWheel); return () => removeEventListener('resize', fitWheel);
   }, []);
   useEffect(() => {
@@ -646,6 +686,16 @@ function Walkthrough({ reduce, theme }) {
     const t = setTimeout(() => { const top = dockTop(); if (top != null) scrollTo({ top, behavior: 'instant' }); spinTo(n, true); setTimeout(() => { linkDone.current = true; }, 300); }, 350);
     return () => { clearTimeout(t); removeEventListener('hashchange', onHash); };
   }, []);
+  // Left/right move between chapters while the tour is on screen, without first focusing the wheel.
+  useEffect(() => {
+    if (!docked || !inView) return;
+    const onKey = (e) => {
+      if ((e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') || e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
+      if (e.target.closest?.('input, textarea, select, [contenteditable], [role="slider"], [role="tablist"], [role="dialog"], .og-wheel')) return;
+      e.preventDefault(); setManual(false); goRef.current(ch + (e.key === 'ArrowRight' ? 1 : -1));
+    };
+    addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
+  }, [docked, inView, ch]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // The progress value owns chapter timing and resumes from its current position.
   useEffect(() => { chapterProgress.set(0); }, [ch, chapterProgress]);
@@ -661,6 +711,11 @@ function Walkthrough({ reduce, theme }) {
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
       <div className="walk-igrid"><InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" /></div>
+      {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
+      {!reduce && <div className={`walk-alive ${docked ? 'off' : ''}`} aria-hidden="true">
+        <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
+        <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
+      </div>}
 
       <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
@@ -679,13 +734,13 @@ function Walkthrough({ reduce, theme }) {
 
       <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH SAM</Kicker>
-        <div className="wheel-wrap" ref={wheelBox} style={{ '--wz': wz }} onMouseLeave={() => setHoverI(-1)}
+        <div className={`wheel-wrap${wz < .5 ? ' wheel-tight' : ''}`} ref={wheelBox} style={{ '--wz': wz, '--wd': `${wheelR * 2 + 80}px` }} onMouseLeave={() => setHoverI(-1)}
           // The wheel captures the pointer for dragging, so its circles never receive a click. A press and release on the same circle without moving opens that chapter.
           onPointerDownCapture={(e) => { const b = e.target.closest?.('.og-wheel > button'); tap.current = b ? { b, x: e.clientX, y: e.clientY } : null; }}
           onPointerUpCapture={(e) => { const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(false); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
           onFocus={(e) => { const b = e.target.closest?.('.og-wheel > button'); if (b) setHoverI([...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b)); }} onBlur={() => setHoverI(-1)}
           onPointerMove={(e) => { if (e.buttons) return; const b = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.og-wheel > button'); const i = b ? [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b) : -1; setHoverI(v => (v === i ? v : i)); }}>
-          <OrbitalImageWheel className="og-wheel" radius={300} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
+          <OrbitalImageWheel className="og-wheel" radius={wheelR} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
           <div className="wheel-center">
             {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek"><span className="walk-count">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Click to open</small></div>}
@@ -710,7 +765,7 @@ function Walkthrough({ reduce, theme }) {
           <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(false); go(ch + 1); }}><ArrowRight size={16} /></Button>
         </div>
         <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}<i className="ch-rail" aria-hidden="true" style={reduce || manual ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
-        <div className="wheel-hint" style={{ width: `${680 * wz}px` }}>
+        <div className="wheel-hint" style={{ width: `${(wheelR * 2 + 80) * wz}px` }}>
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!manual} onClick={() => setManual(m => !m)}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
           <span className="hint-desk">Drag to spin, click a chapter, or use ← →.</span><span className="hint-mob">Swipe the dial or tap a chapter.</span>
         </div>
@@ -744,7 +799,7 @@ function Walkthrough({ reduce, theme }) {
 
 const SAMPLE_PROMPTS = ['Summarize my blood test results', 'Review this NDA before I sign it', 'Compare these two salary offers', 'Draft a reply to my landlord about the deposit'];
 function PrivLane({ local, prompt, n }) {
-  const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null);
+  const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null); const d = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
   const log = local ? [['PROCESSED', 'on your own devices'], ['STORED', 'on your own devices'], ['THIRD PARTIES', 'none receive it'], ['ANSWER', 'stays with you']]
     : [['SENT', "to the provider's servers"], ['LOGGED', `"${prompt}"`], ['STORED', 'per their retention policy'], ['TRAINING', 'depends on the provider']];
@@ -752,11 +807,17 @@ function PrivLane({ local, prompt, n }) {
     <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count">{local ? 'Stays on your devices' : 'Leaves your device'}</span></div>
     {local ? <div className="lane-viz lane-local">
       <DotPattern width={10} height={10} cr={.8} className="local-dots" />
-      <span className="map-tag"><LockKey size={12} /> Your prompt, between your own devices</span>
-      <div className="dev-pair" ref={box}>
-      <span className="dev-ic" ref={a}><DeviceMobile size={26} /></span>
-      <span className="dev-ic" ref={b}><Laptop size={30} /></span>
-      {[[0, false], [.95, false], [1.9, false], [.45, true], [1.4, true]].map(([d, r], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={a} toRef={b} curvature={-26} reverse={r} duration={2.8} delay={d} repeatDelay={0} pathWidth={3} pathColor={k ? 'transparent' : 'var(--og-primary)'} pathOpacity={.18} gradientStartColor="#34D399" gradientStopColor="#059669" />)}
+      <span className="map-tag"><LockKey size={12} /> Your prompt never leaves your devices</span>
+      {/* A closed network: your phone and laptop ask, your chip answers, your disk keeps it. No path leads outside. */}
+      <div className="dev-net" ref={box}>
+        <span className="dev-net-edge" aria-hidden="true"><i>YOUR DEVICES</i></span>
+        <div className="dev-col">
+          <span className="dev-node"><span className="dev-ic" ref={a}><DeviceMobile size={22} /></span><small>Phone</small></span>
+          <span className="dev-node"><span className="dev-ic" ref={d}><Laptop size={24} /></span><small>Laptop</small></span>
+        </div>
+        <span className="dev-node dev-hub"><span className="dev-ic" ref={b}><Cpu size={28} /></span><small>Your chip</small></span>
+        <span className="dev-node"><span className="dev-ic" ref={c}><HardDrives size={22} /></span><small>Your disk</small></span>
+        {[[a, b, 0, false, 18], [d, b, .6, false, -18], [b, c, 1.2, false, 0], [b, a, 1.8, true, 18]].map(([f, t, delay, r, cv], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={f} toRef={t} curvature={cv} duration={2.6} delay={delay} repeatDelay={.4} pathWidth={2} pathColor="var(--og-primary)" pathOpacity={.16} gradientStartColor="#34D399" gradientStopColor="#059669" reverse={r} />)}
       </div>
     </div>
     : <div className="lane-viz lane-map">
@@ -914,10 +975,9 @@ export function PageShell({ children, feedback = true }) {
       <a className="wordmark" href="/" aria-label="Off Grid AI home"><Logo size={30} /><span>Off Grid AI</span></a>
       <NavigationMenu className="desktop-nav" aria-label="Main navigation" viewport={false}>
         <NavigationMenuList>
-          {NAV.filter(([, href]) => href !== '/guides/').map(([label, href]) => <NavigationMenuItem key={href}><NavigationMenuLink asChild><a href={href}>{label}</a></NavigationMenuLink></NavigationMenuItem>)}
-          <NavigationMenuItem><NavigationMenuTrigger className="learn-trigger">Learn</NavigationMenuTrigger>
-            <NavigationMenuContent className="learn-menu">{FOOTER.find(([label]) => label === 'LEARN')[1].map(([label, href]) => <NavigationMenuLink asChild key={href}><a href={href}>{label}</a></NavigationMenuLink>)}</NavigationMenuContent>
-          </NavigationMenuItem>
+          {HEADER_MENUS.map(([label, links]) => <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger">{label}</NavigationMenuTrigger>
+            <NavigationMenuContent className="learn-menu">{links.map(([l, href, note]) => <NavigationMenuLink asChild key={href}><a href={href}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}</NavigationMenuContent>
+          </NavigationMenuItem>)}
         </NavigationMenuList>
       </NavigationMenu>
       <div className="header-actions">
