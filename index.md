@@ -6,7 +6,7 @@ nav_order: 1
 description: Your personal AI assistant, built for hardware you already own. Context, memory, and actions you approve. Available on Android, iOS, macOS, Windows, and Linux.
 ---
 
-<img src="{{ '/assets/cover-personal-ai.png' | relative_url }}" alt="Off Grid AI: your personal AI assistant, built for hardware you already own. Android, iOS, macOS, Windows, and Linux." class="hero-cover home-hero-cover">
+<img src="{{ '/assets/cover-personal-ai-home.svg' | relative_url }}" alt="Off Grid AI: your personal AI assistant, built for hardware you already own. Android, iOS, macOS, Windows, and Linux." class="hero-cover home-hero-cover">
 
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
@@ -15,30 +15,18 @@ description: Your personal AI assistant, built for hardware you already own. Con
 
 **Built to run on the hardware you already own.**
 
-Off Grid AI is your personal AI assistant on the devices you already own. It runs on **Android, iOS, macOS, Windows, and Linux**. Add Pro for your digital twin: an assistant that knows your context, remembers what you do, and acts on your behalf with your approval. It builds memory from the work you choose to share. Your context stays on your devices.
+Off Grid AI is your personal AI assistant on the devices you already own. It runs on <span class="platform-list" role="img" aria-label="Android, iOS, macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span>. Add Pro for your digital twin: an assistant that knows your context, remembers what you do, and acts on your behalf with your approval. It builds memory from the work you choose to share. Your context stays on your devices.
 
 Find a past decision. Continue a conversation across your paired devices. Let your AI carry out tasks in your apps and browser with your approval. You stay in control.
 
 Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync, and actions.
 
 <div class="hero-buttons home-hero-buttons">
-  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.029 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-    iOS · App Store
-  </a>
-  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-outline">
-    <svg width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256-256L47 0zm425.6 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.8 17.1-34.4-.1-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-    Android · Google Play
-  </a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-outline">
-    macOS
-  </a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">
-    Windows
-  </a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">
-    Linux
-  </a>
+  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for iOS" title="Download for iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a>
+  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Download for Android" title="Download for Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-outline" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
   <a href="https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ" target="_blank" rel="noopener" class="btn btn-outline">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
     Join Slack
@@ -86,7 +74,7 @@ Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync
   </div>
 </div>
 
-Off Grid AI has over 180,000 downloads across the stores and GitHub. Start on Android, iOS, macOS, Windows, or Linux. The free app runs local models without an account or a subscription. After you download a model, you can use it offline.
+Off Grid AI has over 180,000 downloads across the stores and GitHub. The free app runs local models without an account or a subscription. After you download a model, you can use it offline.
 
 ---
 
@@ -204,7 +192,7 @@ The free app runs local models. Off Grid AI Pro makes your assistant personal. I
 
 When you run a query on a cloud AI service - ChatGPT, Gemini, Claude - it's logged on a server. Your prompt, the response, the time, your account. Stored indefinitely. Used to train future models. Subject to law enforcement requests. Readable by employees.
 
-Local models run in your device's memory. Your CPU and GPU process your prompts on Android, iOS, macOS, Windows, or Linux. Local inference does not send your prompts to a cloud AI service.
+Local models run in your device's memory. Your CPU and GPU process your prompts locally. Local inference does not send your prompts to a cloud AI service.
 
 You choose whether to connect remote models, online tools, or other devices. Those connections have their own network behavior. The code is open, so you can check how it works.
 
@@ -215,7 +203,7 @@ You choose whether to connect remote models, online tools, or other devices. Tho
 - [Quick Start - first model in 5 minutes]({{ '/quick-start' | relative_url }})
 - [iOS Setup]({{ '/guides/ios-setup' | relative_url }})
 - [Android Setup]({{ '/guides/android-setup' | relative_url }})
-- [Download for macOS, Windows, or Linux]({{ '/download/' | relative_url }})
+- [Get the desktop app]({{ '/download/' | relative_url }})
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 
 ## Explore Off Grid AI

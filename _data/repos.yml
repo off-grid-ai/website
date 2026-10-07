@@ -5,10 +5,10 @@
 # succeeds. Keep these roughly current - they are a proof claim, so a number
 # that reads lower than reality costs us nothing, one that reads higher does.
 - name: OGAM
-  label: iOS &amp; Android
+  label: '<span class="platform-list" role="img" aria-label="Android, iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="/assets/platform-icons.svg#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="/assets/platform-icons.svg#ios"></use></svg></span>'
   url: https://github.com/off-grid-ai/OGAM
   stars: 2958
 - name: OGAD
-  label: macOS, Windows &amp; Linux
+  label: '<span class="platform-list" role="img" aria-label="macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="/assets/platform-icons.svg#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="/assets/platform-icons.svg#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="/assets/platform-icons.svg#linux"></use></svg></span>'
   url: https://github.com/off-grid-ai/OGAD
   stars: 69
