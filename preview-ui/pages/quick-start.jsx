@@ -42,7 +42,7 @@ const STEPS = [
   { id: 'pro', title: 'Add memory and actions',
     line: 'Activate Pro with your license key. Choose what your assistant can capture or remember. On desktop, approve a task in your apps or browser; pause, stop, or take over.',
     note: <>Features differ by platform and release. Check <a href="/desktop/releases/">desktop support</a> or <a href="/mobile/releases/">mobile support</a>.</>,
-    visual: (compact) => compact ? <Framed><Shot name="god" alt="Off Grid AI God: proposals with Approve and Deny controls." /></Framed> : <Seq shots={[['god', 'Off Grid AI God: proposals with Approve and Deny controls.', 3400], ['replay', 'Off Grid AI Replay: the screen activity you chose to capture.', 3400]]} /> },
+    visual: (compact) => compact ? <Framed><Shot name="approval" alt="Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject." /></Framed> : <Seq shots={[['approval', 'Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject.', 3400], ['replay', 'Off Grid AI Replay: the screen activity you chose to capture.', 3400]]} /> },
 ];
 
 const NEXT = [
