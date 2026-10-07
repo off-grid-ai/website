@@ -123,7 +123,6 @@ No sign-up, no key, no cloud account.
 
 *Reflect shows where your attention actually went across the day.*
 
-![Replay in Off Grid AI Desktop, a scrubbable record of your day captured on-device.](/assets/img/home/app/replay-dark-1760.webp)
 
 *Replay is a scrubbable movie of your day, captured on-device.*
 
