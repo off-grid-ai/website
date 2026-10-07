@@ -39,6 +39,7 @@ const SCENES = {
   voice: () => <VoiceScene />,
   projects: () => <ChatScene file="Acme_rollout_v3.pdf" model="Project" q="How many seats are in the pilot?" a="The pilot covers 40 seats and starts after the security review [1]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }]} />,
   tools: () => <ToolsScene />,
+  larger: () => <ChatScene model="Qwen 3.5 9B · on your Mac" q="Summarize the Acme rollout plan in three bullets." a="Pilot kicks off 14 November with 40 seats. Priya Nair owns the plan. Tom Reyes signs off the gateway policy first." />,
   offline: () => <OfflineScene where="your phone" />,
   voicemode: () => <VoiceScene title="Voice mode" badge="Kokoro · on device" speaking text="Your pilot with Acme Corp moves to the fourteenth. Want me to tell Sam?" />,
   personas: () => <PersonaScene />,
@@ -47,12 +48,12 @@ const SCENES = {
 };
 // Real screens where the app has them, only in their own theme; a composed scene stands in for the other theme.
 const REAL = {
-  chat: { light: [["chat-ios-1-light", "A reply to the Acme team drafted on iPhone.", 3800]], dark: [["chat-ios-1-dark", "A reply to the Acme team drafted on iPhone.", 3800]] },
-  projects: { light: [["project-ios-1-light", "The Acme Pilot Rollout project and its documents on iPhone.", 3800], ["project-ios-2-light", "An answer about Acme pilot success criteria, with document citations.", 3800]], dark: [["project-ios-1-dark", "The Acme Pilot Rollout project and its documents on iPhone.", 3800], ["project-ios-2-dark", "An answer about Acme pilot success criteria, with document citations.", 3800]] },
+  chat: { light: [["chat-ios-1-light", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]], dark: [["chat-ios-1-dark", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]] },
+  projects: { light: [["project-ios-1-light", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-light", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]], dark: [["project-ios-1-dark", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-dark", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]] },
   images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
   voicemode: { light: [['voice-ios-1-light', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]], dark: [['voice-ios-1-dark', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]] },
   vision: { light: [['vision-ios-1-light', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]], dark: [['vision-ios-1-dark', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]] },
-  larger: { light: [['remote-ios-1-light', 'Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network, with Ollama and LM Studio discovery in Remote Servers.', 4200]], dark: [['remote-ios-1-dark', 'Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network, with Ollama and LM Studio discovery in Remote Servers.', 4200]] },
+  tools: { light: [['tools-ios-1-light', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]], dark: [['tools-ios-1-dark', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]] },
   sync: { light: [['sync-1-light', 'Off Grid AI Sync sharing: what to send and receive between paired devices.', 3800], ['sync-2-light', 'Off Grid AI Sync rules for screenshots, downloads, media and attachments.', 3800]] },
 };
 const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;

@@ -103,7 +103,7 @@ const HEADER_MENUS = [
 const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261007g';
+export const SHOT_V = '20261008a';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
@@ -523,8 +523,8 @@ const SHOT_PAIRS = {
   'mobile/imagegen-ios-1': ['imagegen-chat', 'Desktop image generation: the generated landscape and its prompt.'],
   'mobile/models-ios-1': ['models-text', 'Text models available on desktop.'],
   'mobile/models-ios-2': ['models-voice', 'Voice models available on desktop.'],
-  'mobile/voice-ios-1': ['mobile/chat-ios-1', 'The same reply shown as text before its spoken version.'],
-  'mobile/vision-ios-1': ['mobile/remote-ios-1', 'The phone connected to the Mac that runs its vision model.'],
+  'mobile/voice-ios-1': ['mobile/chat-ios-1', 'A reply drafted in text on the phone.'],
+  'mobile/vision-ios-1': ['models-vision', 'Vision models on the Mac that answers the phone.'],
 };
 // Desktop and phone shown together; either device opens the same pair, framed, full screen.
 function ShotPair({ pair, name, alt }) {
@@ -566,7 +566,7 @@ const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { 
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.']) },
-  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/remote-ios-1', 'Off Grid AI on iPhone connected to the desktop model server.'], ['mobile/chat-ios-1', 'Off Grid AI on iPhone drafting a reply about the Acme pilot.'], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']) },
+  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/chat-ios-1', 'Off Grid AI on iPhone drafting a reply about the Acme pilot.'], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']) },
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['integrations', 'Off Grid AI Integrations: accounts and tools you choose to connect.', 4000], ['replay', 'Off Grid AI Replay: a captured screen stored on your device.', 4000]) },
   { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 0, View: shotView(['day', 'Off Grid AI Day: a timeline built from your captured work.', 4000], ['entities', 'Off Grid AI People: related people, companies and projects.', 4000], ['search', 'Off Grid AI Search: find a past decision in your memory.', 4000]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']) },
