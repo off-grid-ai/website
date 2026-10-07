@@ -70,6 +70,13 @@ for (const [component, lock] of Object.entries(aceternityLocks)) {
   if (hash !== lock) throw new Error(`Aceternity ${component} changed upstream (${hash}). Review it, then update the lock.`);
   aliases[`@aceternity/${component}`] = target;
 }
+// Shared library package, pinned to commit 6afb3ae. Bundled for builds without private-repo credentials.
+const presetInputArchive = resolve('preview-ui/vendor/component-library-6afb3ae.tgz');
+if (createHash('sha256').update(await readFile(presetInputArchive)).digest('hex') !== 'c27dcf8cf6527ecfa64f1635ac6264ff99e3eefbe258df545584b6616db2106e') throw new Error('Shared preset input package changed');
+const presetInputPackage = resolve(cache, 'component-library-6afb3ae');
+await mkdir(presetInputPackage, { recursive: true });
+execFileSync('tar', ['-xzf', presetInputArchive, '-C', presetInputPackage, '--strip-components=1']);
+aliases['@offgrid-ui/placeholders-and-vanish-input'] = resolve(presetInputPackage, 'src/components/placeholders-and-vanish-input.tsx');
 await writeFile(resolve(output, 'magicui-license.txt'), await readFile(await upstream(
   'magicuidesign/magicui', magicCommit, 'LICENSE.md', 'magicui-license.txt'
 )));
