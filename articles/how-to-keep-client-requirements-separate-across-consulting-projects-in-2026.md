@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Client Requirements Separate Across Consulting Projects in 2026"
 description: "Organise client requirements in separate local AI projects, check sources before drafting, and reduce confusion when you move between consulting engagements."
 date: "2026-09-29"

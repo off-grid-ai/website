@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Gaps in a Project Handover With Local AI in 2026"
 description: "Review a project handover for missing owners, unclear decisions, stale documents, and blocked next steps with AI running on your computer."
 date: "2026-09-29"

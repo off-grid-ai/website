@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare a Project Handover Before Going on Leave in 2026"
 description: "Prepare a practical leave handover from current project notes with local AI, including owners, next actions, source links, and unresolved decisions."
 date: "2026-09-29"

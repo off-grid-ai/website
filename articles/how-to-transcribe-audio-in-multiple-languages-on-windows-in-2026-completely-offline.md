@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Audio in Multiple Languages on Windows in 2026 (Completely Offline)"
 description: "Turn speech into editable text on Windows with local AI. Choose a multilingual model, set the spoken language, and record without internet after setup."
 date: "2026-09-29"

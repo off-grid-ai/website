@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Adjust AI Writing Style in Off Grid AI in 2026"
 description: "Use a clear brief and local generation settings to compare focused instructions with more varied drafts."
 date: "2026-09-29"

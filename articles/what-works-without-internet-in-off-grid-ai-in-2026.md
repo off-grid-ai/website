@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What Works Without Internet in Off Grid AI in 2026?"
 description: "Understand which Off Grid AI workflows can run offline, what must be downloaded first, and which connections still need a network."
 date: "2026-09-29"

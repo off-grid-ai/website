@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Week of Client Work Into a Project Case Study in 2026"
 description: "Use saved work context to recover a project's story, verify outcomes, and draft a case study without inventing results or client approval."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Pair Your Phone and Computer in Off Grid AI in 2026 (Local Chat and File Sync)"
 description: "Pair your phone and computer so AI conversations and their files can follow you over your own network."
 date: "2026-09-29"

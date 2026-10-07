@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Project Archive Into Lessons for Your Next Project in 2026"
 description: "Use local AI to find decisions and recurring problems in an old project archive, then turn checked evidence into practical lessons."
 date: "2026-09-29"

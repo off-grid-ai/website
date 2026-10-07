@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Research Interviews Without Cloud Processing in 2026"
 description: "Transcribe saved research interviews locally on your Mac, check participant wording, and prepare a reviewed transcript for analysis."
 date: "2026-09-29"

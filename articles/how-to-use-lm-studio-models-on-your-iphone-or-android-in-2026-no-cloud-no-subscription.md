@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use LM Studio Models on Your iPhone or Android in 2026 (No Cloud, No Subscription)"
 description: "You are already paying for the hardware that can run AI models better than most cloud services. You..."
 date: "2026-03-18"
@@ -21,7 +21,7 @@ But here is the problem. You set up LM Studio on your laptop. You download a mod
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) fixes that. It auto-discovers LM Studio servers on your network and lets you use them from your phone. No IP addresses. No port numbers. No configuration.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## What you need
@@ -100,7 +100,7 @@ If that sounds like something you want to be part of, we have a community buildi
 
 ## Try it
 
-Off Grid is free, open source, and MIT licensed.
+Off Grid is free and open source.
 
 - [GitHub (1,000+ stars, 10,000+ downloads in 4 weeks)](https://github.com/alichherawalla/off-grid-mobile-ai)
 - Android: grab the latest APK from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases)

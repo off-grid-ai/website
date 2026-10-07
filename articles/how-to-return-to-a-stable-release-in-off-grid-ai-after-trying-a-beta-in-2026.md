@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Return to a Stable Release in Off Grid AI After Trying a Beta in 2026"
 description: "Choose the stable update channel, protect your portable data, and check the installed version before resuming work."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Webinar Into a Downloadable Checklist With Local AI in 2026"
 description: "Turn a webinar's checked transcript into a practical checklist with local AI, review each action, and export the final document through your usual editor."
 date: "2026-09-29"

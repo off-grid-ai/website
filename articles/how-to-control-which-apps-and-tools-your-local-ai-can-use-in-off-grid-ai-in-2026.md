@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Control Which Apps and Tools Your Local AI Can Use in Off Grid AI in 2026"
 description: "Choose which chat tools OGAD offers to the model, and separate tool access from app permissions."
 date: "2026-09-29"

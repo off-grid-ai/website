@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can Local AI Help With Work Without Access to Your Email or Accounts in 2026?"
 description: "Use local AI for drafts, document questions, and checked notes without connecting your email, calendar, or work accounts."
 date: "2026-09-29"

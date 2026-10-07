@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Automatic Microsoft Teams Meeting Notes on Your Mac in 2026"
 description: "Create and review local transcripts and summaries from Microsoft Teams meetings on your Mac with OGAD Pro."
 date: "2026-09-29"

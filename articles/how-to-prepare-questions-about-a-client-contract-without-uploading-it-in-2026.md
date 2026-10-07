@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare Questions About a Client Contract Without Uploading It in 2026"
 description: "Prepare a clear list of questions about a client contract with local AI, while checking every clause in the original document."
 date: "2026-09-29"

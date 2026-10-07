@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Fast Local AI: On-Device Text and Image Generation Without the Cloud"
 description: "Quantized GGUF on Metal or CUDA, few-step image models, no network round-trip. Why on-device AI feels fast, on your Mac or PC."
 date: "2026-06-25"
@@ -16,12 +16,12 @@ The slowest part of a cloud AI request is not the model. It is the trip to a dat
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, next to your text chats, with its size, steps, seed and model shown.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*An image generated in an Off Grid AI Desktop chat, next to your text chats, with its size, steps, seed and model shown.*
 
 ## Where cloud time actually goes
 
@@ -100,9 +100,9 @@ curl http://127.0.0.1:7878/v1/chat/completions \
 - More few-step and quantized models as the formats improve.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
@@ -122,6 +122,6 @@ Few-step models like SDXL-Lightning and Z-Image-Turbo generate in a handful of s
 Yes. Once a model is downloaded, text and image generation run with the network off.
 
 ### Q: Is it free?
-Yes. Free and open-source under AGPL-3.0. No account, no telemetry, no API keys.
+Yes. Free and open-source. No account, no telemetry, no API keys.
 
 No queue, no rate limit, no round-trip. Just your machine, working. **[Get it on GitHub →](https://github.com/off-grid-ai/desktop)**

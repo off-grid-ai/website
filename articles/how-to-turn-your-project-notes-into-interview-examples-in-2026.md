@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Your Project Notes Into Interview Examples in 2026"
 description: "Build truthful interview examples from your project notes with local AI, clear personal contributions, and evidence you can explain."
 date: "2026-09-29"

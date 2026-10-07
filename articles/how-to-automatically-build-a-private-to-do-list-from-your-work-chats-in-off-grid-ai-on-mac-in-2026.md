@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Build a Private To-Do List From Your Work Chats in Off Grid AI on Mac in 2026"
 description: "Turn captured work-chat commitments into a private list, check their source, and add or dismiss items in Off Grid AI on Mac."
 date: "2026-09-29"

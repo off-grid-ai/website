@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Understand a Long Application Form With Offline AI in 2026"
 description: "Use local AI to turn a saved application form into a clear preparation list, check conditional questions, and keep the original instructions in view."
 date: "2026-09-29"

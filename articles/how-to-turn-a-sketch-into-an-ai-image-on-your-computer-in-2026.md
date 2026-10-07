@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Sketch Into an AI Image on Your Computer in 2026"
 description: "Turn a rough sketch into a visual concept with a local image model. Use your own drawing as the starting image and refine one change at a time."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Manga-Style Comic on Your Own Computer in 2026"
 description: "Plan and illustrate an original manga-style story locally with OGAD. Choose black-and-white artwork, set a short story brief, and read the generated pages on your Mac."
 date: "2026-09-29"

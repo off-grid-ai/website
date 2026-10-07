@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Gemma Locally on Your Computer in 2026 (Mac and Windows, No Cloud)"
 description: "Run Google's Gemma models on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no API keys."
 date: "2026-06-25"
@@ -16,12 +16,12 @@ A modern laptop ships with a GPU that can run a 4-billion-parameter language mod
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, AGPL-3.0, runs offline.
+Free, open-source, runs offline.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## Why Gemma, and Why Local
 
@@ -89,7 +89,7 @@ Start a fresh chat for a new topic. A long history is re-read on every turn. Cle
 
 You can use Gemma through Google's cloud. Your prompts travel to Google, get logged, and may train future models.
 
-Off Grid AI Desktop is the opposite. The model runs on your disk. There is no account and no telemetry. The code is AGPL-3.0, so anyone can read it and confirm nothing phones home. Pull the network cable and Gemma still answers.
+Off Grid AI Desktop is the opposite. The model runs on your disk. There is no account and no telemetry. The code is open, so anyone can read it and confirm nothing phones home. Pull the network cable and Gemma still answers.
 
 ## Getting Started
 
@@ -113,14 +113,14 @@ npm run dev
 - Unified search across your chats, documents, and captured work.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. There is no paid unlock for running Gemma.
+Yes. The app is free and open-source. There is no paid unlock for running Gemma.
 
 ### Q: Does it work fully offline?
 Yes. Once a model is downloaded, you can disconnect from the internet and keep chatting.

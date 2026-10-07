@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Private Work Journal From Your Mac Activity in 2026 (No Manual Logging)"
 description: "Create a work journal from automatically captured Mac activity. Review the local Day summary and timeline instead of logging every task manually."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How a Personal AI OS Should Act on Your Behalf - Without Becoming Your Boss"
 parent: Perspectives
 article_topic: "Automation & tools"

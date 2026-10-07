@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Local Artifacts: Render HTML, React, SVG, and Mermaid On-Device (No Cloud)"
 description: "Ask your local AI for a chart, a diagram, or a mini-app and watch it render live in a sandboxed iframe. Fully on-device, no cloud, no CDN."
 date: "2026-06-25"
@@ -21,9 +21,9 @@ Off Grid AI Desktop has a canvas that renders the model's output live on your ma
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/artifacts.png?v=2)
+![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.*
+*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
 
 ## What it does
 
@@ -106,7 +106,7 @@ For React, ask for a single self-contained component. Fewer moving parts means f
 
 Cloud artifact features send your prompt to a server, render in their environment, and keep a copy. Your dashboards, your diagrams, your half-formed ideas all pass through infrastructure you do not control.
 
-Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtimes are bundled, not fetched. The sandbox has no network out. The app is AGPL-3.0, so you can read the source and confirm all of it. No account, no telemetry.
+Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtimes are bundled, not fetched. The sandbox has no network out. The app is open source, so you can read the source and confirm all of it. No account, no telemetry.
 
 ## Getting started
 
@@ -124,14 +124,14 @@ Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtim
 - Saving artifacts into projects alongside your documents.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No account, no subscription, no API keys.
+Yes. The app is free and open-source. No account, no subscription, no API keys.
 
 ### Q: Does the canvas work offline?
 Yes. The React, Babel, and Mermaid runtimes are bundled in the app. There is no CDN call, so it renders with the network off.

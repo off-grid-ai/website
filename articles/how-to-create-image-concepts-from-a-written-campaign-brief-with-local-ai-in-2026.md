@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Image Concepts From a Written Campaign Brief With Local AI in 2026"
 description: "Turn a campaign brief into distinct visual directions with local AI, generate a first concept, and review it against the actual communication goal."
 date: "2026-09-29"

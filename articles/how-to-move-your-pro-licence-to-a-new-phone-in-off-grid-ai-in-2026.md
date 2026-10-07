@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Move Your Pro Licence to a New Phone in Off Grid AI in 2026"
 description: "Activate OGAM Pro on a replacement phone and manage the old device seat. Keep licence access separate from your data transfer. "
 date: "2026-09-29"

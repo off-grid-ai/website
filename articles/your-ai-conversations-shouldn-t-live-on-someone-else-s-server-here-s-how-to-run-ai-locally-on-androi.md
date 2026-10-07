@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Your AI conversations shouldn't live on someone else's server. Here's how to run AI locally on Android."
 description: "Every time you ask an AI chatbot a question, your words leave your phone, travel to a server you've..."
 date: "2026-03-01"
@@ -38,34 +38,34 @@ Off Grid is a free, open-source app that runs AI entirely on your phone. After y
 
 There is no server. There is no account. There is no analytics, telemetry, or usage tracking. Not a single data packet leaves your phone. Not anonymous data, not personalized data. Nothing.
 
-The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). MIT licensed. You don't have to trust a privacy policy. You can read every line yourself.
+The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read every line yourself.
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid Mobile](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u7d4y1t6kyb79qeghurb.png)
+![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
 
 <table>
     <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i9qfgb7ts0wxi56z0zx4.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/other-1-light-640.webp" alt="The Off Grid home screen once set up: downloaded models by type and a New Chat button" width="200" height="434" style="object-fit: cover;" />
         <b>Onboarding</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5q4ns9fowhnrgpg5nsum.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d4vmj4a8zmchlkcbvm1i.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
         <b>Image Generation</b>
       </td>
 </tr>
 <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wddqnj442l7teu72or4p.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/vision-ios-1-light-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
         <b>Vision</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vttu3u8e7iii77of8o4m.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/project-ios-2-light-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
         <b>Attachments</b>
       </td>
     </tr>

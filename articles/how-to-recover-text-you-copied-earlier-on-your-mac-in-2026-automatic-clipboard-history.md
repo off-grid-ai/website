@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Recover Text You Copied Earlier on Your Mac in 2026 (Automatic Clipboard History)"
 description: "Bring back an earlier copied passage with OGAD's local clipboard history. Search text or tags, use the quick-paste shortcut, and choose what the Mac retains."
 date: "2026-09-29"

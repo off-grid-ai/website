@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Continue an AI Image Chat From Phone to Computer in Off Grid AI in 2026"
 description: "Start an image idea on your phone and continue it on your computer with OGAM and OGAD. Sync the conversation and completed images, then make the next request on desktop."
 date: "2026-09-29"

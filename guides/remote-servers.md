@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Remote Servers - Connect Ollama, LM Studio, and LocalAI
 parent: Guides
 article_topic: "Models & performance"
@@ -125,5 +125,6 @@ Off Grid AI warns you before connecting to a public internet endpoint (non-priva
 ## Related guides
 
 - [How to Use Ollama From Your Android Phone in 2026]({{ '/guides/ollama-android' | relative_url }})
+- [How to Use Off Grid AI Desktop From Your Phone in 2026]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})
 - [Which Model Should I Use?]({{ '/guides/which-model' | relative_url }})
 - [Tool Calling]({{ '/guides/tool-calling' | relative_url }})

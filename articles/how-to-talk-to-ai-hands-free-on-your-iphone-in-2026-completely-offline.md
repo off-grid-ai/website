@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Talk to AI Hands-Free on Your iPhone in 2026 (Completely Offline)"
 description: "Have a local spoken AI conversation on iPhone. Prepare the speech and chat models, set Hands-free turns, and test questions and replies in airplane mode."
 date: "2026-09-29"

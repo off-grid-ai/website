@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Draft Email Replies on Your Mac With Local AI in 2026"
 description: "Prepare an unsent email reply in your Mac mail app with a clear brief and local AI."
 date: "2026-09-29"

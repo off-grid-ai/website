@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Free Disk Space Used by AI Models in Off Grid AI on Your Computer in 2026"
 description: "Review downloaded models and incomplete downloads in OGAD, then remove the files you no longer need."
 date: "2026-09-29"

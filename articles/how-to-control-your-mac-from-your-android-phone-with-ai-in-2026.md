@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Control Your Mac From Your Android Phone With AI in 2026"
 description: "Ask your Mac to complete a desktop task from your Android phone. Connect OGAM and OGAD, enable Assistant, and follow the task from your chat."
 date: "2026-09-29"

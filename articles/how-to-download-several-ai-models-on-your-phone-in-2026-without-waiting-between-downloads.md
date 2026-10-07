@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Download Several AI Models on Your Phone in 2026 Without Waiting Between Downloads"
 description: "Queue several AI model downloads in OGAM, track their state, and prepare offline chat, images, and speech without watching each file. "
 date: "2026-09-29"

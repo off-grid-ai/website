@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Personal Glossary From Your Team's Documents in 2026"
 description: "Find project terms in your own documents and turn them into a checked glossary with local AI on your computer."
 date: "2026-09-29"

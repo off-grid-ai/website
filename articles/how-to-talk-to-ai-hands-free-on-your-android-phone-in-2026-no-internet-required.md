@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Talk to AI Hands-Free on Your Android Phone in 2026 (No Internet Required)"
 description: "Set up a local voice conversation on Android. Download speech and chat models, choose Hands-free turns, and talk without internet after setup."
 date: "2026-09-29"

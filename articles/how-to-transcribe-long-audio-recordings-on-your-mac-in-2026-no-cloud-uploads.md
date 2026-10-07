@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Long Audio Recordings on Your Mac in 2026 (No Cloud Uploads)"
 description: "Turn saved audio into a readable transcript on your Mac with local AI. Import the file, inspect the text, and handle long recordings without cloud uploads."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Performance Review From Your Work History in 2026"
 description: "Use saved work context to recover contributions, verify outcomes, and prepare a balanced performance-review draft with local AI."
 date: "2026-09-29"

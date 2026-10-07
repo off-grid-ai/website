@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can You Use Offline AI on a Phone Without a SIM Card in 2026?"
 description: "Use downloaded local AI models on a compatible phone without a SIM card, with Wi-Fi setup first and a clear offline readiness check."
 date: "2026-09-29"

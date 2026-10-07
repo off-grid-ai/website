@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Customer Interviews Into Product Requirements With Local AI in 2026"
 description: "Use local AI to organise interview evidence into candidate product requirements, preserve uncertainty, and review the link between the customer problem and proposed change."
 date: "2026-09-29"

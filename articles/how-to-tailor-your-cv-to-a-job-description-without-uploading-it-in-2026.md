@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Tailor Your CV to a Job Description Without Uploading It in 2026"
 description: "Use local AI to compare your CV with a job description, improve relevant wording, and keep every claim tied to your real experience."
 date: "2026-09-29"

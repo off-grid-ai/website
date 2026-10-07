@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Simple HTML App With Local AI in 2026 Without Internet"
 description: "Build and preview a small self-contained HTML tool with a local model, then download it to your computer."
 date: "2026-09-29"

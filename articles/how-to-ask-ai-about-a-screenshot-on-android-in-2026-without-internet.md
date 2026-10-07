@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask AI About a Screenshot on Android in 2026 Without Internet"
 description: "Ask a local vision model about a screenshot on Android. Read visible text, explain errors and make checklists without a cloud AI upload."
 date: "2026-09-29"

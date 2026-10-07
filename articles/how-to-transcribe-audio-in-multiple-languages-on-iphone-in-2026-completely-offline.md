@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Audio in Multiple Languages on iPhone in 2026 (Completely Offline)"
 description: "Dictate notes in your language on iPhone with local speech recognition. Choose a multilingual model, check the text, and work offline after setup."
 date: "2026-09-29"

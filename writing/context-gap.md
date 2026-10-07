@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Context Gap: Why Your Most Personal Devices Are the Least Intelligent Things You Own"
 parent: Perspectives
 article_topic: "Sync & sharing"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Sensitive Apps Out of Automatic Screen History in Off Grid AI on Mac in 2026"
 description: "Control when OGAD records your Mac screen. Pause capture before sensitive work, check the visible state, and understand the built-in exclusions."
 date: "2026-09-29"

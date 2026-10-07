@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Spanish Speech Into Text on Your Phone in 2026 (Completely Offline)"
 description: "Dictate Spanish notes on Android or iPhone without uploading audio. Set up a local speech model, select Spanish, and check the text before sending."
 date: "2026-09-29"

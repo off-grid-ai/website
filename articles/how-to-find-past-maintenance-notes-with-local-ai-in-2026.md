@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Past Maintenance Notes With Local AI in 2026"
 description: "Find earlier maintenance observations and follow-up notes with local AI, while checking asset identity, dates, and whether an action was completed."
 date: "2026-09-29"

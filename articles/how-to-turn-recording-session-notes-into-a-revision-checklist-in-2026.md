@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Recording Session Notes Into a Revision Checklist in 2026"
 description: "Turn written recording-session feedback into a clear revision checklist with source notes, version names and open questions using local AI."
 date: "2026-09-29"

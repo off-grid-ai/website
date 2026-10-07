@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Juggernaut XL Locally on Your Desktop in 2026 (Photorealistic AI Images, Offline)"
 description: "Run Juggernaut XL v9 for photorealistic AI images entirely on-device, no cloud, no account, no API keys. Works on Mac and Windows."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ The M3 Max in your laptop ships with up to 40 GPU cores and shares memory with t
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A photorealistic street scene generated on-device with Juggernaut XL in Off Grid AI Desktop.](/assets/img/home/gen-juggernaut.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*A photorealistic street scene generated on-device with Juggernaut XL in Off Grid AI Desktop.*
 
 ## Why Juggernaut XL
 
@@ -77,7 +77,7 @@ A few practical levers, no invented numbers.
 
 Midjourney runs on Discord. Your prompts and your images live on their servers, and the default gallery is public. Off Grid AI Desktop is the opposite arrangement.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no telemetry, no API key. The app is AGPL-3.0, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no telemetry, no API key. The app is open source, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -100,15 +100,15 @@ shallow depth of field, natural skin texture, film grain
 - Unified search across your generated artifacts.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. There is no paid tier gating image generation.
+Yes. The app is free and open-source. The model is a free download. There is no paid tier gating image generation.
 
 ### Q: Does it work offline?
 

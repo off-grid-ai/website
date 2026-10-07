@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Set Up Offline AI on a New iPhone in 2026 (Guided Model Setup)"
 description: "Choose a compatible starter set for local chat, images, and speech input with OGAM Auto Setup. Download first, then use supported tasks offline."
 date: "2026-09-29"

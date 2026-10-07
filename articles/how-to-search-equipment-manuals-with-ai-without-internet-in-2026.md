@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Equipment Manuals With AI Without Internet in 2026"
 description: "Prepare local AI search across equipment manuals before a site visit, with model-specific sources, revision checks, and links back to the instructions."
 date: "2026-09-29"

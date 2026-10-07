@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Your Voice Notes in 2026 (No Internet Required)"
 description: "Ask questions about saved voice notes on Mac or Windows. Import audio into a local project, search the transcripts, and get answers with source filenames."
 date: "2026-09-29"

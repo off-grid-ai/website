@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Windows PC in 2026 (No Cloud, No Account)"
 description: "Run chat, image generation, and voice AI on your own Windows PC. On-device, no cloud, no account, no API keys. Free and open source."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A mid-range gaming GPU from 2023 ships with 12GB of VRAM and enough tensor cores
 It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-diffusion.cpp`, `whisper.cpp`, and an open-weight text-to-speech model. Nothing routes through a server we own. No account. No telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
@@ -83,7 +83,7 @@ For images, start with a few-step model. SDXL-Lightning and Z-Image-Turbo give y
 
 A cloud AI service sees every prompt, every image you generate, and every document you upload. It keeps logs. It trains on some of it. It requires an account tied to your identity.
 
-Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry. The code is AGPL-3.0, so you can read exactly what it does. Unplug your network and it keeps working.
+Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry. The code is open, so you can read exactly what it does. Unplug your network and it keeps working.
 
 ## Getting Started
 
@@ -102,14 +102,14 @@ Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU a
 Honest roadmap. We build the local spine first.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. There is no account, no metered usage, no API key.
+Yes. The app is free and open source. There is no account, no metered usage, no API key.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can disconnect from the internet entirely. Inference is local.

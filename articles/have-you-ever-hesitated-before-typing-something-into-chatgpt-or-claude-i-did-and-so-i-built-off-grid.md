@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Have you ever hesitated before typing something into ChatGPT or Claude? I did, and so I built Off Grid"
 description: "The full story of building Off Grid — a FOSS app that runs AI entirely on your phone, offline, with..."
 date: "2026-02-20"
@@ -176,4 +176,4 @@ Your AI. Your device. Your data.
 
 ---
 
-*Built with React Native, llama.cpp, whisper.cpp, Stable Diffusion, and a genuine frustration with the status quo. MIT licensed. Contributions welcome.*
+*Built with React Native, llama.cpp, whisper.cpp, Stable Diffusion, and a genuine frustration with the status quo. Contributions welcome.*

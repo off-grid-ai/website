@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What Does Off Grid AI Record When You Enable Background Capture in 2026?"
 description: "Understand what background capture saves, how to control it and how to test it with a harmless example before relying on your work history."
 date: "2026-09-29"

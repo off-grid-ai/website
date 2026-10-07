@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Add Offline Voice Narration to an AI-Generated Comic in 2026"
 description: "Listen to your comic's story text with a local voice model in OGAD. Choose a voice, play a page, and hear the story without a cloud speech request."
 date: "2026-09-29"

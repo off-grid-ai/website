@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Vision AI Locally on Your Android Phone in 2026 (No Cloud, No Subscription)"
 description: "Your phone has a camera and a processor powerful enough to run multimodal AI models. You can point it..."
 date: "2026-04-14"
@@ -25,15 +25,15 @@ Vision AI means the model can see images, not just read text. You give it a phot
 <table>
     <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wddqnj442l7teu72or4p.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/vision-ios-1-dark-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
         <b>Vision AI</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vttu3u8e7iii77of8o4m.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/project-ios-2-dark-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
         <b>Attachments</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5q4ns9fowhnrgpg5nsum.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-ios-1-dark-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
     </tr>

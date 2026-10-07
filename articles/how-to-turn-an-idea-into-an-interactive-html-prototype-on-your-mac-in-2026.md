@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn an Idea Into an Interactive HTML Prototype on Your Mac in 2026"
 description: "Turn a small interface idea into a working local HTML preview on Mac, then revise and export it."
 date: "2026-09-29"

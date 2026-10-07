@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Batch-Transcribe Audio Files on Your Computer With a Local API in 2026"
 description: "Transcribe a folder of WAV recordings through a local API. Save one text file per recording without uploading the batch to cloud AI."
 date: "2026-09-29"

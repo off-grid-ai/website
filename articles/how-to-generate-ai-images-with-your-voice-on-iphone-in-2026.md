@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images With Your Voice on iPhone in 2026"
 description: "Dictate an image prompt on iPhone, check the words, and generate an image with local models after offline setup."
 date: "2026-09-29"

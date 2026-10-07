@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Set Up Local AI When You Have Limited Mobile Data in 2026"
 description: "Choose a small useful local AI setup on your phone, manage model downloads deliberately, and test offline use before leaving Wi-Fi."
 date: "2026-09-29"

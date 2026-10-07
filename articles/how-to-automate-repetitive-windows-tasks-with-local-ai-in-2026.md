@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automate Repetitive Windows Tasks With Local AI in 2026"
 description: "Use local AI to complete a small app task, supervise the run, and check its result."
 date: "2026-09-29"

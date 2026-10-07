@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transfer AI Models Between Two Phones in 2026 Without Internet"
 description: "Move a compatible local AI model to your second phone over your own network. Reuse the download and prepare the receiving phone for offline work."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Android Phone’s NPU in 2026 (Supported Devices)"
 description: "Try OGAM’s experimental NPU backend on a supported Android phone. Check compatibility, reload the model, and keep a working fallback. "
 date: "2026-09-29"

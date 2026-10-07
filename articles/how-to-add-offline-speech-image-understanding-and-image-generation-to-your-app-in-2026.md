@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Add Offline Speech, Image Understanding, and Image Generation to Your App in 2026"
 description: "Add local image understanding, speech and image generation to an app through the OGAD gateway. Use the right local model for each task."
 date: "2026-09-29"

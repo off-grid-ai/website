@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Visual Mood Board From Your Own Photos With Local AI in 2026"
 description: "Use local vision AI to compare your own reference photos, name a visual direction, and plan a mood board you assemble in your normal design tool."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Warehouse Procedures With Local AI in 2026"
 description: "Search approved warehouse procedures with local AI, keeping site, version, role, and source instructions clear before acting."
 date: "2026-09-29"

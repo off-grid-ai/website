@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync AI Chats Between Your Android Phone and Mac in 2026 Without Internet"
 description: "Continue an AI chat from Android on your Mac over your local network. Set up private device pairing, check both directions, and fix common sync problems."
 date: "2026-09-29"

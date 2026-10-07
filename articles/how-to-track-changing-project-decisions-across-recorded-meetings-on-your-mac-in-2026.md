@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Track Changing Project Decisions Across Recorded Meetings on Your Mac in 2026"
 description: "Compare recorded project discussions over time. Build a checked decision history from local meeting search, transcripts and source citations."
 date: "2026-09-29"

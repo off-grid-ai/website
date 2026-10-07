@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI on Your iPhone Without Being Tracked"
 description: "You probably assume your iPhone keeps things private. Apple markets privacy as a core feature. But..."
 date: "2026-03-01"
@@ -46,34 +46,34 @@ Here's what that actually means in practice:
 
 **No cloud backup of conversations.** Your chats live in the app's local storage on your device. Not in iCloud. Not on a sync server. On your phone.
 
-**Open source.** MIT licensed. Every line of code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read the source.
+**Open source.** Every line of code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read the source.
 
 [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid Mobile](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u7d4y1t6kyb79qeghurb.png)
+![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
 
 <table>
     <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i9qfgb7ts0wxi56z0zx4.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/other-1-light-640.webp" alt="The Off Grid home screen once set up: downloaded models by type and a New Chat button" width="200" height="434" style="object-fit: cover;" />
         <b>Onboarding</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5q4ns9fowhnrgpg5nsum.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d4vmj4a8zmchlkcbvm1i.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="An image generated on the iPhone in Off Grid, with the enhanced prompts it used" width="200" height="434" style="object-fit: cover;" />
         <b>Image Generation</b>
       </td>
 </tr>
 <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wddqnj442l7teu72or4p.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/vision-ios-1-light-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
         <b>Vision</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vttu3u8e7iii77of8o4m.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/project-ios-2-light-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
         <b>Attachments</b>
       </td>
     </tr>

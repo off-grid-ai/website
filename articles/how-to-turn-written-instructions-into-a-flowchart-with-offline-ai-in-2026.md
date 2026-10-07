@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Written Instructions Into a Flowchart With Offline AI in 2026"
 description: "Turn a written process into a readable flowchart with a local model and an offline diagram preview."
 date: "2026-09-29"

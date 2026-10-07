@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find a Web Page You Read on Your Mac in 2026 Without Remembering Its Title"
 description: "Find a page from a phrase or topic you remember. Search retained Mac screen activity, inspect the context and use it to return to the original page."
 date: "2026-09-29"

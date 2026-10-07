@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Export AI-Generated Web Pages, Diagrams, and Code in Off Grid AI in 2026"
 description: "Keep generated web pages and diagram previews as local files, or export a React project for your editor."
 date: "2026-09-29"

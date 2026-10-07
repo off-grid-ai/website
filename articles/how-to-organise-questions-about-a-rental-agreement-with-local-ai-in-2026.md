@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Organise Questions About a Rental Agreement With Local AI in 2026"
 description: "Use local AI to organise questions from a saved rental agreement, preserve the source clauses, and prepare a clear clarification list."
 date: "2026-09-29"

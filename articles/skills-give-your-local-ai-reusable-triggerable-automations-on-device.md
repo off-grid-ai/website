@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Skills: Give Your Local AI Reusable, Triggerable Automations (On-Device)"
 description: "Package instructions into reusable skills your local AI can run on command or on a schedule. Fully on-device, no cloud, no API keys."
 date: "2026-06-25"
@@ -21,9 +21,9 @@ Off Grid AI Desktop lets you save that prompt once as a skill, then run it with 
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.*
 
 ## What a skill is
 
@@ -119,7 +119,7 @@ For triggered skills, scope the action prompt tightly. A skill that runs on its 
 
 Cloud automation platforms hold your triggers, your prompts, and the data they touch on their servers. Every run is logged somewhere you do not control.
 
-Off Grid AI Desktop holds all of it on your machine. The skill files are local. The model is local. The triggers run local. The app is AGPL-3.0, so you can read exactly what it does. No account, no telemetry.
+Off Grid AI Desktop holds all of it on your machine. The skill files are local. The model is local. The triggers run local. The app is open source, so you can read exactly what it does. No account, no telemetry.
 
 ## Getting started
 
@@ -137,14 +137,14 @@ Off Grid AI Desktop holds all of it on your machine. The skill files are local. 
 - A library of starter skills to fork and edit.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No account, no subscription, no API keys.
+Yes. The app is free and open-source. No account, no subscription, no API keys.
 
 ### Q: How is a skill different from just pasting a prompt?
 A skill is saved, named, and callable with a slash command. You write it once instead of retyping the prompt every time, and a skill can also run on its own with a trigger.

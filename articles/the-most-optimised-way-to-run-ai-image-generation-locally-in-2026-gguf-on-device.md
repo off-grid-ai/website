@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Most Optimised Way to Run AI Image Generation Locally in 2026 (GGUF, On-Device)"
 description: "Quantized GGUF checkpoints on stable-diffusion.cpp are the leanest way to generate AI images on-device. Mac and Windows, no cloud, no Python."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A modern SDXL checkpoint in full precision is roughly 6 to 7 GB and expects a fa
 This is the argument: for everyday local image generation, quantized GGUF on a native engine beats a heavy diffusers setup. Smaller downloads. Lower memory. No environment to repair. It runs on Metal on a Mac and on CUDA, Vulkan, or plain CPU on Windows. Here is why, and which models to start with.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## What GGUF and Quantization Actually Do
 
@@ -83,7 +83,7 @@ If a model feels slow, check two things before blaming your hardware: your step 
 
 A hosted image service sees every prompt and every image you make, and many keep or train on them. There is usually a filter deciding what you are allowed to generate, and a subscription deciding how much.
 
-Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your prompts and images stay in a local folder on your own machine. The app is AGPL-3.0, so the source is open to read. Once a model is downloaded you can work with no network connection at all. No subscription, no per-image cost, no rate limit.
+Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your prompts and images stay in a local folder on your own machine. The app is open source, so you can read the source. Once a model is downloaded you can work with no network connection at all. No subscription, no per-image cost, no rate limit.
 
 ## Getting Started
 
@@ -100,15 +100,15 @@ Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your 
 - Wider hardware support as `stable-diffusion.cpp` gains backends.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0, and every model in the catalog is a free download from Hugging Face.
+Yes. The app is free and open-source, and every model in the catalog is a free download from Hugging Face.
 
 ### Q: Does it work offline?
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Restore a Backup in Off Grid AI in 2026 Without Losing Your Existing Chats"
 description: "Restore missing desktop AI chats and project files from a local backup while keeping the work already on your computer."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Understand a Work Email in Another Language Without Internet in 2026"
 description: "Read and check a saved work email in another language with local AI, while preserving names, dates, requests, and uncertainty."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Your Photo Into a Comic Book Character With Local AI in 2026"
 description: "Use a personal photo as a hero reference for a locally generated comic in OGAD. Choose a compatible image model, set the story style, and review the character across pages."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Why Your Phone Is the Most Important Device in the Personal AI OS
 parent: Perspectives
 article_topic: "Work & organization"

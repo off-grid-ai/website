@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Architecture Diagrams With Local AI in 2026"
 description: "Describe system components and connections, then build a local architecture diagram you can check and revise."
 date: "2026-09-29"

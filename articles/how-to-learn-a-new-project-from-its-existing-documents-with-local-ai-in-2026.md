@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Learn a New Project From Its Existing Documents With Local AI in 2026"
 description: "Learn an unfamiliar project from its existing documents with local AI, a source map, and a checked list of decisions and open questions."
 date: "2026-09-29"

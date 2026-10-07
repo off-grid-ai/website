@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Connect Your Phone’s Local AI to Apps and Tools With MCP in 2026"
 description: "Connect a local phone model to an MCP server in OGAM. Start with a public repository lookup, then add only the tools your task needs."
 date: "2026-09-29"

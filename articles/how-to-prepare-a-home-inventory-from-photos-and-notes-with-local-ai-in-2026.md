@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare a Home Inventory From Photos and Notes With Local AI in 2026"
 description: "Use a local vision model to draft an inventory from room photos, then verify items and add details from your own records."
 date: "2026-09-29"

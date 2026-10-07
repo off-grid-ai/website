@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Document a Work Process From Notes, Screenshots and Recordings in 2026"
 description: "Combine checked notes, screenshot observations, and audio transcripts into a practical process draft with local AI, then verify the steps before sharing."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Contradictions Between Meeting Notes and a Project Brief in 2026"
 description: "Compare project notes and a brief with local AI, trace differences to source passages, and prepare clear questions before work follows the wrong requirement."
 date: "2026-09-29"

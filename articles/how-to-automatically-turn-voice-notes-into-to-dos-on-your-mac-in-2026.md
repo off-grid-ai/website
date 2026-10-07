@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Turn Voice Notes Into To-Dos on Your Mac in 2026"
 description: "Speak a short note and let Off Grid AI extract draft to-dos locally on your Mac, then review them in Actions."
 date: "2026-09-29"

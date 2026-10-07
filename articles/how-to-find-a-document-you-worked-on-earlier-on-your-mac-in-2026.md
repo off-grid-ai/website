@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find a Document You Worked On Earlier on Your Mac in 2026"
 description: "Use saved Mac activity to recover the context of a document you worked on. Search a remembered phrase and inspect the captured screen before reopening the file."
 date: "2026-09-29"

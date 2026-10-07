@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Audio When You Do Not Know the Language in 2026 (Offline)"
 description: "Let local speech recognition infer the spoken language on your phone or computer. Set up Auto-detect and know when to choose a language yourself."
 date: "2026-09-29"

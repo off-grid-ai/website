@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI Models on Your Windows PC From Your iPhone in 2026 (No Internet Required)"
 description: "Use a local AI model on your Windows PC from your iPhone over your own network after setup."
 date: "2026-09-29"

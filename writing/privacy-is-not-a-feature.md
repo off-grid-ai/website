@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Privacy Is Not a Feature. It's an Architecture Decision.
 parent: Perspectives
 article_topic: "Privacy & control"

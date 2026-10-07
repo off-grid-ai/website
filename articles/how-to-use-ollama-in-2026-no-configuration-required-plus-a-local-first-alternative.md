@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Ollama in 2026 (No Configuration Required), Plus a Local-First Alternative"
 description: "Run local LLMs with Ollama in minutes, then see a GUI alternative that adds image gen, voice, and on-device memory. No cloud."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A modern laptop ships with 16GB or more of unified memory and a GPU that idles a
 Free, open source, runs offline.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 ## What Ollama Is
 
@@ -107,7 +107,7 @@ Close other GPU-hungry apps before a long image-generation run. The GPU is share
 
 A cloud assistant sends your prompts, your uploads, and your voice to a remote server. You trust a retention policy you cannot inspect.
 
-Off Grid AI Desktop sends nothing. There is no account, no telemetry, and no API key. Your chats, images, and documents live on your disk. The code is AGPL-3.0, so you can read exactly what it does. Pull the network cable and it keeps working.
+Off Grid AI Desktop sends nothing. There is no account, no telemetry, and no API key. Your chats, images, and documents live on your disk. The code is open, so you can read exactly what it does. Pull the network cable and it keeps working.
 
 ## Getting Started
 
@@ -127,14 +127,14 @@ You are running local AI in a few minutes, with a real interface.
 - Deeper screen-capture-to-memory so the app remembers what you worked on.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The core app is free and open source under AGPL-3.0. No tier gate on the features in this article.
+Yes. The core app is free and open source. No tier gate on the features in this article.
 
 ### Q: Does it work offline?
 Yes. After you download a model, you can disconnect entirely. Everything runs on-device.

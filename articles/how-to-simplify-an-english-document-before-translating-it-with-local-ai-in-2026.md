@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Simplify an English Document Before Translating It With Local AI in 2026"
 description: "Make an English source document clearer before translation with local AI, while preserving conditions, responsibilities, and technical meaning."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Download and Switch Local AI Models From a Python Script in Off Grid AI in 2026"
 description: "List the model catalog, download a chosen model, wait for a terminal state, and activate it through the local API."
 date: "2026-09-29"

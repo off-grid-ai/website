@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Voice Input - On-Device Speech-to-Text with Whisper
 parent: Guides
 article_topic: "Voice & audio"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create an Offline Calculator App With Local AI in 2026"
 description: "Create a small local calculator, check it with known answers, and keep it as an offline HTML file."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Your NVIDIA GPU for Local AI on Linux in 2026"
 description: "Use the optional NVIDIA pack in Off Grid AI's Linux beta for local chat, images and transcription. Check the active backend and keep a CPU fallback."
 date: "2026-09-29"

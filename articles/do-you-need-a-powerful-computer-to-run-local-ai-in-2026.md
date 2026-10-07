@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Do You Need a Powerful Computer to Run Local AI in 2026?"
 description: "Check whether your current computer can run local AI. Start with one useful task, choose a model that fits, and test before buying hardware."
 date: "2026-09-29"

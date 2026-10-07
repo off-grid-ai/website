@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Research Papers Into an Evidence Table With Local AI in 2026"
 description: "Organise saved research papers into a source-linked evidence table with local AI, preserving methods, findings, and limits for your own review."
 date: "2026-09-29"

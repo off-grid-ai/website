@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Edit Images With AI on Windows in 2026 (Completely Offline)"
 description: "Use a reference image and a local image model to make visual variations. Keep the source on your computer and compare each result before saving."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find an Earlier AI Answer Within a Work Project in Off Grid AI in 2026"
 description: "Recover an earlier answer from a project conversation. Search saved chat content locally, open the matching conversation and check the original wording."
 date: "2026-09-29"

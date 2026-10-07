@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Connect Notion, Linear, and Jira to a Local AI (Private MCP)"
 description: "Connect Notion, Linear, and Jira to an on-device model that reasons over your data, with every action approval-gated and logged."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ Your laptop has a GPU and 16GB of RAM that mostly idle while you tab between Not
 Free, open-source, runs offline.
 
 
-![Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/integrations.png?v=2)
+![Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
 
-*Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.*
 
 ## What this gets you
 
@@ -92,7 +92,7 @@ Check the audit log periodically. It is your record of what the assistant has do
 
 A cloud AI assistant that connects your work tools sends your tickets, docs, and board data to a server to be reasoned over. The vendor sees your roadmap. You trust their retention policy and their access controls.
 
-Off Grid AI Desktop keeps the reasoning local. The connectors pull data to your machine, the on-device model reasons over it, and nothing routes through a server we own. No account, no telemetry. The code is AGPL-3.0, so you can verify what each connector sends and where.
+Off Grid AI Desktop keeps the reasoning local. The connectors pull data to your machine, the on-device model reasons over it, and nothing routes through a server we own. No account, no telemetry. The code is open, so you can verify what each connector sends and where.
 
 You still send credentials to the third-party services you connect, that is unavoidable for any integration. What changes is that the AI layer sits on your hardware, not someone else's.
 
@@ -111,15 +111,15 @@ You still send credentials to the third-party services you connect, that is unav
 - Richer audit views for teams that need a clear history of what ran.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The connectors and the approval queue are part of the free core.
+Yes. The app is free and open-source. The connectors and the approval queue are part of the free core.
 
 ### Q: Can the AI change my data without asking?
 

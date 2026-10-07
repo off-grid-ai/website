@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop Long Local AI Chats From Using Too Much RAM on Your Phone in 2026"
 description: "Reduce local chat memory on your phone by setting a practical context length. Keep useful project details in a short handoff."
 date: "2026-09-29"

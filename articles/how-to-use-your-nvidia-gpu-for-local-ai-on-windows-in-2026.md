@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Your NVIDIA GPU for Local AI on Windows in 2026"
 description: "Install Off Grid AI's optional NVIDIA components on Windows, run a local task and check which processing engine actually handled it."
 date: "2026-09-29"

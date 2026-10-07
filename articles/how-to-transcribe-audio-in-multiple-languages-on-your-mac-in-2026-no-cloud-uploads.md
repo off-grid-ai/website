@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Audio in Multiple Languages on Your Mac in 2026 (No Cloud Uploads)"
 description: "Turn speech into editable text on your Mac. Select a local multilingual model, set the spoken language, and transcribe without uploading audio."
 date: "2026-09-29"

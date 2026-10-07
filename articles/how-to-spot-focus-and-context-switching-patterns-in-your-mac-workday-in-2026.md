@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Spot Focus and Context-Switching Patterns in Your Mac Workday in 2026"
 description: "Use OGAD's private workday reflection to see estimated focus blocks, context switches, and where captured activity was concentrated. Review patterns without a manual timer."
 date: "2026-09-29"

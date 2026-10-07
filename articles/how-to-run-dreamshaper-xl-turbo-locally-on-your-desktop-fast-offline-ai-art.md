@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run DreamShaper XL Turbo Locally on Your Desktop (Fast Offline AI Art)"
 description: "Generate artwork in a handful of steps with DreamShaper XL Turbo, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A Turbo-distilled SDXL model can produce a finished image in a handful of steps 
 DreamShaper XL v2 Turbo is a versatile artistic checkpoint. It handles illustration, concept art, painterly looks, and stylized portraits without much coaxing. The Turbo part means it was distilled to need far fewer sampling steps, so each image comes back fast. This guide shows you how to run it locally with no token meter and no upload of your prompts.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device with DreamShaper XL Turbo in Off Grid AI Desktop.](/assets/img/home/gen-dreamshaper.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device with DreamShaper XL Turbo in Off Grid AI Desktop.*
 
 ## What You Need
 
@@ -69,7 +69,7 @@ Quantization is what brings the model down to size. The GGUF build trims the wei
 
 A hosted art tool sees every prompt and stores every image. It logs your activity and frequently trains on what you upload. You accept terms you skimmed.
 
-Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing transmitted. Your prompts and images stay on the device. The app is AGPL-3.0, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
+Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing transmitted. Your prompts and images stay on the device. The app is open source, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
 
 ## Getting Started
 
@@ -86,15 +86,15 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 - Ongoing improvements to the live preview and generation controls.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0, and the model is a free download. No subscription and no per-image credits.
+Yes. The app is free and open-source, and the model is a free download. No subscription and no per-image credits.
 
 ### Q: Does it work fully offline?
 

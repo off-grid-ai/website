@@ -1,0 +1,210 @@
+/* /pro/ — calm: one idea per section, scoped to pp-* classes. */
+
+/* Real app screens, always shown whole (never cropped or panned) */
+.pp-frame{position:relative;aspect-ratio:1760/944;border-radius:6px;overflow:hidden;background:var(--og-background);width:100%}
+.pp-frame .wt-shot{inset:0!important;border:0!important;border-radius:0!important;display:block!important;overflow:hidden!important}
+.pp-frame .wt-shot-in{position:absolute!important;inset:0!important;display:block!important}
+.pp-frame .wt-shot .shot{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;border:0!important;border-radius:0!important;animation:none!important;transform:none!important}
+.pp-anchor{display:block;position:relative;top:-80px;height:0;visibility:hidden}
+
+.pp-sec{padding-block:clamp(96px,10vw,152px)!important}
+.pp-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(40px,5vw,64px)}
+.pp-h2{font-weight:300!important;font-size:clamp(30px,3.8vw,52px)!important;line-height:1.08!important;letter-spacing:-.05em;text-wrap:balance}
+.pp-lede{font-size:15px;line-height:1.7;color:var(--og-text-secondary)}
+
+/* Hero: centred copy, the product large below */
+.pp-hero{padding-block:clamp(56px,7vw,96px) clamp(72px,8vw,120px)!important}
+.pp-hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+.pp-live{display:inline-flex;align-items:center;gap:10px;font-size:12px;border:1px solid var(--line-2);border-radius:8px;padding:6px 12px 6px 10px;background:rgb(var(--og-rgb-surface)/.7);color:var(--og-text-secondary)}
+.pp-h1 .t-line{text-wrap:balance}
+.pp-h1{font-weight:300!important;font-size:clamp(34px,4.6vw,64px)!important;line-height:1.05!important;letter-spacing:-.05em}
+.pp-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pp-shimmer{width:auto!important;padding:0 22px!important;white-space:nowrap}
+.pp-ghost{height:46px!important;padding:0 18px!important;border-radius:8px!important;font-family:var(--og-font-mono)!important}
+.pp-hero-card{width:100%!important;margin-top:clamp(24px,4vw,48px)}
+.pp-hero-card .scene-card-in,.pp-cap-card .scene-card-in{padding:8px}
+
+/* Buy: the card and the ladder, nothing else */
+.pp-buy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.pp-checkout{width:100%!important}
+.pp-checkout .plan{gap:18px!important;padding:32px!important}
+.pp-form{display:flex;flex-direction:column;gap:10px}
+.pp-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted)}
+.pp-input{display:flex;align-items:center;height:46px;border:1px solid var(--line-2);border-radius:8px;background:var(--og-background);transition:border-color .2s}
+.light .pp-input{background:#fff}
+.pp-input:focus-within{border-color:var(--og-primary)}
+.pp-input .rt-TextFieldInput{order:2;flex:1;min-width:0;height:100%;padding:0 14px 0 6px;background:transparent;border:0;outline:0;color:var(--og-text);font-family:var(--og-font-mono);font-size:14px}
+.pp-input .rt-TextFieldInput::placeholder{color:var(--og-text-muted)}
+.pp-input .rt-TextFieldSlot{order:1;display:grid;place-items:center;padding-left:14px;color:var(--og-text-muted)}
+.pp-input.ea-input-error{border-color:var(--og-error)}
+.pp-buy{width:100%!important;height:46px!important}
+.pp-buy:disabled{opacity:.45;cursor:not-allowed}
+.pp-buy.ihb{font-weight:400!important;font-size:14px}
+.pp-status{min-height:1.2em;font-size:12.5px;line-height:1.6;margin:0}
+.pp-status.ea-status-error{color:var(--og-error)}
+.pp-status.ea-status-success{color:var(--og-primary)}
+.pp-status a{text-decoration:underline;text-underline-offset:3px}
+.pp-fine{font-size:11.5px;line-height:1.6;color:var(--og-text-muted)}
+.pp-buy-side{display:flex;flex-direction:column;gap:36px}
+.pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
+.pp-count b{font-weight:400;color:var(--og-primary)}
+.pp-muted{color:var(--og-text-muted)}
+.pp-tiers{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);margin-top:28px}
+.pp-track{position:absolute;top:5px;left:calc(50% / var(--n));right:calc(50% / var(--n));height:2px}
+.pp-track i{position:absolute;inset:0;background:var(--line-2);border-radius:2px}
+.pp-track b{position:absolute;inset:0;background:var(--og-primary);border-radius:2px;transform-origin:0 50%}
+.pp-tier{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.pp-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--line-2);background:var(--og-background);z-index:1}
+.pp-tier.past .pp-dot{background:var(--og-primary);border-color:var(--og-primary)}
+.pp-tier.cur .pp-dot{border-color:var(--og-primary);box-shadow:0 0 0 4px rgb(var(--og-rgb-primary)/.18)}
+.pp-tier-price{font-size:clamp(24px,2.6vw,34px);font-weight:300;letter-spacing:-.04em;line-height:1}
+.pp-tier-price small{font-size:10px;letter-spacing:0;color:var(--og-text-muted)}
+.pp-tier.past .pp-tier-price{color:var(--og-text-muted);text-decoration:line-through}
+.pp-tier.cur .pp-tier-price{color:var(--og-primary)}
+.pp-tier-label{font-size:11px;color:var(--og-text-muted)}
+.pp-tier.cur .pp-tier-label{color:var(--og-text)}
+.pp-spots{font-size:12.5px;color:var(--og-text-secondary);margin-top:24px}
+.pp-spots b{font-weight:400;color:var(--og-primary)}
+.pp-monthly{font-size:12px;color:var(--og-text-muted);margin-top:8px}
+.pp-sure{display:grid;gap:12px;font-size:13px;color:var(--og-text-secondary);padding-top:28px;border-top:1px solid var(--line)}
+.pp-sure li{display:flex;gap:10px;align-items:center}
+.pp-sure svg{color:var(--og-primary);flex-shrink:0}
+.pp-before{font-size:12.5px;color:var(--og-text-muted);margin-top:40px;text-align:center}
+.pp-before a{color:var(--og-primary);text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+
+/* What Pro is: tabs, then one large screen */
+.pp-what .pp-head{align-items:center;text-align:center}
+.pp-cap-tabs{display:flex;justify-content:center;gap:4px;margin-bottom:28px}
+.pp-cap-hover{border-radius:8px;background:var(--og-surface-light)}
+.light .pp-cap-hover{background:#ececec}
+.pp-cap-tab{all:unset;cursor:pointer;position:relative;z-index:1;padding:10px 16px;font-size:13px;color:var(--og-text-muted);border-radius:8px;overflow:hidden;white-space:nowrap;flex-shrink:0;transition:color .2s}
+.pp-cap-tab>div.z-10{position:relative;display:flex;align-items:center;gap:8px}
+.pp-cap-tab[aria-pressed=true]{color:var(--og-text)}
+.pp-cap-tab[aria-pressed=true] svg{color:var(--og-primary)}
+.pp-cap-tab:hover{color:var(--og-text-secondary)}
+.pp-cap-tab:focus-visible{outline:2px solid var(--og-primary);outline-offset:-2px}
+.pp-cap-bar{position:absolute;left:-16px;right:-16px;bottom:-10px;height:2px;background:var(--og-primary);transform-origin:0 50%}
+.pp-cap-view{display:flex;flex-direction:column;gap:20px}
+.pp-cap-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.pp-cap-head h3{font-weight:300;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em}
+.pp-cap-head p{font-size:13.5px;color:var(--og-text-secondary);line-height:1.6}
+.pp-cap-card{width:100%!important}
+
+/* Sync: three lines and one link */
+.pp-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.pp-points li{display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.55;color:var(--og-text-secondary);padding-top:24px;border-top:1px solid var(--line-2)}
+.pp-ic{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;border:1px solid rgb(var(--og-rgb-primary)/.4);color:var(--og-primary)}
+.pp-link{display:inline-flex;align-items:center;gap:8px;margin-top:40px;font-size:14px;color:var(--og-primary)}
+.pp-link:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Private: one statement */
+.pp-private-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+
+/* How checkout works */
+.pp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s}
+.pp-steps li{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid var(--line);border-radius:8px;background:var(--og-surface)}
+.light .pp-steps li{background:#fff}
+.pp-steps b{font-weight:400;font-size:15px}
+.pp-steps small{font-size:12.5px;color:var(--og-text-muted)}
+.pp-step-n{display:grid;place-items:center;width:26px;height:26px;margin-bottom:10px;border-radius:6px;background:var(--og-primary);color:#03140c;font-size:12px}
+.light .pp-step-n{color:#fff}
+
+/* Final */
+.pp-final{padding-block:clamp(96px,10vw,152px)!important}
+.pp-final-h{font-weight:300!important;font-size:clamp(44px,7vw,104px)!important;letter-spacing:-.06em;line-height:1}
+.pp-final-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:8px;font-size:13px}
+.pp-final-links a{display:inline-flex;align-items:center;gap:6px;color:var(--og-text-secondary)}
+.pp-final-links a:hover{color:var(--og-primary)}
+
+/* What Pro is: the previous screen stays under the wipe */
+.pp-frame .pp-under{z-index:0}
+.pp-frame .wt-shot:not(.pp-under){z-index:1}
+.pp-cap-ctl{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.pp-hint{font-size:11.5px;color:var(--og-text-muted)}
+.pp-frame .preload{position:absolute}
+
+/* Conversion pieces */
+.pp-quiet{font-size:13px;color:var(--og-text-secondary);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);padding:12px 6px}
+.pp-quiet:hover{color:var(--og-text)}
+.pp-cta{align-items:center}
+.pp-proof{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;font-size:12px;color:var(--og-text-muted)}
+.pp-proof b{font-weight:400;color:var(--og-text)}
+.pp-buy-side .pp-proof{justify-content:flex-start;padding-top:24px;border-top:1px solid var(--line)}
+.pp-head-c{align-items:center;text-align:center}
+.pp-plan-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pp-get{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;font-size:13px;color:var(--og-text-secondary);flex:none!important}
+.pp-get li{display:flex;gap:8px;align-items:flex-start}
+.pp-trust{display:grid;gap:8px;font-size:12px;line-height:1.5;color:var(--og-text-secondary);margin-top:4px}
+.pp-trust li{display:flex;gap:8px;align-items:flex-start}
+.pp-trust svg{color:var(--og-primary);flex-shrink:0;margin-top:2px}
+.pp-fine a{color:var(--og-text-muted);text-decoration:underline;text-underline-offset:3px}
+.pp-faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:start}
+.pp-faq-grid .pp-head{margin-bottom:0}
+.pp-faq{display:flex;flex-direction:column;gap:8px}
+.pp-faq-item{background:var(--og-surface);border-radius:8px;transition:background .2s}
+.light .pp-faq-item{background:#f4f4f4}
+.pp-faq-item:hover,.pp-faq-item[data-state=open]{background:var(--og-surface-light)}
+.pp-faq-item h3{margin:0;font:inherit}
+.pp-faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;min-height:52px;cursor:pointer;font-family:var(--og-font-mono);font-size:14px;color:var(--og-text);border-radius:8px}
+.pp-faq-q:focus-visible{outline:2px solid var(--og-primary);outline-offset:2px}
+.pp-faq-q svg{flex-shrink:0;color:var(--og-primary);transition:transform .25s}
+.pp-faq-q[data-state=open] svg{transform:rotate(45deg)}
+.pp-faq-a{overflow:hidden}
+.pp-faq-a p{padding:0 18px 16px;font-size:13px;line-height:1.7;color:var(--og-text-secondary)}
+.pp-faq-sec .pp-before{text-align:left;margin-top:20px}
+.pp-again{display:flex;justify-content:center;margin-top:clamp(40px,5vw,64px)}
+.pp-bar{display:none}
+@media (max-width:860px){
+  .pp-bar{display:flex;position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:80;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 14px;border:1px solid var(--line-2);border-radius:8px;background:rgb(var(--og-rgb-background)/.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .pp-bar-tx{display:flex;flex-direction:column;min-width:0}
+  .pp-bar-tx b{font-weight:400;font-size:13px}
+  .pp-bar-tx small{font-size:10.5px;color:var(--og-text-muted);white-space:nowrap}
+  .pp-bar-btn{width:auto!important;height:42px!important;padding:0 16px!important;font-size:13px!important}
+  html.pp-bar-on .site-footer{padding-bottom:84px!important}
+  .pp-faq-grid{grid-template-columns:1fr;gap:20px}
+  .pp-faq-q{padding:14px;font-size:13.5px}
+  .pp-faq-a p{padding:0 14px 14px}
+  .pp-get{grid-template-columns:1fr;gap:6px}
+  .pp-cta{display:flex!important;flex-direction:column;gap:2px}
+  .pp-quiet{padding:10px}
+  .pp-again .pp-shimmer{width:100%!important}
+}
+/* Short desktop windows (1000x490) */
+@media (min-width:861px) and (max-height:600px){
+  .pp-hero{padding-top:36px!important}
+  .pp-hero-in{gap:14px}
+  .pp-h1{font-size:40px!important}
+}
+@media (max-width:860px){
+  .pp-sec,.pp-final{padding-block:56px!important}
+  .pp-hero{padding-block:24px 48px!important}
+  .pp-head{margin-bottom:28px;gap:12px}
+  .pp-h1{font-size:32px!important}
+  .pp-lede{font-size:14px}
+  .pp-hero-in{gap:14px}
+  .pp-cta{width:100%;display:grid;grid-template-columns:1fr}
+  .pp-shimmer,.pp-ghost{width:100%!important;justify-content:center}
+  .pp-hero-card{margin-top:12px}
+  .pp-hero-card .scene-card-in,.pp-cap-card .scene-card-in{padding:5px}
+  .pp-buy-grid{grid-template-columns:1fr;gap:40px}
+  .pp-checkout .plan{padding:20px!important}
+  .pp-buy-side{gap:28px}
+  .pp-before{margin-top:28px}
+  .pp-cap-tabs{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 -12px 20px;padding:0 12px 12px}
+  .pp-cap-tabs::-webkit-scrollbar{display:none}
+  .pp-cap-tab{padding:10px 12px;font-size:12px}
+  .pp-cap-bar{left:-12px;right:-12px}
+  .pp-cap-view{gap:14px}
+  .pp-points{grid-template-columns:1fr;gap:0}
+  .pp-points li{flex-direction:row;align-items:center;gap:14px;padding:16px 0;font-size:14px}
+  .pp-points .pp-ic{flex-shrink:0}
+  .pp-link{margin-top:20px}
+  .pp-steps{grid-template-columns:1fr 1fr;gap:8px}
+  .pp-steps li{padding:14px}
+  .pp-step-n{margin-bottom:4px}
+  .pp-final-links{flex-direction:column;align-items:center;gap:12px}
+}
+/* The shared plan-hero styles every link in the card as a button; these are plain text links */
+.plan-hero .pp-fine a,.plan-hero .pp-status a{background:none!important;border:0!important;padding:0!important;display:inline!important}
+.plan-hero .pp-fine a{color:var(--og-text-muted)!important}
+.plan-hero .pp-status a{color:var(--og-primary)!important}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Internal Documents Into a Public-Facing Draft With Local AI in 2026"
 description: "Create a public-facing draft from approved internal documents with local AI, while keeping confidential details and unsupported claims out of the copy."
 date: "2026-09-29"

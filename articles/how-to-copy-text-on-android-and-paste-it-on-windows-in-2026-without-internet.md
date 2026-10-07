@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Copy Text on Android and Paste It on Windows in 2026 Without Internet"
 description: "Send selected Android text to your Windows PC over your local network, then paste it into an app. Set up clipboard sync and use the supported Android handoff."
 date: "2026-09-29"

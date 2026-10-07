@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "LM Studio in 2026: Setup, and a Capture-Aware Alternative"
 description: "Set up LM Studio for local LLM chat, then meet an open-source alternative that adds image gen, voice, RAG, and on-device memory."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A consumer GPU with 12GB of VRAM can run a quantized 13B language model entirely
 Free, open source, runs offline.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat answering from your captured meetings and documents, sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat answering from your captured meetings and documents, sources cited.*
 
 ## What LM Studio Is
 
@@ -44,7 +44,7 @@ The boundary is scope. LM Studio is a chat and model-serving tool. It does not g
 
 ## A Capture-Aware Alternative: Off Grid AI Desktop
 
-Off Grid AI Desktop keeps the part you like about LM Studio. You browse Hugging Face inside the app, download a GGUF, and chat with temperature and context controls, all backed by a bundled `llama.cpp` server. Then it adds the rest of a local AI studio, and it is open source under AGPL-3.0 so you can read every line.
+Off Grid AI Desktop keeps the part you like about LM Studio. You browse Hugging Face inside the app, download a GGUF, and chat with temperature and context controls, all backed by a bundled `llama.cpp` server. Then it adds the rest of a local AI studio, and it is open source so you can read every line.
 
 Here is what you get on top of local chat.
 
@@ -96,7 +96,7 @@ Trim the context window when a chat is short. Long context reserves memory wheth
 
 A cloud tool sends your prompts, uploads, and voice to a remote server under a policy you cannot audit.
 
-Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your chats, images, documents, and any captured memory stay on your disk. The AGPL-3.0 license means the source is open to inspection. Disconnect from the network and it keeps running.
+Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your chats, images, documents, and any captured memory stay on your disk. The source is open to inspection. Disconnect from the network and it keeps running.
 
 ## Getting Started
 
@@ -114,14 +114,14 @@ Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your ch
 - A richer day view built from what the app remembers.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The core app is free and open source under AGPL-3.0. The features here are not behind a paywall.
+Yes. The core app is free and open source. The features here are not behind a paywall.
 
 ### Q: Does it work offline?
 Yes. Download a model once, then disconnect. Everything runs on-device.

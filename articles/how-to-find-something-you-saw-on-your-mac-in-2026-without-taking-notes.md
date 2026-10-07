@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Something You Saw on Your Mac in 2026 Without Taking Notes"
 description: "Find a remembered phrase or screen in your saved Mac activity. Use opt-in local capture, Search and Replay to return to the context."
 date: "2026-09-29"

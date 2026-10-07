@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use LM Studio From Your Android Phone in 2026 (Your Desktop AI in Your Pocket)"
 description: "LM Studio does not have a mobile app. If you want to use the models running on your desktop from your..."
 date: "2026-03-18"
@@ -19,7 +19,7 @@ The unofficial answer used to be: set up a reverse proxy, configure your network
 The actual answer now: [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) auto-discovers LM Studio on your network and lets you use it from your Android phone in about sixty seconds.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## How to set it up
@@ -35,9 +35,6 @@ If you are not sure which model to run, Qwen 3.5 9B is the recommendation for ma
 Install Off Grid from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases). Make sure your phone is on the same WiFi as your computer. Open Off Grid, go to Remote Models, tap Scan Network.
 
 Off Grid finds your LM Studio server and shows you every loaded model. Tap one. Chat.
-
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid scanning the network and discovering LM Studio models - iOS, Android, and servers running side by side.*
 
 ## What you get that a web interface does not
 
@@ -65,7 +62,7 @@ That is what Off Grid does.
 
 We are building Off Grid into a personal AI operating system. All the compute you own - phone, laptop, desktop - orchestrated into one private system. Network discovery, on-device inference, projects, RAG, tool calling, vision, and voice are already live. Automatic routing, device handoff, and shared context across devices are next.
 
-Built in the open. MIT licensed. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+Built in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Connector Support in Off Grid AI Desktop: Private, Approval-Gated Integrations"
 description: "Connect Notion, Linear, Jira, and any MCP tool locally. The on-device model reasons over the data; every action goes through an approval queue."
 date: "2026-06-25"
@@ -17,9 +17,9 @@ The Model Context Protocol lets an AI assistant talk to your tools through a sta
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/integrations.png?v=2)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
 
-*Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
 ## What a connector does here
 
@@ -100,7 +100,7 @@ When you do want the model to make changes, lean on the approval queue rather th
 
 A cloud integration platform holds an OAuth key to your account, routes your tool data through its servers, and runs the model there too. Three points where your data sits on someone else's hardware.
 
-Off Grid AI Desktop collapses all three onto your machine. The credential is local. The fetched data stays local. The model that reads it is local. The app is open source under AGPL-3.0, takes no account, and sends no telemetry. Connectors reach out to the tools you name and nowhere else.
+Off Grid AI Desktop collapses all three onto your machine. The credential is local. The fetched data stays local. The model that reads it is local. The app is open source, takes no account, and sends no telemetry. Connectors reach out to the tools you name and nowhere else.
 
 ## Getting started
 
@@ -117,15 +117,15 @@ Off Grid AI Desktop collapses all three onto your machine. The credential is loc
 - Cross-device sync so a connector you set up on one machine is available on another, still without a cloud middleman.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. Off Grid AI Desktop is free and open source under AGPL-3.0. No account, no card.
+Yes. Off Grid AI Desktop is free and open source. No account, no card.
 
 ### Q: What transports does it support?
 

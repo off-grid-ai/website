@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Your Clipboard History on Your Own Devices in 2026 (No Cloud Storage)"
 description: "Keep copied text in a local OGAD history, then choose whether to share new copies with your paired devices. Separate capture, retention, and device sharing."
 date: "2026-09-29"

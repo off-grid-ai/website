@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Recover Your Offline Password Vault in Off Grid AI on Mac in 2026"
 description: "Recover an existing OGAD vault with its saved phrase and recovery data, then set a new master password."
 date: "2026-09-29"

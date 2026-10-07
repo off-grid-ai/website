@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find a Project’s Related Meetings and Work Notes in Off Grid AI on Mac in 2026"
 description: "Recover project context from recorded meetings and captured work notes. Find related sources, check decisions, and correct project associations locally."
 date: "2026-09-29"

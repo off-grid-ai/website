@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Restyle a Photo With AI in 2026 Without Uploading It"
 description: "Explore watercolor, pencil and poster treatments from your own photo with local image-to-image generation. Keep the source off cloud AI services."
 date: "2026-09-29"

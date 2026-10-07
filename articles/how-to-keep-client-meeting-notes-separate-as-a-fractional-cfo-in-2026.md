@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Client Meeting Notes Separate as a Fractional CFO in 2026"
 description: "Organise each client’s meeting notes in a separate local project. Retrieve decisions with sources and reduce mix-ups when you switch between clients."
 date: "2026-09-29"

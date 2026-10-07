@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Regulatory Case for On-Device AI: Why Every New Privacy Law Is a Tailwind"
 parent: Perspectives
 article_topic: "Privacy & control"

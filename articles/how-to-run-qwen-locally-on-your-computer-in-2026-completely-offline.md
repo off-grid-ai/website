@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Qwen Locally on Your Computer in 2026 (Completely Offline)"
 description: "Run Alibaba's Qwen models on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no API keys."
 date: "2026-06-25"
@@ -16,12 +16,12 @@ The GPU in a mid-range laptop can run a 7-billion-parameter model fast enough to
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, AGPL-3.0, runs offline.
+Free, open-source, runs offline.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## Why Qwen
 
@@ -87,7 +87,7 @@ Trim the context window to the task. A long context slows every token and eats R
 
 A cloud chat service logs your prompts and may use them to train future models. Code you paste, documents you summarize, all of it lands on a server.
 
-Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is AGPL-3.0, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
+Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is open, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
 
 ## Getting Started
 
@@ -111,14 +111,14 @@ npm run dev
 - Unified search across chats, documents, and captured work.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No paid unlock to run Qwen.
+Yes. The app is free and open-source. No paid unlock to run Qwen.
 
 ### Q: Does it work fully offline?
 Yes. After a model downloads, you can drop the network and keep chatting.

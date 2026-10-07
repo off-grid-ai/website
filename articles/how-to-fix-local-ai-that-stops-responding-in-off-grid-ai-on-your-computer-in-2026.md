@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Fix Local AI That Stops Responding in Off Grid AI on Your Computer in 2026"
 description: "Use OGAD System health to find a stopped component, restart it, and check a small local request."
 date: "2026-09-29"

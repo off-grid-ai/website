@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Private Notes in an Encrypted Offline Vault in 2026"
 description: "Save sensitive text in OGAD's local Secure Note entries on Mac or Windows. Find the note by title, reveal it when needed, and lock the vault after use."
 date: "2026-09-29"

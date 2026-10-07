@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Personal AI OS for Knowledge Workers: From Email Triage to Meeting Prep to Deep Work"
 parent: Perspectives
 article_topic: "Work & organization"

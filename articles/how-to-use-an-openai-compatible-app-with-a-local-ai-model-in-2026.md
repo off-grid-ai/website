@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use an OpenAI-Compatible App With a Local AI Model in 2026"
 description: "Connect an app that supports a custom OpenAI-compatible endpoint to the model running on your own computer."
 date: "2026-09-29"

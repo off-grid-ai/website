@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Your Home Network Into a Private AI Cloud You Access From Your Phone"
 description: "Your home network probably has more AI compute sitting idle than you think.  If you have a desktop or..."
 date: "2026-03-18"
@@ -25,7 +25,7 @@ Every guide out there for solving this involves the same painful dance. Set envi
 We thought that was absurd. So we built auto-discovery into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## What Off Grid does on your network
@@ -127,7 +127,7 @@ If you want to help shape what this looks like, we are building it in the open. 
 
 ## Try it
 
-Off Grid is free, open source, and MIT licensed.
+Off Grid is free and open source.
 
 - [GitHub (1,000+ stars, 10,000+ downloads in 4 weeks)](https://github.com/alichherawalla/off-grid-mobile-ai)
 - Android: grab the latest APK from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases)

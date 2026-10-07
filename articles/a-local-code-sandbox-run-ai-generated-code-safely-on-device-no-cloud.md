@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "A Local Code Sandbox: Run AI-Generated Code Safely On-Device (No Cloud)"
 description: "Off Grid AI Desktop renders model-written HTML, JS, and React in a sandboxed iframe with no network and no file access. On-device, no cloud."
 date: "2026-06-25"
@@ -17,9 +17,9 @@ Every modern laptop ships with a browser engine that can run untrusted code in a
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/artifacts.png?v=2)
+![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.*
+*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
 
 ## The problem with running AI code
 
@@ -100,7 +100,7 @@ For React work, keep components self-contained. The bundled UMD build covers Rea
 
 A cloud playground sees your prompt, your code, and your edits. Many keep them. Your draft of a half-working idea becomes a row in someone's database.
 
-Off Grid AI Desktop sees none of that, because there is no server in the loop. The model runs on your machine. The sandbox runs on your machine. Off Grid AI Desktop is open source under AGPL-3.0, takes no account, sends no telemetry, and works with your network cable unplugged. The code you generate is yours and stays on your disk.
+Off Grid AI Desktop sees none of that, because there is no server in the loop. The model runs on your machine. The sandbox runs on your machine. Off Grid AI Desktop is open source, takes no account, sends no telemetry, and works with your network cable unplugged. The code you generate is yours and stays on your disk.
 
 ## Getting started
 
@@ -117,15 +117,15 @@ Off Grid AI Desktop sees none of that, because there is no server in the loop. T
 - Cross-device sync so a sandbox you build on one machine shows up on another, still without a cloud middleman.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. Off Grid AI Desktop is free and open source under AGPL-3.0. No account, no card.
+Yes. Off Grid AI Desktop is free and open source. No account, no card.
 
 ### Q: Can the AI code reach the internet from the preview?
 

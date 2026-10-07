@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on a Low-Memory Phone in 2026"
 description: "Choose smaller local models, release unused model memory, and keep context manageable on a phone with limited RAM. "
 date: "2026-09-29"

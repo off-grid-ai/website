@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Local OpenAI-Compatible API on Your Desktop in 2026 (No Cloud, No Keys)"
 description: "Swap one base_url and your existing OpenAI code runs against on-device models for free, offline, with no API key."
 date: "2026-06-25"
@@ -16,12 +16,12 @@ The laptop on your desk has a GPU that can run a 7B model and a diffusion model 
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry, no API key.
+Free, open-source, runs offline. No account, no telemetry, no API key.
 
 
-![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
+![The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878, with copyable curl, Python and JavaScript examples.](/assets/img/home/app/gateway-dark-1760.webp)
 
-*The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.*
+*The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878, with copyable curl, Python and JavaScript examples.*
 
 ## The one-line change
 
@@ -164,7 +164,7 @@ Because the gateway loads one model per modality on demand and offloads after, y
 
 A hosted OpenAI-compatible endpoint sees every prompt, every file, and every image you send. It logs them, it bills you per token, and it requires an account tied to your identity.
 
-This gateway sees none of that, because there is nothing to send. The server is on `127.0.0.1`. It has no outbound calls for inference. There is no telemetry. The code is AGPL-3.0, so you can read exactly what it does. You can pull the network cable and every endpoint above still answers.
+This gateway sees none of that, because there is nothing to send. The server is on `127.0.0.1`. It has no outbound calls for inference. There is no telemetry. The code is open, so you can read exactly what it does. You can pull the network cable and every endpoint above still answers.
 
 ## Getting Started
 
@@ -184,7 +184,7 @@ This gateway sees none of that, because there is nothing to send. The server is 
 
 ### Q: Is it really free?
 
-Yes. The app is open source under AGPL-3.0 and there is no metered API behind it. You run the models on your own hardware, so there is no per-token cost.
+Yes. The app is open source and there is no metered API behind it. You run the models on your own hardware, so there is no per-token cost.
 
 ### Q: Does it work offline?
 

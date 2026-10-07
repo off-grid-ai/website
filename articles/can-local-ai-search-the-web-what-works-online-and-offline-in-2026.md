@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can Local AI Search the Web? What Works Online and Offline in 2026"
 description: "Use a local AI model with web search when you need current sources. Keep online retrieval separate from offline work with saved documents."
 date: "2026-09-29"

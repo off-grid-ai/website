@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem('theme'); } catch (_) {}
+      var theme = saved === 'light' || saved === 'dark' ? saved :
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.documentElement.classList.toggle('light', theme === 'light');
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
+
+
+  <script>
+    // Analytics vendors read the address bar: gtag's page_view and the Meta
+    // Pixel's PageView both ship the full URL. RevenueCat's post-payment
+    // redirect puts the buyer's EMAIL in that URL (?app_user_id=), and the
+    // redemption link is a bearer token - neither may reach a vendor. Stash
+    // the original query for the page's own scripts, then scrub it before any
+    // vendor snippet below runs. Ad click ids (gclid, fbclid) are kept.
+    (function () {
+      var SENSITIVE = /^(app_user_id|redeem_url|email)$/;
+      window.OG_QUERY = location.search;
+      var raw = location.search;
+      if (raw.charAt(0) === '?') raw = raw.slice(1);
+      if (!raw) return;
+      // Split on '?' as well as '&': RevenueCat appends its params to the
+      // success URL with a second '?' when one is already configured.
+      var pairs = raw.split(/[&?]/);
+      var kept = [];
+      var dropped = false;
+      for (var i = 0; i < pairs.length; i++) {
+        var eq = pairs[i].indexOf('=');
+        var name = eq < 0 ? pairs[i] : pairs[i].slice(0, eq);
+        if (SENSITIVE.test(name)) { dropped = true; continue; }
+        if (pairs[i]) kept.push(pairs[i]);
+      }
+      if (!dropped) return;
+      try {
+        history.replaceState(null, '',
+          location.pathname + (kept.length ? '?' + kept.join('&') : '') + location.hash);
+      } catch (err) {
+        /* Leave the URL alone rather than break the page. */
+      }
+    })();
+  </script>
+
+  <!-- Google tag (gtag.js) - page view only. Conversions are sent explicitly
+       from the checkout buttons on /pro; see _config.yml (google_ads_*). -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_ads_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', {{ site.google_ads_id | jsonify }});
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3137229433277919');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3137229433277919&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  {% seo %}
+
+  <!-- WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Off Grid AI",
+    "url": "{{ site.url }}{{ site.baseurl }}/",
+    "description": {{ site.description | jsonify }},
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wednesday Solutions",
+      "url": "https://www.wednesday.is"
+    }
+  }
+  </script>
+
+  <!-- WebPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": {{ page.title | jsonify }},
+    "description": {{ page.description | default: site.description | jsonify }},
+    "url": "{{ site.url }}{{ page.url }}",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Off Grid AI",
+      "url": "{{ site.url }}{{ site.baseurl }}/"
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList schema -->
+  {% if page.parent %}
+  {% assign parent_page = site.pages | where: "title", page.parent | first %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Off Grid AI", "item": "{{ site.url }}{{ site.baseurl }}/"},
+      {"@type": "ListItem", "position": 2, "name": {{ page.parent | jsonify }}, "item": "{{ site.url }}{{ parent_page.url }}"},
+      {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ site.url }}{{ page.url }}"}
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- FAQ schema -->
+  {% if page.faq %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in page.faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.q | jsonify }},
+        "acceptedAnswer": {"@type": "Answer", "text": {{ item.a | jsonify }}}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+  {% capture og_v %}{% include content/chrome-version.html %}{% endcapture %}{% assign og_v = og_v | strip %}
+  {% include content/chrome-hints.html %}
+  <link rel="stylesheet" href="{{ '/assets/preview/tokens.css' | relative_url }}?v={{ og_v }}">
+  <link rel="stylesheet" href="{{ '/assets/preview/content/chrome.css' | relative_url }}?v={{ og_v }}">
+  <noscript><style>.offgrid-page [style*="opacity"]{opacity:1!important}.offgrid-page [style*="transform"]{transform:none!important}</style></noscript>
+</head>
+{%- comment -%}
+  Long-form Markdown on the design system (guides, articles, writing, privacy, terms, release notes).
+  The header, footer and theme come from the React kit (preview-ui/content/chrome.jsx, built with
+  PAGE=chrome). Its server render is split into chrome-0/1/2; everything between them is this page's
+  own HTML, which React adopts as-is. Keep markup between the includes free of stray whitespace at
+  the root: the slot divs open at the end of chrome-0 and chrome-1.
+{%- endcomment -%}
+{%- assign has_h1 = false -%}{%- if content contains '<h1' -%}{%- assign has_h1 = true -%}{%- endif -%}
+{%- assign doc_kind = '' -%}{%- assign doc_class = 'doc' -%}
+{%- if page.parent == 'Guides' -%}{%- assign doc_kind = 'Guide' -%}
+{%- elsif page.devto_article -%}{%- assign doc_kind = 'Article' -%}
+{%- elsif page.parent == 'Perspectives' -%}{%- assign doc_kind = 'Perspective' -%}
+{%- elsif page.parent == 'Desktop' or page.parent == 'Mobile' -%}{%- assign doc_kind = page.parent | append: ' releases' -%}{%- assign doc_class = 'doc doc-release' -%}
+{%- elsif page.url == '/privacy/' or page.url == '/terms/' -%}{%- assign doc_kind = 'Legal' -%}{%- assign doc_class = 'doc doc-legal' -%}
+{%- endif -%}
+{%- assign crumb_title = page.parent -%}{%- assign crumb_url = nil -%}
+{%- if page.parent -%}{%- assign crumb_page = site.pages | where: "title", page.parent | first -%}{%- if crumb_page -%}{%- assign crumb_url = crumb_page.url -%}{%- endif -%}
+{%- elsif page.devto_article -%}{%- assign crumb_title = 'Articles' -%}{%- assign crumb_url = '/articles/' -%}{%- endif -%}
+{%- assign toc_parts = content | split: '<h2 id="' -%}
+{%- capture toc_items -%}{%- for part in toc_parts offset:1 -%}{%- assign hid = part | split: '"' | first -%}{%- assign htext = part | split: '</h2>' | first | remove_first: hid | remove_first: '">' | strip_html | strip -%}<li><a href="#{{ hid }}">{{ htext }}</a></li>{%- endfor -%}{%- endcapture -%}
+{%- assign has_toc = false -%}{%- if toc_parts.size > 3 -%}{%- assign has_toc = true -%}{%- endif -%}
+{%- assign words = content | number_of_words -%}{%- assign minutes = words | divided_by: 220 | at_least: 1 -%}
+<body class="og-doc-body">
+  {% include announcement-bar.html %}
+  <div id="og-content-root">{% include content/chrome-0.html %}<div class="{{ doc_class }}{% if has_toc %} has-toc{% endif %}" data-page-title="{{ page.title | escape }}">
+    <nav class="doc-crumbs" aria-label="Breadcrumb" data-pagefind-ignore><a href="{{ '/' | relative_url }}">Off Grid AI</a>{% if crumb_title %}<span class="sep" aria-hidden="true">/</span>{% if crumb_url %}<a href="{{ crumb_url | relative_url }}">{{ crumb_title }}</a>{% else %}<span>{{ crumb_title }}</span>{% endif %}{% endif %}<span class="sep" aria-hidden="true">/</span><span class="here" aria-current="page">{{ page.title }}</span></nav>
+    <header class="doc-head" data-pagefind-ignore>
+      <p class="doc-meta">{% if doc_kind != '' %}<span class="doc-kind">{{ doc_kind }}</span>{% endif %}{% if page.article_topic %}<span>{{ page.article_topic }}</span>{% endif %}{% if page.article_platform %}<span>{{ page.article_platform }}</span>{% endif %}{% if page.published_at %}<span><time datetime="{{ page.published_at | date: '%Y-%m-%d' }}">{{ page.published_at | date: "%d %b %Y" }}</time></span>{% endif %}{% unless doc_class contains 'doc-legal' or doc_class contains 'doc-release' %}<span>{{ minutes }} min read</span>{% endunless %}</p>
+      {% unless has_h1 %}<h1 class="doc-title">{{ page.title }}</h1>{% if page.description %}<p class="doc-lede">{{ page.description }}</p>{% endif %}{% endunless %}
+    </header>
+    <div class="doc-grid{% if has_toc %} has-toc{% endif %}">
+      <article class="doc-body" data-pagefind-body>
+        {% if has_toc %}<details class="doc-toc-m" data-pagefind-ignore><summary>On this page</summary><ol>{{ toc_items }}</ol></details>{% endif %}
+        {{ content }}
+      </article>
+      {% if has_toc %}<nav class="doc-toc" aria-label="On this page" data-pagefind-ignore><span class="eyebrow">On this page</span><ol>{{ toc_items }}</ol></nav>{% endif %}
+    </div>
+  </div>{% include content/chrome-1.html %}<div class="doc-after" data-pagefind-ignore>
+    {% if page.parent == "Perspectives" %}
+    <div class="doc-cta">
+      <div><strong>Run the personal AI OS now.</strong>Off Grid AI Pro is live - ${{ site.data.pricing.lifetime }}, yours forever, climbing as we grow.</div>
+      <a href="{{ '/pro' | relative_url }}#buy">Get Off Grid AI Pro</a>
+    </div>
+    {% endif %}
+    {% if page.parent %}
+      {% assign siblings = site.pages | where: "parent", page.parent | sort: "nav_order" %}
+      {% assign current_index = 0 %}
+      {% for s in siblings %}{% if s.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}{% endfor %}
+      {% assign prev_index = current_index | minus: 1 %}{% assign next_index = current_index | plus: 1 %}
+      {% assign next_page = siblings[next_index] %}
+      {% if prev_index >= 0 or next_page %}
+      <nav class="doc-pager" aria-label="More in {{ page.parent }}">
+        {% if prev_index >= 0 %}{% assign prev_page = siblings[prev_index] %}{% if prev_page %}<a href="{{ prev_page.url | relative_url }}" class="prev"><span class="lbl">Previous</span><span class="ttl">{{ prev_page.title }}</span></a>{% endif %}{% endif %}
+        {% if next_page %}<a href="{{ next_page.url | relative_url }}" class="next"><span class="lbl">Next</span><span class="ttl">{{ next_page.title }}</span></a>{% endif %}
+      </nav>
+      {% endif %}
+    {% elsif page.devto_article and page.article_topic %}
+      {% assign more = site.pages | where: "article_topic", page.article_topic | where: "devto_article", true | sort: "published_at" | reverse %}
+      {% assign shown = 0 %}
+      <section class="doc-more" aria-label="More on {{ page.article_topic }}">
+        <span class="eyebrow">More on {{ page.article_topic }}</span>
+        <div class="doc-more-grid">
+        {% for m in more %}{% if m.url != page.url and shown < 3 %}{% assign shown = shown | plus: 1 %}<a href="{{ m.url | relative_url }}"><span class="m">{{ m.article_platform | default: 'Any device' }}</span><span class="t">{{ m.title | escape }}</span></a>{% endif %}{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </div>{% include content/chrome-2.html %}</div>
+
+  <!-- Search modal (Pagefind). Loaded on first open so pages without an index never fetch it. -->
+  <div id="searchModal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+    <div class="search-modal-backdrop" id="searchBackdrop"></div>
+    <div class="search-modal-box"><div id="pagefind-search"></div></div>
+  </div>
+
+  <script>
+    // Before hydration: React adopts the slot HTML as it stands after these run.
+    (function () {
+      var body = document.querySelector('.doc-body');
+      if (!body) return;
+      // Heading anchors (as the old layout did); ids come from Markdown and never change.
+      body.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+        var a = document.createElement('a');
+        a.className = 'heading-anchor'; a.href = '#' + h.id; a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; a.textContent = '#';
+        h.appendChild(a);
+      });
+      // Tables scroll inside themselves on narrow screens.
+      body.querySelectorAll('table').forEach(function (t) {
+        if (t.parentElement.classList.contains('table-scroll')) return;
+        var w = document.createElement('div'); w.className = 'table-scroll'; w.tabIndex = 0;
+        w.setAttribute('role', 'region'); w.setAttribute('aria-label', 'Table');
+        t.parentNode.insertBefore(w, t); w.appendChild(t);
+      });
+      // FAQ answers under an FAQ heading, and link lists under a "Related" heading.
+      body.querySelectorAll('h2').forEach(function (h) {
+        var name = h.textContent.replace('#', '').trim().toLowerCase();
+        if (/^(faq|frequently asked questions)/.test(name)) {
+          for (var el = h.nextElementSibling; el && !/^(H2|HR)$/.test(el.tagName); el = el.nextElementSibling) {
+            if (el.tagName === 'P' && el.firstElementChild && el.firstElementChild.tagName === 'STRONG') el.classList.add('faq-item');
+          }
+        }
+        if (/^(related|more guides|further reading|see also)/.test(name)) {
+          var list = h.nextElementSibling;
+          if (list && list.tagName === 'UL') list.classList.add('related-list');
+        }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var modal = document.getElementById('searchModal');
+      var backdrop = document.getElementById('searchBackdrop');
+      var pf = null, loading = false;
+      function load(done) {
+        if (window.PagefindUI) return done();
+        if (loading) return; loading = true;
+        var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '{{ "/pagefind/pagefind-ui.css" | relative_url }}'; document.head.appendChild(css);
+        var s = document.createElement('script'); s.src = '{{ "/pagefind/pagefind-ui.js" | relative_url }}';
+        s.onload = function () { loading = false; done(); };
+        s.onerror = function () { loading = false; document.getElementById('pagefind-search').innerHTML = '<p class="search-unavailable">Search is available on the published site.</p>'; };
+        document.head.appendChild(s);
+      }
+      function openSearch() {
+        modal.hidden = false; document.body.style.overflow = 'hidden';
+        load(function () {
+          if (!pf && window.PagefindUI) pf = new PagefindUI({ element: '#pagefind-search', showImages: false, showSubResults: false, resetStyles: false });
+          setTimeout(function () { var input = modal.querySelector('input[type=text]'); if (input) input.focus(); }, 50);
+        });
+      }
+      function closeSearch() { modal.hidden = true; document.body.style.overflow = ''; }
+      window.ogOpenSearch = openSearch; window.openSearch = openSearch;
+      backdrop.addEventListener('click', closeSearch);
+      document.addEventListener('keydown', function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); modal.hidden ? openSearch() : closeSearch(); }
+        if (e.key === 'Escape' && !modal.hidden) closeSearch();
+      });
+    })();
+  </script>
+  <script>
+    // "On this page": highlight the section being read.
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.doc-toc a'));
+      if (!links.length || typeof IntersectionObserver !== 'function') return;
+      var byId = {}; links.forEach(function (a) { byId[decodeURIComponent(a.hash.slice(1))] = a; });
+      var current = null;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          if (current) current.classList.remove('is-current');
+          current = byId[e.target.id]; if (current) current.classList.add('is-current');
+        });
+      }, { rootMargin: '-90px 0px -70% 0px' });
+      Object.keys(byId).forEach(function (id) { var h = document.getElementById(id); if (h) io.observe(h); });
+    })();
+  </script>
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Dr qr Ci Br Zr Pr capture calculateEventProperties Ur register register_once register_for_session unregister unregister_for_session Xr getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Jr identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wr Hr createPersonProfile setInternalOrTestUser Gr Fr tn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $r debug ki Yr getPageViewId captureTraceFeedback captureTraceMetric Rr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('{{ site.posthog_token }}', {
+      api_host: 'https://us.i.posthog.com',
+      defaults: '2026-01-30',
+      person_profiles: 'identified_only',
+    });
+  </script>
+  <script src="{{ '/assets/js/site-analytics.js' | relative_url }}"></script>
+  <!-- Carry the Google Ads click id past the landing page, so a purchase can be
+       matched back to the ad that produced it. Runs after posthog.init so the
+       register() call is queued on the snippet stub. -->
+  <script src="{{ '/assets/js/ad-click-id.js' | relative_url }}"></script>
+  <script>
+    if (window.AdClickId) { AdClickId.remember(); }
+  </script>
+  <script>
+    // Track outbound download and star clicks (unchanged from the old default layout).
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a');
+      if (!el) return;
+      var href = el.getAttribute('href') || '';
+      if (!window.OffGridAnalytics) return;
+      var page = window.location.pathname;
+      var host;
+      try { host = new URL(href, window.location.href).hostname; } catch (_) { return; }
+      // Mobile store links and direct Android release packages.
+      if (host === 'apps.apple.com' || host === 'play.google.com' ||
+          (/^https:\/\/github\.com\/off-grid-ai\/OGAM\/releases\/download\//.test(href) && /\.(apk|aab)(?:$|\?)/.test(href))) {
+        window.OffGridAnalytics.capture('docs_download_click', {
+          href: href,
+          page: page,
+          platform: host === 'apps.apple.com' ? 'ios' : 'android',
+          build: host === 'apps.apple.com' || host === 'play.google.com' ? 'store'
+            : (/\/releases\/download\/[^/]*-beta\./.test(href) ? 'beta' : 'stable')
+        });
+        return;
+      }
+      // Desktop installers
+      if (/\.(dmg|exe|AppImage|deb)(?:$|\?)/.test(href) || el.hasAttribute('data-beta-download')) {
+        var linux = href.indexOf('.AppImage') !== -1 || href.indexOf('.deb') !== -1 || /^(AppImage|deb)$/.test(el.getAttribute('data-beta-download') || '');
+        window.OffGridAnalytics.capture('desktop_download_click', {
+          href: href,
+          page: page,
+          build: el.hasAttribute('data-beta-download') || /-beta\./.test(href) ? 'beta' : (href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'),
+          platform: linux ? 'linux' : (href.indexOf('.exe') !== -1 || el.getAttribute('data-beta-download') === 'exe' ? 'windows' : 'macos')
+        });
+        return;
+      }
+      // Star on GitHub (repo root, not a release/download link)
+      if (/github\.com\/off-grid-ai\//.test(href) && href.indexOf('/releases') === -1) {
+        var product = href.indexOf('/OGAD') !== -1 || href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
+          : (href.indexOf('off-grid-ai-mobile') !== -1 ? 'mobile' : 'github');
+        window.OffGridAnalytics.capture(product + '_github_star_click', { href: href, page: page });
+        return;
+      }
+      // Any other CTA button (Get Pro, See what it does, Book a demo, etc.).
+      // Pages with their own richer CTA handler set window.__ctaTracked to opt out.
+      if (el.classList.contains('btn') && !window.__ctaTracked) {
+        window.OffGridAnalytics.capture('cta_click', {
+          label: (el.textContent || '').trim().replace(/\s+/g, ' '),
+          href: href,
+          page: page
+        });
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener('load', function() {
+      if (/^(127\.0\.0\.1|localhost)$/.test(location.hostname)) return; // keep local previews out of the counter
+      var url = 'https://i4zbsv67raeksuda2oga5jck7m0ksyyn.lambda-url.ap-south-1.on.aws/'
+        + '?c=offgrid&p=' + encodeURIComponent(window.location.pathname) + '&d=';
+      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function() {});
+    }, { once: true });
+  </script>
+  <script type="module" src="{{ '/assets/preview/content/chrome.js' | relative_url }}?v={{ og_v }}"></script>
+</body>
+</html>

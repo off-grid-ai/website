@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Research Notes Into a Draft With Offline AI in 2026"
 description: "Use local AI to organize checked research notes into a first draft while keeping claims tied to sources."
 date: "2026-09-29"

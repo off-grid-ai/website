@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Delete Old Dictation Recordings in Off Grid AI on Your Mac in 2026"
 description: "Set age and count limits for Off Grid AI’s Voice library on Mac, and understand what automatic cleanup removes."
 date: "2026-09-29"

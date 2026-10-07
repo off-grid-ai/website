@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Translate Document Text With Local AI in 2026"
 description: "Translate selected document text with a local model, then check meaning, names, numbers, and terminology."
 date: "2026-09-29"

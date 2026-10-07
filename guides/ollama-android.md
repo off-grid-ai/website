@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: How to Use Ollama From Your Android Phone in 2026
 parent: Guides
 article_topic: "Models & performance"

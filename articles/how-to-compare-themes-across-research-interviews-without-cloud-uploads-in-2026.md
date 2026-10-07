@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Themes Across Research Interviews Without Cloud Uploads in 2026"
 description: "Use local AI to compare checked interview excerpts, preserve participant differences, and build a theme table you can trace back to the source."
 date: "2026-09-29"

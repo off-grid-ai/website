@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn French Speech Into Text on Your Computer in 2026 (No Internet Required)"
 description: "Dictate French on Mac or Windows with local speech recognition. Select French, get editable text, and check names and numbers without uploading audio."
 date: "2026-09-29"

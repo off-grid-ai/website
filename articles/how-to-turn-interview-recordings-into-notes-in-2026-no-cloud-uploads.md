@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Interview Recordings Into Notes in 2026 (No Cloud Uploads)"
 description: "Turn a saved interview into checked notes on your Mac. Transcribe locally, separate quotes from summaries, and use a local AI model to organize the text."
 date: "2026-09-29"

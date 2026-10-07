@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The All-in-One Local Voice AI: Built-in TTS, STT, and Audio Mode (On-Device)"
 description: "Talk to your AI and have it talk back, fully on-device. Built-in whisper.cpp for speech-to-text and Kokoro for text-to-speech. No cloud."
 date: "2026-06-25"
@@ -21,9 +21,9 @@ Off Grid AI Desktop is a free, open-source app that runs both directions of voic
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.](/assets/img/home/app/voice-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.*
 
 ## The gap in local AI tools
 
@@ -93,7 +93,7 @@ For voice mode, shorter answers feel snappier. If replies drag, lower the chat m
 
 Cloud voice assistants send your microphone audio to a server. Cloud TTS sends your text to a server and meters it. You get a bill and a log of everything you said and everything you had read back.
 
-Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is AGPL-3.0, so you can read the source and confirm it. No account, no telemetry, no audio leaving the device.
+Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is open source, so you can read the source and confirm it. No account, no telemetry, no audio leaving the device.
 
 ## Getting started
 
@@ -111,14 +111,14 @@ Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokor
 - Using the local voice stack from other paired devices over the mesh.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No account, no subscription, no API keys.
+Yes. The app is free and open-source. No account, no subscription, no API keys.
 
 ### Q: Does voice work offline?
 Yes. Both whisper.cpp and Kokoro run on your device. After the models download, you can transcribe and speak with the network off.

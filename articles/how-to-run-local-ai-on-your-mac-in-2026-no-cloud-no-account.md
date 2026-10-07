@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Mac in 2026 (No Cloud, No Account)"
 description: "Chat, generate images, and talk to AI on your Mac, all on-device. No cloud, no account, no monthly bill. Free and open source."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ The same M-series chip that edits your video also runs language models, draws im
 Free, open source, runs offline. No account.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
@@ -74,7 +74,7 @@ A few habits keep all three engines responsive.
 
 Cloud AI services send your words, your images, and your voice to a remote server, where they are logged and may train the next model. With Off Grid AI Desktop, all of it stays on your Mac. The prompt, the picture, the recording: none of it leaves the machine.
 
-No account. No telemetry. No API key. The app is AGPL-3.0, so the full source is on GitHub for you to read. There is nothing to log in to and nothing phoning home.
+No account. No telemetry. No API key. The app is open source, so the full source is on GitHub for you to read. There is nothing to log in to and nothing phoning home.
 
 ## Getting Started
 
@@ -98,15 +98,15 @@ npm run dev
 - Unified search across everything you have made on-device.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
 ### Q: Is it actually free?
 
-Yes. Free and open source under AGPL-3.0. Chat, image generation, and voice are all in the free open core.
+Yes. Free and open source. Chat, image generation, and voice are all included.
 
 ### Q: Does the image generation really run on my Mac?
 

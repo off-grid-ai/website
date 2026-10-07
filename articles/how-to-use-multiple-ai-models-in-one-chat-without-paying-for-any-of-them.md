@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Multiple AI Models in One Chat Without Paying for Any of Them"
 description: "Most AI apps lock you into one model per conversation. If you want to compare how Llama handles a..."
 date: "2026-03-18"
@@ -19,7 +19,7 @@ That is not how you would use AI if there were no artificial barriers. You would
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) lets you do exactly that. Switch between any model - on your phone or on your network - at any point in a conversation. The chat history stays. The context carries over. You just change which brain is answering.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="A chat in Off Grid on the phone; the Models menu under the title switches which model answers" src="/assets/img/home/mobile/chat-ios-1-light-640.webp" />
 </div>
 
 ## How it works
@@ -32,8 +32,8 @@ Off Grid gives you access to models from two sources:
 
 All of these models show up in one model selector. Tap to switch. Continue chatting. That is it.
 
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid showing both on-device and network models in a single app - iOS, Android, Ollama, and LM Studio all working together.*
+![The Models screen in Off Grid on the phone, with several models downloaded and ready to switch between.](/assets/img/home/mobile/models-ios-1-light-640.webp)
+*The Models screen in Off Grid on the phone, with several models downloaded and ready to switch between.*
 
 ## Why you would want to switch models mid-chat
 

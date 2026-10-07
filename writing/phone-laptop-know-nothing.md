@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Your Phone and Laptop Know Nothing About You. That's the Biggest Problem in Personal Computing."
 parent: Perspectives
 article_topic: "Sync & sharing"

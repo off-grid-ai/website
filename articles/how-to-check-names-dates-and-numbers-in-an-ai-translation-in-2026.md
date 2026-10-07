@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Check Names, Dates and Numbers in an AI Translation in 2026"
 description: "Check an AI translation for changed names, dates, numbers, units, and conditions using local AI plus direct source comparison."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop Local AI Replies From Becoming Too Long in 2026"
 description: "Get shorter local AI answers with a clear prompt, a response limit, and a stop control that keeps text already produced. Use OGAD on your computer."
 date: "2026-09-29"

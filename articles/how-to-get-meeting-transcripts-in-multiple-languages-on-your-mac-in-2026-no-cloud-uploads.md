@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Meeting Transcripts in Multiple Languages on Your Mac in 2026 (No Cloud Uploads)"
 description: "Use a multilingual local speech model for meeting transcripts on Mac, then check recognition against the recording."
 date: "2026-09-29"

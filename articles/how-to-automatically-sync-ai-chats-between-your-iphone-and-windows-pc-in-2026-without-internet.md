@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync AI Chats Between Your iPhone and Windows PC in 2026 Without Internet"
 description: "Continue iPhone AI chats on Windows over your local network. Set up automatic chat sync, check iOS permissions, and handle background and firewall limits."
 date: "2026-09-29"

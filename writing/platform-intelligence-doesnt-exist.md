@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Why Platform Intelligence Doesn't Exist Yet - And What It Would Take to Build It"
 parent: Perspectives
 article_topic: "Getting started"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Store API Keys Securely on Your Computer in 2026 (No Cloud Vault)"
 description: "Keep API keys and tokens in OGAD's encrypted local Vault on Mac or Windows. Label them clearly, reveal them when needed, and avoid leaving the only copy in a scratch file."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find What Was Decided in a Recorded Meeting on Your Mac in 2026"
 description: "Recover a decision from a recorded meeting, then check the AI answer against its transcript and retained recording on your Mac."
 date: "2026-09-29"

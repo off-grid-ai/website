@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Recover Something You Copied Earlier on Windows in 2026 (Automatic Clipboard History)"
 description: "Find and reuse earlier copied text with OGAD's local clipboard history on Windows. Search saved clips and paste a previous item without returning to its source."
 date: "2026-09-29"

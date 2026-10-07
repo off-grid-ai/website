@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "A Day With a Personal AI OS: What It Looks Like When Your Devices Actually Work Together"
 parent: Perspectives
 article_topic: "Work & organization"

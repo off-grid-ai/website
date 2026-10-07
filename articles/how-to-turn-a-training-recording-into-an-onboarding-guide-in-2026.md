@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Training Recording Into an Onboarding Guide in 2026"
 description: "Use local AI to turn saved training audio into a checked onboarding guide with steps, exceptions, and questions for new staff."
 date: "2026-09-29"

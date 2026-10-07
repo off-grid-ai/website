@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Fix Inaccurate Audio Transcripts on Your Mac in 2026 (No Cloud Uploads)"
 description: "Reuse saved audio in Off Grid AI, select another local speech model, and compare transcripts without making a new recording."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Chat With Your Documents Locally (Offline RAG, No Cloud)"
 description: "Upload PDFs, notes, and audio, then chat with cited sources entirely on-device. No cloud, no account, no API keys."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A modern laptop has 16GB or more of RAM and a GPU that sits at 2 percent load wh
 Free, open-source, runs offline.
 
 
-![Projects keep related chats, uploaded documents, and generations together.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/projects.png?v=2)
+![A project chat in Off Grid AI Desktop answering from your documents, citing the PDF, the DOCX and the meeting it used.](/assets/img/home/app/projects-dark-1760.webp)
 
-*Projects keep related chats, uploaded documents, and generations together.*
+*A project chat in Off Grid AI Desktop answering from your documents, citing the PDF, the DOCX and the meeting it used.*
 
 ## What this gets you
 
@@ -84,7 +84,7 @@ Watch your context window. The retrieved chunks plus your question have to fit i
 
 A cloud RAG product uploads your documents to a server, embeds them there, and stores the vectors on infrastructure you do not control. Even with good intentions, your contracts and notes now live somewhere else.
 
-Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create and no telemetry phoning home. The code is AGPL-3.0, so you can read exactly what it does with your files.
+Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create and no telemetry phoning home. The code is open, so you can read exactly what it does with your files.
 
 For anything covered by an NDA, a privacy regulation, or just your own preference, on-device is the difference between "trust us" and "verify it yourself."
 
@@ -103,15 +103,15 @@ For anything covered by an NDA, a privacy regulation, or just your own preferenc
 - Unified search across projects and captured memory.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. There is no document quota and no paid tier gating the RAG feature.
+Yes. The app is free and open-source. There is no document quota and no paid tier gating the RAG feature.
 
 ### Q: Does it work fully offline?
 

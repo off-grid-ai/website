@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Details Across Founder Meeting Notes in 2026"
 description: "Find source-backed details across founder meeting notes with local AI, preserving dates, uncertainty, and changes between conversations."
 date: "2026-09-29"

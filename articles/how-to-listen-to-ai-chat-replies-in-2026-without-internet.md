@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Listen to AI Chat Replies in 2026 Without Internet"
 description: "Read an AI reply, then listen to it with a local voice. Set up offline playback on your phone or computer with Off Grid AI."
 date: "2026-09-29"

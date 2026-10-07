@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Blog Illustrations in 2026 Without Cloud Image Generation"
 description: "Create an illustration that fits your article with a local AI model. Develop the visual idea, leave space for text and export the result from OGAD."
 date: "2026-09-29"

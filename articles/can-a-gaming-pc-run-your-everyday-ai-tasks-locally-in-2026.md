@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can a Gaming PC Run Your Everyday AI Tasks Locally in 2026?"
 description: "Test everyday local AI on the gaming PC you already own. Check model fit, actual processing backend, and useful results before changing hardware."
 date: "2026-09-29"

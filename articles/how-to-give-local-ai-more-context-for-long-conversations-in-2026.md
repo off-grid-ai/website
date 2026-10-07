@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Give Local AI More Context for Long Conversations in 2026"
 description: "Keep more relevant material in a local conversation while staying within your computer’s memory."
 date: "2026-09-29"

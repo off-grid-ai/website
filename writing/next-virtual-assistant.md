@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Your Next Virtual Assistant Won't Be a Person. And That's the Point."
 parent: Perspectives
 article_topic: "Automation & tools"

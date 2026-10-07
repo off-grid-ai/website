@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Recorded Workshop Into a Decision Brief in 2026"
 description: "Turn workshop audio into a checked decision brief with local AI. Separate decisions, proposals, conditions, and questions that remain open."
 date: "2026-09-29"

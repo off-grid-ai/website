@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Document Into a Checklist in 2026 Without Internet"
 description: "Turn a readable procedure into a checked list of actions using AI on your own computer."
 date: "2026-09-29"

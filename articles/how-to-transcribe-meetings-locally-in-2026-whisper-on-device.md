@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Meetings Locally in 2026 (Whisper, On-Device)"
 description: "Record and transcribe Zoom and Google Meet calls entirely on-device with whisper.cpp. No cloud notetaker, no per-minute fees."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ OpenAI's Whisper model runs accurate speech-to-text on a laptop GPU, and the C++
 Free, open-source, runs offline. No account, no API key, no telemetry.
 
 
-![Meetings record and transcribe on-device, with a local summary and transcript.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/meetings.png?v=2)
+![Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.](/assets/img/home/app/meetings-dark-1760.webp)
 
-*Meetings record and transcribe on-device, with a local summary and transcript.*
+*Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.*
 
 ## What This Gets You
 
@@ -64,7 +64,7 @@ Pick the model to match the job. A smaller Whisper model is fine for a quick int
 
 A cloud notetaker uploads your full meeting audio and video to a server you do not control. The recording, the transcript, and the summary all live there. Off Grid AI Desktop keeps every part of that on your machine, because there is no server in the path.
 
-It is AGPL-3.0 licensed, so the code is auditable. There is no account and no telemetry. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
+It is open source, so the code is auditable. There is no account and no telemetry. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
 
 ## Getting Started
 
@@ -90,7 +90,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. There are no per-minute charges and no subscription.
+Yes. The app is free and open-source. There are no per-minute charges and no subscription.
 
 ### Q: Does it work offline?
 Yes. Recording and transcription both run with no network connection.

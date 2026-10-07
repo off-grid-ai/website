@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Set Up Local AI on Your Computer in 2026 Without Picking Every Model"
 description: "Let OGAD suggest a local model plan for your computer, review its download size, and start with chat."
 date: "2026-09-29"

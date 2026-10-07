@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Client FAQ From Approved Project Documents in 2026"
 description: "Use local AI to draft a client FAQ from approved sources, trace answers to evidence, and keep missing or conflicting information visible."
 date: "2026-09-29"

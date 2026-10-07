@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync AI Chats Between Your iPhone and Mac in 2026 Without Internet"
 description: "Move from an iPhone AI chat to your Mac without cloud sync. Pair your devices, allow local network access, and check the conversation in both directions."
 date: "2026-09-29"

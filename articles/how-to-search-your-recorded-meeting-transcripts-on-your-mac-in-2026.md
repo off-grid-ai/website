@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Your Recorded Meeting Transcripts on Your Mac in 2026"
 description: "Find a topic or phrase in saved meeting transcripts on your Mac. Search locally, open the matching meeting and check its transcript or retained recording."
 date: "2026-09-29"

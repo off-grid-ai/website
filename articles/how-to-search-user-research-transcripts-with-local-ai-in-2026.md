@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search User Research Transcripts With Local AI in 2026"
 description: "Find relevant passages in user research transcripts with local AI, check the original evidence, and keep interpretations separate from participant quotes."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Lecture Notes Into Practice Questions Without Internet in 2026"
 description: "Make a checked practice question set from your own lecture notes with local AI, then use it to find what you need to revise."
 date: "2026-09-29"

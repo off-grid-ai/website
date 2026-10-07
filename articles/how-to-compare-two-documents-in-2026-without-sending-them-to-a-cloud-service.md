@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Two Documents in 2026 Without Sending Them to a Cloud Service"
 description: "Compare named sections of two documents with a local AI model, keeping the files on your computer."
 date: "2026-09-29"

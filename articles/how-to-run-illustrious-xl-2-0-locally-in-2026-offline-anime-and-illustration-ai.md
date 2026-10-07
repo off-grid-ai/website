@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Illustrious XL 2.0 Locally in 2026 (Offline Anime and Illustration AI)"
 description: "Run Illustrious XL v2.0 anime and illustration AI fully on-device on Mac or Windows. No cloud, no account, no API keys."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ The laptop you already own has a GPU that can render a finished anime illustrati
 Illustrious XL v2.0 is an SDXL checkpoint tuned for anime and illustration. It reads danbooru-style tag prompts, so you describe a picture with comma-separated tags instead of long sentences. The model lives on your disk. The pixels render on your hardware. Nothing about your prompt leaves the machine.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An illustration generated on-device with Illustrious XL in Off Grid AI Desktop.](/assets/img/home/gen-illustrious.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An illustration generated on-device with Illustrious XL in Off Grid AI Desktop.*
 
 ## What You Need
 
@@ -87,7 +87,7 @@ Generate a couple of test images at each level on your own hardware and judge wi
 
 A hosted anime generator sees every prompt you type and every image you make. Some keep them. Some train on them. Some have a content filter that decides what you are allowed to draw.
 
-Off Grid AI Desktop has none of that. The app runs on-device. There is no account, no telemetry, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is AGPL-3.0, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
+Off Grid AI Desktop has none of that. The app runs on-device. There is no account, no telemetry, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is open, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
 
 ## Getting Started
 
@@ -106,15 +106,15 @@ That is the whole loop. Once the model is on disk you can pull the network cable
 - Broader hardware coverage as `stable-diffusion.cpp` adds backends.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The Illustrious GGUF model is a free download from Hugging Face.
+Yes. The app is free and open-source. The Illustrious GGUF model is a free download from Hugging Face.
 
 ### Q: Does it work offline?
 

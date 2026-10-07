@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Crop and Save a Mac Screenshot by Asking Local AI in 2026"
 description: "Describe a screenshot crop and save a separate edited copy with local AI on Mac."
 date: "2026-09-29"

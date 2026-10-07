@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The 200-Year Secretary: How AI Finally Democratizes the World's Oldest Productivity Tool"
 parent: Perspectives
 article_topic: "Automation & tools"

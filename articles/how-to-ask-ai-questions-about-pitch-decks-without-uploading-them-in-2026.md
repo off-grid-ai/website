@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask AI Questions About Pitch Decks Without Uploading Them in 2026"
 description: "Review pitch-deck text with local AI, find source-backed company claims, and prepare questions without uploading the deck to a cloud AI service."
 date: "2026-09-29"

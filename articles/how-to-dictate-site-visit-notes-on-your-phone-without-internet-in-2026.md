@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Dictate Site Visit Notes on Your Phone Without Internet in 2026"
 description: "Dictate checked site-visit notes on Android or iPhone with local speech recognition, then copy them into your normal record system."
 date: "2026-09-29"

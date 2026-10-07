@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Gemma 4 on Your Android Phone in 2026 (Locally, No Cloud)"
 description: "Google released Gemma 4 on April 2, 2026. It's their most capable open model yet — built on the same..."
 date: "2026-04-14"
@@ -23,15 +23,15 @@ Off Grid is a free, open-source app that runs Gemma 4 and other GGUF models enti
 <table>
     <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5q4ns9fowhnrgpg5nsum.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-ios-1-dark-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vttu3u8e7iii77of8o4m.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/project-ios-2-dark-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
         <b>Attachments</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wddqnj442l7teu72or4p.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/vision-ios-1-dark-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
         <b>Vision AI</b>
       </td>
     </tr>
@@ -73,6 +73,6 @@ Off Grid automatically uses QNN NPU acceleration on Snapdragon 8 Gen 1+, Adreno 
 
 Every Gemma 4 inference runs on your phone's processor. After the initial download, Off Grid makes zero network requests. Turn on airplane mode and verify. Everything works.
 
-No analytics. No telemetry. No accounts. Open source and MIT licensed.
+No analytics. No telemetry. No accounts. Open source.
 
 Off Grid also runs Qwen 3.5, Llama 3.2, Phi-4, image generation, vision AI, voice transcription, tool calling, and document analysis — all on device. Check the [GitHub](https://github.com/alichherawalla/off-grid-mobile) for the latest releases.

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Training Recordings Without Uploading Them in 2026"
 description: "Create checked transcripts of training audio with local AI, preserve course terminology, and prepare useful material for lesson editing."
 date: "2026-09-29"

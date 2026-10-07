@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Voice-to-Text Locally on Your Desktop (Whisper, Offline Dictation)"
 description: "Run private speech-to-text on your own Mac or PC with bundled whisper.cpp. Mic to text in the composer, on-device, no cloud transcription."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ OpenAI trained Whisper on 680,000 hours of audio, and the small models that came
 Free, open-source, runs offline. No account, no API key, no audio leaving your machine.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.](/assets/img/home/app/voice-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.*
 
 ## Why local dictation matters
 
@@ -97,7 +97,7 @@ For long dictation, pause naturally between thoughts. Those pauses give the deco
 
 A cloud dictation service receives your raw audio. It may store it, log it, attach it to your account, or use it to improve its product. You are trusting a privacy policy you did not write and cannot enforce.
 
-Off Grid AI Desktop receives nothing, because there is no server. The app is AGPL-3.0 open source, so you can read exactly what it does with your audio, which is process it on your machine and discard it. No telemetry. No account. No upload. Pull the network cable and dictation still works.
+Off Grid AI Desktop receives nothing, because there is no server. The app is open source, so you can read exactly what it does with your audio, which is process it on your machine and discard it. No telemetry. No account. No upload. Pull the network cable and dictation still works.
 
 ## Getting Started
 
@@ -117,14 +117,14 @@ That is it. No sign-up wall, no key to paste.
 - Cross-device sync so a phrase dictated on one machine reaches another
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.](/assets/img/home/app/models-transcription-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. No trial, no paywall on dictation.
+Yes. The app is free and open source. No trial, no paywall on dictation.
 
 ### Q: Does it work offline?
 Completely. After the model is downloaded, you can turn off your network and dictation keeps working.

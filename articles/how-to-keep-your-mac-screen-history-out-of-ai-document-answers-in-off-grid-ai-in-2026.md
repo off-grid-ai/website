@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Your Mac Screen History Out of AI Document Answers in Off Grid AI in 2026"
 description: "Keep captured screen history out of project document retrieval. Use the project source control and check the context behind an answer."
 date: "2026-09-29"

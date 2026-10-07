@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Inspect Requests Sent to an AI Model in Off Grid AI in 2026"
 description: "Use AI activity in Off Grid AI to inspect a request, compare effective settings and find the error behind a failed or slow local task."
 date: "2026-09-29"

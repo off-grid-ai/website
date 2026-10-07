@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare an Offline AI Travel Folder on Your Phone in 2026"
 description: "Prepare a local phone project with saved travel notes and documents, test questions before departure, and keep live travel information separate."
 date: "2026-09-29"

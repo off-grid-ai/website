@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images Locally on Your iPhone in 2026 (No Cloud, No Subscription)"
 description: "You don't need Midjourney. You don't need a $20/month subscription. You don't need to upload your..."
 date: "2026-03-04"
@@ -18,7 +18,7 @@ Off Grid is a free, open-source app that runs AI image generation on your iPhone
 
 [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rbfkd2u6s3ymwypwg12b.png)
+![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
 
 ## What You Need
 
@@ -37,7 +37,7 @@ The model starts with random noise and refines it over multiple denoising steps 
 <table align="center">
     <tr>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d4vmj4a8zmchlkcbvm1i.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="An image generated on the iPhone in Off Grid, with the enhanced prompts it used" width="200" height="434" style="object-fit: cover;" />
         <b>Image Generation</b>
       </td>
 </tr>
@@ -101,7 +101,7 @@ Every image you generate on cloud services is stored on their servers. Your prom
 
 With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. The App Store privacy label says it directly: the developer does not collect any data from this app.
 
-Open source. MIT licensed. Verify it yourself.
+Open source. Verify it yourself.
 
 ## Getting Started
 

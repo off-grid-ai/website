@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Dictate Into Any Mac App With Local AI in 2026 (No Cloud Transcription)"
 description: "Write emails, notes, and documents by speaking on your Mac. Set up local dictation, paste at the cursor, and review the text before sending it."
 date: "2026-09-29"

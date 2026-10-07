@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "You Are One Person Across Two Devices. Your AI Should Know That."
 parent: Perspectives
 article_topic: "Sync & sharing"

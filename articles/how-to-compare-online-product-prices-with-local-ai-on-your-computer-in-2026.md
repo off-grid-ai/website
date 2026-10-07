@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Online Product Prices With Local AI on Your Computer in 2026"
 description: "Compare the same product across stores with local AI and check the delivered total."
 date: "2026-09-29"

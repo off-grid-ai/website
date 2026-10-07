@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Flight Prices and Baggage Fees With Local AI in 2026"
 description: "Compare flight options with the bags, route, and timing that matter to your trip."
 date: "2026-09-29"

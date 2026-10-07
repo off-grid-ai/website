@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Who Owns Your AI's Memory? The Question Nobody Is Asking."
 parent: Perspectives
 article_topic: "Privacy & control"

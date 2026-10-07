@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Practise Interview Answers With Offline AI in 2026"
 description: "Practise interview answers with a local AI model, use examples from your own experience, and review feedback without uploading your notes."
 date: "2026-09-29"

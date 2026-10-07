@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How Much Can Off Grid AI Remember About Your Work in 2026?"
 description: "Find out what Off Grid AI can recall from chats, documents and captured work, and how to ask useful questions without assuming perfect memory."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What a Personal AI OS Should Know About You - And What It Shouldn't"
 parent: Perspectives
 article_topic: "Work & organization"

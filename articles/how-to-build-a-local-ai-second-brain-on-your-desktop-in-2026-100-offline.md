@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Local AI Second Brain on Your Desktop in 2026 (100% Offline)"
 description: "Build a private second brain that builds itself. Opt-in screen capture to OCR to local LLM distills memory, on-device, no cloud and no account."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A modern laptop GPU can run a capable language model and read text off a screens
 Free, open-source, runs offline. No account, no API key, no data leaving your machine.
 
 
-![Day lays out your meetings, suggested actions, and to-dos in one place.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/day.png?v=2)
+![Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.](/assets/img/home/app/day-dark-1760.webp)
 
-*Day lays out your meetings, suggested actions, and to-dos in one place.*
+*Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.*
 
 ## The problem with note-taking apps
 
@@ -99,7 +99,7 @@ Review Actions on a schedule rather than reacting to each one. They are a queue 
 
 A cloud note-taking app stores your work on its servers, indexes it, and ties it to your account. A second brain like this, built on captured screen content, would be a serious thing to hand to a vendor. So nothing here does.
 
-Off Grid AI Desktop keeps every frame, observation, and entity on your disk. The app is AGPL-3.0 open source, so you can read exactly what it captures and where it stores it. No telemetry, no account, no upload. Capture only runs when you turn it on, with a visible indicator the whole time. Pull the network cable and your second brain keeps working.
+Off Grid AI Desktop keeps every frame, observation, and entity on your disk. The app is open source, so you can read exactly what it captures and where it stores it. No telemetry, no account, no upload. Capture only runs when you turn it on, with a visible indicator the whole time. Pull the network cable and your second brain keeps working.
 
 ## Getting Started
 
@@ -119,22 +119,21 @@ No sign-up, no key, no cloud account.
 - Richer Reflect trends over longer time spans
 
 
-![Reflect shows where your attention actually went across the day.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/reflect.png?v=2)
+![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
 
-*Reflect shows where your attention actually went across the day.*
+*Reflect in Off Grid AI Desktop shows where your attention went across the day.*
 
-![Replay is a scrubbable movie of your day, captured on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/replay.png?v=2)
 
 *Replay is a scrubbable movie of your day, captured on-device.*
 
-![Entities: a private CRM for the people, projects, and topics in your work.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/entities.png?v=2)
+![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
 
-*Entities: a private CRM for the people, projects, and topics in your work.*
+*Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. The capture-to-memory loop is part of the open core.
+Yes. The app is free and open source. The capture-to-memory loop is included.
 
 ### Q: Does it work offline?
 Yes. OCR, distillation, and storage all run on your machine, so it works with no network.

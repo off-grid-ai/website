@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run RealVisXL Lightning Locally in 2026 (Fast Photorealistic AI Images, Offline)"
 description: "Run RealVisXL v5.0 Lightning for fast photorealistic AI images on-device in 4-8 steps, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ An RTX 4070 holds 12 GB of VRAM and pushes tens of teraflops, enough to run a di
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A photorealistic portrait generated on-device with RealVisXL Lightning in Off Grid AI Desktop.](/assets/img/home/gen-realvis-lightning.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*A photorealistic portrait generated on-device with RealVisXL Lightning in Off Grid AI Desktop.*
 
 ## Why RealVisXL Lightning
 
@@ -77,7 +77,7 @@ Lightning is already fast. These tips keep it that way.
 
 DALL-E runs on OpenAI's servers. Your prompts pass through their API, get logged, and are subject to their content filters. Off Grid AI Desktop inverts that.
 
-Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no telemetry, no API key. The app is AGPL-3.0, so you can audit the source. Disconnect from the internet and it keeps generating.
+Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no telemetry, no API key. The app is open source, so you can audit the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -101,15 +101,15 @@ soft shadows, sharp focus
 - Unified search across your generated artifacts.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. Image generation is not behind a paywall.
+Yes. The app is free and open-source. The model is a free download. Image generation is not behind a paywall.
 
 ### Q: Does it work offline?
 

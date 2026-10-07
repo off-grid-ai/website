@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync Generated Images Across Devices in Off Grid AI in 2026 (No Cloud Storage)"
 description: "Generate an image on one device and open it on another through private local sync. Keep the image with its AI conversation without emailing files to yourself."
 date: "2026-09-29"

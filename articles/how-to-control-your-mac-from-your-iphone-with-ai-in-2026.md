@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Control Your Mac From Your iPhone With AI in 2026"
 description: "Start a Mac app task from your iPhone with OGAM and OGAD. Pair the devices, enable Assistant, and follow the work without retyping the request on your Mac."
 date: "2026-09-29"

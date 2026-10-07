@@ -1,0 +1,63 @@
+{%- comment -%}
+Site-wide analytics carried over verbatim from _layouts/default.html for the React layouts
+(home and react): outbound download/star/CTA click tracking and the page-view beacon.
+Pages with their own CTA tracking set window.__ctaTracked = true to opt out of cta_click.
+{%- endcomment -%}
+<script>
+    // Track outbound download and star clicks
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a');
+      if (!el) return;
+      var href = el.getAttribute('href') || '';
+      if (!window.OffGridAnalytics) return;
+      var page = window.location.pathname;
+      var host;
+      try { host = new URL(href, window.location.href).hostname; } catch (_) { return; }
+      // Mobile store links and direct Android release packages.
+      if (host === 'apps.apple.com' || host === 'play.google.com' ||
+          (/^https:\/\/github\.com\/off-grid-ai\/OGAM\/releases\/download\//.test(href) && /\.(apk|aab)(?:$|\?)/.test(href))) {
+        window.OffGridAnalytics.capture('docs_download_click', {
+          href: href,
+          page: page,
+          platform: host === 'apps.apple.com' ? 'ios' : 'android',
+          build: host === 'apps.apple.com' || host === 'play.google.com' ? 'store'
+            : (/\/releases\/download\/[^/]*-beta\./.test(href) ? 'beta' : 'stable')
+        });
+        return;
+      }
+      // Desktop installers
+      if (/\.(dmg|exe|AppImage|deb)(?:$|\?)/.test(href) || el.hasAttribute('data-beta-download')) {
+        var linux = href.indexOf('.AppImage') !== -1 || href.indexOf('.deb') !== -1 || /^(AppImage|deb)$/.test(el.getAttribute('data-beta-download') || '');
+        window.OffGridAnalytics.capture('desktop_download_click', {
+          href: href,
+          page: page,
+          build: el.hasAttribute('data-beta-download') || /-beta\./.test(href) ? 'beta' : (href.indexOf('nightly') !== -1 ? 'nightly' : 'stable'),
+          platform: linux ? 'linux' : (href.indexOf('.exe') !== -1 || el.getAttribute('data-beta-download') === 'exe' ? 'windows' : 'macos')
+        });
+        return;
+      }
+      // Star on GitHub (repo root, not a release/download link)
+      if (/github\.com\/off-grid-ai\//.test(href) && href.indexOf('/releases') === -1) {
+        var product = href.indexOf('/OGAD') !== -1 || href.indexOf('off-grid-ai-desktop') !== -1 ? 'desktop'
+          : (href.indexOf('off-grid-ai-mobile') !== -1 ? 'mobile' : 'github');
+        window.OffGridAnalytics.capture(product + '_github_star_click', { href: href, page: page });
+        return;
+      }
+      // Any other CTA button (Get Pro, See what it does, Book a demo, etc.).
+      // Pages with their own richer CTA handler set window.__ctaTracked to opt out.
+      if (el.classList.contains('btn') && !window.__ctaTracked) {
+        window.OffGridAnalytics.capture('cta_click', {
+          label: (el.textContent || '').trim().replace(/\s+/g, ' '),
+          href: href,
+          page: page
+        });
+      }
+    });
+</script>
+<script>
+    window.addEventListener('load', function() {
+      var url = 'https://i4zbsv67raeksuda2oga5jck7m0ksyyn.lambda-url.ap-south-1.on.aws/'
+        + '?c=offgrid&p=' + encodeURIComponent(window.location.pathname) + '&d=';
+      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function() {});
+    }, { once: true });
+</script>

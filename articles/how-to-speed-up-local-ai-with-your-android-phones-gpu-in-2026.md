@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Speed Up Local AI With Your Android Phone’s GPU in 2026"
 description: "Try supported OpenCL GPU acceleration for local GGUF chat on Android. Compare a real prompt and keep a CPU fallback."
 date: "2026-09-29"

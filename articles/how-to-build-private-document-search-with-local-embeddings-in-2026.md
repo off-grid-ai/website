@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build Private Document Search With Local Embeddings in 2026"
 description: "Build a small semantic document search in Python with local embeddings from OGAD. Keep source text and vector matching on your computer."
 date: "2026-09-29"

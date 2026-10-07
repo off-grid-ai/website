@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use LM Studio From Your iPhone in 2026 (No Cloud, No Subscription)"
 description: "LM Studio turned your Mac into an AI workstation. You downloaded models, you chatted with them, you..."
 date: "2026-03-18"
@@ -19,7 +19,7 @@ Your Mac is still running. The model is still loaded. You just cannot reach it f
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) solves this. It auto-discovers LM Studio servers on your network and gives you a full-featured AI interface on your iPhone - connected to the same models running on your Mac.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## Setup in three steps
@@ -35,9 +35,6 @@ That is one checkbox. No terminal. No environment variables. No firewall configu
 Download Off Grid from the App Store (search "Off Grid AI"). Open it. Go to Remote Models. Tap Scan Network.
 
 Off Grid finds your LM Studio server automatically and shows you every model available.
-
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid scanning the network and discovering LM Studio models - iOS, Android, and servers running side by side.*
 
 ### 3. Start chatting
 

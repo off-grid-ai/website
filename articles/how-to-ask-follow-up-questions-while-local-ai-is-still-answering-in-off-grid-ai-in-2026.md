@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask Follow-Up Questions While Local AI Is Still Answering in Off Grid AI in 2026"
 description: "Keep writing your next question while a local AI reply is in progress, then let OGAD answer in order."
 date: "2026-09-29"

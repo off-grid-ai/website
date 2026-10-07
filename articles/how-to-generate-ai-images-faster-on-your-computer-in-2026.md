@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images Faster on Your Computer in 2026"
 description: "Spend less time waiting for local AI image drafts. Use OGAD's model, size, step, and prompt controls to find a useful balance on your own computer."
 date: "2026-09-29"

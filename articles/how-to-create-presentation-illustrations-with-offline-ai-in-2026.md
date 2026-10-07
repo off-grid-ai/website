@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Presentation Illustrations With Offline AI in 2026"
 description: "Create local AI illustrations for a slide deck. Design one clear visual per idea, keep text editable and export images for your presentation tool."
 date: "2026-09-29"

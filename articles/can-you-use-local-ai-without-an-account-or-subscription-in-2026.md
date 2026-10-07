@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can You Use Local AI Without an Account or Subscription in 2026?"
 description: "Use local AI for useful work without creating an account or buying a subscription. Learn what the free core covers and where paid or connected services differ."
 date: "2026-09-29"

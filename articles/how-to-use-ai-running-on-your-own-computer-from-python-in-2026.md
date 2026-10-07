@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI Running on Your Own Computer From Python in 2026"
 description: "Call a local AI model from Python with the standard library. Discover the selected model, send a prompt and read the answer through OGAD."
 date: "2026-09-29"

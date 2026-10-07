@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Client Discovery Calls Into Searchable Project Notes in 2026"
 description: "Turn saved client discovery calls into checked requirements and searchable project notes with local AI on your computer."
 date: "2026-09-29"

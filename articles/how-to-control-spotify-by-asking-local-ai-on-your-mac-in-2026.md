@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Control Spotify by Asking Local AI on Your Mac in 2026"
 description: "Ask a local AI assistant to find and play the right music in Spotify on your Mac."
 date: "2026-09-29"

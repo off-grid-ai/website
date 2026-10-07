@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Pony Diffusion V6 XL Locally on Your Desktop (Offline, No Cloud)"
 description: "Run Pony Diffusion V6 XL for character art, anime, and stylized illustration fully on-device, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A mid-range gaming PC with an 8 GB graphics card has enough VRAM to run a full S
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
 
 ## Why Pony Diffusion V6 XL
 
@@ -79,7 +79,7 @@ This checkpoint rewards structure. A few practical pointers.
 
 NovelAI runs on their servers behind a subscription, and your generations pass through their infrastructure. Off Grid AI Desktop flips that.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no telemetry, no API key, no content pipeline you do not control. The app is AGPL-3.0, so the source is open to read. Disconnect from the internet and it keeps generating.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no telemetry, no API key, no content pipeline you do not control. The app is open source, so you can read the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -102,15 +102,15 @@ city street at night, neon lights, anime style
 - Unified search across your generated artifacts.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. Image generation is not gated.
+Yes. The app is free and open-source. The model is a free download. Image generation is not gated.
 
 ### Q: Does it work offline?
 

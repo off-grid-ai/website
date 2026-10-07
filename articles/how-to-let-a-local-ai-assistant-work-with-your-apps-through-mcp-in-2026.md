@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Let a Local AI Assistant Work With Your Apps Through MCP in 2026"
 description: "Connect a local AI model to an app through MCP and start with one read-only request."
 date: "2026-09-29"

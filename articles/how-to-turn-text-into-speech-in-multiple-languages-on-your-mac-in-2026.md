@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Text Into Speech in Multiple Languages on Your Mac in 2026"
 description: "Read AI replies aloud on your Mac with local voices. Choose a language and speaker, download the required assets, and test playback offline."
 date: "2026-09-29"

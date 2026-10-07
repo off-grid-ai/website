@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync Chat Attachments in Off Grid AI in 2026 (Phone to Computer, No Cloud Storage)"
 description: "Open the same attached files in an AI conversation on your phone and computer. Use direct device sync and understand pending files, local processing, and privacy limits."
 date: "2026-09-29"

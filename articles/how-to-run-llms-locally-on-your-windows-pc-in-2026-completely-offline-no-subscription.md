@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run LLMs Locally on Your Windows PC in 2026 (Completely Offline, No Subscription)"
 description: "Run real language models on your Windows GPU, fully on-device. CUDA, Vulkan, or CPU. No cloud, no account, no monthly bill."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ A mid-range gaming GPU like an RTX 4060 ships with 8 GB of VRAM, which is enough
 Free, open source, runs offline. No account.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 ## What You Need
 
@@ -79,7 +79,7 @@ A few settings move the needle on Windows.
 
 A cloud chatbot sends every prompt to a remote data center where it is logged and may feed the next training run. With Off Grid AI Desktop, your prompt goes from your keyboard to a process on your own PC and straight back.
 
-No account. No telemetry. No API key. The app is AGPL-3.0, so you can read the full source on GitHub and confirm nothing phones home. Disconnect the network and it keeps running.
+No account. No telemetry. No API key. The app is open source, so you can read the full source on GitHub and confirm nothing phones home. Disconnect the network and it keeps running.
 
 ## Getting Started
 
@@ -103,15 +103,15 @@ npm run dev
 - Unified search across your chats and documents.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 
 ### Q: Is it actually free?
 
-Yes. Free and open source under AGPL-3.0. Local chat and the Models browser have no paywall.
+Yes. Free and open source. Local chat and the Models browser have no paywall.
 
 ### Q: Do I need an NVIDIA GPU?
 

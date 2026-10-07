@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn an Event Brief Into a Planning Checklist With Local AI in 2026"
 description: "Use local AI to turn an event brief into a checked planning list with dependencies, open questions, and decisions your team needs to make."
 date: "2026-09-29"

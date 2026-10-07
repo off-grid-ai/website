@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transfer AI Models From Your Computer to Your Phone in 2026 Without Downloading Them Again"
 description: "Reuse a compatible AI model already on your Mac or Windows PC. Send it to your phone over your local network, then use it offline."
 date: "2026-09-29"

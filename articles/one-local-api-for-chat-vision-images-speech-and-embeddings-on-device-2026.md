@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "One Local API for Chat, Vision, Images, Speech, and Embeddings (On-Device, 2026)"
 description: "A single OpenAI-compatible endpoint that does text, vision, image generation, transcription, TTS, and embeddings, all on-device with no cloud."
 date: "2026-06-25"
@@ -16,12 +16,12 @@ A modern laptop has a GPU and unified memory that can run a chat model, a vision
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline.
+Free, open-source, runs offline.
 
 
-![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
+![The Gateway in Off Grid AI Desktop: chat, vision, image, speech-to-text, text-to-speech and embeddings endpoints on one local API.](/assets/img/home/app/gateway-dark-1760.webp)
 
-*The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.*
+*The Gateway in Off Grid AI Desktop: chat, vision, image, speech-to-text, text-to-speech and embeddings endpoints on one local API.*
 
 ## The short version
 
@@ -170,7 +170,7 @@ curl "http://127.0.0.1:7878/v1/images/generations?async=true" \
 
 ## Privacy: stronger than a hosted API
 
-A hosted multimodal API sees every prompt, every image, every audio file you send. It logs requests. It needs an account and a key tied to your identity. Off Grid AI Desktop binds to `127.0.0.1`, so the server answers only your own machine. There is no telemetry. There is no account. The code is AGPL-3.0, so you can read exactly what it does. Your screenshots, recordings, and documents stay where they are.
+A hosted multimodal API sees every prompt, every image, every audio file you send. It logs requests. It needs an account and a key tied to your identity. Off Grid AI Desktop binds to `127.0.0.1`, so the server answers only your own machine. There is no telemetry. There is no account. The code is open, so you can read exactly what it does. Your screenshots, recordings, and documents stay where they are.
 
 ## Getting started
 
@@ -192,7 +192,7 @@ Run `GET /v1/models` any time to see which model is active per modality, tagged 
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. There is no paid tier gating the gateway.
+Yes. The app is free and open-source. There is no paid tier gating the gateway.
 
 ### Q: Does it work offline?
 

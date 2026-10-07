@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images Locally on Your Windows PC in 2026 (No Cloud, No Subscription)"
 description: "Generate SDXL and Z-Image-Turbo images on Windows with CUDA or Vulkan. On-device, no cloud, no subscription, no account. Free and open source."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ An RTX card with 8GB of VRAM can denoise a full SDXL image in seconds, and a 12G
 It bundles `stable-diffusion.cpp` and runs it through CUDA on NVIDIA cards or Vulkan on AMD and Intel. Your prompts and your images stay on your machine.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## What You Need
 
@@ -83,7 +83,7 @@ Keep the model inside VRAM. If you see generation crawl, drop to a smaller or mo
 
 A cloud image service uploads your prompt and stores the output. Many train on what users make. Most gate generation behind a paid plan and a logged-in account.
 
-Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no telemetry, no credit meter. The code is AGPL-3.0, so you can read exactly how it handles your data. Pull the network cable and it still generates.
+Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no telemetry, no credit meter. The code is open, so you can read exactly how it handles your data. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -102,14 +102,14 @@ Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no 
 Grounded roadmap. The local spine comes first.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. No subscription, no account, no per-image charge.
+Yes. The app is free and open source. No subscription, no account, no per-image charge.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can disconnect entirely. Generation runs locally.

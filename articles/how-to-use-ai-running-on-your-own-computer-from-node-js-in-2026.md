@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI Running on Your Own Computer From Node.js in 2026"
 description: "Use JavaScript fetch to call AI running on your computer. Build a small Node.js script with a local model and no cloud provider key."
 date: "2026-09-29"

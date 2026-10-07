@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask AI What You Decided at Work in Off Grid AI on Mac in 2026"
 description: "Ask questions about captured work on your Mac, recover a past decision, and check the answer against saved sources with local AI."
 date: "2026-09-29"

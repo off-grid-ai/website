@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Course Notes Into an Offline AI Study Assistant in 2026"
 description: "Turn your own course notes into a local study conversation with questions, explanations, and source checks."
 date: "2026-09-29"

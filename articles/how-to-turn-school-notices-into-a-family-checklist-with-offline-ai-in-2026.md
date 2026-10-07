@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn School Notices Into a Family Checklist With Offline AI in 2026"
 description: "Organise saved school notices into a checked family checklist with local AI, keeping dates, child-specific requirements, and open questions clear."
 date: "2026-09-29"

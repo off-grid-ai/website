@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Animagine XL 4.0 Locally in 2026 (Offline Anime AI Image Generation)"
 description: "Generate anime art on your own machine with Animagine XL 4.0, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"
@@ -19,9 +19,9 @@ The GPU in a modern laptop can run a full SDXL anime model without ever touching
 Animagine XL 4.0 is an anime-focused SDXL checkpoint. It uses tag-based prompting, the booru-style keyword approach anime models are trained on. You type tags, not paragraphs. The model knows the vocabulary. This guide shows you how to run it locally with no token meter and no upload of your prompts to anyone.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
 
 ## What You Need
 
@@ -76,7 +76,7 @@ A few habits make local generation feel quick.
 
 A hosted anime generator sees every prompt you type and every image you make. It keeps logs. It often trains on what you submit. You agree to terms you did not read.
 
-Off Grid AI Desktop runs the model on your machine. There is no account and no telemetry. Your prompts and images never leave the device. The app is AGPL-3.0, so the source is open and you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
+Off Grid AI Desktop runs the model on your machine. There is no account and no telemetry. Your prompts and images never leave the device. The app is open source, so you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
 
 ## Getting Started
 
@@ -93,15 +93,15 @@ Off Grid AI Desktop runs the model on your machine. There is no account and no t
 - Continued tuning of the live preview and generation controls.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download from Hugging Face. No subscription, no credits.
+Yes. The app is free and open-source. The model is a free download from Hugging Face. No subscription, no credits.
 
 ### Q: Does it work fully offline?
 

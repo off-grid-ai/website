@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Personal AI OS and the End of App Switching"
 parent: Perspectives
 article_topic: "Work & organization"

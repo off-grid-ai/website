@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automate Repetitive Browser Tasks With Local AI in 2026"
 description: "Let local AI collect information from web pages while you review the result."
 date: "2026-09-29"

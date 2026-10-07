@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Ollama From Your iPhone in 2026 (No Configuration Required)"
 description: "You have Ollama running on your Mac or PC. You have models downloaded. Maybe Qwen 3.5 9B, maybe Llama..."
 date: "2026-03-18"
@@ -21,7 +21,7 @@ There is a simpler way.
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) auto-discovers Ollama servers on your network and lets you use them from your iPhone. No IP addresses. No port forwarding. No configuration files.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## What you need

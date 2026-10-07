@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Downloaded GGUF AI Model on Your Computer in 2026"
 description: "Import a downloaded GGUF text model into OGAD on Mac or Windows. Check compatibility, disk space and memory before using it locally."
 date: "2026-09-29"

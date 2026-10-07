@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Track Tasks You Assign to Others in Work Chats in Off Grid AI on Mac in 2026"
 description: "Keep a private waiting-on list from captured work chats, then check the person, deadline and source before following up."
 date: "2026-09-29"
