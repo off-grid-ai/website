@@ -3,13 +3,13 @@ layout: default
 title: Pro
 nav_order: 6
 nav_group: Products
-description: Your own local AI, with a memory of your working day. Off Grid AI Pro connects your devices, remembers your work, and acts with your approval.
+description: Your digital twin, built for hardware you already own. Off Grid AI Pro remembers your context and acts with your approval. Apps across five platforms.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Pro · Live now</div>
-  <h1>Your day moves on.<br>Your AI keeps up.</h1>
-  <p class="early-access-sub">Your own local AI, with a memory of your working day. Find a meeting decision. Pick up an open task. Let your AI act with your approval. Your memory stays on your devices.</p>
+  <h1>Your context. Your memory.<br>Your digital twin.</h1>
+  <p class="early-access-sub">Your digital twin runs on hardware you already own. Off Grid AI Pro remembers the work you choose to share and acts on your behalf with your approval. Find a meeting decision. Continue an open task. Your memory stays on your devices.</p>
 </div>
 
 <div class="hero-buttons">
@@ -104,7 +104,9 @@ description: Your own local AI, with a memory of your working day. Off Grid AI P
 
 ## What Pro is
 
-Your meetings, conversations, and screen activity become a memory you can use. Ask what was decided. Find an unfinished task. Prepare the next action. Pro keeps the context close, on your own hardware.
+Your digital twin is an AI personal assistant built around your context. Your meetings, conversations, and screen activity become a memory you can use. Ask what was decided. Find an unfinished task. Prepare the next action. Pro keeps the context on your own hardware.
+
+Off Grid AI apps are available on **Android, iOS, macOS, Windows, and Linux**. Capture and action features depend on the platform. See [Mobile]({{ '/mobile/' | relative_url }}) and [Desktop]({{ '/desktop/' | relative_url }}) for details.
 
 ## It sees
 
@@ -331,7 +333,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download Windows stable</a>
-  <a href="{{ '/download/' | relative_url }}#sync" class="btn btn-outline">Get the mobile build</a>
+  <a href="{{ '/download/' | relative_url }}" class="btn btn-outline">Get Android, iOS, and Linux builds</a>
 </div>
 
 ---

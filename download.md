@@ -4,13 +4,13 @@ title: Download
 nav_order: 2
 nav_group: Products
 permalink: /download/
-description: Download Off Grid AI for iPhone, Android, macOS, Windows, and Linux. Run private AI on hardware you own and keep your work in step across paired devices with Sync.
+description: Download your personal AI assistant for hardware you already own. Off Grid AI is available on Android, iOS, macOS, Windows, and Linux. Start free.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Download Off Grid AI</div>
-  <h1>Get the private<br>AI trinity.</h1>
-  <p class="early-access-sub">One intelligence layer across your phone, your computer, and your whole company - running on hardware you already own. No account, no API key, nothing you do ever leaves your devices. Free and open source.</p>
+  <h1>Your personal AI.<br>On hardware you already own.</h1>
+  <p class="early-access-sub">Run your personal AI assistant on the hardware you already own. Off Grid AI is available on Android, iOS, macOS, Windows, and Linux. Start free with local models. Add Pro for a digital twin that knows your context, remembers your work, and acts on your behalf with your approval.</p>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars · your data never leaves your device</p>
@@ -37,13 +37,13 @@ Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works 
   <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener" class="btn btn-outline">OGAM 0.0.110 release</a>
 </div>
 
-<p class="ea-pricing-note">For phone access, email <a href="mailto:mac@wednesday.is?subject=SYNC&amp;body=Device%3A%20%0AStore%20email%3A%20">Mac</a> with your device and the email linked to your App Store or Play Store account.</p>
+<p class="ea-pricing-note">For access to the latest mobile Sync build, email <a href="mailto:mac@wednesday.is?subject=SYNC&amp;body=Device%3A%20%0AStore%20email%3A%20">Mac</a> with your device and the email linked to your App Store or Play Store account. The public Android and iOS downloads are below.</p>
 
 ---
 
-## Off Grid AI - iPhone and Android
+## Off Grid AI Mobile - Android and iOS
 
-A full AI studio in your pocket. Chat, vision, image, voice, and documents, all running on your own phone. Free and open source, on-device, no cloud.
+Your AI personal assistant on Android and iOS. Ask about a document, capture a thought, or write a draft with local models. Add Pro for hands-free voice, personal assistants with memory, and draft actions you approve.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
@@ -55,9 +55,9 @@ A full AI studio in your pocket. Chat, vision, image, voice, and documents, all 
 
 ---
 
-## OGAD - macOS, Windows, and Linux
+## Off Grid AI Desktop - macOS, Windows, and Linux
 
-A private AI studio on your computer. Chat, vision, image, and voice stay on your own hardware. On a flagship Mac, you get 15-30 tokens a second. Free and open source.
+Your AI personal assistant on macOS, Windows, and Linux. Start free with local chat, writing, and document tools. See the [desktop page]({{ '/desktop/' | relative_url }}) for Pro memory and action features, and their platform limits.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download for macOS</a>

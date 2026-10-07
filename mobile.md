@@ -4,13 +4,13 @@ title: Mobile
 nav_order: 3
 nav_group: Products
 has_children: true
-description: Run your own AI locally on your phone. Speak your language and get help with documents. Add Off Grid AI Pro for hands-free voice and Sync.
+description: Your personal AI assistant, built for the phone you already own. Run Off Grid AI locally on Android and iOS. Add Pro for memory, voice, and approved draft actions.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Mobile · iOS &amp; Android</div>
+  <div class="early-access-badge">Off Grid AI Mobile · Android &amp; iOS</div>
   <h1>Your AI goes<br>where you go.</h1>
-  <p class="early-access-sub">Ask a question in your own language. Capture a thought. Get help with a document. Your AI runs locally on your phone, using models you choose. Add Pro to talk hands-free and continue your desktop conversations with Sync.</p>
+  <p class="early-access-sub">Run your personal AI assistant on the phone you already own. Off Grid AI runs locally on Android and iOS. Ask a question, capture a thought, or get help with a document. Add Pro for hands-free voice, personal assistants with memory, and draft actions you approve. Pair your phone with Off Grid AI Desktop to continue your conversations on your computer.</p>
 </div>
 
 <div class="hero-buttons">
@@ -119,7 +119,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
 
 ## Keep your assistant close
 
-The free app runs models on your phone. Pro is an optional, additive tier: it gives the assistant a voice that talks back, personas you shape, and the tools to draft real actions you approve. One license covers your phone and your Mac. All on-device.
+The free app runs local models on Android and iOS. Pro adds a voice that talks back, personal assistants with memory, and tools that draft actions on your behalf. You approve each action. One license covers up to {{ site.data.pricing.devices }} devices. Off Grid AI Desktop is available on macOS, Windows, and Linux; see its [platform details]({{ '/desktop/' | relative_url }}) for Pro features.
 
 <div class="early-access-perks">
   <div class="perk-card">

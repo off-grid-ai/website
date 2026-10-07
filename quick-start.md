@@ -3,7 +3,7 @@ layout: default
 title: Quick Start
 nav_order: 8
 nav_group: Learn
-description: Download Off Grid AI and run your first local AI model in under 5 minutes - no account, no API key, no cloud.
+description: Run your personal AI assistant on hardware you already own. Start with Off Grid AI on Android, iOS, macOS, Windows, or Linux. No account or API key.
 ---
 
 # Quick Start
@@ -13,6 +13,8 @@ Run your first local AI model in under 5 minutes. No account. No API key. No int
 ---
 
 ## Step 1 - Download Off Grid AI
+
+Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. The steps below cover phones. For a computer, [download Off Grid AI Desktop]({{ '/download/' | relative_url }}) and follow the [desktop guide]({{ '/desktop/' | relative_url }}).
 
 **iOS:** [Download on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires iPhone 12 or newer (4GB RAM+)
 

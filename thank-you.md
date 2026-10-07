@@ -3,13 +3,13 @@ layout: default
 title: Thank you
 permalink: /thank-you/
 sitemap: false
-description: Your Off Grid AI Pro purchase is complete. Your license key is on its way to your inbox - one key for your laptop and your phone.
+description: Your Off Grid AI Pro purchase is complete. Your license key is on its way to your inbox. Use your personal AI assistant on hardware you already own.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Payment complete</div>
   <h1>You're in. Your key<br>is on its way.</h1>
-  <p class="early-access-sub">Your Off Grid AI Pro license key is landing in the inbox you paid with, usually inside a minute. One key unlocks your laptop and your phone - up to {{ site.data.pricing.devices }} devices - and everything it sees stays on them. There is no server to send it to.</p>
+  <p class="early-access-sub">Your Off Grid AI Pro license key is landing in the inbox you paid with, usually inside a minute. Use one key on up to {{ site.data.pricing.devices }} devices you already own. Your captured memory stays on your devices. See the <a href="{{ '/mobile/' | relative_url }}">mobile</a> and <a href="{{ '/desktop/' | relative_url }}">desktop</a> pages for Pro features on each platform.</p>
 </div>
 
 <div class="hero-buttons">

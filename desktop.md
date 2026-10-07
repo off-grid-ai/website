@@ -4,13 +4,13 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: Run your own AI locally on your computer. Off Grid AI Desktop helps you remember meetings, find past work, and carry out tasks with your approval.
+description: Your personal AI assistant, built for the computer you already own. Run Off Grid AI on macOS, Windows, and Linux. Add Pro features on supported platforms.
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">OGAD - macOS + Windows + Linux</div>
+  <div class="early-access-badge">Off Grid AI Desktop · macOS, Windows &amp; Linux</div>
   <h1>Your work has history.<br>Your AI remembers it.</h1>
-  <p class="early-access-sub">Run your own AI where your work happens. Choose local models for chat, writing, and documents. Add Pro to remember meetings, search your day, and carry out tasks in your apps and browser.</p>
+  <p class="early-access-sub">Run your personal AI assistant on the computer you already own. Off Grid AI runs locally on macOS, Windows, and Linux. Start with chat, writing, and documents. On supported platforms, Pro builds your digital twin from the work you choose to capture. It remembers your context and acts on your behalf in your apps and browser with your approval.</p>
 </div>
 
 <div class="hero-buttons">
