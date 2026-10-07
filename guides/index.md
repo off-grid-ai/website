@@ -17,25 +17,25 @@ Your personal AI on hardware you already own. Find a task, topic, or device.
 ## Start on your computer
 {: #desktop}
 
-<div class="guide-grid">
+<div class="guide-grid guide-setup-grid">
   <a href="{{ '/articles/how-to-run-local-ai-on-your-mac-in-2026-no-cloud-no-account/' | relative_url }}" class="guide-card">
     <div class="guide-card-title"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="macOS"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg> Setup</div>
-    <div class="guide-card-desc">Install, choose a local model, and start a chat.</div>
+    <div class="guide-card-desc">Install and run your first local model.</div>
   </a>
   <a href="{{ '/articles/how-to-run-local-ai-on-your-windows-pc-in-2026-no-cloud-no-account/' | relative_url }}" class="guide-card">
     <div class="guide-card-title"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Windows"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg> Setup</div>
-    <div class="guide-card-desc">Local chat, images, and voice on your PC.</div>
+    <div class="guide-card-desc">Install and run your first local model.</div>
   </a>
   <a href="{{ '/articles/how-to-run-local-ai-on-linux-in-2026-no-cloud-no-account/' | relative_url }}" class="guide-card">
     <div class="guide-card-title"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Linux"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> Setup</div>
-    <div class="guide-card-desc">Install the AppImage or deb. Run your first local model.</div>
+    <div class="guide-card-desc">Install and run your first local model.</div>
   </a>
 </div>
 
 ## Start on your phone
 {: #mobile}
 
-<div class="guide-grid">
+<div class="guide-grid guide-setup-grid">
   <a href="{{ '/guides/ios-setup' | relative_url }}" class="guide-card">
     <div class="guide-card-title"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="iOS"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg> Setup</div>
     <div class="guide-card-desc">Install and run your first local model.</div>
