@@ -3,10 +3,12 @@ layout: default
 title: Vision
 parent: Ethos
 nav_order: 1
-description: What the world looks like when intelligence is ambient, personal, and private. One intelligence layer across all your devices, always on, always yours, never leaving your hands.
+description: Your digital twin, built for hardware you already own. An AI personal assistant with context, memory, and approved actions across five platforms.
 ---
 
-# The world we're building toward.
+# Your digital twin, on the devices you own.
+
+Your personal AI assistant should run on the hardware you already own. Off Grid AI is available today on **Android, iOS, macOS, Windows, and Linux**. We are building an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval. The vision below describes where we are taking it.
 
 ---
 
@@ -62,17 +64,17 @@ For two hundred years, having a personal intelligence layer was a privilege rese
 
 Not anymore.
 
-The device that 4 billion people already carry in their pocket has enough compute to run a capable AI model, fully offline, at real-time speed. The models are open-weight and free. The infrastructure costs nothing to run.
+The phones and computers people already own can run local AI models. After setup, local inference works offline. Open-weight models let you choose what runs on your hardware.
 
 The only thing standing between a billion people and their own private intelligence layer is software that takes it seriously.
 
-That's what we're building. Not for executives. Not for knowledge workers above a certain income threshold. For anyone with a phone. For anyone who has ever needed help thinking through a hard problem, tracking a commitment they made, preparing for a conversation that mattered, or just finding the message they know they received three weeks ago.
+That's what we're building. Not for executives. Not for knowledge workers above a certain income threshold. For anyone with a supported phone or computer. For anyone who has ever needed help thinking through a hard problem, tracking a commitment they made, preparing for a conversation that mattered, or just finding the message they know they received three weeks ago.
 
 The same intelligence layer that made some people more effective for two centuries. Now ambient, private, and in everyone's hands.
 
 ---
 
-This is the world we're building. The app is the first piece of it, already in 180,000+ hands - [iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=vision), open source. Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
+This is the world we are building. Off Grid AI has over 180,000 downloads across the stores and GitHub. It runs on Android, iOS, macOS, Windows, and Linux. [Get the app for your hardware]({{ '/download/' | relative_url }}). Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
 
 ---
 

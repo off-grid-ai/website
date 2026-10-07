@@ -4,10 +4,12 @@ title: Mission
 parent: Ethos
 nav_order: 2
 has_children: false
-description: Intelligence will become ambient. Always on, always yours, always private. We're building the architecture that makes that possible on the devices you already own, without asking you to trust anyone but yourself.
+description: Personal AI, built for hardware you already own. Our goal is an assistant that knows your context, remembers your work, and acts with your approval.
 ---
 
 # Intelligence belongs to everyone.
+
+Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. Our goal is your digital twin: an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval.
 
 ---
 
@@ -39,11 +41,9 @@ The problem isn't the companies. The problem is the architecture.
 
 ## The infrastructure is already in your hands.
 
-The device in your pocket is more powerful than the servers that ran the first generation of cloud AI.
+Your phone and computer can run local AI models. Off Grid AI uses the hardware you already own for chat, writing, and document work. Choose a model that fits your device, download it, and run it offline.
 
-A current flagship phone runs AI at 30 tokens a second. Fast enough for real-time conversation, fully offline, using dedicated neural hardware designed for exactly this workload. That hardware has been shipping to billions of people for years. It sits mostly idle while they pay monthly fees to send their thoughts to someone else's GPU.
-
-**The infrastructure for a private, personal, ambient intelligence layer already exists. It's in the pocket of 4 billion people. What's been missing is the software that takes that seriously.**
+**The hardware for personal AI is already in your hands. Our job is to build the software that makes it useful.**
 
 We are not waiting for a new device. We are not waiting for a new platform. We are not betting on hardware that takes a decade to get adopted. The phone you already carry is enough. The laptop you already own is enough. The revolution doesn't require a purchase.
 
@@ -75,7 +75,7 @@ It was called a secretary. Then an executive assistant. Then a virtual assistant
 
 For two hundred years, access to that layer was determined entirely by wealth and seniority. You had it if you could afford it. Everyone else managed the coordination overhead themselves. With their own attention, their own time, their own focus.
 
-**The device in your pocket changes that equation permanently.**
+**The hardware you already own changes that equation.**
 
 A Personal AI OS. One intelligence layer, running on your hardware, spanning your phone and laptop over your own network, with no server in between. It knows your messages, your calendar, your work, your life. It lives with you, not above you. It preps you for meetings before you ask. It defers what can wait and surfaces what can't. It handles the coordination overhead of your day the way a great assistant has always handled it for the people who could afford one.
 
@@ -99,4 +99,4 @@ This is happening now, not someday. 180,000+ downloads, 3,000+ stars, a 600-stro
 
 [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
-*Open source. No account. No telemetry. [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download the app](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mission)*
+*Open source. No account. No telemetry. [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download for Android, iOS, macOS, Windows, or Linux]({{ '/download/' | relative_url }})*

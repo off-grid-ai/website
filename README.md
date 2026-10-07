@@ -1,7 +1,8 @@
 # Off Grid AI Website
 
-Marketing site and documentation for [Off Grid AI](https://getoffgridai.co) - private AI
-that runs on hardware you own, with no cloud or account. Off Grid AI is available on:
+Marketing site and documentation for [Off Grid AI](https://getoffgridai.co) - your personal AI
+assistant, built to run on hardware you already own. Start with local models; add Pro for
+context, memory, and actions you approve. Off Grid AI is available on:
 
 - **iOS** - stable 0.0.103 on the App Store (iOS 17+)
 - **Android** - stable on Google Play (Android 10+)

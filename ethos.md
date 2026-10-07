@@ -4,12 +4,12 @@ title: Ethos
 nav_order: 9
 nav_group: Learn
 has_children: true
-description: Why Off Grid AI exists. Intelligence should live on the devices you already own - private by architecture, not by policy.
+description: Your hardware. Your context. Your personal AI assistant. Why Off Grid AI runs on the devices you already own, across Android, iOS, macOS, Windows, and Linux.
 ---
 
 # Ethos
 
-Intelligence needs to be democratized.
+Your AI personal assistant should work on the devices you own. Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. We build around your context, your memory, and actions you approve.
 
 ---
 
@@ -55,7 +55,7 @@ That's what we're building.
 
 ---
 
-This isn't a someday. Over 180,000 people already run Off Grid AI on their own phone - 3,000+ stars on GitHub, a 600-strong community, no account, no telemetry. That's the proof the architecture works. Off Grid AI Pro is live now on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
+Off Grid AI runs on Android, iOS, macOS, Windows, and Linux today. It has over 180,000 downloads across the stores and GitHub, over 3,000 GitHub stars, and a community of over 600 people. Start with hardware you already own. Off Grid AI Pro is live now on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
 
 [Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
