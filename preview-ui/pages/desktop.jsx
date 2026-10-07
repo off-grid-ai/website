@@ -89,7 +89,7 @@ function ConnectorsScene() {
 }
 const card = (node) => (compact) => compact ? <div className="pp-card-scene"><Loop>{node}</Loop></div> : <Fit><SceneCard className="pp-scene-card"><Loop>{node}</Loop></SceneCard></Fit>;
 const FREE = [
-  { id: 'chat', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: card(<ChatScene model="Qwen 3.8 · on device" q="Summarize the Acme Corp pilot in two lines." a="The Acme Corp pilot starts on 14 November with 40 seats at the current price. Sam Okafor gets the revised rollout plan by Friday." />) },
+  { id: 'chat', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Framed><Shot lazy={false} name="chat" alt="Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document." /></Framed> },
   { id: 'images', title: 'Image generation', line: 'Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: card(<ImageScene runs={GEN} />) },
   { id: 'voice', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: dictation and transcripts, on this device." /></Framed> },
   { id: 'projects', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: card(<ChatScene file="Acme_rollout_v3.pdf" model="Projects" q="How many seats are in the pilot?" a="The pilot covers 40 seats and starts after the security review [1]. Rollout follows in Q1 [2]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }, { id: 'p9', index: 2, title: 'Page 9' }]} />) },
@@ -101,12 +101,6 @@ const FREE = [
 
 /* ── Pro capabilities ── */
 const SEARCH_HITS = [[Monitor, 'Screen · 10:42', 'Acme_rollout_v3.pdf, page 4'], [VideoCamera, 'Meeting · 15:00', 'Acme Corp sync: pilot moves to 14 Nov'], [ClipboardText, 'Clipboard · 16:05', 'https://acme.example/pilot/rollout-plan'], [NotePencil, 'Memory', 'Sam Okafor owns the pilot at Acme Corp']];
-function SearchScene() {
-  return <div className="ds-search">
-    <div className="ds-search-box"><MagnifyingGlass size={14} /><TermTyping as="span" startOnView={false} duration={45} className="ds-search-q">acme pilot</TermTyping></div>
-    {SEARCH_HITS.map(([Icon, k, t], i) => <motion.div key={k} className="ds-hit" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .9 + i * .25 }}><span className="tl-ic"><Icon size={14} /></span><span><small>{k}</small>{t}</span></motion.div>)}
-  </div>;
-}
 const PRO = [
   { id: 'sees', title: 'It sees', line: 'Turn the screen activity you choose to record into searchable memory.', visual: () => <Framed><Shot lazy={false} name="actions" alt="Off Grid AI Actions: follow-ups pulled from the screen activity you chose to record." /></Framed> },
   { id: 'remembers', title: 'It remembers', line: 'Review your day in a journal or replay recorded screens.', note: 'Your Day: the brief a chief of staff would hand you each morning.', visual: () => <Framed><Shot lazy={false} name="day" alt="Off Grid AI Pro showing Your Day: a journal, to-do list, and timeline of the day." /></Framed> },
@@ -115,7 +109,7 @@ const PRO = [
   { id: 'meetings', title: 'Meetings', line: 'Record and transcribe Google Meet and Zoom locally. Find summaries in your timeline.', visual: () => <Framed><Shot lazy={false} name="meetings" alt="Off Grid AI Meetings: a recorded meeting with summary, decisions and transcript." /></Framed> },
   { id: 'dictation', title: 'Dictation', line: 'Hold the dictation key. Speak. Insert transcribed text at your cursor.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: hold the dictation key and speak." /></Framed> },
   { id: 'clipboard', title: 'Clipboard', line: 'Search copied text, images, and files stored on your disk.', visual: () => <Framed><Shot lazy={false} name="clipboard" alt="Off Grid AI Clipboard history with search." /></Framed> },
-  { id: 'search', title: 'One search', line: 'Find context across recorded screens, meetings, clipboard, and memory.', visual: card(<SearchScene />) },
+  { id: 'search', title: 'One search', line: 'Find context across recorded screens, meetings, clipboard, and memory.', visual: () => <Framed><Shot lazy={false} name="search" alt="Off Grid AI Search: one query across screens, meetings, chats, people and documents." /></Framed> },
   { id: 'use', title: 'Computer Use and Web Use', line: 'Approve a task in your apps or browser. Pause, stop, or take over at any time.', visual: (c) => web(c) },
 ];
 
@@ -124,34 +118,9 @@ const PRO = [
 const WEB_STEPS = ['Search for local-first note apps', 'Read three product pages', 'Compare price, sync and offline', 'Your turn: sign in to save the doc', 'Saved to your docs'];
 const WEB_ROWS = [['Notesmith', '$0', 'Device to device', 'Yes'], ['Leafline', '$8/mo', 'Their cloud', 'Partial'], ['Inkwell', '$4/mo', 'Their cloud', 'No']];
 const POINTER = [[12, 14], [38, 48], [62, 62], [78, 30], [50, 82]];
-function WebScene() {
-  const s = useSteps([900, 2100, 3300, 4600, 6200]);
-  const at = Math.min(s, WEB_STEPS.length) - 1;
-  const [px, py] = POINTER[Math.max(0, at)];
-  return <div className="scene scene-web">
-    <SceneCard className="web-steps" busy={s < 5 && s !== 4}>
-      <span className="eyebrow">Task · Compare note apps</span>
-      <ol className="web-list">{WEB_STEPS.map((t, i) => <li key={t} className={`${i < at || s >= 5 ? 'done' : ''} ${i === at && s < 5 ? 'cur' : ''}`}>
-        <span className="web-dot">{i < at || s >= 5 ? <Check size={10} weight="bold" /> : i + 1}</span>{t}</li>)}</ol>
-    </SceneCard>
-    <div className="br-frame web-frame">
-      <Safari url="notes-compare.example" />
-      <div className="br-screen web-screen">
-        <div className="web-page">
-          <b className="web-h">Local-first note apps</b>
-          <div className="web-table">
-            <div className="web-tr web-th"><span>App</span><span>Price</span><span>Sync</span><span>Offline</span></div>
-            {WEB_ROWS.map((r, i) => <motion.div key={r[0]} className="web-tr" initial={{ opacity: 0 }} animate={{ opacity: s >= 2 + (i > 0 ? 1 : 0) ? 1 : .15 }} transition={{ duration: .3 }}>{r.map(c => <span key={c}>{c}</span>)}</motion.div>)}
-          </div>
-          <AnimatePresence>{s === 4 && <motion.div className="web-takeover" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><LockKey size={13} /> Your turn. Off Grid AI never sees your password.</motion.div>}</AnimatePresence>
-          <AnimatePresence>{s >= 5 && <motion.div className="web-takeover ok" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}><CheckCircle size={13} weight="fill" /> Comparison saved</motion.div>}</AnimatePresence>
-        </div>
-        <motion.svg className="web-pointer" width="18" height="18" viewBox="0 0 24 24" animate={{ left: `${px}%`, top: `${py}%` }} transition={{ type: 'spring', stiffness: 120, damping: 20 }}><path d="M4 2l16 9-7 2-3 7z" fill="currentColor" stroke="var(--og-background)" strokeWidth="1.5" /></motion.svg>
-      </div>
-    </div>
-  </div>;
-}
-const web = (compact) => compact ? <Fit w={420} h={520}><Loop ms={9500}><WebScene /></Loop></Fit> : <Fit w={780} h={430}><Loop ms={9500}><WebScene /></Loop></Fit>;
+// Real web-use task: it plans and works the page, hands you the sign-in, then finishes.
+const WEB_SHOTS = [['web-plan', 'Off Grid AI working a web task step by step on a comparison site.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The web task finished, with the result.', 4200]];
+const web = () => <Seq shots={WEB_SHOTS} />;
 
 function ComputerUse() {
   return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use"><SectionBg />
