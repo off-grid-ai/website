@@ -117,7 +117,7 @@ That is it. No sign-up wall, no key to paste.
 - Cross-device sync so a phrase dictated on one machine reaches another
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing speech-to-text transcription models.](/assets/img/home/app/models-transcription-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

@@ -19,7 +19,7 @@ The unified memory in an Apple Silicon Mac lets the GPU and CPU read the same po
 RealVisXL v5.0 is a photorealistic SDXL checkpoint. This is the full-step variant, not a Lightning build, so it favors image quality over raw speed. It is built for realistic skin, lighting, and texture. This guide shows you how to run it locally with no token meter and no upload of your prompts to a server.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A photorealistic landscape generated on-device with RealVisXL in Off Grid AI Desktop.](/assets/img/home/gen-realvis.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -91,7 +91,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 - Continued tuning of generation controls and the live preview.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

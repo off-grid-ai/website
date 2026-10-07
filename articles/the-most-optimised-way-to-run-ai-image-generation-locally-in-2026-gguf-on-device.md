@@ -19,7 +19,7 @@ A modern SDXL checkpoint in full precision is roughly 6 to 7 GB and expects a fa
 This is the argument: for everyday local image generation, quantized GGUF on a native engine beats a heavy diffusers setup. Smaller downloads. Lower memory. No environment to repair. It runs on Metal on a Mac and on CUDA, Vulkan, or plain CPU on Windows. Here is why, and which models to start with.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 
@@ -100,7 +100,7 @@ Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your 
 - Wider hardware support as `stable-diffusion.cpp` gains backends.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 

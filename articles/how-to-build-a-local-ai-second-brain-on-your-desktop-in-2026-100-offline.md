@@ -19,7 +19,7 @@ A modern laptop GPU can run a capable language model and read text off a screens
 Free, open-source, runs offline. No account, no API key, no data leaving your machine.
 
 
-![Day lays out your meetings, suggested actions, and to-dos in one place.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/day.png?v=2)
+![Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.](/assets/img/home/app/day-dark-1760.webp)
 
 *Day lays out your meetings, suggested actions, and to-dos in one place.*
 
@@ -119,15 +119,15 @@ No sign-up, no key, no cloud account.
 - Richer Reflect trends over longer time spans
 
 
-![Reflect shows where your attention actually went across the day.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/reflect.png?v=2)
+![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
 
 *Reflect shows where your attention actually went across the day.*
 
-![Replay is a scrubbable movie of your day, captured on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/replay.png?v=2)
+![Replay in Off Grid AI Desktop, a scrubbable record of your day captured on-device.](/assets/img/home/app/replay-dark-1760.webp)
 
 *Replay is a scrubbable movie of your day, captured on-device.*
 
-![Entities: a private CRM for the people, projects, and topics in your work.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/entities.png?v=2)
+![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
 
 *Entities: a private CRM for the people, projects, and topics in your work.*
 

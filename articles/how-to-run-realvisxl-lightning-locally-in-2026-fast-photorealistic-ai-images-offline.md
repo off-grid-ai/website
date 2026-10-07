@@ -19,7 +19,7 @@ An RTX 4070 holds 12 GB of VRAM and pushes tens of teraflops, enough to run a di
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A photorealistic portrait generated on-device with RealVisXL Lightning in Off Grid AI Desktop.](/assets/img/home/gen-realvis-lightning.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -101,7 +101,7 @@ soft shadows, sharp focus
 - Unified search across your generated artifacts.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

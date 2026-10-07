@@ -19,7 +19,7 @@ The GPU in a gaming PC or an Apple Silicon Mac can paint a 1024-pixel image from
 Free, open-source, runs offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-juggernaut.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -114,7 +114,7 @@ npm run dev
 - Unified search across your generated images and the rest of your work.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

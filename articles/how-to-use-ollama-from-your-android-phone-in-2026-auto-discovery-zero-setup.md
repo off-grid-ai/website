@@ -19,7 +19,7 @@ Your Android phone and your Ollama server are on the same network. They should j
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) makes that happen. It auto-discovers Ollama servers on your local network, pulls the model list, and lets you start chatting. No IP addresses, no port numbers, no configuration files on your phone.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
 </div>
 
 ## What you need

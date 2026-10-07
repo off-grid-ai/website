@@ -137,7 +137,7 @@ Off Grid AI Desktop holds all of it on your machine. The skill files are local. 
 - A library of starter skills to fork and edit.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
 *Actions: what to do, and what Off Grid proposes. Always your call.*
 

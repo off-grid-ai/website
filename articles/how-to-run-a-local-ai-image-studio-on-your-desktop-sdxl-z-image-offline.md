@@ -19,7 +19,7 @@ The GPU in a modern laptop can run the same image models that power paid service
 Free, open-source, runs offline. No account, no API key, no telemetry.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-realvis.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 

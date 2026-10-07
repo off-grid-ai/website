@@ -111,7 +111,7 @@ Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokor
 - Using the local voice stack from other paired devices over the mesh.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

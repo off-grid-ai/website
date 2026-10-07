@@ -19,7 +19,7 @@ The laptop you already own has a GPU that can render a finished anime illustrati
 Illustrious XL v2.0 is an SDXL checkpoint tuned for anime and illustration. It reads danbooru-style tag prompts, so you describe a picture with comma-separated tags instead of long sentences. The model lives on your disk. The pixels render on your hardware. Nothing about your prompt leaves the machine.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An illustration generated on-device with Illustrious XL in Off Grid AI Desktop.](/assets/img/home/gen-illustrious.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -106,7 +106,7 @@ That is the whole loop. Once the model is on disk you can pull the network cable
 - Broader hardware coverage as `stable-diffusion.cpp` adds backends.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

@@ -19,7 +19,7 @@ A Turbo-distilled SDXL model can produce a finished image in a handful of steps 
 DreamShaper XL v2 Turbo is a versatile artistic checkpoint. It handles illustration, concept art, painterly looks, and stylized portraits without much coaxing. The Turbo part means it was distilled to need far fewer sampling steps, so each image comes back fast. This guide shows you how to run it locally with no token meter and no upload of your prompts.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device with DreamShaper XL Turbo in Off Grid AI Desktop.](/assets/img/home/gen-dreamshaper.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -86,7 +86,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 - Ongoing improvements to the live preview and generation controls.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

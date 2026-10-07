@@ -59,11 +59,11 @@ Here's what "completely on your device" actually means:
         <b>Onboarding</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5q4ns9fowhnrgpg5nsum.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-1-dark-640.webp" alt="A private chat with a local model in Off Grid, running on the phone" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d4vmj4a8zmchlkcbvm1i.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
         <b>Image Generation</b>
       </td>
 </tr>

@@ -19,7 +19,7 @@ That is not how you would use AI if there were no artificial barriers. You would
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) lets you do exactly that. Switch between any model - on your phone or on your network - at any point in a conversation. The chat history stays. The context carries over. You just change which brain is answering.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
 </div>
 
 ## How it works

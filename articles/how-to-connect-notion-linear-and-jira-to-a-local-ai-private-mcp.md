@@ -111,7 +111,7 @@ You still send credentials to the third-party services you connect, that is unav
 - Richer audit views for teams that need a clear history of what ran.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
 *Actions: what to do, and what Off Grid proposes. Always your call.*
 

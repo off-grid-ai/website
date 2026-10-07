@@ -19,7 +19,7 @@ The unofficial answer used to be: set up a reverse proxy, configure your network
 The actual answer now: [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) auto-discovers LM Studio on your network and lets you use it from your Android phone in about sixty seconds.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
 </div>
 
 ## How to set it up

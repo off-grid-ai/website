@@ -19,7 +19,7 @@ The M3 Max in your laptop ships with up to 40 GPU cores and shares memory with t
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A photorealistic street scene generated on-device with Juggernaut XL in Off Grid AI Desktop.](/assets/img/home/gen-juggernaut.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -100,7 +100,7 @@ shallow depth of field, natural skin texture, film grain
 - Unified search across your generated artifacts.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

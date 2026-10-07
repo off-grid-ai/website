@@ -21,7 +21,7 @@ There is a simpler way.
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) auto-discovers Ollama servers on your network and lets you use them from your iPhone. No IP addresses. No port forwarding. No configuration files.
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
 </div>
 
 ## What you need

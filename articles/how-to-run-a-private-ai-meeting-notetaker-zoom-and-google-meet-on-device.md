@@ -19,7 +19,7 @@ When you invite a cloud notetaker to a call, a bot joins, records everyone, and 
 Free, open-source, runs offline. No account, no API key, no telemetry.
 
 
-![Meetings record and transcribe on-device, with a local summary and transcript.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/meetings.png?v=2)
+![Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.](/assets/img/home/app/meetings-dark-1760.webp)
 
 *Meetings record and transcribe on-device, with a local summary and transcript.*
 

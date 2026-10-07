@@ -19,7 +19,7 @@ The M-series chip in your MacBook shares one pool of memory between CPU and GPU,
 It bundles `stable-diffusion.cpp` and drives it with Apple's Metal backend. Your prompts and your images never leave the machine.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-realvis-lightning.webp)
 
 *On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
 
@@ -102,7 +102,7 @@ Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no acco
 Grounded roadmap. The local spine comes first.
 
 
-![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
 *The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
 

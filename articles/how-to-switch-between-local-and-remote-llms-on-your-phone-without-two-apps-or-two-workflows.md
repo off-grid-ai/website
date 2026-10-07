@@ -21,7 +21,7 @@ Option two: connect to a model running on your PC. Something like Ollama or LM S
 The thing nobody has built until now is a single app that does both and switches between them intelligently. That is what we built into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 <div style="width: 100%;">
-  <img width="100%" alt="Remote Server Config" src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9fatki3or9h9idlsqr4p.gif" />
+  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
 </div>
 
 ## The problem with picking one

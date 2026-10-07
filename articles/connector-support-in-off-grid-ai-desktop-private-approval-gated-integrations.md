@@ -117,7 +117,7 @@ Off Grid AI Desktop collapses all three onto your machine. The credential is loc
 - Cross-device sync so a connector you set up on one machine is available on another, still without a cloud middleman.
 
 
-![Actions: what to do, and what Off Grid proposes. Always your call.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/actions.png?v=2)
+![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
 *Actions: what to do, and what Off Grid proposes. Always your call.*
 
