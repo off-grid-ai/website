@@ -1386,3 +1386,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .announcement-bar-cta{display:inline-flex;align-items:center;min-height:44px}
 @media(max-width:1000px){.doc-end-in{grid-template-columns:1fr}.doc-news{justify-self:stretch;width:100%}}
 @media(max-width:700px){.announcement-bar-inner{width:calc(100% - 24px);flex-wrap:wrap;gap:4px 10px;font-size:11.5px}.announcement-bar-text{flex-basis:100%;order:2}.announcement-bar-cta{order:1;margin-left:auto}}
+
+/* Keep small text and filled actions readable on light surfaces. */
+.light .offgrid-page{--og-text-muted:var(--og-text-secondary);--og-rgb-text-muted:var(--og-rgb-text-secondary);--og-primary:var(--og-primary-dark);--og-rgb-primary:var(--og-rgb-primary-dark)}
+.light .announcement-bar-tag{color:var(--og-primary-dark)}
