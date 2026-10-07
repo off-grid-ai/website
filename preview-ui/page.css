@@ -1584,3 +1584,10 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .dev-net .dev-col{gap:10px}
 .dev-net .dev-node{gap:4px}
 @media(max-width:860px){.dev-net{padding:26px 16px 10px!important}}
+/* Privacy log: every value is read in full; long values wrap instead of truncating. */
+.plog-row{align-items:start!important;line-height:1.45}
+.plog-row span{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.plog-row b,.plog-row svg{margin-top:2px}
+@media (max-width:860px){.plog-row{grid-template-columns:92px 1fr auto!important;font-size:12px}}
+.light .walk-alive .alive-grid{fill:rgb(var(--og-rgb-primary)/.22)}
+@media(max-width:860px){.walk-alive .alive-grid{opacity:.7}}

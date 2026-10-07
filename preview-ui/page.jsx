@@ -597,7 +597,7 @@ function CommandBar({ onRun }) {
     <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
       label="Open the example shown" submitLabel="Open example chapter"
       onVanishComplete={(text) => onRun((PROMPTS.find(prompt => prompt.label === text) || PROMPTS[0]).id)} />
-    <p className="cmd-note">Press Enter to see it work, or pick one below.</p>
+    <p className="cmd-note">Press Enter, or pick one below.</p>
   </div>;
 }
 
@@ -797,7 +797,7 @@ function Walkthrough({ reduce, theme }) {
 
 /* ───────────────────────── Privacy ───────────────────────── */
 
-const SAMPLE_PROMPTS = ['Summarize my blood test results', 'Review this NDA before I sign it', 'Compare these two salary offers', 'Draft a reply to my landlord about the deposit'];
+const SAMPLE_PROMPTS = ['Summarize my blood test', 'Review this NDA for me', 'Compare two salary offers', 'Reply to my landlord'];
 function PrivLane({ local, prompt, n }) {
   const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null); const d = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
