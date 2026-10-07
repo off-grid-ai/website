@@ -90,7 +90,7 @@ export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/
 const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Download', '/download/'], ['Get Pro', '/pro/#buy'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']];
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261007f';
+export const SHOT_V = '20261007g';
 export function Shot({ name, alt, className = '', lazy = true }) {
   const theme = useContext(ThemeCtx);
   const load = (t) => (lazy || t !== theme ? 'lazy' : undefined); // the other theme's file only loads if it is shown
@@ -511,7 +511,7 @@ const WALK = [
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 8000, View: CaptureScene },
   { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 7000, View: RememberScene },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff with Sam.']) },
-  { id: 'reflect', cmd: 'where did my week go?', title: 'Your week, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.']) },
+  { id: 'reflect', cmd: 'where did my week go?', title: 'Your week, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.'], ['replay', 'Off Grid AI Replay: scrub back through what you chose to record.']) },
   { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 9000, View: AskScene },
   { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 7000, View: ActScene },
   { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 9500, View: WebScene },
