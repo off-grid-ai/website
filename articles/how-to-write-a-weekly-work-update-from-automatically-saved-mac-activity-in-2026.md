@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Write a Weekly Work Update From Automatically Saved Mac Activity in 2026"
 description: "Draft a weekly update from saved Mac activity. Review daily journals and source context, then turn verified outcomes into a concise local AI draft."
 date: "2026-09-29"

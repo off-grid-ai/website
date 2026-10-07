@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Which Off Grid AI Features Work on Each Device in 2026?"
 description: "Choose a device for local chat, images, speech or private work history. A practical view of Off Grid AI platforms, Pro features and beta limits."
 date: "2026-09-29"

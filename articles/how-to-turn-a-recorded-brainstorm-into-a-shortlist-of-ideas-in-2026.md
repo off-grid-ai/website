@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Recorded Brainstorm Into a Shortlist of Ideas in 2026"
 description: "Use local AI to organise a recorded brainstorm, preserve different ideas, and build a shortlist against criteria your team chooses."
 date: "2026-09-29"

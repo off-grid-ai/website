@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate Images on Your Computer From Your Phone in 2026 Without Internet"
 description: "Write an image prompt on your Android phone or iPhone and let your own computer generate it. Use OGAM and OGAD over local Wi-Fi after setup."
 date: "2026-09-29"

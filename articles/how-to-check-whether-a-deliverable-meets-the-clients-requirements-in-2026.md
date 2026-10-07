@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Check Whether a Deliverable Meets the Client’s Requirements in 2026"
 description: "Check a draft against a client brief with a local AI review table, source evidence, and clear labels for missing or uncertain requirements."
 date: "2026-09-29"

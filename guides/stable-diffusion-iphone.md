@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: How to Run Stable Diffusion on Your iPhone (On-Device AI Image Generation)
 parent: Guides
 article_topic: "Images & vision"

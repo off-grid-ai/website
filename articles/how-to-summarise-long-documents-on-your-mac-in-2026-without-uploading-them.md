@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Summarise Long Documents on Your Mac in 2026 Without Uploading Them"
 description: "Build a source-checked summary of a long document on your Mac using local AI and section-by-section questions."
 date: "2026-09-29"

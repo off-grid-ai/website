@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Animagine XL 4.0 Locally in 2026 (Offline Anime AI Image Generation)"
 description: "Generate anime art on your own machine with Animagine XL 4.0, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"

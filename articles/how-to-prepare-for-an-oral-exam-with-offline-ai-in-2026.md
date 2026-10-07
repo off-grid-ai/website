@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare for an Oral Exam With Offline AI in 2026"
 description: "Practise explaining course material with local AI, answer one question at a time, and check feedback against your approved study sources."
 date: "2026-09-29"

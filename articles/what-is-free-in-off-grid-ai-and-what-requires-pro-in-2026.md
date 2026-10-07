@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What Is Free in Off Grid AI, and What Requires Pro in 2026?"
 description: "Choose the free local AI tools or Pro work features based on the result you need. Understand model setup, platform limits and optional service costs."
 date: "2026-09-29"

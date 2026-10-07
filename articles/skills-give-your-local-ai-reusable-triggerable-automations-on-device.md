@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Skills: Give Your Local AI Reusable, Triggerable Automations (On-Device)"
 description: "Package instructions into reusable skills your local AI can run on command or on a schedule. Fully on-device, no cloud, no API keys."
 date: "2026-06-25"

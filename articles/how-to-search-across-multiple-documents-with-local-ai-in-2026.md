@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Across Multiple Documents With Local AI in 2026"
 description: "Find relevant passages across project documents on your own computer, then check the source behind the answer."
 date: "2026-09-29"

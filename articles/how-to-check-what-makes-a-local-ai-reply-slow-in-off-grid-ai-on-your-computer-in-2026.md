@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Check What Makes a Local AI Reply Slow in Off Grid AI on Your Computer in 2026"
 description: "Read time to first token, generation speed, and context use to make a useful next check when AI feels slow."
 date: "2026-09-29"

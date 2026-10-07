@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Resume a Failed AI Computer Task in Off Grid AI in 2026 Without Repeating All the Work"
 description: "Resume a failed computer or browser task from its saved context and check completed work."
 date: "2026-09-29"

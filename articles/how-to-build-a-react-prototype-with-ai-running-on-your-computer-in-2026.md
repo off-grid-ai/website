@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a React Prototype With AI Running on Your Computer in 2026"
 description: "Build a small React interaction with a local model and preview it in the app before exporting a project."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Windows PC in 2026 (No Cloud, No Account)"
 description: "Run chat, image generation, and voice AI on your own Windows PC. On-device, no cloud, no account, no API keys. Free and open source."
 date: "2026-06-25"

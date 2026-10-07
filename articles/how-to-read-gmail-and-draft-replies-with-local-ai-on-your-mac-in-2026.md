@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Read Gmail and Draft Replies With Local AI on Your Mac in 2026"
 description: "Find Gmail messages and use a local model to write a reply you can check before sending."
 date: "2026-09-29"

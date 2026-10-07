@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Tool Calling
 parent: Guides
 article_topic: "Automation & tools"

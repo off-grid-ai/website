@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Illustrious XL 2.0 Locally in 2026 (Offline Anime and Illustration AI)"
 description: "Run Illustrious XL v2.0 anime and illustration AI fully on-device on Mac or Windows. No cloud, no account, no API keys."
 date: "2026-06-25"

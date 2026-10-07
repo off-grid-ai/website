@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Comic Book With AI on Your Mac in 2026 (No Internet Required)"
 description: "Turn a story brief into illustrated comic pages and an offline reader with OGAD. Choose the style, plan the story, and generate the pages on your Mac."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Long Article Into a Presentation Outline Without Internet in 2026"
 description: "Use local AI to organise a saved article into a presentation outline, keep source claims accurate, and plan what each slide needs to explain."
 date: "2026-09-29"

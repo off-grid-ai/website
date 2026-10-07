@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Knowledge Base and RAG - On-Device Document Search
 parent: Guides
 article_topic: "Documents & research"

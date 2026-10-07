@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Private Knowledge Base for Each Agency Client in 2026"
 description: "Build a local source collection for each agency client, organise approved material, and ask questions with evidence before drafting client work."
 date: "2026-09-29"

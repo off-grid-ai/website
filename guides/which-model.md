@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Which Model Should I Use?
 parent: Guides
 article_topic: "Models & performance"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Multiple Local AI Models for Computer Tasks in Off Grid AI in 2026"
 description: "Use OGAD's beta Computer Use model roles to separate reasoning, action selection, and visual control on Mac. Start with a supervised local document task."
 date: "2026-09-29"

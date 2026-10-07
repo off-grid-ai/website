@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Writing With AI During an Internet Outage in 2026"
 description: "Prepare a local AI writing workflow so you can continue drafting and editing from saved material when your internet connection is unavailable."
 date: "2026-09-29"

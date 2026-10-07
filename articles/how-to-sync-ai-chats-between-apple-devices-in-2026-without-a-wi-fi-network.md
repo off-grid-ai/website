@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Sync AI Chats Between Apple Devices in 2026 Without a Wi-Fi Network"
 description: "Continue an AI conversation between nearby Apple devices using the local proximity connection after setup."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Most Optimised Way to Run AI Image Generation Locally in 2026 (GGUF, On-Device)"
 description: "Quantized GGUF checkpoints on stable-diffusion.cpp are the leanest way to generate AI images on-device. Mac and Windows, no cloud, no Python."
 date: "2026-06-25"

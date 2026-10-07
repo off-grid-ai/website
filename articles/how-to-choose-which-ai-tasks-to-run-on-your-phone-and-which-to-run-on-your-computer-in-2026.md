@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Choose Which AI Tasks to Run on Your Phone and Which to Run on Your Computer in 2026"
 description: "Choose where to run local AI tasks based on the files, model size, available hardware, and whether the task must work away from your network."
 date: "2026-09-29"

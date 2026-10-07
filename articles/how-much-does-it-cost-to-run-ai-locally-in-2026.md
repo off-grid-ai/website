@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How Much Does It Cost to Run AI Locally in 2026?"
 description: "Calculate the cost of a local AI setup using the app tier, hardware you already own, measured electricity use, storage, and support needs."
 date: "2026-09-29"

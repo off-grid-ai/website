@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI Tool Calling on Your Phone Without Paying for a Single API"
 description: "Tool calling is what separates a chatbot from an assistant. A chatbot gives you text. An assistant..."
 date: "2026-03-18"

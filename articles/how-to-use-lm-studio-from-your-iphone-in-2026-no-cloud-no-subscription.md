@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use LM Studio From Your iPhone in 2026 (No Cloud, No Subscription)"
 description: "LM Studio turned your Mac into an AI workstation. You downloaded models, you chatted with them, you..."
 date: "2026-03-18"

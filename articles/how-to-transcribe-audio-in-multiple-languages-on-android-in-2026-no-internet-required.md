@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Audio in Multiple Languages on Android in 2026 (No Internet Required)"
 description: "Turn speech into text on Android with local AI. Choose a multilingual model, set your language, and transcribe offline after the first download."
 date: "2026-09-29"

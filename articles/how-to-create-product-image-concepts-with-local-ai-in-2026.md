@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Product Image Concepts With Local AI in 2026"
 description: "Explore product scenes, lighting and backgrounds with local AI. Make concept drafts on your computer before investing in a finished product image."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Ollama in 2026 (No Configuration Required), Plus a Local-First Alternative"
 description: "Run local LLMs with Ollama in minutes, then see a GUI alternative that adds image gen, voice, and on-device memory. No cloud."
 date: "2026-06-25"

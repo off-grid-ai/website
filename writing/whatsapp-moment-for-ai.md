@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Encrypted Messaging Moment for AI: Why Privacy Will Define the Next Platform"
 parent: Perspectives
 article_topic: "Privacy & control"

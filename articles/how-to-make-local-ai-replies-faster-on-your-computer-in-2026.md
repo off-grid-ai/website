@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Make Local AI Replies Faster on Your Computer in 2026"
 description: "Make local AI replies more practical by matching the model, context and answer length to your computer. Compare changes with one real task."
 date: "2026-09-29"

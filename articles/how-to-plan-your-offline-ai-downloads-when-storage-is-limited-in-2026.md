@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Plan Your Offline AI Downloads When Storage Is Limited in 2026"
 description: "Plan a small offline AI setup around real tasks, separate download size from memory, and keep space for documents and generated files."
 date: "2026-09-29"

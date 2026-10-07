@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI on Your Android Phone Without Being Tracked"
 description: "Every time you type something into ChatGPT, Gemini, or Copilot, your conversation gets sent to a..."
 date: "2026-03-01"

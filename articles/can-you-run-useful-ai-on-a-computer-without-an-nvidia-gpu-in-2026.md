@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can You Run Useful AI on a Computer Without an NVIDIA GPU in 2026?"
 description: "Try local AI through CPU, Apple Metal, or other supported backends, and verify a useful task before assuming you need an NVIDIA GPU."
 date: "2026-09-29"

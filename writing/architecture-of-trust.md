@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Architecture of Trust: How a Personal AI OS Earns the Right to Your Data"
 parent: Perspectives
 article_topic: "Privacy & control"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Gemma Locally on Your Computer in 2026 (Mac and Windows, No Cloud)"
 description: "Run Google's Gemma models on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no API keys."
 date: "2026-06-25"

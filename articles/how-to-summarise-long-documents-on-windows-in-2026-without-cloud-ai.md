@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Summarise Long Documents on Windows in 2026 Without Cloud AI"
 description: "Build a source-checked summary of a long document on your Windows PC using local AI and section-by-section questions."
 date: "2026-09-29"

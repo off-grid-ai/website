@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: react
+react: guides
 title: Guides
 nav_order: 8
 nav_group: Learn

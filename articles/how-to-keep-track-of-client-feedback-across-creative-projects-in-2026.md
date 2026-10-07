@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Track of Client Feedback Across Creative Projects in 2026"
 description: "Organise creative feedback by project and version, find the source of a revision request, and keep approved decisions distinct from suggestions with local AI."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare a Client Finance Review From Private Notes and Documents in 2026"
 description: "Turn a client’s private notes and documents into a source-backed finance review agenda. Keep open questions, draft figures and confirmed decisions separate."
 date: "2026-09-29"

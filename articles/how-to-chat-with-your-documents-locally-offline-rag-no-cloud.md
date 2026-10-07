@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Chat With Your Documents Locally (Offline RAG, No Cloud)"
 description: "Upload PDFs, notes, and audio, then chat with cited sources entirely on-device. No cloud, no account, no API keys."
 date: "2026-06-25"

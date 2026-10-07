@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask AI About Your Company Documents in 2026 Without Uploading Them"
 description: "Ask questions about approved company files on your own computer with local project search and source checks."
 date: "2026-09-29"

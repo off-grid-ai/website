@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Client Handover From Your Saved Work History in 2026"
 description: "Use saved Mac activity to recover project context, verify the current state, and draft a client handover with local AI."
 date: "2026-09-29"

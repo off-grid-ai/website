@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Write Better AI Image Prompts With a Local Assistant in 2026"
 description: "Turn a rough image idea into a clear visual brief with OGAD. Compare prompt changes on your own computer and keep control of the result."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Juggernaut XL Locally on Your Desktop in 2026 (Photorealistic AI Images, Offline)"
 description: "Run Juggernaut XL v9 for photorealistic AI images entirely on-device, no cloud, no account, no API keys. Works on Mac and Windows."
 date: "2026-06-25"

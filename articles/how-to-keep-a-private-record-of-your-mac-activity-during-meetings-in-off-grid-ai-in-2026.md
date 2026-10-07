@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep a Private Record of Your Mac Activity During Meetings in Off Grid AI in 2026"
 description: "Review captured Mac activity from a meeting’s time window alongside its saved local meeting record."
 date: "2026-09-29"

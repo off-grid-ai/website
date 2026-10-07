@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Unanswered Client Requests Before Sending a Project Update in 2026"
 description: "Review saved client requests and project notes with local AI, check for later answers, and prepare an update that makes unresolved items clear."
 date: "2026-09-29"

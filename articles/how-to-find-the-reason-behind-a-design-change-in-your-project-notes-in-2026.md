@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find the Reason Behind a Design Change in Your Project Notes in 2026"
 description: "Use local AI to trace a design change to its source notes, separate stated reasons from later guesses, and prepare a clear rationale for the team."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Ask Questions About a PDF on iPhone in 2026 Without Internet"
 description: "Ask questions about a readable PDF on iPhone using local project search and an on-device AI model."
 date: "2026-09-29"

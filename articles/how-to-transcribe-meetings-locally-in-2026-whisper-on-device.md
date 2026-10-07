@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Meetings Locally in 2026 (Whisper, On-Device)"
 description: "Record and transcribe Zoom and Google Meet calls entirely on-device with whisper.cpp. No cloud notetaker, no per-minute fees."
 date: "2026-06-25"

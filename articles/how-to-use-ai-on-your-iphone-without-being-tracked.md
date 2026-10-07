@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI on Your iPhone Without Being Tracked"
 description: "You probably assume your iPhone keeps things private. Apple markets privacy as a core feature. But..."
 date: "2026-03-01"

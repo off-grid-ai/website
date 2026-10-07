@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn One Article Into a Newsletter and Social Posts With Offline AI in 2026"
 description: "Use local AI to adapt your own article into a useful newsletter and distinct social drafts while preserving its claims, links, and voice."
 date: "2026-09-29"

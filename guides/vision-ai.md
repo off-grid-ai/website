@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Vision AI - Analyse Images and Documents On-Device
 parent: Guides
 article_topic: "Images & vision"

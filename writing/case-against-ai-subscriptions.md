@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Case Against Cloud AI Subscriptions: Why You Shouldn't Pay to Rent Your Own Intelligence"
 parent: Perspectives
 article_topic: "Privacy & control"

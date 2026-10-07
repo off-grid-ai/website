@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Scattered Client Feedback Into a Revision Checklist in 2026"
 description: "Use local AI to organise saved client comments into a checked revision list, preserve asset versions, and separate accepted changes from open questions."
 date: "2026-09-29"

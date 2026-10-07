@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Where Does Your Data Go When You Use Off Grid AI in 2026?"
 description: "Understand the data paths for local models, online tools, device sync and support requests in Off Grid AI. Choose the setup that matches your work."
 date: "2026-09-29"

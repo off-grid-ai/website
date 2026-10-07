@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Long Local AI API Requests in Off Grid AI in 2026 Without Waiting for One HTTP Response"
 description: "Submit a local API request, keep its request ID, and poll for completion without holding the original connection open."
 date: "2026-09-29"

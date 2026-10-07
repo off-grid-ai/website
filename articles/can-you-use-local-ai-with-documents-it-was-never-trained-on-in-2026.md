@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Can You Use Local AI With Documents It Was Never Trained On in 2026?"
 description: "Ask local AI about new documents through project retrieval, without retraining the model or assuming it knows the files beforehand."
 date: "2026-09-29"

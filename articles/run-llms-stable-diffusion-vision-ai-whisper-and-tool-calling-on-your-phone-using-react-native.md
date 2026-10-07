@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Run LLMs, Stable Diffusion, Vision AI, Whisper, and Tool Calling on Your Phone using React Native"
 description: "The complete technical reference for on-device AI in React Native -- architecture,..."
 date: "2026-02-25"

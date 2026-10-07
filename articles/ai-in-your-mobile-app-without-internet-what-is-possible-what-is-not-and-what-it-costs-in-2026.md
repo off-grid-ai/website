@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "AI in Your Mobile App Without Internet: What Is Possible, What Is Not, and What It Costs in 2026"
 description: "A plain-language guide to what on-device AI can do today, what it cannot, and what each capability costs to add."
 date: "2026-04-26"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Chat, Image, and Voice AI on a Low-Memory Computer in 2026"
 description: "Use local chat, image generation and speech on a Mac with a modest memory budget. Work one task at a time and unload models when needed."
 date: "2026-09-29"

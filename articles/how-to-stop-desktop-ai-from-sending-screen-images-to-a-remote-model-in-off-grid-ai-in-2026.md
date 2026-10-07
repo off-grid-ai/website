@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop Desktop AI From Sending Screen Images to a Remote Model in Off Grid AI in 2026"
 description: "Keep the screen-image permission off for a remote model server, or use local models for screen tasks."
 date: "2026-09-29"

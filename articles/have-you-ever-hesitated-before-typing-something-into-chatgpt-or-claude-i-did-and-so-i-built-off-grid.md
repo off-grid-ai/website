@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Have you ever hesitated before typing something into ChatGPT or Claude? I did, and so I built Off Grid"
 description: "The full story of building Off Grid — a FOSS app that runs AI entirely on your phone, offline, with..."
 date: "2026-02-20"

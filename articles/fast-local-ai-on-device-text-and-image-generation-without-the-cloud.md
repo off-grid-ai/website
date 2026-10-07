@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Fast Local AI: On-Device Text and Image Generation Without the Cloud"
 description: "Quantized GGUF on Metal or CUDA, few-step image models, no network round-trip. Why on-device AI feels fast, on your Mac or PC."
 date: "2026-06-25"

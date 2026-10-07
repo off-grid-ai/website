@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Store Passwords on Your Mac in 2026 Without Cloud Sync"
 description: "Keep logins and app credentials in OGAD's encrypted local Vault. Save, find, reveal, and copy an entry without a required cloud password service."
 date: "2026-09-29"

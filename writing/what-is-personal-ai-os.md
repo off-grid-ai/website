@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: What Is a Personal AI OS?
 parent: Perspectives
 article_topic: "Getting started"

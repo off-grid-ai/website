@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run RealVisXL 5.0 Locally on Your Desktop (Photorealism, Offline)"
 description: "Generate photorealistic images with RealVisXL 5.0 fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"

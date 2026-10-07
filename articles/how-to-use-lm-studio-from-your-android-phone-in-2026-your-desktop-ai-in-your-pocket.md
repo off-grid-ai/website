@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use LM Studio From Your Android Phone in 2026 (Your Desktop AI in Your Pocket)"
 description: "LM Studio does not have a mobile app. If you want to use the models running on your desktop from your..."
 date: "2026-03-18"

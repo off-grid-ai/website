@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Private Knowledge Base on Your Phone With Local AI (No Cloud, No API Keys)"
 description: "Most RAG setups require a cloud database, an embedding API, and a hosted LLM. You upload your..."
 date: "2026-03-18"

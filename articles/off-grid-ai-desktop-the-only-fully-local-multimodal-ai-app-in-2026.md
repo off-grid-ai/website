@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Off Grid AI Desktop: The Only Fully Local, Multimodal AI App in 2026"
 description: "Chat, vision, image generation, and voice in one app that runs entirely on your Mac or PC. No cloud, no account, no API keys."
 date: "2026-06-25"

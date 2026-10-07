@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Estimate Project Time From Automatically Saved Mac Activity in 2026"
 description: "Use sampled Mac activity to estimate where project time went. Review Reflect, check the captured context and separate estimates from exact time records."
 date: "2026-09-29"

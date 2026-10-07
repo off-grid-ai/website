@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Identify Missing Evidence in Your Promotion Case With Local AI in 2026"
 description: "Check a promotion case for unsupported claims, missing examples, and unclear links to the role criteria with local AI."
 date: "2026-09-29"

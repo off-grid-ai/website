@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use a Larger AI Model on a Phone With Limited Memory in 2026"
 description: "Use a model running on your own computer from an Android phone or iPhone. Keep the larger download and memory use on your home hardware with OGAM and OGAD."
 date: "2026-09-29"

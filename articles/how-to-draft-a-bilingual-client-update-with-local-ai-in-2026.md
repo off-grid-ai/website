@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Draft a Bilingual Client Update With Local AI in 2026"
 description: "Prepare matching client updates in two languages with local AI, a checked fact sheet, consistent terms, and a final review of commitments."
 date: "2026-09-29"

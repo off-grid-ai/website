@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Potential Quotes in an Interview Transcript With Local AI in 2026"
 description: "Use local AI to locate quote candidates in a checked interview transcript, preserve exact wording, and review attribution and context before publication."
 date: "2026-09-29"

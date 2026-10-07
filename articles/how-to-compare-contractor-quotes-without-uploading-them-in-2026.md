@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Contractor Quotes Without Uploading Them in 2026"
 description: "Compare the stated scope, exclusions, and questions in contractor quotes with local AI, then verify every important detail against the original documents."
 date: "2026-09-29"

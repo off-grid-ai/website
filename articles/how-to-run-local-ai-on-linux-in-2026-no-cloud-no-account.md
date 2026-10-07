@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Linux in 2026 (No Cloud, No Account)"
 description: "Run AI chat, image generation and voice on Ubuntu with Off Grid AI on Linux. Download models once, then use local models without internet."
 date: "2026-09-29"

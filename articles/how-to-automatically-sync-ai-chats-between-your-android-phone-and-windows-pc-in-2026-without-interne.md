@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Sync AI Chats Between Your Android Phone and Windows PC in 2026 Without Internet"
 description: "Keep Android and Windows AI chats in sync over your local network. Pair the devices, check automatic updates, and handle Windows firewall and model setup."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Your Own Writing Samples Into a Reusable AI Style Guide in 2026"
 description: "Use local AI to identify patterns in your own writing, turn them into practical editing rules, and test the guide on a fresh draft."
 date: "2026-09-29"

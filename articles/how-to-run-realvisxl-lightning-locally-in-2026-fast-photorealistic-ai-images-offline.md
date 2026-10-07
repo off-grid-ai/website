@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run RealVisXL Lightning Locally in 2026 (Fast Photorealistic AI Images, Offline)"
 description: "Run RealVisXL v5.0 Lightning for fast photorealistic AI images on-device in 4-8 steps, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"

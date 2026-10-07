@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Check Your Computer’s AI Task From Your Phone in Off Grid AI in 2026"
 description: "Use the task card in a synced phone chat to inspect desktop AI activity and saved steps."
 date: "2026-09-29"

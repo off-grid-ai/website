@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Stable Diffusion on Your Desktop (On-Device AI Image Generation)"
 description: "Generate images with Stable Diffusion on your own Mac or PC, fully on-device, with a free open-source app. No cloud, no account, no credits."
 date: "2026-06-25"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create a Technical Glossary for Multilingual Project Work in 2026"
 description: "Build a reviewed technical glossary for multilingual projects with local AI, source context, approved terms, and clear rules for names and codes."
 date: "2026-09-29"

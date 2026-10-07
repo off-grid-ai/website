@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Draft Product Descriptions From Your Own Product Notes Without Cloud AI in 2026"
 description: "Use local AI to turn verified product notes into clear descriptions, keep claims accurate, and review missing specifications before publishing."
 date: "2026-09-29"

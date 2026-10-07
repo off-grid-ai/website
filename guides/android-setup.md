@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Android Setup
 parent: Guides
 article_topic: "Getting started"

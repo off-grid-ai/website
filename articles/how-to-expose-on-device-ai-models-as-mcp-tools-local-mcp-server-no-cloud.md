@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Expose On-Device AI Models as MCP Tools (Local MCP Server, No Cloud)"
 description: "Turn your local chat, vision, image, speech, and embedding models into MCP tools any client can call, fully offline and on-device."
 date: "2026-06-25"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Questions Left Unanswered in a Meeting Recording in 2026"
 description: "Use local AI to review a meeting transcript for open questions, then check the recording before preparing focused follow-ups."
 date: "2026-09-29"

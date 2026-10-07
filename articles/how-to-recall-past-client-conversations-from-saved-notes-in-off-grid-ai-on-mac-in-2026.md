@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Recall Past Client Conversations From Saved Notes in Off Grid AI on Mac in 2026"
 description: "Find the context behind a past client discussion in local work notes. Use person timelines and recorded sources to prepare for the next conversation."
 date: "2026-09-29"

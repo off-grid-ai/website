@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Text Into Speech in Multiple Languages on iPhone in 2026 (Completely Offline)"
 description: "Listen to AI replies in supported languages on iPhone. Download a local voice, select its language, and play text aloud without internet after setup."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Remove Client Names From a Draft Using Local AI in 2026"
 description: "Use local AI to prepare a draft with client names replaced, then check identifiers, document metadata, and the final exported copy yourself."
 date: "2026-09-29"

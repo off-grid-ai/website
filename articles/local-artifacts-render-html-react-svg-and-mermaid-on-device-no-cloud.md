@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Local Artifacts: Render HTML, React, SVG, and Mermaid On-Device (No Cloud)"
 description: "Ask your local AI for a chart, a diagram, or a mini-app and watch it render live in a sandboxed iframe. Fully on-device, no cloud, no CDN."
 date: "2026-06-25"

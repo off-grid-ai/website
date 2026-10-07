@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find What an Artist Approved Across Project Notes in 2026"
 description: "Find explicit artist approvals in saved project notes. Keep the approved version, conditions and unresolved questions tied to their original sources."
 date: "2026-09-29"

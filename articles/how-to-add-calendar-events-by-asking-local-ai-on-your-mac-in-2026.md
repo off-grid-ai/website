@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Add Calendar Events by Asking Local AI on Your Mac in 2026"
 description: "Create a calendar event in the Mac Calendar app by asking a local AI model."
 date: "2026-09-29"

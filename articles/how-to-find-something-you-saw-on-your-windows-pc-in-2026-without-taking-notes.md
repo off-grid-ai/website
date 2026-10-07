@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Something You Saw on Your Windows PC in 2026 Without Taking Notes"
 description: "Use opted-in screen history and Replay to find a page, document, or detail you saw earlier on Windows. Local models can process the captured activity."
 date: "2026-09-29"

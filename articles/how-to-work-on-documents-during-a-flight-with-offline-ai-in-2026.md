@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Work on Documents During a Flight With Offline AI in 2026"
 description: "Use local AI to review saved documents, draft useful outputs, and keep facts needing an online check clearly marked while you travel."
 date: "2026-09-29"

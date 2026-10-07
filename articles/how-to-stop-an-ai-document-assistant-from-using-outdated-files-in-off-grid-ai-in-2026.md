@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop an AI Document Assistant From Using Outdated Files in Off Grid AI in 2026"
 description: "Keep old drafts out of new document answers without deleting them. Choose which project files OGAD retrieves and check the sources behind the result."
 date: "2026-09-29"

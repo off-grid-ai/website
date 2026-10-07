@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare a Meeting Agenda From Open Questions in Past Notes in 2026"
 description: "Use local AI to find open questions in past notes and build an agenda around decisions your next meeting needs to make."
 date: "2026-09-29"

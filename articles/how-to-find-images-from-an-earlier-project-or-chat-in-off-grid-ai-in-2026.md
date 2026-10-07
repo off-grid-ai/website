@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Images From an Earlier Project or Chat in Off Grid AI in 2026"
 description: "Find a previous AI image without regenerating it. OGAD groups saved images by conversation and project, with a gallery for browsing your local results."
 date: "2026-09-29"

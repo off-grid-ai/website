@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Point Your IDE and Apps at a Local AI Model (Private, On-Device)"
 description: "Point any OpenAI-compatible IDE extension, app, or script at a local endpoint for private, offline inference across your whole machine."
 date: "2026-06-25"

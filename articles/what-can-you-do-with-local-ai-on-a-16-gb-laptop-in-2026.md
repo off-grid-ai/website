@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What Can You Do With Local AI on a 16 GB Laptop in 2026?"
 description: "Start useful local AI tasks on a 16 GB laptop by choosing modest models, checking memory limits, and testing one workload at a time."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Android Phone in 2026 (No Cloud, No Account)"
 description: "Your Android phone has a GPU more powerful than most 2018 laptops. Modern Snapdragon chips have..."
 date: "2026-04-14"

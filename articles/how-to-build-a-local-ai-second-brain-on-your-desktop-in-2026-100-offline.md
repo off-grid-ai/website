@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Local AI Second Brain on Your Desktop in 2026 (100% Offline)"
 description: "Build a private second brain that builds itself. Opt-in screen capture to OCR to local LLM distills memory, on-device, no cloud and no account."
 date: "2026-06-25"

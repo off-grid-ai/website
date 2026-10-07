@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Take Automatic AI Meeting Notes on Your Mac in 2026 Without a Meeting Bot"
 description: "Create meeting transcripts and summary drafts locally on your Mac without inviting a separate bot participant."
 date: "2026-09-29"

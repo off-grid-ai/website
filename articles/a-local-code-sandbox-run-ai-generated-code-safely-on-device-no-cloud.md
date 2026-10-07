@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "A Local Code Sandbox: Run AI-Generated Code Safely On-Device (No Cloud)"
 description: "Off Grid AI Desktop renders model-written HTML, JS, and React in a sandboxed iframe with no network and no file access. On-device, no cloud."
 date: "2026-06-25"

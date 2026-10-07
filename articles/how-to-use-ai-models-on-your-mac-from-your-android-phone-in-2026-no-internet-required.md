@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use AI Models on Your Mac From Your Android Phone in 2026 (No Internet Required)"
 description: "Use a local AI model on your Mac from your Android phone over your own network after setup."
 date: "2026-09-29"

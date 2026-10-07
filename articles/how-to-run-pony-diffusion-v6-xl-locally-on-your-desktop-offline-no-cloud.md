@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Pony Diffusion V6 XL Locally on Your Desktop (Offline, No Cloud)"
 description: "Run Pony Diffusion V6 XL for character art, anime, and stylized illustration fully on-device, no cloud, no account, no API keys. Mac and Windows."
 date: "2026-06-25"

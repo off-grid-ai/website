@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Gemma 4 on Your iPhone in 2026 (Completely Offline, No Subscription)"
 description: "Google released Gemma 4 on April 2, 2026 — their most capable open model yet. Built on the same..."
 date: "2026-04-14"

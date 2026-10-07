@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Remote Servers - Connect Ollama, LM Studio, and LocalAI
 parent: Guides
 article_topic: "Models & performance"

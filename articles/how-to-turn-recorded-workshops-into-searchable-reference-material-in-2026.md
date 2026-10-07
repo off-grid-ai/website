@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Recorded Workshops Into Searchable Reference Material in 2026"
 description: "Turn workshop audio into checked topic notes and a local knowledge base you can query when you need an explanation again."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Intelligence Should Be Personal. Here's What That Actually Means."
 parent: Perspectives
 article_topic: "Getting started"

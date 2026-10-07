@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Lecture Recordings Into Study Notes in 2026 (Offline AI)"
 description: "Transcribe lecture audio on your computer, review the transcript, and turn it into study notes and practice questions with local AI."
 date: "2026-09-29"

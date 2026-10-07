@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "A Local, Offline Alternative to ChatGPT for Your Desktop in 2026"
 description: "Chat, images, voice in and out, and document Q&A like ChatGPT, but on-device. No account, no subscription, open source."
 date: "2026-06-25"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Organize People and Projects From Your Mac Workday in Off Grid AI in 2026"
 description: "Build a private record of people and projects from activity you choose to capture. Review its sources and correct names without maintaining every entry by hand."
 date: "2026-09-29"

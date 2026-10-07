@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Analyze Images From Your Phone Using Your Computer's AI in 2026"
 description: "Use your computer’s local vision model from your phone. Send a photo across your own network and read the answer on Android or iPhone."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Back Up Your Chats and Projects to a Local File in Off Grid AI in 2026"
 description: "Save desktop AI chats, projects, and knowledge files in a portable ZIP that you choose where to store."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Set Up Offline AI Before a Flight in 2026"
 description: "Prepare local models and saved source files before travelling, then test the exact AI tasks you want to use without an internet connection."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Search Your Chats, Meeting Notes, and Screen History Together in Off Grid AI on Mac in 2026"
 description: "Search retained chats, meeting notes, project documents and captured screen activity together, then open the matching source in Off Grid AI."
 date: "2026-09-29"

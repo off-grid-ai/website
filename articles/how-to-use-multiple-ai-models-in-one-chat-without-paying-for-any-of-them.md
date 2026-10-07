@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Multiple AI Models in One Chat Without Paying for Any of Them"
 description: "Most AI apps lock you into one model per conversation. If you want to compare how Llama handles a..."
 date: "2026-03-18"

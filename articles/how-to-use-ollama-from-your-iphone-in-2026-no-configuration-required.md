@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Ollama From Your iPhone in 2026 (No Configuration Required)"
 description: "You have Ollama running on your Mac or PC. You have models downloaded. Maybe Qwen 3.5 9B, maybe Llama..."
 date: "2026-03-18"

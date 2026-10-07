@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: How to Run LLMs Locally on Your iPhone in 2026 (Completely Offline, No Subscription)
 parent: Guides
 article_topic: "Models & performance"

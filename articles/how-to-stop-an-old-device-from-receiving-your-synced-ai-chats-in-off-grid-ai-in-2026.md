@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop an Old Device From Receiving Your Synced AI Chats in Off Grid AI in 2026"
 description: "End an old device’s sync trust and review the linked licence effect without assuming remote data is erased."
 date: "2026-09-29"

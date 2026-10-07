@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Storybook Illustrations on Your Own Computer in 2026"
 description: "Turn a story idea into a set of illustrations with OGAD. Plan the scenes, repeat a clear character description, and generate the artwork on your own computer."
 date: "2026-09-29"

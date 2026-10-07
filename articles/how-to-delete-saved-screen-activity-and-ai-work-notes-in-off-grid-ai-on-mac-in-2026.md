@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Delete Saved Screen Activity and AI Work Notes in Off Grid AI on Mac in 2026"
 description: "Use OGAD's Data & privacy controls to remove screen captures and memory records from your Mac. Choose a category or date cutoff and check what remains."
 date: "2026-09-29"

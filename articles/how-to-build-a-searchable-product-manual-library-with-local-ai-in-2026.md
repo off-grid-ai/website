@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Build a Searchable Product Manual Library With Local AI in 2026"
 description: "Keep related product manuals in a local AI project and ask for the instructions you need with source filenames."
 date: "2026-09-29"

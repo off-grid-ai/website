@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Document Analysis and Attachments
 parent: Guides
 article_topic: "Documents & research"

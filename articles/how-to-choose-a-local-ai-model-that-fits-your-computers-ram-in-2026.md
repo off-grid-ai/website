@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Choose a Local AI Model That Fits Your Computer’s RAM in 2026"
 description: "Choose a local AI model that leaves room for your work. Understand download size, RAM warnings and context before loading a model."
 date: "2026-09-29"

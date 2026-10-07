@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Recorded Interview in Another Language Into an English Draft in 2026"
 description: "Turn a saved interview in another language into a checked English working draft with local transcription and local text generation on your Mac."
 date: "2026-09-29"

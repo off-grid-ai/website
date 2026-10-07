@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Ollama From Your Android Phone in 2026 (Auto-Discovery, Zero Setup)"
 description: "Every other guide for accessing Ollama from your phone starts the same way: open a terminal, set..."
 date: "2026-03-18"

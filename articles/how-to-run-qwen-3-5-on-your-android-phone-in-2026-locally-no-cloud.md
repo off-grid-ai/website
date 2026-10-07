@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Qwen 3.5 on Your Android Phone in 2026 (Locally, No Cloud)"
 description: "Qwen 3.5 is the most capable open-weight small model family available right now. The small series..."
 date: "2026-04-14"

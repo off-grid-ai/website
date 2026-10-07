@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Text Into Speech in Multiple Languages on Android in 2026 (Completely Offline)"
 description: "Hear AI replies in supported languages on Android. Download a local voice, choose its language, and use text-to-speech offline after setup."
 date: "2026-09-29"

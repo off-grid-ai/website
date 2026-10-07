@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Voice-to-Text Locally on Your Desktop (Whisper, Offline Dictation)"
 description: "Run private speech-to-text on your own Mac or PC with bundled whisper.cpp. Mic to text in the composer, on-device, no cloud transcription."
 date: "2026-06-25"

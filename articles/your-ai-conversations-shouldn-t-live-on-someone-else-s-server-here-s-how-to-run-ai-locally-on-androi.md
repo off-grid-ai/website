@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Your AI conversations shouldn't live on someone else's server. Here's how to run AI locally on Android."
 description: "Every time you ask an AI chatbot a question, your words leave your phone, travel to a server you've..."
 date: "2026-03-01"

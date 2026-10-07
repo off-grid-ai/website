@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run LLMs Locally on Your Mac in 2026 (Completely Offline, No Subscription)"
 description: "Run real language models on Apple Silicon, fully on-device. No cloud, no account, no monthly bill. Free and open source."
 date: "2026-06-25"

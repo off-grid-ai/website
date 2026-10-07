@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "One Local API for Chat, Vision, Images, Speech, and Embeddings (On-Device, 2026)"
 description: "A single OpenAI-compatible endpoint that does text, vision, image generation, transcription, TTS, and embeddings, all on-device with no cloud."
 date: "2026-06-25"

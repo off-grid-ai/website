@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The 7 Principles of a Personal AI OS"
 parent: Perspectives
 article_topic: "Getting started"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run LLMs Locally on Your Windows PC in 2026 (Completely Offline, No Subscription)"
 description: "Run real language models on your Windows GPU, fully on-device. CUDA, Vulkan, or CPU. No cloud, no account, no monthly bill."
 date: "2026-06-25"

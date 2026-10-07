@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Your Home AI Models From Your Laptop Anywhere in 2026 (With Tailscale)"
 description: "Use a lightweight laptop to chat with AI running on your own home computer. Connect OGAD to a private Tailscale address and keep the model on your own hardware."
 date: "2026-09-29"

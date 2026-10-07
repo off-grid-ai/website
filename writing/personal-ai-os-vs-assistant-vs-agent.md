@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Personal AI OS vs AI Assistant vs AI Agent: What's the Difference and Why It Matters"
 parent: Perspectives
 article_topic: "Getting started"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images Locally on Your Android Phone in 2026 (No Cloud, No Subscription)"
 description: "You don't need Midjourney. You don't need a $20/month subscription. You don't need to upload your..."
 date: "2026-03-04"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run DreamShaper XL Turbo Locally on Your Desktop (Fast Offline AI Art)"
 description: "Generate artwork in a handful of steps with DreamShaper XL Turbo, fully on-device, no cloud, no account, no API keys."
 date: "2026-06-25"

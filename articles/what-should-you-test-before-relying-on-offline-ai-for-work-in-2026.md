@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "What Should You Test Before Relying on Offline AI for Work in 2026?"
 description: "Test a complete offline AI workflow before using it for work, including local files, model readiness, source checks, and a usable saved result."
 date: "2026-09-29"

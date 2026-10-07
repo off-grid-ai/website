@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get an Automatic Morning Briefing of Meetings and To-Dos in Off Grid AI on Mac in 2026"
 description: "Prepare Day context and local notifications so your Mac can deliver a morning overview without a new prompt."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Continue a Chat That Fills the Context Window in Off Grid AI in 2026"
 description: "Keep a long local AI conversation useful when context becomes tight. Understand compaction, restate critical facts and continue with a checked handoff brief."
 date: "2026-09-29"

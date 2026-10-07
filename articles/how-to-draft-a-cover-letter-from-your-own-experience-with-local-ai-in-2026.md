@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Draft a Cover Letter From Your Own Experience With Local AI in 2026"
 description: "Draft a cover letter from verified experience and a real job description with local AI, without inventing achievements or uploading your career notes."
 date: "2026-09-29"

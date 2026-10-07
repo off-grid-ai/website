@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Research for Different Projects Separate in Local AI in 2026"
 description: "Give each research topic its own files, instructions, and conversations in local AI."
 date: "2026-09-29"

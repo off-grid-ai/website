@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Exclude Private Files and Clipboard Items From Device Sync in Off Grid AI in 2026"
 description: "Set file and clipboard sharing rules before private material reaches another paired device."
 date: "2026-09-29"

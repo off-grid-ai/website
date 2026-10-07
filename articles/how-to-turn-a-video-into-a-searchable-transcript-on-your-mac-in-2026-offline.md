@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Video Into a Searchable Transcript on Your Mac in 2026 (Offline)"
 description: "Transcribe a saved video locally on your Mac with Off Grid AI Pro. Search its spoken words, replay the recording, and copy the transcript."
 date: "2026-09-29"

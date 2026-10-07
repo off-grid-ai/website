@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Extract Action Items From Meeting Recordings on Your Mac in 2026"
 description: "Turn recorded meeting commitments into reviewable to-dos with local AI. Check the source, keep clear next steps and follow through on your Mac."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Qwen-Image 2.1 on Your Mac in 2026 (Local Image Generation and Editing)"
 description: "Run Qwen-Image 2.1 on your Mac with OGAD beta. Install the complete local model stack, generate images and edit a reference without cloud uploads."
 date: "2026-09-29"

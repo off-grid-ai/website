@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Share Downloaded Files Across Your Own Devices in 2026"
 description: "Stop sending downloaded files to yourself. Use a watched download source and local device sync to send new files automatically, with clear Android access limits."
 date: "2026-09-29"

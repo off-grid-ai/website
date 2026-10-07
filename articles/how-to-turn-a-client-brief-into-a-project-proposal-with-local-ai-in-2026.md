@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Client Brief Into a Project Proposal With Local AI in 2026"
 description: "Use local AI to organise a client brief into a proposal draft, separate confirmed scope from assumptions, and add only terms your team has approved."
 date: "2026-09-29"

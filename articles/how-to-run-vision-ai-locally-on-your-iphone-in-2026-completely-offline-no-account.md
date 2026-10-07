@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Vision AI Locally on Your iPhone in 2026 (Completely Offline, No Account)"
 description: "The Neural Engine in your iPhone runs 35 trillion operations per second. Apple uses it for photo..."
 date: "2026-04-14"

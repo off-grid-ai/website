@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Local OpenAI-Compatible API on Your Desktop in 2026 (No Cloud, No Keys)"
 description: "Swap one base_url and your existing OpenAI code runs against on-device models for free, offline, with no API key."
 date: "2026-06-25"

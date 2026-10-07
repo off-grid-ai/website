@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Alternative AI Answers in Off Grid AI on Your Computer in 2026"
 description: "Keep more than one answer to the same prompt and choose the version that fits your task."
 date: "2026-09-29"

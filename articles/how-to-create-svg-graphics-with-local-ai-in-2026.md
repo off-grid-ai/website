@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create SVG Graphics With Local AI in 2026"
 description: "Create a scalable graphic from a text description with a local model, then inspect and reuse its SVG code."
 date: "2026-09-29"

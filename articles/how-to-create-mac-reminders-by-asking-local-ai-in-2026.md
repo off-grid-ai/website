@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Create Mac Reminders by Asking Local AI in 2026"
 description: "Create a reminder in the Mac Reminders app by asking a local AI model."
 date: "2026-09-29"

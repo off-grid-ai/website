@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Stop Repeating the Same Instructions to Your Local AI in 2026"
 description: "Save project instructions once so new local AI chats start with the right working rules."
 date: "2026-09-29"

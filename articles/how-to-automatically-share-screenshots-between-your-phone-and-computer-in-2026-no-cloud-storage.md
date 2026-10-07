@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automatically Share Screenshots Between Your Phone and Computer in 2026 (No Cloud Storage)"
 description: "Have new screenshots reach your paired phone or computer automatically over your own network. Set a destination once, then test the first local transfer."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The Walled Garden Problem: Why the Personal AI OS Must Be Open"
 parent: Perspectives
 article_topic: "Privacy & control"

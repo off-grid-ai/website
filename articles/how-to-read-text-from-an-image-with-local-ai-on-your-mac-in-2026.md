@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Read Text From an Image With Local AI on Your Mac in 2026"
 description: "Use a local vision model to read text from an image on Mac."
 date: "2026-09-29"

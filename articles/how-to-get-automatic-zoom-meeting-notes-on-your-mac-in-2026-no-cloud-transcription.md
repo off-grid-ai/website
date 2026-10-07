@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Automatic Zoom Meeting Notes on Your Mac in 2026 (No Cloud Transcription)"
 description: "Create and review local transcripts and summaries from Zoom meetings on your Mac with OGAD Pro."
 date: "2026-09-29"

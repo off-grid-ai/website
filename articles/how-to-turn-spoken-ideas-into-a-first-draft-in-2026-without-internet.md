@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Spoken Ideas Into a First Draft in 2026 Without Internet"
 description: "Dictate a rough idea on your phone, check the transcript, and ask a local AI model for a first draft without internet after setup."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your Mac in 2026 (No Cloud, No Account)"
 description: "Chat, generate images, and talk to AI on your Mac, all on-device. No cloud, no account, no monthly bill. Free and open source."
 date: "2026-06-25"

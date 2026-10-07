@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Automatic Meeting Prep Alerts With Relevant Notes in Off Grid AI on Mac in 2026"
 description: "Get a local heads-up linked to available people and open items before a meeting, with clear setup and timing limits."
 date: "2026-09-29"

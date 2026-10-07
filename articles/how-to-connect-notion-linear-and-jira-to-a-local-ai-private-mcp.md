@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Connect Notion, Linear, and Jira to a Local AI (Private MCP)"
 description: "Connect Notion, Linear, and Jira to an on-device model that reasons over your data, with every action approval-gated and logged."
 date: "2026-06-25"

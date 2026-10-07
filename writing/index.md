@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: react
+react: writing
 title: Perspectives
 nav_order: 9
 nav_group: Learn

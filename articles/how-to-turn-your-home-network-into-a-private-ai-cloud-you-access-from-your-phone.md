@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Your Home Network Into a Private AI Cloud You Access From Your Phone"
 description: "Your home network probably has more AI compute sitting idle than you think.  If you have a desktop or..."
 date: "2026-03-18"

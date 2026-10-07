@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: How to Run LLMs Locally on Your Android Phone in 2026 (No Cloud, No Account)
 parent: Guides
 article_topic: "Models & performance"

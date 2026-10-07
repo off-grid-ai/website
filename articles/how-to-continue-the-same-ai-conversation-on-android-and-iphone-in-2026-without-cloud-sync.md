@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Continue the Same AI Conversation on Android and iPhone in 2026 Without Cloud Sync"
 description: "Keep one AI conversation available on Android and iPhone through local device sync. Pair the phones, check chat updates, and prepare local models for each."
 date: "2026-09-29"

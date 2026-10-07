@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Two Devices, Zero Shared Context: The Problem the Personal AI OS Was Built to Solve"
 parent: Perspectives
 article_topic: "Sync & sharing"

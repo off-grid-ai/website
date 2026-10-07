@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Recorded Talk Into a Blog Draft Without Cloud AI in 2026"
 description: "Turn your own recorded talk into a source-grounded blog draft with local transcription and writing models, then edit it for readers."
 date: "2026-09-29"

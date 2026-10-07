@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Delete AI Chats and Images From Your Computer in Off Grid AI in 2026 Without Deleting Models"
 description: "Clear selected OGAD data categories on your computer while keeping installed model files."
 date: "2026-09-29"

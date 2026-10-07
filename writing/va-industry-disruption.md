@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Why the Virtual Assistant Industry Is About to Be Disrupted by On-Device AI"
 parent: Perspectives
 article_topic: "Automation & tools"

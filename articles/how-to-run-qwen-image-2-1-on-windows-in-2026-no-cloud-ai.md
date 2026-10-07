@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Qwen-Image 2.1 on Windows in 2026 (No Cloud AI)"
 description: "Run Qwen-Image 2.1 on your Windows PC with OGAD beta. Install the complete local model stack, generate images and edit a reference without cloud uploads."
 date: "2026-09-29"

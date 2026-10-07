@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Edit an Image With a Reference Photo Using Local AI in 2026"
 description: "Use a photo as the starting point for a local AI variation. Explore composition and mood without uploading the source to cloud AI."
 date: "2026-09-29"

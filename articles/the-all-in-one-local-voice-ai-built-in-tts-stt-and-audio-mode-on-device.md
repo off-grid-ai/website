@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "The All-in-One Local Voice AI: Built-in TTS, STT, and Audio Mode (On-Device)"
 description: "Talk to your AI and have it talk back, fully on-device. Built-in whisper.cpp for speech-to-text and Kokoro for text-to-speech. No cloud."
 date: "2026-06-25"

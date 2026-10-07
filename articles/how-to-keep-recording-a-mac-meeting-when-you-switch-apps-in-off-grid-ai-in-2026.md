@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Recording a Mac Meeting When You Switch Apps in Off Grid AI in 2026"
 description: "Keep an agreed Mac meeting recording active while you open notes or a document, and stop it explicitly when you are finished."
 date: "2026-09-29"

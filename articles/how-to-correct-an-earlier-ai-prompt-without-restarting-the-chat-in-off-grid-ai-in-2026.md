@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Correct an Earlier AI Prompt Without Restarting the Chat in Off Grid AI in 2026"
 description: "Fix an earlier prompt in a local AI conversation. Edit the message, understand which later turns are replaced and generate a new answer from the correction."
 date: "2026-09-29"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Hindi Speech Into Text on Your Phone in 2026 (No Internet Required)"
 description: "Dictate Hindi notes on Android or iPhone with local AI. Select Hindi, review the transcript, and use speech-to-text offline after setup."
 date: "2026-09-29"

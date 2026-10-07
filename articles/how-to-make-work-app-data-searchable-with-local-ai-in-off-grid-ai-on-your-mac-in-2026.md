@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Make Work App Data Searchable With Local AI in Off Grid AI on Your Mac in 2026"
 description: "Pull a small set of connected work records into local search, then inspect the sources before relying on an answer."
 date: "2026-09-29"

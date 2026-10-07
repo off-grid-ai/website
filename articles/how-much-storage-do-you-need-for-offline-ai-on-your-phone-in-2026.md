@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How Much Storage Do You Need for Offline AI on Your Phone in 2026?"
 description: "Plan phone storage for offline AI models, voice files and generated images. Keep download size separate from memory and start with one useful model."
 date: "2026-09-29"

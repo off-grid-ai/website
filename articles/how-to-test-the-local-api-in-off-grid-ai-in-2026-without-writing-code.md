@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Test the Local API in Off Grid AI in 2026 Without Writing Code"
 description: "Open the local API reference and try a small chat request without writing a program."
 date: "2026-09-29"

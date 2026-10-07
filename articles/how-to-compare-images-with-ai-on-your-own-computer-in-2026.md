@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Compare Images With AI on Your Own Computer in 2026"
 description: "Use a local vision model to compare two images on your own computer."
 date: "2026-09-29"

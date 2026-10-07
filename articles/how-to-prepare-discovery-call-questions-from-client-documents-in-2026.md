@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare Discovery Call Questions From Client Documents in 2026"
 description: "Use local AI to review a client's brief and notes, find important gaps, and prepare discovery questions that move the conversation forward."
 date: "2026-09-29"

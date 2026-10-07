@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "LM Studio in 2026: Setup, and a Capture-Aware Alternative"
 description: "Set up LM Studio for local LLM chat, then meet an open-source alternative that adds image gen, voice, RAG, and on-device memory."
 date: "2026-06-25"

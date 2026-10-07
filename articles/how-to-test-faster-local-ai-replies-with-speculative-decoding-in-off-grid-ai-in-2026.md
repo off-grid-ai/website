@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Test Faster Local AI Replies With Speculative Decoding in Off Grid AI in 2026"
 description: "Compare a local decoding option on your own task before downloading another model."
 date: "2026-09-29"

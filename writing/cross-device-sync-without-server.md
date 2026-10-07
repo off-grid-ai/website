@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Cross-Device Sync Without a Server: How a Personal AI OS Should Move Your Context"
 parent: Perspectives
 article_topic: "Sync & sharing"

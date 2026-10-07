@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Text-to-Speech Locally on Your Desktop in 2026 (Kokoro, Offline Voice)"
 description: "Run open-weight TTS on your own Mac or PC with Kokoro-82M. Per-message Speak and an auto-speak voice mode, on-device, no cloud TTS API."
 date: "2026-06-25"

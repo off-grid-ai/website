@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "It's Not About Productivity. It's About the 35 Tabs."
 parent: Perspectives
 article_topic: "Work & organization"

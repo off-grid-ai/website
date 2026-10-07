@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Local AI Image Studio on Your Desktop (SDXL, Z-Image, Offline)"
 description: "Generate images with SDXL and Z-Image-Turbo entirely on-device. No subscription, no cloud, no prompts leaving your machine."
 date: "2026-06-25"

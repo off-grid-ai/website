@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to See Today’s Meetings and To-Dos Together in Off Grid AI on Your Mac in 2026"
 description: "See retained calendar events and open to-dos together in Off Grid AI’s Day view, then choose the next useful action."
 date: "2026-09-29"

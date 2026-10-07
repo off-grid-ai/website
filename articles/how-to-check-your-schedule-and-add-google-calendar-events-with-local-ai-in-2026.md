@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Check Your Schedule and Add Google Calendar Events With Local AI in 2026"
 description: "Check Google calendar events and add a new appointment through your Mac with local AI."
 date: "2026-09-29"

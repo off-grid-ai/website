@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Switch Between Local and Remote LLMs on Your Phone (Without Two Apps or Two Workflows)"
 description: "There are two ways to run AI on your phone in 2026. Both are good. But until now, you had to pick..."
 date: "2026-03-18"

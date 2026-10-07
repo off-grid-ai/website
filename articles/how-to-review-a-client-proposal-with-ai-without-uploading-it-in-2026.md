@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Review a Client Proposal With AI Without Uploading It in 2026"
 description: "Review a private client proposal with local AI, check its scope against the brief, and build a source-backed list of questions before you respond."
 date: "2026-09-29"

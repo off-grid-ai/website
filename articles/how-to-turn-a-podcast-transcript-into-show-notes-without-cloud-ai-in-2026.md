@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn a Podcast Transcript Into Show Notes Without Cloud AI in 2026"
 description: "Use local AI to draft podcast show notes from a checked transcript, preserve the guest's meaning, and verify links and episode details before publishing."
 date: "2026-09-29"

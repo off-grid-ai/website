@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Onboarding Documents Into a First-Week Checklist in 2026"
 description: "Turn onboarding documents into a practical first-week checklist with local AI, clear priorities, and questions for your manager."
 date: "2026-09-29"

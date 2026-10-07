@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Text Into Speech on Windows in 2026 Without Internet"
 description: "Hear English AI replies and review short drafts aloud on Windows with OGAD beta. Prepare a local voice once, then use it without internet."
 date: "2026-09-29"

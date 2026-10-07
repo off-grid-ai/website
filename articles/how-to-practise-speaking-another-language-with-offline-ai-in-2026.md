@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Practise Speaking Another Language With Offline AI in 2026"
 description: "Practise short spoken conversations on your phone with local speech recognition, a chat model, and optional offline spoken replies."
 date: "2026-09-29"

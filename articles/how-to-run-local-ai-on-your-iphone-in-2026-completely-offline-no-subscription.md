@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Local AI on Your iPhone in 2026 (Completely Offline, No Subscription)"
 description: "The A17 Pro in your iPhone has a 16-core Neural Engine capable of 35 trillion operations per second...."
 date: "2026-04-14"

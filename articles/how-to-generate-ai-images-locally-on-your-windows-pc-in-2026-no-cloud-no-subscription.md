@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Generate AI Images Locally on Your Windows PC in 2026 (No Cloud, No Subscription)"
 description: "Generate SDXL and Z-Image-Turbo images on Windows with CUDA or Vulkan. On-device, no cloud, no subscription, no account. Free and open source."
 date: "2026-06-25"

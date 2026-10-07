@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Qwen 3.5 on Your iPhone in 2026 (Completely Offline, No Subscription)"
 description: "Qwen 3.5 is the most capable open-weight small model family available right now. The small series..."
 date: "2026-04-14"

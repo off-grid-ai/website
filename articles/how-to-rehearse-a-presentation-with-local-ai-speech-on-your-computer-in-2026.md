@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Rehearse a Presentation With Local AI Speech on Your Computer in 2026"
 description: "Hear your presentation draft through local text-to-speech, find awkward passages, and revise the script before practising it in your own voice."
 date: "2026-09-29"

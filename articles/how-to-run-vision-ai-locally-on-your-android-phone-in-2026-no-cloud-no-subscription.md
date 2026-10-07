@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run Vision AI Locally on Your Android Phone in 2026 (No Cloud, No Subscription)"
 description: "Your phone has a camera and a processor powerful enough to run multimodal AI models. You can point it..."
 date: "2026-04-14"

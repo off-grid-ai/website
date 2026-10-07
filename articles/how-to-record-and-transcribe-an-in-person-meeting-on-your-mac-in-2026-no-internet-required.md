@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Record and Transcribe an In-Person Meeting on Your Mac in 2026 (No Internet Required)"
 description: "Use your Mac to record an in-person discussion and create a local transcript. Prepare models first, check the microphone and stop the recording explicitly."
 date: "2026-09-29"

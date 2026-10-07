@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Connector Support in Off Grid AI Desktop: Private, Approval-Gated Integrations"
 description: "Connect Notion, Linear, Jira, and any MCP tool locally. The on-device model reasons over the data; every action goes through an approval queue."
 date: "2026-06-25"

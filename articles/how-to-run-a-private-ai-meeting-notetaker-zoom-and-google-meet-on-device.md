@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Private AI Meeting Notetaker (Zoom and Google Meet, On-Device)"
 description: "A consent-first meeting notetaker that records, transcribes, and summarizes on-device. A private alternative to Otter and Fireflies."
 date: "2026-06-25"

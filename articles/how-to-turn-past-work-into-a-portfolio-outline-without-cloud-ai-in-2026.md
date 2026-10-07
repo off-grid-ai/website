@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Past Work Into a Portfolio Outline Without Cloud AI in 2026"
 description: "Build a portfolio outline from past projects with local AI, accurate contributions, approved evidence, and a clear story for each case study."
 date: "2026-09-29"

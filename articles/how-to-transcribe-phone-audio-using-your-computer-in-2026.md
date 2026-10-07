@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Transcribe Phone Audio Using Your Computer in 2026"
 description: "Dictate on Android or iPhone and let a transcription model on your own computer turn it into editable text. Use OGAM and OGAD over your local network."
 date: "2026-09-29"

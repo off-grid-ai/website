@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Fix a Local AI Model That Cannot Read Images in Off Grid AI in 2026"
 description: "Restore a missing vision download for a supported model and check the result with a simple image."
 date: "2026-09-29"

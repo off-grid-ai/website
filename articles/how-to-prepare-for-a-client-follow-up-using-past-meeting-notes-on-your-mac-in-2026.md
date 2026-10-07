@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Prepare for a Client Follow-Up Using Past Meeting Notes on Your Mac in 2026"
 description: "Prepare a client follow-up from saved meeting notes on your Mac. Recover commitments, open questions and source-backed context before drafting your message."
 date: "2026-09-29"

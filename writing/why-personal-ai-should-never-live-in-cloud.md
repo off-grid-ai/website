@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Why Your Personal AI Should Never Live in the Cloud
 parent: Perspectives
 article_topic: "Privacy & control"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Run a Local AI Server Without a Desktop Window in 2026"
 description: "Run the OGAD gateway without the desktop window. Serve downloaded local models to your scripts and manage models through HTTP."
 date: "2026-09-29"

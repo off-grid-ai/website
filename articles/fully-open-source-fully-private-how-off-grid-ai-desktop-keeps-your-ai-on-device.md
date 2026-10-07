@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "Fully Open Source, Fully Private: How Off Grid AI Desktop Keeps Your AI On-Device"
 description: "Open source, everything on-device, no account, no telemetry, no API keys. What private actually means, and why open source is the proof."
 date: "2026-06-25"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Store Sensitive Files in an Encrypted Local Vault in 2026"
 description: "Keep a small sensitive file inside OGAD's encrypted local Vault on Mac or Windows. Add the file, verify the saved copy, and retrieve it when needed."
 date: "2026-09-29"

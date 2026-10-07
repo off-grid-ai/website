@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Answers Across Your Training Documents With Local AI in 2026"
 description: "Build a local collection of training documents, ask practical questions, and check the source behind each answer before using it."
 date: "2026-09-29"

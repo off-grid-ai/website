@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Sync Project Conversations Across Devices in Off Grid AI in 2026 (No Cloud Sync)"
 description: "Continue an AI project on your phone or computer with the same conversations and instructions. Pair your devices and sync over your own local network."
 date: "2026-09-29"

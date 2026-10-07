@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Explain a Chart With Local AI in 2026 Without Uploading the Image"
 description: "Use a local vision model to explain a chart without a cloud AI upload."
 date: "2026-09-29"

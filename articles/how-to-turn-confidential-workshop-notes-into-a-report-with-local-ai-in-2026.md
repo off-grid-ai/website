@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Turn Confidential Workshop Notes Into a Report With Local AI in 2026"
 description: "Turn private workshop notes into a clear report with decisions, unresolved questions, and source checks using AI running on your own computer."
 date: "2026-09-29"
