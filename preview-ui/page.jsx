@@ -76,7 +76,9 @@ export const MODELS = [
   ['Parakeet TDT', 'Speech'], ['Kokoro', 'Voice'], ['Qwen-Image 2.1', 'Image'], ['Z-Image Turbo', 'Image'],
 ];
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
-export const NAV = [['How it works', '/#how'], ['Privacy', '/#private'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
+// Header: where people want to go from any page. Home-only anchors live in the phone menu.
+export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
+const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Download', '/download/'], ['Get Pro', '/pro/#buy'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']];
 
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261007e';
@@ -1073,12 +1075,13 @@ export function PageShell({ children }) {
       <div className="header-actions">
         <a className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
+        <Button asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
         <Button asChild className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" /><Dialog.Content className="mobile-nav">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
-            <nav aria-label="Mobile navigation">{[...NAV, ['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Download', '/download/']].map(([label, href]) => <Dialog.Close asChild key={href}><a href={href}>{label}<ArrowUpRight size={20} /></a></Dialog.Close>)}</nav>
+            <nav aria-label="Mobile navigation">{MENU.map(([label, href]) => <Dialog.Close asChild key={href}><a href={href}>{label}<ArrowUpRight size={20} /></a></Dialog.Close>)}</nav>
           </Dialog.Content></Dialog.Portal>
         </Dialog.Root>
       </div>

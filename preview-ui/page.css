@@ -1232,3 +1232,18 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .dev-pair .dev-ic{margin-top:0}
 .dev-pair svg.pointer-events-none{z-index:-1}
 @media (max-width:860px){.dev-pair{gap:90px}}
+/* Magic UI TextAnimate (by="word") renders spaces as their own inline-block spans, so a wrapped line
+   starts with an indent. Spaces become inline and collapse at line breaks; words stay inline-block so
+   their animation still works. Children: accessible copy, word, space, word, space... */
+.whitespace-pre-wrap>.sr-only~span.whitespace-pre:nth-child(odd){display:inline!important;white-space:normal!important}
+/* Header actions: Get Pro (secondary) + Download (primary) */
+.header-pro{height:36px!important;font-size:13px!important;border-color:var(--line-2)!important;color:var(--og-text)!important;background:transparent!important}
+.header-pro:hover{border-color:var(--og-primary)!important}
+@media (max-width:1000px){.header-pro{display:none!important}}
+/* Full header down to 900px (the founder reviews at ~1000px) */
+@media (min-width:901px) and (max-width:1000px){
+  .desktop-nav{display:flex!important}.desktop-nav a{padding:8px 10px}
+  .hide-sm{display:inline-flex!important}.header-pro{display:inline-flex!important}
+  .menu-trigger{display:none!important}
+  .header-inner{gap:14px}
+}
