@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Theme, Card, Badge, Box, Flex, Text, Heading, Link } from '@radix-ui/themes';
+import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
   ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, EnvelopeSimple, FilePdf, ChatsCircle,
@@ -81,13 +81,15 @@ export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/
 const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Download', '/download/'], ['Get Pro', '/pro/#buy'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']];
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261007e';
+export const SHOT_V = '20261007f';
 export function Shot({ name, alt, className = '', lazy = true }) {
-  const props = { width: 1760, height: 944, alt, loading: lazy ? 'lazy' : undefined, sizes: '(max-width: 860px) 900px, 70vw' };
+  const theme = useContext(ThemeCtx);
+  const load = (t) => (lazy || t !== theme ? 'lazy' : undefined); // the other theme's file only loads if it is shown
+  const props = { width: 1760, height: 944, alt, sizes: '(max-width: 860px) 900px, 70vw' };
   const set = (t) => `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V} 1760w, /assets/img/home/app/${name}-${t}.webp?v=${SHOT_V} 3520w`;
   return <>
-    <img className={`shot shot-dark ${className}`} src={`/assets/img/home/app/${name}-dark-1760.webp?v=${SHOT_V}`} srcSet={set('dark')} {...props} />
-    <img className={`shot shot-light ${className}`} src={`/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`} srcSet={set('light')} {...props} alt="" aria-hidden="true" />
+    <img className={`shot shot-dark ${className}`} src={`/assets/img/home/app/${name}-dark-1760.webp?v=${SHOT_V}`} srcSet={set('dark')} loading={load('dark')} {...props} />
+    <img className={`shot shot-light ${className}`} src={`/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`} srcSet={set('light')} loading={load('light')} {...props} alt="" aria-hidden="true" />
   </>;
 }
 
@@ -255,20 +257,28 @@ function AskScene() {
 }
 
 function ActScene() {
-  const [k, setK] = useState(0); const [auto, setAuto] = useState(undefined);
+  // Until the visitor chooses, the demo approves after a pause. Once they choose, their choice stays
+  // until Reset: Approve shows a sample success, Edit opens the draft, Not now keeps it as a suggestion.
+  const { takeOver } = useContext(PlayCtx);
+  const [k, setK] = useState(0); const [auto, setAuto] = useState(undefined); const [choice, setChoice] = useState(null);
+  const [draft, setDraft] = useState("Hi Sam, confirming today's sync: the pilot moves to 14 November, 40 seats stay at the current price, and the revised rollout plan reaches you by Friday.");
   const burst = useRef(null);
-  useEffect(() => { setAuto(undefined); const t = setTimeout(() => setAuto('send'), 3200); return () => clearTimeout(t); }, [k]);
-  useEffect(() => { if (auto === 'send') burst.current?.fire({ particleCount: 70, spread: 70, startVelocity: 28, origin: { y: .75 }, colors: ['#34D399', '#10B981', '#6EE7B7'] }); }, [auto]);
+  useEffect(() => { setAuto(undefined); if (choice) return; const t = setTimeout(() => setAuto('send'), 3200); return () => clearTimeout(t); }, [k, choice]);
+  const done = choice || auto;
+  useEffect(() => { if (done === 'send') burst.current?.fire({ particleCount: 70, spread: 70, startVelocity: 28, origin: { y: .75 }, colors: ['#34D399', '#10B981', '#6EE7B7'] }); }, [done]);
+  const decide = (o) => { setChoice(o.id); takeOver(); };
   return <div className="scene scene-act">
     <Confetti ref={burst} manualstart className="act-confetti" />
-    <SceneCard busy={!auto}>
+    <SceneCard busy={!done}>
       <Flex justify="between" align="center" className="app-head"><Text className="eyebrow">OFF GRID SUGGESTS</Text><Badge variant="outline">Email draft</Badge></Flex>
       <dl className="draft"><dt>To</dt><dd>Sam Okafor</dd><dt>Subject</dt><dd>Acme Corp pilot moves to 14 November</dd></dl>
-      <p className="draft-body"><span className="draft-from"><ChatCircle size={11} /> From your answer in Ask</span><TypingAnimation key={k} as="span" duration={14} startOnView={false} showCursor={false}>Hi Sam, confirming today's sync: the pilot moves to 14 November, 40 seats stay at the current price, and the revised rollout plan reaches you by Friday.</TypingAnimation></p>
-      <AIApproval key={`${k}-${auto || 'open'}`} resolvedId={auto} question="Send this reply to Sam?" options={[{ id: 'send', label: 'Approve and send', detail: 'Logged on this device' }, { id: 'edit', label: 'Edit first', detail: 'Opens the draft' }, { id: 'later', label: 'Not now', detail: 'Keep as a suggestion' }]}>
-        <Text>Try it. Nothing is sent.</Text>
+      {choice === 'edit'
+        ? <TextArea className="draft-edit" size="2" resize="vertical" aria-label="Edit the sample draft" value={draft} onChange={(e) => setDraft(e.target.value)} autoFocus />
+        : <p className="draft-body"><span className="draft-from"><ChatCircle size={11} /> From your answer in Ask</span><TypingAnimation key={k} as="span" duration={14} startOnView={false} showCursor={false}>{draft}</TypingAnimation></p>}
+      <AIApproval key={`${k}-${choice || auto || 'open'}`} resolvedId={done} onDecide={decide} question="Send this reply to Sam?" options={[{ id: 'send', label: 'Approve and send', detail: 'Sample only. Nothing is sent' }, { id: 'edit', label: 'Edit first', detail: 'Opens the draft' }, { id: 'later', label: 'Not now', detail: 'Keep as a suggestion' }]}>
+        <Text>{choice === 'later' ? 'Kept as a suggestion. Nothing was sent.' : choice === 'edit' ? 'Edit the draft above. Nothing is sent.' : 'Try it. Nothing is sent.'}</Text>
       </AIApproval>
-      <button type="button" className="text-btn" onClick={() => setK(k + 1)}>Reset <ArrowRight size={13} /></button>
+      <button type="button" className="text-btn" onClick={() => { setChoice(null); setK(k + 1); }}>Reset <ArrowRight size={13} /></button>
     </SceneCard>
   </div>;
 }
@@ -472,8 +482,8 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
-  const [n, setN] = useState(0);
-  useEffect(() => { const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n]);
+  const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
+  useEffect(() => { if (!playing || shots.length < 2) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, playing]);
   const [name, alt] = shots[i];
   return <div className="wt-shot">
     {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
@@ -525,10 +535,13 @@ function CommandBar({ onRun }) {
     root.querySelector('button')?.setAttribute('aria-label', 'Ask');
   }, []);
   const shown = () => [...(wrap.current?.querySelectorAll('p') || [])].map(p => p.textContent.trim()).find(t => BAR_PROMPTS.includes(t)) || BAR_PROMPTS[0];
-  return <div className="cmd-vanish" ref={wrap} role="search" aria-label="Off Grid AI demo">
+  // The Aceternity input starts its vanish animation even when empty and then never unlocks.
+  // An empty Enter runs the example shown instead and never reaches it.
+  const onKeyDownCapture = (e) => { if (e.key === 'Enter' && !(wrap.current?.querySelector('input')?.value || '').trim()) { e.preventDefault(); e.stopPropagation(); onRun(shown(), true); } };
+  return <div className="cmd-vanish" ref={wrap} role="search" aria-label="Off Grid AI demo" onKeyDownCapture={onKeyDownCapture}>
     <PlaceholdersAndVanishInput placeholders={BAR_PROMPTS} onChange={(e) => { value.current = e.target.value; }}
-      onSubmit={(e) => { e.preventDefault(); const q = value.current.trim() || shown(); value.current = ''; onRun(q); }} />
-    <p className="cmd-note">Ask anything, or press enter for the example. The demo opens the part of the tour that answers it.</p>
+      onSubmit={(e) => { e.preventDefault(); const q = value.current.trim(); value.current = ''; if (q) onRun(q, false); }} />
+    <p className="cmd-note"><span className="hint-desk">Type a question or press enter for the example. The demo opens the part of the tour that answers it.</span><span className="hint-mob">Type a question or press enter for the example.</span></p>
   </div>;
 }
 
@@ -546,7 +559,7 @@ function Walkthrough({ reduce, theme }) {
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
   const [paused, setPaused] = useState(false); const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
-  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tabsRef = useRef(null); const tap = useRef(null); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
+  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
   const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false });
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
@@ -585,7 +598,8 @@ function Walkthrough({ reduce, theme }) {
     spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
   }, [STEP, reduce]);
   // Keep the selected chapter tab in view on phones.
-  useEffect(() => { const t = tabsRef.current?.querySelector('[aria-selected="true"]'); if (t && tabsRef.current.offsetParent) t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); }, [ch]);
+  useEffect(() => { const row = tabsRef.current; const t = row?.querySelector('[aria-pressed="true"]'); if (!t || !row.offsetParent) return; row.scrollTo({ left: t.offsetLeft - (row.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' }); }, [ch]);
+  useEffect(() => { const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting)); if (ref.current) io.observe(ref.current); return () => io.disconnect(); }, []);
   // Any drag, key or tap on the wheel means the visitor is driving: autoplay stops for good.
   const onWheel = (r) => { if (performance.now() < lock.current) return; setManual(true); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
   const dockTop = () => { const el = ref.current; if (!el) return null; return el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * Math.min(1, STAGE * 1.1); };
@@ -617,21 +631,23 @@ function Walkthrough({ reduce, theme }) {
   }, []);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // Chapters inside the act advance on their own; hovering the window holds the current one.
-  useEffect(() => { if (!docked || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, paused, manual, ch, reduce, spinTo]);
-  const C = WALK[docked ? ch : 0]; const cycle = useCycle(docked ? C.loop : 0);
+  useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
+  const C = WALK[docked ? ch : 0]; const playing = docked && inView && !manual && !paused; const cycle = useCycle(playing ? C.loop : 0);
+  const play = { playing, takeOver: () => setManual(true) };
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
       <div className="walk-igrid"><InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" /></div>
 
-      <motion.div ref={heroRef} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
-        <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms · Browser extension</AnimatedShinyText><ArrowRight size={13} /></a>
+      <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
+        <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms · Browser extension in early access</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
           <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
         <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
-        <CommandBar onRun={(text) => { const hit = INTENTS.find(([re]) => re.test(text)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 350); }} />
+        <CommandBar onRun={(text, example) => { const hit = INTENTS.find(([re]) => re.test(text)); setMiss(!example && !hit ? text : ''); setTimeout(() => goId(hit ? hit[1] : 'ask'), 350); }} />
+        {miss && <p className="cmd-miss" role="status">No chapter answers "{miss.slice(0, 48)}". Here is a sample of how recall works.</p>}
         <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => goId(sug.id)} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
@@ -639,7 +655,7 @@ function Walkthrough({ reduce, theme }) {
         </div>
       </motion.div>
 
-      <motion.div ref={copyRef} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
+      <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH SAM</Kicker>
         <div className="wheel-wrap" ref={wheelBox} style={{ '--wz': wz }} onMouseEnter={() => setPaused(true)} onMouseLeave={() => { setPaused(false); setHoverI(-1); }}
           // The wheel captures the pointer for dragging, so its circles never receive a click. A press and release on the same circle without moving opens that chapter.
@@ -664,9 +680,9 @@ function Walkthrough({ reduce, theme }) {
         </div>
         <div className="chap-nav">
           <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(true); go(ch - 1); }}><ArrowLeft size={16} /></Button>
-          <div className="chap-tabs" role="tablist" aria-label="Tour chapters" ref={tabsRef}>
+          <div className="chap-tabs" role="group" aria-label="Tour chapters" ref={tabsRef}>
             <AnimatedBackground className="rail-tab-hl" defaultValue={WALK[ch].id} onValueChange={(v) => { const k = WALK.findIndex(w => w.id === v); if (k >= 0 && k !== ch) { setManual(true); go(k); } }}>
-              {WALK.map((w, k) => { const Icon = WALK_ICONS[w.id]; return <button type="button" role="tab" key={w.id} data-id={w.id} aria-selected={k === ch} className="rail-tab chap-tab"><Icon size={14} /> {WALK_LABELS[w.id]}</button>; })}
+              {WALK.map((w, k) => { const Icon = WALK_ICONS[w.id]; return <button type="button" key={w.id} data-id={w.id} aria-pressed={k === ch} className="rail-tab chap-tab"><Icon size={14} /> {WALK_LABELS[w.id]}</button>; })}
             </AnimatedBackground>
           </div>
           <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(true); go(ch + 1); }}><ArrowRight size={16} /></Button>
@@ -685,7 +701,7 @@ function Walkthrough({ reduce, theme }) {
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={C.id} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{C.cmd}</TypingAnimation></span>
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div>
-        <BeamLayer.Provider value={beamLayer}>
+        <PlayCtx.Provider value={play}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
           <DotPattern width={18} height={18} cr={1} className="wt-dots" />
           <AnimatePresence initial={false}>
@@ -695,7 +711,7 @@ function Walkthrough({ reduce, theme }) {
           </AnimatePresence>
           <div className="beam-layer" ref={beamLayer} aria-hidden="true" />
         </div>
-        </BeamLayer.Provider>
+        </BeamLayer.Provider></PlayCtx.Provider>
       </motion.div>
     </div>
     <div className="sr-only">{WALK.map(w => <div key={w.id}><h3>{w.title}</h3><p>{w.line}</p></div>)}</div>
@@ -745,15 +761,15 @@ export function MobileRail({ className, start = 0, labels, children }) {
   const [i, setI] = useState(start);
   if (!narrow) return <div className={className}>{items}</div>;
   return <div className="og-rail">
-    {labels && <div className="rail-tabs" role="tablist"><AnimatedBackground className="rail-tab-hl" defaultValue={String(i)} onValueChange={(v) => v != null && setI(Number(v))}>
-      {labels.map((l, k) => <button type="button" role="tab" key={l} data-id={String(k)} aria-selected={k === i} className="rail-tab">{l}</button>)}
+    {labels && <div className="rail-tabs" role="group" aria-label="Choose a card"><AnimatedBackground className="rail-tab-hl" defaultValue={String(i)} onValueChange={(v) => v != null && setI(Number(v))}>
+      {labels.map((l, k) => <button type="button" key={l} data-id={String(k)} aria-pressed={k === i} className="rail-tab">{l}</button>)}
     </AnimatedBackground></div>}
     <Carousel className="rail-carousel" index={i} onIndexChange={setI}><CarouselContent className="rail-track">
-      {items.map((c, k) => <CarouselItem key={k} className="rail-item">{c}</CarouselItem>)}
+      {items.map((c, k) => <CarouselItem key={k} className="rail-item"><div inert={k !== i} aria-hidden={k !== i}>{c}</div></CarouselItem>)}
     </CarouselContent>
       <div className="rail-ctl">
         <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous" disabled={i === 0} onClick={() => setI(Math.max(0, i - 1))}><ArrowLeft size={16} /></Button>
-        <CarouselIndicator className="planes-dots" />
+        <div className="dots-wrap" aria-hidden="true"><CarouselIndicator className="planes-dots" /></div>
         <Button variant="outline" size="sm" className="rail-btn" aria-label="Next" disabled={i === items.length - 1} onClick={() => setI(Math.min(items.length - 1, i + 1))}><ArrowRight size={16} /></Button>
       </div>
     </Carousel>
@@ -792,6 +808,8 @@ function useSectionHash(ids) {
 }
 
 export const ThemeCtx = createContext('dark');
+// Whether the tour is playing on its own; scenes and screen sequences hold still when it isn't.
+export const PlayCtx = createContext({ playing: true, takeOver: () => {} });
 // Every page: theme handling, header, main, footer. Pages pass their sections as children.
 export function PageShell({ children }) {
   const [theme, setTheme] = useState('dark');
@@ -862,7 +880,7 @@ function HomeSections({ pricing }) {
         </ScrollVelocityContainer>
       </section>
       <PrivacySection />
-      <section className="manifesto" aria-label="Why local"><TextReveal className="reveal">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</TextReveal></section>
+      <section className="manifesto" aria-label="Why local"><p className="sr-only">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</p><div aria-hidden="true"><TextReveal className="reveal">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</TextReveal></div></section>
 
       {/* Pricing: Radix cards, Magic UI border beam on the recommended plan. */}
       <section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
@@ -870,14 +888,14 @@ function HomeSections({ pricing }) {
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <InteractiveHoverButton className="ihb" onClick={() => { location.href = '/download/'; }}>Download free</InteractiveHoverButton></div></SceneCard>
+            <Button asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
           <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <ShimmerButton className="pro-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)" onClick={() => { location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</ShimmerButton>
             <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
           <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
             <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <InteractiveHoverButton className="ihb" onClick={() => { location.href = '/pro/#buy'; }}>Start Pro monthly</InteractiveHoverButton></div></SceneCard>
+            <Button asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>
         </MobileRail>
         <Text as="p" className="fine"><a href="/pro/">Full terms</a></Text>
       </div></section>
@@ -889,7 +907,7 @@ function HomeSections({ pricing }) {
           <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="home_card">
             <Badge variant="outline">Teams under 50 people</Badge><div className="ex-mark">[ your team ]<br /><span>+ Off Grid AI</span></div><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/ogap/">
-            <Badge variant="outline">Hardware · Prototype</Badge><img src="/assets/img/ogap/website-v2/hero-ecosystem-dark-mobile.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
+            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-mobile.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-mobile.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/mobile/recorder/">
             <Badge variant="outline">Private alpha · Cohort full</Badge><div className="ex-mark ex-ic"><Microphone size={56} weight="thin" /></div><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></a></Card>
         </MobileRail>
