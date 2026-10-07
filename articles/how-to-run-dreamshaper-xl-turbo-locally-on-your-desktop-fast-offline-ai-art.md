@@ -69,7 +69,7 @@ Quantization is what brings the model down to size. The GGUF build trims the wei
 
 A hosted art tool sees every prompt and stores every image. It logs your activity and frequently trains on what you upload. You accept terms you skimmed.
 
-Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing transmitted. Your prompts and images stay on the device. The app is AGPL-3.0, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
+Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing transmitted. Your prompts and images stay on the device. The app is open source, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
 
 ## Getting Started
 
@@ -94,7 +94,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0, and the model is a free download. No subscription and no per-image credits.
+Yes. The app is free and open-source, and the model is a free download. No subscription and no per-image credits.
 
 ### Q: Does it work fully offline?
 

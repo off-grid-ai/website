@@ -83,7 +83,7 @@ For images, start with a few-step model. SDXL-Lightning and Z-Image-Turbo give y
 
 A cloud AI service sees every prompt, every image you generate, and every document you upload. It keeps logs. It trains on some of it. It requires an account tied to your identity.
 
-Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry. The code is AGPL-3.0, so you can read exactly what it does. Unplug your network and it keeps working.
+Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry. The code is open, so you can read exactly what it does. Unplug your network and it keeps working.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ Honest roadmap. We build the local spine first.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. There is no account, no metered usage, no API key.
+Yes. The app is free and open source. There is no account, no metered usage, no API key.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can disconnect from the internet entirely. Inference is local.

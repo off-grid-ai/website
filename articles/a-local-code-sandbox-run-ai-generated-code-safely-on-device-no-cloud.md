@@ -100,7 +100,7 @@ For React work, keep components self-contained. The bundled UMD build covers Rea
 
 A cloud playground sees your prompt, your code, and your edits. Many keep them. Your draft of a half-working idea becomes a row in someone's database.
 
-Off Grid AI Desktop sees none of that, because there is no server in the loop. The model runs on your machine. The sandbox runs on your machine. Off Grid AI Desktop is open source under AGPL-3.0, takes no account, sends no telemetry, and works with your network cable unplugged. The code you generate is yours and stays on your disk.
+Off Grid AI Desktop sees none of that, because there is no server in the loop. The model runs on your machine. The sandbox runs on your machine. Off Grid AI Desktop is open source, takes no account, sends no telemetry, and works with your network cable unplugged. The code you generate is yours and stays on your disk.
 
 ## Getting started
 
@@ -125,7 +125,7 @@ Off Grid AI Desktop sees none of that, because there is no server in the loop. T
 
 ### Q: Is it really free?
 
-Yes. Off Grid AI Desktop is free and open source under AGPL-3.0. No account, no card.
+Yes. Off Grid AI Desktop is free and open source. No account, no card.
 
 ### Q: Can the AI code reach the internet from the preview?
 

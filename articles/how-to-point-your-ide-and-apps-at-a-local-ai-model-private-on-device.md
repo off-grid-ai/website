@@ -16,7 +16,7 @@ Your editor, your terminal scripts, and half the AI tools you installed last mon
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry, no API key.
+Free, open-source, runs offline. No account, no telemetry, no API key.
 
 
 ![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
@@ -152,7 +152,7 @@ The models themselves are quantized GGUF files at levels like q8_0 and Q4_K, whi
 
 When your IDE talks to a hosted AI service, your source code goes to that service. It is logged, billed per token, and tied to an account.
 
-When your IDE talks to `127.0.0.1:7878`, the code goes to a process on your own machine and stops there. The gateway makes no outbound calls for inference. There is no telemetry and no account. The whole app is AGPL-3.0, so you can read what it does before you trust it with your repository. Disconnect from the network and every example above keeps working.
+When your IDE talks to `127.0.0.1:7878`, the code goes to a process on your own machine and stops there. The gateway makes no outbound calls for inference. There is no telemetry and no account. The whole app is open source, so you can read what it does before you trust it with your repository. Disconnect from the network and every example above keeps working.
 
 ## Getting Started
 
@@ -176,7 +176,7 @@ If the extension lets you set a custom OpenAI base URL and key, yes. Set the URL
 
 ### Q: Is it really free?
 
-Yes. AGPL-3.0, open source, no metered API. You run models on your own hardware, so there is no token bill.
+Yes. Open source, no metered API. You run models on your own hardware, so there is no token bill.
 
 ### Q: Does it work offline?
 

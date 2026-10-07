@@ -16,7 +16,7 @@ The GPU in a mid-range laptop can run a 7-billion-parameter model fast enough to
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, AGPL-3.0, runs offline.
+Free, open-source, runs offline.
 
 
 ![The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/models.png?v=2)
@@ -87,7 +87,7 @@ Trim the context window to the task. A long context slows every token and eats R
 
 A cloud chat service logs your prompts and may use them to train future models. Code you paste, documents you summarize, all of it lands on a server.
 
-Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is AGPL-3.0, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
+Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is open, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
 
 ## Getting Started
 
@@ -118,7 +118,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No paid unlock to run Qwen.
+Yes. The app is free and open-source. No paid unlock to run Qwen.
 
 ### Q: Does it work fully offline?
 Yes. After a model downloads, you can drop the network and keep chatting.

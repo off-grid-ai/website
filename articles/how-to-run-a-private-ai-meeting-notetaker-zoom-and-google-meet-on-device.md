@@ -58,14 +58,14 @@ The summary does not just sit in a folder. It folds into your private memory and
 
 Cloud notetakers like Otter and Fireflies route your meeting audio and video through their servers. The recording, transcript, and summary live in their account, under their retention policy, with their access. Off Grid AI Desktop keeps all of it on your machine, because nothing in the pipeline touches a server.
 
-It is AGPL-3.0 licensed, so the code is auditable rather than a black box. There is no account to breach and no telemetry phoning home. On an air-gapped machine, every part still works.
+It is open source, so the code is auditable rather than a black box. There is no account to breach and no telemetry phoning home. On an air-gapped machine, every part still works.
 
 | | Cloud notetaker | Off Grid AI Desktop |
 |---|---|---|
 | Where audio goes | Vendor's servers | Your disk |
 | Bot in the call | Yes | No |
 | Per-minute fee | Often | None |
-| Code you can audit | No | Yes (AGPL-3.0) |
+| Code you can audit | No | Yes |
 | Works offline | No | Yes |
 
 ## Getting Started
@@ -92,7 +92,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No subscription and no per-minute charge.
+Yes. The app is free and open-source. No subscription and no per-minute charge.
 
 ### Q: How is this different from Otter or Fireflies?
 No bot joins your call, and nothing uploads. Recording, transcription, and the summary all happen on your machine.

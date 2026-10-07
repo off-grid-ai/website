@@ -83,7 +83,7 @@ Trim the context window for short chats. Long context reserves memory you may no
 
 A cloud chatbot sends your prompts, uploads, and voice to a remote server under a policy you cannot inspect, behind a login.
 
-Off Grid AI Desktop sends nothing. No account, no subscription, no telemetry, no API key. Your chats, images, voice, and documents stay on your disk. The code is AGPL-3.0, open for anyone to read. Disconnect from the network and it still works.
+Off Grid AI Desktop sends nothing. No account, no subscription, no telemetry, no API key. Your chats, images, voice, and documents stay on your disk. The code is open for anyone to read. Disconnect from the network and it still works.
 
 ## Getting Started
 
@@ -105,7 +105,7 @@ You have a private, offline ChatGPT-style studio in a few minutes.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The core app is free and open source under AGPL-3.0. No subscription and no paywall on the features here.
+Yes. The core app is free and open source. No subscription and no paywall on the features here.
 
 ### Q: Does it work offline?
 Yes. Download a model once, then disconnect. Chat, images, voice, and document Q&A all run on-device.

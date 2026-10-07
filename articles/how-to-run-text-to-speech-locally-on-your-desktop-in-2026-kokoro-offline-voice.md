@@ -99,7 +99,7 @@ If a name or acronym is pronounced oddly, edit the text slightly before speaking
 
 A cloud TTS API receives every string you want spoken. It can log that text, tie it to your account, and bill you for it. You are trusting a vendor with the exact words you are reading.
 
-Off Grid AI Desktop sends nothing, because there is no server. The app is AGPL-3.0 open source, so you can verify that synthesis happens on your machine and the audio is played, not uploaded. No telemetry, no account, no usage meter. Disconnect from the internet and the voice still speaks.
+Off Grid AI Desktop sends nothing, because there is no server. The app is open source, so you can verify that synthesis happens on your machine and the audio is played, not uploaded. No telemetry, no account, no usage meter. Disconnect from the internet and the voice still speaks.
 
 ## Getting Started
 
@@ -126,7 +126,7 @@ No sign-up, no key to paste, no character quota.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is open source under AGPL-3.0, and there is no per-character cost because synthesis runs locally.
+Yes. The app is open source, and there is no per-character cost because synthesis runs locally.
 
 ### Q: Does it work offline?
 Yes. Once the voice model is downloaded, TTS runs with no network connection.

@@ -93,7 +93,7 @@ For voice mode, shorter answers feel snappier. If replies drag, lower the chat m
 
 Cloud voice assistants send your microphone audio to a server. Cloud TTS sends your text to a server and meters it. You get a bill and a log of everything you said and everything you had read back.
 
-Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is AGPL-3.0, so you can read the source and confirm it. No account, no telemetry, no audio leaving the device.
+Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is open source, so you can read the source and confirm it. No account, no telemetry, no audio leaving the device.
 
 ## Getting started
 
@@ -118,7 +118,7 @@ Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokor
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No account, no subscription, no API keys.
+Yes. The app is free and open-source. No account, no subscription, no API keys.
 
 ### Q: Does voice work offline?
 Yes. Both whisper.cpp and Kokoro run on your device. After the models download, you can transcribe and speak with the network off.

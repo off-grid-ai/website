@@ -82,6 +82,6 @@ Off Grid automatically uses QNN NPU acceleration on Snapdragon 8 Gen 1+, Adreno 
 
 Every Qwen 3.5 inference runs on your phone's processor. After the initial download, Off Grid makes zero network requests. Turn on airplane mode and verify. Everything works.
 
-No analytics. No telemetry. No accounts. Open source and MIT licensed.
+No analytics. No telemetry. No accounts. Open source.
 
 Off Grid also runs image generation, vision AI, voice transcription, tool calling, and document analysis — all on device. Check the [GitHub](https://github.com/alichherawalla/off-grid-mobile) for the latest releases.

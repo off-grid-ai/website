@@ -77,7 +77,7 @@ Resolution is the second lever. Doubling the side of an image roughly quadruples
 
 A cloud image service sees every prompt you type and every reference image you upload. Some reserve the right to train on what you make. Off Grid AI Desktop sees none of it, because there is no server. The model runs locally, the output saves to your disk, and nothing is logged off-machine.
 
-It is AGPL-3.0 licensed, so the code is auditable. There is no account, so there is no profile to leak. Run it on an air-gapped machine and every feature still works.
+It is open source, so the code is auditable. There is no account, so there is no profile to leak. Run it on an air-gapped machine and every feature still works.
 
 ## Getting Started
 
@@ -108,7 +108,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. There are no image credits and no subscription.
+Yes. The app is free and open-source. There are no image credits and no subscription.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, generation runs with no network connection.

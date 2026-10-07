@@ -83,7 +83,7 @@ Use img2img to refine. Rather than re-rolling text-to-image and hoping, take a r
 
 A cloud image service uploads your prompt and stores your output. Many reserve the right to train on what you make. Some require a paid plan before you can generate anything at all.
 
-Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no account, no telemetry, and no credit meter. The code is AGPL-3.0, so the privacy claim is something you can check rather than trust. Turn off Wi-Fi and it still generates.
+Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no account, no telemetry, and no credit meter. The code is open, so the privacy claim is something you can check rather than trust. Turn off Wi-Fi and it still generates.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ Grounded roadmap. The local spine comes first.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. No subscription, no account, no per-image charge.
+Yes. The app is free and open source. No subscription, no account, no per-image charge.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can disconnect entirely. Generation is local.

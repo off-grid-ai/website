@@ -79,7 +79,7 @@ This checkpoint rewards structure. A few practical pointers.
 
 NovelAI runs on their servers behind a subscription, and your generations pass through their infrastructure. Off Grid AI Desktop flips that.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no telemetry, no API key, no content pipeline you do not control. The app is AGPL-3.0, so the source is open to read. Disconnect from the internet and it keeps generating.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no telemetry, no API key, no content pipeline you do not control. The app is open source, so you can read the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -110,7 +110,7 @@ city street at night, neon lights, anime style
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. Image generation is not gated.
+Yes. The app is free and open-source. The model is a free download. Image generation is not gated.
 
 ### Q: Does it work offline?
 

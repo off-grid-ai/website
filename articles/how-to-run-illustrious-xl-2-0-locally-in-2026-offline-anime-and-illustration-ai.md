@@ -87,7 +87,7 @@ Generate a couple of test images at each level on your own hardware and judge wi
 
 A hosted anime generator sees every prompt you type and every image you make. Some keep them. Some train on them. Some have a content filter that decides what you are allowed to draw.
 
-Off Grid AI Desktop has none of that. The app runs on-device. There is no account, no telemetry, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is AGPL-3.0, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
+Off Grid AI Desktop has none of that. The app runs on-device. There is no account, no telemetry, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is open, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
 
 ## Getting Started
 
@@ -114,7 +114,7 @@ That is the whole loop. Once the model is on disk you can pull the network cable
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The Illustrious GGUF model is a free download from Hugging Face.
+Yes. The app is free and open-source. The Illustrious GGUF model is a free download from Hugging Face.
 
 ### Q: Does it work offline?
 

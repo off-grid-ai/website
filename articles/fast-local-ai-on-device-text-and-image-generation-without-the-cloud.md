@@ -16,7 +16,7 @@ The slowest part of a cloud AI request is not the model. It is the trip to a dat
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account, no telemetry.
 
 
 ![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
@@ -122,6 +122,6 @@ Few-step models like SDXL-Lightning and Z-Image-Turbo generate in a handful of s
 Yes. Once a model is downloaded, text and image generation run with the network off.
 
 ### Q: Is it free?
-Yes. Free and open-source under AGPL-3.0. No account, no telemetry, no API keys.
+Yes. Free and open-source. No account, no telemetry, no API keys.
 
 No queue, no rate limit, no round-trip. Just your machine, working. **[Get it on GitHub →](https://github.com/off-grid-ai/desktop)**

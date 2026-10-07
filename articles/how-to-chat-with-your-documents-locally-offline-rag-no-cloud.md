@@ -84,7 +84,7 @@ Watch your context window. The retrieved chunks plus your question have to fit i
 
 A cloud RAG product uploads your documents to a server, embeds them there, and stores the vectors on infrastructure you do not control. Even with good intentions, your contracts and notes now live somewhere else.
 
-Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create and no telemetry phoning home. The code is AGPL-3.0, so you can read exactly what it does with your files.
+Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create and no telemetry phoning home. The code is open, so you can read exactly what it does with your files.
 
 For anything covered by an NDA, a privacy regulation, or just your own preference, on-device is the difference between "trust us" and "verify it yourself."
 
@@ -111,7 +111,7 @@ For anything covered by an NDA, a privacy regulation, or just your own preferenc
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. There is no document quota and no paid tier gating the RAG feature.
+Yes. The app is free and open-source. There is no document quota and no paid tier gating the RAG feature.
 
 ### Q: Does it work fully offline?
 

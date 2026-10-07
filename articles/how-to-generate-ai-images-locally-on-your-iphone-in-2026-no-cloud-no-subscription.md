@@ -101,7 +101,7 @@ Every image you generate on cloud services is stored on their servers. Your prom
 
 With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. The App Store privacy label says it directly: the developer does not collect any data from this app.
 
-Open source. MIT licensed. Verify it yourself.
+Open source. Verify it yourself.
 
 ## Getting Started
 

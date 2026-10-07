@@ -16,7 +16,7 @@ Your laptop can run a chat model, a vision model, a diffusion model, and a trans
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline.
+Free, open-source, runs offline.
 
 
 ![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
@@ -122,7 +122,7 @@ Repeated calls to the same tool keep that model warm. A cold call pays a short l
 
 ## Privacy: stronger than a hosted tool server
 
-A hosted MCP server sees every argument you pass and every result it returns. It needs credentials and it logs traffic. The Off Grid AI Desktop MCP endpoint binds to `127.0.0.1`, so it answers only your machine. There is no telemetry, no account, no key. The code is AGPL-3.0, so the behavior is auditable. Your prompts, images, and recordings stay on disk.
+A hosted MCP server sees every argument you pass and every result it returns. It needs credentials and it logs traffic. The Off Grid AI Desktop MCP endpoint binds to `127.0.0.1`, so it answers only your machine. There is no telemetry, no account, no key. The code is open, so the behavior is auditable. Your prompts, images, and recordings stay on disk.
 
 ## Getting started
 
@@ -144,7 +144,7 @@ The interactive HTTP docs at `/docs` and the spec at `/openapi.json` cover the c
 
 ### Q: Is it really free?
 
-Yes. Free and open-source under AGPL-3.0. The MCP endpoint is part of the open core.
+Yes. Free and open-source. The MCP endpoint is included.
 
 ### Q: Does it work offline?
 

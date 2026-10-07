@@ -77,7 +77,7 @@ A few practical settings make a real difference.
 
 When you type into a cloud chatbot, your prompt travels to a data center, gets logged, and may train the next model. With Off Grid AI Desktop, the prompt goes from your keyboard to a process on your own Mac and back.
 
-No account. No telemetry. No API key. The app is AGPL-3.0, so you can read every line of the source on GitHub and confirm there is no phone-home. Pull the network cable and it keeps working.
+No account. No telemetry. No API key. The app is open source, so you can read every line of the source on GitHub and confirm there is no phone-home. Pull the network cable and it keeps working.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ npm run dev
 
 ### Q: Is it actually free?
 
-Yes. Free and open source under AGPL-3.0. There is no paywall on local chat or the Models browser.
+Yes. Free and open source. There is no paywall on local chat or the Models browser.
 
 ### Q: Does it really work offline?
 

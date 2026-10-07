@@ -38,7 +38,7 @@ Off Grid is a free, open-source app that runs AI entirely on your phone. After y
 
 There is no server. There is no account. There is no analytics, telemetry, or usage tracking. Not a single data packet leaves your phone. Not anonymous data, not personalized data. Nothing.
 
-The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). MIT licensed. You don't have to trust a privacy policy. You can read every line yourself.
+The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read every line yourself.
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 

@@ -100,7 +100,7 @@ When you do want the model to make changes, lean on the approval queue rather th
 
 A cloud integration platform holds an OAuth key to your account, routes your tool data through its servers, and runs the model there too. Three points where your data sits on someone else's hardware.
 
-Off Grid AI Desktop collapses all three onto your machine. The credential is local. The fetched data stays local. The model that reads it is local. The app is open source under AGPL-3.0, takes no account, and sends no telemetry. Connectors reach out to the tools you name and nowhere else.
+Off Grid AI Desktop collapses all three onto your machine. The credential is local. The fetched data stays local. The model that reads it is local. The app is open source, takes no account, and sends no telemetry. Connectors reach out to the tools you name and nowhere else.
 
 ## Getting started
 
@@ -125,7 +125,7 @@ Off Grid AI Desktop collapses all three onto your machine. The credential is loc
 
 ### Q: Is it really free?
 
-Yes. Off Grid AI Desktop is free and open source under AGPL-3.0. No account, no card.
+Yes. Off Grid AI Desktop is free and open source. No account, no card.
 
 ### Q: What transports does it support?
 

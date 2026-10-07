@@ -97,7 +97,7 @@ For long dictation, pause naturally between thoughts. Those pauses give the deco
 
 A cloud dictation service receives your raw audio. It may store it, log it, attach it to your account, or use it to improve its product. You are trusting a privacy policy you did not write and cannot enforce.
 
-Off Grid AI Desktop receives nothing, because there is no server. The app is AGPL-3.0 open source, so you can read exactly what it does with your audio, which is process it on your machine and discard it. No telemetry. No account. No upload. Pull the network cable and dictation still works.
+Off Grid AI Desktop receives nothing, because there is no server. The app is open source, so you can read exactly what it does with your audio, which is process it on your machine and discard it. No telemetry. No account. No upload. Pull the network cable and dictation still works.
 
 ## Getting Started
 
@@ -124,7 +124,7 @@ That is it. No sign-up wall, no key to paste.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. No trial, no paywall on dictation.
+Yes. The app is free and open source. No trial, no paywall on dictation.
 
 ### Q: Does it work offline?
 Completely. After the model is downloaded, you can turn off your network and dictation keeps working.

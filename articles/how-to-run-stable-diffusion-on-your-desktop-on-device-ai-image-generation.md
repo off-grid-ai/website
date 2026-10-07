@@ -16,7 +16,7 @@ The GPU in a gaming PC or an Apple Silicon Mac can paint a 1024-pixel image from
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, AGPL-3.0, runs offline.
+Free, open-source, runs offline.
 
 
 ![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
@@ -90,7 +90,7 @@ Start with a style preset, then refine the prompt. The presets do the heavy lift
 
 Cloud image generators keep your prompts, often watermark your output, and may use what you make to train future models. Some restrict what you can create.
 
-Off Grid AI Desktop runs the model on your machine. No account, no credits, no telemetry. The images and the prompts never leave your disk. The code is AGPL-3.0, so you can read it and confirm nothing is uploaded. Generate offline with the network cable pulled.
+Off Grid AI Desktop runs the model on your machine. No account, no credits, no telemetry. The images and the prompts never leave your disk. The code is open, so you can read it and confirm nothing is uploaded. Generate offline with the network cable pulled.
 
 ## Getting Started
 
@@ -121,7 +121,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. No credits, no per-image charge.
+Yes. The app is free and open-source. No credits, no per-image charge.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can generate with no internet connection.

@@ -79,7 +79,7 @@ A few settings move the needle on Windows.
 
 A cloud chatbot sends every prompt to a remote data center where it is logged and may feed the next training run. With Off Grid AI Desktop, your prompt goes from your keyboard to a process on your own PC and straight back.
 
-No account. No telemetry. No API key. The app is AGPL-3.0, so you can read the full source on GitHub and confirm nothing phones home. Disconnect the network and it keeps running.
+No account. No telemetry. No API key. The app is open source, so you can read the full source on GitHub and confirm nothing phones home. Disconnect the network and it keeps running.
 
 ## Getting Started
 
@@ -111,7 +111,7 @@ npm run dev
 
 ### Q: Is it actually free?
 
-Yes. Free and open source under AGPL-3.0. Local chat and the Models browser have no paywall.
+Yes. Free and open source. Local chat and the Models browser have no paywall.
 
 ### Q: Do I need an NVIDIA GPU?
 

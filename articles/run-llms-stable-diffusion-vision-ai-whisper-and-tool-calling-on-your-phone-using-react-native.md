@@ -55,7 +55,7 @@ That's what Off Grid is.
   </table>
 
 
-It runs text generation, image generation (Stable Diffusion), vision AI, voice transcription (Whisper), tool calling, and document analysis -- all on your phone, all offline, all open source. Download a model, flip on airplane mode, never connect again. MIT licensed. On the App Store and Google Play.
+It runs text generation, image generation (Stable Diffusion), vision AI, voice transcription (Whisper), tool calling, and document analysis -- all on your phone, all offline, all open source. Download a model, flip on airplane mode, never connect again. On the App Store and Google Play.
 
 Open source so you don't have to trust anyone. Verify it yourself.
 
@@ -501,7 +501,7 @@ The reason AI conversations live on someone else's server isn't that they have t
 
 Off Grid is proof that the alternative works. Text generation, image generation, vision, voice, tool calling, document analysis -- the full suite -- running on a device in your pocket with zero network dependency. Not as a demo. As an app on the Play Store and App Store you can use today.
 
-The codebase is MIT licensed. The architecture is documented. The patterns are extractable. If you're building a React Native app and want to add on-device AI, the reference implementation is there. If you just want the subscriber pattern or the memory budget system or the native download bridge, take those.
+The codebase is open source. The architecture is documented. The patterns are extractable. If you're building a React Native app and want to add on-device AI, the reference implementation is there. If you just want the subscriber pattern or the memory budget system or the native download bridge, take those.
 
 Build something private.
 
@@ -513,4 +513,4 @@ Build something private.
 
 ---
 
-*Off Grid is free and open source under the MIT license. Contributions welcome.*
+*Off Grid is free and open source. Contributions welcome.*

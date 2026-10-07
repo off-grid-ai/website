@@ -83,7 +83,7 @@ Keep the model inside VRAM. If you see generation crawl, drop to a smaller or mo
 
 A cloud image service uploads your prompt and stores the output. Many train on what users make. Most gate generation behind a paid plan and a logged-in account.
 
-Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no telemetry, no credit meter. The code is AGPL-3.0, so you can read exactly how it handles your data. Pull the network cable and it still generates.
+Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no telemetry, no credit meter. The code is open, so you can read exactly how it handles your data. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ Grounded roadmap. The local spine comes first.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. No subscription, no account, no per-image charge.
+Yes. The app is free and open source. No subscription, no account, no per-image charge.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, you can disconnect entirely. Generation runs locally.

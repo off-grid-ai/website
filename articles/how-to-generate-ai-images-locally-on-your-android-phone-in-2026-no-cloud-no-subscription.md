@@ -106,7 +106,7 @@ Every image you generate on cloud services is stored on their servers. Your prom
 
 With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. For professional artists, designers, or anyone who values creative privacy, this matters.
 
-Open source. MIT licensed. No analytics, no telemetry, no accounts.
+Open source. No analytics, no telemetry, no accounts.
 
 ## Getting Started
 

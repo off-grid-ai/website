@@ -76,7 +76,7 @@ A few habits make local generation feel quick.
 
 A hosted anime generator sees every prompt you type and every image you make. It keeps logs. It often trains on what you submit. You agree to terms you did not read.
 
-Off Grid AI Desktop runs the model on your machine. There is no account and no telemetry. Your prompts and images never leave the device. The app is AGPL-3.0, so the source is open and you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
+Off Grid AI Desktop runs the model on your machine. There is no account and no telemetry. Your prompts and images never leave the device. The app is open source, so you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
 
 ## Getting Started
 
@@ -101,7 +101,7 @@ Off Grid AI Desktop runs the model on your machine. There is no account and no t
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download from Hugging Face. No subscription, no credits.
+Yes. The app is free and open-source. The model is a free download from Hugging Face. No subscription, no credits.
 
 ### Q: Does it work fully offline?
 

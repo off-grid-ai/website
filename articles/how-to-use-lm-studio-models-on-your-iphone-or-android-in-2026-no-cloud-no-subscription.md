@@ -100,7 +100,7 @@ If that sounds like something you want to be part of, we have a community buildi
 
 ## Try it
 
-Off Grid is free, open source, and MIT licensed.
+Off Grid is free and open source.
 
 - [GitHub (1,000+ stars, 10,000+ downloads in 4 weeks)](https://github.com/alichherawalla/off-grid-mobile-ai)
 - Android: grab the latest APK from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases)

@@ -77,7 +77,7 @@ Lightning is already fast. These tips keep it that way.
 
 DALL-E runs on OpenAI's servers. Your prompts pass through their API, get logged, and are subject to their content filters. Off Grid AI Desktop inverts that.
 
-Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no telemetry, no API key. The app is AGPL-3.0, so you can audit the source. Disconnect from the internet and it keeps generating.
+Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no telemetry, no API key. The app is open source, so you can audit the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ soft shadows, sharp focus
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. Image generation is not behind a paywall.
+Yes. The app is free and open-source. The model is a free download. Image generation is not behind a paywall.
 
 ### Q: Does it work offline?
 

@@ -77,7 +77,7 @@ A few practical levers, no invented numbers.
 
 Midjourney runs on Discord. Your prompts and your images live on their servers, and the default gallery is public. Off Grid AI Desktop is the opposite arrangement.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no telemetry, no API key. The app is AGPL-3.0, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no telemetry, no API key. The app is open source, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -108,7 +108,7 @@ shallow depth of field, natural skin texture, film grain
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0. The model is a free download. There is no paid tier gating image generation.
+Yes. The app is free and open-source. The model is a free download. There is no paid tier gating image generation.
 
 ### Q: Does it work offline?
 

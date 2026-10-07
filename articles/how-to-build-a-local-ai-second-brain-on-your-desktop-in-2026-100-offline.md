@@ -99,7 +99,7 @@ Review Actions on a schedule rather than reacting to each one. They are a queue 
 
 A cloud note-taking app stores your work on its servers, indexes it, and ties it to your account. A second brain like this, built on captured screen content, would be a serious thing to hand to a vendor. So nothing here does.
 
-Off Grid AI Desktop keeps every frame, observation, and entity on your disk. The app is AGPL-3.0 open source, so you can read exactly what it captures and where it stores it. No telemetry, no account, no upload. Capture only runs when you turn it on, with a visible indicator the whole time. Pull the network cable and your second brain keeps working.
+Off Grid AI Desktop keeps every frame, observation, and entity on your disk. The app is open source, so you can read exactly what it captures and where it stores it. No telemetry, no account, no upload. Capture only runs when you turn it on, with a visible indicator the whole time. Pull the network cable and your second brain keeps working.
 
 ## Getting Started
 
@@ -134,7 +134,7 @@ No sign-up, no key, no cloud account.
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open source under AGPL-3.0. The capture-to-memory loop is part of the open core.
+Yes. The app is free and open source. The capture-to-memory loop is included.
 
 ### Q: Does it work offline?
 Yes. OCR, distillation, and storage all run on your machine, so it works with no network.

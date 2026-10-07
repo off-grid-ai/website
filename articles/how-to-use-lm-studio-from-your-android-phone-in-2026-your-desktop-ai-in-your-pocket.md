@@ -65,7 +65,7 @@ That is what Off Grid does.
 
 We are building Off Grid into a personal AI operating system. All the compute you own - phone, laptop, desktop - orchestrated into one private system. Network discovery, on-device inference, projects, RAG, tool calling, vision, and voice are already live. Automatic routing, device handoff, and shared context across devices are next.
 
-Built in the open. MIT licensed. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+Built in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

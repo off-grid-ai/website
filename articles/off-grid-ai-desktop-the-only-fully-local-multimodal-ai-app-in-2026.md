@@ -16,7 +16,7 @@ The laptop you already own can run a language model, generate an image, transcri
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account, no telemetry.
 
 
 ![Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/onboarding.png?v=2)
@@ -60,7 +60,7 @@ You are not stitching seven apps together. You ask one assistant, and it reaches
 | Screen-capture memory | Yes | No | No | No |
 | Runs offline | Yes | Yes | Yes | No |
 | No account needed | Yes | Yes | Yes | No |
-| Open source | Yes (AGPL) | Mixed | Yes | No |
+| Open source | Yes | Mixed | Yes | No |
 | Your data leaves the machine | Never | Never | Never | Always |
 
 The cloud apps match the feature checklist. They lose on the only row that matters for private work: your data leaves the machine, every single time.
@@ -89,7 +89,7 @@ curl http://127.0.0.1:7878/v1/chat/completions \
 
 Cloud apps treat privacy as a policy you have to trust. Here it is structural.
 
-There is no account, so there is no profile to leak. There is no telemetry, so nothing phones home. There are no API keys, because there is no third party to authenticate with. Screen capture is opt-in per device with a visible indicator, and you stop it whenever you want. The source is AGPL, so anyone can read exactly what the app does with your data, which is nothing.
+There is no account, so there is no profile to leak. There is no telemetry, so nothing phones home. There are no API keys, because there is no third party to authenticate with. Screen capture is opt-in per device with a visible indicator, and you stop it whenever you want. The source is open, so anyone can read exactly what the app does with your data, which is nothing.
 
 ## Getting started
 
@@ -113,7 +113,7 @@ There is no account, so there is no profile to leak. There is no telemetry, so n
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. There is no account and no paywall on the local stack described here.
+Yes. The app is free and open-source. There is no account and no paywall on the local stack described here.
 
 ### Q: Does it work offline?
 Yes. Once a model is downloaded, chat, image generation, voice, and document RAG all run with the network off.

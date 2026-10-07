@@ -46,7 +46,7 @@ Here's what that actually means in practice:
 
 **No cloud backup of conversations.** Your chats live in the app's local storage on your device. Not in iCloud. Not on a sync server. On your phone.
 
-**Open source.** MIT licensed. Every line of code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read the source.
+**Open source.** Every line of code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read the source.
 
 [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 

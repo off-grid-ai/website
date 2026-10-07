@@ -176,4 +176,4 @@ Your AI. Your device. Your data.
 
 ---
 
-*Built with React Native, llama.cpp, whisper.cpp, Stable Diffusion, and a genuine frustration with the status quo. MIT licensed. Contributions welcome.*
+*Built with React Native, llama.cpp, whisper.cpp, Stable Diffusion, and a genuine frustration with the status quo. Contributions welcome.*

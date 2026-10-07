@@ -64,7 +64,7 @@ Pick the model to match the job. A smaller Whisper model is fine for a quick int
 
 A cloud notetaker uploads your full meeting audio and video to a server you do not control. The recording, the transcript, and the summary all live there. Off Grid AI Desktop keeps every part of that on your machine, because there is no server in the path.
 
-It is AGPL-3.0 licensed, so the code is auditable. There is no account and no telemetry. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
+It is open source, so the code is auditable. There is no account and no telemetry. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
 
 ## Getting Started
 
@@ -90,7 +90,7 @@ npm run dev
 ## FAQ
 
 ### Q: Is it really free?
-Yes. The app is free and open-source under AGPL-3.0. There are no per-minute charges and no subscription.
+Yes. The app is free and open-source. There are no per-minute charges and no subscription.
 
 ### Q: Does it work offline?
 Yes. Recording and transcription both run with no network connection.

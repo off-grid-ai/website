@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Fully Open Source, Fully Private: How Off Grid AI Desktop Keeps Your AI On-Device"
-description: "AGPL open source, everything on-device, no account, no telemetry, no API keys. What private actually means, and why open source is the proof."
+description: "Open source, everything on-device, no account, no telemetry, no API keys. What private actually means, and why open source is the proof."
 date: "2026-06-25"
 permalink: /articles/fully-open-source-fully-private-how-off-grid-ai-desktop-keeps-your-ai-on-device/
 published_at: "2026-06-25T05:13:33.405Z"
@@ -16,7 +16,7 @@ Most "private AI" apps ask you to trust a privacy policy you cannot read and a s
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source (AGPL-3.0), runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account, no telemetry.
 
 
 ![Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/onboarding.png?v=2)
@@ -69,7 +69,7 @@ And the app never acts on your behalf without you. Actions are approval-gated. T
 
 ## Why open source is the trust mechanism
 
-A closed app that promises privacy is asking for faith. An open app under AGPL-3.0 is offering evidence.
+A closed app that promises privacy is asking for faith. An open app is offering evidence.
 
 | Claim | Closed cloud app | Off Grid AI Desktop |
 |---|---|---|
@@ -77,9 +77,6 @@ A closed app that promises privacy is asking for faith. An open app under AGPL-3
 | Where the model runs | Their servers | Your machine |
 | What it sends home | Unknown | Nothing (verify it) |
 | Who can audit it | The vendor | Anyone |
-| If they change the terms | You find out later | The license stays AGPL |
-
-AGPL matters specifically. It requires that modifications stay open, so a forked or hosted version cannot quietly close the source and start collecting data. The guarantee travels with the code.
 
 You do not have to read every line. The point is that someone can, and that the binary is built from a tree you can inspect. Run a network monitor next to the app and watch it stay quiet with the model loaded.
 
@@ -109,7 +106,7 @@ Off Grid ships an OpenAI-compatible API at `http://127.0.0.1:7878/v1`. Your own 
 ## FAQ
 
 ### Q: Is it really free and open source?
-Yes. AGPL-3.0. The source is public and you can build from it.
+Yes. The source is public and you can build from it.
 
 ### Q: Does anything leave my machine?
 No. The local stack here runs offline. No telemetry, no account, no API keys.
@@ -119,9 +116,6 @@ It is opt-in per device and shows a visible indicator while running. It is off b
 
 ### Q: Do MCP connectors send my data to the cloud?
 No. Connectors fetch data; the on-device model reasons over it. Actions are approval-gated with an audit log.
-
-### Q: Why does the AGPL license matter to me?
-It keeps the code open even if someone forks or hosts it, so the privacy guarantee cannot be quietly stripped out.
 
 ### Q: Can I verify the privacy claim myself?
 Yes. Read the source, and watch the network with a monitor while the app runs offline.

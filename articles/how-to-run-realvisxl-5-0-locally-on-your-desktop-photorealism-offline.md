@@ -74,7 +74,7 @@ Quantization is what makes a large SDXL checkpoint runnable. The GGUF build trim
 
 A hosted photoreal tool sees every face you generate and every prompt you write. It logs them, and many train on what you upload. With realistic images of people, that exposure is not abstract.
 
-Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing sent anywhere. Your prompts and your images stay on the device. The app is AGPL-3.0, so the source is open and you can verify the behavior yourself. With photorealism, local is not a preference. It is the responsible default.
+Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing sent anywhere. Your prompts and your images stay on the device. The app is open source, so you can verify the behavior yourself. With photorealism, local is not a preference. It is the responsible default.
 
 ## Getting Started
 
@@ -99,7 +99,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 
 ### Q: Is it really free?
 
-Yes. The app is free and open-source under AGPL-3.0, and the model is a free download. No subscription, no credits.
+Yes. The app is free and open-source, and the model is a free download. No subscription, no credits.
 
 ### Q: Does it work fully offline?
 

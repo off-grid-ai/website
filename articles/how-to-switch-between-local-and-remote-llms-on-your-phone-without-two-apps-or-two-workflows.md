@@ -102,7 +102,7 @@ We are building toward a personal AI operating system. Something that uses every
 
 Network discovery was the first step. On-device inference was the foundation. The next pieces are seamless handoff between local and remote models mid-conversation, automatic routing based on task complexity, and shared context across devices.
 
-If you want to shape what this looks like, we are building it in the open. The code is MIT licensed and the community is active.
+If you want to shape what this looks like, we are building it in the open. The code is open and the community is active.
 
 [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) - feature requests, model recommendations, and conversations about what a personal AI OS should actually do. Or just star the [GitHub repo](https://github.com/alichherawalla/off-grid-mobile-ai) and follow along.
 

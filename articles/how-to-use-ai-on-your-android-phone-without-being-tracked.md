@@ -46,7 +46,7 @@ Here's what "completely on your device" actually means:
 
 **No data stored anywhere except your phone.** Your conversations live in the app's local storage on your device. Not on a cloud server. Not in a backup that syncs somewhere. On your phone.
 
-**Open source.** You don't have to take anyone's word for any of this. The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). MIT licensed. Read it yourself. Apple's App Store privacy label for Off Grid states: "The developer does not collect any data from this app."
+**Open source.** You don't have to take anyone's word for any of this. The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). Read it yourself. Apple's App Store privacy label for Off Grid states: "The developer does not collect any data from this app."
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
