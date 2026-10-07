@@ -48,6 +48,7 @@ import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/
 import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { PlaceholdersAndVanishInput } from '@aceternity/placeholders-and-vanish-input';
+import { PlaceholdersAndVanishInput as PresetVanishInput } from '@offgrid-ui/placeholders-and-vanish-input';
 import { TextAnimate } from '@magicui/text-animate';
 import { HyperText } from '@magicui/hyper-text';
 import { TextReveal } from '@magicui/text-reveal';
@@ -92,6 +93,7 @@ const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Dow
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261007g';
 export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange }) {
+  mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
   const fixed = mobile && name.match(/-(dark|light)$/);
   const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
@@ -500,43 +502,56 @@ export function Preload({ names }) {
 export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 // Where the readable result sits in each capture; phones crop to it instead of shrinking the whole app.
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
+// Pair only captures of the same task or the connection used for that task.
+const SHOT_PAIRS = {
+  'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
+  'mobile/imagegen-ios-1': ['imagegen-chat', 'Desktop image generation: the generated landscape and its prompt.'],
+  'mobile/models-ios-1': ['models-text', 'Text models available on desktop.'],
+  'mobile/models-ios-2': ['models-voice', 'Voice models available on desktop.'],
+  'mobile/voice-ios-1': ['mobile/chat-ios-1', 'The same reply shown as text before its spoken version.'],
+  'mobile/vision-ios-1': ['mobile/remote-ios-1', 'The phone connected to the Mac that runs its vision model.'],
+};
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
   const reduce = useReducedMotion();
   useEffect(() => { if (!playing || reduce || shots.length < 2) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, playing, reduce]);
   const [name, alt] = shots[i];
+  const pair = SHOT_PAIRS[name];
   return <>
     <div className="wt-shot">
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
-        <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className="wt-shot-in" initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
-          <Shot name={name} alt={alt} lazy={false} />
+        <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
+          {pair ? <><div className="shot-pair-item shot-pair-companion"><Shot name={pair[0]} alt={pair[1]} lazy={false} /></div><div className="shot-pair-item"><Shot name={name} alt={alt} lazy={false} /></div></> : <Shot name={name} alt={alt} lazy={false} />}
           {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
         </motion.div>
       </AnimatePresence>
+      {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span key={`${n}-${playing}`} initial={{ scaleX: 0 }} animate={{ scaleX: playing ? 1 : 0 }} transition={{ duration: playing ? (shots[i][2] || ms) / 1000 : 0, ease: 'linear' }} /></span>}
     </div>
 
   </>;
 }
-const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true });
+const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, duration: shots.reduce((total, shot) => total + (shot[2] || 3200), 0) });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.'], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.'], ['actions', 'Off Grid AI Actions: approvals waiting for your yes.']) },
+  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['integrations', 'Off Grid AI Integrations: accounts and tools you choose to connect.', 4000], ['replay', 'Off Grid AI Replay: a captured screen stored on your device.', 4000]) },
   { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 0, View: shotView(['day', 'Off Grid AI Day: a timeline built from your captured work.', 4000], ['entities', 'Off Grid AI People: related people, companies and projects.', 4000], ['search', 'Off Grid AI Search: find a past decision in your memory.', 4000]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff with Sam.']) },
   { id: 'reflect', cmd: 'where did my week go?', title: 'Your week, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.'], ['replay', 'Off Grid AI Replay: scrub back through what you chose to record.']) },
-  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000], ['projects', 'Off Grid AI Projects: documents and cited answers.', 4000]) },
+  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000], ['mobile/project-ios-2', 'Off Grid AI on iPhone: a project answer citing your document.', 4000]) },
   { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 0, View: shotView(['actions', 'Off Grid AI Actions: proposals waiting for approval.', 4000], ['god', 'Off Grid AI God: the briefing and tasks waiting for your decision.', 4000]) },
   { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: reading and comparing note-app pricing.', 4000], ['web-takeover', 'Off Grid AI Web use: sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: completed task and its result.', 4000]) },
   { id: 'meetings', cmd: 'summarize the design review', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.'], ['voice', 'Off Grid AI Voice notes with transcripts and to-dos.']) },
-  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
+  { id: 'voice', cmd: 'talk to my AI', title: 'Your AI has a voice.', line: 'Listen to spoken replies and read their transcripts on your phone.', chips: ['Voice', 'Transcripts', 'Phone'], loop: 0, View: shotView(['mobile/voice-ios-1', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]) },
+  { id: 'vision', cmd: 'what is in this picture?', title: 'Your photos become answers.', line: 'Ask about a photo on your phone. This answer uses a vision model running on your Mac.', chips: ['Vision', 'Phone', 'Shared compute'], loop: 0, View: shotView(['mobile/vision-ios-1', 'Off Grid AI on iPhone: a photo answered by Qwen 3.5 9B running on your Mac.', 4200]) },
   { id: 'browser', cmd: 'take over for sign-in', title: 'Your browser, with AI.', line: 'Your AI handles the task. You take over for sign-in and keep your passwords in your vault.', chips: ['Browser tasks', 'Takeover', 'Vault'], loop: 0, View: shotView(['web-takeover', 'Off Grid AI browser task waiting for you to sign in.', 4000], ['vault-open', 'Off Grid AI Vault: your saved logins and secrets.', 4000]) },
   { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: shotView(['vault-locked', 'Off Grid AI Vault: locked.', 2200], ['vault-typing', 'Off Grid AI Vault: entering the master password.', 2200], ['vault-open', 'Off Grid AI Vault: saved logins and notes.', 4000]) },
   { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard history with search.']) },
-  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['imagegen-chat', 'Off Grid AI Chat: a generated image and its prompt.', 4000]) },
-  { id: 'models', cmd: 'download models for this Mac', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['models-text', 'Off Grid AI Models: text models available to download.', 2800], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-voice', 'Off Grid AI Models: voice models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
+  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its prompt.', 4600]) },
+  { id: 'models', cmd: 'choose models for my devices', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['mobile/models-ios-1', 'Off Grid AI on iPhone: the model library.', 4200], ['mobile/models-ios-2', 'Off Grid AI on iPhone: model options for your device.', 4200], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
   { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine. Chat, images, speech and embeddings.', chips: ['OpenAI-compatible', 'MCP', 'No API key'], loop: 0, View: shotView(['gateway', 'Off Grid AI Gateway: local API endpoints and active models.', 4000]) },
 ];
 const PROMPTS = [
@@ -549,35 +564,20 @@ const INTENTS = [[/image|picture|draw|photo/i, 'images'], [/clipboard|copied|pas
 // Preset prompts keep the animated hero interaction without accepting free text.
 const BAR_PROMPTS = PROMPTS.map(prompt => prompt.label);
 function CommandBar({ onRun }) {
-  const wrap = useRef(null); const value = useRef(false);
   const reduce = useReducedMotion();
-  const open = async () => {
-    if (value.current) return;
-    value.current = true;
-    const text = wrap.current?.querySelector('.cmd-preset')?.textContent?.replace(/[|_]+$/, '').trim() || '';
-    const prompt = PROMPTS.find(p => p.label === text) || PROMPTS.find(p => text && p.label.startsWith(text)) || PROMPTS[0];
-    const phrase = wrap.current?.querySelector('.cmd-preset');
-    if (phrase && !reduce) await animate(phrase, { opacity: 0, y: -8 }, { duration: .3 });
-    onRun(prompt.id);
-    setTimeout(() => { value.current = false; if (phrase) animate(phrase, { opacity: 1, y: 0 }, { duration: reduce ? 0 : .15 }); }, 900);
-  };
-  return <div className="cmd-vanish" ref={wrap} aria-label="Off Grid AI demo">
-    <form onSubmit={(e) => { e.preventDefault(); open(); }}>
-      <TextField.Root size="3" value="" readOnly aria-label="Open the example shown" onFocus={open} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); open(); } }}>
-        <span className="cmd-preset" aria-hidden="true">{reduce ? BAR_PROMPTS[0] : <TypingAnimation words={BAR_PROMPTS} loop typeSpeed={45} deleteSpeed={25} pauseDelay={2200} showCursor={false} />}</span>
-        <TextField.Slot side="right"><Button type="submit" size="sm" aria-label="Open example chapter"><ArrowRight size={16} /></Button></TextField.Slot>
-      </TextField.Root>
-    </form>
+  return <div className="cmd-vanish" aria-label="Off Grid AI demo">
+    <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
+      label="Open the example shown" submitLabel="Open example chapter"
+      onVanishComplete={(text) => onRun((PROMPTS.find(prompt => prompt.label === text) || PROMPTS[0]).id)} />
     <p className="cmd-note">Select the field or press Enter to open the example. Or choose an option below.</p>
   </div>;
 }
 
 const HERO = .07;
 const STAGE = .5;
-const DWELL = { today: 7200, god: 7200, capture: 8600, remember: 12600, people: 7200, reflect: 7200, ask: 12600, act: 8600, web: 12600, meetings: 7200, phone: 6500, browser: 8600, vault: 9000, clipboard: 5200, images: 10400, models: 17400, api: 8200 };
 const ROT_WORDS = ['memory.', 'meetings.', 'devices.', 'browser.', 'secrets.'];
-export const WALK_LABELS = { today: 'Today', god: 'God', capture: 'Capture', remember: 'Memory', people: 'People', reflect: 'Reflect', ask: 'Ask', act: 'Act', web: 'Web', meetings: 'Meetings', phone: 'Phone', browser: 'Browser', vault: 'Vault', clipboard: 'Clipboard', images: 'Images', models: 'Models', api: 'API' };
-export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: ClipboardText, images: ImageSquare, reflect: ChartBar, today: CalendarBlank, capture: Files, remember: ClockCounterClockwise, ask: ChatCircle, act: CheckCircle, web: Globe, meetings: VideoCamera, phone: DeviceMobile, browser: PuzzlePiece, vault: LockKey, models: Cpu, api: TerminalWindow };
+export const WALK_LABELS = { today: 'Today', god: 'God', capture: 'Capture', remember: 'Memory', people: 'People', reflect: 'Reflect', ask: 'Ask', act: 'Act', web: 'Web', meetings: 'Meetings', phone: 'Phone', voice: 'Voice', vision: 'Vision', browser: 'Browser', vault: 'Vault', clipboard: 'Clipboard', images: 'Images', models: 'Models', api: 'API' };
+export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: ClipboardText, images: ImageSquare, reflect: ChartBar, today: CalendarBlank, capture: Files, remember: ClockCounterClockwise, ask: ChatCircle, act: CheckCircle, web: Globe, meetings: VideoCamera, phone: DeviceMobile, voice: Microphone, vision: ImageSquare, browser: PuzzlePiece, vault: LockKey, models: Cpu, api: TerminalWindow };
 
 function Walkthrough({ reduce, theme }) {
   const ref = useRef(null);
@@ -658,7 +658,7 @@ function Walkthrough({ reduce, theme }) {
   }, []);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // Chapters inside the act advance on their own; hovering the window holds the current one.
-  useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
+  useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), WALK[ch].View.duration || WALK[ch].loop || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
@@ -667,7 +667,7 @@ function Walkthrough({ reduce, theme }) {
       <div className="walk-igrid"><InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" /></div>
 
       <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
-        <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms · Browser extension in early access</AnimatedShinyText><ArrowRight size={13} /></a>
+        <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
           <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
@@ -693,7 +693,7 @@ function Walkthrough({ reduce, theme }) {
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
           <div className="wheel-center">
             {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek"><span className="walk-count">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Click to open</small></div>}
-            <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail"><motion.b key={`${ch}-${paused}`} initial={{ scaleX: 0 }} animate={{ scaleX: paused || manual ? 0 : 1 }} transition={{ duration: paused || manual ? .2 : (DWELL[C.id] || 7000) / 1000, ease: 'linear' }} /></i></div>
+            <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b key={`${ch}-${paused}-${manual}-${docked}-${inView}`} initial={{ scaleX: 0 }} animate={{ scaleX: !docked || !inView || paused || manual ? 0 : 1 }} transition={{ duration: !docked || !inView || paused || manual ? 0 : (C.View.duration || C.loop || 7000) / 1000, ease: 'linear' }} /></i></div>
             <div className="chapter-stack">
               <AnimatePresence initial={false}>
                 <motion.div key={C.id} className="chapter-copy" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .3 }}>
@@ -713,7 +713,7 @@ function Walkthrough({ reduce, theme }) {
           </div>
           <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(true); go(ch + 1); }}><ArrowRight size={16} /></Button>
         </div>
-        <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
+        <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}<i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b key={`${ch}-${paused}-${manual}-${docked}-${inView}`} initial={{ scaleX: 0 }} animate={{ scaleX: !docked || !inView || paused || manual ? 0 : 1 }} transition={{ duration: !docked || !inView || paused || manual ? 0 : (C.View.duration || C.loop || 7000) / 1000, ease: 'linear' }} /></i></span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
         <div className="wheel-hint" style={{ width: `${680 * wz}px` }}>
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!manual} onClick={() => setManual(m => !m)}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
           <span className="hint-desk">Drag to spin, click a chapter, or use ← →.</span><span className="hint-mob">Swipe the dial or tap a chapter.</span>
