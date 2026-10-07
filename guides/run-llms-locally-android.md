@@ -112,4 +112,5 @@ Off Grid AI uses llama.cpp on ARM64 with NEON, i8mm, and dotprod SIMD instructio
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 - [How to Run Stable Diffusion on Your Android Phone]({{ '/guides/stable-diffusion-android' | relative_url }})
 - [How to Use Ollama From Your Android Phone in 2026]({{ '/guides/ollama-android' | relative_url }})
+- [How to Use Off Grid AI Desktop From Your Phone in 2026]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})
 - [Vision AI - Analyse Images On-Device]({{ '/guides/vision-ai' | relative_url }})

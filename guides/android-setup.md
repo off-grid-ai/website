@@ -73,3 +73,4 @@ Run a local AI model on your Android phone - completely offline, no account, no 
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 - [Run Stable Diffusion on Android]({{ '/guides/stable-diffusion-android' | relative_url }})
 - [Connect Ollama from your phone]({{ '/guides/ollama-android' | relative_url }})
+- [Use Off Grid AI Desktop from your phone]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})

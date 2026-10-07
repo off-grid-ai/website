@@ -72,3 +72,4 @@ Once a model is downloaded, Off Grid AI works in airplane mode. Put your phone o
 
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 - [Connecting Ollama from your phone]({{ '/guides/ollama-android' | relative_url }})
+- [Use Off Grid AI Desktop from your phone]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})
