@@ -1352,3 +1352,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .theme-light{display:none!important}.light .theme-light{display:block!important}.light .theme-dark{display:none!important}
 /* Explorer progress bar: sits below the copy, not under its last line */
 .pillar-tab .pillar-bar{bottom:-12px}
+/* Model band: maker marks, tinted with the text colour */
+.mq-model{align-items:center!important}
+.mq-logo{display:inline-block;width:18px;height:18px;flex-shrink:0;background:var(--og-text-secondary);-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.mq-kind{background:none;-webkit-mask:none;mask:none;color:var(--og-text-muted);display:inline-grid;place-items:center}

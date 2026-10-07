@@ -70,11 +70,20 @@ export const DOWNLOADS = [
   { id: 'linux', small: 'AppImage for', label: 'Linux', href: 'https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage' },
 ];
 // From the shared model catalog (shared/packages/models).
+// Name, kind, maker. Makers with a mark in the pinned lobe-icons set show it (assets/img/logos);
+// the others show the model kind's icon rather than an invented logo.
 export const MODELS = [
-  ['Qwen 3.8', 'Text'], ['Gemma 4', 'Vision'], ['Muse Glimmer 30B', 'Vision'], ['Bonsai 2 27B', 'Vision'],
-  ['Nemotron 3.5 Lightning', 'Text'], ['Qwen3-VL', 'Vision'], ['Holo 3.1', 'Computer use'], ['Whisper Large v3 Turbo', 'Speech'],
-  ['Parakeet TDT', 'Speech'], ['Kokoro', 'Voice'], ['Qwen-Image 2.1', 'Image'], ['Z-Image Turbo', 'Image'],
+  ['Qwen 3.8', 'Text', 'qwen'], ['Gemma 4', 'Vision', 'gemma'], ['Muse Glimmer 30B', 'Vision', 'meta'], ['Bonsai 2 27B', 'Vision'],
+  ['Nemotron 3.5 Lightning', 'Text', 'nvidia'], ['Qwen3-VL', 'Vision', 'qwen'], ['Holo 3.1', 'Computer use'], ['Whisper Large v3 Turbo', 'Speech', 'openai'],
+  ['Parakeet TDT', 'Speech', 'nvidia'], ['Kokoro', 'Voice'], ['Qwen-Image 2.1', 'Image', 'qwen'], ['Z-Image Turbo', 'Image', 'alibaba'],
 ];
+const KIND_ICON = { Text: ChatCircle, Vision: ImageSquare, 'Computer use': Laptop, Speech: Microphone, Voice: Microphone, Image: ImageSquare };
+function ModelChip({ name, kind, maker }) {
+  const Icon = KIND_ICON[kind];
+  return <span className="mq-model">{maker
+    ? <span className="mq-logo" style={{ '--logo': `url(/assets/img/logos/${maker}.svg)` }} role="img" aria-label={maker} />
+    : <span className="mq-logo mq-kind" aria-hidden="true"><Icon size={16} /></span>}<b>{name}</b><small>{kind}</small></span>;
+}
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
 // Header: where people want to go from any page. Home-only anchors live in the phone menu.
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
@@ -875,8 +884,8 @@ function HomeSections({ pricing }) {
       <Walkthrough reduce={reduce} theme={theme} />
       <section className="models-band" aria-label="Models you can run">
         <ScrollVelocityContainer className="models-vel">
-          <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k]) => <span className="mq-model" key={n}><b>{n}</b><small>{k}</small></span>)}</ScrollVelocityRow>
-          <ScrollVelocityRow baseVelocity={3} direction={-1}>{MODELS.slice(6).map(([n, k]) => <span className="mq-model" key={n}><b>{n}</b><small>{k}</small></span>)}</ScrollVelocityRow>
+          <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
+          <ScrollVelocityRow baseVelocity={3} direction={-1}>{MODELS.slice(6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
         </ScrollVelocityContainer>
       </section>
       <PrivacySection />
