@@ -38,18 +38,18 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
 
 <script>
   (function () {
-    // Google Ads "Purchase" conversion. This page is the only place a real
-    // purchase is observable from the browser: RevenueCat hosts checkout, then
-    // redirects the buyer here once payment clears. The earlier checkout-CLICK
+    // Browser checkout-return signal. This page cannot verify payment with
+    // RevenueCat. Require a return ID and a known plan before reporting it.
+    // The earlier checkout-CLICK
     // action fires on /pro - see the google_ads_* block in _config.yml.
     var SEND_TO = {{ site.google_ads_id | jsonify }} + '/' + {{ site.google_ads_purchase_label | jsonify }};
     var ENABLED = {{ site.google_ads_purchase_label | jsonify }} !== '';
 
-    // The same numbers the buy buttons render, so the value reported to Ads can
-    // never drift from the price the buyer actually paid. A ?plan= on the
+    // Report the configured price shown by the buy buttons. This is not a
+    // verified amount after discounts or tax. A ?plan= on the
     // redirect URL wins when one is configured; otherwise the plan comes from
     // the cookie the buy button wrote (RevenueCat's redirect carries only
-    // app_user_id). With neither, the conversion still fires - just no value.
+    // app_user_id). With no known plan, no purchase conversion is sent.
     var PLAN_VALUES = {
       monthly: {{ site.data.pricing.monthly }},
       lifetime: {{ site.data.pricing.lifetime }},
@@ -136,8 +136,11 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     }
 
     var guardKey = 'og_purchase_' + (appUserId ? hash(appUserId) : 'anon');
+    var checkoutReturn = appUserId !== '' && Boolean(PLAN_VALUES[plan]) && value > 0;
+    // Reuse the existing per-tab purchase guard for all browser vendors.
+    var purchaseAlreadyFired = checkoutReturn && alreadyFired(guardKey);
 
-    if (ENABLED && typeof gtag === 'function' && !alreadyFired(guardKey)) {
+    if (checkoutReturn && !purchaseAlreadyFired && ENABLED && typeof gtag === 'function') {
       var payload = { send_to: SEND_TO };
       if (value > 0) {
         payload.value = value;
@@ -153,9 +156,9 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
       }
     }
 
-    // Meta Pixel "Purchase". Never a URL-based conversion: a bare visit to
-    // this page fires nothing. It needs evidence a checkout actually
-    // completed - RevenueCat's redirect param or the buy button's cookie -
+    // Meta Pixel "Purchase". A bare visit to this page fires nothing.
+    // Require checkout-return details and the selected plan;
+    // these browser values do not verify that a payment settled.
     // AND the plan must resolve to lifetime Pro with its real price.
     // Monthly is sent by the RevenueCat webhook Worker with the event ID; its
     // browser ID differs, so firing both would double-count that purchase.
@@ -164,9 +167,9 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     // to Meta: the head scrubber removed app_user_id from the URL the pixel
     // sees, and here it is only hashed into the guard key and the eventID.
     var FB_PLANS = { lifetime: true };
-    var fbEvidence = appUserId !== '' || !!picked;
+    var fbEvidence = checkoutReturn;
     var fbGuardKey = 'og_fb_purchase_' + (appUserId ? hash(appUserId) : 'anon');
-    if (fbEvidence && FB_PLANS[plan] && value > 0 &&
+    if (fbEvidence && !purchaseAlreadyFired && FB_PLANS[plan] && value > 0 &&
         typeof fbq === 'function' && !alreadyFired(fbGuardKey)) {
       try {
         // txnId is stable per buyer+plan, so Meta also dedups a return visit
@@ -186,6 +189,7 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
     // straight away silently dropped every purchase event; wait for the
     // snippet instead. Give up after ~10s so a blocked loader costs nothing.
     function capturePurchase() {
+      if (!checkoutReturn || purchaseAlreadyFired || (plan !== 'monthly' && plan !== 'lifetime')) return true;
       if (typeof posthog === 'undefined') return false;
       try {
         // RevenueCat redirects here with app_user_id set to the buyer's email,
@@ -197,8 +201,8 @@ Still nothing after five minutes, spam checked? Email **support@offgridmobileai.
           posthog.identify(appUserId, { email: appUserId });
         }
         posthog.capture('pro_purchase_completed', {
-          plan: plan || 'unknown',
-          value: value || null
+          plan: plan,
+          value: value
         });
       } catch (err) {
         console.warn('PostHog tracking failed:', err);
