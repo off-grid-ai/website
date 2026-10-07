@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Privacy Policy
 nav_order: 11
 nav_group: Learn

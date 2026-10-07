@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Releases
 parent: Desktop
 nav_order: 1

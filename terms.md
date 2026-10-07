@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Terms of Service
 nav_order: 10
 nav_group: Learn

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: Releases
 parent: Mobile
 nav_order: 2
