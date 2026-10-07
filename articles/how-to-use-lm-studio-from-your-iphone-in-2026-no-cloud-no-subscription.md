@@ -18,6 +18,10 @@ Your Mac is still running. The model is still loaded. You just cannot reach it f
 
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) solves this. It auto-discovers LM Studio servers on your network and gives you a full-featured AI interface on your iPhone - connected to the same models running on your Mac.
 
+<div style="width: 100%;">
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
+</div>
+
 ## Setup in three steps
 
 ### 1. Enable network access in LM Studio

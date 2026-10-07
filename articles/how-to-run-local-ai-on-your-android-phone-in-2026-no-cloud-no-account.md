@@ -43,7 +43,7 @@ Off Grid isn't just a text chatbot. It runs six AI capabilities locally in a sin
         <b>Image Generation</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/models-ios-1-light-640.webp" alt="The Models screen in Off Grid on the phone; the eye badge marks models that can read images, like Gemma 4 and Qwen 3.5" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/vision-ios-1-light-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
         <b>Vision AI</b>
       </td>
     </tr>

@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, CheckCircle, Check, Laptop, DeviceMobile, WifiHigh, LockKey, ChatCircle, VideoCamera, FilePdf, Sparkle } from '@phosphor-icons/react';
-import { AnimatedBeam } from '@magicui/animated-beam';
+import { ArrowUpRight, CheckCircle, Check, LockKey, ChatCircle, VideoCamera, FilePdf, Sparkle } from '@phosphor-icons/react';
 import { AnimatedList } from '@magicui/animated-list';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow } from '../shared.jsx';
-import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, ImageScene, VisionScene, VoiceScene, OfflineScene, ToolsScene, ApprovalScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, ImageScene, VoiceScene, OfflineScene, ToolsScene, ApprovalScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -13,22 +12,6 @@ const ANDROID = { id: 'android', href: `https://play.google.com/store/apps/detai
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 
 const GEN = [['dreamshaper', 'Stable Diffusion', 'A golden retriever in an autumn park'], ['realvis', 'Stable Diffusion', 'Alpine lake at sunrise, still water'], ['juggernaut', 'Stable Diffusion', 'Neon city street after rain']];
-
-// Larger models: the phone borrows a bigger machine on your own network.
-function LargerScene() {
-  const box = useRef(null); const a = useRef(null); const b = useRef(null);
-  return <div className="ms">
-    <SceneHead title="Remote models" badge={<><WifiHigh size={10} /> Local network</>} />
-    <div className="ms-net" ref={box}>
-      <span className="ms-node" ref={a}><DeviceMobile size={20} /><small>This phone</small></span>
-      <span className="ms-node" ref={b}><Laptop size={22} /><small>Your computer</small></span>
-      <AnimatedBeam containerRef={box} fromRef={a} toRef={b} duration={2.4} pathWidth={2} pathColor="var(--og-text-muted)" pathOpacity={.2} gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
-    </div>
-    <AnimatedList delay={650} className="ms-servers">
-      {[['Off Grid AI Desktop', 'Connected'], ['Ollama', 'Found'], ['LM Studio', 'Found']].map(([n, s]) => <div className="ms-server" key={n}><span className="tl-ic"><Laptop size={13} /></span><b>{n}</b><small className={s === 'Connected' ? 'on' : ''}>{s}</small></div>)}
-    </AnimatedList>
-  </div>;
-}
 
 function PersonaScene() {
   return <div className="ms">
@@ -53,11 +36,9 @@ function SyncScene() {
 const SCENES = {
   chat: () => <ChatScene model="Qwen 3.8 · on device" q="Draft a reply to my landlord about the deposit." a="Hi, I moved out on 30 September and left the flat as I found it. Could you return the deposit by Friday? Thanks, Sam" />,
   images: () => <ImageScene runs={GEN} label="On this phone" />,
-  vision: () => <VisionScene />,
   voice: () => <VoiceScene />,
   projects: () => <ChatScene file="Acme_rollout_v3.pdf" model="Project" q="How many seats are in the pilot?" a="The pilot covers 40 seats and starts after the security review [1]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }]} />,
   tools: () => <ToolsScene />,
-  larger: () => <LargerScene />,
   offline: () => <OfflineScene where="your phone" />,
   voicemode: () => <VoiceScene title="Voice mode" badge="Kokoro · on device" speaking text="Your pilot with Acme Corp moves to the fourteenth. Want me to tell Sam?" />,
   personas: () => <PersonaScene />,
@@ -66,9 +47,10 @@ const SCENES = {
 };
 // Real screens where the app has them, only in their own theme; a composed scene stands in for the other theme.
 const REAL = {
-  images: { light: [['imagegen-1-light', 'Off Grid AI on iPhone: a golden retriever image generated on device, with generation details.', 4200], ['imagegen-2-light', 'Off Grid AI on Android: an image generated on device for "Draw a dog running".', 4200]] },
-  voice: { light: [['voice-1-light', 'Off Grid AI voice note with its transcript, made on the phone.', 4200]] },
-  larger: { light: [['remote-2-light', 'Off Grid AI voice model sheet: Kokoro text-to-speech running on your active remote server.', 4200]] },
+  images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
+  voice: { light: [['voice-ios-1-light', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]], dark: [['voice-ios-1-dark', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]] },
+  vision: { light: [['vision-ios-1-light', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]], dark: [['vision-ios-1-dark', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]] },
+  larger: { light: [['remote-ios-1-light', 'Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network, with Ollama and LM Studio discovery in Remote Servers.', 4200]], dark: [['remote-ios-1-dark', 'Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network, with Ollama and LM Studio discovery in Remote Servers.', 4200]] },
   voicemode: { light: [['voice-2-light', 'Off Grid AI hands-free voice mode: tap to speak, everything runs on your device.', 4200]], dark: [['voice-3-dark', 'Off Grid AI voice picker: Kokoro voices, speech runs on your phone.', 4200]] },
   sync: { light: [['sync-1-light', 'Off Grid AI Sync sharing: what to send and receive between paired devices.', 3800], ['sync-2-light', 'Off Grid AI Sync rules for screenshots, downloads, media and attachments.', 3800]] },
 };
@@ -82,7 +64,7 @@ const inPhone = (id) => (compact) => {
 const FREE = [
   ['chat', 'Chat', 'Write, ask, and reason with local models such as Qwen, Llama, Gemma, and Phi.'],
   ['images', 'Image generation', 'Create images with on-device Stable Diffusion and a live preview.'],
-  ['vision', 'Vision AI', 'Ask about a photo, read a receipt, or extract text with local vision models.'],
+  ['vision', 'Vision AI', 'Ask about a photo, read a receipt, or extract text. On the phone, or with your computer’s vision models.'],
   ['voice', 'Voice input', 'Turn speech into text on your phone with Whisper.'],
   ['projects', 'Projects', 'Ask about your PDFs and documents. Answers cite their sources.'],
   ['tools', 'Tools', 'Use web search, a calculator, and document lookup with compatible models.'],
@@ -98,17 +80,20 @@ const PRO = [
 
 // Hero phone: the real app, screen after screen, in the page's theme.
 const HERO_LIGHT = [
-  ['models-1-light', 'Off Grid AI model library on iPhone: Gemma 4, Qwen 3.5, SmolLM3 and Mistral, recommended for your device.', 3800],
-  ['imagegen-1-light', 'An image generated on the phone, with its generation details.', 3800],
-  ['voice-1-light', 'A spoken reply as a voice note, with its transcript.', 3800],
-  ['models-2-light', 'Downloading a Qwen 3.5 model file to the phone.', 3800],
-  ['sync-1-light', 'Sync sharing between your paired devices.', 3800],
+  ['chat-ios-1-light', 'A reply drafted on the phone for the Acme team.', 3800],
+  ['imagegen-ios-1-light', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
+  ['vision-ios-1-light', 'Asking about a picture, answered by your computer’s vision model.', 3800],
+  ['voice-ios-1-light', 'A spoken reply as a voice note, with its transcript.', 3800],
+  ['project-ios-2-light', 'A project answer that cites its document.', 3800],
+  ['models-ios-1-light', 'Models picked for your phone, with vision and tools marked.', 3800],
 ];
 const HERO_DARK = [
-  ['models-3-dark', 'Choosing a local text model on iPhone, with size and memory needs.', 3800],
-  ['voice-3-dark', 'Kokoro voices that speak on the phone.', 3800],
-  ['chat-1-dark', 'A chat in Hindi with the model showing its thought process, on device.', 3800],
-  ['settings-2-dark', 'Off Grid AI settings: remote servers, Sync and security.', 3800],
+  ['chat-ios-1-dark', 'A reply drafted on the phone for the Acme team.', 3800],
+  ['imagegen-ios-1-dark', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
+  ['vision-ios-1-dark', 'Asking about a picture, answered by your computer’s vision model.', 3800],
+  ['voice-ios-1-dark', 'A spoken reply as a voice note, with its transcript.', 3800],
+  ['project-ios-2-dark', 'A project answer that cites its document.', 3800],
+  ['models-ios-1-dark', 'Models picked for your phone, with vision and tools marked.', 3800],
 ];
 function HeroPhone() {
   return <div className="mp-hero-phone"><div className="only-dark"><PhoneShots shots={HERO_DARK} controls /></div><div className="only-light"><PhoneShots shots={HERO_LIGHT} controls /></div></div>;

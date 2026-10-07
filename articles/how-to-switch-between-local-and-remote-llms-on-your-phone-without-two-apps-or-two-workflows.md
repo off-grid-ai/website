@@ -20,6 +20,10 @@ Option two: connect to a model running on your PC. Something like Ollama or LM S
 
 The thing nobody has built until now is a single app that does both and switches between them intelligently. That is what we built into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
+<div style="width: 100%;">
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
+</div>
+
 ## The problem with picking one
 
 If you only run on-device models, you hit a ceiling. Qwen 3.5 2B on your phone is useful for quick answers, summarization, and simple tasks. But ask it to analyze a long document, write a nuanced email, or debug a complex function, and you feel the gap. The model is doing its best with 2 billion parameters and 6GB of RAM. It is impressive that it works at all. But "impressive for the hardware" and "actually good enough" are different things.
