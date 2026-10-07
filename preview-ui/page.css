@@ -1611,3 +1611,7 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .light .shot-mac-screen::before{background:rgb(255 255 255/.55)}
   .shot-mac-screen .shot{box-shadow:0 6px 14px rgb(0 0 0/.35)}
 }
+/* Rotating hero word: a fixed monospace slot as wide as the longest word, so "Your" never shifts. */
+.rot-line{display:flex!important;justify-content:center;align-items:baseline}
+.rot-line>.overflow-hidden,.rot-line>.rot{width:calc(var(--rot-ch) * 1ch);flex:none;text-align:left}
+.rot-line .rot{margin:0;font:inherit;white-space:nowrap}

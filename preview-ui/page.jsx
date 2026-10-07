@@ -725,7 +725,7 @@ function Walkthrough({ reduce, theme }) {
           <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
-        <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
+        <div className="hero-title rot-line" aria-hidden="true" style={{ '--rot-ch': Math.max(...ROT_WORDS.map(w => w.length)) }}><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
         <CommandBar onRun={(id) => { setManual(false); goId(id); }} />
         <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => { setManual(false); goId(sug.id); }} />
         <div className="hero-proof">
