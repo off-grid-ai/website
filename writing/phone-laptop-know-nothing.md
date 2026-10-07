@@ -2,6 +2,8 @@
 layout: default
 title: "Your Phone and Laptop Know Nothing About You. That's the Biggest Problem in Personal Computing."
 parent: Perspectives
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 nav_order: 23
 description: You unlock your phone 80+ times a day. You're on your laptop 8+ hours. At the platform level, neither device can answer "what's this person's day been like?" That's not a small gap - it's the defining failure of personal computing.
 ---

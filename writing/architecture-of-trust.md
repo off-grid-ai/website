@@ -2,6 +2,8 @@
 layout: default
 title: "The Architecture of Trust: How a Personal AI OS Earns the Right to Your Data"
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 11
 description: Trust in AI comes from two sources - policy and architecture. Only one of them is durable. Here's why on-device, open-source, no-telemetry is the only architecture that deserves access to your full context.
 ---

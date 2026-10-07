@@ -2,6 +2,8 @@
 layout: default
 title: "The 200-Year Secretary: How AI Finally Democratizes the World's Oldest Productivity Tool"
 parent: Perspectives
+article_topic: "Automation & tools"
+article_platform: "Any device"
 nav_order: 26
 description: For two centuries, having a personal secretary was the defining advantage of wealth and power. A Personal AI OS running on the device in your pocket changes that equation permanently.
 ---

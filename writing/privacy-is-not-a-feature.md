@@ -2,6 +2,8 @@
 layout: default
 title: Privacy Is Not a Feature. It's an Architecture Decision.
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 2
 description: Privacy toggles, data deletion tools, and privacy policies are theater. The only meaningful privacy guarantee is an architecture where the data never left your device in the first place.
 faq:

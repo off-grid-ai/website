@@ -2,6 +2,8 @@
 layout: default
 title: "The Context Gap: Why Your Most Personal Devices Are the Least Intelligent Things You Own"
 parent: Perspectives
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 nav_order: 21
 description: Your phone could know your tone, your schedule, your health, your location, your relationships. Your laptop could know your work, your files, your focus patterns. Neither does anything useful with it. That's the context gap.
 ---

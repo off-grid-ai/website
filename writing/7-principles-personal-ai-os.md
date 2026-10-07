@@ -2,6 +2,8 @@
 layout: default
 title: "The 7 Principles of a Personal AI OS"
 parent: Perspectives
+article_topic: "Getting started"
+article_platform: "Any device"
 nav_order: 6
 description: The rules that define the category. Runs on-device, never phones home, works across devices, acts on your behalf, remembers your context, open and auditable, no cloud compute rent.
 faq:

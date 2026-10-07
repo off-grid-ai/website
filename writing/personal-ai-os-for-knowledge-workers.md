@@ -2,6 +2,8 @@
 layout: default
 title: "The Personal AI OS for Knowledge Workers: From Email Triage to Meeting Prep to Deep Work"
 parent: Perspectives
+article_topic: "Work & organization"
+article_platform: "Any device"
 nav_order: 15
 description: 800 million knowledge workers spend large parts of their day on work that AI should handle. Email triage, meeting prep, status updates, follow-up drafting. Here's what that looks like when the AI runs locally on your own device.
 ---

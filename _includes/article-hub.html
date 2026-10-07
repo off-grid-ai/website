@@ -2,14 +2,16 @@
 {% assign articles = site.pages | where_exp: "item", "item.devto_article == true or item.parent == 'Perspectives' or item.parent == 'Ethos' or item.parent == 'Guides'" %}
 {% elsif include.guides %}
 {% assign articles = site.pages | where_exp: "item", "item.devto_article == true or item.parent == 'Guides'" | sort: "published_at" | reverse %}
+{% elsif include.section %}
+{% assign articles = site.pages | where: "parent", include.section | sort: "title" %}
 {% else %}
 {% assign articles = site.pages | where: "devto_article", true | sort: "published_at" | reverse %}
 {% endif %}
 
-<div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% elsif include.guides %} data-default-title="Guides"{% endif %}>
+<div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% elsif include.guides %} data-default-title="Guides"{% elsif include.section %} data-result-label="pages" data-default-title="{{ include.section | escape }}"{% endif %}>
   <div class="article-search-row" data-analytics-view="resource_hub_viewed" data-analytics-placement="{% if include.home %}home_resources{% else %}articles{% endif %}">
-    <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% elsif include.guides %}guides{% else %}articles{% endif %}</label>
-    <input id="article-search" class="article-search-input" type="search" placeholder="Try transcription, PDF, Android, sync..." autocomplete="off">
+    <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% elsif include.guides %}guides{% elsif include.section %}{{ include.section | escape }}{% else %}articles{% endif %}</label>
+    <input id="article-search" class="article-search-input" type="search" placeholder="{% if include.section %}Try privacy, memory, context...{% else %}Try transcription, PDF, Android, sync...{% endif %}" autocomplete="off">
   </div>
 
   {% if include.home %}
@@ -32,14 +34,15 @@
   <div class="article-topics" role="group" aria-label="Filter by topic">
     <button class="article-topic is-active" type="button" data-topic="" aria-pressed="true">
       <span class="article-topic-name">All topics</span>
-      <span class="article-topic-count">{{ articles.size }} guides</span>
+      <span class="article-topic-count">{{ articles.size }} {% if include.section %}pages{% else %}guides{% endif %}</span>
     </button>
     {% for section in site.data.article_sections %}
     {% assign matches = articles | where: "article_topic", section.name %}
+    {% if include.section and matches.size == 0 %}{% continue %}{% endif %}
     <button class="article-topic" type="button" data-topic="{{ section.name | escape }}" aria-pressed="false">
       <span class="article-topic-name">{{ section.name }}</span>
-      <span class="article-topic-count">{{ matches.size }} guides</span>
-      <span class="article-topic-desc">{{ section.description }}</span>
+      <span class="article-topic-count">{{ matches.size }} {% if include.section %}pages{% else %}guides{% endif %}</span>
+      {% unless include.section %}<span class="article-topic-desc">{{ section.description }}</span>{% endunless %}
     </button>
     {% endfor %}
   </div>
@@ -47,19 +50,24 @@
 
   <div class="article-toolbar">
     <div class="article-toolbar-title">
-      <h2 id="article-result-title">{% if include.home %}Latest updates{% elsif include.guides %}Guides{% else %}Latest articles{% endif %}</h2>
+      <h2 id="article-result-title">{% if include.home %}Latest updates{% elsif include.guides %}Guides{% elsif include.section %}{{ include.section | escape }}{% else %}Latest articles{% endif %}</h2>
       <p id="article-result-count" role="status" aria-live="polite"></p>
     </div>
     <div class="article-toolbar-controls">
       <label for="article-platform">Device</label>
       <select id="article-platform">
         <option value="">All devices</option>
+        {% if include.section %}
+        {% assign platforms = articles | map: 'article_platform' | uniq | sort %}
+        {% for platform in platforms %}<option>{{ platform | escape }}</option>{% endfor %}
+        {% else %}
         <option>Android</option><option>iPhone</option><option>Mac</option><option>Windows</option>
         <option>Linux</option><option>Phone</option><option>Computer</option>
         <option>Across devices</option><option>Any device</option>
+        {% endif %}
       </select>
       <label for="article-sort">Sort</label>
-      <select id="article-sort"><option value="newest">Newest</option><option value="title">Title A–Z</option></select>
+      <select id="article-sort"><option value="newest">{% if include.section %}Default{% else %}Newest{% endif %}</option><option value="title">Title A–Z</option></select>
       <button id="article-clear" class="article-clear" type="button">Clear filters</button>
     </div>
   </div>
@@ -77,6 +85,6 @@
     </a>
     {% endfor %}
   </div>
-  <p id="article-empty" class="article-empty" hidden>No {% if include.home %}pages{% elsif include.guides %}guides{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
-  <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home %}pages{% elsif include.guides %}guides{% else %}articles{% endif %}</button>
+  <p id="article-empty" class="article-empty" hidden>No {% if include.home or include.section %}pages{% elsif include.guides %}guides{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
+  <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home or include.section %}pages{% elsif include.guides %}guides{% else %}articles{% endif %}</button>
 </div>

@@ -2,6 +2,8 @@
 layout: default
 title: "You Are One Person Across Two Devices. Your AI Should Know That."
 parent: Perspectives
+article_topic: "Sync & sharing"
+article_platform: "Across devices"
 nav_order: 3
 description: Your phone sees your life. Your laptop sees your work. Neither talks to the other. That's the biggest unsolved problem in personal computing - and the one a Personal AI OS was built to fix.
 ---

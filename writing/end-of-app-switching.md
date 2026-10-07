@@ -2,6 +2,8 @@
 layout: default
 title: "The Personal AI OS and the End of App Switching"
 parent: Perspectives
+article_topic: "Work & organization"
+article_platform: "Any device"
 nav_order: 14
 description: You open 6 apps to coordinate one task. Calendar, email, Slack, notes, maps, messaging - all for one meeting. A Personal AI OS collapses that into one intelligence layer that orchestrates across them on your behalf.
 ---

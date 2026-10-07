@@ -2,6 +2,8 @@
 layout: default
 title: "The Regulatory Case for On-Device AI: Why Every New Privacy Law Is a Tailwind"
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 17
 description: Every major privacy regulation passed in the last five years is a tailwind for on-device AI. The architecture that's right for users is also the architecture that's inherently regulation-proof.
 ---

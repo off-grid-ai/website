@@ -2,6 +2,8 @@
 layout: default
 title: "The Encrypted Messaging Moment for AI: Why Privacy Will Define the Next Platform"
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 4
 description: Encrypted messaging went mainstream because the market demanded it. AI is the next communication infrastructure. The arc is the same - and the outcome will be the same.
 ---

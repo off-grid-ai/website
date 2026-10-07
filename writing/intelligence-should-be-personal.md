@@ -2,6 +2,8 @@
 layout: default
 title: "Intelligence Should Be Personal. Here's What That Actually Means."
 parent: Perspectives
+article_topic: "Getting started"
+article_platform: "Any device"
 nav_order: 18
 description: Intelligence - the capacity to understand, reason, and act - has always been deeply personal. When we talk about AI being personal, we mean something more specific than it just being useful to individuals. Here's what it actually means.
 ---

@@ -2,6 +2,8 @@
 layout: default
 title: "Your Next Virtual Assistant Won't Be a Person. And That's the Point."
 parent: Perspectives
+article_topic: "Automation & tools"
+article_platform: "Any device"
 nav_order: 27
 description: The virtual assistant industry built a model on human judgment at low cost. On-device AI undercuts that model entirely and delivers something human VAs structurally cannot.
 ---

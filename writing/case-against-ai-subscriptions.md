@@ -2,6 +2,8 @@
 layout: default
 title: "The Case Against Cloud AI Subscriptions: Why You Shouldn't Pay to Rent Your Own Intelligence"
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 19
 description: Cloud AI subscriptions charge you a monthly fee to access compute on someone else's server. When that intelligence can run on hardware you already own, the rent stops making sense.
 ---

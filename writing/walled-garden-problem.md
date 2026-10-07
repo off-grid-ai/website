@@ -2,6 +2,8 @@
 layout: default
 title: "The Walled Garden Problem: Why the Personal AI OS Must Be Open"
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 16
 description: Platform AI is real, capable, and useful. But the architecture of platform AI makes a genuine Personal AI OS impossible from within it. Here's why openness is not optional for the category.
 ---

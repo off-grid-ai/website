@@ -2,6 +2,8 @@
 layout: default
 title: What Is a Personal AI OS?
 parent: Perspectives
+article_topic: "Getting started"
+article_platform: "Any device"
 nav_order: 1
 description: A Personal AI OS is intelligence that lives on your device, knows your full context, and acts on your behalf - without ever sending data to a server. Here's what defines the category and why it matters.
 faq:

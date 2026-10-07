@@ -2,6 +2,8 @@
 layout: default
 title: Why Your Phone Is the Most Important Device in the Personal AI OS
 parent: Perspectives
+article_topic: "Work & organization"
+article_platform: "Phone"
 nav_order: 5
 description: You unlock your phone 80+ times a day. It has your messages, location, health data, and camera. No device owns more of your context - which means no device matters more for local AI.
 ---

@@ -2,6 +2,8 @@
 layout: default
 title: "Personal AI OS vs AI Assistant vs AI Agent: What's the Difference and Why It Matters"
 parent: Perspectives
+article_topic: "Getting started"
+article_platform: "Any device"
 nav_order: 7
 description: Voice assistants answer questions. Cloud chatbots generate text. Autonomous agents take actions. A Personal AI OS does something different from all three - and the distinction is worth understanding precisely.
 faq:

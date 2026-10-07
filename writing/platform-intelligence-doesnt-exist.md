@@ -2,6 +2,8 @@
 layout: default
 title: "Why Platform Intelligence Doesn't Exist Yet - And What It Would Take to Build It"
 parent: Perspectives
+article_topic: "Getting started"
+article_platform: "Any device"
 nav_order: 22
 description: Mobile platforms are still app-centric operating systems. The AI features built into them are bolted onto that model. A true Personal AI OS requires a fundamentally different architecture where context is the primitive, not apps.
 ---

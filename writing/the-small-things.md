@@ -2,6 +2,8 @@
 layout: default
 title: "It's Not About Productivity. It's About the 35 Tabs."
 parent: Perspectives
+article_topic: "Work & organization"
+article_platform: "Any device"
 nav_order: 29
 description: Hiring a secretary doesn't 5x your business. It just means life is easier. We spend 90% of our time on digital devices and almost none of that time is actually easy.
 ---

@@ -2,6 +2,8 @@
 layout: default
 title: Why Your Personal AI Should Never Live in the Cloud
 parent: Perspectives
+article_topic: "Privacy & control"
+article_platform: "Any device"
 nav_order: 8
 description: This is not a privacy rant. It's a structural argument. Cloud-dependent personal AI is broken by design - not because the companies building it are untrustworthy, but because the architecture makes the most important guarantees impossible.
 ---
