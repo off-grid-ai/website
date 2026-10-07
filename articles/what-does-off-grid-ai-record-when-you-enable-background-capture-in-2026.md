@@ -12,13 +12,14 @@ devto_id: 4772374
 devto_url: "https://dev.to/alichherawalla/what-does-off-grid-ai-record-when-you-enable-background-capture-in-2026-gn7"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fa1x8v0o57l1x3y72vpn2.png"
 ---
+
 You want to find yesterday's detail without writing everything down.
 
 **When you enable supported Pro background capture, OGAD (Off Grid AI Desktop) can retain sampled screen activity and use it to build searchable work context.** Capture is opt-in with a visible recording state. It is not a continuous video of every second, a complete copy of your files or proof that the microphone is always recording.
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Replay: a recorded browser screen with a capture timeline.](https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp)
 
 ---
 
@@ -62,7 +63,7 @@ Similarly, an app can retain a clue about a webpage without retaining the whole 
 
 This guide uses the established Mac Pro capture route. Use a supported OGAD release, active Pro access, the required processing models and the requested macOS permissions. Screen Recording permits screen capture; Accessibility can provide exposed application text and context.
 
-Windows has supported Pro capture and Replay routes, but platform-specific extraction differs. Linux beta108 does not bundle Pro capture. Do not infer Linux support from the fact that local chat works there. [Beta108 release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108).
+Windows has supported Pro capture and Replay routes, with platform-specific extraction. Linux beta108 did not bundle Pro capture. The later [OGAD beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114) includes Linux Pro capture and work-history workflows. On Linux, capture and accessibility depend on the desktop session, available helpers, and portal access. Check a harmless sample on your own setup before relying on the record.
 
 Complete the setup before relying on the record. A capture control can report paused, stopped or permission-required states. A visible status tells you more than assuming capture began because you installed the app.
 
@@ -80,6 +81,14 @@ Use a short synthetic example that you can recognise later.
 You are checking several stages: capture, processing, storage and retrieval. If the search result is absent, inspect the capture status and pending processing before concluding that the note was never sampled.
 
 Repeat the check after changing an important setting. This gives you a known example when diagnosing a later gap.
+
+## Why can capture wait while you are working?
+
+In beta 114, the capture scheduler waits around typing and high system load. Background processing also yields to foreground AI work. This reduces competition with the task you are doing, but it can leave fewer samples or delay their processed descriptions.
+
+A visible active state means the workflow is enabled; it does not promise a new frame at an exact interval. Inspect Replay for the actual saved moments and allow pending processing to finish before judging a new search result.
+
+If a detail appeared only briefly while capture was delayed, it may not be in history. Use the original document or app when an exact record matters. Changing a model afterward cannot recreate an image that was never saved.
 
 ## How can you control what is included?
 

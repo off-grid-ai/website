@@ -12,6 +12,7 @@ devto_id: 3368606
 devto_url: "https://dev.to/alichherawalla/how-to-switch-between-local-and-remote-llms-on-your-phone-without-two-apps-or-two-workflows-1o9l"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjuwnry3xuktegsex68xp.png"
 ---
+
 There are two ways to run AI on your phone in 2026. Both are good. But until now, you had to pick one.
 
 Option one: run a small model directly on your phone. Completely offline, completely private, works on airplane mode. The tradeoff is that a 3B model running on mobile hardware cannot match a 9B or 70B model running on a desktop GPU. You get privacy and portability, but you give up depth.
@@ -21,7 +22,7 @@ Option two: connect to a model running on your PC. Something like Ollama or LM S
 The thing nobody has built until now is a single app that does both and switches between them intelligently. That is what we built into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 <div style="width: 100%;">
-  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
+  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="https://getoffgridai.co/assets/img/home/mobile/remote-ios-1-light-640.webp" />
 </div>
 
 ## The problem with picking one
@@ -47,6 +48,16 @@ Here is how the pieces fit together:
 Off Grid also supports projects with a built-in knowledge base and RAG. Attach your documents and any model - local or remote - can search through them. Tool calling works too: models that support function calling can chain together web search, calculator, date/time, and device info. All private, all on your own hardware.
 
 You paid for this hardware. It is on your network. You should be able to use all of it.
+
+## Beta update: saved keys and connection errors on phones
+
+[OGAM (Off Grid AI Mobile) beta 0.0.112-beta.1](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.112-beta.1) checks each saved remote server with its saved key. A failed key read or refused authentication is a connection failure, not proof that the server has no models. An address saved with `/v1` is checked with the corresponding API paths.
+
+If the server requires an API key, use an **HTTPS** endpoint. OGAM does not send that key over HTTP, including private-network HTTP. The connection check explains this refusal. Do not delete a required key just to make the message disappear. Prepare the server's HTTPS route, then save and check that address.
+
+Keyless discovery can still use supported private-network HTTP. That is a separate case from a keyed server. The beta keeps saved model choices when discovery is refused, so an old model entry is not proof that the current connection passed.
+
+Start the model server in OGAD (Off Grid AI Desktop), keep the host awake, and use an endpoint reachable from the phone. Check the server, address, key requirement, and reported error before changing models. Remote inference needs a working network path; it does not become an offline phone workflow. For work without that path, choose a downloaded on-device model.
 
 ## Setting it up
 
@@ -102,7 +113,7 @@ We are building toward a personal AI operating system. Something that uses every
 
 Network discovery was the first step. On-device inference was the foundation. The next pieces are seamless handoff between local and remote models mid-conversation, automatic routing based on task complexity, and shared context across devices.
 
-If you want to shape what this looks like, we are building it in the open. The code is open and the community is active.
+If you want to shape what this looks like, we are building it in the open. The code is MIT licensed and the community is active.
 
 [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) - feature requests, model recommendations, and conversations about what a personal AI OS should actually do. Or just star the [GitHub repo](https://github.com/alichherawalla/off-grid-mobile-ai) and follow along.
 

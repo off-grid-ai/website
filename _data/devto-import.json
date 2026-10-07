@@ -1909,6 +1909,171 @@
       "id": 3270154,
       "url": "https://getoffgridai.co/articles/have-you-ever-hesitated-before-typing-something-into-chatgpt-or-claude-i-did-and-so-i-built-off-grid/",
       "devto_url": "https://dev.to/alichherawalla/from-personal-frustration-to-1-on-hacker-news-how-i-built-off-grid-and-hit-425-stars-4989"
+    },
+    {
+      "id": 4814418,
+      "url": "https://getoffgridai.co/articles/how-to-automate-tasks-in-your-signed-in-browser-with-local-ai-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-automate-tasks-in-your-signed-in-browser-with-local-ai-in-2026-1k81"
+    },
+    {
+      "id": 4814420,
+      "url": "https://getoffgridai.co/articles/how-to-use-local-ai-in-chrome-in-2026-without-sending-your-prompts-to-cloud-ai/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-use-local-ai-in-chrome-in-2026-without-sending-your-prompts-to-cloud-ai-2o01"
+    },
+    {
+      "id": 4814422,
+      "url": "https://getoffgridai.co/articles/how-to-use-local-ai-in-firefox-in-2026-without-moving-to-another-browser/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-use-local-ai-in-firefox-in-2026-without-moving-to-another-browser-421f"
+    },
+    {
+      "id": 4814424,
+      "url": "https://getoffgridai.co/articles/how-to-summarise-web-pages-with-local-ai-in-your-browser-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-summarise-web-pages-with-local-ai-in-your-browser-in-2026-15i2"
+    },
+    {
+      "id": 4814426,
+      "url": "https://getoffgridai.co/articles/how-to-continue-browser-ai-chats-in-off-grid-ai-desktop-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-continue-browser-ai-chats-in-off-grid-ai-desktop-in-2026-pac"
+    },
+    {
+      "id": 4814429,
+      "url": "https://getoffgridai.co/articles/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026-52bh"
+    },
+    {
+      "id": 4814435,
+      "url": "https://getoffgridai.co/articles/how-to-find-weak-and-reused-passwords-in-your-off-grid-ai-vault-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-find-weak-and-reused-passwords-in-your-off-grid-ai-vault-in-2026-e1l"
+    },
+    {
+      "id": 4814437,
+      "url": "https://getoffgridai.co/articles/how-to-get-automatic-zoom-meeting-notes-on-windows-in-2026-without-a-meeting-bot/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-automatic-zoom-meeting-notes-on-windows-in-2026-without-a-meeting-bot-1a82"
+    },
+    {
+      "id": 4814439,
+      "url": "https://getoffgridai.co/articles/how-to-get-automatic-microsoft-teams-meeting-notes-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-automatic-microsoft-teams-meeting-notes-on-windows-in-2026-3090"
+    },
+    {
+      "id": 4814440,
+      "url": "https://getoffgridai.co/articles/how-to-record-and-transcribe-meetings-on-linux-in-2026-without-cloud-processing/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-record-and-transcribe-meetings-on-linux-in-2026-without-cloud-processing-1k3l"
+    },
+    {
+      "id": 4814444,
+      "url": "https://getoffgridai.co/articles/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-windows-in-2026-1dgk"
+    },
+    {
+      "id": 4814446,
+      "url": "https://getoffgridai.co/articles/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-your-mac-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-your-mac-in-2026-oag"
+    },
+    {
+      "id": 4814448,
+      "url": "https://getoffgridai.co/articles/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-review-what-was-on-screen-during-a-meeting-in-off-grid-ai-on-linux-in-2026-468f"
+    },
+    {
+      "id": 4814449,
+      "url": "https://getoffgridai.co/articles/how-to-get-meeting-transcripts-in-multiple-languages-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-meeting-transcripts-in-multiple-languages-on-windows-in-2026-7m4"
+    },
+    {
+      "id": 4814450,
+      "url": "https://getoffgridai.co/articles/how-to-get-meeting-transcripts-in-multiple-languages-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-meeting-transcripts-in-multiple-languages-on-linux-in-2026-23ch"
+    },
+    {
+      "id": 4814452,
+      "url": "https://getoffgridai.co/articles/how-to-dictate-into-windows-apps-with-local-ai-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-dictate-into-windows-apps-with-local-ai-in-2026-5ena"
+    },
+    {
+      "id": 4814455,
+      "url": "https://getoffgridai.co/articles/how-to-dictate-into-linux-apps-with-local-ai-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-dictate-into-linux-apps-with-local-ai-in-2026-1dma"
+    },
+    {
+      "id": 4814457,
+      "url": "https://getoffgridai.co/articles/how-to-find-something-you-saw-on-your-linux-computer-in-2026-without-taking-notes/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-find-something-you-saw-on-your-linux-computer-in-2026-without-taking-notes-43nn"
+    },
+    {
+      "id": 4814460,
+      "url": "https://getoffgridai.co/articles/how-to-create-a-private-work-journal-from-your-linux-desktop-activity-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-create-a-private-work-journal-from-your-linux-desktop-activity-in-2026-1hk8"
+    },
+    {
+      "id": 4814462,
+      "url": "https://getoffgridai.co/articles/how-to-write-a-weekly-work-update-from-saved-linux-activity-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-write-a-weekly-work-update-from-saved-linux-activity-in-2026-5f1n"
+    },
+    {
+      "id": 4814463,
+      "url": "https://getoffgridai.co/articles/how-to-review-focus-and-app-switching-in-your-linux-workday-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-review-focus-and-app-switching-in-your-linux-workday-in-2026-2jb7"
+    },
+    {
+      "id": 4814464,
+      "url": "https://getoffgridai.co/articles/how-to-recover-text-you-copied-earlier-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-recover-text-you-copied-earlier-on-linux-in-2026-13a9"
+    },
+    {
+      "id": 4814465,
+      "url": "https://getoffgridai.co/articles/how-to-store-passwords-on-linux-in-2026-without-cloud-sync/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-store-passwords-on-linux-in-2026-without-cloud-sync-1159"
+    },
+    {
+      "id": 4814468,
+      "url": "https://getoffgridai.co/articles/how-to-search-chats-meeting-notes-and-screen-history-together-in-off-grid-ai-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-search-chats-meeting-notes-and-screen-history-together-in-off-grid-ai-on-linux-in-2026-5amh"
+    },
+    {
+      "id": 4814469,
+      "url": "https://getoffgridai.co/articles/how-to-keep-sensitive-apps-out-of-saved-screen-history-in-off-grid-ai-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-keep-sensitive-apps-out-of-saved-screen-history-in-off-grid-ai-on-linux-in-2026-5f8k"
+    },
+    {
+      "id": 4814470,
+      "url": "https://getoffgridai.co/articles/how-to-automate-repetitive-linux-desktop-tasks-with-local-ai-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-automate-repetitive-linux-desktop-tasks-with-local-ai-in-2026-ji6"
+    },
+    {
+      "id": 4814476,
+      "url": "https://getoffgridai.co/articles/how-to-find-nearby-places-with-an-ai-assistant-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-find-nearby-places-with-an-ai-assistant-on-linux-in-2026-34bd"
+    },
+    {
+      "id": 4814477,
+      "url": "https://getoffgridai.co/articles/how-to-see-todays-meetings-and-to-dos-together-in-off-grid-ai-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-see-todays-meetings-and-to-dos-together-in-off-grid-ai-on-windows-in-2026-44n5"
+    },
+    {
+      "id": 4814478,
+      "url": "https://getoffgridai.co/articles/how-to-get-an-automatic-morning-briefing-in-off-grid-ai-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-an-automatic-morning-briefing-in-off-grid-ai-on-windows-in-2026-45if"
+    },
+    {
+      "id": 4814480,
+      "url": "https://getoffgridai.co/articles/how-to-get-automatic-meeting-prep-alerts-in-off-grid-ai-on-windows-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-automatic-meeting-prep-alerts-in-off-grid-ai-on-windows-in-2026-k1f"
+    },
+    {
+      "id": 4814481,
+      "url": "https://getoffgridai.co/articles/how-to-review-focus-and-app-switching-in-your-windows-workday-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-review-focus-and-app-switching-in-your-windows-workday-in-2026-4omm"
+    },
+    {
+      "id": 4814483,
+      "url": "https://getoffgridai.co/articles/how-to-write-a-weekly-work-update-from-saved-windows-activity-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-write-a-weekly-work-update-from-saved-windows-activity-in-2026-58j7"
+    },
+    {
+      "id": 4814486,
+      "url": "https://getoffgridai.co/articles/how-to-correct-and-organise-your-saved-screen-history-in-off-grid-ai-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-correct-and-organise-your-saved-screen-history-in-off-grid-ai-in-2026-509o"
     }
   ],
   "already_on_site": [

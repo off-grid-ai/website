@@ -12,11 +12,12 @@ devto_id: 4770246
 devto_url: "https://dev.to/alichherawalla/how-to-take-automatic-ai-meeting-notes-on-your-mac-in-2026-without-a-meeting-bot-16i4"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Facu1zxvgnssxe6njehj9.png"
 ---
+
 You want meeting notes, but do not want to add another participant to the call. OGAD (Off Grid AI Desktop) Pro records meeting media on your Mac and creates a local transcript and summary afterward. It uses the audio your computer receives and your microphone, so no separate note-taking bot needs to join the meeting.
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Meetings: the Acme pilot kickoff recording, summary, and transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 
@@ -63,7 +64,9 @@ The recorder's broad microphone-versus-call distinction does not establish who e
 
 ## What should you do when the call ends?
 
-Select **Stop** in OGAD. The default **Keeps recording when away** setting means leaving the call window is not a guaranteed stop action. Check that the visible recording state has ended.
+Select **Stop** in OGAD when you finish. In [OGAD beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114), recordings started by meeting detection can also end when the call is no longer confirmed. The default policy waits five minutes without confirmed presence, gives a 20-second warning, then stops. Returning to a confirmed call during that warning clears it.
+
+A manually started recording follows the separate **Stops when you leave** setting; with that setting off, leaving a window is not a reliable stop action. A four-hour cap also applies. Check the visible recording state after the call. Automatic stopping is not an exact timer linked to the meeting service.
 
 If a transcript is missing, look for **Retry transcription** after confirming that the local speech model is ready. **Re-transcribe** can process a saved recording again with the current model, replacing its transcript and summary. Export a copy first if you want to retain the previous version.
 

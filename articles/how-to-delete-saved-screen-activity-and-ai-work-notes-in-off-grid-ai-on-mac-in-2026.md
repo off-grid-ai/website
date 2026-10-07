@@ -12,11 +12,13 @@ devto_id: 4770387
 devto_url: "https://dev.to/alichherawalla/how-to-delete-saved-screen-activity-and-ai-work-notes-from-your-mac-in-2026-186g"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F0ddr3ywbbruyvs2dhykn.png"
 ---
+
 A private work history should be something you can manage. OGAD (Off Grid AI Desktop) gives you **Data & privacy** controls for saved screen captures, memory records, chats, meetings, and generated images. You can clear a category or remove older captures without resetting every part of the app.
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 
@@ -51,6 +53,14 @@ Use **Pause capture** in Replay or Settings if you want to stop new screen activ
 Pausing preserves existing data. Deleting removes the selected saved data. After cleanup, leave capture paused if you do not want it to resume; use Resume capture only when you choose to start recording again.
 
 Other sources have their own controls. Clipboard history and meeting recording are separate from screen capture, so check them independently if they are part of the cleanup you intend.
+
+## Delete one Replay frame instead of a whole category
+
+In [OGAD beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114), open **Replay**, find the date and frame, and select **Delete this frame**. Read the confirmation and check that the selected image is the one you intend to remove.
+
+This action removes the frame's saved image and its related processed record. Reopen Replay and check that the frame no longer appears. It does not erase an exported image, a backup, or a copy already shared elsewhere. Broader memories or summaries from other sources have their own scope.
+
+Use this for one unwanted sample. Use the category controls below when you intend a wider cleanup. Pause capture or add an app exclusion separately if you also want to stop similar material from being retained in future.
 
 ## Remove older captures first when that is enough
 
