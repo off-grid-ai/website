@@ -92,13 +92,17 @@ const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Dow
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261007g';
 export function Shot({ name, alt, className = '', lazy = true }) {
-  const theme = useContext(ThemeCtx);
+  const theme = useContext(ThemeCtx); const { takeOver } = useContext(PlayCtx);
   const load = (t) => (lazy || t !== theme ? 'lazy' : undefined); // the other theme's file only loads if it is shown
   const props = { width: 1760, height: 944, alt, sizes: '(max-width: 860px) 900px, 70vw' };
   const set = (t) => `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V} 1760w, /assets/img/home/app/${name}-${t}.webp?v=${SHOT_V} 3520w`;
   return <>
-    <img className={`shot shot-dark ${className}`} src={`/assets/img/home/app/${name}-dark-1760.webp?v=${SHOT_V}`} srcSet={set('dark')} loading={load('dark')} {...props} />
-    <img className={`shot shot-light ${className}`} src={`/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`} srcSet={set('light')} loading={load('light')} {...props} alt="" aria-hidden="true" />
+    <a className="shot-link shot-link-dark" href={`/assets/img/home/app/${name}-dark.webp?v=${SHOT_V}`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={takeOver} onPointerDown={(e) => e.stopPropagation()}>
+      <img className={`shot shot-dark ${className}`} src={`/assets/img/home/app/${name}-dark-1760.webp?v=${SHOT_V}`} srcSet={set('dark')} loading={load('dark')} {...props} draggable={false} />
+    </a>
+    <a className="shot-link shot-link-light" href={`/assets/img/home/app/${name}-light.webp?v=${SHOT_V}`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={takeOver} onPointerDown={(e) => e.stopPropagation()}>
+      <img className={`shot shot-light ${className}`} src={`/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`} srcSet={set('light')} loading={load('light')} {...props} alt="" draggable={false} />
+    </a>
   </>;
 }
 
@@ -300,25 +304,23 @@ const SYNCED = [
 ];
 function ContinueScene() {
   const box = useRef(null); const desk = useRef(null); const phone = useRef(null);
+  const phase = useSteps([2400, 4800]);
+  const [desktop, mobile, label] = [
+    ['gateway', 'remote-ios-1', 'Your phone connected to Off Grid AI Desktop.'],
+    ['chat', 'chat-ios-1', 'Off Grid AI Chat on your computer and phone.'],
+    ['projects', 'project-ios-2', 'Off Grid AI Projects and cited document answers on your computer and phone.'],
+  ][phase];
   return <div className="scene scene-continue" ref={box}>
-    <SceneCard className="sync-card" innerRef={desk} busy>
-      <Flex justify="between" align="center" className="app-head"><Text className="eyebrow">DESKTOP</Text><Badge variant="outline"><LockKey size={11} /> Pro Sync</Badge></Flex>
-      <div className="sync-rows">{SYNCED.map((it, i) => <motion.div className="sync-row" key={it.title} initial={{ opacity: .35 }} animate={{ opacity: 1 }} transition={{ delay: .4 + i * .7 }}>
-        <span className="tl-ic"><it.Icon size={15} /></span><span className="sync-t">{it.title}</span>
-        <motion.span className="sync-ok" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: .9 + i * .7, type: 'spring', stiffness: 420, damping: 22 }}><Check size={13} weight="bold" /></motion.span>
-      </motion.div>)}</div>
-    </SceneCard>
+    <div className="sync-card sync-shot" ref={desk}><Shot name={desktop} alt={label} lazy={false} /></div>
     <div className="dev-phone" ref={phone}>
       <Iphone />
-      <div className="phone-live">
-        <div className="phone-status"><span>18:53</span><span><LockKey size={10} /> Synced</span></div>
-        <div className="phone-title">Acme Corp</div>
-        <AnimatedList delay={700} className="phone-list">
-          {SYNCED.map(it => <div className="notif" key={it.title}><span className="notif-ic"><it.Icon size={14} /></span><span className="notif-tx"><b>{it.title}</b><small>{it.meta}</small></span></div>)}
-        </AnimatedList>
+      <div className="phone-live phone-capture">
+        {['dark', 'light'].map(theme => <a key={theme} className={`shot-link shot-link-${theme}`} href={`/assets/img/home/mobile/${mobile}-${theme}.webp`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${label}`} onPointerDown={e => e.stopPropagation()}>
+          <img className={`shot shot-${theme}`} src={`/assets/img/home/mobile/${mobile}-${theme}-640.webp`} alt={label} draggable={false} />
+        </a>)}
       </div>
     </div>
-    <span className="sync-tag"><LockKey size={13} /> Device to device · encrypted</span>
+    <span className="sync-tag"><LockKey size={13} /> Your computer and phone. Select a screen to enlarge it.</span>
     <Beam containerRef={box} fromRef={desk} toRef={phone} curvature={0} duration={2.2} pathWidth={2} pathColor="var(--og-text-muted)" pathOpacity={.18} gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
   </div>;
 }
@@ -482,7 +484,7 @@ const VaultScene = Object.assign(() => <ShotSeq shots={[['vault-locked', 'Off Gr
 
 // Loads every screen of a sequence up front so a wipe never reveals an empty frame.
 export function Preload({ names }) {
-  return <div className="preload" aria-hidden="true">{names.map(n => <Shot key={n} name={n} alt="" lazy={false} />)}</div>;
+  return <div className="preload" aria-hidden="true" inert>{names.map(n => <Shot key={n} name={n} alt="" lazy={false} />)}</div>;
 }
 
 // Real app screens. Each one wipes in left to right; chapters with several screens step through them.
@@ -492,37 +494,41 @@ const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, v
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
-  useEffect(() => { if (!playing || shots.length < 2) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, playing]);
+  const reduce = useReducedMotion();
+  useEffect(() => { if (!playing || reduce || shots.length < 2) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, playing, reduce]);
   const [name, alt] = shots[i];
-  return <div className="wt-shot">
-    {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
-    <AnimatePresence initial>
-      <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className="wt-shot-in" initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
-        <Shot name={name} alt={alt} lazy={false} />
-        <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />
-      </motion.div>
-    </AnimatePresence>
-  </div>;
+  return <>
+    <div className="wt-shot">
+      {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
+      <AnimatePresence initial={false}>
+        <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className="wt-shot-in" initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
+          <Shot name={name} alt={alt} lazy={false} />
+          {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+
+  </>;
 }
 const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.'], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.'], ['actions', 'Off Grid AI Actions: approvals waiting for your yes.']) },
-  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 8000, View: CaptureScene },
-  { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 7000, View: RememberScene },
+  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['integrations', 'Off Grid AI Integrations: accounts and tools you choose to connect.', 4000], ['replay', 'Off Grid AI Replay: a captured screen stored on your device.', 4000]) },
+  { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 0, View: shotView(['day', 'Off Grid AI Day: a timeline built from your captured work.', 4000], ['entities', 'Off Grid AI People: related people, companies and projects.', 4000], ['search', 'Off Grid AI Search: find a past decision in your memory.', 4000]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff with Sam.']) },
   { id: 'reflect', cmd: 'where did my week go?', title: 'Your week, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.'], ['replay', 'Off Grid AI Replay: scrub back through what you chose to record.']) },
-  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 9000, View: AskScene },
-  { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 7000, View: ActScene },
-  { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 9500, View: WebScene },
+  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000], ['projects', 'Off Grid AI Projects: documents and cited answers.', 4000]) },
+  { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 0, View: shotView(['actions', 'Off Grid AI Actions: proposals waiting for approval.', 4000], ['god', 'Off Grid AI God: the briefing and tasks waiting for your decision.', 4000]) },
+  { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: reading and comparing note-app pricing.', 4000], ['web-takeover', 'Off Grid AI Web use: sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: completed task and its result.', 4000]) },
   { id: 'meetings', cmd: 'summarize the design review', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.'], ['voice', 'Off Grid AI Voice notes with transcripts and to-dos.']) },
   { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
-  { id: 'browser', cmd: 'fill my Acme login', title: 'Your browser, with AI.', line: 'Chrome and Firefox. Reads the page, fills from your vault, runs tasks.', chips: ['Chrome', 'Firefox', 'Autofill'], loop: 7500, View: BrowserScene },
-  { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: VaultScene },
+  { id: 'browser', cmd: 'take over for sign-in', title: 'Your browser, with AI.', line: 'Your AI handles the task. You take over for sign-in and keep your passwords in your vault.', chips: ['Browser tasks', 'Takeover', 'Vault'], loop: 0, View: shotView(['web-takeover', 'Off Grid AI browser task waiting for you to sign in.', 4000], ['vault-open', 'Off Grid AI Vault: your saved logins and secrets.', 4000]) },
+  { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: shotView(['vault-locked', 'Off Grid AI Vault: locked.', 2200], ['vault-typing', 'Off Grid AI Vault: entering the master password.', 2200], ['vault-open', 'Off Grid AI Vault: saved logins and notes.', 4000]) },
   { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard history with search.']) },
-  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: ImagesScene },
-  { id: 'models', cmd: 'download models for this Mac', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 14000, View: ModelsScene },
-  { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine. Chat, images, speech and embeddings.', chips: ['OpenAI-compatible', 'MCP', 'No API key'], loop: 9000, View: ApiScene },
+  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['imagegen-chat', 'Off Grid AI Chat: a generated image and its prompt.', 4000], ['artifacts', 'Off Grid AI Artifacts: saved work and generated results.', 4000]) },
+  { id: 'models', cmd: 'download models for this Mac', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['models-text', 'Off Grid AI Models: text models available to download.', 2800], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-voice', 'Off Grid AI Models: voice models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
+  { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine. Chat, images, speech and embeddings.', chips: ['OpenAI-compatible', 'MCP', 'No API key'], loop: 0, View: shotView(['gateway', 'Off Grid AI Gateway: local API endpoints and active models.', 4000]) },
 ];
 const PROMPTS = [
   { id: 'ask', label: 'What did I promise Sam?' }, { id: 'act', label: 'Draft the reply' }, { id: 'phone', label: 'Send it to my phone' },
@@ -531,32 +537,23 @@ const PROMPTS = [
 const INTENTS = [[/image|picture|draw|photo/i, 'images'], [/clipboard|copied|paste/i, 'clipboard'], [/brief|ares|god|chief/i, 'god'], [/who is|people|crm|contact/i, 'people'], [/week|time|hours|reflect/i, 'reflect'],[/promise|agree|what did|ask|recall|remember/i, 'ask'], [/draft|reply|email|send.*sam|approve/i, 'act'], [/phone|sync|mobile/i, 'phone'],
   [/login|password|fill|browser|chrome|firefox/i, 'browser'], [/meeting|summar|call|record/i, 'meetings'], [/vault|secret|key/i, 'vault'], [/model|offline|qwen|gemma/i, 'models'], [/web|search|compare|browse/i, 'web'], [/today|day|journal/i, 'today']];
 
-// The command bar runs real prompts only: clicking or pressing Enter types the prompt that is
-// cycling in the placeholder, dissolves it (Aceternity vanish effect) and jumps the window there.
-const BAR_PROMPTS = ['What did I promise Sam?', 'Draft the reply to Sam', 'Send it to my phone', 'Summarize the design review', 'Fill my Acme Corp login'];
-// A real input: type your own question or press enter on the suggestion shown. The demo answers by
-// opening the matching chapter of the tour.
+// The hero offers a preset chapter, using the same options as the suggestion row.
 function CommandBar({ onRun }) {
-  const wrap = useRef(null); const value = useRef('');
-  useEffect(() => { // names for the Aceternity input and its send button
-    const root = wrap.current; if (!root) return;
-    root.querySelector('input')?.setAttribute('aria-label', 'Ask the Off Grid AI demo a question');
-    root.querySelector('button')?.setAttribute('aria-label', 'Ask');
-  }, []);
-  const shown = () => [...(wrap.current?.querySelectorAll('p') || [])].map(p => p.textContent.trim()).find(t => BAR_PROMPTS.includes(t)) || BAR_PROMPTS[0];
-  // The Aceternity input starts its vanish animation even when empty and then never unlocks.
-  // An empty Enter runs the example shown instead and never reaches it.
-  const onKeyDownCapture = (e) => { if (e.key === 'Enter' && !(wrap.current?.querySelector('input')?.value || '').trim()) { e.preventDefault(); e.stopPropagation(); onRun(shown(), true); } };
-  return <div className="cmd-vanish" ref={wrap} role="search" aria-label="Off Grid AI demo" onKeyDownCapture={onKeyDownCapture}>
-    <PlaceholdersAndVanishInput placeholders={BAR_PROMPTS} onChange={(e) => { value.current = e.target.value; }}
-      onSubmit={(e) => { e.preventDefault(); const q = value.current.trim(); value.current = ''; if (q) onRun(q, false); }} />
-    <p className="cmd-note"><span className="hint-desk">Type a question or press enter for the example. The demo opens the part of the tour that answers it.</span><span className="hint-mob">Type a question or press enter for the example.</span></p>
+  const prompt = PROMPTS[0];
+  const open = () => onRun(prompt.id);
+  return <div className="cmd-vanish" aria-label="Off Grid AI demo">
+    <form onSubmit={(e) => { e.preventDefault(); open(); }}>
+      <TextField.Root size="3" value={prompt.label} readOnly aria-label="Open the example chapter" onFocus={open}>
+        <TextField.Slot side="right"><Button type="submit" size="sm" aria-label="Open example chapter"><ArrowRight size={16} /></Button></TextField.Slot>
+      </TextField.Root>
+    </form>
+    <p className="cmd-note">Open this example or choose an option below.</p>
   </div>;
 }
 
 const HERO = .07;
 const STAGE = .5;
-const DWELL = { today: 7200, god: 7200, capture: 6000, remember: 6200, people: 7200, reflect: 7200, ask: 8600, act: 7600, web: 9000, meetings: 7200, phone: 6500, browser: 7200, vault: 6800, clipboard: 5200, images: 10400, models: 11000, api: 8200 };
+const DWELL = { today: 7200, god: 7200, capture: 8600, remember: 12600, people: 7200, reflect: 7200, ask: 12600, act: 8600, web: 12600, meetings: 7200, phone: 6500, browser: 8600, vault: 9000, clipboard: 5200, images: 10400, models: 17400, api: 8200 };
 const ROT_WORDS = ['memory.', 'meetings.', 'devices.', 'browser.', 'secrets.'];
 export const WALK_LABELS = { today: 'Today', god: 'God', capture: 'Capture', remember: 'Memory', people: 'People', reflect: 'Reflect', ask: 'Ask', act: 'Act', web: 'Web', meetings: 'Meetings', phone: 'Phone', browser: 'Browser', vault: 'Vault', clipboard: 'Clipboard', images: 'Images', models: 'Models', api: 'API' };
 export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: ClipboardText, images: ImageSquare, reflect: ChartBar, today: CalendarBlank, capture: Files, remember: ClockCounterClockwise, ask: ChatCircle, act: CheckCircle, web: Globe, meetings: VideoCamera, phone: DeviceMobile, browser: PuzzlePiece, vault: LockKey, models: Cpu, api: TerminalWindow };
@@ -655,9 +652,8 @@ function Walkthrough({ reduce, theme }) {
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
         <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
-        <CommandBar onRun={(text, example) => { const hit = INTENTS.find(([re]) => re.test(text)); setMiss(!example && !hit ? text : ''); setTimeout(() => goId(hit ? hit[1] : 'ask'), 350); }} />
-        {miss && <p className="cmd-miss" role="status">No chapter answers "{miss.slice(0, 48)}". Here is a sample of how recall works.</p>}
-        <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => goId(sug.id)} />
+        <CommandBar onRun={(id) => { setManual(true); goId(id); }} />
+        <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => { setManual(true); goId(sug.id); }} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
@@ -954,7 +950,7 @@ function HomeSections({ pricing }) {
             <Button asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
           <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <ShimmerButton className="pro-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)" onClick={() => { location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</ShimmerButton>
+            <ShimmerButton className="pro-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</ShimmerButton>
             <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
           <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
             <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>

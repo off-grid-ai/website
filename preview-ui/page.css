@@ -1391,3 +1391,20 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 /* Keep small text and filled actions readable on light surfaces. */
 .light .offgrid-page{--og-text-muted:var(--og-text-secondary);--og-rgb-text-muted:var(--og-rgb-text-secondary);--og-primary:var(--og-primary-dark);--og-rgb-primary:var(--og-rgb-primary-dark)}
 .light .announcement-bar-tag{color:var(--og-primary-dark)}
+
+/* Screenshot links preserve the image layout and use native full-resolution zoom. */
+.shot-link{display:contents}
+.shot-link-light{display:none}
+.light .shot-link-light{display:contents}
+.light .shot-link-dark{display:none}
+.shot-link .shot{cursor:zoom-in;pointer-events:auto}
+.shot-link:focus-visible .shot{outline:2px solid var(--og-border-focus);outline-offset:3px}
+.sync-shot{width:62%;border:1px solid var(--line-2);border-radius:6px;overflow:hidden}
+.phone-capture{padding:0;display:block}
+.phone-capture .shot{width:100%;height:100%;object-fit:contain}
+@media(max-width:700px){.sync-card.sync-shot{width:58%!important}.sync-tag{white-space:normal;max-width:94%;text-align:center}}
+
+.cmd-vanish .rt-TextFieldRoot{width:100%;height:100%;box-shadow:none;background:transparent}
+.cmd-vanish input[readonly]{cursor:pointer}
+
+.cmd-vanish button{min-width:44px;min-height:44px}

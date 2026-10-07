@@ -45,7 +45,7 @@ Pages with their own CTA tracking set window.__ctaTracked = true to opt out of c
       }
       // Any other CTA button (Get Pro, See what it does, Book a demo, etc.).
       // Pages with their own richer CTA handler set window.__ctaTracked to opt out.
-      if (el.classList.contains('btn') && !window.__ctaTracked) {
+      if (el.matches('.btn, .header-pro, .header-download, .hero-primary, .plan-btn, .pp-main, .pp-btn, .ideas-cta-primary, .ideas-cta-secondary') && !window.__ctaTracked) {
         window.OffGridAnalytics.capture('cta_click', {
           label: (el.textContent || '').trim().replace(/\s+/g, ' '),
           href: href,

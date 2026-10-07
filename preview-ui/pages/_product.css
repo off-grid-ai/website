@@ -319,3 +319,6 @@
 .pp-phone>.pp-screen{z-index:2}
 .pp-phone>div:last-child{z-index:1}
 .ms-tools .chip{display:inline-flex;align-items:center;gap:4px}
+
+.pp-screen-link{display:grid;place-items:center;width:100%;height:100%;cursor:zoom-in}
+.pp-screen-link:focus-visible{outline:2px solid var(--og-border-focus);outline-offset:-3px}
