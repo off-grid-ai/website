@@ -36,7 +36,7 @@ You need the Windows x64 desktop app, a working microphone, and a downloaded mul
 
 Before you start:
 
-- Install the Windows x64 build from the desktop download page. The current stable release is [0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51).
+- Install the Windows x64 build from the desktop download page. See [current stable and preview releases]({{ '/desktop/releases/' | relative_url }}).
 - Connect your microphone or select your laptop's microphone as the Windows input device.
 - Allow microphone access for desktop applications in Windows privacy settings.
 - Keep space for the app, the model download, and working files.

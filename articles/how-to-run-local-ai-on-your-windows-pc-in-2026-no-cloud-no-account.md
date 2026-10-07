@@ -14,7 +14,7 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 ---
 A mid-range gaming GPU from 2023 ships with 12GB of VRAM and enough tensor cores to run a 7-billion-parameter language model faster than you can read. Most of that silicon sits idle while you type prompts into a browser tab and pay a monthly fee to rent compute on someone else's server. Off Grid AI Desktop is a free, open-source app that runs chat, image generation, and voice directly on your Windows PC.
 
-**[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open source, runs offline.
+**[GitHub →](https://github.com/off-grid-ai/OGAD)** Free, open source, runs offline.
 
 It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-diffusion.cpp`, `whisper.cpp`, and an open-weight text-to-speech model. Nothing routes through a server we own. No account. No telemetry.
 
@@ -22,6 +22,8 @@ It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-
 ![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
 
 *The Off Grid AI Desktop chat, running a local model fully on-device.*
+
+For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
 ## What You Need
 
@@ -85,7 +87,7 @@ Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU a
 
 ## Getting Started
 
-1. Open the repo: [github.com/off-grid-ai/desktop](https://github.com/off-grid-ai/desktop).
+1. Open the repo: [github.com/off-grid-ai/OGAD](https://github.com/off-grid-ai/OGAD).
 2. Download the Windows build, or clone and build from source.
 3. Launch the app. It detects CUDA or Vulkan and falls back to CPU.
 4. Open the Models browser, pick a chat model that fits your VRAM, and download it.
@@ -124,4 +126,4 @@ Any compatible GGUF for chat (Gemma, Qwen, and more) and SDXL, SDXL-Lightning, S
 ### Q: Is my data private?
 Yes. Nothing leaves your PC. No telemetry, no account, and the source is open for you to verify.
 
-Run AI on hardware you already own. **[github.com/off-grid-ai/desktop](https://github.com/off-grid-ai/desktop)**
+Run AI on hardware you already own. **[github.com/off-grid-ai/OGAD](https://github.com/off-grid-ai/OGAD)**

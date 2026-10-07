@@ -14,7 +14,7 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 ---
 A routine Windows job can mean the same sequence of clicks and typing every time. A local AI assistant can do a small, well-defined sequence while you watch. OGAD (Off Grid AI Desktop) Pro lets you describe the target result and use **Computer Use** to work in visible apps. Select local models to keep the AI reasoning on your computer. The app you control may still use the internet.
 
-[Get OGAD](https://getoffgridai.co/desktop/) | [Current desktop release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
+[Get OGAD](https://getoffgridai.co/desktop/) | [Current desktop releases]({{ '/desktop/releases/' | relative_url }})
 
 ![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
 

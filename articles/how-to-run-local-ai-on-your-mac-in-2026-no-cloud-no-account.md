@@ -14,7 +14,7 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 ---
 The same M-series chip that edits your video also runs language models, draws images, and transcribes speech, all on a single shared pool of memory. Most people rent three separate subscriptions to do those things on someone else's servers while that hardware sits idle. Off Grid AI Desktop is a free, open-source app that runs chat, image generation, and voice directly on your Mac.
 
-**[GitHub →](https://github.com/off-grid-ai/desktop)**
+**[GitHub →](https://github.com/off-grid-ai/OGAD)**
 
 Free, open source, runs offline. No account.
 
@@ -22,6 +22,8 @@ Free, open source, runs offline. No account.
 ![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
 
 *The Off Grid AI Desktop chat, running a local model fully on-device.*
+
+For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
 ## What You Need
 
@@ -76,7 +78,7 @@ No account. No telemetry. No API key. The app is AGPL-3.0, so the full source is
 
 ## Getting Started
 
-1. Open the repo at [github.com/off-grid-ai/desktop](https://github.com/off-grid-ai/desktop) and download the latest macOS build, or clone and build it yourself.
+1. Open the repo at [github.com/off-grid-ai/OGAD](https://github.com/off-grid-ai/OGAD) and download the latest macOS build, or clone and build it yourself.
 2. Install and launch the app.
 3. Download a chat model and an image model from the in-app browser.
 4. Send a chat prompt, generate one image, and tap the mic to dictate one message.
@@ -128,4 +130,4 @@ Yes. Speech is transcribed on-device by whisper. The audio and the text stay on 
 
 Chat, draw, and talk to AI on your own Mac today, with nothing leaving your drive.
 
-**[GitHub →](https://github.com/off-grid-ai/desktop)**
+**[GitHub →](https://github.com/off-grid-ai/OGAD)**

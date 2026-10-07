@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "How to Run Local AI on Linux in 2026 (No Cloud, No Account)"
-description: "Run AI chat, image generation and voice on Ubuntu with Off Grid AI's Linux beta. Download models once, then use local models without internet."
+description: "Run AI chat, image generation and voice on Ubuntu with Off Grid AI on Linux. Download models once, then use local models without internet."
 date: "2026-09-29"
 permalink: /articles/how-to-run-local-ai-on-linux-in-2026-no-cloud-no-account/
 published_at: "2026-09-29T12:53:56.306Z"
@@ -14,11 +14,11 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 ---
 You want an AI assistant on your Linux computer. You also want your drafts, screenshots and questions to stay on that computer. Setting up a separate server for each kind of AI should not be the first task.
 
-**OGAD (Off Grid AI Desktop) now has a Linux beta that runs text, vision, image generation and voice locally.** Install the app and download the models you need. Then use those local models without an account or an internet connection. Choose local models for this workflow; connected services have their own network requirements.
+**OGAD (Off Grid AI Desktop) runs text, vision, image generation and voice locally on Linux.** Install the app and download the models you need. Then use those local models without an account or an internet connection. Choose local models for this workflow; connected services have their own network requirements.
 
-This guide covers **v0.0.54-beta.108**, a prerelease published on September 29, 2026. The documented Linux target is **Ubuntu 24.04 or newer on x64**. This is a core app release; the Linux package does not include Off Grid AI Pro. [Release and supported platforms](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108).
+Use **0.0.54 stable** for the core app or **0.0.55-beta.114 preview** for Linux Pro capture, Replay, Clipboard, and Vault. The documented target is **Ubuntu 24.04 or newer on x64**. [Current downloads]({{ '/download/' | relative_url }}) · [Release notes]({{ '/desktop/releases/' | relative_url }}).
 
-[Download the Linux beta](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108) | [Off Grid AI](https://getoffgridai.co)
+[Download for Linux]({{ '/download/' | relative_url }}) | [Off Grid AI](https://getoffgridai.co)
 
 ![Off Grid AI — private AI on your own devices](https://getoffgridai.co/assets/cover.png)
 
@@ -50,15 +50,15 @@ You still check the output. A model can misread a screenshot, remove an importan
 
 Use the published **x64 AppImage or amd64 `.deb`** for Ubuntu 24.04 or newer. The release does not supply a Linux ARM package. Do not assume that every distribution is supported because it can run an AppImage.
 
-The AppImage download is about **1.08 GB**; the `.deb` is about **901 MB**. Models are additional downloads. Leave room for the app, the models and their working files. Model download size is not the amount of RAM or GPU memory needed to run it.
+Check the package size on the release page. Models are additional downloads. Leave room for the app, the models and their working files. Model download size is not the amount of RAM or GPU memory needed to run it.
 
-You need internet for the initial downloads. An NVIDIA GPU is optional. Start with the app's normal setup before adding GPU components. You do not need Docker or a CUDA developer toolkit to use the installed app. Those tools appear in the source-build instructions because building the app is a different task. [Installation documentation](https://github.com/off-grid-ai/OGAD/blob/v0.0.54-beta.108/README.md).
+You need internet for the initial downloads. An NVIDIA GPU is optional. Start with the app's normal setup before adding GPU components. You do not need Docker or a CUDA developer toolkit to use the installed app. Those tools appear in the source-build instructions because building the app is a different task. [Installation documentation](https://github.com/off-grid-ai/OGAD/blob/v0.0.55-beta.114/README.md).
 
 ## How do you get your first useful answer?
 
-### 1. Install the Linux beta
+### 1. Install the Linux app
 
-Open the linked release and choose a Linux package. Use your system's package installer for the `.deb`, or give the AppImage permission to run as a program and open it. Keep the version in mind when comparing controls with older stable guides.
+Open Downloads and choose the Linux stable or preview package. Use your system's package installer for the `.deb`, or give the AppImage permission to run as a program and open it. Keep the version in mind when comparing controls with older stable guides.
 
 ### 2. Configure local models
 
@@ -86,7 +86,7 @@ Once the model has loaded and answered, disconnect from the network and send ano
 
 For image generation, select and download a local image model first. Start with one simple subject and a modest image size. For example: “A clean illustration of a small indoor herb garden, soft daylight, no text.” Review the result before increasing the image size or adding detail.
 
-For voice input, prepare the transcription model and use the chat microphone. Check the transcribed words before you send them. This core chat feature does not mean the Linux release includes Pro system-wide dictation or meeting recording.
+For voice input, prepare the transcription model and use the chat microphone. Check the transcribed words before you send them. Core chat transcription is separate from Pro capture and dictation. Check the release notes for platform support.
 
 For spoken replies, use the **Settings** button in **Chat** to open **Model settings**. Choose **Voice**, select a local voice and wait for its files to be ready. Use **Test voice** before relying on playback. Speech has its own model resources; a working text reply alone does not prove that voice setup has finished.
 
@@ -100,7 +100,7 @@ The Linux release process tested local audio transcription and generated a speec
 | A large model fails to load | Try a smaller model and close other memory-heavy work |
 | A selected GPU engine does not appear active | Reload the model and check the actual **Now** backend |
 | Voice controls are present but silent | Wait for voice preparation, use **Test voice**, then check audio output |
-| A Pro feature is absent | This Linux beta contains the core app; Pro is not bundled |
+| A Pro feature is absent | Check your build and license. Linux Pro features require a supported preview; features differ by platform |
 
 If you have an NVIDIA GPU, **Settings → GPU performance** offers an optional CUDA pack of about **5.88 GB**. Install it, restart the app, then check the backend used by a real request. Other supported backends can still run without the pack; availability depends on the model type. Speech uses separate settings.
 
@@ -108,4 +108,4 @@ If you have an NVIDIA GPU, **Settings → GPU performance** offers an optional C
 
 You do not have to download every model to make local AI useful. Rewrite one note, explain one screenshot or dictate one question. Keep the first setup small, check the result, then add another capability when you need it.
 
-[Download the Linux beta](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108), configure a local model and give it a task from today's work.
+[Download for Linux]({{ '/download/' | relative_url }}), configure a local model and give it a task from today's work.
