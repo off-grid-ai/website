@@ -9,7 +9,7 @@ description: Your hardware. Your context. Your personal AI assistant. Why Off Gr
 
 # Ethos
 
-Your AI personal assistant should work on the devices you own. Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. We build around your context, your memory, and actions you approve.
+Your AI personal assistant should work on the devices you own. Off Grid AI is available on <span class="platform-list" role="img" aria-label="Android, iOS, macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span>. We build around your context, your memory, and actions you approve.
 
 ---
 
@@ -55,7 +55,7 @@ That's what we're building.
 
 ---
 
-Off Grid AI runs on Android, iOS, macOS, Windows, and Linux today. It has over 180,000 downloads across the stores and GitHub, over 3,000 GitHub stars, and a community of over 600 people. Start with hardware you already own. Off Grid AI Pro is live now on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
+Off Grid AI runs on hardware you already own. It has over 180,000 downloads across the stores and GitHub, over 3,000 GitHub stars, and a community of over 600 people. Start with hardware you already own. Off Grid AI Pro is live now on your laptop and your phone. Sync is live now. Chats, projects, model settings, generated images, and chat attachments move between paired devices, and no Off Grid AI server receives or stores the synced content.
 
 [Read the mission]({{ '/mission' | relative_url }}) · [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 

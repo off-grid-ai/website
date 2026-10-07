@@ -8,7 +8,7 @@ description: Your digital twin, built for hardware you already own. An AI person
 
 # Your digital twin, on the devices you own.
 
-Your personal AI assistant should run on the hardware you already own. Off Grid AI is available today on **Android, iOS, macOS, Windows, and Linux**. We are building an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval. The vision below describes where we are taking it.
+Your personal AI assistant should run on the hardware you already own. Off Grid AI is available today on <span class="platform-list" role="img" aria-label="Android, iOS, macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span>. We are building an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval. The vision below describes where we are taking it.
 
 ---
 
@@ -74,7 +74,7 @@ The same intelligence layer that made some people more effective for two centuri
 
 ---
 
-This is the world we are building. Off Grid AI has over 180,000 downloads across the stores and GitHub. It runs on Android, iOS, macOS, Windows, and Linux. [Get the app for your hardware]({{ '/download/' | relative_url }}). Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
+This is the world we are building. Off Grid AI has over 180,000 downloads across the stores and GitHub. [Get the app for your hardware]({{ '/download/' | relative_url }}). Off Grid AI Pro is live now on your phone and laptop. Sync is live now, so chats, projects, model settings, generated images, and chat attachments move between paired devices: [get the latest builds]({{ '/download/' | relative_url }}#sync).
 
 ---
 

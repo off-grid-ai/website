@@ -8,19 +8,19 @@ description: Your personal AI assistant on macOS, Windows, and Linux. Built for 
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Desktop · macOS, Windows &amp; Linux</div>
+  <div class="early-access-badge">Off Grid AI Desktop · <span class="platform-list" role="img" aria-label="macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span></div>
   <h1>Your personal AI.<br>On your computer.</h1>
   <p class="early-access-sub">Built for the computer you already own. Start free. Add Pro for work memory and actions you approve on supported platforms.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.54 is the current macOS, Windows x64, and Linux x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54">See the GitHub release</a>.</p>
+<p class="ea-pricing-note" style="text-align:center;">Desktop stable: 0.0.54. Windows and Linux packages are x64. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54">See the GitHub release</a>.</p>
 
 <p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars</p>
 
@@ -111,12 +111,12 @@ Write, research, and create with local models.
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Run any model - a curated catalog plus direct Hugging Face search, all local.</p>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the 0.0.55-beta.112 <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg">macOS beta</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe">Windows x64 beta</a>, or the <a href="{{ "/desktop/releases/" | relative_url }}">Linux beta AppImage and deb packages</a>. Beta builds can have rough edges.</p>
+<p class="ea-pricing-note" style="text-align:center;">For new work as it lands, get the 0.0.55-beta.112 <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg" aria-label="Download for macOS beta" title="Download for macOS beta"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe" aria-label="Download for Windows beta" title="Download for Windows beta"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>, or the <a href="{{ "/desktop/releases/" | relative_url }}">Linux beta AppImage and deb packages</a>. Beta builds can have rough edges.</p>
 
 ---
 
@@ -127,9 +127,9 @@ Local models process your prompts on your computer. Your database is encrypted a
 180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
@@ -284,8 +284,8 @@ Your digital twin remembers the work you choose to record. Find a decision, revi
 **What does Pro cost?** ${{ site.data.pricing.lifetime }} for lifetime access or ${{ site.data.pricing.monthly }}/month. Up to {{ site.data.pricing.devices }} devices. The lifetime price rises as we grow.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline">Download Windows x64 stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline">Download Linux x64 stable</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-outline" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-outline" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
   <a href="https://github.com/off-grid-ai/OGAD" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>

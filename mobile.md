@@ -8,14 +8,14 @@ description: Your personal AI assistant on Android and iOS. Built for the phone 
 ---
 
 <div class="early-access-hero">
-  <div class="early-access-badge">Off Grid AI Mobile · Android &amp; iOS</div>
+  <div class="early-access-badge">Off Grid AI Mobile · <span class="platform-list" role="img" aria-label="Android, iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></span></div>
   <h1>Your personal AI.<br>On your phone.</h1>
   <p class="early-access-sub">Built for the phone you already own. Start free. Add Pro for memory, voice, and actions you approve.</p>
 </div>
 
 <div class="hero-buttons">
-  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
-  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for iOS" title="Download for iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a>
+  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Download for Android" title="Download for Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
@@ -110,8 +110,8 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
 </div>
 
 <div class="hero-buttons">
-  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
-  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for iOS" title="Download for iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a>
+  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Download for Android" title="Download for Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
@@ -196,7 +196,7 @@ Local models process your prompts on your phone. Connected tools, remote models,
 **What does Pro cost?** ${{ site.data.pricing.lifetime }} for lifetime access or ${{ site.data.pricing.monthly }}/month. Up to {{ site.data.pricing.devices }} devices. The lifetime price rises as we grow.
 
 <div class="hero-buttons">
-  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
-  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline">Get it on Google Play</a>
+  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for iOS" title="Download for iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a>
+  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Download for Android" title="Download for Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>

@@ -9,7 +9,7 @@ description: Personal AI, built for hardware you already own. Our goal is an ass
 
 # Intelligence belongs to everyone.
 
-Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. Our goal is your digital twin: an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval.
+Off Grid AI is available on <span class="platform-list" role="img" aria-label="Android, iOS, macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span>. Our goal is your digital twin: an AI personal assistant that knows your context, remembers what you do, and acts on your behalf with your approval.
 
 ---
 
@@ -99,4 +99,4 @@ This is happening now, not someday. 180,000+ downloads, 3,000+ stars, a 600-stro
 
 [See the vision]({{ '/vision' | relative_url }}) · [Get Off Grid AI Pro]({{ '/pro' | relative_url }})
 
-*Open source. No account. No telemetry. [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Download for Android, iOS, macOS, Windows, or Linux]({{ '/download/' | relative_url }})*
+*Open source. No account. No telemetry. [View on GitHub](https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github) · [Join the community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Get the apps]({{ '/download/' | relative_url }})*

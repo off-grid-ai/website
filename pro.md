@@ -106,7 +106,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
 
 Remember a decision. Find an open task. Prepare the next action. Your captured memory stays on your hardware.
 
-Apps for **Android, iOS, macOS, Windows, and Linux**. Features differ by platform: [Mobile]({{ '/mobile/' | relative_url }}) · [Desktop]({{ '/desktop/' | relative_url }}).
+Apps for <span class="platform-list" role="img" aria-label="Android, iOS, macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span>. Features differ by platform: [Mobile]({{ '/mobile/' | relative_url }}) · [Desktop]({{ '/desktop/' | relative_url }}).
 
 ## It sees
 
@@ -331,9 +331,9 @@ You choose whether copied text, new screenshots, and new downloads move too. You
 </div>
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download Windows stable</a>
-  <a href="{{ '/download/' | relative_url }}" class="btn btn-outline">Get Android, iOS, and Linux builds</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="{{ '/download/' | relative_url }}" class="btn btn-outline">All downloads</a>
 </div>
 
 ---

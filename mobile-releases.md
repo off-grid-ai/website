@@ -9,11 +9,11 @@ description: Off Grid AI Mobile releases for Android and iOS. Updates to your pe
 
 # Off Grid AI Mobile releases
 
-Your personal AI assistant on Android and iOS. Built for hardware you already own.
+Your personal AI assistant. <span class="platform-list" role="img" aria-label="Android, iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></span> Built for hardware you already own.
 
 Store versions can differ from GitHub builds.
 
-- **Store builds** - [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile).
+- **Store builds** - <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882" aria-label="Download for iOS" title="iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a> and <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile" aria-label="Download for Android" title="Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>.
 - **Direct builds** - [GitHub releases](https://github.com/off-grid-ai/OGAM/releases).
 
 <p class="ea-pricing-note">Latest GitHub release: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a>. <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">Full GitHub release history</a>.</p>

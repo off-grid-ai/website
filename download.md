@@ -10,20 +10,20 @@ description: Download your personal AI assistant for hardware you already own. O
 <div class="early-access-hero">
   <div class="early-access-badge">Download Off Grid AI</div>
   <h1>Your personal AI.<br>On hardware you already own.</h1>
-  <p class="early-access-sub">Built for hardware you already own. Android, iOS, macOS, Windows, and Linux. Start free. Add Pro for memory and actions you approve.</p>
+  <p class="early-access-sub">Built for hardware you already own. Start free. Add Pro for memory and actions you approve.</p>
 </div>
 
 <p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars</p>
 
 ---
 
-## Off Grid AI Mobile - Android and iOS
+## On your phone
 
 Your personal AI assistant on your phone. Chat, write, and ask about documents locally.
 
 <div class="hero-buttons">
-  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
-  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">Get it on Google Play</a>
+  <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for iOS" title="Download for iOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#ios"></use></svg></a>
+  <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green" aria-label="Download for Android" title="Download for Android"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#android"></use></svg></a>
   <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener" class="btn btn-outline">OGAM 0.0.110 on GitHub</a>
 </div>
 
@@ -31,21 +31,21 @@ Your personal AI assistant on your phone. Chat, write, and ask about documents l
 
 ---
 
-## Off Grid AI Desktop - macOS, Windows, and Linux
+## On your computer
 
 Your personal AI assistant on your computer. Local chat, writing, voice, and document tools.
 
 <div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download for macOS</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download for Windows</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-green">Linux AppImage</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb" class="btn btn-outline">Linux deb</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green" aria-label="Download for macOS stable" title="Download for macOS stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green" aria-label="Download for Windows stable" title="Download for Windows stable"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-green" aria-label="Download for Linux stable (AppImage)" title="Download for Linux stable (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a>
+  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb" class="btn btn-outline" aria-label="Download for Linux stable (deb)" title="Download for Linux stable (deb)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> deb</a>
   <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.54 release</a> <a href="https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github" target="_blank" rel="noopener" class="btn btn-outline">Star on GitHub</a>
 </div>
 
-<p class="ea-pricing-note">OGAD <strong>0.0.54</strong> is the current stable release for macOS, Windows x64, and Linux x64. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">Read the release notes</a>.</p>
+<p class="ea-pricing-note">OGAD <strong>0.0.54</strong> is the current stable desktop release. Windows and Linux packages are x64. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">Read the release notes</a>.</p>
 
-<p class="ea-pricing-note">Beta builds (0.0.55-beta.112): <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg">macOS beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe">Windows beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage" data-beta-download="AppImage">Linux AppImage beta</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb" data-beta-download="deb">Linux deb beta</a>. These links switch to any newer published beta when you open this page. Beta builds can have rough edges.</p>
+<p class="ea-pricing-note">Beta builds (0.0.55-beta.112): <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg" data-beta-download="dmg" aria-label="Download for macOS beta" title="Download for macOS beta"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe" data-beta-download="exe" aria-label="Download for Windows beta" title="Download for Windows beta"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage" data-beta-download="AppImage" aria-label="Download for Linux beta (AppImage)" title="Download for Linux beta (AppImage)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> AppImage</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb" data-beta-download="deb" aria-label="Download for Linux beta (deb)" title="Download for Linux beta (deb)"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg> deb</a>. These links switch to any newer published beta when you open this page. Beta builds can have rough edges.</p>
 
 ---
 
