@@ -551,7 +551,9 @@ export function ShotSeq({ shots, ms = 3200 }) {
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
-          {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : <Shot name={name} alt={alt} lazy={false} />}
+          {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <Shot name={name} alt={alt} lazy={false} />
+            // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
+            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Shot name={name} alt={alt} lazy={false} /></div></div></div>}
           {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
         </motion.div>
       </AnimatePresence>
@@ -1057,7 +1059,7 @@ function HomeSections({ pricing }) {
           <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="home_card">
             <Badge variant="outline">Teams under 50 people</Badge><div className="ex-mark">[ your team ]<br /><span>+ Off Grid AI</span></div><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/ogap/">
-            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-mobile.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-mobile.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
+            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-1200.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-1200.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/mobile/recorder/">
             <Badge variant="outline">Private alpha · Cohort full</Badge><div className="ex-mark ex-ic"><Microphone size={56} weight="thin" /></div><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></a></Card>
         </MobileRail>

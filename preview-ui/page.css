@@ -479,7 +479,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .hero-inner>div:first-child{width:100%}
 
 /* ── One grid: 1200px column, hairline rails, hairline section breaks ── */
-:root{--col:min(1200px,calc(100% - 48px))}
+:root{--col:min(1320px,calc(100% - 48px))}
 .section-shell{width:var(--col)!important;max-width:none!important}
 .offgrid-page main{position:relative}
 .offgrid-page main::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:var(--col);transform:translateX(-50%);border-left:1px solid var(--line);border-right:1px solid var(--line);pointer-events:none;z-index:3}
@@ -809,7 +809,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .light .plog-row{background:#fafafa}
 @media (max-width:860px){.planes{grid-template-columns:1fr}.plane{min-height:0}.plog-row{grid-template-columns:80px 1fr auto}}
 /* --col must not use % (it would resolve against height when used for heights) */
-:root{--col:min(1200px,calc(100vw - 64px))}
+:root{--col:min(1320px,calc(100vw - 64px))}
 @media (max-width:700px){:root{--col:calc(100vw - 24px)}}
 .beam-layer{position:absolute;inset:0;pointer-events:none;z-index:1}
 .beam-layer svg{z-index:1}
@@ -1525,7 +1525,7 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 }
 /* Desktop tour: a wider stage gives the orbit (radius 360) room to breathe; the window keeps its size. */
 @media(min-width:861px){
-  .walk{--tcol:min(1360px,calc(100vw - 64px))}
+  .walk{--tcol:var(--col)}
   .walk-copy{left:calc((100% - var(--tcol))/2)!important;width:calc(var(--tcol) * .37)!important;padding-right:32px}
   .wt-window{right:calc((100% - var(--tcol))/2)!important;width:calc(var(--tcol) * .615)!important;height:min(calc(var(--tcol) * .615 * .66),calc((100svh - 68px) * .86))!important}
 }
@@ -1591,3 +1591,23 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 @media (max-width:860px){.plog-row{grid-template-columns:92px 1fr auto!important;font-size:12px}}
 .light .walk-alive .alive-grid{fill:rgb(var(--og-rgb-primary)/.22)}
 @media(max-width:860px){.walk-alive .alive-grid{opacity:.7}}
+/* Desktop-only tour shots on phones: the full screen in a MacBook frame instead of a cropped slice. */
+@media(min-width:861px){
+  .shot-mac-wrap,.shot-mac-box,.shot-mac-screen{display:contents}
+  .shot-mac-frame{display:none}
+}
+@media(max-width:860px){
+  .shot-mac-wrap{position:absolute;inset:0;display:grid;place-items:center;container-type:size}
+  .shot-mac-box{position:relative;width:min(100cqw,calc(100cqh * 650 / 400));aspect-ratio:650/400}
+  .shot-mac-frame{position:absolute;inset:0;width:100%;height:100%;color:var(--og-background)}
+  .wt-shot:has(.shot-mac-wrap){border:0!important;overflow:visible!important}
+  .shot-mac-screen .shot{position:absolute!important;inset:auto!important;left:4%!important;top:7.2%!important;width:92%!important;height:auto!important;max-width:none!important;max-height:none!important;aspect-ratio:3520/1888;object-fit:cover!important;transform:none!important;animation:none!important;border:0!important;border-radius:2px!important}
+}
+@media(max-width:860px){.shot-mac-wrap::after{content:'Tap to enlarge';position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:10.5px;letter-spacing:.04em;color:var(--og-text-muted);pointer-events:none}}
+@media(max-width:860px){
+  .shot-mac-screen{position:absolute;left:11.465%;top:5.33%;width:77.111%;height:80.963%;overflow:hidden;border-radius:4px;background:radial-gradient(120% 90% at 70% 110%,#0f5a42 0%,#0a2a20 38%,#070b0a 75%)}
+  .light .shot-mac-screen{background:radial-gradient(120% 90% at 70% 110%,#a7e3cb 0%,#d9efe6 45%,#eef3f1 80%)}
+  .shot-mac-screen::before{content:'';position:absolute;inset:0 0 auto;height:3.2%;background:rgb(0 0 0/.35);z-index:1}
+  .light .shot-mac-screen::before{background:rgb(255 255 255/.55)}
+  .shot-mac-screen .shot{box-shadow:0 6px 14px rgb(0 0 0/.35)}
+}
