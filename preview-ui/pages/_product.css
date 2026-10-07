@@ -45,7 +45,7 @@
 .pp-tab-hover{border-radius:8px;background:var(--og-surface-light)}
 .light .pp-tab-hover{background:#f0f0f0}
 .pp-tab{all:unset;cursor:pointer;position:relative;font-size:12.5px;padding:9px 14px;color:var(--og-text-muted);border-radius:8px;overflow:hidden;transition:color .2s}
-.pp-tab[aria-selected=true],.pp-tab:hover{color:var(--og-text)}
+.pp-tab[aria-pressed=true],.pp-tab:hover{color:var(--og-text)}
 .pp-tab:focus-visible{outline:2px solid var(--og-primary)}
 .pp-tab-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--og-primary);transform-origin:0 50%}
 

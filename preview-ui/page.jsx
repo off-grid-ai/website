@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea } from '@radix-ui/themes';
+import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
-  ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, EnvelopeSimple, FilePdf, ChatsCircle,
+  ThumbsUp, ThumbsDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
@@ -820,7 +820,60 @@ export const ThemeCtx = createContext('dark');
 // Whether the tour is playing on its own; scenes and screen sequences hold still when it isn't.
 export const PlayCtx = createContext({ playing: true, takeOver: () => {} });
 // Every page: theme handling, header, main, footer. Pages pass their sections as children.
-export function PageShell({ children }) {
+// "Did this land?" (same storage key and PostHog event as the old layout) and the
+// creator newsletter (same identify + newsletter_signup capture as the old sidebar form).
+export function DocEnd() {
+  const [reaction, setReaction] = useState(null);
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState(['', '']);
+  const [ctx, setCtx] = useState({ slug: '', title: '' });
+  useEffect(() => {
+    const slug = window.location.pathname;
+    const el = document.querySelector('[data-page-title]');
+    setCtx({ slug, title: el ? el.getAttribute('data-page-title') : document.title });
+    try { const saved = localStorage.getItem('reaction:' + slug); if (saved) setReaction(saved); } catch (_) {}
+  }, []);
+  const react = (r) => {
+    if (reaction === r) return;
+    setReaction(r);
+    try { localStorage.setItem('reaction:' + ctx.slug, r); } catch (_) {}
+    if (typeof posthog !== 'undefined') posthog.capture('page_reaction', { slug: ctx.slug, reaction: r, title: ctx.title });
+  };
+  const subscribe = (e) => {
+    e.preventDefault();
+    const value = email.trim();
+    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { setStatus(['Enter a valid email address.', 'error']); return; }
+    if (typeof posthog !== 'undefined') {
+      posthog.identify(value, { email: value });
+      posthog.capture('newsletter_signup', { email: value, source: window.location.pathname });
+    }
+    setEmail(''); setStatus(['You\'re in. Updates on their way.', 'success']);
+  };
+  return <section className="doc-end" aria-label="Feedback and updates" data-pagefind-ignore>
+    <div className="doc-end-in">
+      <div className="doc-react">
+        <Kicker>DID THIS LAND?</Kicker>
+        <div className="doc-react-row">
+          <Button variant={reaction === 'agree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'agree'} aria-label="Agree with this" onClick={() => react('agree')}><ThumbsUp size={18} weight={reaction === 'agree' ? 'fill' : 'regular'} /></Button>
+          <Button variant={reaction === 'disagree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'disagree'} aria-label="Disagree with this" onClick={() => react('disagree')}><ThumbsDown size={18} weight={reaction === 'disagree' ? 'fill' : 'regular'} /></Button>
+          <span className="doc-react-thanks" aria-live="polite">{reaction ? (reaction === 'agree' ? 'Glad it landed.' : 'Thanks for the feedback.') : ''}</span>
+        </div>
+      </div>
+      <form className="doc-news" onSubmit={subscribe} noValidate>
+        <Kicker>UPDATES FROM THE CREATOR</Kicker>
+        <div className="doc-news-row">
+          <TextField.Root className="doc-news-input" type="email" name="email" required aria-invalid={status[1] === 'error'} size="3" placeholder="your@email.com" autoComplete="email" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} disabled={status[1] === 'success'}>
+            <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
+          </TextField.Root>
+          <Button type="submit" className="doc-news-btn" disabled={status[1] === 'success'}>Subscribe</Button>
+        </div>
+        <p className={`doc-news-status ${status[1]}`} aria-live="polite">{status[0]}</p>
+      </form>
+    </div>
+  </section>;
+}
+
+export function PageShell({ children, feedback = true }) {
   const [theme, setTheme] = useState('dark');
   const reduce = useReducedMotion();
   useEffect(() => {
@@ -862,8 +915,9 @@ export function PageShell({ children }) {
       </div>
     </div></header>
 
-    <main id="main"><ThemeCtx.Provider value={theme}>{children}</ThemeCtx.Provider></main>
+    <main id="main" tabIndex={-1}><ThemeCtx.Provider value={theme}>{children}</ThemeCtx.Provider></main>
 
+    {feedback && <div className="section-shell page-feedback"><DocEnd /></div>}
     <footer className="site-footer"><div className="section-shell">
       <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
       <div className="footer-links">

@@ -79,8 +79,8 @@
 .light .pp-cap-hover{background:#ececec}
 .pp-cap-tab{all:unset;cursor:pointer;position:relative;z-index:1;padding:10px 16px;font-size:13px;color:var(--og-text-muted);border-radius:8px;overflow:hidden;white-space:nowrap;flex-shrink:0;transition:color .2s}
 .pp-cap-tab>div.z-10{position:relative;display:flex;align-items:center;gap:8px}
-.pp-cap-tab[aria-selected=true]{color:var(--og-text)}
-.pp-cap-tab[aria-selected=true] svg{color:var(--og-primary)}
+.pp-cap-tab[aria-pressed=true]{color:var(--og-text)}
+.pp-cap-tab[aria-pressed=true] svg{color:var(--og-primary)}
 .pp-cap-tab:hover{color:var(--og-text-secondary)}
 .pp-cap-tab:focus-visible{outline:2px solid var(--og-primary);outline-offset:-2px}
 .pp-cap-bar{position:absolute;left:-16px;right:-16px;bottom:-10px;height:2px;background:var(--og-primary);transform-origin:0 50%}

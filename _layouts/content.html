@@ -337,14 +337,16 @@
       var href = el.getAttribute('href') || '';
       if (!window.OffGridAnalytics) return;
       var page = window.location.pathname;
+      var host;
+      try { host = new URL(href, window.location.href).hostname; } catch (_) { return; }
       // Mobile store links and direct Android release packages.
-      if (href.indexOf('apps.apple.com') !== -1 || href.indexOf('play.google.com') !== -1 ||
+      if (host === 'apps.apple.com' || host === 'play.google.com' ||
           (/^https:\/\/github\.com\/off-grid-ai\/OGAM\/releases\/download\//.test(href) && /\.(apk|aab)(?:$|\?)/.test(href))) {
         window.OffGridAnalytics.capture('docs_download_click', {
           href: href,
           page: page,
-          platform: href.indexOf('apps.apple.com') !== -1 ? 'ios' : 'android',
-          build: href.indexOf('apps.apple.com') !== -1 || href.indexOf('play.google.com') !== -1 ? 'store'
+          platform: host === 'apps.apple.com' ? 'ios' : 'android',
+          build: host === 'apps.apple.com' || host === 'play.google.com' ? 'store'
             : (/\/releases\/download\/[^/]*-beta\./.test(href) ? 'beta' : 'stable')
         });
         return;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -68,14 +68,17 @@ export function AutoCtl({ manual, onToggle, hint, className = '' }) {
 
 // Replays a composed scene every `ms` so every demo loops.
 export function Loop({ ms = 9000, children }) {
+  const reduce = useReducedMotion();
   const [k, setK] = useState(0);
-  useEffect(() => { const t = setInterval(() => setK(v => v + 1), ms); return () => clearInterval(t); }, [ms]);
+  useEffect(() => { if (reduce) return; const t = setInterval(() => setK(v => v + 1), ms); return () => clearInterval(t); }, [ms, reduce]);
   return <React.Fragment key={k}>{children}</React.Fragment>;
 }
 
 // Left-to-right wipe with a scan line, the home page's screen transition.
 export const WIPE_T = { duration: .7, ease: [.65, 0, .35, 1] };
 export function Wipe({ id, className = '', children }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={`pp-wipe ${className}`}>{children}</div>;
   return <AnimatePresence initial={false}>
     <motion.div key={id} className={`pp-wipe ${className}`} initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE_T }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
       {children}
@@ -101,12 +104,13 @@ export function Dl({ href, id, small, label, aria, external, beta, className = '
 // The real app in a window: each chapter types its command and wipes through its screens.
 // Tabs below, autoplay with a progress bar, hover holds, drag or swipe the window to step.
 export function AppWindow({ chapters, label }) {
+  const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   const C = chapters[i];
   const dwell = C.dwell || C.shots.reduce((a, s) => a + (s[2] || 3200), 0) + 300;
-  useEffect(() => { if (hold || manual) return; const t = setTimeout(() => setI(v => (v + 1) % chapters.length), dwell); return () => clearTimeout(t); }, [i, hold, manual]);
+  useEffect(() => { if (hold || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % chapters.length), dwell); return () => clearTimeout(t); }, [i, hold, manual, reduce]);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
-  const still = hold || manual;
+  const still = hold || manual || reduce;
   return <div className="pp-app" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
@@ -117,15 +121,15 @@ export function AppWindow({ chapters, label }) {
       </div>
       <div className="pp-view"><ShotSeq key={C.id} shots={C.shots} /></div>
     </motion.div>
-    <div className="pp-tabs" role="tablist" aria-label={label}>
+    <div className="pp-tabs" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
-        {chapters.map((c, n) => <button type="button" role="tab" data-id={c.id} key={c.id} aria-selected={n === i} className="pp-tab">
+        {chapters.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-tab">
           {c.label}
           {n === i && <motion.i key={`${i}-${still}`} className="pp-tab-bar" initial={{ scaleX: 0 }} animate={{ scaleX: still ? 0 : 1 }} transition={{ duration: still ? .2 : dwell / 1000, ease: 'linear' }} />}
         </button>)}
       </AnimatedBackground>
     </div>
-    <AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Pick a view or drag the window." />
+    {!reduce && <AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Pick a view or drag the window." />}
   </div>;
 }
 
@@ -133,8 +137,9 @@ export function AppWindow({ chapters, label }) {
 // items: { id, title, line, note?, visual: (compact) => node }
 export function Explorer({ items, label, ms = 6500, className = '' }) {
   const narrow = useNarrow();
+  const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
-  useEffect(() => { if (hold || narrow || manual) return; const t = setTimeout(() => setI(v => (v + 1) % items.length), ms); return () => clearTimeout(t); }, [i, hold, narrow, manual]);
+  useEffect(() => { if (hold || narrow || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % items.length), ms); return () => clearTimeout(t); }, [i, hold, narrow, manual, reduce]);
   if (narrow) return <MobileRail className={`pp-rail ${className}`}>
     {items.map(it => <article className="pp-card" key={it.id}>
       <div className="pp-card-vis">{typeof it.visual === 'function' ? it.visual(true) : null}</div>
@@ -143,15 +148,15 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
   </MobileRail>;
   const P = items[i];
   return <div className={`pillar-grid pp-explorer ${className}`} onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
-    <div className="pillar-list" role="tablist" aria-label={label}>
+    <div className="pillar-list" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
-        {items.map((p, n) => <button type="button" role="tab" data-id={p.id} key={p.id} aria-selected={n === i} className="pillar-tab">
+        {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
           <span className="pillar-num">{String(n + 1).padStart(2, '0')}</span>
           <span className="pillar-tx"><b>{p.title}</b>{n === i && <motion.span className="pillar-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{p.line}</motion.span>}</span>
-          {n === i && <motion.i key={`${i}-${hold}-${manual}`} className="pillar-bar" initial={{ scaleX: 0 }} animate={{ scaleX: hold || manual ? 0 : 1 }} transition={{ duration: hold || manual ? .2 : ms / 1000, ease: 'linear' }} />}
+          {n === i && <motion.i key={`${i}-${hold}-${manual}`} className="pillar-bar" initial={{ scaleX: 0 }} animate={{ scaleX: hold || manual || reduce ? 0 : 1 }} transition={{ duration: hold || manual || reduce ? .2 : ms / 1000, ease: 'linear' }} />}
         </button>)}
       </AnimatedBackground>
-      <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Click a feature to take over." />
+      {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}
     </div>
     <div className="pillar-stage pp-stage">
       <Wipe id={P.id} className="pillar-view">
@@ -226,17 +231,19 @@ export function Phone({ children, time = '09:41', status }) {
 const mobSrc = (f) => `/assets/img/home/mobile/${f}-640.webp`;
 export function PhoneShots({ shots, ms = 3600, controls }) {
   const [i, setI] = useState(0); const [manual, setManual] = useState(false);
-  useEffect(() => { if (shots.length < 2 || manual) return; const t = setTimeout(() => setI(v => (v + 1) % shots.length), shots[i][2] || ms); return () => clearTimeout(t); }, [i, shots.length, manual]);
+  const reduce = useReducedMotion();
+  const next = () => { setManual(true); setI(v => (v + 1) % shots.length); };
+  useEffect(() => { if (shots.length < 2 || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % shots.length), shots[i][2] || ms); return () => clearTimeout(t); }, [i, shots.length, manual, reduce]);
   const [f, alt] = shots[i];
-  const phone = <div className="pp-phone pp-phone-shot" onClick={controls ? () => { setManual(true); setI(v => (v + 1) % shots.length); } : undefined} style={controls ? { cursor: 'pointer' } : undefined}>
+  const phone = <div className="pp-phone pp-phone-shot" role={controls ? "button" : undefined} tabIndex={controls ? 0 : undefined} aria-label={controls ? `Show the next phone screen. ${alt}` : undefined} onClick={controls ? next : undefined} onKeyDown={controls ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); next(); } } : undefined} style={controls ? { cursor: 'pointer' } : undefined}>
     <div className="pp-screen pp-screen-shot">
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
       <Wipe id={`${f}-${i}`}><img className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} src={mobSrc(f)} srcSet={`${mobSrc(f)} 640w, /assets/img/home/mobile/${f}.webp 1290w`} sizes="(max-width: 860px) 300px, 400px" alt={alt} /></Wipe>
     </div>
     <Iphone />
   </div>;
-  if (!controls) return phone;
-  return <>{phone}<AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Tap the phone for the next screen." /></>;
+  if (!controls || reduce) return phone;
+  return <>{phone}<AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Select the phone for the next screen." /></>;
 }
 
 // Same content without the phone frame (phone-width cards).

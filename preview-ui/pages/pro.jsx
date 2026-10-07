@@ -305,9 +305,9 @@ function WhatPro({ again }) {
     <div className="section-shell">
       <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head"><Kicker>WHAT PRO IS</Kicker>
         <Title id="what-h" className="pp-h2" lead="It knows your day." dim="It waits for your yes." /></BlurFade>
-      <div className="pp-cap-tabs" role="tablist" aria-label="Pro capabilities">
+      <div className="pp-cap-tabs" role="group" aria-label="Pro capabilities">
         <AnimatedBackground defaultValue={C.id} onValueChange={(id) => id && pick(id)} className="pp-cap-hover">
-          {CAPS.map((c, n) => <button type="button" role="tab" data-id={c.id} key={c.id} aria-selected={n === i} className="pp-cap-tab">
+          {CAPS.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-cap-tab">
             <c.Icon size={15} /><span>{c.tab}</span>
             {n === i && !hold && <motion.i key={`${i}`} className="pp-cap-bar" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: dwell(c) / 1000, ease: 'linear' }} />}
           </button>)}

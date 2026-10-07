@@ -159,6 +159,7 @@
   <noscript><style>.wt-window{opacity:1!important}</style></noscript>
 </head>
 <body>
+  {% include announcement-bar.html %}
   <div id="offgrid-home-root">{% include home-content.html %}</div>
   <script id="offgrid-home-pricing" type="application/json">{{ site.data.pricing | jsonify }}</script>
   <!-- PostHog Analytics -->
