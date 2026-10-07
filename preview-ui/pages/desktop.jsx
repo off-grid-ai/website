@@ -25,7 +25,7 @@ const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/OGAD', smal
 const CHAPTERS = [
   { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.', 3800]] },
   { id: 'models', label: 'Models', cmd: 'download models for this computer', shots: [['models-text', 'Off Grid AI Models: text models.', 1700], ['models-vision', 'Off Grid AI Models: vision models.', 1700], ['models-image', 'Off Grid AI Models: image models.', 1700], ['models-voice', 'Off Grid AI Models: text to speech models.', 1700], ['models-transcription', 'Off Grid AI Models: speech to text models.', 1700], ['models-computer-use', 'Off Grid AI Models: computer use models.', 2200]] },
-  { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.', 3000]] },
+  { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400]]] },
   { id: 'people', label: 'People', cmd: 'who is Sam Okafor?', shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.', 3400]] },
   { id: 'reflect', label: 'Reflect', cmd: 'where did my week go?', shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.', 3400]] },
   { id: 'vault', label: 'Vault', cmd: 'unlock my vault', shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1600], ['vault-typing', 'Entering the master password.', 1400], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400]] },

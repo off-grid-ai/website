@@ -35,7 +35,6 @@ function Hero({ pricing }) {
       <SceneCard className="pp-hero-card" busy>
         <div className="pp-frame"><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="god" alt="" lazy={false} /></div></div><ShotSeq ms={3800} shots={[
           ['god', 'Off Grid AI God: Ares briefs you on your day, with approvals waiting.'],
-          ['actions', 'Off Grid AI Actions: to-dos for Sam Okafor and Acme Corp.'],
           ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
         ]} /></div>
       </SceneCard>
