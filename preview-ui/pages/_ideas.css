@@ -1,0 +1,140 @@
+/* Shared styles for the ideas pages (ethos, mission, vision, design partners). Scoped under .ideas. */
+.ideas{--ideas-gap:16px}
+
+/* Hero */
+.ideas .ideas-hero{padding-block:clamp(72px,9vw,128px) clamp(56px,7vw,96px)}
+.ideas .ideas-head{margin-bottom:0}
+.ideas .ideas-hero h1{font-weight:300;font-size:clamp(36px,6vw,84px);line-height:1.02;letter-spacing:-.055em;text-wrap:balance}
+.ideas .ideas-head>p{font-size:clamp(14px,1.3vw,17px);max-width:640px}
+.ideas-platforms{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--og-text-muted)}
+.ideas-platform-icons{display:inline-flex;gap:6px}
+.ideas-pf{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-text-secondary);background:rgb(var(--og-rgb-background)/.6)}
+.ideas .ideas-hero .ideas-points{margin-top:48px}
+
+/* Chapter index */
+.ideas-nav{position:sticky;top:68px;z-index:40;background:rgb(var(--og-rgb-background)/.94);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);border-block:1px solid var(--line)}
+.ideas-nav-row{width:min(1200px,calc(100% - 48px));margin-inline:auto;display:flex;gap:2px;padding-block:8px;overflow-x:auto;scrollbar-width:none}
+.ideas-nav-row::-webkit-scrollbar{display:none}
+.ideas-nav-link{display:inline-flex!important;align-items:baseline;gap:8px;white-space:nowrap;border-radius:8px;transition:color .2s}
+.ideas-nav-link:hover,.ideas-nav-link[data-checked=true]{color:var(--og-text)}
+.ideas-nav-n{font-size:10px;color:var(--og-text-disabled)}
+.ideas-nav-link[data-checked=true] .ideas-nav-n{color:var(--og-primary)}
+
+/* Chapters */
+.ideas-ch{padding-block:clamp(96px,10vw,144px);border-bottom:1px solid var(--line);scroll-margin-top:120px}
+.ideas-ch:nth-of-type(even){background:var(--band)}
+.ideas-ch-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.ideas-ch-head{position:sticky;top:150px;display:flex;flex-direction:column;gap:14px}
+.ideas-ch-n{font-size:12px;color:var(--og-primary);letter-spacing:.1em}
+.ideas-ch-head h2{font-weight:300;font-size:clamp(26px,3.2vw,44px);line-height:1.1;letter-spacing:-.045em;text-wrap:balance}
+.ideas-pull{font-size:clamp(19px,1.9vw,26px);line-height:1.4;letter-spacing:-.025em;color:var(--og-text);border-left:2px solid var(--og-primary);padding-left:20px;margin-bottom:28px;text-wrap:pretty}
+.ideas-pull>span{display:inline!important}
+.ideas-prose{display:flex;flex-direction:column;gap:18px;max-width:640px}
+.ideas-prose>p{font-size:15px;line-height:1.8;color:var(--og-text-secondary)}
+.ideas-prose strong{font-weight:400;color:var(--og-text)}
+.ideas-prose .ideas-points{max-width:none}
+.ideas-ch .ideas-points{margin-block:8px}
+.ideas-shot{margin-top:8px}
+
+/* Point cards */
+.ideas-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ideas-gap)}
+.ideas-points-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ideas-ch-body .ideas-points-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ideas-point .feat-in{padding:20px;gap:10px}
+.ideas-point .feat-in h3{font-size:14.5px;line-height:1.45}
+.ideas-point .feat-in p{font-size:12.5px;line-height:1.65}
+
+/* Statement (Magic UI TextReveal) */
+.ideas .ideas-statement .reveal{height:150vh!important}
+.ideas .ideas-statement .reveal>div>span{font-size:clamp(28px,4.4vw,58px)!important}
+
+/* Closing */
+.ideas-close{padding-block:clamp(96px,10vw,144px);border-top:1px solid var(--line)}
+.ideas-close-h{font-weight:300;font-size:clamp(30px,4.4vw,58px);line-height:1.08;letter-spacing:-.05em;text-wrap:balance}
+.ideas-close-h .t-dim{color:var(--og-text-muted)}
+.ideas-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line);margin-top:48px}
+.ideas-stat{display:flex;flex-direction:column;gap:6px;padding:28px 0 28px 28px;border-left:1px solid var(--line)}
+.ideas-stat:first-child{border-left:0;padding-left:0}
+.ideas-stat-n{font-weight:300;font-size:clamp(32px,4vw,52px);letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.ideas-stat-l{font-size:12px;color:var(--og-text-muted)}
+.ideas-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.ideas-ctas a{display:inline-flex;align-items:center;gap:8px}
+.ideas .ideas-cta-primary,.ideas .ideas-cta-primary>a{background:var(--og-primary)!important;color:#03140c!important;border:0!important}
+
+@media (max-width:1000px){
+  .ideas-nav{top:68px}
+  .ideas-ch-grid{grid-template-columns:1fr;gap:24px}
+  .ideas-ch-head{position:static}
+  .ideas-ch-body .ideas-points-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  .ideas-points,.ideas-points-4,.ideas-ch-body .ideas-points-3{display:block}
+}
+@media (max-width:700px){
+  .ideas .ideas-hero{padding-block:44px 40px}
+  .ideas .ideas-hero h1{font-size:clamp(34px,10vw,48px)}
+  .ideas-platforms{margin-top:20px;gap:10px}
+  .ideas-pf{width:30px;height:30px}
+  .ideas .ideas-hero .ideas-points{margin-top:28px}
+  .ideas-nav{top:60px}
+  .ideas-nav-row{width:calc(100% - 16px);padding-block:6px}
+  .ideas-nav-link{padding:8px 10px!important;font-size:12px!important}
+  .ideas-ch{padding-block:56px;scroll-margin-top:110px}
+  .ideas-ch-head{gap:10px}
+  .ideas-ch-head h2{font-size:clamp(24px,7.4vw,32px)}
+  .ideas-pull{font-size:18px;padding-left:14px;margin-bottom:18px}
+  .ideas-prose{gap:14px}
+  .ideas-prose>p{font-size:14px;line-height:1.7}
+  .ideas .ideas-statement .reveal{height:105vh!important}
+  .ideas .ideas-statement .reveal>div>span{font-size:clamp(24px,7.6vw,34px)!important}
+  .ideas-close{padding-block:56px}
+  .ideas-proof{margin-top:28px}
+  .ideas-stat{padding:18px 0 18px 12px}
+  .ideas-stat-n{font-size:clamp(22px,7vw,30px)}
+  .ideas-stat-l{font-size:10.5px}
+  .ideas-ctas{margin-top:24px}
+  .ideas-ctas>*{flex:1 1 100%}
+  .ideas-ctas a{justify-content:center}
+}
+
+/* Hero and hub heads read top to bottom, not split left/right. */
+.ideas .ideas-hero .ideas-head,.ideas .ideas-stack{display:flex!important;flex-direction:column;align-items:flex-start;gap:18px!important;max-width:880px!important}
+.ideas .ideas-hero .ideas-head>p,.ideas .ideas-stack>p{text-align:left!important;justify-self:auto!important;max-width:640px!important;padding-bottom:0!important}
+
+/* Featured points: one large card, the rest smaller beside it. Depth, not a uniform grid. */
+.ideas-points-feat{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)!important;grid-auto-rows:auto}
+.ideas-points-feat>:first-child{grid-row:1 / span 3}
+.ideas-points-feat>:first-child .feat-in{padding:clamp(24px,2.6vw,36px);justify-content:flex-end;min-height:100%;gap:14px}
+.ideas-points-feat>:first-child .feat-in svg{width:30px;height:30px;margin-bottom:auto}
+.ideas-points-feat>:first-child .feat-in h3{font-weight:300;font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.04em}
+.ideas-points-feat>:first-child .feat-in p{font-size:13.5px}
+.ideas-points-feat>:not(:first-child) .feat-in{padding:18px 20px;gap:6px}
+.ideas-points-feat>:not(:first-child) .feat-in svg{flex-shrink:0;color:var(--og-text-muted)}
+.ideas-points-3.ideas-points-feat>:first-child{grid-row:1 / span 2}
+.ideas-points-feat>:first-child{min-height:220px}
+@media (max-width:860px){
+  .ideas-points-feat>:first-child{min-height:0}
+  .ideas-points-feat .feat-in{min-height:168px}
+  .ideas-points-feat>:first-child .feat-in svg{width:22px;height:22px}
+  .ideas-points-feat>:first-child .feat-in h3{font-size:20px}
+}
+
+/* Numbers get their own space in index items. */
+.ideas-nav-link>.z-10{display:inline-flex;align-items:baseline;gap:8px}
+.ideas-nav-row{gap:4px}
+.ideas-nav-link{padding:8px 14px}
+/* Animated words flow as text: no leading space at wrapped line starts. */
+.ideas .ideas-pull span,.ideas h1 span span,.ideas h2 span span,.ideas .sec-head>p span{display:inline!important;white-space:normal!important}
+.ideas-pull{color:var(--og-text);font-weight:300}
+.ideas-prose>p{color:var(--og-text-secondary)}
+/* Grid children never grow past the column (carousels inside chapters). */
+.ideas-ch-grid>*,.ideas-prose,.ideas-prose>*{min-width:0}
+.ideas-ch-meta{display:flex;align-items:baseline;gap:12px}
+.ideas-stat-n{white-space:nowrap}
+@media (max-width:700px){
+  .ideas .ideas-hero h1{font-size:clamp(28px,8.2vw,40px)}
+  .ideas .ideas-statement{display:none}
+  .ideas-stat-n{font-size:clamp(18px,5.4vw,26px)}
+  .ideas-ch-head h2{font-size:clamp(23px,6.6vw,30px)}
+}
+.ideas-pull{max-width:720px}

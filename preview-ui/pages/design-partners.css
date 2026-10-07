@@ -1,0 +1,60 @@
+@import "../../../preview-ui/pages/_ideas.css";
+/* Design partners */
+.dp .dp-hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.dp .dp-hero h1{font-size:clamp(34px,5vw,68px)}
+.dp-price{width:100%}
+.dp-price-in{display:flex;flex-direction:column;gap:22px;padding:28px}
+.dp-price-row{display:flex;flex-direction:column;gap:6px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.dp-was{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.04em;color:var(--og-text-muted);text-decoration:line-through;text-decoration-thickness:1px}
+.dp-was small{font-size:12px;letter-spacing:0}
+.dp-now{font-weight:300;font-size:clamp(56px,6vw,84px);letter-spacing:-.06em;line-height:1;color:var(--og-primary)}
+.dp-price-now{border-bottom:0;padding-bottom:0}
+.dp-price-list,.dp-list{display:grid;gap:10px;font-size:13px;color:var(--og-text-secondary)}
+.dp-price-list li,.dp-list li{display:flex;gap:10px;align-items:flex-start}
+.dp-price-list svg,.dp-list svg{color:var(--og-primary);margin-top:5px;flex-shrink:0}
+.dp-sec{padding-block:clamp(96px,10vw,144px)}
+.dp-band{background:var(--band);border-block:1px solid var(--line)}
+.dp .dp-head{margin-bottom:40px}
+.dp .dp-head h2{font-weight:300;font-size:clamp(28px,3.6vw,50px);line-height:1.08;letter-spacing:-.05em}
+.dp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.dp-step{position:relative;display:flex;flex-direction:column;gap:10px;padding:28px 24px 0 0}
+.dp-step::before{content:"";position:absolute;top:-1px;left:0;width:32px;height:1px;background:var(--og-primary)}
+.dp-step-n{font-size:12px;color:var(--og-primary);letter-spacing:.1em}
+.dp-step h3{font-weight:400;font-size:16px;line-height:1.4;letter-spacing:-.01em}
+.dp-step p{font-size:13px;line-height:1.65;color:var(--og-text-secondary)}
+.dp-fit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dp-card .feat-in{padding:24px}
+.dp-card .feat-in h3{font-size:15px;line-height:1.45}
+.dp-card h2{font-weight:400;font-size:20px;letter-spacing:-.02em;scroll-margin-top:110px}
+.dp-start{border-top:1px solid var(--line);background:var(--band)}
+.dp-mail .feat-in{padding:clamp(24px,3vw,40px);gap:0}
+.dp-mail-to{display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.dp-include-h{display:block}
+.dp .dp-mail-btn{display:inline-flex;align-items:center;gap:12px;max-width:100%;height:auto!important;min-height:52px;padding:12px 22px!important;font-size:clamp(14px,1.5vw,18px)!important;white-space:normal!important;text-align:left}
+.dp .dp-mail-btn span{overflow-wrap:anywhere}
+.dp-include{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:16px}
+.dp-include li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.6;color:var(--og-text-secondary)}
+.dp-include svg{color:var(--og-primary);flex-shrink:0;margin-top:2px}
+@media (max-width:1000px){
+  .dp .dp-hero-grid{grid-template-columns:1fr}
+  .dp-price{max-width:520px}
+  .dp-steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+}
+@media (max-width:860px){.dp-fit{display:block}.dp-include{grid-template-columns:1fr;gap:14px}}
+@media (max-width:700px){
+  .dp .dp-hero h1{font-size:clamp(30px,8.6vw,40px)}
+  .dp-price-in{padding:20px;gap:14px}
+  .dp-price-row{padding-bottom:14px}
+  .dp-now{font-size:52px}
+  .dp-sec{padding-block:56px}
+  .dp-steps{grid-template-columns:1fr;row-gap:0;border-top:0}
+  .dp-step{padding:14px 0 14px 18px;border-left:1px solid var(--line);gap:4px}
+  .dp-step::before{top:14px;left:-1px;width:1px;height:20px}
+  .dp-step h3{font-size:14.5px}.dp-step p{font-size:12.5px}
+  .dp .dp-head{margin-bottom:24px}
+  .dp-mail .feat-in{padding:20px}
+  .dp .dp-mail-btn{font-size:13px!important;padding:12px 14px!important;width:100%;justify-content:center}
+  .dp-mail-to{padding-bottom:20px;margin-bottom:18px}
+  .dp-start{padding-block:56px}
+  .dp-hero-ctas{margin-top:8px}
+}
