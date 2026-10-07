@@ -96,7 +96,7 @@ If you need the exact wording you gave the model, narrow to chat. If you need to
 
 Try a second query when the terminology changed. A client may call the same event a workshop, session or review. Use a short distinctive name before combining several terms that may never appear together.
 
-A useful first test is a harmless phrase you deliberately placed in a saved chat and a project document. Find both and open them. That verifies the sources you actually have, rather than treating a connected account or a visible file elsewhere on the Linux as already indexed by Search.
+A useful first test is a harmless phrase you deliberately placed in a saved chat and a project document. Find both and open them. That verifies the sources you actually have, rather than treating a connected account or a visible file elsewhere on the Linux computer as already indexed by Search.
 
 [Try OGAD for Linux](https://getoffgridai.co/desktop/) with a phrase you know exists in two saved sources. Find both, open them, and compare the context before you use the answer.
 

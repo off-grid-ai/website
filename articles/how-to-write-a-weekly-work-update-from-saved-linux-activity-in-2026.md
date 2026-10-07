@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Write a Weekly Work Update From Saved Linux Activity in 2026"
-description: "Use Off Grid AI Desktop beta 114 on Linux for this workflow. Prepare Pro, check the source record, and keep local models selected for local processing."
+description: "Draft a weekly work update from saved Linux activity. Review daily journals and source records, then use local AI to describe verified results."
 date: "2026-10-07"
 permalink: /articles/how-to-write-a-weekly-work-update-from-saved-linux-activity-in-2026/
 published_at: "2026-10-07T21:10:39Z"

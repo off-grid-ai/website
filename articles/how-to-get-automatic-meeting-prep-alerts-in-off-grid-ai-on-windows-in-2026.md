@@ -93,7 +93,7 @@ The prep panel displays retained summaries. Check exact quotations and commitmen
 
 ## Turn on the automatic heads-up
 
-Open **Settings > Capture** and enable **Proactive delivery**. Allow OGAD notifications in Windows settings, and keep the Windows awake with OGAD running before the meeting. Check Focus if notifications are hidden.
+Open **Settings > Capture** and enable **Proactive delivery**. Allow OGAD notifications in Windows settings, and keep the Windows computer awake with OGAD running before the meeting. Check Focus if notifications are hidden.
 
 The app targets roughly 20 minutes before a meeting. It checks periodically within a wider window, so this is not an exact 20-minute timer. An event imported too late can miss that window.
 

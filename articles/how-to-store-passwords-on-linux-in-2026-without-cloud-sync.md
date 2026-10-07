@@ -56,7 +56,7 @@ The saved database is encrypted at rest. Your master password and the device fac
 
 Keep that boundary in mind when copying a password. The copied text goes to the system clipboard, where clipboard-history tools or the destination app can receive it. Vault encryption does not automatically encrypt every copy you make outside the vault.
 
-Before working with real secrets, check any clipboard capture and sync settings you use. OGAD's Clipboard settings let you turn **Capture clipboard** off. Lock the vault after use, and keep the Linux's own account protected as well.
+Before working with real secrets, check any clipboard capture and sync settings you use. OGAD's Clipboard settings let you turn **Capture clipboard** off. Lock the vault after use, and keep your Linux account protected as well.
 
 ## Getting started with one login
 
@@ -89,7 +89,7 @@ Keep the secret in the protected value or secure-note body rather than in the ti
 
 ## Plan for recovery before you need it
 
-The setup provides a 24-word recovery phrase. Keep it private and separate from the Linux. It is sensitive recovery material, not an ordinary note to paste into a chat.
+The setup provides a 24-word recovery phrase. Keep it private and separate from the Linux computer. It is sensitive recovery material, not an ordinary note to paste into a chat.
 
 Recovery also depends on retaining the vault's data and required recovery files. A phrase alone cannot recreate a database that has been lost. Keep an appropriate backup of the app data and follow the recovery workflow if you need to move or restore it; copying only the database to a different machine is not the same as an ordinary unlock.
 

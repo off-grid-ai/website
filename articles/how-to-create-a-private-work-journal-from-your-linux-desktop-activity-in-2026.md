@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Create a Private Work Journal From Your Linux Desktop Activity in 2026"
-description: "Use Off Grid AI Desktop beta 114 on Linux for this workflow. Prepare Pro, check the source record, and keep local models selected for local processing."
+description: "Create a private daily journal from saved Linux desktop activity. Review the timeline, check the source record, and refresh the summary with local AI."
 date: "2026-10-07"
 permalink: /articles/how-to-create-a-private-work-journal-from-your-linux-desktop-activity-in-2026/
 published_at: "2026-10-07T21:09:26Z"

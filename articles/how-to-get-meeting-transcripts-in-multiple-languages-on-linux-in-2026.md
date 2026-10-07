@@ -66,7 +66,7 @@ Switching languages during the same call can be harder than a single-language re
 5. Have each side say a sentence in the intended language, then select **Stop**.
 6. Open the saved meeting's **Transcript** and compare the words with playback.
 
-Screen content can also be recorded. Make sure participants agree before recording, and keep the visible recording indicator in view. The online meeting platform still carries the call over its network; local transcription means the OGAD speech stage uses your Linux.
+Screen content can also be recorded. Make sure participants agree before recording, and keep the visible recording indicator in view. The online meeting platform still carries the call over its network; local transcription means the OGAD speech stage uses your Linux computer.
 
 ## What should you check in the transcript?
 
