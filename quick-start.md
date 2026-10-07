@@ -20,7 +20,7 @@ Run your personal AI assistant on hardware you already own. No account or API ke
 
 **Android:** [Get it on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires Android 10+, 4GB RAM+
 
-Or download the [OGAM 0.0.110 APK from GitHub](https://github.com/off-grid-ai/OGAM/releases/download/v0.0.110/OffgridMobile-0.0.110.apk).
+Or download the [OGAM 0.0.111 APK from GitHub](https://github.com/off-grid-ai/OGAM/releases/download/v0.0.111/OffgridMobile-0.0.111-beta.1.apk).
 
 ---
 
