@@ -4,13 +4,13 @@ title: Desktop
 nav_order: 4
 nav_group: Products
 has_children: true
-description: Your personal AI assistant, built for the computer you already own. Run Off Grid AI on macOS, Windows, and Linux. Add Pro features on supported platforms.
+description: Your personal AI assistant on macOS, Windows, and Linux. Built for the computer you already own. Pro adds memory and approved actions on supported platforms.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Desktop · macOS, Windows &amp; Linux</div>
-  <h1>Your work has history.<br>Your AI remembers it.</h1>
-  <p class="early-access-sub">Run your personal AI assistant on the computer you already own. Off Grid AI runs locally on macOS, Windows, and Linux. Start with chat, writing, and documents. On supported platforms, Pro builds your digital twin from the work you choose to capture. It remembers your context and acts on your behalf in your apps and browser with your approval.</p>
+  <h1>Your personal AI.<br>On your computer.</h1>
+  <p class="early-access-sub">Built for the computer you already own. Start free. Add Pro for work memory and actions you approve on supported platforms.</p>
 </div>
 
 <div class="hero-buttons">
@@ -22,7 +22,7 @@ description: Your personal AI assistant, built for the computer you already own.
 
 <p class="ea-pricing-note" style="text-align:center;">OGAD 0.0.54 is the current macOS, Windows x64, and Linux x64 stable release. <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54">See the GitHub release</a>.</p>
 
-<p class="ea-pricing-note" style="text-align:center;">15-30 tokens a second on a flagship Mac · 180,000+ downloads · 3,000+ GitHub stars</p>
+<p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars</p>
 
 <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" style="display:block"><img class="hero-cover" src="{{ '/assets/img/desktop-chat.png' | relative_url }}" alt="OGAD running a private chat on macOS, models listed down the left, a streaming reply in the center." width="1760" height="983" loading="eager"></a>
 
@@ -30,7 +30,7 @@ description: Your personal AI assistant, built for the computer you already own.
 
 ## What you get, free
 
-Write, research, and create with AI on your computer. Free to start. Your local models keep your prompts on your device.
+Write, research, and create with local models.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -39,7 +39,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Chat</div>
-      <div class="perk-desc">Text and vision, streaming, with a reasoning mode. 15-30 tokens a second on a flagship Mac.</div>
+      <div class="perk-desc">Write, ask, and reason with local text and vision models.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -48,7 +48,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Image generation</div>
-      <div class="perk-desc">Text-to-image and image-to-image on your own GPU. Ships Z-Image-Turbo and SDXL-Lightning, with a live per-step preview.</div>
+      <div class="perk-desc">Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -57,7 +57,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Voice</div>
-      <div class="perk-desc">Speech-to-text with Whisper, text-to-speech with Kokoro, and a hands-free voice mode. All on-device.</div>
+      <div class="perk-desc">Dictate with Whisper. Hear replies with Kokoro. Both run locally.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -66,7 +66,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Projects</div>
-      <div class="perk-desc">Drop in PDFs, docs, and notes, then chat grounded in them with cited sources.</div>
+      <div class="perk-desc">Ask about your documents and notes. Answers cite their sources.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -75,7 +75,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Artifacts</div>
-      <div class="perk-desc">The model's HTML, React, SVG, and Mermaid render live in a sandboxed canvas next to the chat.</div>
+      <div class="perk-desc">View generated HTML, React, SVG, and Mermaid beside your chat.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -84,7 +84,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Connectors</div>
-      <div class="perk-desc">Add any MCP server and use it inside chat. A preset catalog is built in.</div>
+      <div class="perk-desc">Use connected MCP tools inside your chat.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -93,7 +93,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Any model</div>
-      <div class="perk-desc">A curated catalog plus direct Hugging Face search. Qwen, Gemma, Llama, Mistral, or any GGUF.</div>
+      <div class="perk-desc">Choose from the catalog or find compatible GGUF models on Hugging Face.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -102,7 +102,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
     </div>
     <div>
       <div class="perk-title">Offline by default</div>
-      <div class="perk-desc">No account, no API key, no sign-in. Works in airplane mode, on restricted networks, anywhere.</div>
+      <div class="perk-desc">Download a model once. Use it without an account or internet.</div>
     </div>
   </div>
 </div>
@@ -122,7 +122,7 @@ Write, research, and create with AI on your computer. Free to start. Your local 
 
 ## Why you can trust it
 
-Your data never leaves your device, by architecture. No cloud inference, no account to create, no server that can leak. Your local database is encrypted at rest, and the whole app is open source under AGPL, so you can read exactly what it does.
+Local models process your prompts on your computer. Your database is encrypted at rest. Connected tools and remote models use the connections you choose. The code is open under AGPL.
 
 180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
 
@@ -155,11 +155,11 @@ Run it headless with `--server-only` for a homelab box, a server, or wiring loca
 ## Computer Use and Web Use are live
 {: #computer-use}
 
-Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, with Pause, Stop, Take Over, and live guidance while they work.
+Ask your assistant to work in your apps or browser. You approve the task and can pause, stop, or take over.
 
 ## An assistant that knows your working day
 
-Pro builds a private memory of the work you choose to record. Find a decision from a meeting. Revisit a screen. See what is still open, then ask your AI to help move it forward.
+Your digital twin remembers the work you choose to record. Find a decision, revisit a screen, or continue an open task.
 
 <p class="ea-pricing-note">Pro is available on macOS only today. It is not included in Windows builds.</p>
 
@@ -173,7 +173,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">It sees</div>
-      <div class="perk-desc">Captures your screen, reads it on-device, and files it into observations and entities. Pixels never leave your disk.</div>
+      <div class="perk-desc">Turn the screen activity you choose to record into searchable memory.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -182,7 +182,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">It remembers</div>
-      <div class="perk-desc">Your Day as a journal you can scroll, and Replay, a movie of your day you can scrub frame by frame.</div>
+      <div class="perk-desc">Review your day in a journal or replay recorded screens.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -191,7 +191,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">It maps your world</div>
-      <div class="perk-desc">A private CRM that builds itself. The people, projects, and companies across everything you touch, each with a running summary of what is open. You never update it. It updates itself.</div>
+      <div class="perk-desc">Keep summaries of people, projects, and open work from captured activity.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -200,7 +200,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">It reflects</div>
-      <div class="perk-desc">Where your attention actually went. Mind-share, focus versus context-switching, and how your day and week really broke down.</div>
+      <div class="perk-desc">See time spent by app and how often you switch tasks.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -209,7 +209,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">Meetings</div>
-      <div class="perk-desc">Records and transcribes Google Meet and Zoom locally, then folds the title, summary, and attendees into your timeline.</div>
+      <div class="perk-desc">Record and transcribe Google Meet and Zoom locally. Find summaries in your timeline.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -218,7 +218,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">Dictation</div>
-      <div class="perk-desc">Hold the dictation key, talk, and the text lands at your cursor in any app. Transcribed on-device.</div>
+      <div class="perk-desc">Hold the dictation key. Speak. Insert transcribed text at your cursor.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -227,7 +227,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">Clipboard</div>
-      <div class="perk-desc">A searchable history of everything you copy, with image and file previews, stored on your disk.</div>
+      <div class="perk-desc">Search copied text, images, and files stored on your disk.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -236,7 +236,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">One search</div>
-      <div class="perk-desc">Your screens, meetings, clipboard, and memory in one place. Search your whole work life, readable only by you.</div>
+      <div class="perk-desc">Find context across recorded screens, meetings, clipboard, and memory.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -245,7 +245,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
     </div>
     <div>
       <div class="perk-title">Computer Use and Web Use</div>
-      <div class="perk-desc">Hand it a task and it works through the controls already on your screen. If accessibility control stalls, vision handles one blocked step, then returns the task to the faster accessibility path. Nothing runs without your approval.</div>
+      <div class="perk-desc">Approve a task in your apps or browser. Pause, stop, or take over at any time.</div>
     </div>
   </div>
 </div>
@@ -257,7 +257,7 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Entities - the people, projects, and companies you touch, kept current for you.</p>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> The lifetime price climbs as we grow. One license covers up to {{ site.data.pricing.devices }} devices, on desktop and mobile. Or subscribe for ${{ site.data.pricing.monthly }}/month.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> Up to {{ site.data.pricing.devices }} devices. Or ${{ site.data.pricing.monthly }}/month. The lifetime price rises as we grow.
 </div>
 
 <div class="hero-buttons">
@@ -269,19 +269,19 @@ Pro builds a private memory of the work you choose to record. Find a decision fr
 
 ## Questions
 
-**Is it really free?** The full studio is free and open source under AGPL. Pro is the paid layer.
+**Is it really free?** Local chat, images, voice, and document tools are free. Pro adds work memory and approved actions.
 
-**Does it work offline?** Yes. All inference is local. Airplane mode, restricted networks, anywhere.
+**Does it work offline?** Yes, with downloaded local models. Connected services need a connection.
 
 **Which Macs?** macOS on Apple Silicon, M1 and later. Signed and notarized.
 
-**What about Windows and Linux?** Stable version 0.0.54 is available for Windows x64 and Linux x64. Both have beta builds, including Linux AppImage and deb packages, on the [releases page]({{ "/desktop/releases/" | relative_url }}).
+**What about Windows and Linux?** Both have stable and beta builds. Linux offers AppImage and deb packages. See [releases]({{ "/desktop/releases/" | relative_url }}).
 
 **Does it phone home?** No cloud inference, no account, no API key. Capture is opt-in, with a visible indicator.
 
-**What models can I run?** Qwen, Gemma, Llama, Mistral, and any GGUF from Hugging Face.
+**What models can I run?** Qwen, Gemma, Llama, Mistral, and compatible GGUF models that fit your memory.
 
-**What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow. Or subscribe for ${{ site.data.pricing.monthly }}/month. One license covers {{ site.data.pricing.devices }} devices.
+**What does Pro cost?** ${{ site.data.pricing.lifetime }} for lifetime access or ${{ site.data.pricing.monthly }}/month. Up to {{ site.data.pricing.devices }} devices. The lifetime price rises as we grow.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>

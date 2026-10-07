@@ -9,7 +9,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Pro · Live now</div>
   <h1>Your context. Your memory.<br>Your digital twin.</h1>
-  <p class="early-access-sub">Your digital twin runs on hardware you already own. Off Grid AI Pro remembers the work you choose to share and acts on your behalf with your approval. Find a meeting decision. Continue an open task. Your memory stays on your devices.</p>
+  <p class="early-access-sub">Your digital twin on hardware you already own. It remembers your context and acts with your approval.</p>
 </div>
 
 <div class="hero-buttons">
@@ -18,7 +18,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live today on desktop and mobile.</strong> Own it forever for <strong>${{ site.data.pricing.lifetime }}</strong> right now, or subscribe for <strong>${{ site.data.pricing.monthly }}/month</strong>. The lifetime price climbs as more people join; today's tier is its lowest. Sync is live in the latest builds and is included with the same license.
+  <strong>${{ site.data.pricing.lifetime }} lifetime or ${{ site.data.pricing.monthly }}/month.</strong> Desktop and mobile. Sync included. The lifetime price rises as we grow.
 </div>
 
 ---
@@ -68,7 +68,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
     </div>
     <div>
       <div class="perk-title">Own it before the price climbs</div>
-      <div class="perk-desc">Lifetime is <strong>${{ site.data.pricing.lifetime }}</strong> today. As more people join, it steps up toward <strong>${{ site.data.pricing.top_lifetime }}</strong> - never down. Own it at today's tier and that is the price you paid, forever. The earlier you are, the less you pay, for good.</div>
+      <div class="perk-desc">Lifetime access is <strong>${{ site.data.pricing.lifetime }}</strong> today. Future tiers rise toward <strong>${{ site.data.pricing.top_lifetime }}</strong>. Your purchase price stays fixed.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -77,7 +77,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
     </div>
     <div>
       <div class="perk-title">Every release, included</div>
-      <div class="perk-desc">Your ${{ site.data.pricing.lifetime }} covers everything Off Grid AI Pro does today and everything it adds next, including Sync across your phone and laptop. One license key, good on up to {{ site.data.pricing.devices }} devices, no renewal and no upgrade fee.</div>
+      <div class="perk-desc">Updates and Sync included. One key for up to {{ site.data.pricing.devices }} devices. No lifetime renewal or upgrade fee.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -86,7 +86,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
     </div>
     <div>
       <div class="perk-title">Working today, not a promise</div>
-      <div class="perk-desc">Off Grid AI Pro is already live on desktop and mobile. You pay, the license key lands in your inbox, and you unlock it in minutes on both. You are buying a product you can run tonight, not a roadmap.</div>
+      <div class="perk-desc">Pro is live on desktop and mobile. Pay, receive your key by email, and activate it in the app.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -95,7 +95,7 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
     </div>
     <div>
       <div class="perk-title">180,000+ already run the free app</div>
-      <div class="perk-desc">The open-source core has 100K downloads. Off Grid AI Pro extends it, it does not replace it. Privacy first: it all runs on your own hardware, and your data does not leave your device.</div>
+      <div class="perk-desc">Pro adds personal memory and approved actions to the free, open-source app.</div>
     </div>
   </div>
 </div>
@@ -104,9 +104,9 @@ description: Your digital twin, built for hardware you already own. Off Grid AI 
 
 ## What Pro is
 
-Your digital twin is an AI personal assistant built around your context. Your meetings, conversations, and screen activity become a memory you can use. Ask what was decided. Find an unfinished task. Prepare the next action. Pro keeps the context on your own hardware.
+Remember a decision. Find an open task. Prepare the next action. Your captured memory stays on your hardware.
 
-Off Grid AI apps are available on **Android, iOS, macOS, Windows, and Linux**. Capture and action features depend on the platform. See [Mobile]({{ '/mobile/' | relative_url }}) and [Desktop]({{ '/desktop/' | relative_url }}) for details.
+Apps for **Android, iOS, macOS, Windows, and Linux**. Features differ by platform: [Mobile]({{ '/mobile/' | relative_url }}) · [Desktop]({{ '/desktop/' | relative_url }}).
 
 ## It sees
 
@@ -119,7 +119,7 @@ Choose what your assistant can see. Record screens and meetings on your device. 
     </div>
     <div>
       <div class="perk-title">Screen capture, on device</div>
-      <div class="perk-desc">It quietly takes in what you see and do, turns it into text, and remembers it. Opt-in per device, with a recording indicator and a pause button in the menu bar. The pixels and the text never leave your disk.</div>
+      <div class="perk-desc">Record selected screen activity as local memory. Capture is opt-in, with an indicator and pause control.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -128,7 +128,7 @@ Choose what your assistant can see. Record screens and meetings on your device. 
     </div>
     <div>
       <div class="perk-title">Meetings, recorded and transcribed</div>
-      <div class="perk-desc">It detects when a call starts, records it, transcribes it, and separates who said what, all on device. The decisions and the action items are searchable the moment the call ends. No bot joins your meeting. No audio is uploaded.</div>
+      <div class="perk-desc">Find meeting decisions and action items in local recordings and transcripts. No meeting bot or audio upload.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -137,7 +137,7 @@ Choose what your assistant can see. Record screens and meetings on your device. 
     </div>
     <div>
       <div class="perk-title">Source of truth, not screenshots</div>
-      <div class="perk-desc">When you open a Notion page or a Linear issue, Pro pulls the real thing from the source, on device, instead of guessing from pixels. It learns what you care about from what you look at, then fetches the accurate version.</div>
+      <div class="perk-desc">Fetch the source content of Notion pages and Linear issues you view, rather than rely only on screenshots.</div>
     </div>
   </div>
 </div>
@@ -154,8 +154,8 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
     </div>
     <div>
-      <div class="perk-title">It never forgets</div>
-      <div class="perk-desc">Everything you see and do becomes memory you keep, even after you switch tools. Your conversations across ChatGPT, Claude, and Gemini end up in one place that is yours. Switch apps whenever you want. Your memory stays.</div>
+      <div class="perk-title">Keep your memory</div>
+      <div class="perk-desc">Keep captured work and conversations in your own memory, even when you switch apps.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -164,7 +164,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
     </div>
     <div>
       <div class="perk-title">One search across everything</div>
-      <div class="perk-desc">Search your entire work life, not one app at a time. The message, the page, the meeting, the screen from last week, all in one place that only you can read. The end of where did that go.</div>
+      <div class="perk-desc">Find recorded messages, pages, meetings, and screens in one search.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -173,7 +173,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
     </div>
     <div>
       <div class="perk-title">A CRM that builds itself</div>
-      <div class="perk-desc">Pro maps the people, projects, and companies you work with, and what is open with each, with cross-source summaries. A relationship graph you never have to update, because it updates itself from what you already do.</div>
+      <div class="perk-desc">Track people, projects, companies, and open work from captured activity.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -182,7 +182,7 @@ A second brain only works if you feed it. This one feeds itself. Capture, meetin
     </div>
     <div>
       <div class="perk-title">Replay your whole day</div>
-      <div class="perk-desc">Scrub through your day like a recording. Every screen, in order, on device. The thing you swear you saw three hours ago is right there. The rear-view, in full resolution.</div>
+      <div class="perk-desc">Revisit recorded screens in order, on your device.</div>
     </div>
   </div>
 </div>
@@ -200,7 +200,7 @@ Not hours logged. Mind share. Pro shows what you actually spent the day thinking
     </div>
     <div>
       <div class="perk-title">Where your time really went</div>
-      <div class="perk-desc">You start no timer and tag nothing. At day's end the breakdown is just there: 4h on the rewrite, 50m on Slack, 30m you will wish you had back, and how many times you context-switched to get it.</div>
+      <div class="perk-desc">See time by task and app, without starting a timer.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -209,7 +209,7 @@ Not hours logged. Mind share. Pro shows what you actually spent the day thinking
     </div>
     <div>
       <div class="perk-title">Your day, laid out</div>
-      <div class="perk-desc">Open your laptop and the day is already planned: your meetings, the tickets that matter, what to protect focus for, and who you are about to meet. The rear-view becomes the windshield.</div>
+      <div class="perk-desc">Review meetings, tickets, and people to prepare for your day.</div>
     </div>
   </div>
 </div>
@@ -227,7 +227,7 @@ Turn context into action. Pro can draft a reply, file a ticket, or update a docu
     </div>
     <div>
       <div class="perk-title">Approval-gated actions</div>
-      <div class="perk-desc">Drafts and changes land in a queue. You read, edit, and approve before anything leaves your device. Nothing acts on the world without your sign-off, and the sign-off is recorded.</div>
+      <div class="perk-desc">Review, edit, and approve proposed actions. Each approval is recorded.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -236,7 +236,7 @@ Turn context into action. Pro can draft a reply, file a ticket, or update a docu
     </div>
     <div>
       <div class="perk-title">To-dos, found not written</div>
-      <div class="perk-desc">You wrote we need to ship X by Friday in an email. Pro noticed and put it on a list. It finds the commitments you make and the asks aimed at you, across everything you touch.</div>
+      <div class="perk-desc">Find commitments and requests in the work you capture.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -245,7 +245,7 @@ Turn context into action. Pro can draft a reply, file a ticket, or update a docu
     </div>
     <div>
       <div class="perk-title">Skills automation</div>
-      <div class="perk-desc">Set a trigger, set an action. On a schedule, on a keyword, on an event. Pro runs the routine for you and routes anything that touches the outside world through the same approval gate.</div>
+      <div class="perk-desc">Run routines by schedule, keyword, or event. External actions require approval.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -254,7 +254,7 @@ Turn context into action. Pro can draft a reply, file a ticket, or update a docu
     </div>
     <div>
       <div class="perk-title">Connectors that read and write</div>
-      <div class="perk-desc">Slack, Gmail, Calendar, Notion, Linear, Jira, GitHub, any MCP server, connected in one click. Read tools run freely. Write tools route to the approval queue. You approve every action that leaves the machine.</div>
+      <div class="perk-desc">Connect Slack, Gmail, Calendar, Notion, Linear, Jira, GitHub, or MCP tools. Approve writes before they run.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -263,7 +263,7 @@ Turn context into action. Pro can draft a reply, file a ticket, or update a docu
     </div>
     <div>
       <div class="perk-title">Computer Use and Web Use are live</div>
-      <div class="perk-desc">Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks. Pause, stop, take over, or give new guidance while they work.</div>
+      <div class="perk-desc">Approve tasks in your apps or browser. Pause, stop, take over, or give guidance.</div>
     </div>
   </div>
 </div>
@@ -280,14 +280,14 @@ Your assistant uses what it remembers to help you prepare for what comes next.
 
 ## Built for people who build
 
-Pro is tuned for software, design, and product. It speaks issues, PRs, cycles, and tickets, not generic tasks. Linear, Jira, GitHub, Sentry, and Vercel connect in one click. The context that makes the rest useful is the context you already work in.
+Connect Linear, Jira, GitHub, Sentry, and Vercel. Bring issues, PRs, and project context into your assistant.
 
 ---
 
 ## Sync is live across your devices
 {: #sync}
 
-Start a chat on your phone. Continue it on your laptop. Chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices.
+Continue chats and projects across paired devices. Model settings, generated images, and attachments stay in step.
 
 You choose whether copied text, new screenshots, and new downloads move too. You can also send files and compatible installed models directly. Sync traffic is encrypted between paired devices, and no Off Grid AI server receives or stores the content you sync.
 
@@ -298,7 +298,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
     </div>
     <div>
       <div class="perk-title">Continue on another device</div>
-      <div class="perk-desc">Your chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices.</div>
+      <div class="perk-desc">Keep chats, projects, settings, images, and attachments in step after pairing.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -307,7 +307,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
     </div>
     <div>
       <div class="perk-title">Direct and encrypted</div>
-      <div class="perk-desc">Paired devices connect over local routes. Sync traffic is encrypted, and no Off Grid AI server receives or stores the content you sync.</div>
+      <div class="perk-desc">Encrypted transfers between paired devices. No Off Grid AI server stores the synced content.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -316,7 +316,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
     </div>
     <div>
       <div class="perk-title">You choose what else moves</div>
-      <div class="perk-desc">Choose whether copied text, new screenshots, and new downloads move between your devices.</div>
+      <div class="perk-desc">Choose whether copied text, new screenshots, and new downloads move.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -325,7 +325,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
     </div>
     <div>
       <div class="perk-title">Send what you need</div>
-      <div class="perk-desc">Send a file or a compatible installed model directly to another paired device.</div>
+      <div class="perk-desc">Send files and compatible models to a paired device.</div>
     </div>
   </div>
 </div>
@@ -340,9 +340,7 @@ You choose whether copied text, new screenshots, and new downloads move too. You
 
 ## Private by architecture, not by policy
 
-Most private AI still uploads your screen to someone's cloud. Pro runs the model in your laptop's own memory.
-
-No training on your data. No selling it. No server to leak. Privacy first: it all runs on your own hardware, and your data does not leave your device.
+Local models process your prompts on your hardware. Captured memory stays on your devices. Connected services and Sync use the connections you choose.
 
 ---
 

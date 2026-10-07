@@ -4,13 +4,13 @@ title: Mobile
 nav_order: 3
 nav_group: Products
 has_children: true
-description: Your personal AI assistant, built for the phone you already own. Run Off Grid AI locally on Android and iOS. Add Pro for memory, voice, and approved draft actions.
+description: Your personal AI assistant on Android and iOS. Built for the phone you already own. Add Pro for memory, voice, and actions you approve.
 ---
 
 <div class="early-access-hero">
   <div class="early-access-badge">Off Grid AI Mobile · Android &amp; iOS</div>
-  <h1>Your AI goes<br>where you go.</h1>
-  <p class="early-access-sub">Run your personal AI assistant on the phone you already own. Off Grid AI runs locally on Android and iOS. Ask a question, capture a thought, or get help with a document. Add Pro for hands-free voice, personal assistants with memory, and draft actions you approve. Pair your phone with Off Grid AI Desktop to continue your conversations on your computer.</p>
+  <h1>Your personal AI.<br>On your phone.</h1>
+  <p class="early-access-sub">Built for the phone you already own. Start free. Add Pro for memory, voice, and actions you approve.</p>
 </div>
 
 <div class="hero-buttons">
@@ -21,7 +21,7 @@ description: Your personal AI assistant, built for the phone you already own. Ru
 
 <p class="ea-pricing-note" style="text-align:center;">OGAM 0.0.110 is on GitHub (App Store availability may differ) - <a href="{{ '/mobile/releases/' | relative_url }}">see what shipped</a></p>
 
-<p class="ea-pricing-note" style="text-align:center;">iPhone 12 or newer · Android 10+ · 4GB RAM · free to download</p>
+<p class="ea-pricing-note" style="text-align:center;">iOS 17+ · iPhone 12+ · Android 10+ · 4GB RAM</p>
 
 
 <div class="offer-closing" role="note">
@@ -41,7 +41,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Chat</div>
-      <div class="perk-desc">Text and vision, streaming, with a thinking mode. Qwen, Llama, Gemma, Phi, or any GGUF you bring. 15-30 tokens a second on a flagship phone.</div>
+      <div class="perk-desc">Write, ask, and reason with local models such as Qwen, Llama, Gemma, and Phi.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -50,7 +50,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Image generation</div>
-      <div class="perk-desc">On-device Stable Diffusion with a live preview. NPU-accelerated on Snapdragon, Core ML on iPhone. 5-10s an image on a flagship.</div>
+      <div class="perk-desc">Create images with on-device Stable Diffusion and a live preview.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -59,7 +59,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Vision AI</div>
-      <div class="perk-desc">Point your camera at anything and ask. Read a receipt, describe a scene, pull text off a document. On-device with SmolVLM, Qwen3-VL, or Gemma 3n.</div>
+      <div class="perk-desc">Ask about a photo, read a receipt, or extract text with local vision models.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -68,7 +68,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Voice input</div>
-      <div class="perk-desc">Hold to record and on-device Whisper turns your speech into text. No audio ever leaves your phone.</div>
+      <div class="perk-desc">Turn speech into text on your phone with Whisper.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -77,7 +77,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Projects</div>
-      <div class="perk-desc">Drop in PDFs and docs. They are chunked and embedded on-device, then chat grounded in them with cited sources.</div>
+      <div class="perk-desc">Ask about your PDFs and documents. Answers cite their sources.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -86,7 +86,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Tools</div>
-      <div class="perk-desc">Built-in web search, calculator, date, and knowledge-base lookup, so a model that supports tool calling can act on live information.</div>
+      <div class="perk-desc">Use web search, a calculator, and document lookup with compatible models.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -94,8 +94,8 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
     </div>
     <div>
-      <div class="perk-title">Your Mac's models</div>
-      <div class="perk-desc">Off Grid AI finds the Mac running the desktop app on your network, or any Ollama and LM Studio server, and runs their bigger models from your phone. Over your own LAN, never a relay.</div>
+      <div class="perk-title">Larger models</div>
+      <div class="perk-desc">Use Off Grid AI Desktop, Ollama, or LM Studio over your local network.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -104,7 +104,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
     </div>
     <div>
       <div class="perk-title">Offline by default</div>
-      <div class="perk-desc">Inference runs on the phone, so nothing round-trips to the cloud. Works in airplane mode, on the subway, on a plane, anywhere.</div>
+      <div class="perk-desc">Download a model once. Use it without internet.</div>
     </div>
   </div>
 </div>
@@ -119,7 +119,7 @@ Write a draft, understand a photo, or ask about a document. Your phone runs the 
 
 ## Keep your assistant close
 
-The free app runs local models on Android and iOS. Pro adds a voice that talks back, personal assistants with memory, and tools that draft actions on your behalf. You approve each action. One license covers up to {{ site.data.pricing.devices }} devices. Off Grid AI Desktop is available on macOS, Windows, and Linux; see its [platform details]({{ '/desktop/' | relative_url }}) for Pro features.
+Pro adds memory, voice, approved actions, and Sync. One license covers up to {{ site.data.pricing.devices }} devices. Also available on [desktop]({{ '/desktop/' | relative_url }}).
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -128,7 +128,7 @@ The free app runs local models on Android and iOS. Pro adds a voice that talks b
     </div>
     <div>
       <div class="perk-title">Voice mode</div>
-      <div class="perk-desc">Free gives you speech-to-text. Pro adds on-device text-to-speech with Kokoro, so it talks back and you run the whole thing hands-free. The voice runs in your phone's RAM.</div>
+      <div class="perk-desc">Talk hands-free. Kokoro generates spoken replies on your phone.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -137,7 +137,7 @@ The free app runs local models on Android and iOS. Pro adds a voice that talks b
     </div>
     <div>
       <div class="perk-title">Custom personas</div>
-      <div class="perk-desc">Give each assistant its own system prompt, voice, and persistent memory, so it stays in character across conversations.</div>
+      <div class="perk-desc">Set your assistant's instructions, voice, and persistent memory.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -146,7 +146,7 @@ The free app runs local models on Android and iOS. Pro adds a voice that talks b
     </div>
     <div>
       <div class="perk-title">Draft, then approve</div>
-      <div class="perk-desc">Connect Calendar, email, and MCP servers like Linear, Notion, and GitHub. It drafts the reply or files the ticket and waits. Nothing sends without your tap.</div>
+      <div class="perk-desc">Draft replies and tasks through connected tools. You approve before sending.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -155,13 +155,13 @@ The free app runs local models on Android and iOS. Pro adds a voice that talks b
     </div>
     <div>
       <div class="perk-title">Sync is live</div>
-      <div class="perk-desc">Start a chat on your phone and continue it on your laptop. Chats, projects, model settings, generated images, and chat attachments stay in step after pairing. No Off Grid AI server receives or stores the content you sync.</div>
+      <div class="perk-desc">Continue chats across paired devices. Transfers are encrypted, without an Off Grid AI storage server.</div>
     </div>
   </div>
 </div>
 
 <div class="offer-closing" role="note">
-  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> The lifetime price climbs as we grow. One license covers up to {{ site.data.pricing.devices }} devices, on mobile and desktop. Or subscribe for ${{ site.data.pricing.monthly }}/month.
+  <strong>Off Grid AI Pro is live: ${{ site.data.pricing.lifetime }}, yours forever.</strong> Up to {{ site.data.pricing.devices }} devices. Or ${{ site.data.pricing.monthly }}/month. The lifetime price rises as we grow.
 </div>
 
 <div class="hero-buttons">
@@ -173,9 +173,7 @@ The free app runs local models on Android and iOS. Pro adds a voice that talks b
 
 ## Why you can trust it
 
-Privacy first by architecture. Your data never leaves your phone.
-
-The model runs in the phone's memory and answers on the phone's own chips. There is no server to leak and nothing is logged. 180,000+ downloads across the apps, 3,000+ GitHub stars, a 600-strong community.
+Local models process your prompts on your phone. Connected tools, remote models, and Sync use the connections you choose. The code is open under MIT.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/off-grid-ai-mobile" target="_blank" rel="noopener" class="btn btn-green">Star on GitHub</a>
@@ -185,17 +183,17 @@ The model runs in the phone's memory and answers on the phone's own chips. There
 
 ## Questions
 
-**Is it really free?** The full local studio is free and open source under MIT, and it keeps shipping. Pro is the optional add-on: voice output, personas, draft actions, and sync.
+**Is it really free?** Local chat, images, and document tools are free. Pro adds memory, voice, approved draft actions, and Sync.
 
-**Does it work offline?** Yes. Inference runs on the phone. Airplane mode, the subway, a plane, anywhere.
+**Does it work offline?** Yes, with downloaded local models. Online tools and remote models need a connection.
 
 **Which phones?** iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.
 
-**Does it phone home?** No cloud inference and nothing logged. Pro activates with a license key, not a cloud account. The Pro draft-action tools reach out only to the services you connect, and sync runs over your own network, never a relay.
+**Does it phone home?** Local inference stays on your phone. Pro uses a license key. Connected services and Sync use your chosen connections.
 
-**What models can I run?** Qwen, Gemma, Llama, Phi, and any GGUF small enough for your phone. Or connect to a computer running Off Grid AI Desktop, or any Ollama or LM Studio server, and run their bigger models over your LAN.
+**What models can I run?** Qwen, Gemma, Llama, Phi, and compatible GGUF models that fit your memory. Use desktop models over your local network.
 
-**What does Pro cost?** ${{ site.data.pricing.lifetime }} once today, yours forever with no renewal - climbing toward ${{ site.data.pricing.top_lifetime }} as we grow. Or subscribe for ${{ site.data.pricing.monthly }}/month. One license covers {{ site.data.pricing.devices }} devices, phone and laptop.
+**What does Pro cost?** ${{ site.data.pricing.lifetime }} for lifetime access or ${{ site.data.pricing.monthly }}/month. Up to {{ site.data.pricing.devices }} devices. The lifetime price rises as we grow.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
