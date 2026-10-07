@@ -500,7 +500,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
   return <>
     <div className="wt-shot">
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className="wt-shot-in" initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
           <Shot name={name} alt={alt} lazy={false} />
           {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
@@ -650,7 +650,7 @@ function Walkthrough({ reduce, theme }) {
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // Chapters inside the act advance on their own; hovering the window holds the current one.
   useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
-  const C = WALK[docked ? ch : 0]; const playing = docked && inView && !manual && !paused; const cycle = useCycle(playing ? C.loop : 0);
+  const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true) };
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
@@ -825,7 +825,7 @@ function useSectionHash(ids) {
 }
 
 export const ThemeCtx = createContext('dark');
-// Whether the tour is playing on its own; scenes and screen sequences hold still when it isn't.
+// Screen motion runs while the tour is visible; chapter autoplay is controlled separately.
 export const PlayCtx = createContext({ playing: true, takeOver: () => {} });
 // Every page: theme handling, header, main, footer. Pages pass their sections as children.
 // "Did this land?" (same storage key and PostHog event as the old layout) and the
