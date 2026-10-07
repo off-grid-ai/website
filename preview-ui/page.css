@@ -1408,3 +1408,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .cmd-vanish input[readonly]{cursor:pointer}
 
 .cmd-vanish button{min-width:44px;min-height:44px}
+
+.cmd-vanish .rt-TextFieldRoot{position:relative}
+.cmd-preset{position:absolute;left:16px;right:64px;top:50%;translate:0 -50%;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--og-text-secondary);font-size:14px}
+.cmd-preset span{font:inherit!important}

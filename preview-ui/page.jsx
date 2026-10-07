@@ -537,17 +537,29 @@ const PROMPTS = [
 const INTENTS = [[/image|picture|draw|photo/i, 'images'], [/clipboard|copied|paste/i, 'clipboard'], [/brief|ares|god|chief/i, 'god'], [/who is|people|crm|contact/i, 'people'], [/week|time|hours|reflect/i, 'reflect'],[/promise|agree|what did|ask|recall|remember/i, 'ask'], [/draft|reply|email|send.*sam|approve/i, 'act'], [/phone|sync|mobile/i, 'phone'],
   [/login|password|fill|browser|chrome|firefox/i, 'browser'], [/meeting|summar|call|record/i, 'meetings'], [/vault|secret|key/i, 'vault'], [/model|offline|qwen|gemma/i, 'models'], [/web|search|compare|browse/i, 'web'], [/today|day|journal/i, 'today']];
 
-// The hero offers a preset chapter, using the same options as the suggestion row.
+// Preset prompts keep the animated hero interaction without accepting free text.
+const BAR_PROMPTS = PROMPTS.map(prompt => prompt.label);
 function CommandBar({ onRun }) {
-  const prompt = PROMPTS[0];
-  const open = () => onRun(prompt.id);
-  return <div className="cmd-vanish" aria-label="Off Grid AI demo">
+  const wrap = useRef(null); const value = useRef(false);
+  const reduce = useReducedMotion();
+  const open = async () => {
+    if (value.current) return;
+    value.current = true;
+    const text = wrap.current?.querySelector('.cmd-preset')?.textContent?.replace(/[|_]+$/, '').trim() || '';
+    const prompt = PROMPTS.find(p => p.label === text) || PROMPTS.find(p => text && p.label.startsWith(text)) || PROMPTS[0];
+    const phrase = wrap.current?.querySelector('.cmd-preset');
+    if (phrase && !reduce) await animate(phrase, { opacity: 0, y: -8 }, { duration: .3 });
+    onRun(prompt.id);
+    setTimeout(() => { value.current = false; if (phrase) animate(phrase, { opacity: 1, y: 0 }, { duration: reduce ? 0 : .15 }); }, 900);
+  };
+  return <div className="cmd-vanish" ref={wrap} aria-label="Off Grid AI demo">
     <form onSubmit={(e) => { e.preventDefault(); open(); }}>
-      <TextField.Root size="3" value={prompt.label} readOnly aria-label="Open the example chapter" onFocus={open}>
+      <TextField.Root size="3" value="" readOnly aria-label="Open the example shown" onFocus={open} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); open(); } }}>
+        <span className="cmd-preset" aria-hidden="true">{reduce ? BAR_PROMPTS[0] : <TypingAnimation words={BAR_PROMPTS} loop typeSpeed={45} deleteSpeed={25} pauseDelay={2200} showCursor={false} />}</span>
         <TextField.Slot side="right"><Button type="submit" size="sm" aria-label="Open example chapter"><ArrowRight size={16} /></Button></TextField.Slot>
       </TextField.Root>
     </form>
-    <p className="cmd-note">Open this example or choose an option below.</p>
+    <p className="cmd-note">Select the field or press Enter to open the example. Or choose an option below.</p>
   </div>;
 }
 
@@ -611,7 +623,7 @@ function Walkthrough({ reduce, theme }) {
   const dockTop = () => { const el = ref.current; if (!el) return null; return el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * Math.min(1, STAGE * 1.1); };
   const go = useCallback((i) => {
     const n = (i + N) % N;
-    if (!docked) { const t = dockTop(); if (t != null) scrollTo({ top: t, behavior: Math.abs(t - scrollY) > innerHeight * 1.5 ? 'instant' : 'smooth' }); spinTo(n, true); return; }
+    if (!docked) { const t = dockTop(); if (t != null) scrollTo({ top: t, behavior: reduce ? 'instant' : 'smooth' }); spinTo(n, true); return; }
     spinTo(n);
   }, [N, docked, spinTo]);
   const goRef = useRef(go); goRef.current = go;
