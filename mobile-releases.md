@@ -4,17 +4,19 @@ title: Releases
 parent: Mobile
 nav_order: 2
 permalink: /mobile/releases/
-description: OGAM 0.0.110 GitHub release and mobile release history for iPhone and Android.
+description: Off Grid AI Mobile releases for Android and iOS. Updates to your personal AI assistant on hardware you already own.
 ---
 
-# OGAM - releases
+# Off Grid AI Mobile releases
 
-OGAM [0.0.110 is available on GitHub](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110). Choose a track:
+Your personal AI assistant on Android and iOS. Built for hardware you already own.
 
-- **Stable** - the tested build on the [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile). What you get if you just install the app.
-- **GitHub releases** - [OGAM 0.0.110](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110) and other builds are available directly from the OGAM repository. Store rollout can follow a different schedule.
+Store versions can differ from GitHub builds.
 
-<p class="ea-pricing-note">Latest GitHub release: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a>. App Store and Google Play versions can differ; check each store for its current rollout. <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">Full GitHub release history</a>.</p>
+- **Store builds** - [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile).
+- **Direct builds** - [GitHub releases](https://github.com/off-grid-ai/OGAM/releases).
+
+<p class="ea-pricing-note">Latest GitHub release: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a>. <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">Full GitHub release history</a>.</p>
 
 ---
 
