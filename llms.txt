@@ -15,7 +15,7 @@ The free core provides local AI chat, image generation, and document tools. Off 
 - Generate images with Stable Diffusion without a cloud GPU
 - Connect to remote Ollama or LM Studio servers over a local network or VPN
 - Works in airplane mode, on restricted networks, in any country
-- Runs on phones and computers: stable builds for iOS, Android, macOS, Windows, and Linux; optional macOS and Windows nightlies and Linux beta packages
+- Runs on phones and computers: stable builds for iOS, Android, macOS, Windows, and Linux; optional desktop beta packages
 
 ## Who it's for
 
@@ -35,12 +35,13 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 - Supported model formats: GGUF
 - Minimum specs: iPhone 12 / Android with 4GB RAM
 - Recommended specs: iPhone 15 Pro / flagship Android with 8GB RAM
-- Current OGAM GitHub release: 0.0.110 (App Store and Google Play rollout may differ)
+- Current OGAM preview: 0.0.112-beta.1 (Android APK and AAB)
+- Current OGAM GitHub release: 0.0.111 (App Store and Google Play rollout may differ)
 - Current macOS stable release: 0.0.54 (Apple Silicon)
 - Current Windows stable release: 0.0.54 (x64, free core app)
 - Current Linux stable release: 0.0.54 (x64 AppImage and deb, free core app)
 - Computer Use and Web Use: live in Off Grid AI Desktop as supervised tasks
-- Preview track: macOS and Windows nightlies, plus Linux beta packages
+- Preview track: desktop 0.0.55-beta.114; Android 0.0.112-beta.1
 
 ## Design partners
 
@@ -48,21 +49,24 @@ Businesses with fewer than 50 people can help shape a solution for daily work. T
 
 ## Links
 
+- Android preview APK: https://github.com/off-grid-ai/OGAM/releases/download/v0.0.112-beta.1/OffgridMobile-0.0.112-beta.1.apk
+- Mobile preview notes: https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.112-beta.1
+
 - iOS App: https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download
 - Android App: https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download
 - Mobile GitHub: https://github.com/off-grid-ai/OGAM
-- OGAM 0.0.110 APK: https://github.com/off-grid-ai/OGAM/releases/download/v0.0.110/OffgridMobile-0.0.110.apk
-- OGAM 0.0.110 release notes: https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110
+- OGAM 0.0.111 APK: https://github.com/off-grid-ai/OGAM/releases/download/v0.0.111/OffgridMobile-0.0.111-beta.1.apk
+- OGAM 0.0.111 release notes: https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111
 - macOS stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg
 - Windows stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe
 - Linux AppImage stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage
 - Linux deb stable: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb
 - OGAD 0.0.54 stable release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54
-- macOS beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg
-- Windows beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe
-- Linux AppImage beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112.AppImage
-- Linux deb beta 0.0.55-beta.112: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.112/off-grid-ai_0.0.55-beta.112_amd64.deb
-- OGAD 0.0.55-beta.112 release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.112
+- macOS beta 0.0.55-beta.114: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/OffGrid-0.0.55-beta.114.dmg
+- Windows beta 0.0.55-beta.114: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai-0.0.55-beta.114-setup.exe
+- Linux AppImage beta 0.0.55-beta.114: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai-0.0.55-beta.114.AppImage
+- Linux deb beta 0.0.55-beta.114: https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai_0.0.55-beta.114_amd64.deb
+- OGAD 0.0.55-beta.114 release notes: https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114
 - All beta releases: https://github.com/off-grid-ai/OGAD/releases?q=beta (the website resolves the newest published beta for each platform)
 - Desktop source and releases: https://github.com/off-grid-ai/OGAD
 - Slack Community: https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ

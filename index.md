@@ -57,7 +57,7 @@ Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync
   </section>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">Latest GitHub releases: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">OGAD 0.0.54 stable</a> for desktop and <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener">OGAM 0.0.110</a> for mobile.</p>
+<p class="ea-pricing-note" style="text-align:center;">Desktop: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54">0.0.54 stable</a> · <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114">0.0.55-beta.114 preview</a>. Mobile: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111">0.0.111</a> · <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.112-beta.1">0.0.112-beta.1 preview</a>.</p>
 
 <div class="stats-row">
   <div class="stat-card">
