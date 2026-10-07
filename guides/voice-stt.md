@@ -2,6 +2,8 @@
 layout: default
 title: Voice Input - On-Device Speech-to-Text with Whisper
 parent: Guides
+article_topic: "Voice & audio"
+article_platform: "Phone"
 nav_order: 12
 description: Use Off Grid AI's on-device Whisper speech-to-text to dictate messages to your AI. No audio is ever sent to a server. Works offline on both iPhone and Android.
 faq:

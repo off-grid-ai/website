@@ -2,6 +2,8 @@
 layout: default
 title: How to Run Stable Diffusion on Your Android Phone (On-Device AI Image Generation)
 parent: Guides
+article_topic: "Images & vision"
+article_platform: "Android"
 nav_order: 6
 description: Generate AI images locally on your Android phone using Stable Diffusion - no cloud, no API key, no subscription. Complete guide for on-device image generation with Off Grid AI.
 faq:

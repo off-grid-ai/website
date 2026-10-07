@@ -2,6 +2,8 @@
 layout: default
 title: How to Use LM Studio From Your Android Phone in 2026
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "Android"
 nav_order: 16
 description: Connect Off Grid AI on Android to your LM Studio server and access larger models like Llama 3.1 70B over your local WiFi network - no cloud, completely private.
 faq:

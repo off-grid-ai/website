@@ -2,6 +2,8 @@
 layout: default
 title: iOS Setup
 parent: Guides
+article_topic: "Getting started"
+article_platform: "iPhone"
 nav_order: 2
 description: How to run LLMs locally on your iPhone in 2026 - no cloud, no account, no subscription. Step-by-step setup guide for Off Grid AI on iOS.
 ---

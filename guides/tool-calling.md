@@ -2,6 +2,8 @@
 layout: default
 title: Tool Calling
 parent: Guides
+article_topic: "Automation & tools"
+article_platform: "Phone"
 nav_order: 10
 description: How to use Off Grid AI's built-in tools - web search, calculator, date/time, device info, and knowledge base search - with any function-calling model.
 faq:

@@ -2,6 +2,8 @@
 layout: default
 title: Knowledge Base and RAG - On-Device Document Search
 parent: Guides
+article_topic: "Documents & research"
+article_platform: "Phone"
 nav_order: 13
 description: Upload PDFs and documents to Off Grid AI's project knowledge base. The app embeds and indexes them on-device using MiniLM, then retrieves relevant context automatically during your conversations.
 faq:

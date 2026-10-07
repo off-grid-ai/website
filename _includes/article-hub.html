@@ -1,12 +1,14 @@
 {% if include.home %}
 {% assign articles = site.pages | where_exp: "item", "item.devto_article == true or item.parent == 'Perspectives' or item.parent == 'Ethos' or item.parent == 'Guides'" %}
+{% elsif include.guides %}
+{% assign articles = site.pages | where_exp: "item", "item.devto_article == true or item.parent == 'Guides'" | sort: "published_at" | reverse %}
 {% else %}
 {% assign articles = site.pages | where: "devto_article", true | sort: "published_at" | reverse %}
 {% endif %}
 
-<div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% endif %}>
+<div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% elsif include.guides %} data-default-title="Guides"{% endif %}>
   <div class="article-search-row" data-analytics-view="resource_hub_viewed" data-analytics-placement="{% if include.home %}home_resources{% else %}articles{% endif %}">
-    <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% else %}articles{% endif %}</label>
+    <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% elsif include.guides %}guides{% else %}articles{% endif %}</label>
     <input id="article-search" class="article-search-input" type="search" placeholder="Try transcription, PDF, Android, sync..." autocomplete="off">
   </div>
 
@@ -45,7 +47,7 @@
 
   <div class="article-toolbar">
     <div class="article-toolbar-title">
-      <h2 id="article-result-title">{% if include.home %}Latest updates{% else %}Latest articles{% endif %}</h2>
+      <h2 id="article-result-title">{% if include.home %}Latest updates{% elsif include.guides %}Guides{% else %}Latest articles{% endif %}</h2>
       <p id="article-result-count" role="status" aria-live="polite"></p>
     </div>
     <div class="article-toolbar-controls">
@@ -75,6 +77,6 @@
     </a>
     {% endfor %}
   </div>
-  <p id="article-empty" class="article-empty" hidden>No {% if include.home %}pages{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
-  <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home %}pages{% else %}articles{% endif %}</button>
+  <p id="article-empty" class="article-empty" hidden>No {% if include.home %}pages{% elsif include.guides %}guides{% else %}articles{% endif %} match. Try another term or clear the filters.</p>
+  <button id="article-more" class="article-more" type="button" hidden>Show more {% if include.home %}pages{% elsif include.guides %}guides{% else %}articles{% endif %}</button>
 </div>

@@ -2,6 +2,8 @@
 layout: default
 title: How to Use Ollama From Your Android Phone in 2026
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "Android"
 nav_order: 8
 description: Connect your Android phone to your home Ollama server and use larger models like Llama 3.1 70B over your local network - no cloud, completely private.
 faq:

@@ -2,6 +2,8 @@
 layout: default
 title: Android Setup
 parent: Guides
+article_topic: "Getting started"
+article_platform: "Android"
 nav_order: 3
 description: How to run LLMs locally on your Android phone in 2026 - no cloud, no account, no subscription. Complete setup guide for Off Grid AI on Android.
 ---

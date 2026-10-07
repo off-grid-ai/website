@@ -2,6 +2,8 @@
 layout: default
 title: Vision AI - Analyse Images and Documents On-Device
 parent: Guides
+article_topic: "Images & vision"
+article_platform: "Phone"
 nav_order: 11
 description: Use Off Grid AI's vision models to analyse photos, read documents, describe scenes, and answer questions about images - all on your phone with no cloud.
 faq:

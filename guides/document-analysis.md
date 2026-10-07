@@ -2,6 +2,8 @@
 layout: default
 title: Document Analysis and Attachments
 parent: Guides
+article_topic: "Documents & research"
+article_platform: "Phone"
 nav_order: 14
 description: Attach PDFs, code files, CSVs, and other documents to your Off Grid AI conversations. The app extracts and passes content to your local model for analysis - entirely on-device.
 faq:

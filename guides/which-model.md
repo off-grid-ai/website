@@ -2,6 +2,8 @@
 layout: default
 title: Which Model Should I Use?
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "Phone"
 nav_order: 1
 description: A practical guide to choosing the right LLM for your iPhone or Android - comparing Qwen 3.5, Gemma 4, Phi-4, Mistral, SmolLM by speed, quality, and RAM requirements.
 faq:

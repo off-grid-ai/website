@@ -2,6 +2,8 @@
 layout: default
 title: How to Run LLMs Locally on Your Android Phone in 2026 (No Cloud, No Account)
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "Android"
 nav_order: 4
 description: Run Qwen 3.5, Gemma 4, Mistral and other large language models directly on your Android phone with no internet, no API key, and no subscription. Complete guide for 2026.
 faq:

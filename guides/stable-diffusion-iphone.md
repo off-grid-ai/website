@@ -2,6 +2,8 @@
 layout: default
 title: How to Run Stable Diffusion on Your iPhone (On-Device AI Image Generation)
 parent: Guides
+article_topic: "Images & vision"
+article_platform: "iPhone"
 nav_order: 7
 description: Generate AI images locally on your iPhone using Stable Diffusion and Core ML - no cloud, no API key, no subscription. Complete guide for iOS image generation.
 faq:

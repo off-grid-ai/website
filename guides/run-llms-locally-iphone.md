@@ -2,6 +2,8 @@
 layout: default
 title: How to Run LLMs Locally on Your iPhone in 2026 (Completely Offline, No Subscription)
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "iPhone"
 nav_order: 5
 description: Run Qwen 3.5, Gemma 4, Mistral and other large language models directly on your iPhone with no internet connection and no subscription fee. Step-by-step guide for 2026.
 faq:

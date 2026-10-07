@@ -2,6 +2,8 @@
 layout: default
 title: Remote Servers - Connect Ollama, LM Studio, and LocalAI
 parent: Guides
+article_topic: "Models & performance"
+article_platform: "Phone"
 nav_order: 9
 description: Connect Off Grid AI to any OpenAI-compatible server on your local network - Ollama, LM Studio, LocalAI, vLLM. Access larger models from your desktop via your phone over WiFi.
 faq:
