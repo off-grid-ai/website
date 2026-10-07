@@ -1412,3 +1412,18 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .cmd-vanish .rt-TextFieldRoot{position:relative}
 .cmd-preset{position:absolute;left:16px;right:64px;top:50%;translate:0 -50%;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--og-text-secondary);font-size:14px}
 .cmd-preset span{font:inherit!important}
+
+.shot-link{border:0;padding:0;background:none;color:inherit}
+.screenshot-overlay{position:fixed;inset:0;z-index:1000;background:var(--og-background)}
+.screenshot-view{position:fixed;inset:0;z-index:1001;overflow:auto;display:grid;place-items:center;background:var(--og-background);padding:var(--og-space-4,16px)}
+.screenshot-full{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:block;max-width:calc(100dvw - 32px);max-height:calc(100dvh - 32px);width:auto;height:auto;object-fit:contain}
+.screenshot-close{position:fixed!important;top:16px;right:16px;min-width:44px;min-height:44px;z-index:1002}
+
+.screenshot-rotate{display:none}
+@media(max-width:860px){
+  .screenshot-rotate{position:fixed;right:16px;bottom:16px;display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--og-border-light);border-radius:6px;background:var(--og-surface);z-index:1002}
+  .screenshot-rotate input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+  .screenshot-rotate:focus-within{outline:2px solid var(--og-border-focus);outline-offset:2px}
+  .screenshot-rotate:has(input:checked){border-color:var(--og-primary)}
+  .screenshot-view:has(.screenshot-rotate input:checked) .screenshot-full{max-width:calc(100dvh - 32px);max-height:calc(100dvw - 32px);transform:translate(-50%,-50%) rotate(90deg)}
+}

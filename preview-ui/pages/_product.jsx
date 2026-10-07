@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, ShotSeq, PlatformIcon } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -237,9 +237,7 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const phone = <div className="pp-phone pp-phone-shot">
     <div className="pp-screen pp-screen-shot">
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
-      <Wipe id={`${f}-${i}`}><a className="pp-screen-link" href={`/assets/img/home/mobile/${f}.webp`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={() => setManual(true)}>
-        <img className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} src={mobSrc(f)} srcSet={`${mobSrc(f)} 640w, /assets/img/home/mobile/${f}.webp 1290w`} sizes="(max-width: 860px) 300px, 400px" alt={alt} draggable={false} />
-      </a></Wipe>
+      <Wipe id={`${f}-${i}`}><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} onOpenChange={setManual} /></Wipe>
     </div>
     <Iphone />
   </div>;
