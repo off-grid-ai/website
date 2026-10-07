@@ -320,6 +320,9 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .sidebar-links a { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: var(--text-muted); text-decoration: none; }
 .sidebar-links a:hover { color: var(--text-primary); }
 .sidebar-links svg { flex-shrink: 0; }
+.sidebar-links.sidebar-platforms { flex-wrap: nowrap; gap: 0; }
+.sidebar-platforms a { flex: 1; min-width: 44px; min-height: 44px; justify-content: center; border-radius: var(--radius); }
+.sidebar-platforms a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .sidebar-copy { color: var(--text-muted); font-size: 0.7rem; margin-top: 2px; }
 .sidebar-copy a { color: var(--text-muted); text-decoration: underline; }
 .sidebar-copy a:hover { color: var(--text-primary); }
