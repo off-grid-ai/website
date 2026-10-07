@@ -163,16 +163,21 @@ function Checkout({ pricing, checkout }) {
     window.open(url, '_blank');
   };
   const off = email.trim() === '';
+  // A visitor who chose monthly on another page lands with monthly as the main action.
+  const [plan, setPlan] = useState('lifetime');
+  useEffect(() => { if (new URLSearchParams(location.search).get('plan') === 'monthly') setPlan('monthly'); }, []);
+  const primary = plan === 'monthly' ? ['monthly', `Start Pro for $${pricing.monthly}/month`] : ['lifetime', `Own Pro forever for $${pricing.lifetime}`];
+  const secondary = plan === 'monthly' ? ['lifetime', `Or own it forever for $${pricing.lifetime}`] : ['monthly', `Or $${pricing.monthly}/month`];
   const err = status && status.kind === 'error';
-  return <form id="payForm" ref={form} className="pp-form" noValidate onSubmit={(e) => { e.preventDefault(); buy('lifetime'); }}>
+  return <form id="payForm" ref={form} className="pp-form" noValidate onSubmit={(e) => { e.preventDefault(); buy(primary[0]); }}>
     <label className="pp-label" htmlFor="payEmail">Email for your license key</label>
     <TextField.Root ref={input} id="payEmail" type="email" size="3" placeholder="your@email.com" autoComplete="email" required
       aria-invalid={err ? 'true' : 'false'} aria-describedby="payStatus" className={`pp-input ${err ? 'ea-input-error' : ''}`} value={email} onChange={onInput}>
       <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
     </TextField.Root>
-    <ShimmerButton type="button" data-plan="lifetime" disabled={off} onClick={() => buy('lifetime')} className="pro-shimmer pp-shimmer pp-buy"
-      shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">Own Pro forever for ${pricing.lifetime}</ShimmerButton>
-    <InteractiveHoverButton type="button" data-plan="monthly" disabled={off} onClick={() => buy('monthly')} className="ihb pp-buy">Or ${pricing.monthly}/month</InteractiveHoverButton>
+    <ShimmerButton type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy"
+      shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">{primary[1]}</ShimmerButton>
+    <InteractiveHoverButton type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</InteractiveHoverButton>
     <p className={`ea-status pp-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : null}
     </p>
