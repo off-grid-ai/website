@@ -16,6 +16,8 @@ You can listen to AI replies in supported languages on your Mac without using a 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![Voice settings in Off Grid AI Desktop with Kokoro TTS active: the language picker and the voice list, from Heart and River to Adam and Santa.](https://getoffgridai.co/assets/img/home/app/models-voice-list-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

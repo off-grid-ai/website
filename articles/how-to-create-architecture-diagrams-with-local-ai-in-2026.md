@@ -16,6 +16,8 @@ Your system is easier to discuss when everyone can see which parts connect. OGAD
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![Off Grid AI Desktop chat with the Diagram canvas open beside it, showing a Mermaid flowchart of the Acme rollout plan.](https://getoffgridai.co/assets/img/home/app/artifacts-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

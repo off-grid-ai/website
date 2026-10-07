@@ -70,7 +70,7 @@ This is the opposite of an agent that fires off changes and tells you afterward.
 
 ![Off Grid AI God: connected work with explicit Approve and Deny controls.](/assets/img/home/app/god-dark-1760.webp)
 
-*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
+*Ares in Off Grid AI Desktop: actions such as creating a Linear issue wait in the Needs you column, each with Approve and Deny.*
 
 ## How Hardware Acceleration Works
 

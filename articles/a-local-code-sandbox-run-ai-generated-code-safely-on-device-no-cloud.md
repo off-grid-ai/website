@@ -17,9 +17,9 @@ Every modern laptop ships with a browser engine that can run untrusted code in a
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.](/assets/img/home/app/artifacts-dark-1760.webp)
+![The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.*
+*The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.*
 
 ## The problem with running AI code
 

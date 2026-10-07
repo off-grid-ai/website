@@ -18,6 +18,8 @@ OGAD (Off Grid AI Desktop) can read assistant messages with local speech output.
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.](https://getoffgridai.co/assets/img/home/app/voice-reply-light-1760.webp)
+
 > **What would you like to do with Off Grid AI?**
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.

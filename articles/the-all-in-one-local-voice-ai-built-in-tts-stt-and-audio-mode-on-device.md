@@ -75,6 +75,10 @@ This is the part most local setups never reach. Stitching Whisper and a TTS engi
 Cook dinner and ask questions. Pace the room and think out loud. Drive a brainstorm with your hands free. The conversation stays a conversation, and all of it stays on the device.
 
 
+![A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.](/assets/img/home/app/voice-reply-light-1760.webp)
+
+*A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.*
+
 ## How it runs on your hardware
 
 Both voice models are compiled native code, not Python wrappers waiting on a server.

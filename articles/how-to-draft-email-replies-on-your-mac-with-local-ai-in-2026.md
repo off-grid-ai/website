@@ -16,6 +16,8 @@ A good reply needs the details from the thread, not a generic paragraph. OGAD (O
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.](https://getoffgridai.co/assets/img/home/app/approval-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

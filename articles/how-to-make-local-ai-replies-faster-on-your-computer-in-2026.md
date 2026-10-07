@@ -18,6 +18,8 @@ OGAD (Off Grid AI Desktop) lets you run and compare local models in one app. The
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
+![The Models screen in Off Grid AI Desktop: text models on this computer, with Qwen 3.5 9B active, and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

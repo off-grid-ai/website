@@ -18,6 +18,8 @@ OGAD (Off Grid AI Desktop) helps you find a client's past recorded meetings and 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
+![Ares in Off Grid AI Desktop: a morning briefing at 8:50 AM, approvals waiting on the right, and a Northwind board prep card with notes from last time.](https://getoffgridai.co/assets/img/home/app/god-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

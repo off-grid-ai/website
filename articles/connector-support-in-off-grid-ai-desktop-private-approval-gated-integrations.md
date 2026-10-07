@@ -54,9 +54,9 @@ Nothing executes without a logged approval. The model can suggest all day. It ca
 
 <!-- GIF: model proposes "create Linear issue", action appears in the approval queue, user approves, audit log entry shows up -->
 
-![Off Grid AI God: connected work with explicit Approve and Deny controls.](/assets/img/home/app/god-dark-1760.webp)
+![A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.](/assets/img/home/app/approval-light-1760.webp)
 
-*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
+*A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.*
 
 ## How it works end to end
 

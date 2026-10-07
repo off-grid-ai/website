@@ -16,6 +16,8 @@ You use the same calculation often enough that a small dedicated tool would save
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.](https://getoffgridai.co/assets/img/home/app/artifacts-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

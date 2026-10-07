@@ -16,7 +16,7 @@ A private file does not have to remain loose in Downloads. OGAD (Off Grid AI Des
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Vault: saved logins, keys, and notes in the unlocked vault.](/assets/img/home/app/vault-open-light-1760.webp)
+![The unlocked Off Grid AI Vault: web logins, an API key, a secure note and the encrypted file Acme_MSA_signed.pdf in one list.](/assets/img/home/app/vault-open-light-1760.webp)
 
 ---
 
