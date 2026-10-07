@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Weak and Reused Passwords in Your Off Grid AI Vault in 2026"
 description: "Review weak, reused, and old saved passwords through the paired browser extension, then update the real accounts."
 date: "2026-10-07"

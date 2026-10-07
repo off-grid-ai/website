@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Continue Browser AI Chats in Off Grid AI Desktop in 2026"
 description: "Pair the browser extension with Off Grid AI Desktop and continue the same conversation in the desktop app."
 date: "2026-10-07"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Record and Transcribe Meetings on Linux in 2026 Without Cloud Processing"
 description: "Record a short Linux meeting, check both audio tracks, and create a transcript and summary with local models."
 date: "2026-10-07"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Automatic Microsoft Teams Meeting Notes on Windows in 2026"
 description: "Use Off Grid AI Desktop beta 114 on Windows for this workflow. Prepare Pro, check the source record, and keep local models selected for local processing."
 date: "2026-10-07"

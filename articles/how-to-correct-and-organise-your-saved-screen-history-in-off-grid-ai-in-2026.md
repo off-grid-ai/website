@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Correct and Organise Your Saved Screen History in Off Grid AI in 2026"
 description: "Edit Replay descriptions and tags, reprocess a saved frame, and keep screen history tied to its source."
 date: "2026-10-07"

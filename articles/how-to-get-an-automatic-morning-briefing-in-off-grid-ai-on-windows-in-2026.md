@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get an Automatic Morning Briefing in Off Grid AI on Windows in 2026"
 description: "Prepare Day context and local notifications so your Windows can deliver a morning overview without a new prompt."
 date: "2026-10-07"

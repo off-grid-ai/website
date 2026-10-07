@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Something You Saw on Your Linux Computer in 2026 Without Taking Notes"
 description: "Use Off Grid AI Desktop beta 114 on Linux for this workflow. Prepare Pro, check the source record, and keep local models selected for local processing."
 date: "2026-10-07"

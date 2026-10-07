@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Review What Was on Screen During a Meeting in Off Grid AI on Windows in 2026"
 description: "Use the beta 114 meeting screen timeline on Windows to check slides and pages beside the transcript."
 date: "2026-10-07"

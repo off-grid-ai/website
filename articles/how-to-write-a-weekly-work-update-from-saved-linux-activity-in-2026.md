@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Write a Weekly Work Update From Saved Linux Activity in 2026"
 description: "Use Off Grid AI Desktop beta 114 on Linux for this workflow. Prepare Pro, check the source record, and keep local models selected for local processing."
 date: "2026-10-07"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automate Repetitive Linux Desktop Tasks With Local AI in 2026"
 description: "Use OGAD Pro Computer Use on Linux for a small task, with visible progress and a checked result."
 date: "2026-10-07"

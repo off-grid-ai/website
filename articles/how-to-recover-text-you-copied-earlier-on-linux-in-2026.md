@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Recover Text You Copied Earlier on Linux in 2026"
 description: "Find and reuse earlier copied text with OGAD's local clipboard history on Linux. Search saved clips and paste a previous item without returning to its source."
 date: "2026-10-07"

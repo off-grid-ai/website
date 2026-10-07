@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Get Automatic Meeting Prep Alerts in Off Grid AI on Windows in 2026"
 description: "Get a local heads-up linked to available people and open items before a meeting, with clear setup and timing limits."
 date: "2026-10-07"

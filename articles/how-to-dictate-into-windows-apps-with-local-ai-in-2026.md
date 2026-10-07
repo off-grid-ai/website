@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Dictate Into Windows Apps With Local AI in 2026"
 description: "Set up local dictation on Windows with OGAD Pro beta 114, then check speech recognition and paste at cursor."
 date: "2026-10-07"

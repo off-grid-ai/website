@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Local AI in Firefox in 2026 Without Moving to Another Browser"
 description: "Use Firefox\u2019s sidebar with local desktop models. Build the extension, connect to OGAD, and ask about a page."
 date: "2026-10-07"

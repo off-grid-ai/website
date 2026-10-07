@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Use Local AI in Chrome in 2026 Without Sending Your Prompts to Cloud AI"
 description: "Chat beside a Chrome page with a model running in Off Grid AI Desktop. Set up the local connection and use page context."
 date: "2026-10-07"

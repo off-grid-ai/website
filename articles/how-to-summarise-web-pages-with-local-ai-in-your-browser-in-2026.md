@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Summarise Web Pages With Local AI in Your Browser in 2026"
 description: "Turn a long web page into a checked summary with the Off Grid AI extension and a local desktop model."
 date: "2026-10-07"

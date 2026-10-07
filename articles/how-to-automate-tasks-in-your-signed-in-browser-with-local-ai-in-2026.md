@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Automate Tasks in Your Signed-In Browser With Local AI in 2026"
 description: "Use your existing browser session for a small AI task. Connect the extension, select local models, and review the result."
 date: "2026-10-07"

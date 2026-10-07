@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Keep Sensitive Apps Out of Saved Screen History in Off Grid AI on Linux in 2026"
 description: "Control when OGAD records your Linux screen. Pause capture before sensitive work, check the visible state, and understand the built-in exclusions."
 date: "2026-10-07"

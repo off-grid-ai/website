@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Fill Website Logins From Your Off Grid AI Vault in 2026"
 description: "Use the paired browser extension to fill a matching website login from an unlocked desktop Vault."
 date: "2026-10-07"

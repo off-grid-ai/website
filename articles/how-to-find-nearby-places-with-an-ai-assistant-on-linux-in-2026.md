@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content
 title: "How to Find Nearby Places With an AI Assistant on Linux in 2026"
 description: "Ask OGAD to find nearby places from your Linux's location, then check the current sources. Keep model inference local while using the web for fresh listings."
 date: "2026-10-07"
