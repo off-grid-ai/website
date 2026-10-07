@@ -63,8 +63,8 @@ Here's what that actually means in practice:
         <b>Example chat (iPhone)</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM image chat on iPhone with a connected desktop model" width="200" height="434" style="object-fit: cover;" />
-        <b>Image chat (iPhone, connected desktop)</b>
+        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="OGAM generating a dog image locally on iPhone with a Core ML Stable Diffusion model" width="200" height="434" style="object-fit: cover;" />
+        <b>Local image generation (iPhone)</b>
       </td>
 </tr>
 <tr>
