@@ -7,6 +7,7 @@
 @import '../node_modules/@radix-ui/themes/src/components/tabs.css';
 @import '../node_modules/@radix-ui/themes/src/components/dialog.css';
 @import '../node_modules/@radix-ui/themes/src/components/text-area.css';
+@import '../node_modules/@radix-ui/themes/src/components/text-field.css';
 @import '../node_modules/@radix-ui/themes/tokens/base.css';
 @import '../node_modules/@radix-ui/themes/tokens/colors/gray.css';
 @import '../node_modules/@radix-ui/themes/tokens/colors/green.css';

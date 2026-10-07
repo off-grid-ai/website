@@ -1,6 +1,5 @@
 /* ── Content layout (_layouts/content.html): long-form Markdown on the kit ──
    Paths below resolve from node_modules/.cache/offgrid-preview (the build's cache dir). */
-@import '../../@radix-ui/themes/src/components/text-field.css';
 
 /* Page frame: one column on the shared grid, rails from main::before. */
 .doc-page{position:relative;width:var(--col);margin-inline:auto;padding:28px clamp(16px,4.4vw,64px) 0}
