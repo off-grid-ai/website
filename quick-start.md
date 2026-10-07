@@ -8,13 +8,13 @@ description: Run your personal AI assistant on hardware you already own. Start w
 
 # Quick Start
 
-Run your first local AI model in under 5 minutes. No account. No API key. No internet after setup.
+Run your personal AI assistant on hardware you already own. No account or API key.
 
 ---
 
-## Step 1 - Download Off Grid AI
+## Step 1 - Choose your platform
 
-Off Grid AI is available on **Android, iOS, macOS, Windows, and Linux**. The steps below cover phones. For a computer, [download Off Grid AI Desktop]({{ '/download/' | relative_url }}) and follow the [desktop guide]({{ '/desktop/' | relative_url }}).
+**macOS, Windows, and Linux:** [Download Off Grid AI Desktop]({{ '/download/' | relative_url }}). macOS requires Apple Silicon; Windows and Linux builds are x64. See [desktop details]({{ '/desktop/' | relative_url }}).
 
 **iOS:** [Download on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download) - requires iPhone 12 or newer (4GB RAM+)
 
@@ -26,7 +26,7 @@ Or download the [OGAM 0.0.110 APK from GitHub](https://github.com/off-grid-ai/OG
 
 ## Step 2 - Pick a model
 
-When you open the app, you'll see the model picker. If you're unsure, start here:
+Choose a model that fits your memory. These options are a starting point for phones:
 
 | You want | Start with | Size |
 |---|---|---|
@@ -42,17 +42,15 @@ When you open the app, you'll see the model picker. If you're unsure, start here
 
 ## Step 3 - Download and run
 
-Tap a model → **Download**. This is the only time you need internet. The download goes to your device storage.
+Select a model, then **Download**. Keep internet connected until the download finishes.
 
-Once downloaded, tap **Load** - the model loads into RAM. On first load this takes 5–15 seconds depending on model size.
-
-Type your first message. You're now running AI locally.
+Select **Load**, then type a message. The model runs on your device.
 
 ---
 
 ## Step 4 - Go offline (optional)
 
-Put your phone in airplane mode. Everything still works.
+Disconnect from the internet. Your downloaded local model still works. Online tools and remote models need a connection.
 
 ---
 

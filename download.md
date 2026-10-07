@@ -10,40 +10,16 @@ description: Download your personal AI assistant for hardware you already own. O
 <div class="early-access-hero">
   <div class="early-access-badge">Download Off Grid AI</div>
   <h1>Your personal AI.<br>On hardware you already own.</h1>
-  <p class="early-access-sub">Run your personal AI assistant on the hardware you already own. Off Grid AI is available on Android, iOS, macOS, Windows, and Linux. Start free with local models. Add Pro for a digital twin that knows your context, remembers your work, and acts on your behalf with your approval.</p>
+  <p class="early-access-sub">Built for hardware you already own. Android, iOS, macOS, Windows, and Linux. Start free. Add Pro for memory and actions you approve.</p>
 </div>
 
-<p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars · your data never leaves your device</p>
-
----
-
-## Sync is live
-{: #sync}
-
-Start a chat on your phone. Continue it on your laptop. Chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You choose whether copied text, new screenshots, and new downloads move too. You can also send files and compatible installed models directly.
-
-Sync traffic is encrypted between paired devices. No Off Grid AI server receives or stores the content you sync. Sync is included with Pro, and one key covers up to {{ site.data.pricing.devices }} devices.
-
-## Computer Use and Web Use are live
-{: #computer-use}
-
-Give Off Grid AI Desktop a task in the browser or on your screen. Web Use works inside the browser. Computer Use works through the controls on your screen. Both run as supervised tasks, so you can pause, stop, take over, or give new guidance while they work.
-
-<div class="hero-buttons">
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download macOS stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe" class="btn btn-green">Download Windows stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage" class="btn btn-green">Download Linux stable</a>
-  <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener" class="btn btn-outline">OGAD 0.0.54 release</a>
-  <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.110" target="_blank" rel="noopener" class="btn btn-outline">OGAM 0.0.110 release</a>
-</div>
-
-<p class="ea-pricing-note">For access to the latest mobile Sync build, email <a href="mailto:mac@wednesday.is?subject=SYNC&amp;body=Device%3A%20%0AStore%20email%3A%20">Mac</a> with your device and the email linked to your App Store or Play Store account. The public Android and iOS downloads are below.</p>
+<p class="ea-pricing-note" style="text-align:center;">180,000+ downloads · 3,000+ GitHub stars</p>
 
 ---
 
 ## Off Grid AI Mobile - Android and iOS
 
-Your AI personal assistant on Android and iOS. Ask about a document, capture a thought, or write a draft with local models. Add Pro for hands-free voice, personal assistants with memory, and draft actions you approve.
+Your personal AI assistant on your phone. Chat, write, and ask about documents locally.
 
 <div class="hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">Download on the App Store</a>
@@ -57,7 +33,7 @@ Your AI personal assistant on Android and iOS. Ask about a document, capture a t
 
 ## Off Grid AI Desktop - macOS, Windows, and Linux
 
-Your AI personal assistant on macOS, Windows, and Linux. Start free with local chat, writing, and document tools. See the [desktop page]({{ '/desktop/' | relative_url }}) for Pro memory and action features, and their platform limits.
+Your personal AI assistant on your computer. Local chat, writing, voice, and document tools.
 
 <div class="hero-buttons">
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-green">Download for macOS</a>
@@ -73,9 +49,23 @@ Your AI personal assistant on macOS, Windows, and Linux. Start free with local c
 
 ---
 
-## Choose a release track
+## Continue across devices
+{: #sync}
 
-Pick the track that fits how much polish you need.
+Pair your devices to share chats, projects, settings, images, attachments, files, and compatible models. Choose whether copied text, new screenshots, and downloads move too.
+
+Pro Sync encrypts transfers between paired devices. No Off Grid AI server stores the content. One key covers up to {{ site.data.pricing.devices }} devices.
+
+## Let your assistant act
+{: #computer-use}
+
+Approve a desktop task in your apps or browser. Pause, stop, or take over. See <a href="{{ '/desktop/' | relative_url }}#computer-use">desktop features and platform limits</a>.
+
+<p class="ea-pricing-note">For the latest mobile Sync build, email <a href="mailto:mac@wednesday.is?subject=SYNC&amp;body=Device%3A%20%0AStore%20email%3A%20">Mac</a> with your device and store email.</p>
+
+---
+
+## Choose a release track
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -84,7 +74,7 @@ Pick the track that fits how much polish you need.
     </div>
     <div>
       <div class="perk-title">Stable</div>
-      <div class="perk-desc">The tested build. Available from the App Store, Google Play, and the macOS, Windows, and Linux downloads. Pick this if you want it to just work.</div>
+      <div class="perk-desc">Start here. Store downloads for mobile; release packages for desktop.</div>
     </div>
   </div>
   <div class="perk-card">
@@ -93,7 +83,7 @@ Pick the track that fits how much polish you need.
     </div>
     <div>
       <div class="perk-title">Preview and beta</div>
-      <div class="perk-desc">Preview builds from GitHub releases on mobile, and beta builds on macOS, Windows, and Linux. These builds can have rough edges.</div>
+      <div class="perk-desc">Try new features before stable. Expect rough edges.</div>
     </div>
   </div>
 </div>
