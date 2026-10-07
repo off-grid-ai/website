@@ -323,8 +323,12 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
 .sidebar-links.sidebar-platforms { flex-wrap: nowrap; gap: 0; }
 .sidebar-platforms a { flex: 1; min-width: 44px; min-height: 44px; justify-content: center; border-radius: var(--radius); }
 .sidebar-platforms a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.platform-icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
-.platform-list { display: inline-flex; align-items: center; gap: 12px; vertical-align: middle; }
+.platform-icon { display: inline-block; width: 18px; height: 18px; vertical-align: middle; flex-shrink: 0; }
+.platform-icon use { transform-box: view-box; transform-origin: center; }
+.platform-icon use[href$="#macos"] { transform: scale(0.9); }
+.platform-icon use[href$="#windows"] { transform: scale(0.84); }
+.platform-icon use[href$="#linux"] { transform: scale(0.94); }
+.platform-list { display: inline-flex; align-items: center; gap: 8px; height: 18px; line-height: 1; vertical-align: -0.125em; }
 .btn:has(> .platform-icon) { min-width: 44px; min-height: 44px; }
 .btn:has(> .platform-icon):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sidebar-copy { color: var(--text-muted); font-size: 0.7rem; margin-top: 2px; }
