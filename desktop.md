@@ -161,7 +161,7 @@ Ask your assistant to work in your apps or browser. You approve the task and can
 
 Your digital twin remembers the work you choose to record. Find a decision, revisit a screen, or continue an open task.
 
-<p class="ea-pricing-note">Pro is available on macOS only today. It is not included in Windows builds.</p>
+<p class="ea-pricing-note">Desktop preview adds Linux Pro capture, Replay, Clipboard, and Vault; Windows Day, Notifications, and Reflect. Features differ by platform.</p>
 
 <a href="{{ '/pro' | relative_url }}" style="display:block"><img class="hero-cover" src="{{ '/assets/img/pro-day.png' | relative_url }}" alt="Off Grid AI Pro showing Your Day - a journal, to-do list, and timeline of the day, on macOS." width="1760" height="797" loading="lazy"></a>
 <p class="ea-pricing-note" style="text-align:center;margin-top:-16px;">Your Day - the brief a chief of staff would hand you each morning.</p>

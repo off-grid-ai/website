@@ -45,6 +45,15 @@ Local models for writing, images, and voice. Supervised tasks in your apps and b
 
 [Full preview notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114).
 
+### Earlier additions in the current preview
+
+- **Linux Pro** - screen capture, Replay, Clipboard, Vault, and Reflect.
+- **Windows Pro** - Day, Notifications, and Reflect.
+- **Replay** - edit frames and reprocess their descriptions.
+- **Linux actions** - read desktop controls and use native Wayland capture and input.
+
+[Beta.112 notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.112) · [Beta.113 notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.113).
+
 ### 0.0.54 - stable - September 29, 2026
 
 This is a maintenance release with no user-facing changes.

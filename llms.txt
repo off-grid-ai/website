@@ -2,7 +2,7 @@
 
 Off Grid AI is your personal AI assistant, built to run on the hardware you already own. It is available on Android, iOS, macOS, Windows, and Linux. With Pro, it becomes your digital twin. It knows the context you choose to share, remembers your work, and acts on your behalf with your approval. Local models and AI memory stay on your devices.
 
-The free core provides local AI chat, image generation, and document tools. Off Grid AI Pro adds personal memory, Sync between devices, and actions you approve. Features differ by platform: mobile supports voice, custom personas with memory, and approved draft actions; desktop supports searchable work memory and supervised Computer Use and Web Use on supported platforms. The desktop page lists macOS as the current platform for Pro capture features.
+The free core provides local AI chat, image generation, and document tools. Off Grid AI Pro adds personal memory, Sync between devices, and actions you approve. Features differ by platform: mobile supports voice, custom personas with memory, and approved draft actions; desktop supports searchable work memory and supervised Computer Use and Web Use on supported platforms. Desktop preview adds Linux Pro capture, Replay, Clipboard, and Vault, plus Windows Day, Notifications, and Reflect.
 
 ## What it does
 
