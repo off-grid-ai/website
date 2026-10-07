@@ -21,7 +21,7 @@ Free, open-source, runs fully offline.
 
 ![A photorealistic portrait generated on-device with RealVisXL Lightning in Off Grid AI Desktop.](/assets/img/home/gen-realvis-lightning.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*A photorealistic portrait generated on-device with RealVisXL Lightning in Off Grid AI Desktop.*
 
 ## Why RealVisXL Lightning
 
@@ -103,7 +103,7 @@ soft shadows, sharp focus
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

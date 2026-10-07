@@ -19,9 +19,9 @@ Your laptop can run a chat model, a vision model, a diffusion model, and a trans
 Free, open-source, runs offline.
 
 
-![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
+![The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878 for chat, vision, images, speech and embeddings.](/assets/img/home/app/gateway-dark-1760.webp)
 
-*The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.*
+*The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878 for chat, vision, images, speech and embeddings.*
 
 ## What MCP is, in two paragraphs
 

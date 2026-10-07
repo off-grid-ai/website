@@ -21,7 +21,7 @@ RealVisXL v5.0 is a photorealistic SDXL checkpoint. This is the full-step varian
 
 ![A photorealistic landscape generated on-device with RealVisXL in Off Grid AI Desktop.](/assets/img/home/gen-realvis.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*A photorealistic landscape generated on-device with RealVisXL in Off Grid AI Desktop.*
 
 ## What You Need
 
@@ -93,7 +93,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

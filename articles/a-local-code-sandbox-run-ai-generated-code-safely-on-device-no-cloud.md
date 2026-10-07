@@ -17,9 +17,9 @@ Every modern laptop ships with a browser engine that can run untrusted code in a
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/artifacts.png?v=2)
+![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*The Artifacts tab. HTML, React, and documents the model generated, rendered in a local sandbox.*
+*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
 
 ## The problem with running AI code
 
@@ -117,9 +117,9 @@ Off Grid AI Desktop sees none of that, because there is no server in the loop. T
 - Cross-device sync so a sandbox you build on one machine shows up on another, still without a cloud middleman.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat, where you ask a local model for the code or page that opens as an artifact.*
 
 ## FAQ
 

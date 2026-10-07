@@ -21,7 +21,7 @@ Free, open-source, runs offline. No account, no API key, no telemetry.
 
 ![Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.](/assets/img/home/app/meetings-dark-1760.webp)
 
-*Meetings record and transcribe on-device, with a local summary and transcript.*
+*Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.*
 
 ## Why a Local Notetaker
 

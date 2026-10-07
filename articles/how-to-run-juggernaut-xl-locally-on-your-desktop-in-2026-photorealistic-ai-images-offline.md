@@ -21,7 +21,7 @@ Free, open-source, runs fully offline.
 
 ![A photorealistic street scene generated on-device with Juggernaut XL in Off Grid AI Desktop.](/assets/img/home/gen-juggernaut.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*A photorealistic street scene generated on-device with Juggernaut XL in Off Grid AI Desktop.*
 
 ## Why Juggernaut XL
 
@@ -102,7 +102,7 @@ shallow depth of field, natural skin texture, film grain
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

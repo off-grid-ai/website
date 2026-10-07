@@ -19,9 +19,9 @@ The same M-series chip that edits your video also runs language models, draws im
 Free, open source, runs offline. No account.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
@@ -100,7 +100,7 @@ npm run dev
 
 ![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

@@ -19,9 +19,9 @@ A modern laptop has 16GB or more of RAM and a GPU that sits at 2 percent load wh
 Free, open-source, runs offline.
 
 
-![Projects keep related chats, uploaded documents, and generations together.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/projects.png?v=2)
+![A project chat in Off Grid AI Desktop answering from your documents, citing the PDF, the DOCX and the meeting it used.](/assets/img/home/app/projects-dark-1760.webp)
 
-*Projects keep related chats, uploaded documents, and generations together.*
+*A project chat in Off Grid AI Desktop answering from your documents, citing the PDF, the DOCX and the meeting it used.*
 
 ## What this gets you
 
@@ -103,9 +103,9 @@ For anything covered by an NDA, a privacy regulation, or just your own preferenc
 - Unified search across projects and captured memory.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.*
 
 ## FAQ
 

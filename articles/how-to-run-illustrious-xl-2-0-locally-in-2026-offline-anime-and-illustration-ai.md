@@ -21,7 +21,7 @@ Illustrious XL v2.0 is an SDXL checkpoint tuned for anime and illustration. It r
 
 ![An illustration generated on-device with Illustrious XL in Off Grid AI Desktop.](/assets/img/home/gen-illustrious.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An illustration generated on-device with Illustrious XL in Off Grid AI Desktop.*
 
 ## What You Need
 
@@ -108,7 +108,7 @@ That is the whole loop. Once the model is on disk you can pull the network cable
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

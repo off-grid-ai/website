@@ -19,9 +19,9 @@ The laptop you already own can run a language model, generate an image, transcri
 Free, open-source, runs offline. No account, no telemetry.
 
 
-![Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/onboarding.png?v=2)
+![The Models screen in Off Grid AI Desktop, with tabs for text, image, voice and transcription models.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.*
+*The Models screen in Off Grid AI Desktop, with tabs for text, image, voice and transcription models.*
 
 ## The choice you have been forced to make
 
@@ -106,9 +106,9 @@ There is no account, so there is no profile to leak. There is no telemetry, so n
 - More bundled models as quantized formats improve.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*An image generated in an Off Grid AI Desktop chat, next to your text chats, all on your machine.*
 
 ## FAQ
 

@@ -21,7 +21,7 @@ Free, open-source, runs offline. No account, no API key, no telemetry.
 
 ![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-realvis.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## What You Get Instead of a Subscription
 
@@ -101,9 +101,9 @@ npm run dev
 - Unified search across generated images and the rest of your captured work.
 
 
-![Projects keep related chats, uploaded documents, and generations together.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/projects.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*Projects keep related chats, uploaded documents, and generations together.*
+*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
 
 ## FAQ
 

@@ -21,7 +21,7 @@ Free, open-source, runs offline. No account, no API key, no data leaving your ma
 
 ![Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.](/assets/img/home/app/day-dark-1760.webp)
 
-*Day lays out your meetings, suggested actions, and to-dos in one place.*
+*Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.*
 
 ## The problem with note-taking apps
 
@@ -121,14 +121,14 @@ No sign-up, no key, no cloud account.
 
 ![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
 
-*Reflect shows where your attention actually went across the day.*
+*Reflect in Off Grid AI Desktop shows where your attention went across the day.*
 
 
 *Replay is a scrubbable movie of your day, captured on-device.*
 
 ![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
 
-*Entities: a private CRM for the people, projects, and topics in your work.*
+*Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.*
 
 ## FAQ
 

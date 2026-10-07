@@ -21,9 +21,9 @@ Off Grid AI Desktop is a free, open-source app that runs both directions of voic
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.](/assets/img/home/app/voice-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.*
 
 ## The gap in local AI tools
 
@@ -113,7 +113,7 @@ Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokor
 
 ![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.*
 
 ## FAQ
 

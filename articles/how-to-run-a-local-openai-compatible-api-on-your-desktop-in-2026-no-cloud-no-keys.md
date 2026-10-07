@@ -19,9 +19,9 @@ The laptop on your desk has a GPU that can run a 7B model and a diffusion model 
 Free, open-source, runs offline. No account, no telemetry, no API key.
 
 
-![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
+![The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878, with copyable curl, Python and JavaScript examples.](/assets/img/home/app/gateway-dark-1760.webp)
 
-*The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.*
+*The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878, with copyable curl, Python and JavaScript examples.*
 
 ## The one-line change
 

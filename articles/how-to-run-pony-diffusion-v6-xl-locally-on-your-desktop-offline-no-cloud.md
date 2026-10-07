@@ -19,9 +19,9 @@ A mid-range gaming PC with an 8 GB graphics card has enough VRAM to run a full S
 Free, open-source, runs fully offline.
 
 
-![On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
 
 ## Why Pony Diffusion V6 XL
 
@@ -104,7 +104,7 @@ city street at night, neon lights, anime style
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

@@ -23,15 +23,15 @@ Off Grid is a free, open-source app that runs Qwen 3.5 and other GGUF models ent
 <table>
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/chat-1-dark-640.webp" alt="A private chat with a local model in Off Grid, running on the phone" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/chat-ios-1-dark-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
         <b>Text Generation</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vttu3u8e7iii77of8o4m.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/project-ios-2-dark-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
         <b>Attachments</b>
       </td>
       <td align="center">
-        <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wddqnj442l7teu72or4p.gif" width="200" height="434" style="object-fit: cover;" />
+        <img src="/assets/img/home/mobile/models-ios-1-dark-640.webp" alt="The Models screen in Off Grid on the phone; the eye badge marks models that can read images, like Gemma 4 and Qwen 3.5" width="200" height="434" style="object-fit: cover;" />
         <b>Vision AI</b>
       </td>
     </tr>

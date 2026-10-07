@@ -19,9 +19,9 @@ The slowest part of a cloud AI request is not the model. It is the trip to a dat
 Free, open-source, runs offline. No account, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![An image generated in an Off Grid AI Desktop chat, next to your text chats, with its size, steps, seed and model shown.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*An image generated in an Off Grid AI Desktop chat, next to your text chats, with its size, steps, seed and model shown.*
 
 ## Where cloud time actually goes
 
@@ -102,7 +102,7 @@ curl http://127.0.0.1:7878/v1/chat/completions \
 
 ![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

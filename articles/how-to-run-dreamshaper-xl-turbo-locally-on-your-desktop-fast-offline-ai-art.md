@@ -21,7 +21,7 @@ DreamShaper XL v2 Turbo is a versatile artistic checkpoint. It handles illustrat
 
 ![An image generated on-device with DreamShaper XL Turbo in Off Grid AI Desktop.](/assets/img/home/gen-dreamshaper.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device with DreamShaper XL Turbo in Off Grid AI Desktop.*
 
 ## What You Need
 
@@ -88,7 +88,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

@@ -19,7 +19,7 @@ The problem is that tool calling has always been a cloud feature. OpenAI functio
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) supports tool calling on your phone, with both on-device and remote models. No API keys. No cloud. No cost per call.
 
 <div style="width: 100%;">
-  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
+  <img width="320" alt="An answer in Off Grid on the phone; Tools sent in request (3) under it shows the model was handed tools for the reply" src="/assets/img/home/mobile/project-ios-2-light-640.webp" />
 </div>
 
 ## What tool calling actually does
@@ -39,9 +39,6 @@ Off Grid ships with built-in tools:
 The key is that the model decides which tools to use. You do not have to say "search for this." You just ask your question naturally, and the model figures out that it needs a tool, calls it, and uses the result.
 
 ## How it works in Off Grid
-
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid discovering models on your network - tool calling works with both on-device and remote models.*
 
 ### With on-device models
 

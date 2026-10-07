@@ -20,10 +20,6 @@ But here is the problem. You set up LM Studio on your laptop. You download a mod
 
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) fixes that. It auto-discovers LM Studio servers on your network and lets you use them from your phone. No IP addresses. No port numbers. No configuration.
 
-<div style="width: 100%;">
-  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
-</div>
-
 ## What you need
 
 **On your computer:**

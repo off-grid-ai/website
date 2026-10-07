@@ -18,10 +18,6 @@ The unofficial answer used to be: set up a reverse proxy, configure your network
 
 The actual answer now: [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) auto-discovers LM Studio on your network and lets you use it from your Android phone in about sixty seconds.
 
-<div style="width: 100%;">
-  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
-</div>
-
 ## How to set it up
 
 ### On your computer
@@ -35,9 +31,6 @@ If you are not sure which model to run, Qwen 3.5 9B is the recommendation for ma
 Install Off Grid from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases). Make sure your phone is on the same WiFi as your computer. Open Off Grid, go to Remote Models, tap Scan Network.
 
 Off Grid finds your LM Studio server and shows you every loaded model. Tap one. Chat.
-
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid scanning the network and discovering LM Studio models - iOS, Android, and servers running side by side.*
 
 ## What you get that a web interface does not
 

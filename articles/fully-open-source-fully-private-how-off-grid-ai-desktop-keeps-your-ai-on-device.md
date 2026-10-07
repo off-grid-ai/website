@@ -19,9 +19,9 @@ Most "private AI" apps ask you to trust a privacy policy you cannot read and a s
 Free, open-source, runs offline. No account, no telemetry.
 
 
-![Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/onboarding.png?v=2)
+![Off Grid AI Desktop chat answering from your own meetings and documents, with a local model and nothing sent out.](/assets/img/home/app/chat-dark-1760.webp)
 
-*Off Grid AI Desktop. Private AI that runs on your machine, no cloud, no account.*
+*Off Grid AI Desktop chat answering from your own meetings and documents, with a local model and nothing sent out.*
 
 ## "Private" has been watered down
 
@@ -99,9 +99,9 @@ Off Grid ships an OpenAI-compatible API at `http://127.0.0.1:7878/v1`. Your own 
 - More bundled open-weight models.
 
 
-![Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/integrations.png?v=2)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
 
-*Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
 ## FAQ
 

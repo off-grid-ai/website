@@ -19,9 +19,9 @@ Your laptop has a GPU and 16GB of RAM that mostly idle while you tab between Not
 Free, open-source, runs offline.
 
 
-![Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/integrations.png?v=2)
+![Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
 
-*Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop with Notion, Jira + Confluence and Linear connected; actions run only after you approve them.*
 
 ## What this gets you
 
@@ -113,7 +113,7 @@ You still send credentials to the third-party services you connect, that is unav
 
 ![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 

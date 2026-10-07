@@ -21,7 +21,7 @@ Free, open-source, runs offline.
 
 ![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## Why Gemma, and Why Local
 
@@ -113,9 +113,9 @@ npm run dev
 - Unified search across your chats, documents, and captured work.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat with a local model, picked from the model chip in the composer.*
 
 ## FAQ
 

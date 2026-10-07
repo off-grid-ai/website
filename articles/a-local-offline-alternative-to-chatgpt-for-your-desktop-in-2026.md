@@ -19,9 +19,9 @@ The laptop on your desk has enough memory and GPU to run a capable language mode
 Free, open source, runs offline.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat answering from your own meetings and documents with a local model, sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat answering from your own meetings and documents with a local model, sources cited.*
 
 ## What People Use ChatGPT For
 

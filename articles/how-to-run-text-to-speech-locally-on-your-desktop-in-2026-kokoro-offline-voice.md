@@ -19,9 +19,9 @@ Kokoro-82M is a text-to-speech model with 82 million parameters, small enough to
 Free, open-source, runs offline. No account, no API key, no text leaving your machine.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![A reply in Off Grid AI Desktop chat, with the Voice toggle in the composer for spoken answers.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*A reply in Off Grid AI Desktop chat, with the Voice toggle in the composer for spoken answers.*
 
 ## Why local text-to-speech matters
 
@@ -121,7 +121,7 @@ No sign-up, no key to paste, no character quota.
 
 ![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.*
 
 ## FAQ
 

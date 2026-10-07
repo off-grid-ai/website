@@ -18,7 +18,7 @@ Off Grid is a free, open-source app that runs AI image generation on your phone'
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rbfkd2u6s3ymwypwg12b.png)
+![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
 
 
 

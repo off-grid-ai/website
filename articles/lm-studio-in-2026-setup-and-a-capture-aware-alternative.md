@@ -19,9 +19,9 @@ A consumer GPU with 12GB of VRAM can run a quantized 13B language model entirely
 Free, open source, runs offline.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat answering from your captured meetings and documents, sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat answering from your captured meetings and documents, sources cited.*
 
 ## What LM Studio Is
 
@@ -116,7 +116,7 @@ Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your ch
 
 ![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

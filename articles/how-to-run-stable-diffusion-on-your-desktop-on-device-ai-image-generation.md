@@ -21,7 +21,7 @@ Free, open-source, runs offline.
 
 ![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-juggernaut.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## Why Run Stable Diffusion Locally
 
@@ -116,7 +116,7 @@ npm run dev
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

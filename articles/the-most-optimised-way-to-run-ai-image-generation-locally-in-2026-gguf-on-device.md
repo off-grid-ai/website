@@ -21,7 +21,7 @@ This is the argument: for everyday local image generation, quantized GGUF on a n
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## What GGUF and Quantization Actually Do
 
@@ -102,7 +102,7 @@ Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your 
 
 ![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-dreamshaper.webp)
 
-*On-device image generation in Off Grid AI Desktop. SDXL, Lightning, Turbo, and more, run from your chat.*
+*An image generated on-device in Off Grid AI Desktop, with no cloud involved.*
 
 ## FAQ
 

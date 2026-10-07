@@ -18,7 +18,7 @@ Off Grid is a free, open-source app that runs AI image generation on your iPhone
 
 [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rbfkd2u6s3ymwypwg12b.png)
+![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
 
 ## What You Need
 

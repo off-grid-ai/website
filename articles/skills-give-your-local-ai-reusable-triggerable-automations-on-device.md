@@ -21,9 +21,9 @@ Off Grid AI Desktop lets you save that prompt once as a skill, then run it with 
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.*
 
 ## What a skill is
 
@@ -139,7 +139,7 @@ Off Grid AI Desktop holds all of it on your machine. The skill files are local. 
 
 ![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 

@@ -17,9 +17,9 @@ The Model Context Protocol lets an AI assistant talk to your tools through a sta
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/integrations.png?v=2)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
 
-*Connectors in Off Grid AI Desktop. Authorized actions run only after you approve them.*
+*Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
 ## What a connector does here
 
@@ -119,7 +119,7 @@ Off Grid AI Desktop collapses all three onto your machine. The credential is loc
 
 ![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
-*Actions: what to do, and what Off Grid proposes. Always your call.*
+*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 

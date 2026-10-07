@@ -19,9 +19,9 @@ A mid-range gaming GPU from 2023 ships with 12GB of VRAM and enough tensor cores
 It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-diffusion.cpp`, `whisper.cpp`, and an open-weight text-to-speech model. Nothing routes through a server we own. No account. No telemetry.
 
 
-![The Off Grid AI Desktop chat, running a local model fully on-device.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/chat.png?v=2)
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
 
-*The Off Grid AI Desktop chat, running a local model fully on-device.*
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 For current installers and preview features, use [Downloads]({{ '/download/' | relative_url }}) and [Desktop releases]({{ '/desktop/releases/' | relative_url }}). The setup below covers local chat, images, and voice.
 
@@ -104,7 +104,7 @@ Honest roadmap. We build the local spine first.
 
 ![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
 
-*The built-in model browser. Download text, vision, image, and voice models from Hugging Face, sized to your machine.*
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

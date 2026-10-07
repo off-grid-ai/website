@@ -24,10 +24,6 @@ Every guide out there for solving this involves the same painful dance. Set envi
 
 We thought that was absurd. So we built auto-discovery into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
-<div style="width: 100%;">
-  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
-</div>
-
 ## What Off Grid does on your network
 
 Off Grid is an open-source app that runs AI on your phone. We have written about running [LLMs locally on Android](https://dev.to/alichherawalla/how-to-run-llms-locally-on-your-android-phone-in-2026-no-cloud-no-account-2cd1) and [on iPhone](https://dev.to/alichherawalla/how-to-run-llms-locally-on-your-iphone-in-2026-completely-offline-no-subscription-4b3a) before. Those articles cover running small models directly on your phone's hardware.

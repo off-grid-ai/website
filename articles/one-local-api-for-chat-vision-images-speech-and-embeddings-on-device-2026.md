@@ -19,9 +19,9 @@ A modern laptop has a GPU and unified memory that can run a chat model, a vision
 Free, open-source, runs offline.
 
 
-![The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.](https://raw.githubusercontent.com/off-grid-ai/desktop/marketing-assets/screenshots/gateway.png?v=2)
+![The Gateway in Off Grid AI Desktop: chat, vision, image, speech-to-text, text-to-speech and embeddings endpoints on one local API.](/assets/img/home/app/gateway-dark-1760.webp)
 
-*The local gateway: one OpenAI-compatible API at 127.0.0.1:7878 for every modality.*
+*The Gateway in Off Grid AI Desktop: chat, vision, image, speech-to-text, text-to-speech and embeddings endpoints on one local API.*
 
 ## The short version
 

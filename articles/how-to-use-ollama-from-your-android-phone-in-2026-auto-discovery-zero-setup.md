@@ -18,10 +18,6 @@ Your Android phone and your Ollama server are on the same network. They should j
 
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) makes that happen. It auto-discovers Ollama servers on your local network, pulls the model list, and lets you start chatting. No IP addresses, no port numbers, no configuration files on your phone.
 
-<div style="width: 100%;">
-  <img width="320" alt="Off Grid on a phone using a model served from a desktop on the same network" src="/assets/img/home/mobile/remote-1-light-640.webp" />
-</div>
-
 ## What you need
 
 - A computer running [Ollama](https://ollama.com) with at least one model
@@ -51,9 +47,6 @@ Open Off Grid on your Android phone. Go to Remote Models. Tap Scan Network.
 Off Grid finds your Ollama server, pulls the list of installed models, and shows them to you. If you have multiple machines running Ollama on your network, it finds all of them.
 
 Tap a model. Start typing. Responses stream in.
-
-![Off Grid auto-discovering models across iOS, Android, Ollama, and LM Studio on the same network](./off-grid-remote-server-llm.gif)
-*Off Grid scanning the network and discovering Ollama models - iOS, Android, and servers running side by side.*
 
 ## Step 3: Use every model you have
 
