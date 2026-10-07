@@ -93,22 +93,9 @@ export function Shot({ name, alt, className = '', lazy = true }) {
 
 // Replays a looping demo: the returned key changes every `ms` while mounted.
 export function useCycle(ms) {
-  const [n, setN] = useState(0);
-  useEffect(() => { if (!ms) return; const t = setInterval(() => setN(v => v + 1), ms); return () => clearInterval(t); }, [ms]);
+  const [n, setN] = useState(0); const reduce = useReducedMotion();
+  useEffect(() => { if (!ms || reduce) return; const t = setInterval(() => setN(v => v + 1), ms); return () => clearInterval(t); }, [ms, reduce]);
   return n;
-}
-
-// Opening screen: the product frame rises and settles as the page scrolls (transform + opacity).
-function HeroReveal({ title, children }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const scale = useTransform(scrollYProgress, [0, .5], [.94, 1]);
-  const y = useTransform(scrollYProgress, [0, .5], [40, 0]);
-  const fade = useTransform(scrollYProgress, [0, .35], [1, 0]);
-  return <div ref={ref} className="hero-inner">
-    <motion.div style={{ opacity: fade }}>{title}</motion.div>
-    <motion.div className="hero-frame" style={{ scale, y }}>{children}</motion.div>
-  </div>;
 }
 
 export function Logo({ size = 28, className = '' }) {
@@ -183,13 +170,6 @@ export const FOOTER = [
 
 /* ───────────────────────── Story chapters ───────────────────────── */
 
-const CHAPTERS = [
-  { kicker: '01 · Capture', title: 'It sees what you share.', text: 'Mail, files, chats, meetings. On your disk.' },
-  { kicker: '02 · Remember', title: 'Your day becomes memory.', text: 'People, projects and dates, sorted for you.' },
-  { kicker: '03 · Ask', title: 'Ask. Get the answer and the source.', text: 'Every answer shows where it came from.' },
-  { kicker: '04 · Act', title: 'It drafts. You approve.', text: 'Nothing goes out without your yes.' },
-  { kicker: '05 · Continue', title: 'Pick it up on your phone.', text: 'Device to device. Encrypted. No server.' },
-];
 const SOURCES = [
   { Icon: EnvelopeSimple, app: 'Mail', time: '09:12', text: 'Rollout plan attached' },
   { Icon: FilePdf, app: 'PDF', time: '10:40', text: 'Acme_rollout_v3.pdf' },
@@ -319,151 +299,10 @@ function ContinueScene() {
         </AnimatedList>
       </div>
     </div>
-    <span className="sync-tag"><LockKey size={13} /> Device to device · no server</span>
+    <span className="sync-tag"><LockKey size={13} /> Device to device · encrypted</span>
     <Beam containerRef={box} fromRef={desk} toRef={phone} curvature={0} duration={2.2} pathWidth={2} pathColor="var(--og-text-muted)" pathOpacity={.18} gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
   </div>;
 }
-const SCENES = [CaptureScene, RememberScene, AskScene, ActScene, ContinueScene];
-
-function Story() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
-  const [chapter, setChapter] = useState(0);
-  useMotionValueEvent(scrollYProgress, 'change', v => setChapter(Math.min(CHAPTERS.length - 1, Math.floor(v * CHAPTERS.length * .999))));
-  const fill = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const go = (i) => {
-    const el = ref.current; if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY;
-    const span = el.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: top + span * ((i + .5) / CHAPTERS.length), behavior: 'smooth' });
-  };
-  const Scene = SCENES[chapter];
-  const cycle = useCycle([0, 7000, 9000, 7000, 7000][chapter]);
-  return <section id="how" className="story" ref={ref} aria-labelledby="how-heading">
-    <div className="story-pin">
-      <div className="story-copy">
-        <span id="how-heading"><Kicker>HOW IT WORKS · ONE DAY WITH SAM</Kicker></span>
-        <ol className="steps" aria-label="Chapters">
-          {CHAPTERS.map((c, i) => <li key={c.kicker}><button type="button" aria-current={i === chapter ? 'step' : undefined} onClick={() => go(i)}><span>{c.kicker.split(' · ')[0]}</span>{c.kicker.split(' · ')[1]}</button></li>)}
-        </ol>
-        <div className="rail" aria-hidden="true"><motion.i style={{ width: fill }} /></div>
-        <div className="chapter-stack">
-          <AnimatePresence initial={false}>
-            <motion.div key={chapter} className="chapter-copy" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: .4, ease: [.2, .8, .2, 1] }}>
-              <Heading as="h2"><TextAnimate as="span" by="word" animation="slideUp" duration={.5}>{CHAPTERS[chapter].title}</TextAnimate></Heading>
-              <TextAnimate as="p" by="word" animation="fadeIn" delay={.15} duration={.5}>{CHAPTERS[chapter].text}</TextAnimate>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-      <div className="story-stage">
-        <AnimatePresence initial={false}>
-          <motion.div key={chapter} className="stage-inner" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.02 }} transition={{ duration: .4, ease: [.2, .8, .2, 1] }}>
-            <motion.div key={cycle} className="scene-cycle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .35 }}><Scene /></motion.div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
-    <div className="sr-only">{CHAPTERS.map(c => <div key={c.kicker}><h3>{c.kicker}: {c.title}</h3><p>{c.text}</p></div>)}</div>
-  </section>;
-}
-
-
-/* ───────────────────────── Web use (real Agentic Studio screens) ───────────────────────── */
-
-const AGENT = [
-  { id: 'plan', label: 'It plans', image: '/assets/img/home/agent-04g-plan.webp', alt: 'Off Grid AI Tasks: a web task broken into steps with the reasoning for each one.' },
-  { id: 'turn', label: 'You take over', image: '/assets/img/home/agent-04b-web-use-pointer-and-takeover.webp', alt: 'Off Grid AI Tasks waiting for you: confirm the protected account step yourself. Off Grid AI does not read your password or codes.' },
-  { id: 'live', label: 'It finishes', image: '/assets/img/home/agent-04d-complete.webp', alt: 'Off Grid AI Tasks: the web task resumed after your step and completed.' },
-];
-function AgentSection() {
-  const [tab, setTab] = useState('turn');
-  const item = AGENT.find(a => a.id === tab);
-  return <section id="web-use" className="chapter agent" aria-labelledby="agent-heading">
-    <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>PRO · WEB USE</Kicker><Title id="agent-heading" lead="It uses the browser for you." dim="Passwords stay yours." /></BlurFade>
-      <div className="agent-tabs" role="tablist" aria-label="Web use views">
-        <AnimatedBackground defaultValue={tab} onValueChange={(id) => id && setTab(id)} className="seg-hover">
-          {AGENT.map(a => <button type="button" role="tab" data-id={a.id} key={a.id} aria-selected={a.id === tab} className="seg">{a.label}</button>)}
-        </AnimatedBackground>
-      </div>
-      
-        <div className="agent-frame">
-          <AnimatePresence initial={false}>
-            <motion.div key={item.id} className="agent-shot" initial={{ opacity: 0, scale: 1.01 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .45 }}>
-              <img src={item.image} alt={item.alt} width="1760" height="993" loading="lazy" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      
-    </div>
-  </section>;
-}
-
-
-/* ───────────────────────── Seven capabilities ───────────────────────── */
-
-function ExtPanels() {
-  return <div className="ext-panels">
-    {[['agent-desktop-web-use', 'Runs a task on the page'], ['chat-recording', 'Talk to any page'], ['vault-item', 'Autofill from your vault']].map(([f, l], i) =>
-      <motion.figure className="ext-panel" key={f} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1 + i * .12, duration: .4 }}>
-        <img src={`/assets/img/home/ext/${f}.webp`} alt={`Off Grid AI browser extension: ${l.toLowerCase()}.`} width="400" height="700" loading="lazy" />
-        <figcaption>{l}</figcaption>
-      </motion.figure>)}
-  </div>;
-}
-function FramedShot({ children }) {
-  return <div className="pillar-shot">{children}</div>;
-}
-const PILLARS = [
-  { id: 'local', title: 'Your AI. Your hardware.', line: 'Chat, vision, voice and images on your own phone or computer. Offline after setup. Video generation coming soon.',
-    chips: ['Choose your model', 'Vision', 'Voice', 'Image generation', 'Open source'], visual: () => <FramedShot><Shot name="models" alt="Off Grid AI model library: Bonsai 2, Qwen 3.8, Gemma 4 and more, picked for your device." /></FramedShot> },
-  { id: 'memory', title: 'A memory that builds itself.', line: 'Journal, timeline, recall and replay, from the work you choose to capture.',
-    chips: ['Day', 'Timeline', 'Recall', 'Replay', 'Reflect', 'People and projects'], visual: () => <FramedShot><Shot name="day" alt="Off Grid AI Day: to-dos, journal, meetings, time spent and timeline." /></FramedShot> },
-  { id: 'god', title: 'God, your chief of staff.', line: 'Your accounts, calendar and memory in one place. It briefs you, runs routines and does tasks with your approval.',
-    chips: ['Briefings', 'Routines', 'Multiple accounts', 'Computer use', 'Web use'], visual: () => <FramedShot><img className="shot" src="/assets/img/home/agent-04b-web-use-pointer-and-takeover.webp" width="1760" height="993" alt="Off Grid AI running a web task step by step, then handing you the password step." loading="lazy" /></FramedShot> },
-  { id: 'meetings', title: 'Your meetings become answers.', line: 'Local transcripts, summaries, decisions and follow-ups. No bot joins your call.',
-    chips: ['Meeting notetaker', 'Recorder', 'Ask a recording'], visual: () => <FramedShot><Shot name="meetings" alt="Off Grid AI Meetings: a design review with summary, decisions and transcript." /></FramedShot> },
-  { id: 'devices', title: 'Your devices work as one.', line: 'Chats, files, settings and copied text move device to device. Your phone can use your computer\'s models.',
-    chips: ['Pro Sync', 'Shared compute', 'Task control from phone'], visual: () => <div className="pillar-live"><ContinueScene /></div> },
-  { id: 'browser', title: 'Your browser, with AI.', line: 'Chrome and Firefox. It reads the page, fills from your vault and runs tasks in your signed-in browser.',
-    chips: ['Chrome', 'Firefox', 'Page questions', 'Browser tasks', 'Autofill'], visual: () => <ExtPanels /> },
-  { id: 'vault', title: 'Your secrets stay yours.', line: 'An encrypted vault for passwords, keys and files. Clipboard history you can search.',
-    chips: ['Vault', 'Autofill', 'Clipboard'], visual: () => <FramedShot><img className="shot" src="/assets/img/home/app/vault-dark.webp" width="1760" height="944" alt="Off Grid AI Vault with demo logins, an API key and a secure note." loading="lazy" /></FramedShot> },
-];
-const PILLAR_MS = 6500;
-function Pillars() {
-  const [i, setI] = useState(0); const [hold, setHold] = useState(false);
-  useEffect(() => { if (hold) return; const t = setTimeout(() => setI(v => (v + 1) % PILLARS.length), PILLAR_MS); return () => clearTimeout(t); }, [i, hold]);
-  const P = PILLARS[i];
-  return <section id="features" className="chapter pillars" aria-labelledby="pillars-heading">
-    <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHAT IT DOES</Kicker><Title id="pillars-heading" lead="Seven things. One assistant." dim="All on hardware you own." /><Lede>Desktop, mobile and the browser. Free to start, Pro when you want memory and action.</Lede></BlurFade>
-      <div className="pillar-grid" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
-        <div className="pillar-list" role="tablist" aria-label="Capabilities">
-          <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = PILLARS.findIndex(p => p.id === id); if (n >= 0) setI(n); }} className="pillar-hover">
-            {PILLARS.map((p, n) => <button type="button" role="tab" data-id={p.id} key={p.id} aria-selected={n === i} className="pillar-tab">
-              <span className="pillar-num">{String(n + 1).padStart(2, '0')}</span>
-              <span className="pillar-tx"><b>{p.title}</b>{n === i && <motion.span className="pillar-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{p.line}</motion.span>}</span>
-              {n === i && <motion.i key={`${i}-${hold}`} className="pillar-bar" initial={{ scaleX: 0 }} animate={{ scaleX: hold ? 0 : 1 }} transition={{ duration: hold ? .2 : PILLAR_MS / 1000, ease: 'linear' }} />}
-            </button>)}
-          </AnimatedBackground>
-        </div>
-        <div className="pillar-stage">
-          <AnimatePresence initial={false}>
-            <motion.div key={P.id} className="pillar-view" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .35 }}>
-              <div className="pillar-visual">{P.visual()}</div>
-              <div className="pillar-chips">{P.chips.map((c, k) => <motion.span key={c} className="chip" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .15 + k * .05 }}>{c}</motion.span>)}</div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
-  </section>;
-}
-
-
-
 // Browser: a sign-in page in Safari, the Off Grid side panel docked inside it, the vault login filling the form.
 function BrowserScene() {
   const s = useSteps([500, 1300, 2700, 3700, 4500]);
@@ -622,7 +461,6 @@ const VaultScene = Object.assign(() => <ShotSeq shots={[['vault-locked', 'Off Gr
 
 /* ───────────────────────── Walkthrough: one window, the whole way down ───────────────────────── */
 
-const imgView = (src, alt) => Object.assign(() => <div className="wt-shot"><img className="shot" src={src} alt={alt} width="1760" height="993" /></div>, { fill: true });
 // Loads every screen of a sequence up front so a wipe never reveals an empty frame.
 export function Preload({ names }) {
   return <div className="preload" aria-hidden="true">{names.map(n => <Shot key={n} name={n} alt="" lazy={false} />)}</div>;
@@ -630,6 +468,8 @@ export function Preload({ names }) {
 
 // Real app screens. Each one wipes in left to right; chapters with several screens step through them.
 export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
+// Where the readable result sits in each capture; phones crop to it instead of shrinking the whole app.
+const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
   const [n, setN] = useState(0);
@@ -638,7 +478,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
   return <div className="wt-shot">
     {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
     <AnimatePresence initial>
-      <motion.div key={`${name}-${n}`} className="wt-shot-in" initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
+      <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className="wt-shot-in" initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
         <Shot name={name} alt={alt} lazy={false} />
         <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />
       </motion.div>
@@ -648,7 +488,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
 const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.'], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.']) },
-  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'Your accounts, calendar and memory in one place. It briefs you and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.'], ['actions', 'Off Grid AI Actions: approvals waiting for your yes.']) },
+  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.'], ['actions', 'Off Grid AI Actions: approvals waiting for your yes.']) },
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 8000, View: CaptureScene },
   { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 7000, View: RememberScene },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff with Sam.']) },
@@ -657,7 +497,7 @@ const WALK = [
   { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 7000, View: ActScene },
   { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 9500, View: WebScene },
   { id: 'meetings', cmd: 'summarize the design review', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.'], ['voice', 'Off Grid AI Voice notes with transcripts and to-dos.']) },
-  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device. Encrypted. No server.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
+  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
   { id: 'browser', cmd: 'fill my Acme login', title: 'Your browser, with AI.', line: 'Chrome and Firefox. Reads the page, fills from your vault, runs tasks.', chips: ['Chrome', 'Firefox', 'Autofill'], loop: 7500, View: BrowserScene },
   { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: VaultScene },
   { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard history with search.']) },
@@ -675,30 +515,20 @@ const INTENTS = [[/image|picture|draw|photo/i, 'images'], [/clipboard|copied|pas
 // The command bar runs real prompts only: clicking or pressing Enter types the prompt that is
 // cycling in the placeholder, dissolves it (Aceternity vanish effect) and jumps the window there.
 const BAR_PROMPTS = ['What did I promise Sam?', 'Draft the reply to Sam', 'Send it to my phone', 'Summarize the design review', 'Fill my Acme Corp login'];
+// A real input: type your own question or press enter on the suggestion shown. The demo answers by
+// opening the matching chapter of the tour.
 function CommandBar({ onRun }) {
-  const wrap = useRef(null); const busy = useRef(false); const typed = useRef('');
-  const run = () => {
-    const root = wrap.current; if (!root || busy.current) return;
-    const input = root.querySelector('input'); const form = root.querySelector('form'); if (!input || !form) return;
-    const shown = [...root.querySelectorAll('p')].map(p => p.textContent.trim()).find(t => BAR_PROMPTS.includes(t)) || BAR_PROMPTS[0];
-    busy.current = true; typed.current = shown;
-    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
-    let i = 0;
-    const tick = () => {
-      i += 1; setter.call(input, shown.slice(0, i)); input.dispatchEvent(new Event('input', { bubbles: true }));
-      if (i < shown.length) setTimeout(tick, Math.max(6, 300 / shown.length));
-      else setTimeout(() => { form.requestSubmit(); setTimeout(() => { busy.current = false; }, 900); }, 100);
-    };
-    tick();
-  };
-  const onKeyDownCapture = (e) => {
-    if (busy.current) { if (e.key !== 'Tab') e.preventDefault(); return; }
-    if (e.key === 'Enter') { e.preventDefault(); run(); return; }
-    if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Delete') e.preventDefault();
-  };
-  return <div className="cmd-vanish" ref={wrap} role="search" aria-label="Try Off Grid AI. Click to run the suggested prompt."
-    onKeyDownCapture={onKeyDownCapture} onPasteCapture={(e) => e.preventDefault()} onPointerDown={(e) => { if (e.target.closest('button')) return; e.preventDefault(); wrap.current?.querySelector('input')?.focus(); run(); }}>
-    <PlaceholdersAndVanishInput placeholders={BAR_PROMPTS} onChange={() => {}} onSubmit={(e) => { e.preventDefault(); onRun(typed.current); }} />
+  const wrap = useRef(null); const value = useRef('');
+  useEffect(() => { // names for the Aceternity input and its send button
+    const root = wrap.current; if (!root) return;
+    root.querySelector('input')?.setAttribute('aria-label', 'Ask the Off Grid AI demo a question');
+    root.querySelector('button')?.setAttribute('aria-label', 'Ask');
+  }, []);
+  const shown = () => [...(wrap.current?.querySelectorAll('p') || [])].map(p => p.textContent.trim()).find(t => BAR_PROMPTS.includes(t)) || BAR_PROMPTS[0];
+  return <div className="cmd-vanish" ref={wrap} role="search" aria-label="Off Grid AI demo">
+    <PlaceholdersAndVanishInput placeholders={BAR_PROMPTS} onChange={(e) => { value.current = e.target.value; }}
+      onSubmit={(e) => { e.preventDefault(); const q = value.current.trim() || shown(); value.current = ''; onRun(q); }} />
+    <p className="cmd-note">Ask anything, or press enter for the example. The demo opens the part of the tour that answers it.</p>
   </div>;
 }
 
@@ -706,6 +536,7 @@ const HERO = .07;
 const STAGE = .5;
 const DWELL = { today: 7200, god: 7200, capture: 6000, remember: 6200, people: 7200, reflect: 7200, ask: 8600, act: 7600, web: 9000, meetings: 7200, phone: 6500, browser: 7200, vault: 6800, clipboard: 5200, images: 10400, models: 11000, api: 8200 };
 const ROT_WORDS = ['memory.', 'meetings.', 'devices.', 'browser.', 'secrets.'];
+export const WALK_LABELS = { today: 'Today', god: 'God', capture: 'Capture', remember: 'Memory', people: 'People', reflect: 'Reflect', ask: 'Ask', act: 'Act', web: 'Web', meetings: 'Meetings', phone: 'Phone', browser: 'Browser', vault: 'Vault', clipboard: 'Clipboard', images: 'Images', models: 'Models', api: 'API' };
 export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: ClipboardText, images: ImageSquare, reflect: ChartBar, today: CalendarBlank, capture: Files, remember: ClockCounterClockwise, ask: ChatCircle, act: CheckCircle, web: Globe, meetings: VideoCamera, phone: DeviceMobile, browser: PuzzlePiece, vault: LockKey, models: Cpu, api: TerminalWindow };
 
 function Walkthrough({ reduce, theme }) {
@@ -715,7 +546,7 @@ function Walkthrough({ reduce, theme }) {
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
   const [paused, setPaused] = useState(false); const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
-  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tap = useRef(null); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
+  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tabsRef = useRef(null); const tap = useRef(null); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
   const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false });
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
@@ -732,7 +563,7 @@ function Walkthrough({ reduce, theme }) {
     const measure = () => {
       const mobile = innerWidth <= 860; const col = Math.min(1200, innerWidth - 48); const vh = innerHeight;
       const heroBottom = 68 + (heroRef.current ? heroRef.current.offsetTop + heroRef.current.offsetHeight : vh * .6) + 28;
-      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; setCopyH(ch); setGeo({ d: Math.max(heroBottom, vh * .62) - (14 + ch + 10), s: 1, mobile, ready: true }); return; }
+      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; setCopyH(ch); setGeo({ d: heroBottom + 8 - (14 + ch + 10), s: 1, mobile, ready: true }); return; }
       const W = col * .7; const H = Math.min(W * .66, (vh - 68) * .9); const hs = col / W;
       setGeo({ d: Math.max(vh * .62, heroBottom) - (vh * .5 + 34) + (H * hs) / 2, s: hs, mobile, ready: true });
     };
@@ -753,6 +584,8 @@ function Walkthrough({ reduce, theme }) {
     setCh(i);
     spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
   }, [STEP, reduce]);
+  // Keep the selected chapter tab in view on phones.
+  useEffect(() => { const t = tabsRef.current?.querySelector('[aria-selected="true"]'); if (t && tabsRef.current.offsetParent) t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); }, [ch]);
   // Any drag, key or tap on the wheel means the visitor is driving: autoplay stops for good.
   const onWheel = (r) => { if (performance.now() < lock.current) return; setManual(true); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
   const dockTop = () => { const el = ref.current; if (!el) return null; return el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * Math.min(1, STAGE * 1.1); };
@@ -782,15 +615,6 @@ function Walkthrough({ reduce, theme }) {
     const t = setTimeout(() => { const top = dockTop(); if (top != null) scrollTo({ top, behavior: 'instant' }); spinTo(n, true); setTimeout(() => { linkDone.current = true; }, 300); }, 350);
     return () => { clearTimeout(t); removeEventListener('hashchange', onHash); };
   }, []);
-  useEffect(() => {
-    const onKey = (e) => {
-      if (!docked || e.target.closest?.('input,textarea')) return;
-      const r = ref.current?.getBoundingClientRect(); if (!r || r.bottom < innerHeight || r.top > 0) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); setManual(true); go(ch + 1); }
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); setManual(true); go(ch - 1); }
-    };
-    addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
-  }, [docked, ch, go]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // Chapters inside the act advance on their own; hovering the window holds the current one.
   useEffect(() => { if (!docked || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, paused, manual, ch, reduce, spinTo]);
@@ -806,7 +630,7 @@ function Walkthrough({ reduce, theme }) {
           <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
-        <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span><WordRotate words={ROT_WORDS} duration={2200} className="rot" /></div>
+        <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
         <CommandBar onRun={(text) => { const hit = INTENTS.find(([re]) => re.test(text)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 350); }} />
         <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => goId(sug.id)} />
         <div className="hero-proof">
@@ -821,6 +645,7 @@ function Walkthrough({ reduce, theme }) {
           // The wheel captures the pointer for dragging, so its circles never receive a click. A press and release on the same circle without moving opens that chapter.
           onPointerDownCapture={(e) => { const b = e.target.closest?.('.og-wheel > button'); tap.current = b ? { b, x: e.clientX, y: e.clientY } : null; }}
           onPointerUpCapture={(e) => { const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(true); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
+          onFocus={(e) => { const b = e.target.closest?.('.og-wheel > button'); if (b) setHoverI([...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b)); }} onBlur={() => setHoverI(-1)}
           onPointerMove={(e) => { if (e.buttons) return; const b = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.og-wheel > button'); const i = b ? [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b) : -1; setHoverI(v => (v === i ? v : i)); }}>
           <OrbitalImageWheel className="og-wheel" radius={300} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
@@ -836,6 +661,15 @@ function Walkthrough({ reduce, theme }) {
               </AnimatePresence>
             </div>
           </div>
+        </div>
+        <div className="chap-nav">
+          <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(true); go(ch - 1); }}><ArrowLeft size={16} /></Button>
+          <div className="chap-tabs" role="tablist" aria-label="Tour chapters" ref={tabsRef}>
+            <AnimatedBackground className="rail-tab-hl" defaultValue={WALK[ch].id} onValueChange={(v) => { const k = WALK.findIndex(w => w.id === v); if (k >= 0 && k !== ch) { setManual(true); go(k); } }}>
+              {WALK.map((w, k) => { const Icon = WALK_ICONS[w.id]; return <button type="button" role="tab" key={w.id} data-id={w.id} aria-selected={k === ch} className="rail-tab chap-tab"><Icon size={14} /> {WALK_LABELS[w.id]}</button>; })}
+            </AnimatedBackground>
+          </div>
+          <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(true); go(ch + 1); }}><ArrowRight size={16} /></Button>
         </div>
         <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
         <div className="wheel-hint" style={{ width: `${680 * wz}px` }}>
@@ -868,61 +702,16 @@ function Walkthrough({ reduce, theme }) {
   </section>;
 }
 
-/* ───────────────────────── Free features ───────────────────────── */
-
-function ComputeBeam() {
-  const box = useRef(null); const a = useRef(null); const b = useRef(null);
-  return <div className="bento-net" ref={box}>
-    <span className="node" ref={a}><DeviceMobile size={26} /><small>Off Grid AI on your phone</small></span>
-    <span className="net-tag"><LockKey size={12} /> Your own network</span>
-    <span className="node node-big" ref={b}><Laptop size={30} /><small>Off Grid AI Desktop</small></span>
-    <AnimatedBeam containerRef={box} fromRef={a} toRef={b} duration={2.6} pathWidth={2} pathColor="var(--og-text-muted)" pathOpacity={.2} gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
-    <AnimatedBeam containerRef={box} fromRef={a} toRef={b} reverse duration={2.6} delay={1.3} pathWidth={2} pathColor="transparent" gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
-  </div>;
-}
-
-function LoopOffline() {
-  const n = useCycle(4200);
-  return <div className="bento-offline-viz" key={n}>
-    <motion.span className="wifi-ic" initial={{ opacity: 1 }} animate={{ opacity: [1, 1, .25] }} transition={{ duration: 1.2, times: [0, .6, 1] }}><WifiSlash size={30} /></motion.span>
-    <AIResponse isStreaming text="Still answering. The model runs on this device." />
-  </div>;
-}
-
-function LoopVoice() {
-  const n = useCycle(5000);
-  return <div className="bento-voicebox"><Microphone size={22} /><TextEffect key={n} as="p" per="word" preset="fade" speedReveal={.5}>Move the pilot to the fourteenth and tell Sam.</TextEffect></div>;
-}
-
-function FreeSection() {
-  return <section id="free" className="section-shell chapter" aria-labelledby="free-heading">
-    <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>FREE · ON YOUR DEVICE</Kicker><Title id="free-heading" lead="Everything you ask AI for." dim="Without sending it anywhere." /><Lede>No account. No subscription. No Wi-Fi needed.</Lede></BlurFade>
-    <BentoGrid className="bento">
-      <BentoCard name="The newest open models" description="Qwen 3.8, Gemma 4, Muse Glimmer. Picked for your device." Icon={Cpu} href="/guides/which-model/" cta="Find your model" className="bento-models"
-        background={<div className="bento-shot"><Shot name="models" alt="Off Grid AI model library with Qwen, Gemma 4, Muse Glimmer and Bonsai." /></div>} />
-      <BentoCard name="Works offline" description="Plane, basement, anywhere." Icon={WifiSlash} href="/quick-start/" cta="Set it up in five minutes" className="bento-offline"
-        background={<LoopOffline />} />
-      <BentoCard name="Ask your files" description="PDFs, sheets, code." Icon={Files} href="/desktop/" cta="Explore Desktop" className="bento-docs"
-        background={<div className="bento-doc"><Card size="2"><Flex direction="column" gap="2"><Badge variant="outline"><FilePdf size={12} /> rollout_v3.pdf</Badge><AIResponse text="The pilot covers 40 seats and starts after security review [1]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }]} /></Flex></Card></div>} />
-      <BentoCard name="Talk to it" description="Transcribed on your device." Icon={Microphone} href="/mobile/" cta="Explore Mobile" className="bento-voice"
-        background={<LoopVoice />} />
-      <BentoCard name="Images, both ways" description="Create them. Ask about them." Icon={ImageSquare} href="/guides/" cta="Read the guides" className="bento-images"
-        background={<div className="bento-marquee"><Marquee vertical pauseOnHover className="mq-v">{GENERATED.map(([f, m]) => <figure className="gen" key={f}><img src={`/assets/img/home/gen-${f}.webp`} alt={`Image made on device with ${m}`} width="512" height="512" loading="lazy" /><figcaption>{m}</figcaption></figure>)}</Marquee></div>} />
-      <BentoCard name="Need more power? Use your computer." description="Your phone borrows your desktop over your own network." Icon={Network} href="/articles/how-to-analyze-images-from-your-phone-using-your-computer-s-ai-in-2026/" cta="See how it works" className="bento-net-card" background={<ComputeBeam />} />
-    </BentoGrid>
-  </section>;
-}
-
 /* ───────────────────────── Privacy ───────────────────────── */
 
 const SAMPLE_PROMPTS = ['Summarize my blood test results', 'Review this NDA before I sign it', 'Compare these two salary offers', 'Draft a reply to my landlord about the deposit'];
 function PrivLane({ local, prompt, n }) {
   const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
-  const log = local ? [['PROCESSED', 'on this device'], ['SENT', '0 bytes'], ['COPIES', '0'], ['ANSWER', 'stays here']]
-    : [['LOGGED', `"${prompt}"`], ['STORED', 'with your account'], ['RETAINED', 'on their schedule'], ['TRAINING', 'may be used']];
+  const log = local ? [['PROCESSED', 'on your own devices'], ['STORED', 'on your own devices'], ['THIRD PARTIES', 'none receive it'], ['ANSWER', 'stays with you']]
+    : [['SENT', "to the provider's servers"], ['LOGGED', `"${prompt}"`], ['STORED', 'per their retention policy'], ['TRAINING', 'depends on the provider']];
   return <SceneCard className={`plane ${local ? 'plane-local' : ''}`} busy={local}>
-    <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count"><NumberTicker key={n} value={local ? 0 : 3 + (n % 4)} /> {local ? 'copies' : 'copies kept'}</span></div>
+    <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count">{local ? 'Stays on your devices' : 'Leaves your device'}</span></div>
     {local ? <div className="lane-viz lane-local">
       <DotPattern width={10} height={10} cr={.8} className="local-dots" />
       <span className="map-tag"><LockKey size={12} /> Your prompt, between your own devices</span>
@@ -948,87 +737,46 @@ export function useNarrow(px = 860) {
   useEffect(() => { const m = matchMedia(`(max-width: ${px}px)`); const f = () => setN(m.matches); f(); m.addEventListener('change', f); return () => m.removeEventListener('change', f); }, [px]);
   return n;
 }
-// Phones get a swipeable row (Motion Primitives Carousel); wider screens keep the grid.
-export function MobileRail({ className, start = 0, children }) {
+// Phones get a swipeable row (Motion Primitives Carousel) with named tabs and previous/next;
+// wider screens keep the grid.
+export function MobileRail({ className, start = 0, labels, children }) {
   const narrow = useNarrow();
   const items = React.Children.toArray(children);
+  const [i, setI] = useState(start);
   if (!narrow) return <div className={className}>{items}</div>;
-  return <Carousel className="rail-carousel" initialIndex={start}><CarouselContent className="rail-track">
-    {items.map((c, i) => <CarouselItem key={i} className="rail-item">{c}</CarouselItem>)}
-  </CarouselContent><CarouselIndicator className="planes-dots" /></Carousel>;
+  return <div className="og-rail">
+    {labels && <div className="rail-tabs" role="tablist"><AnimatedBackground className="rail-tab-hl" defaultValue={String(i)} onValueChange={(v) => v != null && setI(Number(v))}>
+      {labels.map((l, k) => <button type="button" role="tab" key={l} data-id={String(k)} aria-selected={k === i} className="rail-tab">{l}</button>)}
+    </AnimatedBackground></div>}
+    <Carousel className="rail-carousel" index={i} onIndexChange={setI}><CarouselContent className="rail-track">
+      {items.map((c, k) => <CarouselItem key={k} className="rail-item">{c}</CarouselItem>)}
+    </CarouselContent>
+      <div className="rail-ctl">
+        <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous" disabled={i === 0} onClick={() => setI(Math.max(0, i - 1))}><ArrowLeft size={16} /></Button>
+        <CarouselIndicator className="planes-dots" />
+        <Button variant="outline" size="sm" className="rail-btn" aria-label="Next" disabled={i === items.length - 1} onClick={() => setI(Math.min(items.length - 1, i + 1))}><ArrowRight size={16} /></Button>
+      </div>
+    </Carousel>
+  </div>;
 }
 function PrivacySection() {
   const narrow = useNarrow();
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');
-  const auto = useCycle(7000);
+  // Samples rotate only while the section is on screen and until the visitor submits their own prompt.
+  const box = useRef(null); const [seen, setSeen] = useState(false); const [held, setHeld] = useState(false);
+  useEffect(() => { const io = new IntersectionObserver(([e]) => setSeen(e.isIntersecting)); if (box.current) io.observe(box.current); return () => io.disconnect(); }, []);
+  const auto = useCycle(seen && !held ? 7000 : 0);
   useEffect(() => { if (auto) { setPrompt(SAMPLE_PROMPTS[auto % SAMPLE_PROMPTS.length]); setN(v => v + 1); } }, [auto]);
-  const send = (e) => { e.preventDefault(); if (!draft.trim()) return; setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); };
-  return <section id="private" className="has-bg chapter" aria-labelledby="priv-heading"><SectionBg /><div className="section-shell">
-    <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>Same question, two places to send it.</Lede></BlurFade>
+  useEffect(() => { const root = box.current?.querySelector('.priv-input'); root?.querySelector('input')?.setAttribute('aria-label', 'Type a private question for the illustration'); root?.querySelector('button')?.setAttribute('aria-label', 'Show where it goes'); }, []);
+  const send = (e) => { e.preventDefault(); if (!draft.trim()) return; setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); setHeld(true); };
+  return <section id="private" className="chapter" aria-labelledby="priv-heading" ref={box}><div className="section-shell">
+    <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></BlurFade>
     <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
-    {narrow ? <Carousel className="planes-carousel"><CarouselContent className="planes-track">
-        <CarouselItem className="planes-item"><PrivLane prompt={prompt} n={n} /></CarouselItem>
-        <CarouselItem className="planes-item"><PrivLane local prompt={prompt} n={n} /></CarouselItem>
-      </CarouselContent><CarouselIndicator className="planes-dots" /></Carousel>
-      : <div className="planes">
-        <PrivLane prompt={prompt} n={n} />
-        <PrivLane local prompt={prompt} n={n} />
-      </div>}
+    <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
+      <PrivLane prompt={prompt} n={n} />
+      <PrivLane local prompt={prompt} n={n} />
+    </MobileRail>
   </div></section>;
-}
-
-/* ───────────────────────── Pro ───────────────────────── */
-
-const MEMORIES = [
-  { id: 'day', label: 'Your day', title: 'The whole day on one screen.', alt: 'Off Grid AI Day view with to-dos, journal, meetings and suggestions.' },
-  { id: 'actions', label: 'Actions', title: 'Promises, already on the list.', alt: 'Off Grid AI Actions: follow-ups for Sam and Acme Corp pulled from the day.' },
-  { id: 'meetings', label: 'Meetings', title: 'Every meeting, summarized.', alt: 'Off Grid AI Meetings: a design review with summary and decisions.' },
-  { id: 'voice', label: 'Voice notes', title: 'Say it once. Tasks appear.', alt: 'Off Grid AI Voice: transcripts tagged with people and tasks.' },
-  { id: 'entities', label: 'People', title: 'Everyone, already mapped.', alt: 'Off Grid AI Entities: Sam Okafor, Priya Nair, Acme Corp and more.' },
-  { id: 'reflect', label: 'Reflect', title: 'Where the hours went.', alt: 'Off Grid AI Reflect: time by app, people and focus.' },
-];
-function MemoryCard({ item }) {
-  return <Card className="memory-card" size="2"><div className="memory-img"><Shot name={item.id} alt={item.alt} /></div><Box className="memory-cap"><Text className="eyebrow">{item.label}</Text><Heading as="h3">{item.title}</Heading></Box></Card>;
-}
-function MemoryRail() {
-  const [viewportRef, api] = useEmblaCarousel({ align: 'start', containScroll: 'trimSnaps' });
-  const [sel, setSel] = useState(0);
-  const update = useCallback(() => { if (api) setSel(api.selectedScrollSnap()); }, [api]);
-  useEffect(() => { if (!api) return; update(); api.on('select', update); return () => { api.off('select', update); }; }, [api, update]);
-  return <Box className="memory-rail" role="region" aria-roledescription="carousel" aria-label="Pro views">
-    <Box className="embla" ref={viewportRef}><Box className="embla-track">{MEMORIES.map((m, i) => <Box className="embla-slide" key={m.id} role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${MEMORIES.length}`}><MemoryCard item={m} /></Box>)}</Box></Box>
-    <Flex justify="between" align="center" className="rail-ctl"><Text className="small" aria-live="polite">{sel + 1} / {MEMORIES.length}</Text><Flex gap="2"><Button variant="outline" aria-label="Previous view" disabled={!sel} onClick={() => api?.scrollPrev()}><ArrowLeft size={16} /></Button><Button variant="outline" aria-label="Next view" disabled={sel === MEMORIES.length - 1} onClick={() => api?.scrollNext()}><ArrowRight size={16} /></Button></Flex></Flex>
-  </Box>;
-}
-
-const FEATURES = [
-  [Laptop, 'Capture', 'Screen and meetings become memory. Opt in per device.'],
-  [MagnifyingGlass, 'Search everything', 'Every message, page and meeting. One box.'],
-  [UsersThree, 'A CRM that fills itself', 'People and companies, kept current.'],
-  [ClockCounterClockwise, 'Replay your day', 'Scrub back to anything you saw.'],
-  [Clock, 'Where time went', 'No timers. No tags.'],
-  [CheckCircle, 'It acts, you approve', 'Every action waits for your yes.'],
-];
-function ProSection() {
-  const [index, setIndex] = useState(0);
-  return <section id="pro" className="chapter pro" aria-labelledby="pro-heading">
-    <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><Title id="pro-heading" lead="The assistant that knows your day." dim="On your hardware, under your control." /><Lede>The same day with Sam, as Pro saw it.</Lede></BlurFade>
-      <Box className="memory-desktop">
-        <CoverflowCarousel className="memory-coverflow" items={MEMORIES.map(m => ({ id: m.id, content: <MemoryCard item={m} /> }))} index={index} onIndexChange={setIndex} spacing={320} depth={110} rotation={14} scaleStep={.08} />
-        <div className="segbar"><AnimatedBackground className="seg-hover" defaultValue={MEMORIES[index].id} onValueChange={(id) => { const i = MEMORIES.findIndex(m => m.id === id); if (i >= 0) setIndex(i); }}>
-          {MEMORIES.map((m, i) => <button type="button" data-id={m.id} key={m.id} className="seg" aria-pressed={i === index}>{m.label}</button>)}
-        </AnimatedBackground></div>
-      </Box>
-      <MemoryRail />
-      <div className="feats">
-        {FEATURES.map(([Icon, title, text]) => <MagicCard key={title} className="feat" gradientColor="rgba(16, 185, 129, 0.08)" gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)">
-          <div className="feat-in"><Icon size={22} /><Heading as="h3">{title}</Heading><Text as="p">{text}</Text></div>
-        </MagicCard>)}
-      </div>
-      <Flex gap="3" wrap="wrap" className="pro-cta"><Button asChild size="lg"><a href="/pro/">See every Pro feature <ArrowUpRight size={16} /></a></Button></Flex>
-    </div>
-  </section>;
 }
 
 /* ───────────────────────── Page ───────────────────────── */
@@ -1114,20 +862,20 @@ function HomeSections({ pricing }) {
         </ScrollVelocityContainer>
       </section>
       <PrivacySection />
-      <section className="has-bg manifesto" aria-label="Why local"><SectionBg /><TextReveal className="reveal">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</TextReveal></section>
+      <section className="manifesto" aria-label="Why local"><TextReveal className="reveal">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</TextReveal></section>
 
       {/* Pricing: Radix cards, Magic UI border beam on the recommended plan. */}
-      <section id="pricing" className="has-bg chapter" aria-labelledby="price-heading"><SectionBg /><div className="section-shell">
+      <section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></BlurFade>
-        <MobileRail className="plans" start={1}>
-          <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$<NumberTicker value={0} /></span><small>forever</small></div>
+        <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
+          <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <InteractiveHoverButton className="ihb" onClick={() => { location.href = '/download/'; }}>Download free</InteractiveHoverButton></div></SceneCard>
-          <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">$<NumberTicker value={Number(pricing.lifetime)} startValue={Math.round(Number(pricing.lifetime) * 1.6)} /></span><small>once</small></div>
+          <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <ShimmerButton className="pro-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)" onClick={() => { location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</ShimmerButton>
             <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
-          <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">$<NumberTicker value={Number(pricing.monthly)} decimalPlaces={2} /></span><small>/ month</small></div>
+          <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
             <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <InteractiveHoverButton className="ihb" onClick={() => { location.href = '/pro/#buy'; }}>Start Pro monthly</InteractiveHoverButton></div></SceneCard>
         </MobileRail>
@@ -1135,9 +883,9 @@ function HomeSections({ pricing }) {
       </div></section>
 
       {/* Explore: SmoothUI tilt cards over Radix cards. */}
-      <section className="has-bg chapter sec-explore" aria-labelledby="explore-heading"><SectionBg /><div className="section-shell">
+      <section className="chapter sec-explore" aria-labelledby="explore-heading"><div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHAT COMES NEXT</Kicker><Title id="explore-heading" lead="Build it with us."  /></BlurFade>
-        <MobileRail className="explore">
+        <MobileRail className="explore" labels={['Partners', 'Hardware', 'Recorder']}>
           <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="home_card">
             <Badge variant="outline">Teams under 50 people</Badge><div className="ex-mark">[ your team ]<br /><span>+ Off Grid AI</span></div><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/ogap/">
