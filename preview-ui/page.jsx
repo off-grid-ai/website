@@ -91,19 +91,30 @@ const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Dow
 
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261007g';
-export function Shot({ name, alt, className = '', lazy = true }) {
-  const theme = useContext(ThemeCtx); const { takeOver } = useContext(PlayCtx);
-  const load = (t) => (lazy || t !== theme ? 'lazy' : undefined); // the other theme's file only loads if it is shown
-  const props = { width: 1760, height: 944, alt, sizes: '(max-width: 860px) 900px, 70vw' };
-  const set = (t) => `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V} 1760w, /assets/img/home/app/${name}-${t}.webp?v=${SHOT_V} 3520w`;
-  return <>
-    <a className="shot-link shot-link-dark" href={`/assets/img/home/app/${name}-dark.webp?v=${SHOT_V}`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={takeOver} onPointerDown={(e) => e.stopPropagation()}>
-      <img className={`shot shot-dark ${className}`} src={`/assets/img/home/app/${name}-dark-1760.webp?v=${SHOT_V}`} srcSet={set('dark')} loading={load('dark')} {...props} draggable={false} />
-    </a>
-    <a className="shot-link shot-link-light" href={`/assets/img/home/app/${name}-light.webp?v=${SHOT_V}`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={takeOver} onPointerDown={(e) => e.stopPropagation()}>
-      <img className={`shot shot-light ${className}`} src={`/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`} srcSet={set('light')} loading={load('light')} {...props} alt="" draggable={false} />
-    </a>
-  </>;
+export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange }) {
+  const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
+  const fixed = mobile && name.match(/-(dark|light)$/);
+  const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
+  const themes = fixed ? [fixed[1]] : ['dark', 'light'];
+  const folder = mobile ? 'mobile' : 'app'; const width = mobile ? 640 : 1760;
+  return <>{themes.map(t => {
+    const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
+    const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
+    return <Dialog.Root key={t} onOpenChange={(open) => { hold(open); onOpenChange?.(open); }}>
+      <Dialog.Trigger asChild><button type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()}>
+        <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />
+      </button></Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className="screenshot-overlay" />
+        <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
+          <Dialog.Title className="sr-only">{alt}</Dialog.Title>
+          <img src={full} alt={alt} className="screenshot-full" />
+          <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>
+          <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>;
+  })}</>;
 }
 
 // Replays a looping demo: the returned key changes every `ms` while mounted.
@@ -315,9 +326,7 @@ function ContinueScene() {
     <div className="dev-phone" ref={phone}>
       <Iphone />
       <div className="phone-live phone-capture">
-        {['dark', 'light'].map(theme => <a key={theme} className={`shot-link shot-link-${theme}`} href={`/assets/img/home/mobile/${mobile}-${theme}.webp`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${label}`} onPointerDown={e => e.stopPropagation()}>
-          <img className={`shot shot-${theme}`} src={`/assets/img/home/mobile/${mobile}-${theme}-640.webp`} alt={label} draggable={false} />
-        </a>)}
+        <Shot name={mobile} mobile alt={label} lazy={false} />
       </div>
     </div>
     <span className="sync-tag"><LockKey size={13} /> Your computer and phone. Select a screen to enlarge it.</span>
@@ -526,7 +535,7 @@ const WALK = [
   { id: 'browser', cmd: 'take over for sign-in', title: 'Your browser, with AI.', line: 'Your AI handles the task. You take over for sign-in and keep your passwords in your vault.', chips: ['Browser tasks', 'Takeover', 'Vault'], loop: 0, View: shotView(['web-takeover', 'Off Grid AI browser task waiting for you to sign in.', 4000], ['vault-open', 'Off Grid AI Vault: your saved logins and secrets.', 4000]) },
   { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: shotView(['vault-locked', 'Off Grid AI Vault: locked.', 2200], ['vault-typing', 'Off Grid AI Vault: entering the master password.', 2200], ['vault-open', 'Off Grid AI Vault: saved logins and notes.', 4000]) },
   { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard history with search.']) },
-  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['imagegen-chat', 'Off Grid AI Chat: a generated image and its prompt.', 4000], ['artifacts', 'Off Grid AI Artifacts: saved work and generated results.', 4000]) },
+  { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['imagegen-chat', 'Off Grid AI Chat: a generated image and its prompt.', 4000]) },
   { id: 'models', cmd: 'download models for this Mac', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['models-text', 'Off Grid AI Models: text models available to download.', 2800], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-voice', 'Off Grid AI Models: voice models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
   { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine. Chat, images, speech and embeddings.', chips: ['OpenAI-compatible', 'MCP', 'No API key'], loop: 0, View: shotView(['gateway', 'Off Grid AI Gateway: local API endpoints and active models.', 4000]) },
 ];
@@ -651,7 +660,7 @@ function Walkthrough({ reduce, theme }) {
   // Chapters inside the act advance on their own; hovering the window holds the current one.
   useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), DWELL[WALK[ch].id] || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
-  const play = { playing, takeOver: () => setManual(true) };
+  const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
@@ -826,7 +835,7 @@ function useSectionHash(ids) {
 
 export const ThemeCtx = createContext('dark');
 // Screen motion runs while the tour is visible; chapter autoplay is controlled separately.
-export const PlayCtx = createContext({ playing: true, takeOver: () => {} });
+export const PlayCtx = createContext({ playing: true, takeOver: () => {}, hold: () => {} });
 // Every page: theme handling, header, main, footer. Pages pass their sections as children.
 // "Did this land?" (same storage key and PostHog event as the old layout) and the
 // creator newsletter (same identify + newsletter_signup capture as the old sidebar form).
