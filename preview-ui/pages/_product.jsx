@@ -232,18 +232,19 @@ const mobSrc = (f) => `/assets/img/home/mobile/${f}-640.webp`;
 export function PhoneShots({ shots, ms = 3600, controls }) {
   const [i, setI] = useState(0); const [manual, setManual] = useState(false);
   const reduce = useReducedMotion();
-  const next = () => { setManual(true); setI(v => (v + 1) % shots.length); };
   useEffect(() => { if (shots.length < 2 || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % shots.length), shots[i][2] || ms); return () => clearTimeout(t); }, [i, shots.length, manual, reduce]);
   const [f, alt] = shots[i];
-  const phone = <div className="pp-phone pp-phone-shot" role={controls ? "button" : undefined} tabIndex={controls ? 0 : undefined} aria-label={controls ? `Show the next phone screen. ${alt}` : undefined} onClick={controls ? next : undefined} onKeyDown={controls ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); next(); } } : undefined} style={controls ? { cursor: 'pointer' } : undefined}>
+  const phone = <div className="pp-phone pp-phone-shot">
     <div className="pp-screen pp-screen-shot">
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
-      <Wipe id={`${f}-${i}`}><img className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} src={mobSrc(f)} srcSet={`${mobSrc(f)} 640w, /assets/img/home/mobile/${f}.webp 1290w`} sizes="(max-width: 860px) 300px, 400px" alt={alt} /></Wipe>
+      <Wipe id={`${f}-${i}`}><a className="pp-screen-link" href={`/assets/img/home/mobile/${f}.webp`} target="_blank" rel="noopener" aria-label={`Open full-size screenshot: ${alt}`} onClick={() => setManual(true)}>
+        <img className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} src={mobSrc(f)} srcSet={`${mobSrc(f)} 640w, /assets/img/home/mobile/${f}.webp 1290w`} sizes="(max-width: 860px) 300px, 400px" alt={alt} draggable={false} />
+      </a></Wipe>
     </div>
     <Iphone />
   </div>;
-  if (!controls || reduce) return phone;
-  return <>{phone}<AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Select the phone for the next screen." /></>;
+  if (!controls) return phone;
+  return <>{phone}{!reduce && <AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Select the image to enlarge it. Pinch to zoom." />}</>;
 }
 
 // Same content without the phone frame (phone-width cards).
