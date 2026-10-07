@@ -175,9 +175,9 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['PRODUCT', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Download', '/download/'], ['Hardware', '/ogap/']]],
-  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
-  ['IDEAS', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Design partners', '/design-partners/']]],
+  ['PRODUCT', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/pro/#buy'], ['Download', '/download/'], ['Hardware', '/ogap/']]],
+  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']]],
+  ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Design partners', '/design-partners/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@offgridmobileai.co']]],
 ];
 
@@ -1094,7 +1094,7 @@ export function PageShell({ children }) {
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
-      <div className="footer-bottom"><span>Off Grid AI · Wednesday Solutions</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/desktop/releases/">Desktop releases</a> · <a href="/mobile/releases/">Mobile releases</a></span></div>
+      <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer>
   </Theme></MotionConfig>;
 }

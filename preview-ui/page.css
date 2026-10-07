@@ -1247,3 +1247,12 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
   .menu-trigger{display:none!important}
   .header-inner{gap:14px}
 }
+/* Footer: tight, scannable columns */
+.footer-links{gap:24px 32px!important;margin-top:28px!important}
+.footer-links>div{gap:6px!important}
+.foot-col{margin-top:4px!important}
+.foot-col a{padding:3px 8px!important;margin-left:-8px!important;font-size:12.5px;line-height:1.5}
+.footer-bottom{margin-top:28px!important;padding-top:18px!important}
+.footer-bottom a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-2)}
+.footer-bottom a:hover{text-decoration-color:var(--og-primary)}
+@media (max-width:700px){.footer-links{grid-template-columns:1fr 1fr!important;gap:22px 16px!important}.footer-bottom{flex-direction:column;gap:8px}}
