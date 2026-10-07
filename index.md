@@ -213,7 +213,7 @@ Find practical help, or read about the ideas behind Off Grid AI.
 
 {% include article-hub.html home=true %}
 
-<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}?v=20261007-analytics" defer></script>
 
 ---
 

@@ -48,4 +48,4 @@ Your personal AI on hardware you already own. Find a task, topic, or device.
 
 {% include article-hub.html guides=true %}
 
-<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}?v=20261007-analytics" defer></script>

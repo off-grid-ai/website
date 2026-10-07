@@ -85,7 +85,7 @@
     if (!window.OffGridAnalytics) return;
     var query = search.value.trim();
     window.OffGridAnalytics.capture(name, Object.assign({
-      placement: hub.dataset.pageSize ? 'home_resources' : 'articles',
+      placement: hub.querySelector('.article-search-row').dataset.analyticsPlacement,
       topic: selectedTopic || 'all',
       device: platform.value || 'all',
       sort: sort.value,

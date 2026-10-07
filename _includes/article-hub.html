@@ -9,7 +9,7 @@
 {% endif %}
 
 <div class="article-hub" data-pagefind-ignore{% if include.home %} data-page-size="8" data-result-label="pages" data-default-title="Latest updates"{% elsif include.guides %} data-default-title="Guides"{% elsif include.section %} data-result-label="pages" data-default-title="{{ include.section | escape }}"{% endif %}>
-  <div class="article-search-row" data-analytics-view="resource_hub_viewed" data-analytics-placement="{% if include.home %}home_resources{% else %}articles{% endif %}">
+  <div class="article-search-row" data-analytics-view="resource_hub_viewed" data-analytics-placement="{% if include.home %}home_resources{% else %}{{ page.url | remove: '/' | default: 'articles' }}{% endif %}">
     <label class="article-search-label" for="article-search">Search {% if include.home %}all resources{% elsif include.guides %}guides{% elsif include.section %}{{ include.section | escape }}{% else %}articles{% endif %}</label>
     <input id="article-search" class="article-search-input" type="search" placeholder="{% if include.section %}Try privacy, memory, context...{% else %}Try transcription, PDF, Android, sync...{% endif %}" autocomplete="off">
   </div>

@@ -14,6 +14,6 @@ Ideas for personal AI: your hardware, your context, your control.
 
 {% include article-hub.html section="Perspectives" %}
 
-<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}?v=20261007-analytics" defer></script>
 
 *Mohammed Ali Chherawalla is the creator of Off Grid AI. New essays go to [dev.to/alichherawalla](https://dev.to/alichherawalla) first.*

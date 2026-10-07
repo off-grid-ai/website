@@ -13,4 +13,4 @@ Choose a topic or search for the task you want to do. Every guide is available h
 
 {% include article-hub.html %}
 
-<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}?v=20261007-analytics" defer></script>

@@ -20,4 +20,4 @@ Read our mission and vision below. [See current features]({{ '/download/' | rela
 
 {% include article-hub.html section="Ethos" %}
 
-<script src="{{ '/assets/js/article-hub.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/article-hub.js' | relative_url }}?v=20261007-analytics" defer></script>
