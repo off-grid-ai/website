@@ -18,7 +18,8 @@ OGAD (Off Grid AI Desktop) has a beta Computer Use workflow that can assign thos
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Read the beta release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.102)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

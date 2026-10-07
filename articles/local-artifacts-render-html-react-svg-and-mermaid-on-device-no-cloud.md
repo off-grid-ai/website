@@ -21,9 +21,9 @@ Off Grid AI Desktop has a canvas that renders the model's output live on your ma
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
+![An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
+*An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.*
 
 ## What it does
 

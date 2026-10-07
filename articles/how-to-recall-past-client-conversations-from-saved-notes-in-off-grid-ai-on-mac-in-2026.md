@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) helps you return to retained notes about a person on 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
 
 ---
 

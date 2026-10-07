@@ -35,7 +35,7 @@ function Hero({ pricing }) {
       <SceneCard className="pp-hero-card" busy>
         <div className="pp-frame"><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="god" alt="" lazy={false} /></div></div><ShotSeq ms={3800} shots={[
           ['god', 'Off Grid AI God: Ares briefs you on your day, with approvals waiting.'],
-          ['actions', 'Off Grid AI Actions: follow-ups for Sam Okafor and Acme Corp, waiting for your yes.'],
+          ['actions', 'Off Grid AI Actions: to-dos for Sam Okafor and Acme Corp.'],
           ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
         ]} /></div>
       </SceneCard>
@@ -276,13 +276,13 @@ function StickyBuy({ pricing }) {
 
 const CAPS = [
   { id: 'memory', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
-    shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['voice', 'Off Grid AI Voice notes, tagged with people and tasks.']] },
+    shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['replay', 'Off Grid AI Replay: recorded screen activity on your device.']] },
   { id: 'act', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
-    shots: [['actions', 'Off Grid AI Actions: proposed follow-ups waiting for approval.']] },
+    shots: [['god', 'Off Grid AI God: proposals with Approve and Deny controls.']] },
   { id: 'god', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
     shots: [['god', 'Off Grid AI God: Ares briefs you, with approvals waiting.']] },
   { id: 'reflect', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
-    shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.'], ['day', 'Off Grid AI Day: meetings, tickets and people for the day.']] },
+    shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
   { id: 'vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',
     shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400], ['clipboard', 'Off Grid AI Clipboard history with search.', 3400]] },
 ];

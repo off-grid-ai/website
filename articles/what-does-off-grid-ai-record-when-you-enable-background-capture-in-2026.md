@@ -18,7 +18,7 @@ You want to find yesterday's detail without writing everything down.
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Replay: a recorded browser screen with a capture timeline.](/assets/img/home/app/replay-light-1760.webp)
 
 ---
 

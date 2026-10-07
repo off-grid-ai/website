@@ -16,7 +16,8 @@ A long conversation can lose the detail that made the first answer useful. OGAD 
 
 [Get OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

@@ -16,7 +16,8 @@ You found an older AI backup, but your current computer already has new conversa
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop release 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

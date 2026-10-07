@@ -41,7 +41,7 @@ A typical generation is 512x512 pixels at 20 denoising steps. That produces a cl
     <tr>
       <td align="center">
         <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
-        <b>Image Generation</b>
+        <b>Image generation (Android)</b>
       </td>
 </tr>
   </table>

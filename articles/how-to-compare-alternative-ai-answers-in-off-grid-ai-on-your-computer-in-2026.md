@@ -18,7 +18,8 @@ The first AI answer is not always the one you want to use. You may like its fact
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

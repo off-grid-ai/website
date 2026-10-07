@@ -19,9 +19,8 @@ The GPU in a modern laptop can run a full SDXL anime model without ever touching
 Animagine XL 4.0 is an anime-focused SDXL checkpoint. It uses tag-based prompting, the booru-style keyword approach anime models are trained on. You type tags, not paragraphs. The model knows the vocabulary. This guide shows you how to run it locally with no token meter and no upload of your prompts to anyone.
 
 
-![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
+*OGAD image chat example using RealVisXL Lightning. Select the model covered in this article for your own generation.*
 
 ## What You Need
 

@@ -16,7 +16,7 @@ Your local model answers text questions, but cannot use the image you attach. Th
 
 [Get OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: downloadable vision models for image understanding.](/assets/img/home/app/models-vision-light-1760.webp)
 
 ---
 

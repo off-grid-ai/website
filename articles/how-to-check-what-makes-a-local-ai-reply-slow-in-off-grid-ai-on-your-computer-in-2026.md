@@ -18,7 +18,8 @@ A slow AI reply can mean two different things: a long wait before the first word
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

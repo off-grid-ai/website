@@ -16,7 +16,8 @@ You can turn an original story into a manga-style comic on your Mac. OGAD (Off G
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

@@ -19,9 +19,8 @@ A mid-range gaming PC with an 8 GB graphics card has enough VRAM to run a full S
 Free, open-source, runs fully offline.
 
 
-![An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.](/assets/img/home/app/imagegen-chat-dark-1760.webp)
 
-*An image generated in an Off Grid AI Desktop chat, with its size, steps, CFG, seed and model shown under it.*
+*OGAD image chat example using RealVisXL Lightning. Select the model covered in this article for your own generation.*
 
 ## Why Pony Diffusion V6 XL
 

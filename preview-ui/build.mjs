@@ -47,6 +47,7 @@ for (const component of ['text-effect', 'animated-background', 'text-scramble', 
   );
 }
 aliases['@/lib/utils'] = aliases['@repo/shadcn-ui/lib/utils'];
+aliases['@shadcn/navigation-menu'] = await upstream('educlopez/smoothui', smoothCommit, 'packages/shadcn-ui/components/ui/navigation-menu.tsx', 'navigation-menu.tsx');
 aliases['@/components/ui/button'] = await upstream('educlopez/smoothui', smoothCommit, 'packages/shadcn-ui/components/ui/button.tsx', 'shadcn-button.tsx');
 const magicCommit = 'cdb348cb4c72a9b54b554d8617801e479fbc8714';
 for (const component of ['flickering-grid', 'border-beam', 'bento-grid', 'animated-beam', 'number-ticker', 'marquee', 'magic-card', 'iphone', 'animated-shiny-text', 'ripple', 'animated-list', 'scroll-progress', 'scroll-based-velocity', 'blur-fade', 'text-animate', 'hyper-text', 'text-reveal', 'shine-border', 'typing-animation', 'interactive-grid-pattern', 'word-rotate', 'dock', 'safari', 'animated-circular-progress-bar', 'confetti', 'terminal', 'interactive-hover-button', 'highlighter', 'dot-pattern', 'orbiting-circles', 'shimmer-button', 'dotted-map']) {
@@ -70,6 +71,12 @@ for (const [component, lock] of Object.entries(aceternityLocks)) {
   if (hash !== lock) throw new Error(`Aceternity ${component} changed upstream (${hash}). Review it, then update the lock.`);
   aliases[`@aceternity/${component}`] = target;
 }
+const eldoraCommit = '6bb8fd211ecbdfa983f5780bead27d9f3890f20a';
+aliases['@eldoraui/macbook-pro'] = await upstream('karthikmudunuri/eldoraui', eldoraCommit,
+  'apps/www/registry/eldoraui/macbook-pro.tsx', 'macbook-pro.tsx');
+await writeFile(resolve(output, 'eldoraui-license.txt'), await readFile(await upstream(
+  'karthikmudunuri/eldoraui', eldoraCommit, 'LICENSE.md', 'eldoraui-license.txt'
+)));
 // Shared library package, pinned to commit 284dd1c. Bundled for builds without private-repo credentials.
 const presetInputArchive = resolve('preview-ui/vendor/component-library-284dd1c.tgz');
 if (createHash('sha256').update(await readFile(presetInputArchive)).digest('hex') !== 'f1334ad76398c804d02e47168df4a3250dae7edfa14b38111c9d0b8ad4f08a4c') throw new Error('Shared preset input package changed');

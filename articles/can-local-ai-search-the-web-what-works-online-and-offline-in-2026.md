@@ -18,7 +18,7 @@ A local model can use the web. It still needs a connection.
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop source and releases](https://github.com/off-grid-ai/OGAD)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Web Use: an example task that compares note apps in the browser.](/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

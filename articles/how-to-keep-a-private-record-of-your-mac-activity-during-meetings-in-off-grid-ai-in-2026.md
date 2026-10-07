@@ -18,7 +18,7 @@ A transcript tells you what was said. It may not remind you which document you o
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Replay: a recorded browser screen with a capture timeline.](/assets/img/home/app/replay-light-1760.webp)
 
 ---
 

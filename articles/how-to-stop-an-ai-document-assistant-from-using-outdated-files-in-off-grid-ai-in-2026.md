@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you disable an uploaded project document for ret
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
 
 ---
 

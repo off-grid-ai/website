@@ -16,7 +16,7 @@ You want meeting notes, but do not want to add another participant to the call. 
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Meetings: the Acme pilot kickoff recording, summary, and transcript.](/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 

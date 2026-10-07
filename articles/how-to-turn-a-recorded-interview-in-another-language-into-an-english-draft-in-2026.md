@@ -16,7 +16,7 @@ You have an interview recording in another language and need an English draft yo
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: local speech-to-text models for transcription.](/assets/img/home/app/models-transcription-light-1760.webp)
 
 ---
 

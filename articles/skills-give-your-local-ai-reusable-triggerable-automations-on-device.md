@@ -21,7 +21,6 @@ Off Grid AI Desktop lets you save that prompt once as a skill, then run it with 
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.](/assets/img/home/app/chat-dark-1760.webp)
 
 *The Off Grid AI Desktop chat, where a slash command in the composer runs a skill.*
 
@@ -137,7 +136,6 @@ Off Grid AI Desktop holds all of it on your machine. The skill files are local. 
 - A library of starter skills to fork and edit.
 
 
-![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
 
 *Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 

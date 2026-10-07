@@ -16,7 +16,7 @@ You want to show how an interface should behave before anyone builds the full pr
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Artifacts: a generated HTML pricing table, with preview, code, and download controls.](/assets/img/home/app/artifacts-light-1760.webp)
 
 ---
 

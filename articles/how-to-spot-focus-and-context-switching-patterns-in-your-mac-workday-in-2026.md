@@ -16,7 +16,7 @@ A busy day can feel productive without leaving you sure where it went. OGAD (Off
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Reflect: time by app and patterns of focus and context switching.](/assets/img/home/app/reflect-light-1760.webp)
 
 ---
 

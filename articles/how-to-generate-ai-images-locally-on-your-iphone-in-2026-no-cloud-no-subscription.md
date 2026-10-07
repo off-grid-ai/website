@@ -37,8 +37,8 @@ The model starts with random noise and refines it over multiple denoising steps 
 <table align="center">
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-1-light-640.webp" alt="An image generated on the iPhone in Off Grid, with the enhanced prompts it used" width="200" height="434" style="object-fit: cover;" />
-        <b>Image Generation</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM image chat on iPhone with a connected desktop model" width="200" height="434" style="object-fit: cover;" />
+        <b>Image chat (iPhone, connected desktop)</b>
       </td>
 </tr>
 </table>

@@ -16,7 +16,7 @@ Copying a second item should not mean losing the first. OGAD (Off Grid AI Deskto
 
 [Download OGAD for Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Clipboard: search previously copied text, links, images, and files.](/assets/img/home/app/clipboard-light-1760.webp)
 
 ---
 

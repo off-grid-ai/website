@@ -16,7 +16,8 @@ You repeat a short set of app steps every week: open a document, enter the same 
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Current desktop release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

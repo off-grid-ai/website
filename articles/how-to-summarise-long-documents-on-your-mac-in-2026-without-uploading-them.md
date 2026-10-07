@@ -16,7 +16,7 @@ A long research report is easier to use when you can find its main findings and 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Current desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
 
 ---
 

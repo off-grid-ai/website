@@ -16,7 +16,7 @@ Your Android phone may not have enough free memory for the model you want to use
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Get OGAM for Android phone](https://play.google.com/store/apps/details?id=ai.offgridmobile)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Gateway: local API endpoints for chat, images, and audio.](/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

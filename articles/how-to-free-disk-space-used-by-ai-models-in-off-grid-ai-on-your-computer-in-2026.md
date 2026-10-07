@@ -18,7 +18,7 @@ A few model experiments can leave several large downloads on your computer. You 
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: text models with download sizes and device requirements.](/assets/img/home/app/models-text-light-1760.webp)
 
 ---
 

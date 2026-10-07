@@ -17,9 +17,9 @@ Every modern laptop ships with a browser engine that can run untrusted code in a
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
+![An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
+*An example HTML artifact rendered beside its project in OGAD. The prices shown are demo content.*
 
 ## The problem with running AI code
 

@@ -16,7 +16,8 @@ A written procedure can hide the decision that makes the whole process hard to f
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
 
 ---
 

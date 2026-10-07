@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro has a meeting setting that keeps recording while 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Meetings: the Acme pilot kickoff recording, summary, and transcript.](/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 
