@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Off Grid AI: your personal AI assistant</title>
+<desc id="desc">Built for hardware you already own. Your context. Your memory. Actions you approve. Android, iOS, macOS, Windows, and Linux.</desc>
+<rect width="1200" height="630" fill="#0A0A0A"/>
+<text x="72" y="74" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="30" font-weight="400" fill="#34D399">Off Grid AI</text>
+<text x="72" y="174" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="48" font-weight="400" fill="#FFFFFF">Your personal AI assistant.</text>
+<text x="72" y="250" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="48" font-weight="400" fill="#FFFFFF">Built for hardware</text>
+<text x="72" y="318" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="48" font-weight="400" fill="#FFFFFF">you already own.</text>
+<text x="72" y="421" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="22" font-weight="400" fill="#A3A3A3">Your context. Your memory. Actions you approve.</text>
+<text x="72" y="535" dominant-baseline="text-before-edge" font-family="Menlo, monospace" font-size="25" font-weight="400" fill="#FFFFFF">Android · iOS · macOS · Windows · Linux</text>
+</svg>

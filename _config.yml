@@ -1,5 +1,5 @@
 title: Off Grid AI
-description: Run your own AI on your phone and computer. Off Grid AI remembers your work and acts with your approval. Your models. Your hardware. Start free.
+description: Your personal AI assistant, built for hardware you already own. Context, memory, and actions you approve. Available on Android, iOS, macOS, Windows, and Linux.
 url: https://getoffgridai.co
 baseurl: ""
 
@@ -54,7 +54,7 @@ revenuecat_link_lifetime: "avvnmcnfsgbmjaee"  # Off Grid AI Lifetime Pro - $69 o
 revenuecat_link_ogap: "mvayfyykkdodnvxw"      # OGAP hardware pre-order - $49
 
 logo: /assets/logo.png
-cover: /assets/cover-democratizing-intelligence.png
+cover: /assets/cover-personal-ai.png
 
 exclude:
   - README.md
@@ -75,4 +75,4 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/cover-democratizing-intelligence.png
+      image: /assets/cover-personal-ai.png

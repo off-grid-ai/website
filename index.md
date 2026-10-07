@@ -1,34 +1,34 @@
 ---
 layout: default
-title: Your Always-On Personal AI
+title: Personal AI on Hardware You Already Own
 nav_title: Home
 nav_order: 1
-description: Run your own AI on your phone and computer. Off Grid AI remembers your work and acts with your approval. Your models. Your hardware. Start free.
+description: Your personal AI assistant, built for hardware you already own. Context, memory, and actions you approve. Available on Android, iOS, macOS, Windows, and Linux.
 ---
 
-<img src="{{ '/assets/cover.png' | relative_url }}" alt="Off Grid AI - Private AI. No cloud. No compromise." class="hero-cover home-hero-cover">
+<img src="{{ '/assets/cover-personal-ai.png' | relative_url }}" alt="Off Grid AI: your personal AI assistant, built for hardware you already own. Android, iOS, macOS, Windows, and Linux." class="hero-cover home-hero-cover">
 
 <div class="page-title-row">
   <img src="{{ '/assets/logo.png' | relative_url }}" alt="" width="40" height="40">
-  <h1>Off Grid AI</h1>
+  <h1>Your AI personal assistant</h1>
 </div>
 
-**Your own AI, already up to speed.**
+**Built to run on the hardware you already own.**
 
-Run your own AI locally, on hardware you own. Off Grid AI is an always-on assistant that remembers your meetings, screen activity, and conversations. Your context stays with you across your phone and computer.
+Off Grid AI is your personal AI assistant on the devices you already own. It runs on **Android, iOS, macOS, Windows, and Linux**. Add Pro for your digital twin: an assistant that knows your context, remembers what you do, and acts on your behalf with your approval. It builds memory from the work you choose to share. Your context stays on your devices.
 
-Speak your language, hands-free. Find a past decision. Let your AI carry out tasks in your apps and browser. You stay in control.
+Find a past decision. Continue a conversation across your paired devices. Let your AI carry out tasks in your apps and browser with your approval. You stay in control.
 
 Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync, and actions.
 
 <div class="hero-buttons home-hero-buttons">
   <a href="https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-green">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.029 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-    App Store
+    iOS · App Store
   </a>
   <a href="https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download" target="_blank" rel="noopener" class="btn btn-outline">
     <svg width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256-256L47 0zm425.6 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.8 17.1-34.4-.1-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-    Google Play
+    Android · Google Play
   </a>
   <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg" class="btn btn-outline">
     macOS
@@ -86,30 +86,32 @@ Start free. Add [Off Grid AI Pro]({{ '/pro/' | relative_url }}) for memory, Sync
   </div>
 </div>
 
-Over 180,000 people already run AI on their own phone with Off Grid AI. No account, no subscription for the core, no cloud. The phone in your pocket has enough compute to run a capable model offline, at real speed - Off Grid AI makes it do exactly that.
+Off Grid AI has over 180,000 downloads across the stores and GitHub. Start on Android, iOS, macOS, Windows, or Linux. The free app runs local models without an account or a subscription. After you download a model, you can use it offline.
 
 ---
 
-## Start with the app
+## Start free on your phone or computer
 
-| Capability | Details |
+Chat, write, and ask about documents with models that run on hardware you already own. See [Off Grid AI Mobile]({{ '/mobile/' | relative_url }}) and [Off Grid AI Desktop]({{ '/desktop/' | relative_url }}) for the features on each platform.
+
+| What you need | How Off Grid AI helps |
 |---|---|
-| **Text generation** | Llama, Qwen 3, Gemma 3, Phi-4, Mistral and any GGUF model - 15–30 tok/s on flagship devices |
-| **Image generation** | On-device Stable Diffusion - 5–10s on NPU (Snapdragon), Core ML on iOS. 20+ models |
-| **Vision AI** | Point your camera at anything and ask questions. SmolVLM, Qwen3-VL, Gemma 3n |
-| **Voice input** | On-device Whisper speech-to-text. Hold to record, auto-transcribe. No audio leaves your phone |
-| **Tool calling** | Web search, calculator, date/time, device info. Automatic tool loop |
-| **Document analysis** | Attach PDFs, CSVs, code files. Native PDF text extraction on both platforms |
-| **Remote servers** | Connect to Ollama, LM Studio, LocalAI on your home network |
-| **Works offline** | Airplane mode, restricted networks, anywhere |
+| **Write and ask questions** | Run local models such as Qwen, Llama, Gemma, Phi, and Mistral. Choose a model that fits your device. |
+| **Create an image** | Generate images with local models on your phone or computer. Model support depends on the platform. |
+| **Understand a picture** | Ask a vision model about an image. On mobile, you can also use your camera. |
+| **Capture a thought** | Turn speech into text with on-device transcription. |
+| **Work with documents** | Attach PDFs, CSVs, or code files and ask about their content. |
+| **Use tools** | Search the web or use a calculator when you need more than a model response. Online tools need a connection. |
+| **Use a larger model** | Connect to Ollama or LM Studio on your own network. |
+| **Work offline** | Download a local model, then use it without an internet connection. |
 
 ---
 
-## Where this is going
+## One assistant across your devices
 
-The app is the first piece. Sync is live now. Your chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You can also move copied text, new screenshots, new downloads, files, and compatible installed models. Each transfer is encrypted between paired devices, and no Off Grid AI server receives or stores the content you sync.
+Your assistant can keep the context you need as you move between your phone and computer. Pro Sync is live now. Your chats, projects, model settings, generated images, and chat attachments stay in step after you pair your devices. You can also move copied text, new screenshots, new downloads, files, and compatible installed models. Each transfer is encrypted between paired devices, and no Off Grid AI server receives or stores the content you sync.
 
-The next step is a Personal AI OS: a private intelligence layer that lives across your phone and laptop, learns your day in the background, and gets ahead of you the way a chief of staff would.
+We are building toward a Personal AI OS: your digital twin across the devices you own. It uses your context to help you remember decisions, prepare for work, and act with your approval.
 
 The open-source code lets you check how it works.
 
@@ -130,9 +132,9 @@ The open-source code lets you check how it works.
 
 ---
 
-## Off Grid AI Pro: it was in the room
+## Off Grid AI Pro: context, memory, and action
 
-The free app runs models. Off Grid AI Pro adds the layer that sees your day, remembers it, and gets ahead of you, the way a chief of staff would. Always on, on your own hardware. It is live now on your laptop and your phone. You never brief it. It briefs you.
+The free app runs local models. Off Grid AI Pro makes your assistant personal. It remembers the work you choose to capture, finds the context you need, and helps carry out tasks on your behalf with your approval. Pro is live on desktop and mobile. Capture and action features depend on the platform; see the [desktop]({{ '/desktop/' | relative_url }}) and [mobile]({{ '/mobile/' | relative_url }}) pages for details.
 
 <div class="early-access-perks">
   <div class="perk-card">
@@ -202,9 +204,9 @@ The free app runs models. Off Grid AI Pro adds the layer that sees your day, rem
 
 When you run a query on a cloud AI service - ChatGPT, Gemini, Claude - it's logged on a server. Your prompt, the response, the time, your account. Stored indefinitely. Used to train future models. Subject to law enforcement requests. Readable by employees.
 
-With Off Grid AI, none of that applies. The model runs in your phone's memory. Inference happens on your CPU and GPU. Nothing is sent anywhere. Ever.
+Local models run in your device's memory. Your CPU and GPU process your prompts on Android, iOS, macOS, Windows, or Linux. Local inference does not send your prompts to a cloud AI service.
 
-Privacy here isn't a setting or a promise. It's the default output of the architecture. The system has no mechanism to do otherwise - and because the code is open, anyone can verify it.
+You choose whether to connect remote models, online tools, or other devices. Those connections have their own network behavior. The code is open, so you can check how it works.
 
 ---
 
@@ -213,6 +215,7 @@ Privacy here isn't a setting or a promise. It's the default output of the archit
 - [Quick Start - first model in 5 minutes]({{ '/quick-start' | relative_url }})
 - [iOS Setup]({{ '/guides/ios-setup' | relative_url }})
 - [Android Setup]({{ '/guides/android-setup' | relative_url }})
+- [Download for macOS, Windows, or Linux]({{ '/download/' | relative_url }})
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 
 ## Explore Off Grid AI
