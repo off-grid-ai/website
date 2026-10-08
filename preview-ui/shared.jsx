@@ -3,5 +3,5 @@
 export {
   PageShell, DocEnd, ThemeCtx, NAV, FOOTER, DOWNLOADS, SLACK, MODELS, GENERATED,
   Logo, PlatformIcon, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useNarrow,
-  Shot, ShotSeq, Preload, useCycle, useSteps, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, SceneRoll, SeqCtrlCtx,
+  Shot, ShotSeq, Preload, useCycle, useSteps, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed,
 } from './page.jsx';

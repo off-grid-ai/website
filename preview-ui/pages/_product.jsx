@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, SceneRoll, SeqCtrlCtx } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -80,7 +80,7 @@ export function Wipe({ id, className = '', children }) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={`pp-wipe ${className}`}>{children}</div>;
   return <AnimatePresence initial={false}>
-    <motion.div key={id} className={`pp-wipe ${className}`} initial={DISSOLVE.initial} animate={DISSOLVE.animate} exit={DISSOLVE.exit}>
+    <motion.div key={id} className={`pp-wipe ${className}`} variants={DISSOLVE_V} initial="enter" animate="show" exit="leave">
       {children}
     </motion.div>
   </AnimatePresence>;
@@ -185,7 +185,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
       </AnimatedBackground>
       {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}
     </div>
-    <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label')) zoom.open(); }}>
+    <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label, [role="button"], .scene-roll, .tour-cmd')) zoom.open(); }}>
       <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text, seq) => <>
         <CmdBar text={text} seq={seq} />
         <div className="pillar-visual"><ZoomCtx.Provider value={zoom}>{typeof P.visual === 'function' ? P.visual(false) : null}</ZoomCtx.Provider></div>
@@ -263,16 +263,17 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
   const running = shots.length > 1 && !reduce && (!manual || open);
-  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [i, running]);
+  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, (shots[i][2] || ms) + 900); return () => clearTimeout(t); }, [i, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
-  const onScreen = useContext(ScreenCtx);
-  useEffect(() => { onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); }, [i]);
+  const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
+  // Only the copy on screen reports (the other theme's twin is hidden).
+  useEffect(() => { if (!box.current?.getClientRects().length) return; onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); ctrl?.({ shots: shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
   const [f, alt] = shots[i];
   const phone = <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}><div className="pp-phone pp-phone-shot" ref={box}>
     <div className="pp-screen pp-screen-shot">
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
-      <Wipe id={`${f}-${i}`}><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} /></Wipe>
+      <Wipe id={`${f}-${i}`}><Zoomed name={`mobile/${f}`} phone><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} /></Zoomed></Wipe>
     </div>
     <Iphone />
   </div>

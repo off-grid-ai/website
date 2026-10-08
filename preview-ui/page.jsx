@@ -704,7 +704,7 @@ export function SceneRoll({ seq, className = '' }) {
   if (!seq || seq.shots.length < 2) return null;
   return <Dock className={`scene-roll ${className}`} iconSize={30} iconMagnification={40} iconDistance={90} direction="middle">
     {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
-      onPointerDown={e => e.stopPropagation()} onClick={() => seq.go(k)} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
+      onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); seq.go(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
       <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
     </DockIcon>)}
   </Dock>;
@@ -786,7 +786,7 @@ const ZOOM = {
 };
 // Every screen gets a camera move: detail screens zoom to their subject, other desktop screens push in gently
 // toward the content, and phone or paired compositions push in slightly as a whole.
-const zoomFor = (name, comp) => ZOOM[name] || (comp ? [.5, .5, 1.06] : [.6, .4, 1.16]);
+const zoomFor = (name, comp, phone) => ZOOM[name] || (phone ? [.5, .3, 1.14] : comp ? [.5, .5, 1.06] : [.6, .4, 1.16]);
 const isMacPair = (name) => !!SHOT_PAIRS[name] && !SHOT_PAIRS[name][0].startsWith('mobile/');
 const holdFor = (name) => (isMacPair(name) ? 3400 : ZOOM[name] ? 1600 : 600);
 // Mac + iPhone: start wide, push into the Mac, hold, glide right and push into the phone, hold.
@@ -797,8 +797,8 @@ const PAIR_PATH = {
     transition: { delay: 1.1, duration: 5.6, times: [0, .25, .45, .72, 1], ease: [.45, 0, .25, 1] } },
   leave: { scale: 1, x: '0%', y: '0%', transition: { duration: 1.1, ease: [.45, 0, .55, 1] } },
 };
-function Zoomed({ name, comp, children }) {
-  const reduce = useReducedMotion(); const z = zoomFor(name, comp);
+export function Zoomed({ name, comp, phone, children }) {
+  const reduce = useReducedMotion(); const z = zoomFor(name, comp, phone);
   if (reduce) return children;
   return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: 1.1, duration: 2.2, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: 1.1, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
