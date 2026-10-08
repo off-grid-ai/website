@@ -25,7 +25,7 @@ Every guide out there for solving this involves the same painful dance. Set envi
 We thought that was absurd. So we built auto-discovery into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 <div style="width: 100%;">
-  <img width="320" alt="Remote Servers in OGAM on iPhone: Maya's Mac, running Off Grid AI Desktop on the local network, is connected and ready to use." src="/assets/img/home/mobile/remote-ios-2-light-640.webp" />
+  <img width="320" alt="Remote Servers in OGAM on iPhone: Alex's Mac, running Off Grid AI Desktop on the local network, connected and in use." src="/assets/img/home/mobile/remote-ios-2-light-640.webp" />
 </div>
 
 ## What Off Grid does on your network

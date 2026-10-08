@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro brings **Today's meetings** and **To do** into it
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI Day: meetings, to-dos, and a journal together.](/assets/img/home/app/day-light-1760.webp)
+![Day in Off Grid AI Desktop: to-dos, today's meetings, suggested actions, an automatic journal, time spent by app and an hour-by-hour timeline on one screen.](/assets/img/home/app/today-bento-light-1760.webp)
 
 ---
 

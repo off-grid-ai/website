@@ -16,7 +16,7 @@ You can speak an email or a paragraph and insert the text into the Mac app where
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Voice: dictation and saved transcripts on the computer.](/assets/img/home/app/voice-light-1760.webp)
+![Voice settings in Off Grid AI Desktop: hold or toggle mode, the shortcut, paste at cursor, and the Whisper engine used to transcribe.](/assets/img/home/app/voice-settings-light-1760.webp)
 
 ---
 

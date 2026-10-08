@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the peop
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Ares in Off Grid AI Desktop: a morning briefing at 8:50 AM, approvals waiting on the right, and a Northwind board prep card with notes from last time.](https://getoffgridai.co/assets/img/home/app/god-light-1760.webp)
+![Day in Off Grid AI Desktop with meeting prep open for Northwind board prep: who Daniel Cole is, what was recently discussed and the open items.](https://getoffgridai.co/assets/img/home/app/today-prep-light-1760.webp)
 
 ---
 

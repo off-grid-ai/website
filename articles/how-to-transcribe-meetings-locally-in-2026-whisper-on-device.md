@@ -19,9 +19,9 @@ OpenAI's Whisper model runs accurate speech-to-text on a laptop GPU, and the C++
 Free, open-source, runs offline. No account, no API key, no telemetry.
 
 
-![Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.](/assets/img/home/app/meetings-dark-1760.webp)
+![A meeting transcript in Off Grid AI Desktop, made on device with Whisper Large v3 Turbo, below the call's decisions.](/assets/img/home/app/meetings-transcript-light-1760.webp)
 
-*Meetings in Off Grid AI Desktop, recorded and transcribed on-device with a local summary.*
+*A meeting transcript in Off Grid AI Desktop, made on device with Whisper Large v3 Turbo, below the call's decisions.*
 
 ## What This Gets You
 

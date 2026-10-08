@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can extract action items while it processes a saved m
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![To-dos for Sam Okafor in Actions in Off Grid AI Desktop, created from what was agreed in the meeting.](https://getoffgridai.co/assets/img/home/app/meetings-followups-light-1760.webp)
 
 ---
 

@@ -68,9 +68,9 @@ Third, the app executes and logs. Only after your approval does the connector ru
 
 This is the opposite of an agent that fires off changes and tells you afterward. The model never touches your Jira board or your Notion workspace without a logged approval first.
 
-![Off Grid AI God: connected work with explicit Approve and Deny controls.](/assets/img/home/app/god-dark-1760.webp)
+![Pending approvals in Actions in Off Grid AI Desktop: a calendar invite, a Linear issue and a Gmail message, each showing where it came from, with Review in Chat and Reject.](/assets/img/home/app/act-approvals-light-1760.webp)
 
-*Ares in Off Grid AI Desktop: actions such as creating a Linear issue wait in the Needs you column, each with Approve and Deny.*
+*Pending approvals in Actions in Off Grid AI Desktop: a calendar invite, a Linear issue and a Gmail message, each showing where it came from, with Review in Chat and Reject.*
 
 ## How Hardware Acceleration Works
 

@@ -19,9 +19,9 @@ A modern laptop GPU can run a capable language model and read text off a screens
 Free, open-source, runs offline. No account, no API key, no data leaving your machine.
 
 
-![Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.](/assets/img/home/app/day-dark-1760.webp)
+![Day in Off Grid AI Desktop: to-dos, today's meetings, suggested actions, an automatic journal, time spent by app and an hour-by-hour timeline on one screen.](/assets/img/home/app/today-bento-light-1760.webp)
 
-*Day in Off Grid AI Desktop lays out your meetings, suggested actions and to-dos in one place.*
+*Day in Off Grid AI Desktop: to-dos, today's meetings, suggested actions, an automatic journal, time spent by app and an hour-by-hour timeline on one screen.*
 
 ## The problem with note-taking apps
 
@@ -73,13 +73,13 @@ Once the loop is running, your second brain shows up in five places. Each one is
 
 Everything in these views came from frames you chose to capture, read and summarized on your hardware.
 
-![Reflect in Off Grid AI Desktop shows where your attention went across the day.](/assets/img/home/app/reflect-dark-1760.webp)
+![Reflect in Off Grid AI Desktop for one day: mind share by project and person, time by app, focus and context-switching stats, and insights.](/assets/img/home/app/reflect-day-light-1760.webp)
 
-*Reflect in Off Grid AI Desktop shows where your attention went across the day.*
+*Reflect in Off Grid AI Desktop for one day: mind share by project and person, time by app, focus and context-switching stats, and insights.*
 
-![Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.](/assets/img/home/app/entities-dark-1760.webp)
+![A person's profile in Off Grid AI Desktop: Sam Okafor's story, open to-dos, related people and a timeline of emails, meetings and documents.](/assets/img/home/app/people-sam-light-1760.webp)
 
-*Entities in Off Grid AI Desktop, a private CRM for the people, companies and topics in your work.*
+*A person's profile in Off Grid AI Desktop: Sam Okafor's story, open to-dos, related people and a timeline of emails, meetings and documents.*
 
 ## How Hardware Acceleration Works
 

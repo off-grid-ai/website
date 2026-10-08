@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can build a private directory of people and projects 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI People: Sam Okafor at Acme Corp, with related work and a timeline.](/assets/img/home/app/entities-light-1760.webp)
+![Entities in Off Grid AI Desktop: the people found in your work, each with a count of mentions, beside tabs for projects and companies.](/assets/img/home/app/people-directory-light-1760.webp)
 
 ---
 

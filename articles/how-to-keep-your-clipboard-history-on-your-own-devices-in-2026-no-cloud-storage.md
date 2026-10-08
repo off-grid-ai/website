@@ -16,7 +16,7 @@ Clipboard history is useful without a cloud account holding every copy. OGAD (Of
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Clipboard: search previously copied text, links, images, and files.](/assets/img/home/app/clipboard-light-1760.webp)
+![Clipboard in Off Grid AI Desktop with text copied on Alex's iPhone listed alongside items copied on the Mac.](/assets/img/home/app/clipboard-phone-light-1760.webp)
 
 ---
 

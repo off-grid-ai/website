@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) helps you return to retained notes about a person on 
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
+![A person's profile in Off Grid AI Desktop: Sam Okafor's story, open to-dos, related people and a timeline of emails, meetings and documents.](/assets/img/home/app/people-sam-light-1760.webp)
 
 ---
 

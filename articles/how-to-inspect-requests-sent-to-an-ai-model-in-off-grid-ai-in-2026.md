@@ -20,6 +20,8 @@ This guide covers the view released in **v0.0.54-beta.108**, a prerelease. Recor
 
 [Download OGAD](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108) | [Off Grid AI](https://getoffgridai.co)
 
+![AI activity in Off Grid AI Desktop: every request listed slowest first, with the model, the hardware, the request, the response and the time it took.](https://getoffgridai.co/assets/img/home/app/api-activity-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

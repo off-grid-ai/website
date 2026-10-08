@@ -18,7 +18,7 @@ A few model experiments can leave several large downloads on your computer. You 
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![The Models screen in Off Grid AI Desktop: the models on this computer with their sizes and delete buttons, the models available to download, and the Storage tab.](/assets/img/home/app/models-text-light-1760.webp)
+![The Storage tab in Off Grid AI Desktop: disk space used by each installed model, grouped by type, with the space left free.](/assets/img/home/app/models-storage-light-1760.webp)
 
 ---
 

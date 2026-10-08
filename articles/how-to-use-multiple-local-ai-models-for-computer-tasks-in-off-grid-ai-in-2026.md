@@ -19,7 +19,7 @@ OGAD (Off Grid AI Desktop) has a beta Computer Use workflow that can assign thos
 [Get OGAD](https://getoffgridai.co/desktop/) | [Read the beta release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.102)
 
 
-![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
+![Computer-use models in Off Grid AI Desktop: grounding specialists and decision models, on the device and available to download.](https://getoffgridai.co/assets/img/home/app/models-tasks-light-1760.webp)
 
 ---
 

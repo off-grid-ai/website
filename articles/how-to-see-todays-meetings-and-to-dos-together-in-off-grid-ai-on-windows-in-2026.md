@@ -16,7 +16,7 @@ Your calendar shows when you are busy. Your task list shows what you owe. Planni
 
 OGAD (Off Grid AI Desktop) Pro brings **Today's meetings** and **To do** into its **Day** view on Windows. Use it to check the next meeting, review open commitments and choose work that fits the time available.
 
-![Off Grid AI example view: Day: meetings, to-dos, and a journal together.](https://getoffgridai.co/assets/img/home/app/day-light-1760.webp)
+![Day in Off Grid AI Desktop: to-dos, today's meetings, suggested actions, an automatic journal, time spent by app and an hour-by-hour timeline on one screen.](https://getoffgridai.co/assets/img/home/app/today-bento-light-1760.webp)
 
 ---
 

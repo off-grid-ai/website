@@ -16,7 +16,7 @@ A saved screen image can be useful even when its AI description is wrong. OGAD (
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 
-![Off Grid AI Replay example: saved screen activity and its description](https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp)
+![Editing a saved frame in Replay in Off Grid AI Desktop: its description and the tags acme, rollout and pilot, with Save and Cancel.](https://getoffgridai.co/assets/img/home/app/capture-edit-light-1760.webp)
 
 ---
 

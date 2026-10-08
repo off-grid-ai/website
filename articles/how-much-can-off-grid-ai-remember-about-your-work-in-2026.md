@@ -19,7 +19,7 @@ You need the reason behind a decision, not another vague summary.
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
 
-![Entities in Off Grid AI Desktop: a profile of a person built from your work, with a timeline of related emails and meetings.](https://getoffgridai.co/assets/img/home/app/entities-light-1760.webp)
+![A person's profile in Off Grid AI Desktop: Sam Okafor's story, open to-dos, related people and a timeline of emails, meetings and documents.](https://getoffgridai.co/assets/img/home/app/people-sam-light-1760.webp)
 
 ---
 

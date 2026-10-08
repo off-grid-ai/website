@@ -16,7 +16,7 @@ A transcript can tell you what was said, but not always which screen was visible
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 
-![Off Grid AI Meetings example view; the guide below covers the beta timeline](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![The On screen strip for a meeting in Off Grid AI Desktop: frames of what was shown during the call, each with its time, above the decisions and transcript.](https://getoffgridai.co/assets/img/home/app/meetings-onscreen-light-1760.webp)
 
 ---
 

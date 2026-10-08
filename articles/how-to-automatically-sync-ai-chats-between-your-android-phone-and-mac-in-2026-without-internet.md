@@ -19,7 +19,7 @@ After you pair them, chat updates sync automatically over your local network. Yo
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
 <div style="width: 100%;">
-  <img width="320" alt="The Sync screen in OGAM on iPhone: Maya's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+  <img width="320" alt="The Sync screen in OGAM on iPhone: Alex's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
 </div>
 
 ---

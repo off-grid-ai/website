@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can turn captured Linux activity into a private work 
 
 [Download OGAD for Linux](https://getoffgridai.co/desktop/)
 
-![Day in Off Grid AI Desktop: to-dos, the day's meetings, an automatic journal of the work and the time spent in each app.](https://getoffgridai.co/assets/img/home/app/day-light-1760.webp)
+![The automatic journal in Day in Off Grid AI Desktop: a written account of the day built from saved activity, beside to-dos and today's meetings.](https://getoffgridai.co/assets/img/home/app/today-journal-light-1760.webp)
 
 ---
 

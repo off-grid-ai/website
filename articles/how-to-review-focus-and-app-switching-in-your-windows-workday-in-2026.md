@@ -16,7 +16,7 @@ A busy day can feel productive without leaving you sure where it went. OGAD (Off
 
 [Download OGAD for Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI example view: Reflect: time by app and patterns of focus and context switching.](https://getoffgridai.co/assets/img/home/app/reflect-light-1760.webp)
+![Reflect in Off Grid AI Desktop for one day: mind share by project and person, time by app, focus and context-switching stats, and insights.](https://getoffgridai.co/assets/img/home/app/reflect-day-light-1760.webp)
 
 ---
 

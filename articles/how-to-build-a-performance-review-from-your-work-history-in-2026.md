@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro on Mac can help you return to activity saved afte
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Explore Pro](https://getoffgridai.co/pro/)
 
-![Day in Off Grid AI Desktop: to-dos, the day's meetings, an automatic journal of the work and the time spent in each app.](https://getoffgridai.co/assets/img/home/app/day-light-1760.webp)
+![The hour-by-hour timeline in Day in Off Grid AI Desktop: each entry names the app, the time and what you worked on.](https://getoffgridai.co/assets/img/home/app/today-timeline-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >
