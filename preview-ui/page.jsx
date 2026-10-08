@@ -698,14 +698,14 @@ export const ScreenCtx = createContext(null);
 export const SeqCtrlCtx = createContext(null);
 // A feature explorer listens for how many screens its current feature plays, to time the feature.
 export const ScreenCountCtx = createContext(null);
-// Thumbnails always use the light capture: a tiny dark screenshot reads as a black square on a dark page.
-const thumbOf = (name) => name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-light-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`;
-// Camera roll: the chapter's scenes as small thumbnails (Magic UI Dock magnifies them on hover).
+// Thumbnails match the page's theme, so the roll reads as mini screens rather than grey blocks.
+const thumbOf = (name, theme) => { const t = theme === 'light' ? 'light' : 'dark'; return name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-${t}-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V}`; };
+// Camera roll: the chapter's scenes as small, steady thumbnails in their screen's own shape (no hover magnify, so nothing shifts or clips).
 export function SceneRoll({ seq, className = '' }) {
   const theme = useContext(ThemeCtx);
   if (!seq || seq.shots.length < 2) return null;
-  return <Dock className={`scene-roll ${className}`} iconSize={30} iconMagnification={40} iconDistance={90} direction="middle">
-    {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
+  return <Dock className={`scene-roll ${className}`} iconSize={26} iconMagnification={26} iconDistance={1} direction="middle">
+    {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${name.startsWith('mobile/') ? ' is-phone' : ''}${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
       onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); seq.go(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
       <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
     </DockIcon>)}
