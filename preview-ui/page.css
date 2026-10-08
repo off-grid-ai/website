@@ -1631,3 +1631,9 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 @media(min-width:861px){
   .wt-window{--wbar:71px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
 }
+/* Inputs inside a field never draw their own focus ring; the field's ring (Radix focus-within, or the
+   wrapper's border) already marks focus. Otherwise the global :focus-visible ring draws a second, shorter box. */
+.rt-TextFieldRoot input:focus,.rt-TextFieldRoot input:focus-visible,
+.cmd-bar input:focus-visible,.cmd-vanish input:focus-visible,.priv-input input:focus-visible,.pp-input input:focus-visible{outline:none!important;box-shadow:none!important}
+.pillar-track{position:absolute;left:calc(2ch + 14px);right:0;bottom:0;height:2px;background:rgb(var(--og-rgb-text)/.12)}
+.pillar-tab .pillar-track{bottom:-12px}
