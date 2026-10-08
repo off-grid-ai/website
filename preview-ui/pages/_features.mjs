@@ -145,9 +145,11 @@ export const FEATURES = [
       { id: 'remote', title: 'Remote models', cmd: 'use the model on my Mac', line: 'Use a bigger model on your computer from your phone, or any OpenAI-compatible server.', shots: [
         ['mobile/remote-ios-2', "Off Grid AI on iPhone: Remote Servers using Alex's Mac over Wi-Fi."],
         ['gateway', 'Off Grid AI Gateway: the computer serving its models to the phone.']] },
-      { id: 'vision', title: 'Vision', cmd: "what's the total on this receipt?", line: 'Ask about a photo, a chart or a screenshot. A local vision model answers.', shots: [
+      { id: 'vision', title: 'Vision', cmd: "what's the total on this receipt?", line: 'Ask about a photo, a page, a chart or two versions of a slide.', shots: [
         ['mobile/vision-ios-2', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.'],
-        ['vision-chat', 'Off Grid AI Chat reading an attached chart with a local vision model.']] },
+        ['vision-screenshot', 'Off Grid AI Chat reading a page of the rollout plan: the start date and the owner.'],
+        ['vision-compare', 'Off Grid AI Chat comparing v2 and v3 of a rollout slide: new dates, a new stage, named owners.'],
+        ['vision-chat', 'Off Grid AI Chat reading an attached chart.']] },
       { id: 'images', title: 'Image generation', cmd: 'make an image', line: 'Open image models on your own machine. No credits and no queue.', shots: [
         ['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its enhanced prompt.'],
         ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.'],

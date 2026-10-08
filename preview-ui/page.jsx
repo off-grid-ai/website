@@ -119,7 +119,7 @@ function MobileMenu() {
 }
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008j';
+export const SHOT_V = '20261008k';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
@@ -664,7 +664,7 @@ const SCREEN_CMDS = {
   'mobile/models-ios-1': 'choose models for my phone', 'models-text': 'show text models', 'models-voice-list': 'pick a voice', 'models-voice': 'show voice models',
   'models-vision': 'show vision models', 'models-image': 'show image models', 'models-transcription': 'show transcription models', 'models-computer-use': 'show computer use models',
   'gateway': 'curl localhost:7878/v1/chat/completions',
-  'vision-chat': 'what does this chart show?', 'voice-reply': 'ask about the pilot out loud', 'voice': 'dictate a note', 'artifacts': 'draw the rollout as a flowchart', 'projects': 'ask the Acme project', 'models': 'show text models',
+  'vision-chat': 'what does this chart show?', 'vision-screenshot': 'when does the pilot start?', 'vision-compare': 'what changed from v2 to v3?', 'voice-reply': 'ask about the pilot out loud', 'voice': 'dictate a note', 'artifacts': 'draw the rollout as a flowchart', 'projects': 'ask the Acme project', 'models': 'show text models',
   'chat-translate': 'translate this for Sam’s team', 'project-compare': 'what changed from v2 to v3?', 'project-checklist': 'make the launch checklist', 'project-summary': 'summarize the rollout plan',
   'mobile/chat-ios-1': 'draft a reply to Sam', 'mobile/project-ios-1': 'open the Acme project', 'mobile/tools-ios-1': 'how many seat-days is the pilot?', 'mobile/remote-ios-2': 'use the model on my Mac',
   'mobile/voice-ios-1': 'brief me out loud', 'mobile/models-ios-2': 'pick a voice', 'mobile/sync-ios-1': 'pair my phone and my Mac',
@@ -800,7 +800,7 @@ const ZOOM = {
   'people-why': [.3, .75, 1.6], 'meetings-onscreen': [.62, .35, 1.7], 'meetings-transcript': [.62, .9, 1.6],
   'clipboard-pdf': [.75, .55, 1.6], 'clipboard-quick': [.4, .3, 1.8], 'clipboard-phone': [.62, .35, 1.6], 'ask-filter': [.12, .3, 1.6],
   'act-waiting': [.35, .2, 1.8], 'act-approvals': [.45, .3, 1.6], 'act-history': [.4, .3, 1.7], 'act-learned': [.3, .25, 1.8],
-  'sync-activity': [.4, .22, 1.7], 'sync-sharing': [.55, .4, 1.4], 'god-rules': [.84, .24, 1.7],
+  'sync-activity': [.4, .22, 1.7], 'sync-sharing': [.55, .4, 1.4], 'god-rules': [.84, .24, 1.7], 'vision-screenshot': [.55, .72, 1.4], 'vision-compare': [.45, .6, 1.35],
   'voice-clean': [0.25, 0.28, 1.8], 'voice-settings': [0.88, 0.4, 1.5], 'models-storage': [0.3, 0.32, 1.5], 'vault-file': [0.55, 0.25, 1.6], 'api-activity': [0.78, 0.45, 1.4],
 };
 // Every screen gets a camera move: detail screens zoom to their subject, other desktop screens push in gently
