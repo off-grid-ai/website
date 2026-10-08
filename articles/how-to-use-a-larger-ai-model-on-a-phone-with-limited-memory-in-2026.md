@@ -16,6 +16,10 @@ A model that does not fit in your phone can still be useful from your phone. OGA
 
 [Download OGAM for Android or iPhone](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
+<div style="width: 100%;">
+  <img width="320" alt="Remote Servers in OGAM on iPhone: Maya's Mac, running Off Grid AI Desktop on the local network, is connected and ready to use." src="https://getoffgridai.co/assets/img/home/mobile/remote-ios-2-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

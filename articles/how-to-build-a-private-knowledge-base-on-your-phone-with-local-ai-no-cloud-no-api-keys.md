@@ -18,7 +18,9 @@ There is another way. You can build a knowledge base entirely on your phone, ind
 
 [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai) has built-in projects with RAG support. Attach your documents, ask questions, and the AI searches through your files and generates answers grounded in your actual data. The whole pipeline runs on hardware you own.
 
-![Off Grid on the phone answering from a project knowledge base, citing the document (Acme_rollout_v3.txt) it used.](/assets/img/home/mobile/project-ios-2-light-640.webp)
+<div style="width: 100%;">
+  <img width="320" alt="Off Grid on the phone answering from a project knowledge base, citing the document (Acme_rollout_v3.txt) it used." src="/assets/img/home/mobile/project-ios-2-light-640.webp" />
+</div>
 *Off Grid on the phone answering from a project knowledge base, citing the document (Acme_rollout_v3.txt) it used.*
 
 ## How it works

@@ -21,6 +21,9 @@ Option two: connect to a model running on your PC. Something like Ollama or LM S
 
 The thing nobody has built until now is a single app that does both and switches between them intelligently. That is what we built into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
+<div style="width: 100%;">
+  <img width="320" alt="Remote Servers in OGAM on iPhone: Maya's Mac, running Off Grid AI Desktop on the local network, is connected and ready to use." src="https://getoffgridai.co/assets/img/home/mobile/remote-ios-2-light-640.webp" />
+</div>
 
 ## The problem with picking one
 

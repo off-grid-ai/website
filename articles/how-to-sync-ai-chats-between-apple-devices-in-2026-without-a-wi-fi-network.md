@@ -16,6 +16,8 @@ You have your iPhone and Mac with you, but there is no Wi-Fi router to join. OGA
 
 [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Get OGAD for Mac](https://getoffgridai.co/desktop/)
 
+![Devices in Off Grid AI Desktop, which syncs over the local network or directly to a nearby Apple device. Here Maya's iPhone is connected over Wi-Fi.](https://getoffgridai.co/assets/img/home/app/sync-devices-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

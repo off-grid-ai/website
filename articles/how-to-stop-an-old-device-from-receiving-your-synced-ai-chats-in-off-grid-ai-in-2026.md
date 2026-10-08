@@ -16,6 +16,8 @@ You replaced a phone or stopped using a computer. It should no longer receive th
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Get OGAM (Off Grid AI Mobile)](https://getoffgridai.co/mobile/)
 
+![Devices in Off Grid AI Desktop: Maya's iPhone saved and connected over Wi-Fi, with Sync sharing, Activity and Files tabs.](https://getoffgridai.co/assets/img/home/app/sync-devices-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -16,6 +16,10 @@ You know what the email needs to say, but putting it into sentences takes longer
 
 [Get OGAM for Android or iPhone](https://getoffgridai.co/mobile/) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
+<div style="width: 100%;">
+  <img width="320" alt="OGAM on iPhone in voice mode: spoken questions and spoken replies, each shown as a voice note with its transcript." src="https://getoffgridai.co/assets/img/home/mobile/voice-ios-2-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,6 +18,10 @@ After pairing, new chat updates move automatically over your local network. The 
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Download OGAD for Windows](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51)
 
+<div style="width: 100%;">
+  <img width="320" alt="The Sync screen in OGAM on iPhone, shown here paired with a Mac over Wi-Fi: 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

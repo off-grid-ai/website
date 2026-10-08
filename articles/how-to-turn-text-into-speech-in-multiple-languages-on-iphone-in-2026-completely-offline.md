@@ -16,6 +16,10 @@ You can listen to AI replies in different languages on your iPhone without sendi
 
 [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [Mobile features](https://getoffgridai.co/mobile/)
 
+<div style="width: 100%;">
+  <img width="320" alt="OGAM on iPhone in voice mode: spoken questions and spoken replies, each shown as a voice note with its transcript." src="https://getoffgridai.co/assets/img/home/mobile/voice-ios-2-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

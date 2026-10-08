@@ -16,7 +16,9 @@ You have a picture in mind, but typing a detailed prompt on your Android phone i
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture.](https://getoffgridai.co/assets/img/home/mobile/imagegen-ios-1-light-640.webp)
+<div style="width: 100%;">
+  <img width="320" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." src="https://getoffgridai.co/assets/img/home/mobile/imagegen-ios-1-light-640.webp" />
+</div>
 
 ---
 
