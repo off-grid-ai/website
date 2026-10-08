@@ -1702,3 +1702,6 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .tour-cmd-card{margin:-10px -10px 10px;border-radius:8px 8px 0 0}
 .tour-cmd-chip{height:34px;margin:0 auto 14px;width:fit-content;max-width:100%;border:1px solid var(--line-2);border-radius:999px;padding:0 14px}
 .tour-cmd-chip .tour-cmd-dots{display:none}
+/* The active item's track is always visible (paused or just picked); progress fills over it. */
+.pillar-track,.pp-tab-track,.pp-cap-track{background:rgb(var(--og-rgb-primary)/.35)!important}
+.pp-cap-tab{overflow:visible!important}

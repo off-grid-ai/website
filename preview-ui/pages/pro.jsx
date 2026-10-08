@@ -283,7 +283,7 @@ const CAPS = [
     shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
   { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
-  { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',
+  { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. Plus a searchable history of everything you copy.',
     shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400], ['clipboard', 'Off Grid AI Clipboard history with search.', 3400]] },
 ];
 // Each tab plays all of its screens once, then hands over.
