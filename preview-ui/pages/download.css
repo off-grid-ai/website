@@ -14,7 +14,7 @@
 .dn-other:hover{color:var(--og-text)}
 .dn-hero-shot.scene-card{width:100%}
 .dn-hero-shot .scene-card-in{padding:10px}
-.dn-frame{position:relative;aspect-ratio:1760/944;border-radius:6px;overflow:hidden}
+.dn-frame{position:relative;aspect-ratio:1512/977;border-radius:6px;overflow:hidden}
 .dn-frame .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .dn-frame .shot-light{display:none}.light .dn-frame .shot-light{display:block}.light .dn-frame .shot-dark{display:none}
 
@@ -88,3 +88,5 @@
   .dn-card .dn-more:empty{display:none}
 }
 @media (max-width:600px){.dn-hero-shot{display:none}}
+/* The hero plays a short screen sequence; it fills the frame edge to edge. */
+.dn-frame .wt-shot{inset:0!important;border:0!important;border-radius:0!important}

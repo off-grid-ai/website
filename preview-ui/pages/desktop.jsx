@@ -23,7 +23,7 @@ const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/OGAD', smal
 
 // The real desktop app, chapter by chapter.
 const CHAPTERS = [
-  { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.', 3800]] },
+  { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]] },
   { id: 'models', label: 'Models', cmd: 'download models for this computer', shots: [['models-text', 'Off Grid AI Models: text models.', 1700], ['models-vision', 'Off Grid AI Models: vision models.', 1700], ['models-image', 'Off Grid AI Models: image models.', 1700], ['models-voice', 'Off Grid AI Models: text to speech models.', 1700], ['models-transcription', 'Off Grid AI Models: speech to text models.', 1700], ['models-computer-use', 'Off Grid AI Models: computer use models.', 2200]] },
   { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400]] },
   { id: 'people', label: 'People', cmd: 'who is Sam Okafor?', shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.', 3400]] },
@@ -43,9 +43,19 @@ function OsPick({ os }) {
   </div>;
 }
 
-function Hero() {
+// The visitor's desktop platform: macOS until the browser says Windows or Linux (server render stays macOS).
+function useOs() {
   const [os, setOs] = useState('macos');
   useEffect(() => { const ua = navigator.userAgent; if (/Windows/i.test(ua)) setOs('windows'); else if (/Linux/i.test(ua) && !/Android/i.test(ua)) setOs('linux'); }, []);
+  return os;
+}
+function FreeDownload() {
+  const d = DL[useOs()];
+  return <a className="pp-btn" href={d.href} aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a>;
+}
+
+function Hero() {
+  const os = useOs();
   return <section className="pp pp-hero has-bg" aria-labelledby="pp-h1"><SectionBg />
     <div className="section-shell pp-hero-stack">
       <div className="pp-hero-copy">
@@ -75,7 +85,7 @@ function ConnectorsScene() {
 }
 const card = (node) => (compact) => compact ? <div className="pp-card-scene"><Loop>{node}</Loop></div> : <Fit><SceneCard className="pp-scene-card"><Loop>{node}</Loop></SceneCard></Fit>;
 const FREE = [
-  { id: 'chat', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Framed><Shot lazy={false} name="chat" alt="Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document." /></Framed> },
+  { id: 'chat', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Seq shots={[['chat', 'Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document.', 3800], ['vision-chat', 'Off Grid AI Chat reading an attached chart with a local vision model.', 3800]]} /> },
   { id: 'images', title: 'Image generation', line: 'Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: () => <Seq shots={[['models-image', 'Off Grid AI Models: Z-Image Turbo and SDXL Lightning on this computer.', 3200], ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.', 3800]]} /> },
   { id: 'voice', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice-reply" alt="Off Grid AI chat in voice mode: your spoken question and a Kokoro reply, both with transcripts." /></Framed> },
   { id: 'projects', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: () => <Framed><Shot lazy={false} name="projects" alt="Off Grid AI Projects: an answer about the Acme pilot with document citations." /></Framed> },
@@ -192,7 +202,7 @@ export default function DesktopPage({ data }) {
     <FreeVsPro pricing={p}
       free={['Chat with local text and vision models', 'Image generation on your GPU', 'Voice: Whisper and Kokoro', 'Projects with cited answers', 'Artifacts and MCP connectors', 'Offline, no account']}
       pro={['Capture and searchable memory', 'Day, Replay and Reflect', 'People and projects, kept current', 'Meetings, dictation and clipboard', 'Computer Use and Web Use, with your approval', `Up to ${p.devices} devices`]}
-      freeCta={<a className="pp-btn" href={DL.macos.href} aria-label="Download for macOS stable" title="Download for macOS stable"><PlatformIcon id="macos" size={15} /> Download free</a>} />
+      freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />
 

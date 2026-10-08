@@ -10,8 +10,9 @@ import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
+import { useAutoProgress } from './_product.jsx';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -279,7 +280,7 @@ const CAPS = [
   { id: 'act', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
     shots: [['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.']] },
   { id: 'god', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
-    shots: [['god', 'Off Grid AI God: Ares briefs you, with approvals waiting.']] },
+    shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
   { id: 'reflect', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
   { id: 'vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',
@@ -290,8 +291,9 @@ const dwell = (c) => Math.max(6500, c.shots.reduce((t, x) => t + (x[2] || 3400),
 
 function WhatPro({ again }) {
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const prev = useRef(null);
-  useEffect(() => { if (hold) return; const t = setTimeout(() => go((i + 1) % CAPS.length), dwell(CAPS[i])); return () => clearTimeout(t); }, [i, hold]);
   const go = (k) => setI(cur => { if (k !== cur) prev.current = CAPS[cur]; return k; });
+  const prog = useAutoProgress(i, dwell(CAPS[i]), hold, () => go((i + 1) % CAPS.length));
+  const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: CAPS.length, title: CAPS[i].title, line: CAPS[i].line, progress: prog, goTo: go });
   // Old deep links (#it-sees, #it-acts-you-approve, ...) open their tab.
   useEffect(() => {
     const open = () => { const h = location.hash.slice(1); const k = CAPS.findIndex(c => c.anchors.includes(h) || c.id === h); if (k >= 0) { go(k); setHold(true); } };
@@ -308,7 +310,7 @@ function WhatPro({ again }) {
         <AnimatedBackground defaultValue={C.id} onValueChange={(id) => id && pick(id)} className="pp-cap-hover">
           {CAPS.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-cap-tab">
             <c.Icon size={15} /><span>{c.tab}</span>
-            {n === i && !hold && <motion.i key={`${i}`} className="pp-cap-bar" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: dwell(c) / 1000, ease: 'linear' }} />}
+            {n === i && <><i className="pp-cap-track" aria-hidden="true" /><motion.i className="pp-cap-bar" style={{ scaleX: prog }} /></>}
           </button>)}
         </AnimatedBackground>
       </div>
@@ -317,7 +319,7 @@ function WhatPro({ again }) {
         <SceneCard className="pp-cap-card"><div className="pp-frame">
           <Preload names={CAPS.map(c => c.shots[0][0])} />
           <div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div>
-          <ShotSeq key={C.id} ms={3400} shots={C.shots} />
+          <ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} ms={3400} shots={C.shots} /></ZoomCtx.Provider>
         </div></SceneCard>
         <div className="pp-cap-ctl">
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!hold} onClick={() => setHold(h => !h)}>{hold ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
@@ -326,6 +328,7 @@ function WhatPro({ again }) {
       </div>
       {again}
     </div>
+    {viewer}
   </section>;
 }
 

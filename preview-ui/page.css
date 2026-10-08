@@ -1626,3 +1626,70 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
    The section must be taller than the viewport or the progress never moves; 150vh reveals over half a screen. */
 .manifesto .reveal{height:150vh!important}
 @media (max-width:860px){.manifesto .reveal{height:140vh!important}}
+/* Tour window = the capture's shape (1512x977, 1.548:1) plus its title bar and inset, so screenshots fill it exactly.
+   Width is the smaller of the column share and what the viewport height allows. */
+@media(min-width:861px){
+  .wt-window{--wbar:71px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
+}
+/* Inputs inside a field never draw their own focus ring; the field's ring (Radix focus-within, or the
+   wrapper's border) already marks focus. Otherwise the global :focus-visible ring draws a second, shorter box. */
+.rt-TextFieldRoot input:focus,.rt-TextFieldRoot input:focus-visible,
+.cmd-bar input:focus-visible,.cmd-vanish input:focus-visible,.priv-input input:focus-visible,.pp-input input:focus-visible{outline:none!important;box-shadow:none!important}
+.pillar-track{position:absolute;left:calc(2ch + 14px);right:0;bottom:0;height:2px;background:rgb(var(--og-rgb-text)/.12)}
+.pillar-tab .pillar-track{bottom:-12px}
+/* Full-screen viewer: the device sits above a caption that explains the screen; arrows step through. */
+.screenshot-view.has-caption .screenshot-stage{top:calc(50% - 64px);width:min(calc(100dvw - 176px),calc((100dvh - 248px) * var(--ar)))}
+.screenshot-caption{position:fixed;left:50%;bottom:28px;translate:-50% 0;width:min(760px,calc(100dvw - 48px));display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;z-index:1002}
+.screenshot-caption .sc-kicker{font-size:10.5px;letter-spacing:.14em;color:var(--og-primary);text-transform:uppercase}
+.screenshot-caption .sc-title{font-weight:400;font-size:18px;color:var(--og-text)}
+.screenshot-caption .sc-line{font-size:13px;color:var(--og-text-secondary);line-height:1.5}
+.screenshot-caption .sc-alt{font-size:12px;color:var(--og-text-muted);line-height:1.5;max-width:680px}
+.screenshot-progress{position:fixed;left:50%;bottom:12px;translate:-50% 0;width:min(320px,50dvw);height:2px;background:rgb(var(--og-rgb-text)/.12);border-radius:2px;overflow:hidden;z-index:1002}
+.screenshot-progress span{display:block;height:100%;background:var(--og-primary);transform-origin:0 50%}
+.screenshot-nav{position:fixed!important;top:calc(50% - 64px);translate:0 -50%;min-width:48px;min-height:48px;z-index:1002;border-radius:999px!important}
+.screenshot-prev{left:20px}.screenshot-next{right:20px}
+.screenshot-frame{position:absolute;inset:0}
+@media(max-width:860px){
+  .screenshot-view.has-caption .screenshot-stage{top:calc(50% - 90px);width:min(calc(100dvw - 32px),calc((100dvh - 300px) * var(--ar)))}
+  .screenshot-caption{bottom:84px}.screenshot-caption .sc-title{font-size:15px}.screenshot-caption .sc-alt{display:none}
+  .screenshot-nav{top:auto;bottom:16px;translate:none}
+  .screenshot-prev{left:16px}.screenshot-next{left:72px;right:auto}
+}
+/* Phones, rotated to landscape: the device fills the space above the controls and the caption steps aside. */
+@media(max-width:860px){
+  .screenshot-view.has-caption:has(.screenshot-rotate input:checked) .screenshot-stage{top:calc(50% - 36px);width:min(calc(100dvh - 120px),calc((100dvw - 32px) * var(--ar)));transform:translate(-50%,-50%) rotate(90deg)}
+  .screenshot-view:has(.screenshot-rotate input:checked) .screenshot-caption{display:none}
+  .screenshot-progress{bottom:8px;width:min(200px,40dvw)}
+}
+/* Live scenes in the full-screen viewer, and the zoom affordance on feature stages. */
+.screenshot-scene{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line-2);border-radius:12px;background:var(--og-surface)}
+.screenshot-scene>*{width:100%;height:100%}
+.pp-stage.is-zoomable{cursor:zoom-in}
+.screenshot-stage{transition:width .35s ease}
+/* Phones: the announcement is one compact line (tag, short offer, link); the whole line is the tap target. */
+.announcement-bar-short{display:none}
+@media(max-width:700px){
+  .announcement-bar-inner{flex-wrap:nowrap!important;gap:8px!important;min-height:36px;padding:0!important;font-size:11px!important;white-space:nowrap;position:relative}
+  .announcement-bar-text{display:none!important}
+  .announcement-bar-short{display:block;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--og-text-secondary)}
+  .announcement-bar-tag{font-size:9.5px!important}
+  .announcement-bar-cta{order:0!important;margin-left:0!important;min-height:36px;font-size:0}
+  .announcement-bar-cta::before{content:'→';font-size:13px;text-decoration:none}
+  .announcement-bar-cta::after{content:'';position:absolute;inset:0}
+}
+@media(max-width:360px){.announcement-bar-tag{display:none!important}}
+/* Phones, home tour: the same compositions as desktop, sized to the window.
+   Mac + iPhone: the MacBook fills the width, the iPhone overlaps its lower right. Two phones: side by side.
+   No inner box around the shot; no overlaid "Tap to enlarge". */
+@media(max-width:860px){
+  .wt-view .wt-shot{border:0!important;background:transparent!important;inset:8px!important}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-companion{display:grid!important;position:absolute!important;inset:0 16% 0 0!important;width:auto!important;height:auto!important;place-items:center}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){position:absolute!important;inset:auto 0 10% auto!important;height:62%!important;width:auto!important;aspect-ratio:433/882!important;display:block!important;filter:drop-shadow(0 12px 22px rgb(0 0 0/.4))!important}
+  .light .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){filter:drop-shadow(0 12px 22px rgb(0 0 0/.16))!important}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion) .shot-device-phone{height:100%!important;width:100%!important;max-width:none}
+  .wt-shot-in.wt-shot-pair.wt-shot-pair-phones{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;align-items:center}
+  .wt-shot-pair.wt-shot-pair-phones>.shot-pair-item{position:relative!important;inset:auto!important;height:100%!important;width:100%!important;display:grid!important;place-items:center}
+  .wt-shot-pair.wt-shot-pair-phones .shot-device-phone{height:auto!important;width:min(100%,calc(100cqh * 433 / 882))!important;aspect-ratio:433/882}
+  .shot-mac-wrap::after{display:none!important}
+}
+@media(max-width:860px){.wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){inset:19% 0 auto auto!important}}
