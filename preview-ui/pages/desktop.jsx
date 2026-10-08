@@ -5,7 +5,7 @@ import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, Shot, PlatformIcon, useSteps } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
 import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, SceneHead, OfflineScene, useStream } from './_product.jsx';
 import AIMessage from '@smoothui/ai-message';
 import AIResponse from '@smoothui/ai-response';
@@ -108,12 +108,20 @@ const PRO = [
 // Real web-use task: it plans and works the page, hands you the sign-in, then finishes.
 const WEB_SHOTS = [['web-tasks', 'Off Grid AI Task history with a finished Web use errand.', 3400], ['web-plan', 'Off Grid AI Web use: the plan on the Leafline pricing page, step by step.', 4000], ['web-step', 'Off Grid AI Web use reading the Team plan price, with live progress.', 4000], ['web-compare', 'Off Grid AI chat: Team pricing for 40 people in a table, with a recommendation.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The finished errand with its result and a step-by-step replay.', 4200]];
 const web = () => <Seq shots={WEB_SHOTS} />;
+function WebTour() {
+  const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Computer Use and Web Use', line: 'Your web errands, handled step by step. You take over for passwords.', progress: null, goTo: () => {} });
+  return <div className="pp-web-stage pp-web-tour"><CmdScope chapter="web" cmd="calculate Team pricing for 40 people">{(text, seq) => <>
+    <CmdBar text={text} seq={seq} />
+    <div className="pp-web-view"><ZoomCtx.Provider value={zoom}>{web(false)}</ZoomCtx.Provider></div>
+  </>}</CmdScope>{viewer}</div>;
+}
 
 function ComputerUse() {
   return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use"><SectionBg />
     <div className="section-shell">
       <div className="sec-head"><Kicker>PRO · LIVE NOW</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Computer Use and Web Use are live.</span></h2><Lede>Ask your assistant to work in your browser. You approve the task and can pause, stop, or take over.</Lede></div>
-      <div className="pp-web-stage">{web(false)}</div>
+      {/* The same tour window as everywhere else: typed command per screen, camera roll, full-screen on click. */}
+      <WebTour />
     </div>
   </section>;
 }

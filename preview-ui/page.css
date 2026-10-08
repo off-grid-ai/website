@@ -1629,7 +1629,7 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* Tour window = the capture's shape (1512x977, 1.548:1) plus its title bar and inset, so screenshots fill it exactly.
    Width is the smaller of the column share and what the viewport height allows. */
 @media(min-width:861px){
-  .wt-window{--wbar:86px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
+  .wt-window{--wbar:92px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
 }
 /* Inputs inside a field never draw their own focus ring; the field's ring (Radix focus-within, or the
    wrapper's border) already marks focus. Otherwise the global :focus-visible ring draws a second, shorter box. */
@@ -1768,3 +1768,9 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .screenshot-roll .scene-roll .scene-thumb{width:36px!important;height:36px!important}
 }
 .wt-shot-fade{position:absolute;inset:0}
+/* Room for the hover magnify: the strip is tall enough and nothing above it clips. */
+@media(min-width:861px){
+  .scene-roll{height:52px!important;padding:5px 10px!important;overflow:visible!important}
+  .wt-bar,.pp-bar,.tour-cmd{overflow:visible!important}
+  .wt-bar{min-height:64px!important}
+}

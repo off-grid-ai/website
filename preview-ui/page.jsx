@@ -702,7 +702,7 @@ const thumbOf = (name) => name.startsWith('mobile/') ? `/assets/img/home/mobile/
 export function SceneRoll({ seq, className = '' }) {
   const theme = useContext(ThemeCtx);
   if (!seq || seq.shots.length < 2) return null;
-  return <Dock className={`scene-roll ${className}`} iconSize={30} iconMagnification={50} iconDistance={110} direction="middle">
+  return <Dock className={`scene-roll ${className}`} iconSize={30} iconMagnification={40} iconDistance={90} direction="middle">
     {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
       onPointerDown={e => e.stopPropagation()} onClick={() => seq.go(k)} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
       <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
@@ -787,7 +787,16 @@ const ZOOM = {
 // Every screen gets a camera move: detail screens zoom to their subject, other desktop screens push in gently
 // toward the content, and phone or paired compositions push in slightly as a whole.
 const zoomFor = (name, comp) => ZOOM[name] || (comp ? [.5, .5, 1.06] : [.6, .4, 1.16]);
-const holdFor = (name) => (ZOOM[name] ? 1600 : 600);
+const isMacPair = (name) => !!SHOT_PAIRS[name] && !SHOT_PAIRS[name][0].startsWith('mobile/');
+const holdFor = (name) => (isMacPair(name) ? 3400 : ZOOM[name] ? 1600 : 600);
+// Mac + iPhone: start wide, push into the Mac, hold, glide right and push into the phone, hold.
+// Offsets are % of the composition (Mac centre ~43%/42%, phone centre ~88%/60%) at 1.3x.
+const PAIR_PATH = {
+  enter: { scale: 1, x: '0%', y: '0%' },
+  show: { scale: [1, 1.3, 1.3, 1.3, 1.3], x: ['0%', '8.5%', '8.5%', '-49.8%', '-49.8%'], y: ['0%', '10.4%', '10.4%', '-13%', '-13%'],
+    transition: { delay: 1.1, duration: 5.6, times: [0, .25, .45, .72, 1], ease: [.45, 0, .25, 1] } },
+  leave: { scale: 1, x: '0%', y: '0%', transition: { duration: 1.1, ease: [.45, 0, .55, 1] } },
+};
 function Zoomed({ name, comp, children }) {
   const reduce = useReducedMotion(); const z = zoomFor(name, comp);
   if (reduce) return children;
@@ -813,7 +822,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
-        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: 1.1, duration: 2.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: 1.1, ease: [.45, 0, .55, 1] } } }}>
+        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: 1.1, duration: 2.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: 1.1, ease: [.45, 0, .55, 1] } } }}>
           {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <Shot name={name} alt={alt} lazy={false} />
             // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
             : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={false} /></Zoomed></div></div></div>}
