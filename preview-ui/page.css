@@ -1774,3 +1774,4 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .wt-bar,.pp-bar,.tour-cmd{overflow:visible!important}
   .wt-bar{min-height:64px!important}
 }
+.wt-shot{cursor:zoom-in}

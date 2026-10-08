@@ -817,8 +817,9 @@ export function ShotSeq({ shots, ms = 3200 }) {
   useEffect(() => { onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
+  // Any tap on the screen area opens full screen (on phones the device frame covers most of it).
   return <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}>
-    <div className="wt-shot" ref={box}>
+    <div className="wt-shot" ref={box} onClick={(e) => { if (!e.target.closest('button, a, [role="button"]')) (zc ? zc.open(name) : setOpen(true)); }}>
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
