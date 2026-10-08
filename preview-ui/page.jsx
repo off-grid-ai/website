@@ -117,7 +117,7 @@ function MobileMenu() {
 }
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008i';
+export const SHOT_V = '20261008j';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
