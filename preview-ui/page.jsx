@@ -3,11 +3,11 @@ import { createPortal } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
-  ThumbsUp, ThumbsDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
+  ThumbsUp, ThumbsDown, CaretDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
-import { motion, MotionConfig, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, MotionConfig, AnimatePresence, useIsPresent, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
 import { Carousel, CarouselContent, CarouselItem, CarouselIndicator } from '@motion-primitives/carousel';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -45,6 +45,7 @@ import { InteractiveGridPattern } from '@magicui/interactive-grid-pattern';
 import AISuggestions from '@smoothui/ai-suggestions';
 import { WordRotate } from '@magicui/word-rotate';
 import { Dock, DockIcon } from '@magicui/dock';
+import { FEATURES } from './pages/_features.mjs';
 import { Safari } from '@magicui/safari';
 import { AnimatedCircularProgressBar } from '@magicui/animated-circular-progress-bar';
 import { Confetti } from '@magicui/confetti';
@@ -94,16 +95,31 @@ export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Jug
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
 // Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
 const HEADER_MENUS = [
+  ['Features', FEATURES.map(f => [f.name, `/features/${f.slug}/`, f.note])],
   ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
   ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
   ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
   ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
   ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
 ];
-const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
+// Phone menu: the same groups as the header dropdowns. Each group opens to its pages; the current page's group starts open.
+const groupOf = (path) => HEADER_MENUS.findIndex(([, links]) => links.some(([, href]) => href.split('#')[0] !== '/' && path.startsWith(href.split('#')[0])));
+function MobileMenu() {
+  const [open, setOpen] = useState(-1); const [path, setPath] = useState('');
+  useEffect(() => { setPath(location.pathname); setOpen(groupOf(location.pathname)); }, []);
+  return <nav aria-label="Mobile navigation" className="mnav">{HEADER_MENUS.map(([group, links], g) => {
+    const on = open === g; const id = `mnav-${group.toLowerCase()}`;
+    return <div key={group} className={`mnav-group${on ? ' is-open' : ''}`}>
+      <button type="button" className="mnav-head" aria-expanded={on} aria-controls={id} onClick={() => setOpen(on ? -1 : g)}><span>{group}</span><CaretDown size={16} className="mnav-caret" /></button>
+      <AnimatePresence initial={false}>{on && <motion.ul id={id} className="mnav-list" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .28, ease: [.2, .8, .2, 1] }}>
+        {links.map(([l, href, note]) => <li key={href}><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
+      </motion.ul>}</AnimatePresence>
+    </div>;
+  })}</nav>;
+}
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008g';
+export const SHOT_V = '20261008k';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
@@ -635,7 +651,7 @@ function ShotPair({ pair, name, alt }) {
 // "chapter:screen" overrides the plain screen entry when one screen means different things in different chapters.
 const SCREEN_CMDS = {
   'day': 'open today',
-  'god': 'what should I do first today?', 'god-prep': 'prep me for the Northwind meeting', 'god-waiting': "what's waiting for me?", 'god-voice': 'brief me out loud', 'god-choose': 'choose my god', 'god-routines': 'brief me every weekday',
+  'god': 'what should I do first today?', 'god-prep': 'prep me for the Northwind meeting', 'god-waiting': "what's waiting for me?", 'god-voice': 'brief me out loud', 'god-choose': 'choose my god', 'god-routines': 'brief me every weekday', 'god-rules': 'never send anything to Acme without asking',
   'mobile/project-ios-2': 'ask the Acme project on my phone',
   'replay': 'replay what I worked on',
   'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
@@ -648,7 +664,7 @@ const SCREEN_CMDS = {
   'mobile/models-ios-1': 'choose models for my phone', 'models-text': 'show text models', 'models-voice-list': 'pick a voice', 'models-voice': 'show voice models',
   'models-vision': 'show vision models', 'models-image': 'show image models', 'models-transcription': 'show transcription models', 'models-computer-use': 'show computer use models',
   'gateway': 'curl localhost:7878/v1/chat/completions',
-  'vision-chat': 'what does this chart show?', 'voice-reply': 'ask about the pilot out loud', 'voice': 'dictate a note', 'artifacts': 'draw the rollout as a flowchart', 'projects': 'ask the Acme project', 'models': 'show text models',
+  'vision-chat': 'what does this chart show?', 'vision-screenshot': 'when does the pilot start?', 'vision-compare': 'what changed from v2 to v3?', 'voice-reply': 'ask about the pilot out loud', 'voice': 'dictate a note', 'artifacts': 'draw the rollout as a flowchart', 'projects': 'ask the Acme project', 'models': 'show text models',
   'chat-translate': 'translate this for Sam’s team', 'project-compare': 'what changed from v2 to v3?', 'project-checklist': 'make the launch checklist', 'project-summary': 'summarize the rollout plan',
   'mobile/chat-ios-1': 'draft a reply to Sam', 'mobile/project-ios-1': 'open the Acme project', 'mobile/tools-ios-1': 'how many seat-days is the pilot?', 'mobile/remote-ios-2': 'use the model on my Mac',
   'mobile/voice-ios-1': 'brief me out loud', 'mobile/models-ios-2': 'pick a voice', 'mobile/sync-ios-1': 'pair my phone and my Mac',
@@ -698,14 +714,14 @@ export const ScreenCtx = createContext(null);
 export const SeqCtrlCtx = createContext(null);
 // A feature explorer listens for how many screens its current feature plays, to time the feature.
 export const ScreenCountCtx = createContext(null);
-// Thumbnails always use the light capture: a tiny dark screenshot reads as a black square on a dark page.
-const thumbOf = (name) => name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-light-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`;
-// Camera roll: the chapter's scenes as small thumbnails (Magic UI Dock magnifies them on hover).
+// Thumbnails match the page's theme, so the roll reads as mini screens rather than grey blocks.
+const thumbOf = (name, theme) => { const t = theme === 'light' ? 'light' : 'dark'; return name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-${t}-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V}`; };
+// Camera roll: the chapter's scenes as small, steady thumbnails in their screen's own shape (no hover magnify, so nothing shifts or clips).
 export function SceneRoll({ seq, className = '' }) {
   const theme = useContext(ThemeCtx);
   if (!seq || seq.shots.length < 2) return null;
-  return <Dock className={`scene-roll ${className}`} iconSize={30} iconMagnification={40} iconDistance={90} direction="middle">
-    {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
+  return <Dock className={`scene-roll ${className}`} iconSize={26} iconMagnification={26} iconDistance={1} direction="middle">
+    {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${name.startsWith('mobile/') ? ' is-phone' : ''}${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
       onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); seq.go(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
       <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
     </DockIcon>)}
@@ -784,7 +800,7 @@ const ZOOM = {
   'people-why': [.3, .75, 1.6], 'meetings-onscreen': [.62, .35, 1.7], 'meetings-transcript': [.62, .9, 1.6],
   'clipboard-pdf': [.75, .55, 1.6], 'clipboard-quick': [.4, .3, 1.8], 'clipboard-phone': [.62, .35, 1.6], 'ask-filter': [.12, .3, 1.6],
   'act-waiting': [.35, .2, 1.8], 'act-approvals': [.45, .3, 1.6], 'act-history': [.4, .3, 1.7], 'act-learned': [.3, .25, 1.8],
-  'sync-activity': [.4, .22, 1.7], 'sync-sharing': [.55, .4, 1.4],
+  'sync-activity': [.4, .22, 1.7], 'sync-sharing': [.55, .4, 1.4], 'god-rules': [.84, .24, 1.7], 'vision-screenshot': [.55, .72, 1.4], 'vision-compare': [.45, .6, 1.35],
   'voice-clean': [0.25, 0.28, 1.8], 'voice-settings': [0.88, 0.4, 1.5], 'models-storage': [0.3, 0.32, 1.5], 'vault-file': [0.55, 0.25, 1.6], 'api-activity': [0.78, 0.45, 1.4],
 };
 // Every screen gets a camera move: detail screens zoom to their subject, other desktop screens push in gently
@@ -815,12 +831,15 @@ export function ShotSeq({ shots, ms = 3200 }) {
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
   const reduce = useReducedMotion();
   // The sequence keeps playing in the full-screen view, even while the page behind it holds.
-  const running = (playing || open) && !reduce && shots.length > 1;
+  // A sequence that is fading out (its chapter just changed) stops playing and stops reporting,
+  // so it can't take the camera roll back from the sequence that replaced it.
+  const present = useIsPresent();
+  const running = (playing || open) && !reduce && shots.length > 1 && present;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
-  useEffect(() => { onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
+  useEffect(() => { if (!present) return; onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n, present]);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
   // Any tap on the screen area opens full screen (on phones the device frame covers most of it).
@@ -844,7 +863,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
 const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, shots, duration: shots.reduce((total, shot) => total + screenTime(shot), 0) });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', "Off Grid AI Day: to-dos, today's meetings, the journal, time spent and suggestions.", 3400], ['today-prep', 'Off Grid AI Day: prep for the Northwind board meeting, with who, last time and open items.', 3400], ['today-journal', 'Off Grid AI Day: the journal Off Grid AI wrote from the day, the kickoff, the promise and the reply.', 3400], ['today-timeline', 'Off Grid AI Day: the timeline, hour by hour across Slack, Zoom, Mail, Linear and Figma.', 3400], ['today-why', 'Off Grid AI Day: a suggestion opened to show where it came from.', 3400], ['today-yesterday', "Off Grid AI Day: yesterday's recap, its journal and timeline.", 3400]) },
-  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.', 3400]) },
+  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.', 3400], ['god-rules', 'Off Grid AI God settings: the rules Ares always follows, like never sending anything to Acme without asking.', 3000]) },
   { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Projects'], loop: 0, View: shotView(['mobile/sync-ios-1', 'Off Grid AI Sync on iPhone: the Mac connected over Wi-Fi.', 3600], ['sync-activity', "Off Grid AI Devices: files, a model and an image sent to and from Alex's iPhone.", 3400], ['sync-sharing', 'Off Grid AI Devices: what syncs automatically, what asks first, and what never leaves.', 3400], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.', 3800]) },
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Your screen, read and summarized on this Mac. Pause capture any time.', chips: ['Replay', 'Work threads', 'Pause capture'], loop: 0, View: shotView(['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary.', 3400], ['capture-settings', 'Off Grid AI capture settings: capturing, with Messages, Keychain Access and banking excluded.', 3400]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and screens, each with a running timeline.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['people-directory', 'Off Grid AI People: Sam, Priya, Tom, Maya and Daniel, with their orgs.', 3400], ['people-sam', "Off Grid AI People: Sam Okafor's story, open to-dos and today's timeline.", 3400], ['people-why', 'Off Grid AI People: Why opens the captured screen behind a claim about Sam.', 3400], ['people-project', 'Off Grid AI People: the Acme Corp pilot project, its story, people and timeline.', 3400], ['people-companies', 'Off Grid AI People: companies, Acme Corp and Northwind Capital.', 3400]) },
@@ -1288,7 +1307,8 @@ export function PageShell({ children, feedback = true }) {
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" /><Dialog.Content className="mobile-nav">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
-            <nav aria-label="Mobile navigation">{MENU.map(([label, href]) => <Dialog.Close asChild key={href}><a href={href}>{label}<ArrowUpRight size={20} /></a></Dialog.Close>)}</nav>
+            <MobileMenu />
+            <div className="mnav-ctas"><Button asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button asChild><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" aria-label="Community links">
               <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>

@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, AnimatePresence, useIsPresent, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -265,13 +265,17 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const [i, setI] = useState(0); const [n, setN] = useState(0); const [manual, setManual] = useState(false);
   const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
-  const running = shots.length > 1 && !reduce && (!manual || open);
+  const present = useIsPresent();
+  const running = shots.length > 1 && !reduce && (!manual || open) && present;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime([`mobile/${shots[i][0]}`, '', shots[i][2]], ms)); return () => clearTimeout(t); }, [i, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
   // Only the copy on screen reports (the other theme's twin is hidden).
-  useEffect(() => { if (!box.current?.getClientRects().length) return; onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); ctrl?.({ shots: shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
+  // It also reports the moment it becomes visible (theme applied after load), not only on the next screen change.
+  const report = () => { if (!present || !box.current?.getClientRects().length) return; onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); ctrl?.({ shots: shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), i, go: (k) => { setI(k); setN(v => v + 1); } }); };
+  useEffect(report, [i, n, present]);
+  useEffect(() => { const el = box.current; if (!el || typeof ResizeObserver === 'undefined') return; let seen = !!el.getClientRects().length; const ro = new ResizeObserver(() => { const vis = !!el.getClientRects().length; if (vis && !seen) report(); seen = vis; }); ro.observe(el); return () => ro.disconnect(); }, [i, n, present]);
   const [f, alt] = shots[i];
   const phone = <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}><div className="pp-phone pp-phone-shot" ref={box}>
     <div className="pp-screen pp-screen-shot">
