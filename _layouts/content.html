@@ -198,7 +198,7 @@
   </div>{% include content/chrome-1.html %}<div class="doc-after" data-pagefind-ignore>
     {% if page.parent == "Perspectives" %}
     <div class="doc-cta">
-      <div><strong>Run the personal AI OS now.</strong>Off Grid AI Pro is live - ${{ site.data.pricing.lifetime }}, yours forever, climbing as we grow.</div>
+      <div><strong>Run the personal AI OS now.</strong>Off Grid AI Pro is live - <span data-pro-price="lifetime">...</span>, yours forever, climbing as we grow.</div>
       <a href="{{ '/pro' | relative_url }}#buy">Get Off Grid AI Pro</a>
     </div>
     {% endif %}
@@ -389,5 +389,6 @@
     }, { once: true });
   </script>
   <script type="module" src="{{ '/assets/preview/content/chrome.js' | relative_url }}?v={{ og_v }}"></script>
+{% include current-pricing.html %}
 </body>
 </html>

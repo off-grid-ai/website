@@ -333,7 +333,7 @@
       <div class="essay-early-access" data-pagefind-ignore>
         <div class="essay-ea-text">
           <strong>Run the personal AI OS now.</strong>
-          Off Grid AI Pro is live - ${{ site.data.pricing.lifetime }}, yours forever, climbing as we grow.
+          Off Grid AI Pro is live - <span data-pro-price="lifetime">...</span>, yours forever, climbing as we grow.
         </div>
         <a href="{{ '/pro' | relative_url }}#buy" class="essay-ea-btn">Get Off Grid AI Pro</a>
       </div>
@@ -640,5 +640,6 @@
       fetch(url, { mode: 'no-cors', keepalive: true }).catch(function() {});
     }, { once: true });
   </script>
+{% include current-pricing.html %}
 </body>
 </html>

@@ -36,7 +36,7 @@ Start with one task, such as preparing a draft from a local document. If that ta
 
 ## Separate the optional Pro price from the basic setup
 
-On 29 September 2026, the [official desktop page](https://getoffgridai.co/desktop/) lists Pro at **$69 once** or **$4.99 per month**. It also states that the listed lifetime price changes as the product grows. Check the current checkout price, currency, taxes, licence terms, and device allowance before buying.
+The [official desktop page](https://getoffgridai.co/desktop/) lists Pro at <strong><span data-pro-price="lifetime">...</span> once</strong> or <strong><span data-pro-price="monthly">...</span> per month</strong>. These prices change as more people join. You keep the price that applies when you buy or subscribe. Check the checkout price, currency, taxes, licence terms, and device allowance before buying.
 
 Pro is an optional product tier, not a required per-prompt charge for core local chat. Decide whether a specific paid capability is part of your intended workflow before adding it to the budget.
 

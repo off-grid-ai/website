@@ -1,0 +1,16 @@
+<script id="og-current-pricing" type="application/json">{{ site.data.pricing | jsonify }}</script>
+<script type="module">
+  import { loadPricing } from '{{ "/assets/js/pro-pricing.js" | relative_url }}';
+  var fields = document.querySelectorAll('[data-pro-price]');
+  if (fields.length) {
+    var pricing = JSON.parse(document.getElementById('og-current-pricing').textContent);
+    loadPricing(pricing).then(function (result) {
+      fields.forEach(function (field) {
+        var plan = field.getAttribute('data-pro-price');
+        if (plan === 'lifetime' || plan === 'monthly') field.textContent = '$' + result.pricing[plan];
+      });
+    }).catch(function () {
+      fields.forEach(function (field) { field.textContent = 'Price unavailable'; });
+    });
+  }
+</script>
