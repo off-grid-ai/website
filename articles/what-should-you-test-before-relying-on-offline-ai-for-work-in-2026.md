@@ -23,7 +23,7 @@ Before relying on offline AI, test the whole task you expect to complete. OGAD (
 
 > **What would you like to do with Off Grid AI?**
 >
-> Want help with this workflow, or a feature you would like us to add? Email [support@offgridmobileai.co](mailto:support@offgridmobileai.co) with your devices and the task you want to improve.
+> Want help with this workflow, or a feature you would like us to add? Email [support@getoffgridai.co](mailto:support@getoffgridai.co) with your devices and the task you want to improve.
 >
 > [Join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/)
 

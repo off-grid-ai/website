@@ -12,7 +12,7 @@ import { purchaseScript } from './_thank-you-purchase.js';
 // script, run at the same point in the page (see _thank-you-purchase.js).
 const KEY_FROM = 'keys@offgridmobileai.co';
 const KEY_SUBJECT = 'Your Off Grid Pro license key';
-const SUPPORT = 'support@offgridmobileai.co';
+const SUPPORT = 'support@getoffgridai.co';
 
 // Requirements as on /download/; links come from the shared DOWNLOADS (same URLs as /download/).
 const REQ = { ios: ['iPhone', 'iOS 17+ · iPhone 12+'], android: ['Android', 'Android 10+ · 4GB RAM+'], macos: ['macOS', 'Apple Silicon'], windows: ['Windows', 'x64'], linux: ['Linux', 'Ubuntu 24.04+ · x64'] };

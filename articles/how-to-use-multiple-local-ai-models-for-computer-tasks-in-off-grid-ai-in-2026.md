@@ -27,7 +27,7 @@ OGAD (Off Grid AI Desktop) has a beta Computer Use workflow that can assign thos
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 Use 0.0.52-beta.103 for the controls in this guide. The 0.0.52 beta series introduced the combined model-role workflow. The beta also makes task tools available without a Pro entitlement. You still need compatible downloaded models and enough memory for the selected combination.
 
