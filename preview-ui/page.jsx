@@ -7,7 +7,7 @@ import {
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
-import { motion, MotionConfig, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, MotionConfig, AnimatePresence, useIsPresent, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
 import { Carousel, CarouselContent, CarouselItem, CarouselIndicator } from '@motion-primitives/carousel';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -829,12 +829,15 @@ export function ShotSeq({ shots, ms = 3200 }) {
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
   const reduce = useReducedMotion();
   // The sequence keeps playing in the full-screen view, even while the page behind it holds.
-  const running = (playing || open) && !reduce && shots.length > 1;
+  // A sequence that is fading out (its chapter just changed) stops playing and stops reporting,
+  // so it can't take the camera roll back from the sequence that replaced it.
+  const present = useIsPresent();
+  const running = (playing || open) && !reduce && shots.length > 1 && present;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
-  useEffect(() => { onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
+  useEffect(() => { if (!present) return; onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n, present]);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
   // Any tap on the screen area opens full screen (on phones the device frame covers most of it).
