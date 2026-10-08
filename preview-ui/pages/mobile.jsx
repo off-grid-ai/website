@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, CheckCircle, LockKey } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Seq, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, OfflineScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -18,30 +18,23 @@ function FreeDownload() {
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 
 
-const SCENES = {
-  offline: () => <OfflineScene where="your phone" />,
-};
-// Real screens where the app has them; a composed scene stands in only for features without captures (offline).
 // Each feature's real screens, start to result, in both themes (file names without the theme suffix).
 const both = (list) => ({ light: list.map(([n, alt]) => [`${n}-light`, alt, 3000]), dark: list.map(([n, alt]) => [`${n}-dark`, alt, 3000]) });
 const REAL = {
   chat: both([['chat-start-ios', 'Ask in the Acme Corp pilot project: draft a reply to Sam about the pilot date.'], ['seq-chat-2', 'The reply streams in, with the model working through the pilot notes.'], ['chat-ios-1', 'A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.']]),
-  images: both([['seq-images-1', 'The prompt: a lighthouse at dusk, film photo.'], ['imagegen-ios-1', 'The finished lighthouse image and its enhanced prompt, made on the phone.']]),
+  images: both([['seq-images-1', 'The prompt: a lighthouse at dusk, film photo.'], ['seq-images-2', 'The prompt enhanced, and the image generating on the phone.'], ['imagegen-ios-1', 'The finished lighthouse image and its enhanced prompt, made on the phone.']]),
   vision: both([['seq-vision-1', 'A receipt photo attached, with the question typed.'], ['seq-vision-2', 'The local vision model reading the receipt.'], ['vision-ios-2', 'The answer: the total, with the tax.']]),
   voice: both([['seq-voice-1', 'Recording: Whisper listens on the phone.'], ['seq-voice-2', 'The transcript, ready in the message box.'], ['seq-voice-3', 'Sent, with the reply about the Acme pilot.']]),
-  projects: both([['seq-projects-1', 'The Acme Corp pilot project: its instructions.'], ['seq-projects-3', 'Its documents and chats.'], ['project-ios-3', 'The rollout PDF read on the phone.'], ['project-ios-2', 'What you promised Sam, answered from the project documents.']]),
+  projects: both([['seq-projects-1', 'The Acme Corp pilot project: its instructions.'], ['seq-projects-2', 'A chat in the project, with the voice that answers picked.'], ['seq-projects-3', 'Its documents and chats.'], ['project-ios-3', 'The rollout PDF read on the phone.'], ['project-ios-2', 'What you promised Sam, answered from the project documents.']]),
   tools: both([['seq-tools-1', 'The question: how many seat-days is the pilot?'], ['seq-tools-2', 'The calculator tool working it out.'], ['tools-ios-1', 'The result: 1,200 seat-days.']]),
   larger: both([['remote-ios-2', "Remote Servers on iPhone: Alex's Mac, connected over Wi-Fi."], ['seq-larger-3', "The answer from the bigger model on Alex's Mac."], ['web-step-ios', 'The phone following a task that runs on the Mac.']]),
   voicemode: both([['voice-ios-2', 'You ask by voice and the replies come back as voice notes, each with a transcript.'], ['voice-pick-ios', 'Pick the voice that answers.'], ['voice-ios-1', 'A spoken brief on the Acme pilot, with its transcript.']]),
-  approve: both([['seq-approve-1', 'A reply to Sam drafted on the phone, waiting for your yes before it is sent.']]),
-  sync: both([['sync-ios-1', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi."], ['seq-sync-3', 'Sync activity: the rollout PDF arriving from the Mac.'], ['web-replay-ios', 'A finished task from the Mac, replayed on the phone.']]),
+  approve: both([['seq-approve-1', 'A reply to Sam drafted on the phone, waiting for your yes before it is sent.'], ['seq-approve-2', 'You ask it to open the draft in your mail app.'], ['seq-approve-3', 'The draft is ready in your mail app. Nothing is sent until you send it.']]),
+  offline: both([['seq-offline-1', 'A local model picked on the phone: Qwen 3.5 0.8B.'], ['seq-offline-2', 'A question about the pilot notes.'], ['seq-offline-3', 'Answered by the local model, on the phone.']]),
+  sync: both([['seq-sync-1', 'Pair this device: scan the code shown on the other one.'], ['sync-ios-1', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi."], ['seq-sync-3', 'Sync activity: the rollout PDF arriving from the Mac.'], ['web-replay-ios', 'A finished task from the Mac, replayed on the phone.']]),
 };
-const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;
 const real = (shots, compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><PhoneShots shots={shots} /></div>;
-const inPhone = (id) => (compact) => {
-  const r = REAL[id]; if (!r) return composed(id, compact);
-  return <><div className="only-dark">{r.dark ? real(r.dark, compact) : composed(id, compact)}</div><div className="only-light">{r.light ? real(r.light, compact) : composed(id, compact)}</div></>;
-};
+const inPhone = (id) => (compact) => { const r = REAL[id]; return <><div className="only-dark">{real(r.dark, compact)}</div><div className="only-light">{real(r.light, compact)}</div></>; };
 
 // The command each feature's window types before (or without) a screen of its own.
 const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
