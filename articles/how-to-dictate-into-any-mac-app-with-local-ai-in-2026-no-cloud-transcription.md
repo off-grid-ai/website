@@ -124,6 +124,10 @@ For a first check, include one term you use often: a project name, a colleague's
 
 This is a deletion-based cleanup feature. Do not expect it to rewrite an argument, add facts, or turn an unfinished thought into a polished email. Edit the text in the destination app when you need those changes.
 
+![A dictation in the Voice library in Off Grid AI Desktop shown raw, with filler words such as um and uh still in the text.](/assets/img/home/app/voice-clean-light-1760.webp)
+
+*A dictation in the Voice library in Off Grid AI Desktop shown raw, with filler words such as um and uh still in the text.*
+
 ## What happens if automatic paste fails?
 
 If the automatic paste cannot run, the transcript is retained on the clipboard for a manual **Command+V**. You can also open Voice, find the recording, and use **Copy transcript**. You do not need to record the same sentence again just because insertion failed.

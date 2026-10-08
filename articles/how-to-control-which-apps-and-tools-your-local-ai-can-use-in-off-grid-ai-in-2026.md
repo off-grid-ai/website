@@ -19,7 +19,7 @@ You may want AI to answer a question without searching, opening a connected serv
 [Download OGAD](https://getoffgridai.co/desktop/)
 
 
-![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](https://getoffgridai.co/assets/img/home/app/integrations-light-1760.webp)
+![Tools settings in Off Grid AI Desktop: Enable tools switched on, with each group of tools the model can call, such as calendar, reminders, web and memory, turned on or off.](https://getoffgridai.co/assets/img/home/app/settings-mcp-light-1760.webp)
 
 ---
 

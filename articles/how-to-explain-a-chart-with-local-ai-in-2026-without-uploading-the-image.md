@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you ask a local vision model to explain a chart 
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![The Models screen in Off Grid AI Desktop filtered to vision models, the local models that can read images, screenshots and documents.](https://getoffgridai.co/assets/img/home/app/models-vision-light-1760.webp)
+![A chart attached in an Off Grid AI Desktop chat, with the local model's explanation of what it shows and what to flag.](https://getoffgridai.co/assets/img/home/app/vision-chat-light-1760.webp)
 
 ---
 

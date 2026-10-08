@@ -66,6 +66,10 @@ A useful result is one or two facts you can support before you continue the conv
 
 If you need exact words, copy them from the source you checked. An AI summary is a paraphrase, even when it sounds confident.
 
+![A timeline entry in Off Grid AI Desktop with Why opened, showing the captured screen from the meeting behind the claim.](/assets/img/home/app/people-why-light-1760.webp)
+
+*A timeline entry in Off Grid AI Desktop with Why opened, showing the captured screen from the meeting behind the claim.*
+
 ## Start capturing useful context for the next time
 
 If you have no retained history yet, choose a normal work session to begin with. Install OGAD and activate Pro, then prepare the local processing models.

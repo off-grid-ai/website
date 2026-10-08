@@ -46,6 +46,10 @@ A local server must already be installed with its required runtime. A remote ser
 
 Use the server's documented command. The local command field starts a program on your computer; do not paste an unfamiliar install command merely because a page calls it an MCP setup.
 
+![Tools settings in Off Grid AI Desktop: Enable tools switched on, with each group of tools the model can call, such as calendar, reminders, web and memory, turned on or off.](/assets/img/home/app/settings-mcp-light-1760.webp)
+
+*Tools settings in Off Grid AI Desktop: Enable tools switched on, with each group of tools the model can call, such as calendar, reminders, web and memory, turned on or off.*
+
 ## Check the first answer against the app
 
 Name the service and the exact object you want in the request. For example: “Use my connected notes service to find the note titled Test checklist and summarize its first three items. Do not change it.”
