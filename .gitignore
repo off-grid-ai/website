@@ -7,3 +7,4 @@ node_modules/
 Gemfile.lock
 .DS_Store
 __pycache__/
+next-site/.next/
