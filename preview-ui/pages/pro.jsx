@@ -211,7 +211,7 @@ function Faq({ pricing }) {
             <Accordion.Content className="pp-faq-a"><p>{a}</p></Accordion.Content>
           </Accordion.Item>)}
         </Accordion.Root>
-        <p className="pp-before" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="pro_payment_form">Team under 50 people? You could get Pro free. <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_payment_form">Read the offer</a></p>
+        <p className="pp-before" data-analytics-placement="pro_payment_form">Team under 50 people? You could get Pro free. <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_payment_form">Read the offer</a></p>
       </div>
     </div>
   </section>;
@@ -335,7 +335,7 @@ function Final({ pricing }) {
       <ShimmerButton className="pro-shimmer pp-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
         onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Own Pro for ${pricing.lifetime}</ShimmerButton>
       <p className="pp-final-links">
-        <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="pro_card">Small team? Get Pro free <ArrowRight size={13} /></a>
+        <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_card">Small team? Get Pro free <ArrowRight size={13} /></a>
         <a href="/vision/" data-cta="">Read the vision <ArrowUpRight size={13} /></a>
       </p>
     </div>
