@@ -9,7 +9,7 @@ faq:
   - q: "What do I need?"
     a: "Off Grid AI Desktop running with a model, and Chrome, Edge, Brave or Arc. Firefox comes later."
   - q: "Why my own browser?"
-    a: "Most sites expect a real, signed-in person. Tasks run where you already are, so they get past the logins that stop cloud agents."
+    a: "The sites you use already know you there. Tasks run with the sessions you have, so you do not sign in again somewhere else."
   - q: "Will it type my passwords or pay for things?"
     a: "No. Codes, card numbers and CAPTCHAs are refused in code. Sign-ins come from your Vault or from you."
   - q: "Is it free?"
