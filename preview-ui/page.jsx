@@ -612,6 +612,29 @@ function ShotPair({ pair, name, alt }) {
     {open && <ShotView open onOpenChange={toggle} alt={`${pair[1]} ${alt}`} ratio={phones ? 1.05 : 5 / 3}><div className={`zoom-pair wt-shot-pair${phones ? ' wt-shot-pair-phones' : ''}`}>{items(true, 'div')}</div></ShotView>}
   </>;
 }
+// The command typed in a tour window for each screen, so every transition says what it shows.
+// "chapter:screen" overrides the plain screen entry when one screen means different things in different chapters.
+const SCREEN_CMDS = {
+  'day': 'open today',
+  'god': 'brief me, Ares', 'god-prep': 'prep me for the Northwind meeting', 'god-waiting': "what's waiting for me?", 'god-voice': 'brief me out loud', 'god-choose': 'choose my god',
+  'mobile/sync-ios-1': 'pair my phone and my Mac', 'mobile/chat-ios-1': 'send it to my phone', 'mobile/project-ios-2': 'ask the Acme project on my phone',
+  'replay': 'replay what I worked on', 'capture-settings': 'keep 1Password out of capture',
+  'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
+  'remember:day': 'what happened today?', 'ask:mobile/project-ios-2': 'ask the same on my phone',
+  'reflect': 'where did my time go?', 'approval': 'draft the reply to Sam',
+  'web-plan': 'compare Team pricing for three note apps', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
+  'browser:vault-open': 'fill my Leafline login',
+  'meetings': 'summarize the Acme pilot kickoff', 'mobile/voice-ios-2': 'talk to my AI', 'mobile/vision-ios-2': "what's the total on this receipt?",
+  'vault-locked': 'unlock my vault', 'vault-typing': 'enter my master password', 'vault-open': 'show my logins and keys',
+  'clipboard': 'find that link I copied', 'mobile/imagegen-ios-1': 'make an image', 'imagegen-chat': 'make an image',
+  'mobile/models-ios-1': 'choose models for my phone', 'models-text': 'show text models', 'models-voice-list': 'pick a voice', 'models-voice': 'show voice models',
+  'models-vision': 'show vision models', 'models-image': 'show image models', 'models-transcription': 'show transcription models', 'models-computer-use': 'show computer use models',
+  'gateway': 'curl localhost:7878/v1/chat/completions',
+};
+export const cmdFor = (chapter, screen, fallback) => (screen && (SCREEN_CMDS[`${chapter}:${screen}`] || SCREEN_CMDS[screen])) || fallback;
+// A tour window listens for the screen its sequence is showing.
+export const ScreenCtx = createContext(null);
+
 // The full-screen composition for one screen: a device frame, or the desktop + phone pair.
 function Composition({ name, alt, theme, scene }) {
   if (scene) return <div className="screenshot-scene">{scene()}</div>;
@@ -677,6 +700,8 @@ export function ShotSeq({ shots, ms = 3200 }) {
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
+  const onScreen = useContext(ScreenCtx);
+  useEffect(() => { onScreen?.(shots[i][0]); }, [i, n]);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
   return <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}>
@@ -695,7 +720,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
     {!zc && <SeqZoom isVisible={() => !!box.current?.getClientRects().length} shots={shots} i={i} n={n} step={step} running={running} ms={ms} open={open} setOpen={setOpen} />}
   </SeqOpenCtx.Provider>;
 }
-const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, duration: shots.reduce((total, shot) => total + (shot[2] || 3200), 0) });
+const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, shots, duration: shots.reduce((total, shot) => total + (shot[2] || 3200), 0) });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]) },
@@ -849,6 +874,12 @@ function Walkthrough({ reduce, theme }) {
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   // Full screen follows the tour: arrows step screens and then chapters, autoplay keeps running.
+  // The window's command follows the screen on show, not just the chapter.
+  const [scr, setScr] = useState(null); const chNow = useRef(ch); chNow.current = ch;
+  const onScreen = useCallback((name) => { if (WALK[chNow.current].View.shots?.some(x => x[0] === name)) setScr({ ch: chNow.current, name }); }, []);
+  // Only a screen from this chapter's own list counts (an outgoing chapter can still tick while it fades out).
+  const mine = scr && scr.ch === ch && WALK[ch].View.shots?.some(x => x[0] === scr.name);
+  const cmd = cmdFor(WALK[ch].id, mine ? scr.name : null, WALK[ch].cmd);
   const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
@@ -918,10 +949,10 @@ function Walkthrough({ reduce, theme }) {
         onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 60) setManual(false); if (info.offset.x < -60) go(ch + 1); else if (info.offset.x > 60) go(ch - 1); }}>
         <div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
-          <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={C.id} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{C.cmd}</TypingAnimation></span>
+          <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div>
-        <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><BeamLayer.Provider value={beamLayer}>
+        <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
           <DotPattern width={18} height={18} cr={1} className="wt-dots" />
           <AnimatePresence initial={false}>
@@ -931,7 +962,7 @@ function Walkthrough({ reduce, theme }) {
           </AnimatePresence>
           <div className="beam-layer" ref={beamLayer} aria-hidden="true" />
         </div>
-        </BeamLayer.Provider></ZoomCtx.Provider></PlayCtx.Provider>
+        </BeamLayer.Provider></ScreenCtx.Provider></ZoomCtx.Provider></PlayCtx.Provider>
       </motion.div>
     </div>
     <div className="sr-only">{WALK.map(w => <div key={w.id}><h3>{w.title}</h3><p>{w.line}</p></div>)}</div>

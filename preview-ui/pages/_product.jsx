@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -126,16 +126,21 @@ export function AppWindow({ chapters, label }) {
   const dwell = C.dwell || C.shots.reduce((a, s) => a + (s[2] || 3200), 0) + 300;
   const prog = useAutoProgress(i, dwell, hold || manual || reduce, () => setI(v => (v + 1) % chapters.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: chapters.length, title: C.label, line: C.cmd, progress: reduce ? null : prog, goTo: setI });
+  // The window's command follows the screen on show.
+  const [scr, setScr] = useState(null); const iNow = useRef(i); iNow.current = i;
+  const chs = useRef(chapters); chs.current = chapters;
+  const onScreen = useCallback((name) => { if (chs.current[iNow.current].shots.some(x => x[0] === name)) setScr({ i: iNow.current, name }); }, []);
+  const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
   return <div className="pp-app">
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
       <div className="pp-bar">
         <span className="pp-dots"><i /><i /><i /></span>
-        <span className="pp-cmd"><span className="cmd-caret">›</span><TypingAnimation key={C.id} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{C.cmd}</TypingAnimation></span>
+        <span className="pp-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{cmd}</TypingAnimation></span>
         <span className="pp-badge"><LockKey size={11} /> On this device</span>
       </div>
-      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} shots={C.shots} /></ZoomCtx.Provider></div>
+      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><ShotSeq key={C.id} shots={C.shots} /></ScreenCtx.Provider></ZoomCtx.Provider></div>
     </motion.div>
     <div className="pp-tabs" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
