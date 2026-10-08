@@ -54,6 +54,7 @@ import { Highlighter } from '@magicui/highlighter';
 import { PlaceholdersAndVanishInput } from '@aceternity/placeholders-and-vanish-input';
 import { PlaceholdersAndVanishInput as PresetVanishInput } from '@offgrid-ui/placeholders-and-vanish-input';
 import { TextAnimate } from '@magicui/text-animate';
+import { TextReveal } from '@magicui/text-reveal';
 import { HyperText } from '@magicui/hyper-text';
 import { ShineBorder } from '@magicui/shine-border';
 import { DotPattern } from '@magicui/dot-pattern';
@@ -215,10 +216,10 @@ export function Title({ id, lead, dim, as = 'h2', className }) {
     {dim && <TextAnimate as="span" by="word" animation="slideUp" once startOnView delay={.2} className="t-line t-dim">{dim}</TextAnimate>}
   </Heading>;
 }
-// A one-sentence statement: Magic UI TextAnimate reveals it word by word when it scrolls into view, then it stays.
-// (Magic UI TextReveal's scroll-linked opacity drops back to 0 after each word's range in motion 12.36.)
+// A one-sentence statement: Magic UI TextReveal lights each word as the reader scrolls through it.
+// The section must be taller than the viewport (see .manifesto .reveal) or the scroll progress never moves.
 export function Reveal({ children }) {
-  return <div className="reveal-wrap"><TextAnimate as="p" by="word" animation="blurInUp" duration={1.4} once startOnView className="reveal-line">{children}</TextAnimate></div>;
+  return <><p className="sr-only">{children}</p><div aria-hidden="true"><TextReveal className="reveal">{children}</TextReveal></div></>;
 }
 export function Lede({ children, className }) {
   return <TextAnimate as="p" by="word" animation="fadeIn" duration={.6} once startOnView className={className}>{children}</TextAnimate>;
@@ -704,11 +705,17 @@ function Walkthrough({ reduce, theme }) {
   }, [docked, inView, ch]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // The progress value owns chapter timing and resumes from its current position.
-  useEffect(() => { chapterProgress.set(0); }, [ch, chapterProgress]);
+  // A new chapter always restarts its progress from zero (jump stops any running animation first);
+  // pausing and resuming within the same chapter continues from where it stopped.
+  const progCh = useRef(-1);
   useEffect(() => {
+    const fresh = progCh.current !== ch; progCh.current = ch;
+    if (fresh) chapterProgress.jump(0);
     if (!docked || !inView || manual || reduce) return;
     const duration = (WALK[ch].View.duration || WALK[ch].loop || 7000) / 1000;
-    const clock = animate(chapterProgress, 1, { duration: duration * (1 - chapterProgress.get()), ease: 'linear', onComplete: () => spinTo((ch + 1) % N) });
+    // Explicit start keyframe: a stopped animation can commit its last value late, so never read it back for a new chapter.
+    const from = fresh ? 0 : Math.min(chapterProgress.get(), .999);
+    const clock = animate(chapterProgress, [from, 1], { duration: duration * (1 - from), ease: 'linear', onComplete: () => spinTo((ch + 1) % N) });
     return () => clock.stop();
   }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);

@@ -1626,8 +1626,3 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
    The section must be taller than the viewport or the progress never moves; 150vh reveals over half a screen. */
 .manifesto .reveal{height:150vh!important}
 @media (max-width:860px){.manifesto .reveal{height:140vh!important}}
-/* One-sentence statement (shared Reveal): big mono line, words rise in when it scrolls into view. */
-.reveal-wrap{position:relative;z-index:2;width:var(--col);margin-inline:auto;padding:clamp(96px,18vh,200px) 0}
-.reveal-line{margin:0;max-width:1100px;font-family:var(--og-font-mono)!important;font-weight:300;letter-spacing:-.04em;line-height:1.15;font-size:clamp(30px,5vw,64px);color:var(--og-text)}
-.reveal-line span{font:inherit!important;letter-spacing:inherit}
-@media (max-width:860px){.reveal-wrap{padding:72px 0}}
