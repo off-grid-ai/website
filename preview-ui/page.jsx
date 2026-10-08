@@ -97,7 +97,7 @@ export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/
 // Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
 const HEADER_MENUS = [
   ['Features', FEATURES.map(f => [f.name, `/features/${f.slug}/`, f.note])],
-  ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
+  ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Browser extension', '/browser-extension/', 'Early access: your AI in every tab'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
   ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
   ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
   ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
@@ -314,7 +314,7 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Releases', '/desktop/releases/']]],
+  ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Browser extension', '/browser-extension/'], ['Releases', '/desktop/releases/']]],
   ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
   ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
@@ -442,7 +442,7 @@ const SYNCED = [
   { Icon: FilePdf, title: 'Acme_rollout_v3.pdf', meta: 'Attachment · 1.2 MB' },
 ];
 // Browser: a sign-in page in Safari, the Off Grid side panel docked inside it, the vault login filling the form.
-function BrowserScene() {
+export function BrowserScene() {
   const s = useSteps([500, 1300, 2700, 3700, 4500]);
   const filled = s >= 2;
   return <div className="scene scene-browser">
