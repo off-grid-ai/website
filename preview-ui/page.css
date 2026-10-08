@@ -1705,3 +1705,5 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* The active item's track is always visible (paused or just picked); progress fills over it. */
 .pillar-track,.pp-tab-track,.pp-cap-track{background:rgb(var(--og-rgb-primary)/.35)!important}
 .pp-cap-tab{overflow:visible!important}
+/* A phone screen shown on its own sits in the middle of the tour window. */
+.wt-shot-in.wt-shot-mobile{display:grid!important;place-items:center!important}
