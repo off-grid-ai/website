@@ -952,7 +952,8 @@ function Walkthrough({ reduce, theme }) {
     const cur = rotRef.current; const d = ((((-i * STEP) - cur) % 360) + 540) % 360 - 180; const target = cur + d;
     spin.current?.stop(); clearTimeout(settle.current);
     if (instant || reduce) { rotRef.current = target; setRot(target); setCh(i); return; }
-    setCh(i);
+    // Hold off the wheel's own rotation reports while it turns, or they cancel the spin (keys, buttons, autoplay).
+    setCh(i); lock.current = performance.now() + 760;
     spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
   }, [STEP, reduce]);
   // Keep the selected chapter tab in view on phones.
@@ -994,10 +995,11 @@ function Walkthrough({ reduce, theme }) {
     const onKey = (e) => {
       if ((e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') || e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
       if (e.target.closest?.('input, textarea, select, [contenteditable], [role="slider"], [role="tablist"], [role="dialog"], .og-wheel')) return;
-      e.preventDefault(); setManual(false); goRef.current(ch + (e.key === 'ArrowRight' ? 1 : -1));
+      // Spin the wheel in place (no scroll jump), so the change is visible.
+      e.preventDefault(); setManual(false); spinTo((ch + (e.key === 'ArrowRight' ? 1 : -1) + N) % N);
     };
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
-  }, [inView, ch]);
+  }, [inView, ch, N, spinTo]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // The progress value owns chapter timing and resumes from its current position.
   // A new chapter always restarts its progress from zero (jump stops any running animation first);
