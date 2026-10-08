@@ -195,7 +195,7 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
         {P.note && <p className="pp-note">{P.note}</p>}
       </>}</CmdScope></Wipe>
     </div>
-    <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? ` ${p.note}` : ''}</p>)}</div>
+    <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? <> {p.note}</> : null}</p>)}</div>
     {viewer}
   </div></ScreenCountCtx.Provider>;
 }
@@ -227,7 +227,7 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
           {freeCta}</div></SceneCard>
         <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>PRO</Kicker><div className="price"><span className="amt">${pricing.lifetime}</span><small>once, yours forever</small></div>
           <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-          <p className="pp-offer"><strong>Off Grid AI Pro is live: ${pricing.lifetime}, yours forever.</strong> Up to {pricing.devices} devices. Or ${pricing.monthly}/month. The lifetime price rises as we grow.</p>
+          <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. The lifetime price rises as we grow.</p>
           <div className="pp-plan-ctas"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a><a className="pp-btn" href="/pro/">See everything Pro does</a></div>
         </div></SceneCard>
       </MobileRail>

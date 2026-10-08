@@ -13,6 +13,7 @@ import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner, ScreenCtx, CmdBar, CmdScope, screenTime } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { useAutoProgress } from './_product.jsx';
+import { usePricing } from '../pricing.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -45,29 +46,9 @@ function Hero({ pricing }) {
 
 /* ───────── Price ladder (live tier from the customer count) ───────── */
 
-function currentTier(tiers, count) {
-  for (let i = 0; i < tiers.length; i++) {
-    if (tiers[i].until === 0) return i;
-    if (count < tiers[i].until) return i;
-  }
-  return tiers.length - 1;
-}
-
-function Ladder({ pricing }) {
+function Ladder({ pricing, count, failed, tier }) {
   const tiers = pricing.tiers; const n = tiers.length;
-  const [count, setCount] = useState(null); const [failed, setFailed] = useState(false);
-  useEffect(() => {
-    const endpoint = pricing.count_endpoint; if (!endpoint) return;
-    const controller = typeof AbortController === 'function' ? new AbortController() : null;
-    const timeout = setTimeout(() => { if (controller) controller.abort(); setFailed(true); }, 8000);
-    fetch(endpoint, controller ? { signal: controller.signal } : undefined)
-      .then(r => (r.ok ? r.json() : Promise.reject()))
-      .then(d => { if (typeof d.count !== 'number') throw new Error('Invalid customer count'); setCount(d.count); })
-      .catch(() => setFailed(true))
-      .then(() => clearTimeout(timeout));
-    return () => clearTimeout(timeout);
-  }, []);
-  const cur = count == null ? 0 : currentTier(tiers, count);
+  const cur = tier ?? 0;
   const start = cur > 0 ? tiers[cur - 1].until : 0; const end = tiers[cur].until;
   const frac = count != null && end > start ? Math.min(1, Math.max(0, (count - start) / (end - start))) : 0;
   const fill = count == null ? 0 : (cur + frac) / (n - 1);
@@ -87,7 +68,7 @@ function Ladder({ pricing }) {
         <span className="pp-tier-label">{t.label}</span>
       </div>)}
     </div>
-    {count != null && tiers[cur].until !== 0 && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[cur].until - count).toLocaleString()}</b> spots left at ${tiers[cur].lifetime} for life before the price jumps to ${tiers[cur + 1].lifetime}.</p>}
+    {count != null && tiers[cur].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[cur].until - count).toLocaleString()}</b> spots left at ${tiers[cur].lifetime} for life before the price jumps to ${tiers[cur + 1].lifetime}.</p>}
     <p className="pp-monthly" id="og-monthly">{count == null ? `Prefer a subscription? Pay $${pricing.monthly}/month before it rises to $7.99, then $${pricing.top_monthly}.` : monthly}</p>
   </div>;
 }
@@ -110,13 +91,13 @@ function useScript(src) {
   }, [src]);
 }
 
-function Checkout({ pricing, checkout }) {
+function Checkout({ pricing, checkout, count, failed, tier }) {
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
-  const LINKS = checkout.links;
+  const LINKS = tier === 1 ? checkout.nextLinks : checkout.links;
   const PLAN_VALUES = { monthly: Number(pricing.monthly), lifetime: Number(pricing.lifetime) };
   const ADS_ENABLED = checkout.adsLabel !== '';
   const ADS_SEND_TO = `${checkout.adsId}/${checkout.adsLabel}`;
@@ -144,7 +125,8 @@ function Checkout({ pricing, checkout }) {
     const RevenueCatLink = window.RevenueCatLink; if (!RevenueCatLink) return;
     const value = (input.current ? input.current.value : email).trim();
     if (!RevenueCatLink.isValidEmail(value)) { setStatus({ kind: 'error', text: 'Enter a valid email address.' }); input.current && input.current.focus(); return; }
-    const url = RevenueCatLink.buildPurchaseUrl(LINKS[plan], value);
+    if (count === null || failed) return;
+    const url = RevenueCatLink.buildPurchaseUrl(LINKS?.[plan], value);
     if (!url) { setStatus({ kind: 'error', text: 'Checkout is not available right now. Please try again later.' }); return; }
     if (typeof window.posthog !== 'undefined') {
       // Never let an analytics failure stop the purchase. Identify on the email: it is the RevenueCat app user id.
@@ -162,7 +144,7 @@ function Checkout({ pricing, checkout }) {
     setStatus({ kind: 'success', url });
     window.open(url, '_blank');
   };
-  const off = email.trim() === '';
+  const off = email.trim() === '' || count === null || failed;
   // A visitor who chose monthly on another page lands with monthly as the main action.
   const [plan, setPlan] = useState('lifetime');
   useEffect(() => { if (new URLSearchParams(location.search).get('plan') === 'monthly') setPlan('monthly'); }, []);
@@ -179,10 +161,10 @@ function Checkout({ pricing, checkout }) {
       shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">{primary[1]}</ShimmerButton>
     <InteractiveHoverButton type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</InteractiveHoverButton>
     <p className={`ea-status pp-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
-      {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : null}
+      {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : count === null ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
     <ul className="pp-trust">
-      <li><Key size={13} />Your key arrives by email. Enter it in the app and Pro unlocks.</li>
+      <li><Key size={13} />Your key arrives by email. Enter it in the app.</li>
       <li><LockKey size={13} />Secure checkout by RevenueCat. Promo codes go in there.</li>
       <li><ShieldCheck size={13} />Your devices, models and data never touch the purchase.</li>
     </ul>
@@ -193,7 +175,7 @@ function Checkout({ pricing, checkout }) {
 
 const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p.devices} devices, desktop and mobile`, 'Every update'];
 
-function Buy({ pricing, checkout }) {
+function Buy({ pricing, checkout, count, failed, tier }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
       <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head pp-head-c"><Kicker>GET PRO</Kicker>
@@ -205,11 +187,11 @@ function Buy({ pricing, checkout }) {
             <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
             <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div></div>
             <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Checkout pricing={pricing} checkout={checkout} />
+            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
           </div>
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math">
-          <Ladder pricing={pricing} />
+          <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
           <Proof />
         </div>
       </div>
@@ -218,12 +200,12 @@ function Buy({ pricing, checkout }) {
 }
 
 const FAQ = (p) => [
-  ['Does the price go up?', `Yes, as more people join. Lifetime steps from $${p.lifetime} to $119, then $${p.top_lifetime}. Monthly from $${p.monthly} to $7.99, then $${p.top_monthly}. You keep the price you buy at.`],
+  ['Does the price go up?', `Yes, as more people join. Lifetime steps from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. Monthly from $${p.tiers[0].monthly} to $${p.tiers[1].monthly}, then $${p.top_monthly}. You keep the price you buy at.`],
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
-  ['What happens after I pay?', 'We email your key. Enter it in the app and Pro unlocks right away.'],
+  ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Can I use a promo code?', 'Yes. Enter it on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {
@@ -426,10 +408,11 @@ export default function ProPage({ data }) {
   useProCtaTracking();
   // /pro/#buy lands on the form once the page has laid out.
   useEffect(() => { if (location.hash === '#buy') { const t = setTimeout(() => document.getElementById('buy')?.scrollIntoView(), 60); return () => clearTimeout(t); } }, []);
-  const { pricing, checkout } = data;
+  const { checkout } = data;
+  const { pricing, count, failed, tier } = usePricing(data.pricing);
   return <PageShell>
     <Hero pricing={pricing} />
-    <Buy pricing={pricing} checkout={checkout} />
+    <Buy pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
     <Faq pricing={pricing} />
     <WhatPro again={<Again pricing={pricing} section="What Pro is" />} />
     <Sync again={<Again pricing={pricing} section="Sync is live across your devices" />} />

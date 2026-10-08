@@ -16,6 +16,7 @@
 
   <div class="og-ladder" id="og-ladder" style="--og-n: {{ n }};"
        data-endpoint="{{ site.data.pricing.count_endpoint }}"
+       data-pricing='{{ site.data.pricing | jsonify | escape }}'
        data-tiers='[{% for t in site.data.pricing.tiers %}{"lifetime":{{ t.lifetime }},"monthly":{{ t.monthly }},"label":"{{ t.label }}","until":{{ t.until }}}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
     <div class="row">
       {%- for t in site.data.pricing.tiers -%}
@@ -42,26 +43,18 @@
 
   <p class="og-spots" id="og-spots" hidden><strong id="og-spots-n"></strong> spots left at <span id="og-spots-price"></span> for life before the price jumps to <span id="og-spots-next"></span>.</p>
 
-  <p class="og-lifetime" id="og-monthly">Prefer a subscription? Pay ${{ site.data.pricing.monthly }}/month before it rises to $7.99, then ${{ site.data.pricing.top_monthly }}.</p>
+  <p class="og-lifetime" id="og-monthly">Loading current pricing...</p>
 </div>
 
-<script>
+<script type="module">
+import { loadPricing } from '{{ "/assets/js/pro-pricing.js" | relative_url }}';
 (function () {
   var ladder = document.getElementById('og-ladder');
   if (!ladder) return;
   var tiers = JSON.parse(ladder.dataset.tiers);
   var n = tiers.length;
 
-  function currentTier(count) {
-    for (var i = 0; i < n; i++) {
-      if (tiers[i].until === 0) return i;      // final, uncapped tier
-      if (count < tiers[i].until) return i;
-    }
-    return n - 1;
-  }
-
-  function apply(count) {
-    var cur = currentTier(count);
+  function apply(count, cur) {
     var c = document.getElementById('og-count');
     if (c) c.textContent = count.toLocaleString();
     document.getElementById('og-count-loading').hidden = true;
@@ -85,7 +78,7 @@
     // price jumps.
     var spots = document.getElementById('og-spots');
     if (spots) {
-      if (tiers[cur].until === 0) {
+      if (tiers[cur].until <= count) {
         spots.hidden = true;   // final tier - no jump ahead
       } else {
         spots.hidden = false;
@@ -121,24 +114,13 @@
     fill.style.width = ((cur + frac) * (100 / n)) + '%';
   }
 
-  var endpoint = ladder.dataset.endpoint;
-  if (endpoint) {
-    var controller = typeof AbortController === 'function' ? new AbortController() : null;
-    var timeout = setTimeout(function () {
-      if (controller) controller.abort();
-      document.getElementById('og-count-loading').textContent = 'Customer count unavailable.';
-    }, 8000);
-
-    fetch(endpoint, controller ? { signal: controller.signal } : undefined)
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) {
-        if (typeof d.count !== 'number') throw new Error('Invalid customer count');
-        apply(d.count);
+  loadPricing(JSON.parse(ladder.dataset.pricing))
+      .then(function (result) {
+        apply(result.count, result.tier);
       })
       .catch(function () {
         document.getElementById('og-count-loading').textContent = 'Customer count unavailable.';
-      })
-      .then(function () { clearTimeout(timeout); });
-  }
+        document.getElementById('og-monthly').textContent = 'Pricing unavailable.';
+      });
 })();
 </script>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePricing } from '../pricing.js';
 import { Badge, Card, Heading, Text, TextField } from '@radix-ui/themes';
 import * as Accordion from '@radix-ui/react-accordion';
 import { motion, useScroll, useTransform } from 'motion/react';
@@ -55,8 +56,8 @@ function Hero({ ogap }) {
 const KIT = [
   [Fan, 'Active cooling', 'The upper grille pulls heat off the back of the phone, so the chip holds the speed it started with instead of throttling.'],
   [BatteryCharging, 'Power that rides along', 'The battery sits below the cooling section. A bidirectional USB-C port charges OGAP.'],
-  [FrameCorners, 'One frame, not a bag of parts', 'Concealed width arms and height locks. Four soft bumpers. Camera, screen edges and side controls stay open.'],
-  [Lightning, 'Tuned for this workload', 'Built for a phone transcribing, embedding and generating for hours, the load we see on our users\' phones.'],
+  [FrameCorners, 'One frame, not a bag of parts', 'Four soft bumpers. Nothing covers the camera or the buttons.'],
+  [Lightning, 'Tuned for this workload', 'Built for hours of transcribing and generating.'],
   [Ruler, 'Three sizes', 'S, M and L. Tell us the phone you carry at checkout and we ship the size that fits.'],
 ];
 function KitCard({ Icon, title, text }) {
@@ -67,7 +68,7 @@ function KitCard({ Icon, title, text }) {
 
 const POWER = [
   { id: 'wireless', Icon: WifiHigh, label: 'Wireless', title: 'For phones with wireless charging', text: 'The coil behind the battery body lines up with the coil in your phone. No cable between them.', flow: ['OGAP COIL', 'PHONE COIL'], alt: 'OGAP fitted to a phone with the wireless charging area centred over the battery body.' },
-  { id: 'wired', Icon: Plug, label: 'Wired', title: 'For phones without wireless charging', text: 'Power runs inside the frame to your phone\'s USB-C port. Nothing loops outside, even on phones like the OnePlus Nord 5.', flow: ['OGAP OUTPUT', 'PHONE USB-C'], alt: 'A close view of OGAP\'s underside port and integrated route to the phone USB-C connection.' },
+  { id: 'wired', Icon: Plug, label: 'Wired', title: 'For phones without wireless charging', text: 'Power runs inside the frame to your phone\'s USB-C port.', flow: ['OGAP OUTPUT', 'PHONE USB-C'], alt: 'A close view of OGAP\'s underside port and integrated route to the phone USB-C connection.' },
 ];
 function PowerCard({ p }) {
   return <SceneCard className="og-power">
@@ -167,7 +168,8 @@ function Limit() {
 }
 
 export default function OgapPage({ data }) {
-  const { ogap, pricing } = data;
+  const { ogap } = data;
+  const { pricing } = usePricing(data.pricing);
   const faq = [...FAQ, ['Can I buy it now?', `Yes. Pre-orders are open at $${ogap.price} with shipping included, anywhere in the world. You pay now and hold that price; we email you for your shipping address, then again when your unit ships.`]];
   return <PageShell><div className="og-page">
     <Hero ogap={ogap} />
@@ -198,7 +200,7 @@ export default function OgapPage({ data }) {
       <div className="section-shell og-why-grid">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHY HARDWARE, AND WHY US</Kicker><Title id="why-h" lead="We put the load there." dim="So we carry the fix." /></BlurFade>
         <div className="og-why-copy">
-          <Text as="p"><a href="/mobile/">Off Grid AI Mobile</a> runs models in your phone's memory, and <a href="/mobile/recorder/">its recorder</a> keeps capture, transcription and a local model working all day. Battery and heat are the first limits our users hit.</Text>
+          <Text as="p">Run <a href="/mobile/">Off Grid AI</a> all day, with <a href="/mobile/recorder/">the recorder</a> on, and battery and heat are the first limits you hit.</Text>
           <Text as="p">Nothing else changes: nothing leaves your device, and the software works with or without OGAP.</Text>
         </div>
       </div>
