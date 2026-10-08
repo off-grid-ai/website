@@ -716,15 +716,20 @@ export const ScreenCtx = createContext(null);
 export const SeqCtrlCtx = createContext(null);
 // A feature explorer listens for how many screens its current feature plays, to time the feature.
 export const ScreenCountCtx = createContext(null);
+// A tour listens for a screen picked from the camera roll, so its timer jumps to that screen: (k, shots) => void.
+export const PickCtx = createContext(null);
+// How far into a sequence screen k starts, as a fraction of the whole (screens can have different lengths).
+export const pickFraction = (shots, k) => { const total = shots.reduce((t, x) => t + screenTime(x), 0); return total ? shots.slice(0, k).reduce((t, x) => t + screenTime(x), 0) / total : 0; };
 // Thumbnails match the page's theme, so the roll reads as mini screens rather than grey blocks.
 const thumbOf = (name, theme) => { const t = theme === 'light' ? 'light' : 'dark'; return name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-${t}-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V}`; };
 // Camera roll: the chapter's scenes as small, steady thumbnails in their screen's own shape (no hover magnify, so nothing shifts or clips).
 export function SceneRoll({ seq, className = '' }) {
-  const theme = useContext(ThemeCtx);
+  const theme = useContext(ThemeCtx); const pick = useContext(PickCtx);
+  const choose = (k) => { seq.go(k); pick?.(k, seq.shots); };
   if (!seq || seq.shots.length < 2) return null;
   return <Dock className={`scene-roll ${className}`} iconSize={26} iconMagnification={26} iconDistance={1} direction="middle">
     {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${name.startsWith('mobile/') ? ' is-phone' : ''}${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
-      onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); seq.go(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seq.go(k); } }}>
+      onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); choose(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(k); } }}>
       <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
     </DockIcon>)}
   </Dock>;
@@ -917,6 +922,7 @@ function Walkthrough({ reduce, theme }) {
   const chapterProgress = useMotionValue(0);
   // Picking a screen from the camera roll moves the chapter timer to that screen, so the chapter ends with its last screen.
   const startAt = useRef(null); const [restart, setRestart] = useState(0);
+  const onPick = useCallback((k, shots) => { const at = pickFraction(shots, k); startAt.current = at; chapterProgress.jump(at); setRestart(r => r + 1); }, [chapterProgress]);
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
   const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
@@ -1113,7 +1119,7 @@ function Walkthrough({ reduce, theme }) {
         <div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
-          {seqMine ? <SceneRoll seq={{ ...seq, go: (k) => { seq.go(k); const sh = WALK[ch].View.shots || []; const total = sh.reduce((t, x) => t + screenTime(x), 0); if (total) { const at = sh.slice(0, k).reduce((t, x) => t + screenTime(x), 0) / total; startAt.current = at; chapterProgress.jump(at); setRestart(r => r + 1); } } }} /> : null}
+          {seqMine ? <PickCtx.Provider value={onPick}><SceneRoll seq={seq} /></PickCtx.Provider> : null}
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div>
         <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><BeamLayer.Provider value={beamLayer}>
@@ -1130,7 +1136,7 @@ function Walkthrough({ reduce, theme }) {
       </motion.div>
     </div>
     <div className="sr-only">{WALK.map(w => <div key={w.id}><h3>{w.title}</h3><p>{w.line}</p></div>)}</div>
-    {zoomViewer}
+    <PickCtx.Provider value={onPick}>{zoomViewer}</PickCtx.Provider>
   </section>;
 }
 
