@@ -95,7 +95,7 @@ const PRO = [
 const WEB_SHOTS = [['web-tasks', 'Off Grid AI Task history with a finished Web use errand.', 3400], ['web-plan', 'Off Grid AI Web use: the plan on the Leafline pricing page, step by step.', 4000], ['web-step', 'Off Grid AI Web use reading the Team plan price, with live progress.', 4000], ['web-compare', 'Off Grid AI chat: Team pricing for 40 people in a table, with a recommendation.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The finished errand with its result and a step-by-step replay.', 4200]];
 const web = () => <Seq shots={WEB_SHOTS} />;
 function WebTour() {
-  const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Computer Use and Web Use', line: 'Your web errands, handled step by step. You take over for passwords.', progress: null, goTo: () => {} });
+  const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Tasks', line: 'Computer Use and Web Use, step by step. You take over for passwords.', progress: null, goTo: () => {} });
   return <div className="pp-web-stage pp-web-tour"><CmdScope chapter="web" cmd="calculate Team pricing for 40 people">{(text, seq) => <>
     <CmdBar text={text} seq={seq} />
     <div className="pp-web-view"><ZoomCtx.Provider value={zoom}>{web(false)}</ZoomCtx.Provider></div>
@@ -105,7 +105,7 @@ function WebTour() {
 function ComputerUse() {
   return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use"><SectionBg />
     <div className="section-shell">
-      <div className="sec-head"><Kicker>PRO · LIVE NOW</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Computer Use and Web Use are live.</span></h2><Lede>It works in your browser. You approve, pause or take over.</Lede></div>
+      <div className="sec-head"><Kicker>PRO · TASKS</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Tasks: Computer Use and Web Use.</span></h2><Lede>It works in your browser. You approve, pause or take over.</Lede></div>
       {/* The same tour window as everywhere else: typed command per screen, camera roll, full-screen on click. */}
       <WebTour />
     </div>
@@ -184,7 +184,7 @@ export default function DesktopPage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with local text and vision models', 'Image generation on your GPU', 'Voice: Whisper and Kokoro', 'Projects with cited answers', 'Artifacts and MCP connectors', 'Offline, no account']}
-      pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Actions and Web Use, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
+      pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Actions and tasks, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />
