@@ -990,14 +990,14 @@ function Walkthrough({ reduce, theme }) {
   }, []);
   // Left/right move between chapters while the tour is on screen, without first focusing the wheel.
   useEffect(() => {
-    if (!docked || !inView) return;
+    if (!inView) return;
     const onKey = (e) => {
       if ((e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') || e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
       if (e.target.closest?.('input, textarea, select, [contenteditable], [role="slider"], [role="tablist"], [role="dialog"], .og-wheel')) return;
       e.preventDefault(); setManual(false); goRef.current(ch + (e.key === 'ArrowRight' ? 1 : -1));
     };
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
-  }, [docked, inView, ch]);
+  }, [inView, ch]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
   // The progress value owns chapter timing and resumes from its current position.
   // A new chapter always restarts its progress from zero (jump stops any running animation first);
