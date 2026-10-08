@@ -28,3 +28,4 @@
 .only-dark{display:contents}.light .only-dark{display:none}
 .only-light{display:none}.light .only-light{display:contents}
 @media (max-width:860px){.mp-hero-grid{grid-template-columns:1fr!important}}
+.mp-pro-desk{margin:40px 0 16px}

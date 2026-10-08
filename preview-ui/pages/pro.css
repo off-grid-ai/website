@@ -1,3 +1,4 @@
+@import "../../../preview-ui/pages/_product.css";
 /* /pro/ — calm: one idea per section, scoped to pp-* classes. */
 
 /* Real app screens, always shown whole (never cropped or panned) */
@@ -210,3 +211,6 @@
 .plan-hero .pp-status a{color:var(--og-primary)!important}
 .pp-cap-track{position:absolute;left:-16px;right:-16px;bottom:-10px;height:2px;background:rgb(var(--og-rgb-text)/.12)}
 @media (max-width:860px){.pp-cap-track{left:-12px;right:-12px}}
+/* What Pro is sits in the first fold, straight under the hero. */
+.pp-hero{padding-bottom:clamp(20px,3vw,36px)!important}
+.pp-what{padding-top:0!important}

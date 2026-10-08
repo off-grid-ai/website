@@ -2,17 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, Play, Pause, ClipboardText } from '@phosphor-icons/react';
-import { AnimatedBackground } from '@motion-primitives/animated-background';
+import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { BlurFade } from '@magicui/blur-fade';
 import { ShimmerButton } from '@magicui/shimmer-button';
 import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner, ScreenCtx, CmdBar, CmdScope, screenTime } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
-import { useAutoProgress } from './_product.jsx';
+import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
@@ -34,12 +33,6 @@ function Hero({ pricing }) {
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
-      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="open today">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" />
-        <div className="pp-frame"><ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="day" alt="" lazy={false} /></div></div></ScreenCtx.Provider><ShotSeq ms={3800} shots={[
-          ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
-          ['approval', 'Off Grid AI approval card: the reply to Sam Okafor, waiting for Approve, Edit or Reject.'],
-        ]} /></div>
-      </>}</CmdScope></SceneCard>
     </div>
   </section>;
 }
@@ -259,6 +252,8 @@ function StickyBuy({ pricing }) {
 const CAPS = [
   { id: 'memory', cmd: 'remember my work', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
     shots: [['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary.'], ['meetings', 'Off Grid AI Meetings: the Acme pilot kickoff summary, screens shared and decisions.'], ['meetings-transcript', 'Off Grid AI Meetings: the transcript, transcribed on this Mac.'], ['people-sam', "Off Grid AI People: Sam Okafor's story, open to-dos and today's timeline."], ['people-why', 'Off Grid AI People: Why opens the captured screen behind a claim about Sam.']] },
+  { id: 'phone', cmd: 'talk to my AI', anchors: [], Icon: DeviceMobile, tab: 'Phone', title: 'Pro on your phone.', line: 'Voice mode, your projects and Sync, in your pocket.',
+    shots: [['mobile/voice-ios-2', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes.'], ['mobile/voice-pick-ios', 'Off Grid AI on iPhone: pick the voice that answers.'], ['mobile/project-ios-2', 'Off Grid AI on iPhone: what Alex promised Sam, answered from the Acme project.'], ['mobile/sync-ios-1', "Off Grid AI on iPhone: Sync with Alex's Mac over Wi-Fi."]] },
   { id: 'act', cmd: 'what do I owe people?', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, issues and docs through Gmail, Linear, Jira and Notion. Nothing runs without your yes.',
     shots: [['act-todos', 'Off Grid AI Actions: to-dos with owners, due dates and where they came from.'], ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'], ['act-approvals', 'Off Grid AI Actions: pending approvals, each showing where it came from.'], ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
   { id: 'god', cmd: 'brief me, Ares', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
@@ -270,49 +265,17 @@ const CAPS = [
   { id: 'clipboard', cmd: 'search what I copied for acme', anchors: [], Icon: ClipboardText, tab: 'Clipboard', title: 'Your clipboard remembers.', line: 'Text, links, images and files you copy, searchable on your disk.',
     shots: [['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.'], ['clipboard-pdf', 'Off Grid AI Clipboard: the rollout plan PDF, previewed as text.'], ['clipboard-phone', "Off Grid AI Clipboard: a note copied on Alex's iPhone, on the Mac."], ['clipboard-quick', 'Off Grid AI Clipboard: quick open over any app, searching for Sam.']] },
 ];
-// Each tab plays all of its screens once, then hands over.
-const dwell = (c) => c.shots.reduce((t, x) => t + screenTime(x), 0);
 
 function WhatPro({ again }) {
-  const [i, setI] = useState(0); const [hold, setHold] = useState(false); const prev = useRef(null);
-  const go = (k) => setI(cur => { if (k !== cur) prev.current = CAPS[cur]; return k; });
-  const prog = useAutoProgress(i, dwell(CAPS[i]), hold, () => go((i + 1) % CAPS.length));
-  const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: CAPS.length, title: CAPS[i].title, line: CAPS[i].line, progress: prog, goTo: go });
-  // Old deep links (#it-sees, #it-acts-you-approve, ...) open their tab.
-  useEffect(() => {
-    const open = () => { const h = location.hash.slice(1); const k = CAPS.findIndex(c => c.anchors.includes(h) || c.id === h); if (k >= 0) { go(k); setHold(true); } };
-    open(); addEventListener('hashchange', open); return () => removeEventListener('hashchange', open);
-  }, []);
-  const C = CAPS[i]; const P = prev.current;
-  const pick = (id) => { const k = CAPS.findIndex(c => c.id === id); if (k >= 0) { go(k); setHold(true); } };
+  // The shared feature explorer: features listed on the side, the screens playing beside them.
+  const items = CAPS.map(c => ({ id: c.id, cmd: c.cmd, title: c.tab, line: c.line, visual: () => <Seq shots={c.shots} /> }));
   return <section id="what-pro-is" className="pp-sec pp-what" data-section="What Pro is" aria-labelledby="what-h">
     {CAPS.flatMap(c => c.anchors).map(a => <span key={a} id={a} className="pp-anchor" aria-hidden="true" />)}
     <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head"><Kicker>WHAT PRO IS</Kicker>
-        <Title id="what-h" className="pp-h2" lead="It knows your day." dim="It waits for your yes." /></BlurFade>
-      <div className="pp-cap-tabs" role="group" aria-label="Pro capabilities">
-        <AnimatedBackground defaultValue={C.id} onValueChange={(id) => id && pick(id)} className="pp-cap-hover">
-          {CAPS.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-cap-tab">
-            <c.Icon size={15} /><span>{c.tab}</span>
-            {n === i && <><i className="pp-cap-track" aria-hidden="true" /><motion.i className="pp-cap-bar" style={{ scaleX: prog }} /></>}
-          </button>)}
-        </AnimatedBackground>
-      </div>
-      <div className="pp-cap-view">
-        <motion.div key={C.id} className="pp-cap-head" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3 }}><Heading as="h3">{C.title}</Heading><Text as="p">{C.line}</Text></motion.div>
-        <SceneCard className="pp-cap-card"><CmdScope key={C.id} chapter={C.id} cmd={C.cmd}>{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="pp-frame">
-          <Preload names={CAPS.map(c => c.shots[0][0])} />
-          <ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div></ScreenCtx.Provider>
-          <ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} ms={3400} shots={C.shots} /></ZoomCtx.Provider>
-        </div></>}</CmdScope></SceneCard>
-        <div className="pp-cap-ctl">
-          <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!hold} onClick={() => setHold(h => !h)}>{hold ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
-          <span className="pp-hint">Pick a tab to look closer.</span>
-        </div>
-      </div>
+      <h2 id="what-h" className="sr-only">What Pro is</h2>
+      <Explorer items={items} label="Pro features" />
       {again}
     </div>
-    {viewer}
   </section>;
 }
 
@@ -412,9 +375,9 @@ export default function ProPage({ data }) {
   const { pricing, count, failed, tier } = usePricing(data.pricing);
   return <PageShell>
     <Hero pricing={pricing} />
+    <WhatPro again={<Again pricing={pricing} section="What Pro is" />} />
     <Buy pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
     <Faq pricing={pricing} />
-    <WhatPro again={<Again pricing={pricing} section="What Pro is" />} />
     <Sync again={<Again pricing={pricing} section="Sync is live across your devices" />} />
     <Private />
     <Checkout4 />
