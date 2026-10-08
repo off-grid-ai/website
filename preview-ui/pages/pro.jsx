@@ -33,7 +33,7 @@ function Hero({ pricing }) {
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
-      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="open today">{(text) => <><CmdBar text={text} className="tour-cmd-card" />
+      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="open today">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" />
         <div className="pp-frame"><ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="day" alt="" lazy={false} /></div></div></ScreenCtx.Provider><ShotSeq ms={3800} shots={[
           ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
           ['approval', 'Off Grid AI approval card: the reply to Sam Okafor, waiting for Approve, Edit or Reject.'],
@@ -276,9 +276,9 @@ function StickyBuy({ pricing }) {
 
 const CAPS = [
   { id: 'memory', cmd: 'remember my work', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
-    shots: [['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']] },
+    shots: [['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary.'], ['meetings', 'Off Grid AI Meetings: the Acme pilot kickoff summary, screens shared and decisions.'], ['meetings-transcript', 'Off Grid AI Meetings: the transcript, transcribed on this Mac.'], ['people-sam', "Off Grid AI People: Sam Okafor's story, open to-dos and today's timeline."], ['people-why', 'Off Grid AI People: Why opens the captured screen behind a claim about Sam.']] },
   { id: 'act', cmd: 'what do I owe people?', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, issues and docs through Gmail, Linear, Jira and Notion. Nothing runs without your yes.',
-    shots: [['actions', 'Off Grid AI Actions: open to-dos, Suggest actions and three approvals waiting.'], ['integrations', 'Off Grid AI Integrations: Notion, Jira and Linear connected; actions run only after approval.']] },
+    shots: [['act-todos', 'Off Grid AI Actions: to-dos with owners, due dates and where they came from.'], ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'], ['act-approvals', 'Off Grid AI Actions: pending approvals, each showing where it came from.'], ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
   { id: 'god', cmd: 'brief me, Ares', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
     shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
   { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by project, app and person. No timers.',
@@ -286,7 +286,7 @@ const CAPS = [
   { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys, notes and files, encrypted. Unlocked only by you.',
     shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault: logins, an API key, a secure note and a signed PDF.', 3400]] },
   { id: 'clipboard', cmd: 'search what I copied for acme', anchors: [], Icon: ClipboardText, tab: 'Clipboard', title: 'Your clipboard remembers.', line: 'Text, links, images and files you copy, searchable on your disk.',
-    shots: [['clipboard', 'Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text.']] },
+    shots: [['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.'], ['clipboard-pdf', 'Off Grid AI Clipboard: the rollout plan PDF, previewed as text.'], ['clipboard-phone', "Off Grid AI Clipboard: a note copied on Alex's iPhone, on the Mac."], ['clipboard-quick', 'Off Grid AI Clipboard: quick open over any app, searching for Sam.']] },
 ];
 // Each tab plays all of its screens once, then hands over.
 const dwell = (c) => Math.max(6500, c.shots.reduce((t, x) => t + (x[2] || 3400), 0));
@@ -318,7 +318,7 @@ function WhatPro({ again }) {
       </div>
       <div className="pp-cap-view">
         <motion.div key={C.id} className="pp-cap-head" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3 }}><Heading as="h3">{C.title}</Heading><Text as="p">{C.line}</Text></motion.div>
-        <SceneCard className="pp-cap-card"><CmdScope key={C.id} chapter={C.id} cmd={C.cmd}>{(text) => <><CmdBar text={text} className="tour-cmd-card" /><div className="pp-frame">
+        <SceneCard className="pp-cap-card"><CmdScope key={C.id} chapter={C.id} cmd={C.cmd}>{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="pp-frame">
           <Preload names={CAPS.map(c => c.shots[0][0])} />
           <ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div></ScreenCtx.Provider>
           <ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} ms={3400} shots={C.shots} /></ZoomCtx.Provider>

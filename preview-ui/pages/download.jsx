@@ -94,7 +94,7 @@ function Hero({ dev }) {
         </div>
         <Proof />
       </div>
-      <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text) => <><CmdBar text={text} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq shots={[
+      <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq shots={[
             ['god', 'Off Grid AI God: the 8:50 AM briefing, with three approvals waiting.', 3400],
             ['chat', 'Off Grid AI Chat: what you promised Sam, answered with sources.', 3400],
             ['meetings', 'Off Grid AI Meetings: an Acme Corp call, summarized on device, with what was on screen.', 3400],

@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, SceneRoll, SeqCtrlCtx } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -80,9 +80,8 @@ export function Wipe({ id, className = '', children }) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={`pp-wipe ${className}`}>{children}</div>;
   return <AnimatePresence initial={false}>
-    <motion.div key={id} className={`pp-wipe ${className}`} initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE_T }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
+    <motion.div key={id} className={`pp-wipe ${className}`} initial={DISSOLVE.initial} animate={DISSOLVE.animate} exit={DISSOLVE.exit}>
       {children}
-      <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE_T} />
     </motion.div>
   </AnimatePresence>;
 }
@@ -130,6 +129,7 @@ export function AppWindow({ chapters, label }) {
   const [scr, setScr] = useState(null); const iNow = useRef(i); iNow.current = i;
   const chs = useRef(chapters); chs.current = chapters;
   const onScreen = useCallback((name) => { if (chs.current[iNow.current].shots.some(x => x[0] === name)) setScr({ i: iNow.current, name }); }, []);
+  const [seq, setSeq] = useState(null);
   const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
   return <div className="pp-app">
@@ -138,9 +138,10 @@ export function AppWindow({ chapters, label }) {
       <div className="pp-bar">
         <span className="pp-dots"><i /><i /><i /></span>
         <span className="pp-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{cmd}</TypingAnimation></span>
+        <SceneRoll seq={seq && C.shots.some(x => x[0] === seq.shots[0][0]) ? seq : null} />
         <span className="pp-badge"><LockKey size={11} /> On this device</span>
       </div>
-      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><ShotSeq key={C.id} shots={C.shots} /></ScreenCtx.Provider></ZoomCtx.Provider></div>
+      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><ShotSeq key={C.id} shots={C.shots} /></SeqCtrlCtx.Provider></ScreenCtx.Provider></ZoomCtx.Provider></div>
     </motion.div>
     <div className="pp-tabs" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
@@ -185,8 +186,8 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
       {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}
     </div>
     <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label')) zoom.open(); }}>
-      <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text) => <>
-        <CmdBar text={text} />
+      <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text, seq) => <>
+        <CmdBar text={text} seq={seq} />
         <div className="pillar-visual"><ZoomCtx.Provider value={zoom}>{typeof P.visual === 'function' ? P.visual(false) : null}</ZoomCtx.Provider></div>
         {P.note && <p className="pp-note">{P.note}</p>}
       </>}</CmdScope></Wipe>

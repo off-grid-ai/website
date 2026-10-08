@@ -83,7 +83,7 @@ const HERO_DARK = [
   ['models-ios-2-dark', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 function HeroPhone() {
-  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text) => <><CmdBar text={text} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
+  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
 }
 
 const FAQ = (p) => [
