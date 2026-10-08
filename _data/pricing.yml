@@ -9,11 +9,13 @@
 #   - Both prices rise as user slots fill (`tiers`), never down. The live
 #     current tier is chosen client-side from the real cumulative customer
 #     count (count.getoffgridai.co → RevenueCat Charts v3 customers_new total)
-#     by _includes/pricing-ladder.html. The original first-500 $50-lifetime
+#     by assets/js/pro-pricing.js across React pages and Liquid layouts.
+#     The original first-500 $50-lifetime
 #     founders are grandfathered and untouched.
 #   - Customers keep the price that applies when they buy or subscribe.
 
-# Convenience values for static copy (the CURRENT / final lifetime tiers).
+# First-cohort defaults and final ladder prices. Current purchase copy uses
+# the shared helper; it waits for the count instead of displaying these defaults.
 monthly: 4.99        # USD/month - current monthly price
 lifetime: 69         # USD - current lifetime price
 top_monthly: 9.99    # USD/month - final monthly price

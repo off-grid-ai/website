@@ -51,6 +51,8 @@ google_ads_purchase_label: "dQrzCPbr_eEcEPLk5KpE"
 # /pro page can offer each plan directly.
 revenuecat_link_monthly: "dqcncujvkiumpwhk"   # Off Grid AI Pro Monthly - $4.99/mo
 revenuecat_link_lifetime: "avvnmcnfsgbmjaee"  # Off Grid AI Lifetime Pro - $69 one-time
+revenuecat_link_monthly_799: "ttzwavolonbvapek" # Off Grid AI Pro Monthly - $7.99/mo at 1,500+
+revenuecat_link_lifetime_119: "qojryhrzrjfaihnq" # Off Grid AI Lifetime Pro - $119 at 1,500+
 revenuecat_link_ogap: "mvayfyykkdodnvxw"      # OGAP hardware pre-order - $49
 
 logo: /assets/logo.png
