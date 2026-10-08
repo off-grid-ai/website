@@ -1065,7 +1065,7 @@ function Walkthrough({ reduce, theme }) {
           <OrbitalImageWheel className="og-wheel" radius={wheelR} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
           <div className="wheel-center">
-            {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek"><span className="walk-count">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Click to open</small></div>}
+            {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek" key={hoverI}><span className="peek-ic"><img src={`/assets/img/home/wheel/${WALK[hoverI].id}-${theme}.svg`} alt="" /></span><span className="peek-n">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Open <ArrowRight size={12} /></small></div>}
             <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></div>
             <div className="chapter-stack">
               <AnimatePresence initial={false}>
