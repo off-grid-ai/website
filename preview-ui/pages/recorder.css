@@ -83,3 +83,4 @@
 .rc-page .rc-honest .sec-head>p{text-align:left!important;max-width:520px}
 .rc-page .rc-h1{font-size:clamp(38px,4.4vw,68px)}
 @media (max-width:860px){.rc-page .rc-h1{font-size:clamp(38px,11vw,52px)}}
+@media(max-width:520px){.rc-hero h1,.rc-hero .pp-h1{font-size:30px!important}}

@@ -47,7 +47,7 @@ export default function FeaturePage({ slug, data }) {
       <div className="section-shell final-in">
         <Kicker>OFF GRID AI</Kicker>
         <h2 id="ft-final-h" className="final-h">Your computer. Your phone. Your AI.</h2>
-        <p className="final-lede">{free ? 'Free on macOS, Windows, Linux, iPhone and Android.' : `Pro on up to ${p.devices} devices. The free app runs on macOS, Windows, Linux, iPhone and Android.`}</p>
+        <p className="final-lede">{free ? 'Free on every platform.' : `Pro, on up to ${p.devices} devices.`}</p>
         <Ctas free={free} />
       </div>
     </section>
