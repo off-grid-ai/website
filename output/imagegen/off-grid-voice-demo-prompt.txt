@@ -1,0 +1,21 @@
+Use case: text-localization
+Asset type: Demo-ready mobile app screenshot for Off Grid AI.
+Input image: edit target, the supplied tall iPhone screenshot.
+Primary request: Keep the existing app design and make the voice conversation useful and easy to read. Produce a polished, crisp screenshot, at the same tall portrait aspect ratio as the original. This is an edited demonstration image, not a new app design.
+Preserve: white background, mint user message cards aligned right, pale gray assistant cards aligned left, rounded corners, subtle shadows, green audio playback controls, mint waveforms, black monospaced transcript text, all existing navigation and bottom voice controls, iPhone status bar and Dynamic Island.
+Edits:
+1. Remove the entire Sync debug banner. Restore a clear unobstructed header. Set chat title exactly to "Follow-up with Sam". Keep Models and Default subtitle and existing header icons.
+2. Close/remove the floating voice selection popover at the bottom right so it does not cover any content. Preserve the bottom control row.
+3. Remove the internal "Tools sent in request" rows from assistant cards.
+4. Show transcripts on all four audio message cards. Adjust card heights and spacing minimally so all four complete messages fit between header and bottom controls without clipping or overlap. Keep the same four-card alternating order.
+5. Set status-bar time to "9:41", replace SOS with normal signal bars, keep Wi-Fi and battery.
+Four cards, exact transcript text:
+Top mint user card, duration 0:03:
+"What did I promise Sam?"
+Second pale gray assistant card, duration 0:08:
+"You promised to send the revised proposal by Friday. Sam also asked for a clear timeline."
+Third mint user card, duration 0:03:
+"Draft a short reply for me."
+Fourth pale gray assistant card, duration 0:09:
+"Hi Sam, I’ll send the revised proposal by Friday, with the timeline included. Thanks for your feedback."
+Each card has the existing play button, waveform, "Hide transcript" label with upward chevron, its duration, "1x" and three-dot control. Transcripts must be rendered verbatim in clean readable monospaced type, neatly wrapped to card width. No extra texts, labels, sources, branding, slogans, mockup device shell, decorative scenery, watermarks or new app features. Keep the original recognizable interface. Crisp typography, tidy balanced spacing, realistic production app screenshot.

@@ -1,0 +1,1388 @@
+{
+  "updated": "2026-10-08",
+  "status": "Partial handoff; capture work continues",
+  "named_file_count": 96,
+  "unique_image_count": 95,
+  "mobile_walkthrough_files": 76,
+  "web_use_files": 18,
+  "files": [
+    {
+      "file": "phone-voice-conversation-light.png",
+      "title": "Voice conversation",
+      "status": "Ready",
+      "note": "Native voice notes on both sides. Both transcripts open. Sarah selected. Synthetic Acme pilot question and answer. Replaces generated phone-voice images; content differs from the Sam commitments scene.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 346690,
+      "sha256": "293636512a9a8009420cb147c6f1709752098482846974465dbbba11bbf9f0aa",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-voice-conversation-dark.png",
+      "title": "Voice conversation",
+      "status": "Ready",
+      "note": "Native voice notes on both sides. Both transcripts open. Sarah selected. Synthetic Acme pilot question and answer. Replaces generated phone-voice images; content differs from the Sam commitments scene.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 292088,
+      "sha256": "1c4e5e51b811eafe12ff51dae240b9cd6e7c4b41c16e532ea538234d472d637b",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-voice-start-light.png",
+      "title": "Voice idle",
+      "status": "Ready",
+      "note": "Tap to speak. Sarah selected. Manual voice turns keep the microphone idle.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 177391,
+      "sha256": "8768d2e7b0e5770217ecaed332722013672bd683876e0ef824f5bc8bf01907dd",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-voice-start-dark.png",
+      "title": "Voice idle",
+      "status": "Ready",
+      "note": "Tap to speak. Sarah selected. Manual voice turns keep the microphone idle.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 155735,
+      "sha256": "5c9b440d74684a308b3b2c3d3c168cf0aeb618c6188d6bb18c71fe2d1fb065fa",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-voice-pick-light.png",
+      "title": "Voice picker",
+      "status": "Ready",
+      "note": "Real voice picker. Sarah selected; Heart, River, Adam and other voices visible.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 318163,
+      "sha256": "f4e72496e2e432ba31c10b0d9f15734739baf9d74bc52ce10e1180fea5b5a918",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-voice-pick-dark.png",
+      "title": "Voice picker",
+      "status": "Ready",
+      "note": "Real voice picker. Sarah selected; Heart, River, Adam and other voices visible.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 205476,
+      "sha256": "d5db15e0645bb7e5a0ca8d16f0f89c5867e30d860e163d7512d8c8bc95ea6353",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-persona-light.png",
+      "title": "Assistant instructions",
+      "status": "Ready",
+      "note": "Real Model Settings with Alex’s default system prompt. This shows assistant instructions, not a list of named personas.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 150049,
+      "sha256": "6032b2b6024571d2bcff9eda9f3413c2a3ce1483df91dea1ec3709a59e6afa21",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-persona-dark.png",
+      "title": "Assistant instructions",
+      "status": "Ready",
+      "note": "Real Model Settings with Alex’s default system prompt. This shows assistant instructions, not a list of named personas.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 145073,
+      "sha256": "0f5ca8c67f40ea9f0b43eb1a2624a13d784bb5080f70f3dca315514b733132b6",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-chat-light.png",
+      "title": "Reply to Sam",
+      "status": "Ready",
+      "note": "Draft signed Alex. Use for the mobile hero and Chat feature.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 308479,
+      "sha256": "a216c7cc57398b97fa649162b40fb0c90d18a362b692eac31b42f2822c251d42",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-chat-dark.png",
+      "title": "Reply to Sam",
+      "status": "Ready",
+      "note": "Draft signed Alex. Use for the mobile hero and Chat feature.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 263493,
+      "sha256": "5fb872340bc5179e9ad9ed7cbe365d02034cec8fd88c9182202742c33563b654",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-sync-chat-light.png",
+      "title": "Synced chat",
+      "status": "Ready",
+      "note": "What did I promise Sam? Three commitments with Priya, Tom and a Tuesday kickoff.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 282993,
+      "sha256": "7d6630f1b67673952b6f96931a98fa38c64acfaf7e58e900aa5b0ff45f11de2a",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-sync-chat-dark.png",
+      "title": "Synced chat",
+      "status": "Ready",
+      "note": "What did I promise Sam? Three commitments with Priya, Tom and a Tuesday kickoff.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 241163,
+      "sha256": "85cb4fd8c2f5e6ec12218c13c23bb15b26709eaa7ab33ffc905ddf5c057a8944",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-sync-light.png",
+      "title": "Sync devices",
+      "status": "Ready with note",
+      "note": "Alex’s iPhone and Alex’s Mac. Pairing code appears with the user’s approval.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 372210,
+      "sha256": "878d7dd1f7ba2e43ce394cf8453a3cdc907545e6731051fef008b045dda07360",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-sync-dark.png",
+      "title": "Sync devices",
+      "status": "Ready with note",
+      "note": "Alex’s iPhone and Alex’s Mac. Pairing code appears with the user’s approval.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 322958,
+      "sha256": "9f2ecf58aa4eddefd9b3ca7c9d6120e30cc56080547b130919666eac00a99e79",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-remote-light.png",
+      "title": "Remote connection",
+      "status": "Review before use",
+      "note": "Alex’s connected Mac. The real app includes Ollama and LM Studio scan switches, both off. This does not meet the older brief’s ban on those labels.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 286995,
+      "sha256": "0f3318d6127bb6d075cc4f3aa5ede41fb82c977fd04336c80d5097a2d330e36d",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-remote-dark.png",
+      "title": "Remote connection",
+      "status": "Review before use",
+      "note": "Alex’s connected Mac. The real app includes Ollama and LM Studio scan switches, both off. This does not meet the older brief’s ban on those labels.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 249597,
+      "sha256": "e26d3388ed606436cf02c20b8499f957ed0df64f8f767f9dc998f488fb7ecffa",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-pdf-light.png",
+      "title": "Project PDF",
+      "status": "Ready",
+      "note": "Real Acme Corp pilot project with Acme_rollout_v3.pdf. Both themes captured after fixing the chat title text color in the app.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 294993,
+      "sha256": "28e7c8547407b1904ef56e432a1634673797e25dcb4843f9b566fa3f4fc9bc6c",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-pdf-dark.png",
+      "title": "Project PDF",
+      "status": "Ready",
+      "note": "Real Acme Corp pilot project with Acme_rollout_v3.pdf. Both themes captured after fixing the chat title text color in the app.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 269603,
+      "sha256": "eb8fe3212244fbf1e87ca9fca3e7940a05c1114baa43752fa093315a6c81514c",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-tasks-light.png",
+      "title": "Mac: Task History",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 588068,
+      "sha256": "7451b54fe526b1310ea556da1672f5277f5ae8b98725a49d1a5917c128474a43",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-tasks-dark.png",
+      "title": "Mac: Task History",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 590108,
+      "sha256": "0216fd86e83c912010a78692e47ef388d4c568c05d81442829173002a20d6a7b",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-plan-light.png",
+      "title": "Mac: plan and pricing page",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 550257,
+      "sha256": "44be04f09857b6481b203d095eba163538eea81dbc637705a5cb73942129e4d1",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-plan-dark.png",
+      "title": "Mac: plan and pricing page",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 582027,
+      "sha256": "20493d272048cbf5ebabc956c1191f0b7d3a4c27cbf9ef6ccbaf2f0247f63fed",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-step-light.png",
+      "title": "Mac: live progress",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 560039,
+      "sha256": "1a757b9a74e0513b700bc54f7459b26728870646a39a3b9667dd72255942e47d",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-step-dark.png",
+      "title": "Mac: live progress",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 582027,
+      "sha256": "20493d272048cbf5ebabc956c1191f0b7d3a4c27cbf9ef6ccbaf2f0247f63fed",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-compare-light.png",
+      "title": "Mac: pricing comparison",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 690865,
+      "sha256": "3f34a3cb75145eb2cf8245fd9bc942a3cd34da073e3bb54856b412e046d69908",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-compare-dark.png",
+      "title": "Mac: pricing comparison",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 701312,
+      "sha256": "9d8b2c7b391215cece2be400bcdb2345d5076b62399ca65c508c7b674174c6c0",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-done-light.png",
+      "title": "Mac: completed task",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 648034,
+      "sha256": "634a0cacc5fb01eb77b9228480a68ec7be6ffda8bafb045906bc82fd94cdd2d4",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/web-done-dark.png",
+      "title": "Mac: completed task",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 652941,
+      "sha256": "ca9ba1d8889f76f9f2407657831bde807584f548329915caa79795b72991b58c",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-step-light.png",
+      "title": "iPhone: live progress",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 366677,
+      "sha256": "d7c4da828917f95f1849be1658ef6c4eb39a942d71282b3b27a6779fe8ab218b",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-step-dark.png",
+      "title": "iPhone: live progress",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 426904,
+      "sha256": "a868619568184ad0bba23ee562ea37f86f22aeecdd7d0a465c357e7773c0c8ed",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-compare-light.png",
+      "title": "iPhone: pricing comparison",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 443991,
+      "sha256": "23d6cb6f756f09bc2d0bbbd7b0a34ba67ef5029ed33588b56828ce785c3716e2",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-compare-dark.png",
+      "title": "iPhone: pricing comparison",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 374942,
+      "sha256": "c51be7780b7c4156b569de082f06e8e087157f50cdb6658a9604c8f43d217ee0",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-done-light.png",
+      "title": "iPhone: completed task",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 474088,
+      "sha256": "adc45309587bc519c73f33e8c62eedca118bc88073944b2b1b2ae7e63913bef7",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-done-dark.png",
+      "title": "iPhone: completed task",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 443346,
+      "sha256": "1c1e7924ac53d4fbbccc8b53041a08f3f5485340571924ba7975c18b872dc328",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-replay-light.png",
+      "title": "iPhone: replay sheet",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 486134,
+      "sha256": "24fe8f8180eb44195fa95dd00593e7ef3ce297b2a7795cc2a7af9e3e6f6ae579",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "web-use/phone-web-replay-dark.png",
+      "title": "iPhone: replay sheet",
+      "status": "Review capture notes",
+      "note": "See Web Use notes below.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 457843,
+      "sha256": "c8eb78ceb2977429fcfa77e209cc58426ffa40763d8ce8901c48c6f621e67a73",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-knowledge-light.png",
+      "title": "Project documents",
+      "status": "Ready",
+      "note": "Acme Corp pilot document list with the PDF enabled. Both themes. The project overview is also available in both themes.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 105836,
+      "sha256": "f517978f762c4c8863c39497ed598d5b13696173f68e08beb7184cb0852f17e1",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-knowledge-dark.png",
+      "title": "Project documents",
+      "status": "Ready",
+      "note": "Acme Corp pilot document list with the PDF enabled. Both themes. The project overview is also available in both themes.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 105245,
+      "sha256": "f90161bb62f3fb01ea54ab191ff64d6c845a8eec84a567d28c681bd907102d28",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-pdf-preview-light.png",
+      "title": "PDF content",
+      "status": "Ready",
+      "note": "The real app’s extracted text preview of Acme_rollout_v3.pdf. Both themes. This is not a rendered PDF page.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 270811,
+      "sha256": "d13e2880fbaf7a0eb0849201f3646a0fa29538e2e2c35bb9b16ada7d08795d7a",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-project-pdf-preview-dark.png",
+      "title": "PDF content",
+      "status": "Ready",
+      "note": "The real app’s extracted text preview of Acme_rollout_v3.pdf. Both themes. This is not a rendered PDF page.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 265747,
+      "sha256": "14f437d22cfb39c46f35deb9c64b9a045059df423db86454a4ba62570bbf25cf",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-models-text-light.png",
+      "title": "Text model browser",
+      "status": "Ready",
+      "note": "Real model catalogue with MiniCPM, Gemma and Qwen. Both themes.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 421782,
+      "sha256": "d4c2ff7467051f5d37715ec665620f653141d3ebca63bfa79a93d83a19d71473",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-models-text-dark.png",
+      "title": "Text model browser",
+      "status": "Ready",
+      "note": "Real model catalogue with MiniCPM, Gemma and Qwen. Both themes.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 376652,
+      "sha256": "07ef8d9b4f84ba28631739c6b18639097f9f5b8959ae4b3020d422fe7b85124c",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "phone-models-download-dark.png",
+      "title": "Model download progress",
+      "status": "Dark only",
+      "note": "Real Qwen 3.5 0.8B download at 59%. Dark only; the light progress capture is still needed.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 368582,
+      "sha256": "219881e8f685fdfccd2251fe2ca65a0b91cb81478713a08cb41c0d08fb66a0fe",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "mobile-sequences/chat-ios-1-light.png",
+      "title": "Chat start",
+      "status": "Ready",
+      "note": "Native composer with “Draft a reply to Sam about the pilot date” typed in the Acme Corp pilot project. Both themes show the same content, 9:41, full battery and Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 266082,
+      "sha256": "e5f82fae07dcb34c557748b0abf75eea97cbec677c8b763e75e27ad2bed03de3",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "mobile-sequences/chat-ios-1-dark.png",
+      "title": "Chat start",
+      "status": "Ready",
+      "note": "Native composer with “Draft a reply to Sam about the pilot date” typed in the Acme Corp pilot project. Both themes show the same content, 9:41, full battery and Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 254185,
+      "sha256": "ddc379226d323dfea41ac3a41247058c87fa1ec99b9f98c7e5e7512ef05951b2",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "mobile-sequences/chat-work-done-light.png",
+      "title": "Chat — Work done expanded",
+      "status": "Review before use",
+      "note": "Native Work done expanded: thought previews and knowledge-base tool calls. Light only. The reply continues below the viewport. Review before use; this is an extra view, not a streaming capture.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 457750,
+      "sha256": "e251b735d2af30ef2fd32aa23cff147e474c060a5551f7ac7e7e11aaa4e68dc1",
+      "source": "Native app screenshot"
+    },
+    {
+      "file": "mobile-sequences/chat-ios-2-light.png",
+      "title": "Chat — reply in progress",
+      "status": "Ready",
+      "note": "Partial reply with the native Working panel expanded. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 318854,
+      "sha256": "fadf46a4a87c6c995a1b73fa854402e880e801fdf01199d7f24256dba604b03d",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/chat-ios-2-dark.png",
+      "title": "Chat — reply in progress",
+      "status": "Ready",
+      "note": "Partial reply with the native Working panel expanded. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 266513,
+      "sha256": "e750fe4e438fae4f95c987d830f7ce59d5c7fdb13d01e9abd2b2b10a54812265",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/tools-ios-2-light.png",
+      "title": "Tools — calculator running",
+      "status": "Ready",
+      "note": "Native calculator progress: 40 × 30. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 181179,
+      "sha256": "276fa72e08634fab6f82012aa317f79f0a12a2df1fa90479c3c603f52f44245f",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/tools-ios-2-dark.png",
+      "title": "Tools — calculator running",
+      "status": "Ready",
+      "note": "Native calculator progress: 40 × 30. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 158440,
+      "sha256": "2abfa11437e54054b16640f96d06a74e98d5a19d8d486cc7d25c47093f42c7f0",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/vision-ios-2-light.png",
+      "title": "Vision — reading a receipt",
+      "status": "Ready",
+      "note": "Synthetic receipt attached; native Thinking panel visible. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 389289,
+      "sha256": "ccf29588446a83edde1f0e9c5e7bdc2661f23694d5f51f69a3335d6787442495",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/vision-ios-2-dark.png",
+      "title": "Vision — reading a receipt",
+      "status": "Ready",
+      "note": "Synthetic receipt attached; native Thinking panel visible. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 321984,
+      "sha256": "d2ca2241a25d46dd4d0b9e5f363dd60da960f4fbc29a5c4a3f1d14067dae352e",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-3-light.png",
+      "title": "Dictation — sent text and reply",
+      "status": "Ready",
+      "note": "Seeded transcribed text and the matching reply. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 252999,
+      "sha256": "7074cef550d3aa2ff020960a3bc2ec489eda99bacb19ad2c6393c0ad408309ce",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-3-dark.png",
+      "title": "Dictation — sent text and reply",
+      "status": "Ready",
+      "note": "Seeded transcribed text and the matching reply. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 216738,
+      "sha256": "f43e61657c734e9f463398d764ed3c1f530ef3286793a332363ce601e3d2fc15",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/larger-ios-3-light.png",
+      "title": "Larger models — reply from Alex’s Mac",
+      "status": "Ready",
+      "note": "Generation details show Qwen 3.5 9B · Alex’s Mac. Attribution is seeded demo data, not evidence of a live remote run. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 306353,
+      "sha256": "7eced85f8bec9f66af45aca0c27efdb84b7a217bb38e2d286e1e409e6f3ff70c",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/larger-ios-3-dark.png",
+      "title": "Larger models — reply from Alex’s Mac",
+      "status": "Ready",
+      "note": "Generation details show Qwen 3.5 9B · Alex’s Mac. Attribution is seeded demo data, not evidence of a live remote run. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 260981,
+      "sha256": "49c6ed3c06a0062f3f5753b475696eb357dc7179ed52cfbedc37784f13808a21",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-1-light.png",
+      "title": "Dictation — recording",
+      "status": "Ready",
+      "note": "Native recording indicator and microphone control. This build shows a recording dot, not a waveform. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 202967,
+      "sha256": "e8ae3710b5f90f85cd11a11dbc7c653e5cbbeefaddd2ca661223915602d45c66",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-1-dark.png",
+      "title": "Dictation — recording",
+      "status": "Ready",
+      "note": "Native recording indicator and microphone control. This build shows a recording dot, not a waveform. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 189255,
+      "sha256": "2e7a7a6b512d72091d35ae5727485cc30f4cf2ba0f64e72fdd445b0eed59a083",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-2-light.png",
+      "title": "Dictation — transcript in composer",
+      "status": "Ready",
+      "note": "Synthetic transcript in the native composer, before sending. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 267523,
+      "sha256": "5d36164ab101f5e04f03c4c9ae0b332ed6a62c306ad565509571c6ada94ea366",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/voice-ios-2-dark.png",
+      "title": "Dictation — transcript in composer",
+      "status": "Ready",
+      "note": "Synthetic transcript in the native composer, before sending. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 255421,
+      "sha256": "60317334cc00252e822836ef73026121444a4ab99828d857d325c01356dabba6",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/images-ios-1-light.png",
+      "title": "Images — prompt typed",
+      "status": "Ready",
+      "note": "Requested lighthouse prompt in the native composer, before sending. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 258429,
+      "sha256": "05a2a22793c1fbd3f78254f485d2fed593e574afd9b52e6105cf399a51c07ee5",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/images-ios-1-dark.png",
+      "title": "Images — prompt typed",
+      "status": "Ready",
+      "note": "Requested lighthouse prompt in the native composer, before sending. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 247329,
+      "sha256": "b68b50af696297e60c966d30977e1659eb00c6592dbffc3750accfb0a9efc07a",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/vision-ios-1-light.png",
+      "title": "Vision — receipt attached",
+      "status": "Ready",
+      "note": "The synthetic receipt is attached before sending the question. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 272141,
+      "sha256": "6b6cd5b102338e07838d8b96b70efe0a522254c50a1db7a9ee706b90b0363212",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/vision-ios-1-dark.png",
+      "title": "Vision — receipt attached",
+      "status": "Ready",
+      "note": "The synthetic receipt is attached before sending the question. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 260138,
+      "sha256": "49a821723e7d363d5e5b0ebe1e9a8778389662a62186c9aac338ec87ec22b7d6",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/personas-ios-1-light.png",
+      "title": "Global model instructions — superseded for Projects",
+      "status": "Review",
+      "note": "Use projects-ios-1 instead. This image shows global model settings.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 218880,
+      "sha256": "4ac082c5ec8da51f68a56306c1de6efa0139a4883c0f638818c5893f73c74eb8",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/personas-ios-1-dark.png",
+      "title": "Global model instructions — superseded for Projects",
+      "status": "Review",
+      "note": "Use projects-ios-1 instead. This image shows global model settings.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 217711,
+      "sha256": "c06aed637dcd14c0342507a321db170a4c731b2521853bd4ed23283f1be5d1b1",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/personas-ios-2-light.png",
+      "title": "Voice settings — Sarah",
+      "status": "Ready",
+      "note": "Global Voice settings. Not a project-specific control.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 241372,
+      "sha256": "290cdf0980786552db4af1beb4fab896f025be8659b8042d25007f620e2872bd",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "mobile-sequences/personas-ios-2-dark.png",
+      "title": "Voice settings — Sarah",
+      "status": "Ready",
+      "note": "Global Voice settings. Not a project-specific control.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 215052,
+      "sha256": "0695f97b29ba85a6233a96dc77dde30b5825d9eeb9fe08c49b5e5167c5c7fed3",
+      "source": "Native app screenshot — seeded synthetic records"
+    },
+    {
+      "file": "desktop-remote-settings-light.png",
+      "title": "Desktop Remote settings",
+      "status": "Ready",
+      "note": "Native capture from an isolated synthetic profile. Saved Acme private models server, Qwen 3.5 9B. No key saved. Active means selected; no live connection is claimed. The native settings panel covers part of the background chat.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 471728,
+      "sha256": "83f4395cf4d37642625de53cba5d154519ded93503d39abf1c123523f4af3a59",
+      "source": "Native desktop capture — saved synthetic server"
+    },
+    {
+      "file": "desktop-remote-settings-dark.png",
+      "title": "Desktop Remote settings",
+      "status": "Ready",
+      "note": "Native capture from an isolated synthetic profile. Saved Acme private models server, Qwen 3.5 9B. No key saved. Active means selected; no live connection is claimed. The native settings panel covers part of the background chat.",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "bytes": 462285,
+      "sha256": "6264b75c793ef10d251f1f749140c377e1396265e65824070a410e3b62e56ee1",
+      "source": "Native desktop capture — saved synthetic server"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-1-light.png",
+      "title": "Projects — instructions",
+      "source": "Native app screenshot — seeded synthetic records",
+      "status": "Ready",
+      "note": "Saved instructions in the Acme pilot project editor. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 184727,
+      "sha256": "c39b4f8ac4fc078ca900e6423049d556fb9f7bd4571aff09813ff3f1fb2a831a"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-1-dark.png",
+      "title": "Projects — instructions",
+      "source": "Native app screenshot — seeded synthetic records",
+      "status": "Ready",
+      "note": "Saved instructions in the Acme pilot project editor. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 182679,
+      "sha256": "0be08003942d4d2884c9bcd22923fb8262db8ac2258f25d278452f3b0f10ab9f"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-3-light.png",
+      "title": "Projects — saved context",
+      "source": "Native app screenshot — seeded synthetic records",
+      "status": "Ready",
+      "note": "The Acme pilot project with its saved documents and chats. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 295451,
+      "sha256": "ccaa9104bc256f88373986bda23aebe6f453aaabe9f05b51b2777b38575168cd"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-3-dark.png",
+      "title": "Projects — saved context",
+      "source": "Native app screenshot — seeded synthetic records",
+      "status": "Ready",
+      "note": "The Acme pilot project with its saved documents and chats. Native app capture of saved synthetic records. 9:41, full battery, Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 270553,
+      "sha256": "955a8bd22fa25c4d0d9e72e24ed8aca210c4d6a913886ef2f9108aa333ff6a88"
+    },
+    {
+      "file": "mobile-sequences/tools-ios-1-light.png",
+      "title": "Tools — question sent",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Saved synthetic question before the calculator reply. Native app, 9:41, full battery and Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 176963,
+      "sha256": "6cdb8bb33af7acd3518310d8b81de3bc88aed5e285c5cde905985be7c77572dd"
+    },
+    {
+      "file": "mobile-sequences/tools-ios-1-dark.png",
+      "title": "Tools — question sent",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Saved synthetic question before the calculator reply. Native app, 9:41, full battery and Wi-Fi.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 153102,
+      "sha256": "d9522dfb4441f649d68db1dc0750111dd0bfc27b6d5cdb9cda364f8b781671c8"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-1-light.png",
+      "title": "Approve — draft awaiting an answer",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Saved synthetic draft signed Alex, asking whether to send. This is the chat draft, not an approval sheet. No message was sent.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 283092,
+      "sha256": "abc4b92622dc5296a734af4a88fec1c51e99a0c00bb02f5a835f624ff7546cef"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-1-dark.png",
+      "title": "Approve — draft awaiting an answer",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Saved synthetic draft signed Alex, asking whether to send. This is the chat draft, not an approval sheet. No message was sent.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 241010,
+      "sha256": "bea1f75d914612465aba2a71ac9a70647af035a7c2cf7a99ca4db93be9d95adb"
+    },
+    {
+      "file": "mobile-sequences/sync-ios-3-light.png",
+      "title": "Sync — an item arriving from Alex’s Mac",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Seeded native Sync Activity: Acme rollout PDF receiving at 75%, and Pilot scope received. Both are saved synthetic records. No live transfer was run.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 162416,
+      "sha256": "24a3ea64101b2be38e385e6dba117490c9d8f6573e6450488735b18dc235a4bd"
+    },
+    {
+      "file": "mobile-sequences/sync-ios-3-dark.png",
+      "title": "Sync — an item arriving from Alex’s Mac",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Seeded native Sync Activity: Acme rollout PDF receiving at 75%, and Pilot scope received. Both are saved synthetic records. No live transfer was run.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 151617,
+      "sha256": "473b7aed135964b86a8d6f04199f61bd1e4e2911d2f554b37c9eb0b32582d207"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-2-light.png",
+      "title": "Offline — saved question",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native screenshot of saved synthetic data. Wi-Fi stays on; icon removal is deferred as requested. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 183477,
+      "sha256": "ff890b5e3b7852ed85bdd96e482f70118038cf09a7c2b0c633fe7d56c5c63f14"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-2-dark.png",
+      "title": "Offline — saved question",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native screenshot of saved synthetic data. Wi-Fi stays on; icon removal is deferred as requested. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 160025,
+      "sha256": "43a66f31ef6856a401cead465ef7317ca08a0083374fc8f930cd837df7b5fb29"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-3-light.png",
+      "title": "Offline — saved answer",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native screenshot of saved synthetic data. Wi-Fi stays on; icon removal is deferred as requested. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 289403,
+      "sha256": "abb7ff176af7ace028610d72516f2d34ce2806bb6bf0c659d11e307582dd2280"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-3-dark.png",
+      "title": "Offline — saved answer",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native screenshot of saved synthetic data. Wi-Fi stays on; icon removal is deferred as requested. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 246947,
+      "sha256": "9dabb841474e34278875cd1702c3bca9c7103663581231b85bf22c820736ca25"
+    },
+    {
+      "file": "mobile-sequences/sync-ios-1-light.png",
+      "title": "Sync — pairing QR",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native pairing sheet. Native clock accepted by user. A connection warning is faintly visible behind the sheet; review before use.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 306511,
+      "sha256": "97b14313dfe5c3db7b4ff64870d3b2ef60d33f9480f5dd3b5b19669323adf957"
+    },
+    {
+      "file": "mobile-sequences/sync-ios-1-dark.png",
+      "title": "Sync — pairing QR",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native pairing sheet. Native clock accepted by user. A connection warning is faintly visible behind the sheet; review before use.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 290132,
+      "sha256": "207557ade99d8deafbfd552e0e51102c67fe0848c6371d09a62e3c85649fe4d2"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-1-light.png",
+      "title": "Offline — local model selected",
+      "source": "Native iPhone capture",
+      "status": "Review",
+      "note": "Alternative offline start: native local-model picker with Qwen 3.5 0.8B selected. Wi-Fi stayed on. This replaces the requested Control Centre view for review. Native clock accepted; Wi-Fi icon edit deferred.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 390335,
+      "sha256": "e2b7997b6478accdffa2b8a95052347290512ccc301330b0d0531bb138e09f28"
+    },
+    {
+      "file": "mobile-sequences/offline-ios-1-dark.png",
+      "title": "Offline — local model selected",
+      "source": "Native iPhone capture",
+      "status": "Review",
+      "note": "Alternative offline start: native local-model picker with Qwen 3.5 0.8B selected. Wi-Fi stayed on. This replaces the requested Control Centre view for review. Native clock accepted; Wi-Fi icon edit deferred.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 350626,
+      "sha256": "111cb77093d6036b13abbc67caf1b65d38cfd8facc9df07ab4992473b5cf6b93"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-2-light.png",
+      "title": "Projects — voice picker in an Acme chat",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native voice picker opened from an Acme Corp pilot chat, with Sarah selected. This is the app-wide voice setting, not a project-specific voice setting. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 469693,
+      "sha256": "2019ed3f29afa7c06265feb437b05b057de5ecc3acc79d16c35e313d0fdcf6e3"
+    },
+    {
+      "file": "mobile-sequences/projects-ios-2-dark.png",
+      "title": "Projects — voice picker in an Acme chat",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native voice picker opened from an Acme Corp pilot chat, with Sarah selected. This is the app-wide voice setting, not a project-specific voice setting. Native clock accepted by user.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 326597,
+      "sha256": "7a9ace38fbb97161a61666e577c1888eb88db3bb661f1c9ec8ee3acdcfbd9902"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-2-light.png",
+      "title": "Email draft handoff in progress",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native app rendering of a seeded send_email tool record with synthetic Acme data. This replaces the requested approval sheet with the current draft handoff, as approved. No email was sent. Native daytime clock retained.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 210322,
+      "sha256": "37e9ad4a5af40778d3b5f35a3a8c035f44d84bebdfe34345cef895ff70288208"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-2-dark.png",
+      "title": "Email draft handoff in progress",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native app rendering of a seeded send_email tool record with synthetic Acme data. This replaces the requested approval sheet with the current draft handoff, as approved. No email was sent. Native daytime clock retained.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 184845,
+      "sha256": "5f5b29e8ad26b14540d0f1a57877ca09ddc87a335f596f175e45f6f77cb3e815"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-3-light.png",
+      "title": "Email draft ready for review",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native app rendering of the seeded completed draft tool record, with Work done expanded. The reply asks Alex to review the draft. This is synthetic data; no mail app was opened and no email was sent during capture. Native daytime clock retained.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 309501,
+      "sha256": "c4d69da84f3af1f9806fba18fc046ce1d040f2d89a6a14c97a0bca3384e0602c"
+    },
+    {
+      "file": "mobile-sequences/approve-ios-3-dark.png",
+      "title": "Email draft ready for review",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native app rendering of the seeded completed draft tool record, with Work done expanded. The reply asks Alex to review the draft. This is synthetic data; no mail app was opened and no email was sent during capture. Native daytime clock retained.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 268031,
+      "sha256": "335a8d51e229d9d122e653896086cf30cadb7dfa5a0650f2e4aa2f12038723fd"
+    },
+    {
+      "file": "mobile-sequences/images-ios-2-light.png",
+      "title": "Local image generation progress",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Review",
+      "note": "Native captures from the approved local SD 2.1 run with the synthetic lighthouse prompt. Dark shows generation at 38/50 with the full enhanced prompt. Light shows prompt enhancement in progress. The phases differ; the light frame needs review before treating these as a matched pair. The run finished on the phone. No paid API was used. Native daytime clock retained. Review: enhancement phase, not the numerical generation phase shown in dark.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 349152,
+      "sha256": "4889fb65be9c12281b714f11d7f4e49f5a2d2dc43ce9bb118dd04ca019914b61"
+    },
+    {
+      "file": "mobile-sequences/images-ios-2-dark.png",
+      "title": "Local image generation progress",
+      "source": "Native iPhone capture of synthetic demo data",
+      "status": "Ready",
+      "note": "Native captures from the approved local SD 2.1 run with the synthetic lighthouse prompt. Dark shows generation at 38/50 with the full enhanced prompt. Light shows prompt enhancement in progress. The phases differ; the light frame needs review before treating these as a matched pair. The run finished on the phone. No paid API was used. Native daytime clock retained.",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "bytes": 316677,
+      "sha256": "8947440985ee0cd140ee6ec2e33d6806c47b3749abfd9db684a14e8f505e070b"
+    }
+  ],
+  "pending": [
+    "images: Review: 2 light",
+    "offline: Review: 1 light, 1 dark, 2 light, 2 dark, 3 light, 3 dark",
+    "sync: Review: 1 light, 1 dark"
+  ],
+  "web_use_notes": [
+    "The single-page pricing brief is captured. Leafline Team costs $10 per user per month: 40 users cost $400 per month.",
+    "All selected files were visually inspected. Native app rendering and normal scroll boundaries remain unchanged.",
+    "Live light and dark views use different moments or runs; their step numbers can differ.",
+    "web-plan-dark.png and web-step-dark.png are the same frame, suitable for either position.",
+    "The Mac comparison table has cramped formatting in the app. The iPhone table is clearer.",
+    "The iPhone composer displays its current image-mode placeholder.",
+    "Raw sequence files are not reviewed for publication and contain settings, navigation, errors and rejected frames.",
+    "OGAD cursor is allowed. No Codex or other external cursor is visible in the selected captures."
+  ],
+  "web_use_skipped": [
+    "Sign-in and form submission were removed from the brief by the user.",
+    "The earlier three-site comparison stalled during visual decision review; the simpler single-page brief was used.",
+    "A separate iPhone Task History screen was not found. iPhone task cards and replay views were captured instead."
+  ],
+  "integration_notes": [
+    "Use only files listed in this manifest. Other PNGs in this folder include old generated images and rejected captures.",
+    "All mobile PNGs are native 1320 × 2868. All selected Mac PNGs are native 3024 × 1954.",
+    "Do not stretch or crop the screen edges. The source images have the required device aspect ratios.",
+    "Website source and live assets were not changed by this handoff.",
+    "New voice screenshots are phone-voice-conversation-*.png, not the older generated phone-voice-*.png.",
+    "Web Use has 18 named files but 17 unique frames: web-plan-dark and web-step-dark are identical.",
+    "The project PDF overview is ready in both themes. Remote and Web Use need the documented content review."
+  ],
+  "sequence_brief_audit": {
+    "brief_date": "2026-10-08",
+    "seconds_per_screen": 3,
+    "required_new_frames": 46,
+    "ready_new_frames": 37,
+    "remaining_new_frames": 9,
+    "accepted_existing": [
+      "projects",
+      "voicemode",
+      "models lists",
+      "sync connected",
+      "larger settings and model list",
+      "chat/images/vision/tools result screens"
+    ],
+    "optional_project_overview": "Fixed in app; both native themes ready",
+    "features": [
+      {
+        "feature": "chat",
+        "ready": "1 light, 1 dark, 2 light, 2 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "images",
+        "ready": "1 light, 1 dark, 2 dark",
+        "remaining": "Review: 2 light",
+        "remaining_pngs": 1,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "vision",
+        "ready": "1 light, 1 dark, 2 light, 2 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "voice",
+        "ready": "1 light, 1 dark, 2 light, 2 dark, 3 light, 3 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "tools",
+        "ready": "1 light, 1 dark, 2 light, 2 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "larger",
+        "ready": "3 light, 3 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "offline",
+        "ready": "None",
+        "remaining": "Review: 1 light, 1 dark, 2 light, 2 dark, 3 light, 3 dark",
+        "remaining_pngs": 6,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "projects",
+        "ready": "1 light, 1 dark, 2 light, 2 dark, 3 light, 3 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "approve",
+        "ready": "1 light, 1 dark, 2 light, 2 dark, 3 light, 3 dark",
+        "remaining": "None",
+        "remaining_pngs": 0,
+        "missing_pngs": 0
+      },
+      {
+        "feature": "sync",
+        "ready": "3 light, 3 dark",
+        "remaining": "Review: 1 light, 1 dark",
+        "remaining_pngs": 2,
+        "missing_pngs": 0
+      }
+    ],
+    "capture_block": null,
+    "remaining_details": {
+      "images": "Both frames captured. Dark shows numerical generation progress at 38/50; light shows prompt enhancement and needs review as a different phase. The approved local run finished.",
+      "offline": "All three steps captured in both themes. Step 1 uses the native local-model picker instead of Control Centre; review this alternative. Wi-Fi icon edit deferred. Native clock accepted.",
+      "projects": "Both themes captured: native Sarah voice picker opened from a project chat. This is an app-wide voice setting.",
+      "approve": "All six frames captured. Steps 2 and 3 use seeded native email draft tool records, as approved. No email was sent. This app has no in-app email approval sheet or sent confirmation.",
+      "sync": "Pairing captured in both themes. Review the faint unreachable-device warning behind the sheet. Native clock accepted."
+    },
+    "review_new_frames": 9,
+    "missing_new_frames": 0,
+    "clock_requirement": "Waived by user. Keep the native clock; do not delay captures to change it.",
+    "captured_new_frames": 46
+  },
+  "desktop_remote_files": 2
+}

@@ -1,0 +1,2 @@
+[["Master password","password",null],["Confirm password","password",null]]
+no main

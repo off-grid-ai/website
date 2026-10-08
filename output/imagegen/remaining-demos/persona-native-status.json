@@ -1,0 +1,68 @@
+{
+  "status": "Six native persona captures saved",
+  "files": [
+    {
+      "file": "phone-sync-light.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "light"
+    },
+    {
+      "file": "phone-sync-dark.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "dark"
+    },
+    {
+      "file": "phone-remote-light.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "light"
+    },
+    {
+      "file": "phone-remote-dark.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "dark"
+    },
+    {
+      "file": "phone-chat-light.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "light"
+    },
+    {
+      "file": "phone-chat-dark.png",
+      "size": [
+        1320,
+        2868
+      ],
+      "source": "Native iPhone capture",
+      "theme": "dark"
+    }
+  ],
+  "notes": [
+    "All six files are native captures from the physical iPhone. No generated or edited UI is used.",
+    "Existing synthetic demo chat Reply to Sam was used, signed Alex, with 9:06 AM message timestamps. Status bar captures were taken between 12:48 PM and 1 PM.",
+    "Sync displays Alex's iPhone and Alex's Mac, 2 of 5 devices saved and 1 connected. Pairing code is included with user approval; user will rotate it after capture.",
+    "With user approval, removed the old 192.168.1.90 remote gateway and duplicate 192.168.1.34 gateway, keeping Alex's Mac at the same working endpoint.",
+    "With user approval, evicted OP Nord 5 - Prod through the Sync UI. The app states this frees its licensed seat and ends Sync trust; licence removal on the offline device remains queued.",
+    "Remote shows the real app's Ollama and LM Studio scan switches, both off. These controls cannot be hidden by synthetic data. This differs from the old brief; review before website use.",
+    "Every image was visually inspected and its dimensions checked. No app source, website source, tests, commits or deployment changed."
+  ]
+}

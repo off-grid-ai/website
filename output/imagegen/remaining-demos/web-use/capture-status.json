@@ -1,0 +1,237 @@
+{
+  "status": "Web Use single-page pricing capture set saved; see limitations and skipped views",
+  "updated": "2026-10-08",
+  "selected_file_count": 18,
+  "selected_files": [
+    {
+      "file": "web-tasks-light.png",
+      "title": "Mac: Task History",
+      "theme": "light",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "7451b54fe526b1310ea556da1672f5277f5ae8b98725a49d1a5917c128474a43"
+    },
+    {
+      "file": "web-tasks-dark.png",
+      "title": "Mac: Task History",
+      "theme": "dark",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "0216fd86e83c912010a78692e47ef388d4c568c05d81442829173002a20d6a7b"
+    },
+    {
+      "file": "web-plan-light.png",
+      "title": "Mac: plan and pricing page",
+      "theme": "light",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "44be04f09857b6481b203d095eba163538eea81dbc637705a5cb73942129e4d1"
+    },
+    {
+      "file": "web-plan-dark.png",
+      "title": "Mac: plan and pricing page",
+      "theme": "dark",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "20493d272048cbf5ebabc956c1191f0b7d3a4c27cbf9ef6ccbaf2f0247f63fed"
+    },
+    {
+      "file": "web-step-light.png",
+      "title": "Mac: live progress",
+      "theme": "light",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "1a757b9a74e0513b700bc54f7459b26728870646a39a3b9667dd72255942e47d"
+    },
+    {
+      "file": "web-step-dark.png",
+      "title": "Mac: live progress",
+      "theme": "dark",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "20493d272048cbf5ebabc956c1191f0b7d3a4c27cbf9ef6ccbaf2f0247f63fed"
+    },
+    {
+      "file": "web-compare-light.png",
+      "title": "Mac: pricing comparison",
+      "theme": "light",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "3f34a3cb75145eb2cf8245fd9bc942a3cd34da073e3bb54856b412e046d69908"
+    },
+    {
+      "file": "web-compare-dark.png",
+      "title": "Mac: pricing comparison",
+      "theme": "dark",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "9d8b2c7b391215cece2be400bcdb2345d5076b62399ca65c508c7b674174c6c0"
+    },
+    {
+      "file": "web-done-light.png",
+      "title": "Mac: completed task",
+      "theme": "light",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "634a0cacc5fb01eb77b9228480a68ec7be6ffda8bafb045906bc82fd94cdd2d4"
+    },
+    {
+      "file": "web-done-dark.png",
+      "title": "Mac: completed task",
+      "theme": "dark",
+      "dimensions": [
+        3024,
+        1954
+      ],
+      "sha256": "ca9ba1d8889f76f9f2407657831bde807584f548329915caa79795b72991b58c"
+    },
+    {
+      "file": "phone-web-step-light.png",
+      "title": "iPhone: live progress",
+      "theme": "light",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "d7c4da828917f95f1849be1658ef6c4eb39a942d71282b3b27a6779fe8ab218b"
+    },
+    {
+      "file": "phone-web-step-dark.png",
+      "title": "iPhone: live progress",
+      "theme": "dark",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "a868619568184ad0bba23ee562ea37f86f22aeecdd7d0a465c357e7773c0c8ed"
+    },
+    {
+      "file": "phone-web-compare-light.png",
+      "title": "iPhone: pricing comparison",
+      "theme": "light",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "23d6cb6f756f09bc2d0bbbd7b0a34ba67ef5029ed33588b56828ce785c3716e2"
+    },
+    {
+      "file": "phone-web-compare-dark.png",
+      "title": "iPhone: pricing comparison",
+      "theme": "dark",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "c51be7780b7c4156b569de082f06e8e087157f50cdb6658a9604c8f43d217ee0"
+    },
+    {
+      "file": "phone-web-done-light.png",
+      "title": "iPhone: completed task",
+      "theme": "light",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "adc45309587bc519c73f33e8c62eedca118bc88073944b2b1b2ae7e63913bef7"
+    },
+    {
+      "file": "phone-web-done-dark.png",
+      "title": "iPhone: completed task",
+      "theme": "dark",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "1c1e7924ac53d4fbbccc8b53041a08f3f5485340571924ba7975c18b872dc328"
+    },
+    {
+      "file": "phone-web-replay-light.png",
+      "title": "iPhone: replay sheet",
+      "theme": "light",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "24fe8f8180eb44195fa95dd00593e7ef3ce297b2a7795cc2a7af9e3e6f6ae579"
+    },
+    {
+      "file": "phone-web-replay-dark.png",
+      "title": "iPhone: replay sheet",
+      "theme": "dark",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "sha256": "c8eb78ceb2977429fcfa77e209cc58426ffa40763d8ce8901c48c6f621e67a73"
+    }
+  ],
+  "sequences": [
+    {
+      "directory": "sequence/2026-10-08T06-15-48",
+      "mac_frames": 180,
+      "iphone_frames": 180
+    },
+    {
+      "directory": "sequence/2026-10-08T06-29-14",
+      "mac_frames": 180,
+      "iphone_frames": 180
+    },
+    {
+      "directory": "sequence/2026-10-08T06-38-26",
+      "mac_frames": 180,
+      "iphone_frames": 180
+    },
+    {
+      "directory": "sequence/2026-10-08T06-47-56",
+      "mac_frames": 60,
+      "iphone_frames": 60
+    },
+    {
+      "directory": "sequence/2026-10-08T06-50-59",
+      "mac_frames": 60,
+      "iphone_frames": 60
+    }
+  ],
+  "mac_frames": 660,
+  "iphone_frames": 660,
+  "notes": [
+    "The single-page pricing brief is captured. Leafline Team costs $10 per user per month: 40 users cost $400 per month.",
+    "All selected files were visually inspected. Native app rendering and normal scroll boundaries remain unchanged.",
+    "Live light and dark views use different moments or runs; their step numbers can differ.",
+    "web-plan-dark.png and web-step-dark.png are the same frame, suitable for either position.",
+    "The Mac comparison table has cramped formatting in the app. The iPhone table is clearer.",
+    "The iPhone composer displays its current image-mode placeholder.",
+    "Raw sequence files are not reviewed for publication and contain settings, navigation, errors and rejected frames.",
+    "OGAD cursor is allowed. No Codex or other external cursor is visible in the selected captures."
+  ],
+  "skipped": [
+    "Sign-in and form submission were removed from the brief by the user.",
+    "The earlier three-site comparison stalled during visual decision review; the simpler single-page brief was used.",
+    "A separate iPhone Task History screen was not found. iPhone task cards and replay views were captured instead."
+  ],
+  "excluded_root_files": [
+    "phone-web-plan-light.png",
+    "phone-web-plan-dark.png",
+    "web-pricing-done-dark.png"
+  ],
+  "scope": "Web Use only; this does not certify screenshots for every product feature. Website source and deployment were not changed."
+}

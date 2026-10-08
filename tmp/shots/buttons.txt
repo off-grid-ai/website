@@ -1,0 +1,80 @@
+Back
+Discover
+Search
+Day
+Replay
+Reflect
+Work
+Meetings
+Actions
+Entities
+Projects
+Chat
+God
+Tasks
+Voice
+Private Data
+Vault
+Clipboard
+Devices
+System
+Integrations
+Models
+Gateway
+Notifications
+Model server stopped. Open Setup and health.
+Theme: Dark
+Settings
+Mobile app
+Previous day
+Today
+Next day
+Reset layout
+To doView all
+View all
+Hide block
+Toggle done
+Approve Maya’s final Day-view handoffOff Grid AItodaySlack· Oct 7, 2:02 PM
+Off Grid AI
+Open action: Approve Maya’s final Day-view handoff
+Prioritize
+Dismiss
+Toggle done
+Review Tom’s fix for the llama.cpp 9B regressionllama.cpptodaySlack· Oct 7, 1:02 PM
+llama.cpp
+Open action: Review Tom’s fix for the llama.cpp 9B regression
+Prioritize
+Dismiss
+Toggle done
+Reply to Sam about the Helio Labs pilot timelineHelio LabstodaySlack· Oct 7, 12:32 PM
+Helio Labs
+Open action: Reply to Sam about the Helio Labs pilot timeline
+Prioritize
+Dismiss
+Toggle done
+Confirm the Helio pilot success metric with SamHelio LabstomorrowSlack· Oct 7, 2:32 PM
+Helio Labs
+Open action: Confirm the Helio pilot success metric with Sam
+Prioritize
+Dismiss
+Toggle done
+Cut the v0.0.9 release notes with PriyaOff Grid AIthis weekSlack· Oct 7, 1:32 PM
+Off Grid AI
+Open action: Cut the v0.0.9 release notes with Priya
+Prioritize
+Dismiss
+Toggle done
+Send the Q3 board update to Daniel before FridayNorthwind Capitalby FridaySlack· Oct 7, 12:02 PM
+Northwind Capital
+Open action: Send the Q3 board update to Daniel before Friday
+Prioritize
+Dismiss
+Today's meetingsView all
+View all
+Hide block
+Northwind board prep meet.offgrid.example/board-prep
+Toggle prep
+Design review — Day view meet.offgrid.example/design
+Toggle prep
+1:1 with Priya Nair Zoom
+Toggle prep

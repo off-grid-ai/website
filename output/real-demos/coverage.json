@@ -1,0 +1,574 @@
+{
+  "mobile_source": "PR701",
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "phone_size": [
+    1320,
+    2868
+  ],
+  "desktop_size": [
+    3024,
+    1954
+  ],
+  "rule": "Use synthetic content through existing owners. Capture transient states during real actions. No direct state mutation. No branch merge.",
+  "capture_blockers": [
+    "PR701 has no switch to hide developer Sync strip",
+    "React Native development notice appeared during first capture"
+  ],
+  "features": [
+    {
+      "feature": "home",
+      "states": [
+        {
+          "state": "overview",
+          "status": "pending"
+        },
+        {
+          "state": "recent activity",
+          "status": "pending"
+        },
+        {
+          "state": "model summary",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "chat",
+      "states": [
+        {
+          "state": "saved answer",
+          "status": "pending"
+        },
+        {
+          "state": "streaming",
+          "status": "pending"
+        },
+        {
+          "state": "thinking",
+          "status": "pending"
+        },
+        {
+          "state": "queued",
+          "status": "pending"
+        },
+        {
+          "state": "stopped",
+          "status": "pending"
+        },
+        {
+          "state": "retry",
+          "status": "pending"
+        },
+        {
+          "state": "attachments",
+          "status": "pending"
+        },
+        {
+          "state": "model picker",
+          "status": "pending"
+        },
+        {
+          "state": "context controls",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "voice",
+      "states": [
+        {
+          "state": "recording",
+          "status": "pending"
+        },
+        {
+          "state": "transcript",
+          "status": "pending"
+        },
+        {
+          "state": "response playback",
+          "status": "pending"
+        },
+        {
+          "state": "voice picker Sarah",
+          "status": "pending"
+        },
+        {
+          "state": "loading",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "vision",
+      "states": [
+        {
+          "state": "photo attached",
+          "status": "pending"
+        },
+        {
+          "state": "image analysis",
+          "status": "pending"
+        },
+        {
+          "state": "answer",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "dictation",
+      "states": [
+        {
+          "state": "recording",
+          "status": "pending"
+        },
+        {
+          "state": "transcribing",
+          "status": "pending"
+        },
+        {
+          "state": "Spanish text ready",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "projects",
+      "states": [
+        {
+          "state": "project list",
+          "status": "pending"
+        },
+        {
+          "state": "project detail",
+          "status": "pending"
+        },
+        {
+          "state": "PDF preview",
+          "status": "pending"
+        },
+        {
+          "state": "indexing",
+          "status": "pending"
+        },
+        {
+          "state": "PDF answer with citation",
+          "status": "pending"
+        },
+        {
+          "state": "instructions",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "sync",
+      "states": [
+        {
+          "state": "discovery",
+          "status": "pending"
+        },
+        {
+          "state": "pairing",
+          "status": "pending"
+        },
+        {
+          "state": "connected",
+          "status": "pending"
+        },
+        {
+          "state": "disconnected",
+          "status": "pending"
+        },
+        {
+          "state": "reconnecting",
+          "status": "pending"
+        },
+        {
+          "state": "sending",
+          "status": "pending"
+        },
+        {
+          "state": "receiving",
+          "status": "pending"
+        },
+        {
+          "state": "completed",
+          "status": "pending"
+        },
+        {
+          "state": "sharing preferences",
+          "status": "pending"
+        },
+        {
+          "state": "files",
+          "status": "pending"
+        },
+        {
+          "state": "activity",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "clipboard",
+      "states": [
+        {
+          "state": "saved items",
+          "status": "pending"
+        },
+        {
+          "state": "item detail",
+          "status": "pending"
+        },
+        {
+          "state": "shared item",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "remote",
+      "states": [
+        {
+          "state": "connected Mac",
+          "status": "pending"
+        },
+        {
+          "state": "remote model picker",
+          "status": "pending"
+        },
+        {
+          "state": "remote generation",
+          "status": "pending"
+        },
+        {
+          "state": "connection progress",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "computer-use",
+      "states": [
+        {
+          "state": "task plan",
+          "status": "pending"
+        },
+        {
+          "state": "approval",
+          "status": "pending"
+        },
+        {
+          "state": "running",
+          "status": "pending"
+        },
+        {
+          "state": "step progress",
+          "status": "pending"
+        },
+        {
+          "state": "live-view bottom sheet",
+          "status": "pending"
+        },
+        {
+          "state": "complete",
+          "status": "pending"
+        },
+        {
+          "state": "stopped",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "models",
+      "states": [
+        {
+          "state": "text",
+          "status": "pending"
+        },
+        {
+          "state": "image",
+          "status": "pending"
+        },
+        {
+          "state": "voice",
+          "status": "pending"
+        },
+        {
+          "state": "speech",
+          "status": "pending"
+        },
+        {
+          "state": "download progress",
+          "status": "pending"
+        },
+        {
+          "state": "downloaded",
+          "status": "pending"
+        },
+        {
+          "state": "loading",
+          "status": "pending"
+        },
+        {
+          "state": "resident",
+          "status": "pending"
+        },
+        {
+          "state": "unload",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "image-generation",
+      "states": [
+        {
+          "state": "prompt",
+          "status": "pending"
+        },
+        {
+          "state": "loading model",
+          "status": "pending"
+        },
+        {
+          "state": "queued",
+          "status": "pending"
+        },
+        {
+          "state": "generation progress",
+          "status": "pending"
+        },
+        {
+          "state": "completed image",
+          "status": "pending"
+        },
+        {
+          "state": "stop",
+          "status": "pending"
+        },
+        {
+          "state": "retry",
+          "status": "pending"
+        },
+        {
+          "state": "details",
+          "status": "pending"
+        },
+        {
+          "state": "gallery",
+          "status": "pending"
+        },
+        {
+          "state": "export",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "image-edit",
+      "states": [
+        {
+          "state": "source image",
+          "status": "pending"
+        },
+        {
+          "state": "prompt",
+          "status": "pending"
+        },
+        {
+          "state": "progress",
+          "status": "pending"
+        },
+        {
+          "state": "edited image",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "meetings",
+      "states": [
+        {
+          "state": "in-person recording",
+          "status": "pending"
+        },
+        {
+          "state": "live transcript",
+          "status": "pending"
+        },
+        {
+          "state": "Teams meeting",
+          "status": "pending"
+        },
+        {
+          "state": "summary",
+          "status": "pending"
+        },
+        {
+          "state": "decisions",
+          "status": "pending"
+        },
+        {
+          "state": "playback",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "memory",
+      "states": [
+        {
+          "state": "vault",
+          "status": "pending"
+        },
+        {
+          "state": "search",
+          "status": "pending"
+        },
+        {
+          "state": "entities",
+          "status": "pending"
+        },
+        {
+          "state": "actions",
+          "status": "pending"
+        },
+        {
+          "state": "day",
+          "status": "pending"
+        },
+        {
+          "state": "replay",
+          "status": "pending"
+        },
+        {
+          "state": "reflect",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "integrations",
+      "states": [
+        {
+          "state": "Gmail",
+          "status": "pending"
+        },
+        {
+          "state": "Google Calendar",
+          "status": "pending"
+        },
+        {
+          "state": "Slack",
+          "status": "pending"
+        },
+        {
+          "state": "Linear",
+          "status": "pending"
+        },
+        {
+          "state": "MCP servers",
+          "status": "pending"
+        },
+        {
+          "state": "tools",
+          "status": "pending"
+        },
+        {
+          "state": "tool execution",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "settings",
+      "states": [
+        {
+          "state": "theme",
+          "status": "pending"
+        },
+        {
+          "state": "generation controls",
+          "status": "pending"
+        },
+        {
+          "state": "storage",
+          "status": "pending"
+        },
+        {
+          "state": "device information",
+          "status": "pending"
+        },
+        {
+          "state": "security",
+          "status": "pending"
+        },
+        {
+          "state": "notifications",
+          "status": "pending"
+        },
+        {
+          "state": "Pro",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "backup",
+      "states": [
+        {
+          "state": "backup location",
+          "status": "pending"
+        },
+        {
+          "state": "in progress",
+          "status": "pending"
+        },
+        {
+          "state": "completed",
+          "status": "pending"
+        },
+        {
+          "state": "restore",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "onboarding",
+      "states": [
+        {
+          "state": "welcome",
+          "status": "pending"
+        },
+        {
+          "state": "setup choices",
+          "status": "pending"
+        },
+        {
+          "state": "model download",
+          "status": "pending"
+        },
+        {
+          "state": "ready",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "feature": "video",
+      "states": [
+        {
+          "state": "not available on current PR701; retained on PR697",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}
