@@ -1767,3 +1767,4 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .scene-roll .scene-thumb{width:30px!important;height:30px!important;flex:none}
   .screenshot-roll .scene-roll .scene-thumb{width:36px!important;height:36px!important}
 }
+.wt-shot-fade{position:absolute;inset:0}
