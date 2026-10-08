@@ -28,3 +28,12 @@
 .ft-others a:hover{border-color:var(--og-primary)}
 .ft-others small{color:var(--og-text-muted);font-size:12.5px}
 @media(max-width:860px){.ft-articles{grid-template-columns:1fr}}
+/* Phones: the hero and closing section stay to a few short lines; guide links read lighter. */
+@media(max-width:520px){
+  .ft-hero .pp-h1{font-size:30px!important}
+  .ft-hero-in{gap:12px;padding-top:12px;padding-bottom:24px}
+  .ft-ctas a{height:42px!important;padding:0 18px!important}
+  .pp-final .final-h{font-size:30px!important}
+  .ft-articles a{padding:12px 14px;font-size:13px}
+  .ft-others a{padding:12px 14px}
+}

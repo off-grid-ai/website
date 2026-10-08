@@ -6,7 +6,7 @@ export const FEATURES = [
   {
     slug: 'meetings-and-memory', name: 'Meetings & memory', note: 'Calls, screens and your day, remembered',
     kicker: 'OFF GRID AI PRO', lead: 'Your workday,', dim: 'remembered.',
-    lede: 'Calls, screens, your day and the people in it, kept on your computer. Ask about any of it later.',
+    lede: 'Calls, screens and your day, kept on your computer.',
     description: 'Off Grid AI records your meetings, remembers your screen, writes your daily journal and answers with sources. All on your computer.',
     items: [
       { id: 'meetings', title: 'Meeting recorder', cmd: 'summarize the Acme pilot kickoff', line: 'Zoom, Meet and Teams, recorded and transcribed on your computer. No bot joins the call.', shots: [
@@ -55,8 +55,8 @@ export const FEATURES = [
   },
   {
     slug: 'ai-assistant', name: 'AI assistant', note: 'Briefings, drafts and tasks',
-    kicker: 'OFF GRID AI', lead: 'An assistant', dim: 'that waits for your yes.',
-    lede: 'It briefs you, drafts the reply and runs the task. Nothing goes out until you approve it.',
+    kicker: 'OFF GRID AI', lead: 'Your assistant.', dim: 'Waits for your yes.',
+    lede: 'It drafts. You approve.',
     description: 'Off Grid AI briefs you each morning, drafts replies for your approval, runs web errands and takes dictation.',
     items: [
       { id: 'god', title: 'Morning briefing', cmd: 'brief me, Ares', line: 'Your calendar, approvals and open work in one brief, every morning.', shots: [
@@ -102,8 +102,8 @@ export const FEATURES = [
   },
   {
     slug: 'documents-and-tools', name: 'Documents & tools', note: 'RAG, projects, MCP and connectors',
-    kicker: 'OFF GRID AI', lead: 'Your documents and tools,', dim: 'in one chat.',
-    lede: 'Ask your PDFs and notes, with page citations. Connect your accounts and MCP servers. Actions wait for your yes.',
+    kicker: 'OFF GRID AI', lead: 'Your files and tools.', dim: 'In one chat.',
+    lede: 'Answers from your files, with the page cited.',
     description: 'Chat with your documents using local RAG, organise work into projects, and connect Gmail, Calendar, Notion, Linear, Jira and any MCP server to Off Grid AI. Answers cite their sources and actions wait for your approval.',
     items: [
       { id: 'projects', title: 'Projects and RAG', cmd: 'summarise the rollout plan with page numbers', line: 'Answers from your PDFs and notes, with the page each one came from.', shots: [
@@ -139,8 +139,8 @@ export const FEATURES = [
   },
   {
     slug: 'devices-and-privacy', name: 'Devices & privacy', note: 'Sync, clipboard and vault, no cloud',
-    kicker: 'OFF GRID AI PRO', lead: 'Your devices,', dim: 'with no cloud between them.',
-    lede: 'Phone and computer stay in sync over your own network. Your clipboard and passwords stay encrypted on them.',
+    kicker: 'OFF GRID AI PRO', lead: 'Your devices.', dim: 'No cloud between.',
+    lede: 'Synced over your own Wi-Fi. Encrypted.',
     description: 'Off Grid AI syncs chats, files, images and models between your phone and computer, keeps your clipboard history and stores passwords in an encrypted vault. No cloud.',
     items: [
       { id: 'sync', title: 'Sync', cmd: 'pair my phone and my Mac', line: 'Chats, files, images and models move between your devices, encrypted, over your own network.', shots: [
@@ -178,8 +178,8 @@ export const FEATURES = [
   },
   {
     slug: 'models', name: 'Models', note: 'Local and remote, every kind',
-    kicker: 'FREE', lead: 'Every kind of model.', dim: 'On your own hardware.',
-    lede: 'Text, vision, images, speech and transcription. Download once and they work with the Wi-Fi off.',
+    kicker: 'FREE', lead: 'Every kind of model.', dim: 'On your hardware.',
+    lede: 'Download once. Runs with the Wi-Fi off.',
     description: 'Run local AI models on your computer and phone with Off Grid AI: text, vision, image generation, speech and transcription, plus remote servers and a local OpenAI-compatible API.',
     items: [
       { id: 'local', title: 'Local models', cmd: 'choose models for my devices', line: 'Qwen, Gemma, Llama and more, marked by how well they fit your computer.', shots: [

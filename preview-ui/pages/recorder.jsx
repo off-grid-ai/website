@@ -91,9 +91,8 @@ export default function RecorderPage() {
           <Kicker>OFF GRID AI MOBILE · RECORDER</Kicker>
           <div className="rc-badges"><Badge color="green" variant="soft">Private alpha</Badge><Badge variant="outline">Cohort full</Badge></div>
           <Title as="h1" id="rec-h" className="rc-h1" lead="Never forget" dim="anything again." />
-          <Lede className="rc-lede">Leave it running. Your phone catches your day, writes it down, and hands you what mattered. All on the device in your hand.</Lede>
+          <Lede className="rc-lede">Leave it running. Your phone writes your day down, on the device.</Lede>
           <div className="rc-ctas"><Button asChild size="lg" variant="outline"><a href="#what-it-does">See what it does <ArrowDown size={15} /></a></Button></div>
-          <Text as="p" className="small rc-full">The current private alpha is full. We are not taking more people into this round.</Text>
         </div>
         <RecorderScene />
       </div>
@@ -112,7 +111,6 @@ export default function RecorderPage() {
       <div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>THE PART NO ONE ELSE WILL GIVE YOU</Kicker><Title id="local-h" lead="Nothing leaves your phone." dim="Not to us. Not to anyone." /><Lede>Not a policy. How it is built. Airplane mode for a day and all of it still works.</Lede></BlurFade>
         <MobileRail className="rc-local">{LOCAL.map(([Icon, t, d]) => <SceneCard key={t} className="rc-local-card"><div className="rc-local-in"><Icon size={22} /><Heading as="h3">{t}</Heading><Text as="p">{d}</Text><span className="rc-zero">0 bytes sent</span></div></SceneCard>)}</MobileRail>
-        <Text as="p" className="fine rc-sync">Sync is live. Chats, projects and images move between your paired devices, with no Off Grid AI server.</Text>
       </div>
     </section>
 
