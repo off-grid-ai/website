@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Heading, Text } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowDown, EnvelopeSimple, Wrench, Infinity as InfinityIcon, Sparkle, Storefront, ChatCircleText, Flask, Check, UsersThree, Handshake } from '@phosphor-icons/react';
@@ -24,6 +24,8 @@ function Card({ children, className = '' }) {
 }
 
 export default function DesignPartnersPage() {
+  // Arriving on this page is the offer view (the hello bar and the cards that link here only count clicks).
+  useEffect(() => { window.OffGridAnalytics?.capture('design_partner_offer_viewed', { placement: 'page', referrer: document.referrer || null }); }, []);
   return <PageShell><div className="ideas dp">
     <section className="has-bg ideas-hero dp-hero" aria-labelledby="build-a-solution-for-your-daily-work-pay-0"><SectionBg />
       <div className="section-shell dp-hero-grid">
