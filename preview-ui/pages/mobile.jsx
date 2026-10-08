@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, CheckCircle, LockKey } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Seq, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Seq, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, OfflineScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -19,22 +19,22 @@ const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai
 
 
 const SCENES = {
-  voice: () => <VoiceScene />,
-  larger: () => <ChatScene model="Qwen 3.5 9B · on your Mac" q="Summarize the Acme rollout plan in three bullets." a="Pilot kicks off 14 November with 40 seats. Priya Nair owns the plan. Tom Reyes signs off the gateway policy first." />,
   offline: () => <OfflineScene where="your phone" />,
-  approve: () => <ApprovalScene to="Sam Okafor" question="Send this reply to Sam?" draft="Hi Sam, confirming the pilot moves to 14 November. The revised rollout plan reaches you by Friday." />,
 };
-// Real screens where the app has them, only in their own theme; a composed scene stands in for the other theme.
-// Every REAL entry below has both themes except `larger`, so only `larger` (dark) falls back to SCENES.
+// Real screens where the app has them; a composed scene stands in only for features without captures (offline).
+// Each feature's real screens, start to result, in both themes (file names without the theme suffix).
+const both = (list) => ({ light: list.map(([n, alt]) => [`${n}-light`, alt, 3000]), dark: list.map(([n, alt]) => [`${n}-dark`, alt, 3000]) });
 const REAL = {
-  chat: { light: [["chat-start-ios-light", "Ask in the Acme Corp pilot project: draft a reply to Sam about the pilot date.", 3000], ["chat-ios-1-light", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3000]], dark: [["chat-start-ios-dark", "Ask in the Acme Corp pilot project: draft a reply to Sam about the pilot date.", 3000], ["chat-ios-1-dark", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3000]] },
-  projects: { light: [["project-ios-1-light", "The Acme Corp pilot project on iPhone: the rollout PDF, the brief, the promises to Sam and its chats.", 3000], ["project-ios-3-light", "The rollout PDF read on the phone, text and all.", 3000], ["project-ios-2-light", "What you promised Sam, answered from the Acme project documents.", 3000]], dark: [["project-ios-1-dark", "The Acme Corp pilot project on iPhone: the rollout PDF, the brief, the promises to Sam and its chats.", 3000], ["project-ios-3-dark", "The rollout PDF read on the phone, text and all.", 3000], ["project-ios-2-dark", "What you promised Sam, answered from the Acme project documents.", 3000]] },
-  images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
-  voicemode: { light: [['voice-ios-2-light', 'You ask by voice and the replies come back as voice notes, each with a transcript.', 3000], ['voice-pick-ios-light', 'Pick the voice that answers: Heart, River, Sarah and more, all on the phone.', 3000], ['voice-ios-1-light', 'A spoken brief on the Acme pilot, with its transcript.', 3000]], dark: [['voice-ios-2-dark', 'You ask by voice and the replies come back as voice notes, each with a transcript.', 3000], ['voice-pick-ios-dark', 'Pick the voice that answers: Heart, River, Sarah and more, all on the phone.', 3000], ['voice-ios-1-dark', 'A spoken brief on the Acme pilot, with its transcript.', 3000]] },
-  vision: { light: [['vision-ios-2-light', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]], dark: [['vision-ios-2-dark', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]] },
-  tools: { light: [['tools-ios-1-light', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]], dark: [['tools-ios-1-dark', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]] },
-  sync: { light: [['sync-ios-1-light', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi.", 4200], ['web-replay-ios-light', 'A finished task from the Mac, replayed step by step on the phone.', 4200]], dark: [['sync-ios-1-dark', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi.", 4200], ['web-replay-ios-dark', 'A finished task from the Mac, replayed step by step on the phone.', 4200]] },
-  larger: { light: [['remote-ios-2-light', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200], ['web-step-ios-light', 'The phone following a task that runs on the Mac, step by step.', 4200], ['web-compare-ios-light', "The Mac's answer back on the phone: Team pricing for 40 people in a table.", 4200]], dark: [['remote-ios-2-dark', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200], ['web-step-ios-dark', 'The phone following a task that runs on the Mac, step by step.', 4200], ['web-compare-ios-dark', "The Mac's answer back on the phone: Team pricing for 40 people in a table.", 4200]] },
+  chat: both([['chat-start-ios', 'Ask in the Acme Corp pilot project: draft a reply to Sam about the pilot date.'], ['seq-chat-2', 'The reply streams in, with the model working through the pilot notes.'], ['chat-ios-1', 'A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.']]),
+  images: both([['seq-images-1', 'The prompt: a lighthouse at dusk, film photo.'], ['imagegen-ios-1', 'The finished lighthouse image and its enhanced prompt, made on the phone.']]),
+  vision: both([['seq-vision-1', 'A receipt photo attached, with the question typed.'], ['seq-vision-2', 'The local vision model reading the receipt.'], ['vision-ios-2', 'The answer: the total, with the tax.']]),
+  voice: both([['seq-voice-1', 'Recording: Whisper listens on the phone.'], ['seq-voice-2', 'The transcript, ready in the message box.'], ['seq-voice-3', 'Sent, with the reply about the Acme pilot.']]),
+  projects: both([['seq-projects-1', 'The Acme Corp pilot project: its instructions.'], ['seq-projects-3', 'Its documents and chats.'], ['project-ios-3', 'The rollout PDF read on the phone.'], ['project-ios-2', 'What you promised Sam, answered from the project documents.']]),
+  tools: both([['seq-tools-1', 'The question: how many seat-days is the pilot?'], ['seq-tools-2', 'The calculator tool working it out.'], ['tools-ios-1', 'The result: 1,200 seat-days.']]),
+  larger: both([['remote-ios-2', "Remote Servers on iPhone: Alex's Mac, connected over Wi-Fi."], ['seq-larger-3', "The answer from the bigger model on Alex's Mac."], ['web-step-ios', 'The phone following a task that runs on the Mac.']]),
+  voicemode: both([['voice-ios-2', 'You ask by voice and the replies come back as voice notes, each with a transcript.'], ['voice-pick-ios', 'Pick the voice that answers.'], ['voice-ios-1', 'A spoken brief on the Acme pilot, with its transcript.']]),
+  approve: both([['seq-approve-1', 'A reply to Sam drafted on the phone, waiting for your yes before it is sent.']]),
+  sync: both([['sync-ios-1', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi."], ['seq-sync-3', 'Sync activity: the rollout PDF arriving from the Mac.'], ['web-replay-ios', 'A finished task from the Mac, replayed on the phone.']]),
 };
 const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;
 const real = (shots, compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><PhoneShots shots={shots} /></div>;
@@ -119,10 +119,10 @@ export default function MobilePage({ data }) {
 
     <section className="chapter pp pp-pro" aria-labelledby="keep-your-assistant-close">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2>
-          <p className="pp-lede-p">One Pro covers up to {p.devices} devices. On your phone:</p></div>
+        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2></div>
+        <p className="mp-pro-label">One Pro covers up to {p.devices} devices. On your phone:</p>
         <Explorer items={PRO} label="Pro on your phone" className="mp-explorer mp-explorer-pro" />
-        <p className="pp-lede-p mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
+        <p className="mp-pro-label mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
         <Explorer items={PRO_DESKTOP} label="Pro on your computer" />
       </div>
     </section>

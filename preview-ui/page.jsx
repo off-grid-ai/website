@@ -633,6 +633,7 @@ const SHOT_PAIRS = {
   'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
   'mobile/models-ios-1': ['models-text', 'Text models available on desktop.'],
   'mobile/models-ios-2': ['models-voice', 'Voice models available on desktop.'],
+  'mobile/voice-pick-ios': ['voice-reply', 'Off Grid AI chat in voice mode on the Mac: spoken question, spoken answer.'],
   'mobile/voice-ios-2': ['mobile/voice-ios-1', 'A spoken reply about the Acme pilot, with its transcript.'],
 };
 // Desktop and phone shown together; either device opens the same pair, framed, full screen.
