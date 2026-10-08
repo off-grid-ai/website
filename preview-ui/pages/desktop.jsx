@@ -106,7 +106,7 @@ const PRO = [
 ];
 
 // Real web-use task: it plans and works the page, hands you the sign-in, then finishes.
-const WEB_SHOTS = [['web-plan', 'Off Grid AI working a web task step by step on a comparison site.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The web task finished, with the result.', 4200]];
+const WEB_SHOTS = [['web-tasks', 'Off Grid AI Task history with a finished Web use errand.', 3400], ['web-plan', 'Off Grid AI Web use: the plan on the Leafline pricing page, step by step.', 4000], ['web-step', 'Off Grid AI Web use reading the Team plan price, with live progress.', 4000], ['web-compare', 'Off Grid AI chat: Team pricing for 40 people in a table, with a recommendation.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The finished errand with its result and a step-by-step replay.', 4200]];
 const web = () => <Seq shots={WEB_SHOTS} />;
 
 function ComputerUse() {

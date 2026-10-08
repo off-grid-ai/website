@@ -103,7 +103,7 @@ const HEADER_MENUS = [
 const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008c';
+export const SHOT_V = '20261008d';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
@@ -591,6 +591,7 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 // Pair only captures of the same task or the connection used for that task.
 const SHOT_PAIRS = {
+  'mobile/web-step-ios': ['web-step', 'Off Grid AI Desktop running the Web use task the phone is following.'],
   'mobile/remote-ios-1': ['gateway', 'Off Grid AI Desktop Gateway: the computer serving models to the phone.'],
   'mobile/chat-ios-1': ['chat', 'Off Grid AI Chat on desktop with a sourced answer about the Acme pilot.'],
   'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
@@ -620,7 +621,8 @@ const SCREEN_CMDS = {
   'replay': 'replay what I worked on',
   'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
   'reflect': 'where did my time go?', 'approval': 'draft the reply to Sam', 'actions': 'what do I owe people?', 'integrations': 'connect my work tools',
-  'web-plan': 'compare three local-first note apps', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
+  'web-plan': 'calculate Team pricing for 40 people', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
+  'web-step': 'read the Team plan price', 'web-compare': 'put it in a table', 'web-tasks': 'show my web tasks', 'mobile/web-step-ios': 'watch it from my phone', 'mobile/web-compare-ios': 'put it in a table', 'mobile/web-replay-ios': 'replay the errand',
   'meetings': 'summarize the Acme pilot kickoff', 'mobile/voice-ios-2': 'talk to my AI', 'mobile/vision-ios-2': "what's the total on this receipt?",
   'vault-locked': 'unlock my vault', 'vault-typing': 'enter my master password', 'vault-open': 'show my logins and keys',
   'clipboard': 'search what I copied for acme', 'mobile/imagegen-ios-1': 'make an image', 'imagegen-chat': 'make an image',
@@ -740,7 +742,7 @@ const WALK = [
   { id: 'reflect', cmd: 'where did my time go?', title: 'Your time, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.']) },
   { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search: one query for acme pilot across chats, screens, a meeting and people, with a sources filter.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000]) },
   { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['To-dos', 'Approvals', 'Edit before sending'], loop: 0, View: shotView(['actions', 'Off Grid AI Actions: open to-dos from your work, Suggest actions, and three approvals waiting.', 3600], ['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.', 4000]) },
-  { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Live plan', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: reading and comparing note-app pricing.', 4000], ['web-takeover', 'Off Grid AI Web use: sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: completed task and its result.', 4000]) },
+  { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Live plan', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: the plan on the Leafline pricing page, step by step.', 3800], ['mobile/web-step-ios', 'Off Grid AI on iPhone following the Web use task running on the Mac.', 4000], ['web-compare', 'Off Grid AI chat: Team pricing for 40 people in a table, with a recommendation.', 4200], ['web-takeover', 'Off Grid AI Web use: three sites compared, then sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: the finished task with its result and replay.', 4000]) },
   { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Your meetings become answers.', line: 'Summaries, what was on screen and how focused you were. Transcribed on this Mac. No bot joins your call.', chips: ['Notetaker', 'On screen', 'Focus'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with its summary, the screens shared during the call and a Locked in focus verdict.']) },
   { id: 'voice', cmd: 'dictate a note', title: 'Your AI has a voice.', line: 'Dictate into any app on your Mac. Ask out loud on your Mac or phone and hear the answer.', chips: ['Dictation', 'Voice replies', 'Phone'], loop: 0, View: shotView(['voice', 'Off Grid AI dictation on the Mac: what you said, transcribed on device, with its to-dos pulled out.', 3800], ['voice-reply', 'Off Grid AI chat in voice mode on the Mac: spoken question, spoken answer.', 3800], ['mobile/voice-ios-2', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]) },
   { id: 'vision', cmd: 'what is in this picture?', title: 'Your photos become answers.', line: 'Ask about a photo on your phone, or a chart on your Mac. A local vision model answers.', chips: ['Vision', 'Phone', 'Mac'], loop: 0, View: shotView(['mobile/vision-ios-2', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200], ['vision-chat', 'Off Grid AI on the Mac: a chart from the Acme rollout plan, read by a local vision model.', 4000]) },
