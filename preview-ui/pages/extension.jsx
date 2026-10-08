@@ -42,16 +42,16 @@ const DOES = [
   [LinkSimple, 'A private link to your desktop', 'Pair with six words. Chats sync both ways. It does not count toward your devices.'],
   [Waveform, 'Every model your desktop runs', 'Text, vision, voice in and out, and images.'],
 ];
-// Why a task in your own browser gets further than one in a browser on someone else's servers.
+// Where the work happens: an agent driving a remote browser, compared with the extension in your own browser.
 const WHY = [
-  ['A browser on their servers', 'Your own browser'],
-  ['Signed out of everything', 'Already signed in, like you'],
-  ['Stopped by logins and bot checks', 'Your cookies and sessions, as they are'],
-  ['Your pages go to their cloud', 'Pages stay on your computer'],
+  ['Runs in a browser on a remote server', 'Runs in the browser you already use'],
+  ['You sign in again, in that browser', 'Uses the sessions you are already signed in to'],
+  ["Pages are read by the provider's model", 'Pages are read by a model on your computer'],
+  ['Needs an account with the provider', 'No account. Off Grid AI Desktop does the work'],
 ];
 const FAQ = [
   ['What do I need?', 'Off Grid AI Desktop running with a model, and Chrome, Edge, Brave or Arc. Firefox comes later.'],
-  ['Why my own browser?', 'Most sites expect a real, signed-in person. Tasks run where you already are, so they get past the logins that stop cloud agents.'],
+  ['Why my own browser?', 'The sites you use already know you there. Tasks run with the sessions you have, so you do not sign in again somewhere else.'],
   ['Will it type my passwords or pay for things?', 'No. Codes, card numbers and CAPTCHAs are refused in code. Sign-ins come from your Vault or from you.'],
   ['Is it free?', 'Chat and connectors are free. The Vault, your desktop tools and tasks need Off Grid AI Pro.'],
   ['When do I get access?', 'We are letting people in a few at a time. You will get an email when yours is ready.'],
@@ -74,10 +74,10 @@ export default function ExtensionPage() {
 
     <section className="chapter pp ex-why" aria-labelledby="ex-why-h">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>WHY YOUR BROWSER</Kicker><Title id="ex-why-h" lead="Cloud agents get stuck." dim="Yours is already signed in." /></div>
-        <div className="ex-vs" role="table" aria-label="Cloud agents compared with Off Grid AI in your browser">
-          <div className="ex-vs-col" role="rowgroup"><span className="ex-vs-h" role="columnheader">Cloud agents</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div>
-          <div className="ex-vs-col is-us" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div>
+        <div className="sec-head"><Kicker>WHERE THE WORK HAPPENS</Kicker><Title id="ex-why-h" lead="Your browser." dim="Not a remote one." /></div>
+        <div className="ex-vs" role="table" aria-label="An agent in a remote browser compared with Off Grid AI in your browser">
+          <div className="ex-vs-col" role="rowgroup"><span className="ex-vs-h" role="columnheader">Agent in a remote browser</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div>
+          <div className="ex-vs-col is-us" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI in your browser</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div>
         </div>
       </div>
     </section>

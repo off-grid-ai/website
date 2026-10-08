@@ -34,3 +34,9 @@
 .ex-vs-row svg{flex:none;color:var(--og-text-muted)}.is-us .ex-vs-row svg{color:var(--og-primary)}
 @media(max-width:860px){.ex-list{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.ex-list{grid-template-columns:1fr}.ex-vs{grid-template-columns:1fr}.ex-vs-row{font-size:13px;padding:10px 14px}}
+/* Phones: each card is one row, icon on the left and the words beside it. */
+@media(max-width:860px){
+  .ex-list li{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:14px;row-gap:4px;align-items:start;padding:16px}
+  .ex-list .ex-ic{grid-row:1 / span 2}
+  .ex-list b{align-self:end}
+}
