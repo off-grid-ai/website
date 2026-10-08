@@ -279,7 +279,7 @@ const CAPS = [
   { id: 'act', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
     shots: [['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.']] },
   { id: 'god', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
-    shots: [['god', 'Off Grid AI God: Ares briefs you, with approvals waiting.']] },
+    shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
   { id: 'reflect', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
   { id: 'vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',

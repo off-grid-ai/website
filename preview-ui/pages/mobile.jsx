@@ -9,6 +9,12 @@ import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, P
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
 const ANDROID = { id: 'android', href: `https://play.google.com/store/apps/details?id=ai.offgridmobile&${UTM}`, aria: 'Download for Android', small: 'Get it on', label: 'Google Play', external: true };
+// Android visitors get Google Play; everyone else (and the server render) gets the App Store.
+function FreeDownload() {
+  const [d, setD] = useState(IOS);
+  useEffect(() => { if (/Android/i.test(navigator.userAgent)) setD(ANDROID); }, []);
+  return <a className="pp-btn" href={d.href} target="_blank" rel="noopener" aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a>;
+}
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 
 const GEN = [['dreamshaper', 'Stable Diffusion', 'A golden retriever in an autumn park'], ['realvis', 'Stable Diffusion', 'Alpine lake at sunrise, still water'], ['juggernaut', 'Stable Diffusion', 'Neon city street after rain']];
@@ -159,7 +165,7 @@ export default function MobilePage({ data }) {
     <FreeVsPro pricing={p}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation with live preview', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
       pro={['Memory', 'Voice mode with Kokoro', 'Custom personas', 'Drafts you approve', 'Sync across paired devices', `Up to ${p.devices} devices`]}
-      freeCta={<a className="pp-btn" href={IOS.href} target="_blank" rel="noopener" aria-label="Download for iOS" title="Download for iOS"><PlatformIcon id="ios" size={15} /> Download free</a>} />
+      freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />
 

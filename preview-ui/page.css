@@ -1626,3 +1626,8 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
    The section must be taller than the viewport or the progress never moves; 150vh reveals over half a screen. */
 .manifesto .reveal{height:150vh!important}
 @media (max-width:860px){.manifesto .reveal{height:140vh!important}}
+/* Tour window = the capture's shape (1512x977, 1.548:1) plus its title bar and inset, so screenshots fill it exactly.
+   Width is the smaller of the column share and what the viewport height allows. */
+@media(min-width:861px){
+  .wt-window{--wbar:71px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
+}
