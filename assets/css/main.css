@@ -1337,3 +1337,16 @@ body { font-family: var(--font); color: var(--text-primary); background: var(--b
   .og-ladder .price small { display: block; }
   .og-ladder-wrap h1 { font-size: 24px; }
 }
+
+/* Phones: the announcement is one compact line (tag, short offer, link); the whole line is the tap target. */
+.announcement-bar-short { display: none; }
+@media (max-width: 700px) {
+  .announcement-bar-inner { flex-wrap: nowrap !important; gap: 8px !important; min-height: 36px; padding: 0 !important; font-size: 11px !important; white-space: nowrap; position: relative; }
+  .announcement-bar-text { display: none !important; }
+  .announcement-bar-short { display: block; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .announcement-bar-tag { font-size: 9.5px !important; }
+  .announcement-bar-cta { order: 0 !important; margin-left: 0 !important; min-height: 36px; font-size: 0; }
+  .announcement-bar-cta::before { content: '→'; font-size: 13px; }
+  .announcement-bar-cta::after { content: ''; position: absolute; inset: 0; }
+}
+@media (max-width: 360px) { .announcement-bar-tag { display: none !important; } }

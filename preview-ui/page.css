@@ -1666,3 +1666,15 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .screenshot-scene>*{width:100%;height:100%}
 .pp-stage.is-zoomable{cursor:zoom-in}
 .screenshot-stage{transition:width .35s ease}
+/* Phones: the announcement is one compact line (tag, short offer, link); the whole line is the tap target. */
+.announcement-bar-short{display:none}
+@media(max-width:700px){
+  .announcement-bar-inner{flex-wrap:nowrap!important;gap:8px!important;min-height:36px;padding:0!important;font-size:11px!important;white-space:nowrap;position:relative}
+  .announcement-bar-text{display:none!important}
+  .announcement-bar-short{display:block;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--og-text-secondary)}
+  .announcement-bar-tag{font-size:9.5px!important}
+  .announcement-bar-cta{order:0!important;margin-left:0!important;min-height:36px;font-size:0}
+  .announcement-bar-cta::before{content:'→';font-size:13px;text-decoration:none}
+  .announcement-bar-cta::after{content:'';position:absolute;inset:0}
+}
+@media(max-width:360px){.announcement-bar-tag{display:none!important}}
