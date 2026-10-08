@@ -163,7 +163,7 @@ export function useZoomOwner({ index, count, title, line, progress, goTo }) {
     fromEnd.current = false; setJ(k); setN(v => v + 1);
   }, [open, active?.id, index]);
   const jj = list ? Math.min(j, list.length - 1) : 0;
-  useEffect(() => { if (!open || !list || list.length < 2 || reduce) return; const t = setTimeout(() => { setJ(v => (v + 1) % list.length); setN(v => v + 1); }, list[jj][2] || 3200); return () => clearTimeout(t); }, [open, n, active?.id]);
+  useEffect(() => { if (!open || !list || list.length < 2 || reduce) return; const t = setTimeout(() => { setJ(v => (v + 1) % list.length); setN(v => v + 1); }, screenTime(list[jj])); return () => clearTimeout(t); }, [open, n, active?.id]);
   const step = (d) => {
     const k = jj + d;
     if (list && k >= 0 && k < list.length) { setJ(k); setN(v => v + 1); return; }
@@ -595,8 +595,8 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 // pulls the camera back out while the next screen fades in.
 export const DISSOLVE_V = {
   enter: { opacity: 0, scale: 1.015, filter: 'blur(3px)' },
-  show: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: 1.1, ease: [.25, .1, .25, 1] } },
-  leave: { opacity: 0, scale: 1, filter: 'blur(2px)', transition: { duration: 1.1, ease: [.45, 0, .55, 1] } },
+  show: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: .7, ease: [.25, .1, .25, 1] } },
+  leave: { opacity: 0, scale: 1, filter: 'blur(2px)', transition: { duration: .7, ease: [.45, 0, .55, 1] } },
 };
 export const DISSOLVE = {
   initial: { opacity: 0, scale: 1.035, filter: 'blur(8px)' },
@@ -696,6 +696,8 @@ export const cmdFor = (chapter, screen, fallback) => (screen && (SCREEN_CMDS[`${
 export const ScreenCtx = createContext(null);
 // A sequence reports its scenes and current index so a camera roll can show and jump between them.
 export const SeqCtrlCtx = createContext(null);
+// A feature explorer listens for how many screens its current feature plays, to time the feature.
+export const ScreenCountCtx = createContext(null);
 // Thumbnails always use the light capture: a tiny dark screenshot reads as a black square on a dark page.
 const thumbOf = (name) => name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-light-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-light-1760.webp?v=${SHOT_V}`;
 // Camera roll: the chapter's scenes as small thumbnails (Magic UI Dock magnifies them on hover).
@@ -716,7 +718,8 @@ export function CmdBar({ text, seq, className = '' }) {
 // Collects screen reports for one feature (mount one per feature so reports never leak between them).
 export function CmdScope({ chapter, cmd, children }) {
   const [scr, setScr] = useState(null); const on = useCallback((name) => setScr(name), []);
-  const [seq, setSeq] = useState(null);
+  const [seq, setSeq] = useState(null); const count = useContext(ScreenCountCtx);
+  useEffect(() => { if (seq) count?.(seq.shots.length); }, [seq?.shots.length]);
   return <SeqCtrlCtx.Provider value={setSeq}><ScreenCtx.Provider value={on}>{children(cmdFor(chapter, scr, cmd), seq)}</ScreenCtx.Provider></SeqCtrlCtx.Provider>;
 }
 
@@ -788,19 +791,22 @@ const ZOOM = {
 // toward the content, and phone or paired compositions push in slightly as a whole.
 const zoomFor = (name, comp, phone) => ZOOM[name] || (phone ? [.5, .3, 1.14] : comp ? [.5, .5, 1.06] : [.6, .4, 1.16]);
 const isMacPair = (name) => !!SHOT_PAIRS[name] && !SHOT_PAIRS[name][0].startsWith('mobile/');
-const holdFor = (name) => (isMacPair(name) ? 3400 : ZOOM[name] ? 1600 : 600);
+const holdFor = (name) => (isMacPair(name) ? 2200 : ZOOM[name] ? 700 : 200);
+// Time on one screen: a short read, plus room for its camera move. Everything that times a sequence uses this.
+export const SCREEN_MS = 3000;
+export const screenTime = () => SCREEN_MS;
 // Mac + iPhone: start wide, push into the Mac, hold, glide right and push into the phone, hold.
 // Offsets are % of the composition (Mac centre ~43%/42%, phone centre ~88%/60%) at 1.3x.
 const PAIR_PATH = {
   enter: { scale: 1, x: '0%', y: '0%' },
   show: { scale: [1, 1.3, 1.3, 1.3, 1.3], x: ['0%', '8.5%', '8.5%', '-49.8%', '-49.8%'], y: ['0%', '10.4%', '10.4%', '-13%', '-13%'],
-    transition: { delay: 1.1, duration: 5.6, times: [0, .25, .45, .72, 1], ease: [.45, 0, .25, 1] } },
-  leave: { scale: 1, x: '0%', y: '0%', transition: { duration: 1.1, ease: [.45, 0, .55, 1] } },
+    transition: { delay: .2, duration: 2.3, times: [0, .3, .45, .8, 1], ease: [.45, 0, .25, 1] } },
+  leave: { scale: 1, x: '0%', y: '0%', transition: { duration: .7, ease: [.45, 0, .55, 1] } },
 };
 export function Zoomed({ name, comp, phone, children }) {
   const reduce = useReducedMotion(); const z = zoomFor(name, comp, phone);
   if (reduce) return children;
-  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: 1.1, duration: 2.2, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: 1.1, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
+  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
 export function ShotSeq({ shots, ms = 3200 }) {
   const zc = useContext(ZoomCtx); const theme = useContext(ThemeCtx);
@@ -810,7 +816,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
   const reduce = useReducedMotion();
   // The sequence keeps playing in the full-screen view, even while the page behind it holds.
   const running = (playing || open) && !reduce && shots.length > 1;
-  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, (shots[i][2] || ms) + holdFor(shots[i][0])); return () => clearTimeout(t); }, [n, running]);
+  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
@@ -823,19 +829,19 @@ export function ShotSeq({ shots, ms = 3200 }) {
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
-        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: 1.1, duration: 2.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: 1.1, ease: [.45, 0, .55, 1] } } }}>
+        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
           {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <Shot name={name} alt={alt} lazy={false} />
             // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
             : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={false} /></Zoomed></div></div></div>}
         </motion.div>
         </motion.div>
       </AnimatePresence>
-      {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span key={`${n}-${playing}`} initial={{ scaleX: 0 }} animate={{ scaleX: playing ? 1 : 0 }} transition={{ duration: playing ? ((shots[i][2] || ms) + holdFor(shots[i][0])) / 1000 : 0, ease: 'linear' }} /></span>}
+      {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span key={`${n}-${playing}`} initial={{ scaleX: 0 }} animate={{ scaleX: playing ? 1 : 0 }} transition={{ duration: playing ? screenTime(shots[i], ms) / 1000 : 0, ease: 'linear' }} /></span>}
     </div>
     {!zc && <SeqZoom isVisible={() => !!box.current?.getClientRects().length} shots={shots} i={i} n={n} step={step} running={running} ms={ms} open={open} setOpen={setOpen} />}
   </SeqOpenCtx.Provider>;
 }
-const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, shots, duration: shots.reduce((total, shot) => total + holdFor(shot[0]) + (shot[2] || 3200), 0) });
+const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, shots, duration: shots.reduce((total, shot) => total + screenTime(shot), 0) });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', "Off Grid AI Day: to-dos, today's meetings, the journal, time spent and suggestions.", 3400], ['today-prep', 'Off Grid AI Day: prep for the Northwind board meeting, with who, last time and open items.', 3400], ['today-journal', 'Off Grid AI Day: the journal Off Grid AI wrote from the day, the kickoff, the promise and the reply.', 3400], ['today-timeline', 'Off Grid AI Day: the timeline, hour by hour across Slack, Zoom, Mail, Linear and Figma.', 3400], ['today-why', 'Off Grid AI Day: a suggestion opened to show where it came from.', 3400], ['today-yesterday', "Off Grid AI Day: yesterday's recap, its journal and timeline.", 3400]) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.', 3400]) },

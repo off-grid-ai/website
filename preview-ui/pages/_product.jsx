@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -122,7 +122,7 @@ export function AppWindow({ chapters, label }) {
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   const C = chapters[i];
-  const dwell = C.dwell || C.shots.reduce((a, s) => a + (s[2] || 3200), 0) + 300;
+  const dwell = C.dwell || C.shots.reduce((a, s) => a + screenTime(s), 0) + 200;
   const prog = useAutoProgress(i, dwell, hold || manual || reduce, () => setI(v => (v + 1) % chapters.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: chapters.length, title: C.label, line: C.cmd, progress: reduce ? null : prog, goTo: setI });
   // The window's command follows the screen on show.
@@ -158,11 +158,14 @@ export function AppWindow({ chapters, label }) {
 
 // Capabilities: a tab list with a live stage on wider screens, a swipe row of cards on phones.
 // items: { id, title, line, note?, visual: (compact) => node }
-export function Explorer({ items, label, ms = 6500, className = '' }) {
+export function Explorer({ items, label, ms = 4500, className = '' }) {
   const narrow = useNarrow();
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
-  const prog = useAutoProgress(i, ms, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
+  // A feature with screenshots plays all of them (3s each); a composed scene gets `ms`.
+  const [count, setCount] = useState({ i: -1, n: 0 }); const onCount = useCallback((n) => setCount({ i, n }), [i]);
+  const featureMs = count.i === i && count.n ? count.n * SCREEN_MS : ms;
+  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: items.length, title: items[i].title, line: items[i].line, progress: reduce ? null : prog, goTo: setI });
   // Features without screenshots open full screen too: a live copy of their scene.
   const stage = useRef(null); const item = items[i];
@@ -174,7 +177,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
     </article>)}
   </MobileRail>;
   const P = items[i];
-  return <div className={`pillar-grid pp-explorer ${className}`}>
+  return <ScreenCountCtx.Provider value={onCount}><div className={`pillar-grid pp-explorer ${className}`}>
     <div className="pillar-list" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
@@ -194,7 +197,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
     </div>
     <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? ` ${p.note}` : ''}</p>)}</div>
     {viewer}
-  </div>;
+  </div></ScreenCountCtx.Provider>;
 }
 
 // A fixed design canvas scaled to fill its box (CSS zoom, like the home walkthrough's --fit),
@@ -263,7 +266,7 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
   const running = shots.length > 1 && !reduce && (!manual || open);
-  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, (shots[i][2] || ms) + 900); return () => clearTimeout(t); }, [i, running]);
+  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime([`mobile/${shots[i][0]}`, '', shots[i][2]], ms)); return () => clearTimeout(t); }, [i, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);

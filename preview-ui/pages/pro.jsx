@@ -10,7 +10,7 @@ import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner, ScreenCtx, CmdBar, CmdScope } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner, ScreenCtx, CmdBar, CmdScope, screenTime } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { useAutoProgress } from './_product.jsx';
 
@@ -289,7 +289,7 @@ const CAPS = [
     shots: [['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.'], ['clipboard-pdf', 'Off Grid AI Clipboard: the rollout plan PDF, previewed as text.'], ['clipboard-phone', "Off Grid AI Clipboard: a note copied on Alex's iPhone, on the Mac."], ['clipboard-quick', 'Off Grid AI Clipboard: quick open over any app, searching for Sam.']] },
 ];
 // Each tab plays all of its screens once, then hands over.
-const dwell = (c) => Math.max(6500, c.shots.reduce((t, x) => t + (x[2] || 3400), 0));
+const dwell = (c) => c.shots.reduce((t, x) => t + screenTime(x), 0);
 
 function WhatPro({ again }) {
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const prev = useRef(null);
