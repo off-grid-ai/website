@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, CheckCircle, LockKey } from '@phosphor-icons/react';
+import { CheckCircle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
 import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone } from './_product.jsx';
@@ -90,13 +90,10 @@ export default function MobilePage({ data }) {
     <section className="pp pp-hero mp-hero has-bg" aria-labelledby="pp-h1"><SectionBg />
       <div className="section-shell pp-hero-grid mp-hero-grid">
         <div className="pp-hero-copy">
-          <span className="pp-plat"><Kicker>OFF GRID AI MOBILE</Kicker><span className="pp-plat-ic" role="img" aria-label="Android, iOS"><PlatformIcon id="android" size={15} /><PlatformIcon id="ios" size={15} /></span></span>
+          <Kicker>OFF GRID AI MOBILE</Kicker>
           <Title as="h1" id="pp-h1" className="pp-h1" lead="Your personal AI." dim="On your phone." />
-          <Lede className="pp-lede">Free on the phone you own. Pro adds memory, voice and actions you approve.</Lede>
+          <Lede className="pp-lede">Free. Works offline.</Lede>
           <div className="pp-dl-row mp-stores"><Dl {...IOS} className="dl-main" /><Dl {...ANDROID} /></div>
-          <div className="pp-alts"><a className="pp-alt" href={GITHUB.href} target="_blank" rel="noopener">Star on GitHub <ArrowUpRight size={13} /></a></div>
-          <p className="pp-fine">GitHub: 0.0.111 · Preview: 0.0.112-beta.1. Store versions can differ: <a href="/mobile/releases/">see what shipped</a>.<br />iOS 17+ · iPhone 12+ · Android 10+ · 4GB RAM</p>
-          <p className="pp-offline-note"><LockKey size={13} /> Download a model once. Your prompts stay on your phone.</p>
           <Proof />
         </div>
         <HeroPhone />
@@ -141,7 +138,7 @@ export default function MobilePage({ data }) {
       <div className="section-shell final-in">
         <Kicker>OFF GRID AI MOBILE</Kicker>
         <h2 id="pp-final-h" className="final-h">Your phone. Your AI.</h2>
-        <p className="final-lede">Free. iPhone and Android.</p>
+        <p className="final-lede">Free. iPhone 12+ on iOS 17, and Android 10+ with 4GB of RAM.</p>
         <div className="pp-dl-row pp-dl-final"><Dl {...IOS} /><Dl {...ANDROID} /><Dl {...GITHUB} /></div>
         <p className="fine"><a href="/mobile/releases/">Mobile releases</a> · <a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/desktop/">Off Grid AI on your computer</a></p>
       </div>

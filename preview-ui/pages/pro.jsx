@@ -26,7 +26,7 @@ function Hero({ pricing }) {
   return <section className="has-bg pp-sec pp-hero" data-section="Hero" aria-labelledby="pp-h"><SectionBg />
     <div className="section-shell pp-hero-in">
       <span className="pp-live"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></span>
-      <Title as="h1" id="pp-h" className="pp-h1" lead="An AI that remembers your work." dim="And acts when you say yes." />
+      <Title as="h1" id="pp-h" className="pp-h1" lead="It remembers your work." dim="You approve." />
       <div className="pp-cta">
         <ShimmerButton className="pro-shimmer pp-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</ShimmerButton>
@@ -185,7 +185,6 @@ function Buy({ pricing, checkout, count, failed, tier }) {
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math">
           <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
-          <Proof />
         </div>
       </div>
     </div>

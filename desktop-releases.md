@@ -9,7 +9,7 @@ description: Off Grid AI Desktop releases for macOS, Windows, and Linux. Updates
 
 # Off Grid AI Desktop releases
 
-Your personal AI assistant. <span class="platform-list" role="img" aria-label="macOS, Windows, Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span> Built for hardware you already own.
+Every release, newest first.
 
 Stable: **0.0.54**. Beta: **0.0.55-beta.114**. Choose your platform:
 

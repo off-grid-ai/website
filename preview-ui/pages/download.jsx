@@ -21,7 +21,6 @@ const STAR = 'https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_me
 const BETA_V = '0.0.55-beta.114';
 const B = `https://github.com/off-grid-ai/OGAD/releases/download/v${BETA_V}/`;
 const BETA = { dmg: `${B}OffGrid-${BETA_V}.dmg`, exe: `${B}off-grid-ai-${BETA_V}-setup.exe`, AppImage: `${B}off-grid-ai-${BETA_V}.AppImage`, deb: `${B}off-grid-ai_${BETA_V}_amd64.deb` };
-const SYNC_MAIL = 'mailto:mac@wednesday.is?subject=SYNC&body=Device%3A%20%0AStore%20email%3A%20';
 
 // One entry per platform. `main` is the primary download; `more` the secondary packages.
 const PLATFORMS = [
@@ -86,7 +85,7 @@ function Hero({ dev }) {
     <div className="section-shell dn-hero-grid">
       <div className="dn-hero-copy">
         <Kicker>DOWNLOAD OFF GRID AI</Kicker>
-        <Title as="h1" id="dn-h" className="pp-h1 dn-h1" lead="Your personal AI." dim="On hardware you already own." />
+        <Title as="h1" id="dn-h" className="pp-h1 dn-h1" lead="Your personal AI." dim="On your devices." />
         <Lede className="pp-lede">{'Free to start. No account. Runs offline.'}</Lede>
         <div className="pp-cta">
           <Button asChild size="lg" className="pp-main"><a href={P.main.href} aria-label={P.main.aria} title={P.main.aria} {...ext(P.main.external)}><Icon id={dev} size={18} />{P.cta}</a></Button>
@@ -156,7 +155,6 @@ function Tracks() {
             <li><span>Desktop</span><a href={OGAD_REL} target="_blank" rel="noopener">OGAD {OGAD_V} release</a></li>
             <li><span>Mobile</span><a href={OGAM_REL} target="_blank" rel="noopener">OGAM {OGAM_V} release</a></li>
           </ul>
-          <p className="pp-fine">Windows and Linux packages are x64. Store availability varies by platform.</p>
         </SceneCard>
         <SceneCard className="dn-track">
           <span className="dn-track-ic"><Flask size={22} /></span>
@@ -191,7 +189,6 @@ function Pro({ pricing }) {
           <span className="dn-track-ic"><ArrowsClockwise size={22} /></span>
           <h2 className="dn-track-t">Continue across devices</h2>
           <p>Pair your devices to share chats, files and models, encrypted. One key covers up to {pricing.devices} devices.</p>
-          <p className="pp-fine">Latest mobile Sync build: <a href={SYNC_MAIL}>email Mac</a> with your device and store email.</p>
         </SceneCard>
         <SceneCard className="dn-track">
           <span id="computer-use" className="dn-anchor" />

@@ -214,3 +214,9 @@
 /* What Pro is sits in the first fold, straight under the hero. */
 .pp-hero{padding-bottom:clamp(20px,3vw,36px)!important}
 .pp-what{padding-top:clamp(28px,4vw,56px)!important}
+/* Phones: a quieter hero, one size with the other product pages, a button that fits its label. */
+@media(max-width:520px){
+  .pp-hero .pp-h1{font-size:30px!important}
+  .pp-hero .pp-cta{width:auto;display:flex!important;flex-direction:column;align-items:center}
+  .pp-hero .pp-shimmer{width:auto!important;padding:0 26px!important}
+}

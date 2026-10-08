@@ -195,9 +195,8 @@ export default function DesktopPage({ data }) {
         <h2 id="pp-final-h" className="final-h">Your computer. Your AI.</h2>
         <p className="final-lede">Free. macOS, Windows and Linux.</p>
         <div className="pp-dl-row pp-dl-final">{Object.values(DL).map(d => <Dl key={d.id} {...d} />)}<Dl {...GITHUB} /></div>
-        <p className="pp-fine">Desktop stable: {V}. Windows and Linux packages are x64. <a href={`https://github.com/off-grid-ai/OGAD/releases/tag/v${V}`}>See the GitHub release</a>.</p>
-        <p className="pp-fine">For new work as it lands, get the {BETA} <a href={`https://github.com/off-grid-ai/OGAD/releases/download/v${BETA}/OffGrid-${BETA}.dmg`} data-beta-download="dmg" aria-label="Download for macOS beta" title="Download for macOS beta" className="pp-ic-link"><PlatformIcon id="macos" size={13} /> macOS</a> or <a href={`https://github.com/off-grid-ai/OGAD/releases/download/v${BETA}/off-grid-ai-${BETA}-setup.exe`} data-beta-download="exe" aria-label="Download for Windows beta" title="Download for Windows beta" className="pp-ic-link"><PlatformIcon id="windows" size={13} /> Windows</a> build, or the <a href="/desktop/releases/">Linux beta AppImage and deb packages</a>. Beta builds can have rough edges.</p>
-        <p className="fine"><a href="/desktop/releases/">Desktop releases</a> · <a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/mobile/">Off Grid AI on your phone</a></p>
+        <p className="pp-fine">Stable {V}. Betas and notes on <a href="/desktop/releases/">releases</a>.</p>
+        <p className="fine"><a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/mobile/">Off Grid AI on your phone</a></p>
       </div>
     </section>
   </PageShell>;
