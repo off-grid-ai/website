@@ -589,6 +589,7 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 // Pair only captures of the same task or the connection used for that task.
 const SHOT_PAIRS = {
+  'mobile/sync-ios-1': ['chat', 'Off Grid AI Desktop: the chat you are sending to your phone.'],
   'mobile/remote-ios-1': ['gateway', 'Off Grid AI Desktop Gateway: the computer serving models to the phone.'],
   'mobile/chat-ios-1': ['chat', 'Off Grid AI Chat on desktop with a sourced answer about the Acme pilot.'],
   'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
