@@ -1637,3 +1637,32 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .cmd-bar input:focus-visible,.cmd-vanish input:focus-visible,.priv-input input:focus-visible,.pp-input input:focus-visible{outline:none!important;box-shadow:none!important}
 .pillar-track{position:absolute;left:calc(2ch + 14px);right:0;bottom:0;height:2px;background:rgb(var(--og-rgb-text)/.12)}
 .pillar-tab .pillar-track{bottom:-12px}
+/* Full-screen viewer: the device sits above a caption that explains the screen; arrows step through. */
+.screenshot-view.has-caption .screenshot-stage{top:calc(50% - 64px);width:min(calc(100dvw - 176px),calc((100dvh - 248px) * var(--ar)))}
+.screenshot-caption{position:fixed;left:50%;bottom:28px;translate:-50% 0;width:min(760px,calc(100dvw - 48px));display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;z-index:1002}
+.screenshot-caption .sc-kicker{font-size:10.5px;letter-spacing:.14em;color:var(--og-primary);text-transform:uppercase}
+.screenshot-caption .sc-title{font-weight:400;font-size:18px;color:var(--og-text)}
+.screenshot-caption .sc-line{font-size:13px;color:var(--og-text-secondary);line-height:1.5}
+.screenshot-caption .sc-alt{font-size:12px;color:var(--og-text-muted);line-height:1.5;max-width:680px}
+.screenshot-progress{position:fixed;left:50%;bottom:12px;translate:-50% 0;width:min(320px,50dvw);height:2px;background:rgb(var(--og-rgb-text)/.12);border-radius:2px;overflow:hidden;z-index:1002}
+.screenshot-progress span{display:block;height:100%;background:var(--og-primary);transform-origin:0 50%}
+.screenshot-nav{position:fixed!important;top:calc(50% - 64px);translate:0 -50%;min-width:48px;min-height:48px;z-index:1002;border-radius:999px!important}
+.screenshot-prev{left:20px}.screenshot-next{right:20px}
+.screenshot-frame{position:absolute;inset:0}
+@media(max-width:860px){
+  .screenshot-view.has-caption .screenshot-stage{top:calc(50% - 90px);width:min(calc(100dvw - 32px),calc((100dvh - 300px) * var(--ar)))}
+  .screenshot-caption{bottom:84px}.screenshot-caption .sc-title{font-size:15px}.screenshot-caption .sc-alt{display:none}
+  .screenshot-nav{top:auto;bottom:16px;translate:none}
+  .screenshot-prev{left:16px}.screenshot-next{left:72px;right:auto}
+}
+/* Phones, rotated to landscape: the device fills the space above the controls and the caption steps aside. */
+@media(max-width:860px){
+  .screenshot-view.has-caption:has(.screenshot-rotate input:checked) .screenshot-stage{top:calc(50% - 36px);width:min(calc(100dvh - 120px),calc((100dvw - 32px) * var(--ar)));transform:translate(-50%,-50%) rotate(90deg)}
+  .screenshot-view:has(.screenshot-rotate input:checked) .screenshot-caption{display:none}
+  .screenshot-progress{bottom:8px;width:min(200px,40dvw)}
+}
+/* Live scenes in the full-screen viewer, and the zoom affordance on feature stages. */
+.screenshot-scene{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line-2);border-radius:12px;background:var(--og-surface)}
+.screenshot-scene>*{width:100%;height:100%}
+.pp-stage.is-zoomable{cursor:zoom-in}
+.screenshot-stage{transition:width .35s ease}

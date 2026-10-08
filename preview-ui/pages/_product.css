@@ -324,3 +324,9 @@
 .pp-screen-link:focus-visible{outline:2px solid var(--og-border-focus);outline-offset:-3px}
 /* Autoplay tracks: a faint line under the active item, so a paused bar still reads as progress. */
 .pp-tab-track{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgb(var(--og-rgb-text)/.12)}
+/* Download and GitHub buttons are badge-sized on wider screens instead of stretching to fill their row. */
+@media (min-width:701px){
+  .pp-dl-row .dl,.pp-dl-center .dl{flex:0 0 auto!important;min-width:200px;padding-right:22px}
+  .pp-dl-final{width:auto!important}
+  .pp-trust-side .dl{align-self:flex-start;width:auto;min-width:220px;padding-right:22px}
+}

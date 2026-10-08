@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -114,24 +114,91 @@ export function Device({ name, theme, alt, full = false }) {
 }
 // Full-screen view in the same window. It shows the same composition as the page, in its device frames,
 // with a rotate control on phones for landscape.
-export function ShotView({ open, onOpenChange, alt, ratio, children }) {
+// Full-screen view in the same window. It shows the same composition as the page, in its device frames,
+// with a rotate control on phones for landscape. Sequences add previous/next (buttons and arrow keys),
+// keep playing, and explain the screen in a caption.
+export function ShotView({ open, onOpenChange, alt, ratio, children, onPrev, onNext, caption, progress }) {
+  const nav = !!(onPrev || onNext);
   return <Dialog.Root open={open} onOpenChange={onOpenChange}>
     <Dialog.Portal>
       <Dialog.Overlay className="screenshot-overlay" />
-      <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
+      <Dialog.Content className={`screenshot-view${caption ? ' has-caption' : ''}`} aria-describedby={undefined}
+        onKeyDown={nav ? (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); onNext?.(); } else if (e.key === 'ArrowLeft') { e.preventDefault(); onPrev?.(); } } : undefined}>
         <Dialog.Title className="sr-only">{alt}</Dialog.Title>
         <div className="screenshot-stage" style={{ '--ar': ratio }}>{children}</div>
+        {caption && <div className="screenshot-caption" aria-live="polite">{caption}</div>}
+        {progress}
+        {nav && <div className="screenshot-navs">
+          <Button variant="outline" size="sm" className="screenshot-nav screenshot-prev" aria-label="Previous screen" onClick={onPrev}><ArrowLeft size={20} /></Button>
+          <Button variant="outline" size="sm" className="screenshot-nav screenshot-next" aria-label="Next screen" onClick={onNext}><ArrowRight size={20} /></Button>
+        </div>}
         {ratio > 1.2 && <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>}
         <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>;
 }
+// A tour's full-screen viewer. Sequences inside the tour register their screens; one viewer, owned by the
+// tour, stays open across chapters, cross-fades between screens and keeps playing.
+export const ZoomCtx = createContext(null);
+export function useZoomOwner({ index, count, title, line, progress, goTo }) {
+  const theme = useContext(ThemeCtx); const reduce = useReducedMotion();
+  const [open, setOpen] = useState(false); const [regs, setRegs] = useState([]);
+  const [j, setJ] = useState(0); const [n, setN] = useState(0);
+  const want = useRef(null); const fromEnd = useRef(false); const seq = useRef(0);
+  const register = useCallback((entry) => { setRegs(r => [...r.filter(x => x.id !== entry.id), entry]); return () => setRegs(r => r.filter(x => x.id !== entry.id)); }, []);
+  const ctx = useMemo(() => ({ open: (name) => { want.current = name || null; setOpen(true); return true; }, register }), [register]);
+  // Which registered sequence is on screen changes during cross-fades; re-check while open.
+  const [, bump] = useState(0); const shownId = useRef(null);
+  useEffect(() => { if (!open) return; const t = setInterval(() => { const id = (regs.find(r => !r.fallback && r.vis()) || regs.find(r => r.fallback && r.vis()))?.id ?? null; if (id !== shownId.current) bump(v => v + 1); }, 150); return () => clearInterval(t); }, [open, regs]);
+  const active = open ? regs.find(r => !r.fallback && r.vis()) || regs.find(r => r.fallback && r.vis()) || null : null; shownId.current = active?.id ?? null;
+  const list = active?.list() || null;
+  // A new chapter's screens: start at the clicked screen, at the end when stepping back, else at the start.
+  useEffect(() => {
+    if (!open || !list) return;
+    let k = 0;
+    if (want.current) { const w = want.current.replace(/^mobile\//, ''); k = Math.max(0, list.findIndex(x => x[0].replace(/^mobile\//, '') === w)); want.current = null; }
+    else if (fromEnd.current) { k = list.length - 1; }
+    fromEnd.current = false; setJ(k); setN(v => v + 1);
+  }, [open, active?.id, index]);
+  const jj = list ? Math.min(j, list.length - 1) : 0;
+  useEffect(() => { if (!open || !list || list.length < 2 || reduce) return; const t = setTimeout(() => { setJ(v => (v + 1) % list.length); setN(v => v + 1); }, list[jj][2] || 3200); return () => clearTimeout(t); }, [open, n, active?.id]);
+  const step = (d) => {
+    const k = jj + d;
+    if (list && k >= 0 && k < list.length) { setJ(k); setN(v => v + 1); return; }
+    if (d < 0) fromEnd.current = true; goTo((index + d + count) % count);
+  };
+  const viewer = open && list ? (() => {
+    const [name, alt, , scene] = list[jj];
+    return <ShotView open onOpenChange={setOpen} alt={alt} ratio={scene ? 4 / 3 : ratioOf(name)} onPrev={() => step(-1)} onNext={() => step(1)}
+      caption={<>
+        <span className="sc-kicker">{`${String(index + 1).padStart(2, '0')} / ${String(count).padStart(2, '0')}`}{list.length > 1 ? ` · screen ${jj + 1} of ${list.length}` : ''}</span>
+        {title && <b className="sc-title">{title}</b>}
+        {line && <span className="sc-line">{line}</span>}
+        <span className="sc-alt">{alt}</span>
+      </>}
+      progress={progress ? <span className="screenshot-progress" aria-hidden="true"><motion.span style={{ scaleX: progress }} /></span> : null}>
+      <AnimatePresence initial={false}>
+        <motion.div key={`${active.id}-${index}-${n}`} className="screenshot-frame" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .35, ease: 'easeInOut' }}><Composition name={name} alt={alt} theme={theme} scene={scene} /></motion.div>
+      </AnimatePresence>
+    </ShotView>;
+  })() : null;
+  return { ctx, viewer };
+}
+// A sequence (or single screen) inside a tour registers its screens while it is mounted.
+let zoomIds = 0;
+export function useZoomRegister(zc, list, isVisible, fallback = false) {
+  const me = useRef(null); const l = useRef(list); const v = useRef(isVisible); l.current = list; v.current = isVisible;
+  if (me.current === null) me.current = ++zoomIds;
+  useEffect(() => { if (!zc) return; return zc.register({ id: me.current, fallback, list: () => l.current, vis: () => v.current() }); }, [zc]);
+}
+export const SeqOpenCtx = createContext(null);
 const MAC_RATIO = 650 / 400; const PHONE_RATIO = 433 / 882;
 export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange, frame = false }) {
   const raw = name; mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); const seqOpen = useContext(SeqOpenCtx); const zc = useContext(ZoomCtx); const btns = useRef([]);
+  useZoomRegister(seqOpen ? null : zc, [[mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw, alt]], () => btns.current.some(b => b?.getClientRects().length));
   const fixed = mobile && name.match(/-(dark|light)$/);
   const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
   // The Magic UI iPhone frame uses a fixed SVG mask id, so a framed shot renders only the current theme:
@@ -142,7 +209,7 @@ export function Shot({ name, alt, className = '', lazy = true, mobile = false, o
   return <>{themes.map(t => {
     const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
     const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
-    return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} onClick={() => toggle(true)}>
+    return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} ref={el => { btns.current[t === 'light' ? 1 : 0] = el; }} onClick={() => (seqOpen ? seqOpen(raw) : zc ? zc.open(raw) : toggle(true))}>
       {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3024}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 1137} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
     </button>;
   })}
@@ -534,9 +601,9 @@ const SHOT_PAIRS = {
 // Desktop and phone shown together; either device opens the same pair, framed, full screen.
 function ShotPair({ pair, name, alt }) {
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
-  const [open, setOpen] = useState(false); const toggle = (v) => { setOpen(v); hold(v); };
+  const [open, setOpen] = useState(false); const toggle = (v) => { setOpen(v); hold(v); }; const seqOpen = useContext(SeqOpenCtx);
   const phones = pair[0].startsWith('mobile/');
-  const items = (full, Tag) => [pair, [name, alt]].map(([screen, description], index) => <Tag key={screen} {...(Tag === 'button' ? { type: 'button', 'aria-label': `Enlarge screenshot: ${description}`, onPointerDown: e => e.stopPropagation(), onClick: () => toggle(true) } : {})} className={`shot-pair-item${index === 0 ? ' shot-pair-companion' : ''}`}>
+  const items = (full, Tag) => [pair, [name, alt]].map(([screen, description], index) => <Tag key={screen} {...(Tag === 'button' ? { type: 'button', 'aria-label': `Enlarge screenshot: ${description}`, onPointerDown: e => e.stopPropagation(), onClick: () => (seqOpen ? seqOpen(name) : toggle(true)) } : {})} className={`shot-pair-item${index === 0 ? ' shot-pair-companion' : ''}`}>
     <Device name={screen} theme={theme} alt={description} full={full} />
   </Tag>);
   return <>
@@ -544,15 +611,75 @@ function ShotPair({ pair, name, alt }) {
     {open && <ShotView open onOpenChange={toggle} alt={`${pair[1]} ${alt}`} ratio={phones ? 1.05 : 5 / 3}><div className={`zoom-pair wt-shot-pair${phones ? ' wt-shot-pair-phones' : ''}`}>{items(true, 'div')}</div></ShotView>}
   </>;
 }
+// The full-screen composition for one screen: a device frame, or the desktop + phone pair.
+function Composition({ name, alt, theme, scene }) {
+  if (scene) return <div className="screenshot-scene">{scene()}</div>;
+  const pair = SHOT_PAIRS[name];
+  if (!pair) return <Device name={name} theme={theme} alt={alt} full />;
+  const phones = pair[0].startsWith('mobile/');
+  return <div className={`zoom-pair wt-shot-pair${phones ? ' wt-shot-pair-phones' : ''}`}>{[pair, [name, alt]].map(([sc, d], k) => <div key={sc} className={`shot-pair-item${k === 0 ? ' shot-pair-companion' : ''}`}><Device name={sc} theme={theme} alt={d} full /></div>)}</div>;
+}
+const ratioOf = (name) => { const pair = SHOT_PAIRS[name]; if (pair) return pair[0].startsWith('mobile/') ? 1.05 : 5 / 3; return name.startsWith('mobile/') ? PHONE_RATIO : MAC_RATIO; };
+// One full-screen viewer for any sequence of screens. Inside a tour (ZoomCtx) the arrows run on past the
+// sequence into the next chapter, the caption explains the chapter, and the bar shows the tour's progress.
+// Only the copy on screen opens it (theme twins and hidden variants stay closed).
+const zoomOwner = { current: null };
+export function SeqZoom({ isVisible, shots, i, n, step, running, ms = 3200, open, setOpen }) {
+  const zc = null; const theme = useContext(ThemeCtx); const reduce = useReducedMotion();
+  const [show, setShow] = useState(false); const me = useRef({});
+  // One viewer at a time: the copy on screen claims it; the owner lets go as soon as its sequence leaves
+  // the screen (a cross-fade, a theme twin, the next feature), and the incoming one claims it.
+  me.current.vis = isVisible;
+  useEffect(() => {
+    if (!open) { setShow(false); return; }
+    const tick = () => {
+      const vis = me.current.vis();
+      if (zoomOwner.current === me.current) { if (!vis) { zoomOwner.current = null; setShow(false); } return; }
+      if (vis && (!zoomOwner.current || !zoomOwner.current.vis())) { zoomOwner.current = me.current; setShow(true); }
+    };
+    tick(); const t = setInterval(tick, 120);
+    return () => { clearInterval(t); if (zoomOwner.current === me.current) zoomOwner.current = null; };
+  }, [open]);
+  if (!show || !open) return null;
+  const [name, alt] = shots[i]; const multi = shots.length > 1;
+  return <ShotView open onOpenChange={setOpen} alt={alt} ratio={ratioOf(name)} onPrev={zc || multi ? () => step(-1) : undefined} onNext={zc || multi ? () => step(1) : undefined}
+    caption={<>
+      <span className="sc-kicker">{zc ? `${String(zc.index + 1).padStart(2, '0')} / ${String(zc.count).padStart(2, '0')}${multi ? ` · screen ${i + 1} of ${shots.length}` : ''}` : `${i + 1} / ${shots.length}`}</span>
+      {zc?.title && <b className="sc-title">{zc.title}</b>}
+      {zc?.line && <span className="sc-line">{zc.line}</span>}
+      <span className="sc-alt">{alt}</span>
+    </>}
+    progress={zc?.progress ? <span className="screenshot-progress" aria-hidden="true"><motion.span style={{ scaleX: zc.progress }} /></span>
+      : running ? <span className="screenshot-progress" aria-hidden="true"><motion.span key={`z-${n}`} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: (shots[i][2] || ms) / 1000, ease: 'linear' }} /></span> : null}>
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div key={`${name}-${n}`} className="screenshot-frame" initial={reduce ? false : { opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .25 }}><Composition name={name} alt={alt} theme={theme} /></motion.div>
+    </AnimatePresence>
+  </ShotView>;
+}
+// Step through a sequence; at its ends, hand over to the tour (if any) or wrap.
+export function useSeqStep(len, i, setI, setN, zc) {
+  return (d) => {
+    const k = i + d;
+    if (k >= 0 && k < len) { setI(k); setN(v => v + 1); return; }
+    if (zc) { if (d < 0) zc.fromEnd.current = true; if (d > 0) zc.next(); else zc.prev(); return; }
+    setI((k + len) % len); setN(v => v + 1);
+  };
+}
 export function ShotSeq({ shots, ms = 3200 }) {
+  const zc = useContext(ZoomCtx); const theme = useContext(ThemeCtx);
+  const [open, setOpen] = useState(false);
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
   const reduce = useReducedMotion();
-  useEffect(() => { if (!playing || reduce || shots.length < 2) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, playing, reduce]);
+  // The sequence keeps playing in the full-screen view, even while the page behind it holds.
+  const running = (playing || open) && !reduce && shots.length > 1;
+  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [n, running]);
+  const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
+  useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
-  return <>
-    <div className="wt-shot">
+  return <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}>
+    <div className="wt-shot" ref={box}>
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
@@ -564,8 +691,8 @@ export function ShotSeq({ shots, ms = 3200 }) {
       </AnimatePresence>
       {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span key={`${n}-${playing}`} initial={{ scaleX: 0 }} animate={{ scaleX: playing ? 1 : 0 }} transition={{ duration: playing ? (shots[i][2] || ms) / 1000 : 0, ease: 'linear' }} /></span>}
     </div>
-
-  </>;
+    {!zc && <SeqZoom isVisible={() => !!box.current?.getClientRects().length} shots={shots} i={i} n={n} step={step} running={running} ms={ms} open={open} setOpen={setOpen} />}
+  </SeqOpenCtx.Provider>;
 }
 const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, duration: shots.reduce((total, shot) => total + (shot[2] || 3200), 0) });
 const WALK = [
@@ -720,6 +847,8 @@ function Walkthrough({ reduce, theme }) {
   }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
+  // Full screen follows the tour: arrows step screens and then chapters, autoplay keeps running.
+  const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
@@ -791,7 +920,7 @@ function Walkthrough({ reduce, theme }) {
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={C.id} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{C.cmd}</TypingAnimation></span>
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div>
-        <PlayCtx.Provider value={play}><BeamLayer.Provider value={beamLayer}>
+        <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
           <DotPattern width={18} height={18} cr={1} className="wt-dots" />
           <AnimatePresence initial={false}>
@@ -801,10 +930,11 @@ function Walkthrough({ reduce, theme }) {
           </AnimatePresence>
           <div className="beam-layer" ref={beamLayer} aria-hidden="true" />
         </div>
-        </BeamLayer.Provider></PlayCtx.Provider>
+        </BeamLayer.Provider></ZoomCtx.Provider></PlayCtx.Provider>
       </motion.div>
     </div>
     <div className="sr-only">{WALK.map(w => <div key={w.id}><h3>{w.title}</h3><p>{w.line}</p></div>)}</div>
+    {zoomViewer}
   </section>;
 }
 

@@ -10,7 +10,7 @@ import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { useAutoProgress } from './_product.jsx';
 
@@ -293,6 +293,7 @@ function WhatPro({ again }) {
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const prev = useRef(null);
   const go = (k) => setI(cur => { if (k !== cur) prev.current = CAPS[cur]; return k; });
   const prog = useAutoProgress(i, dwell(CAPS[i]), hold, () => go((i + 1) % CAPS.length));
+  const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: CAPS.length, title: CAPS[i].title, line: CAPS[i].line, progress: prog, goTo: go });
   // Old deep links (#it-sees, #it-acts-you-approve, ...) open their tab.
   useEffect(() => {
     const open = () => { const h = location.hash.slice(1); const k = CAPS.findIndex(c => c.anchors.includes(h) || c.id === h); if (k >= 0) { go(k); setHold(true); } };
@@ -318,7 +319,7 @@ function WhatPro({ again }) {
         <SceneCard className="pp-cap-card"><div className="pp-frame">
           <Preload names={CAPS.map(c => c.shots[0][0])} />
           <div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div>
-          <ShotSeq key={C.id} ms={3400} shots={C.shots} />
+          <ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} ms={3400} shots={C.shots} /></ZoomCtx.Provider>
         </div></SceneCard>
         <div className="pp-cap-ctl">
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!hold} onClick={() => setHold(h => !h)}>{hold ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
@@ -327,6 +328,7 @@ function WhatPro({ again }) {
       </div>
       {again}
     </div>
+    {viewer}
   </section>;
 }
 
