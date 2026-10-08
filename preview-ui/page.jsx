@@ -826,7 +826,7 @@ export function Zoomed({ name, comp, phone, children }) {
   if (reduce) return children;
   return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
-export function ShotSeq({ shots, ms = 3200 }) {
+export function ShotSeq({ shots, ms = 3200, hold }) {
   const zc = useContext(ZoomCtx); const theme = useContext(ThemeCtx);
   const [open, setOpen] = useState(false);
   const [i, setI] = useState(0);
@@ -836,7 +836,10 @@ export function ShotSeq({ shots, ms = 3200 }) {
   // A sequence that is fading out (its chapter just changed) stops playing and stops reporting,
   // so it can't take the camera roll back from the sequence that replaced it.
   const present = useIsPresent();
-  const running = (playing || open) && !reduce && shots.length > 1 && present;
+  // Inside a tour or feature explorer the chapter decides when to move on, so the sequence holds its last screen
+  // instead of wrapping back to the first one while the next chapter loads.
+  const countCtx = useContext(ScreenCountCtx); const holdLast = (hold || !!countCtx) && !open && i === shots.length - 1;
+  const running = (playing || open) && !reduce && shots.length > 1 && present && !holdLast;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
@@ -862,7 +865,7 @@ export function ShotSeq({ shots, ms = 3200 }) {
     {!zc && <SeqZoom isVisible={() => !!box.current?.getClientRects().length} shots={shots} i={i} n={n} step={step} running={running} ms={ms} open={open} setOpen={setOpen} />}
   </SeqOpenCtx.Provider>;
 }
-const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, shots, duration: shots.reduce((total, shot) => total + screenTime(shot), 0) });
+const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} hold />, { fill: true, shots, duration: shots.reduce((total, shot) => total + screenTime(shot), 0) });
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos and a journal, from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', "Off Grid AI Day: to-dos, today's meetings, the journal, time spent and suggestions.", 3400], ['today-prep', 'Off Grid AI Day: prep for the Northwind board meeting, with who, last time and open items.', 3400], ['today-journal', 'Off Grid AI Day: the journal Off Grid AI wrote from the day, the kickoff, the promise and the reply.', 3400], ['today-timeline', 'Off Grid AI Day: the timeline, hour by hour across Slack, Zoom, Mail, Linear and Figma.', 3400], ['today-why', 'Off Grid AI Day: a suggestion opened to show where it came from.', 3400], ['today-yesterday', "Off Grid AI Day: yesterday's recap, its journal and timeline.", 3400]) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'It briefs you and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.', 3400], ['god-rules', 'Off Grid AI God settings: the rules Ares always follows, like never sending anything to Acme without asking.', 3000]) },
@@ -912,6 +915,8 @@ function Walkthrough({ reduce, theme }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const N = WALK.length;
   const chapterProgress = useMotionValue(0);
+  // Picking a screen from the camera roll moves the chapter timer to that screen, so the chapter ends with its last screen.
+  const startAt = useRef(null); const [restart, setRestart] = useState(0);
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
   const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
@@ -1024,10 +1029,10 @@ function Walkthrough({ reduce, theme }) {
     if (!docked || !inView || manual || reduce) return;
     const duration = (WALK[ch].View.duration || WALK[ch].loop || 7000) / 1000;
     // Explicit start keyframe: a stopped animation can commit its last value late, so never read it back for a new chapter.
-    const from = fresh ? 0 : Math.min(chapterProgress.get(), .999);
+    const from = fresh ? 0 : startAt.current != null ? startAt.current : Math.min(chapterProgress.get(), .999); startAt.current = null;
     const clock = animate(chapterProgress, [from, 1], { duration: duration * (1 - from), ease: 'linear', onComplete: () => spinTo((ch + 1) % N) });
     return () => clock.stop();
-  }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress]);
+  }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress, restart]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   // Full screen follows the tour: arrows step screens and then chapters, autoplay keeps running.
@@ -1108,7 +1113,7 @@ function Walkthrough({ reduce, theme }) {
         <div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
-          {seqMine ? <SceneRoll seq={seq} /> : null}
+          {seqMine ? <SceneRoll seq={{ ...seq, go: (k) => { seq.go(k); const sh = WALK[ch].View.shots || []; const total = sh.reduce((t, x) => t + screenTime(x), 0); if (total) { const at = sh.slice(0, k).reduce((t, x) => t + screenTime(x), 0) / total; startAt.current = at; chapterProgress.jump(at); setRestart(r => r + 1); } } }} /> : null}
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div>
         <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><BeamLayer.Provider value={beamLayer}>
