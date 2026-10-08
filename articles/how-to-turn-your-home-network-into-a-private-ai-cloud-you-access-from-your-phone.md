@@ -24,9 +24,6 @@ Every guide out there for solving this involves the same painful dance. Set envi
 
 We thought that was absurd. So we built auto-discovery into [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai).
 
-<div style="width: 100%;">
-  <img width="320" alt="Off Grid AI on iPhone connected to Off Grid AI Desktop over your own network" src="/assets/img/home/mobile/remote-ios-1-light-640.webp" />
-</div>
 
 ## What Off Grid does on your network
 
