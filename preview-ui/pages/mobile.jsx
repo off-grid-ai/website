@@ -66,7 +66,7 @@ const PRO_DESKTOP = [
   ['meetings', 'Meeting recorder', 'summarize the Acme pilot kickoff', 'Zoom, Meet and Teams, transcribed on your computer.', [['meetings', 'Off Grid AI Meetings: the Acme pilot kickoff summary, screens shared and decisions.'], ['meetings-transcript', 'Off Grid AI Meetings: the transcript, made on the computer.']]],
   ['memory', 'Memory and search', 'what did I promise Sam?', 'Find anything you saw, said or read, with sources.', [['replay', 'Off Grid AI Replay: the rollout plan you had open, with its summary.'], ['search', 'Off Grid AI Search: acme pilot across chats, meetings, screens and people.'], ['chat', 'Off Grid AI Chat: what Alex promised Sam, with sources.']]],
   ['day', 'Day and journal', 'write my journal', 'Your day, written for you.', [['day', "Off Grid AI Day: to-dos, today's meetings, the journal and time spent."], ['today-journal', 'Off Grid AI Day: the journal written from the day.']]],
-  ['web', 'Web Use', 'calculate Team pricing for 40 people', 'Web errands, step by step. You take over for passwords.', [['web-plan', 'Off Grid AI Web Use: the plan on the pricing page, step by step.'], ['web-compare', 'Off Grid AI chat: Team pricing in a table, with a recommendation.'], ['web-done', 'Off Grid AI Web Use: the finished task with its result.']]],
+  ['web', 'Tasks', 'calculate Team pricing for 40 people', 'Computer Use and Web Use, step by step. You take over for passwords.', [['web-plan', 'Off Grid AI Web Use: the plan on the pricing page, step by step.'], ['web-compare', 'Off Grid AI chat: Team pricing in a table, with a recommendation.'], ['web-done', 'Off Grid AI Web Use: the finished task with its result.']]],
   ['private', 'Clipboard and Vault', 'unlock my vault', 'Everything you copied, and your passwords, encrypted.', [['clipboard-all', 'Off Grid AI Clipboard: everything copied today.'], ['vault-open', 'Off Grid AI Vault: logins, an API key, a secure note and a signed PDF.']]],
 ].map(([id, title, cmd, line, shots]) => ({ id: `desk-${id}`, cmd, title, line, visual: () => <Seq shots={shots} /> }));
 
@@ -139,7 +139,7 @@ export default function MobilePage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
-      pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Web Use, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
+      pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Tasks, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

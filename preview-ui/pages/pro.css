@@ -213,4 +213,4 @@
 @media (max-width:860px){.pp-cap-track{left:-12px;right:-12px}}
 /* What Pro is sits in the first fold, straight under the hero. */
 .pp-hero{padding-bottom:clamp(20px,3vw,36px)!important}
-.pp-what{padding-top:0!important}
+.pp-what{padding-top:clamp(28px,4vw,56px)!important}

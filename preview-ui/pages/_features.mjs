@@ -51,9 +51,9 @@ export const FEATURES = [
     ],
   },
   {
-    slug: 'ai-assistant', name: 'AI assistant', note: 'Briefings, drafts and web errands',
+    slug: 'ai-assistant', name: 'AI assistant', note: 'Briefings, drafts and tasks',
     kicker: 'OFF GRID AI', lead: 'An assistant', dim: 'that waits for your yes.',
-    lede: 'It briefs you, drafts the reply and runs the web errand. Nothing goes out until you approve it.',
+    lede: 'It briefs you, drafts the reply and runs the task. Nothing goes out until you approve it.',
     description: 'Off Grid AI briefs you each morning, drafts replies for your approval, runs web errands and takes dictation.',
     items: [
       { id: 'god', title: 'Morning briefing', cmd: 'brief me, Ares', line: 'Your calendar, approvals and open work in one brief, every morning.', shots: [
@@ -67,7 +67,8 @@ export const FEATURES = [
         ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'],
         ['approval', 'Off Grid AI approval card: the Gmail reply to Sam, waiting for Approve, Edit or Reject.'],
         ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
-      { id: 'web', title: 'Web Use', cmd: 'calculate Team pricing for 40 people', line: 'It works through websites step by step. You take over for passwords.', shots: [
+      { id: 'tasks', title: 'Tasks', cmd: 'calculate Team pricing for 40 people', line: 'Computer Use and Web Use: it works in your apps and browser. You take over for passwords.', shots: [
+        ['web-tasks', 'Off Grid AI Tasks: the history of finished tasks, with replays.'],
         ['web-plan', 'Off Grid AI Web Use: the plan on the Leafline pricing page, step by step.'],
         ['web-step', 'Off Grid AI Web Use reading the Team plan price, with live progress.'],
         ['web-compare', 'Off Grid AI chat: Team pricing for 40 people in a table, with a recommendation.'],
@@ -81,8 +82,8 @@ export const FEATURES = [
     ],
     faq: [
       ['Will it send anything without asking?', 'No. Emails, messages and web submissions wait for your Approve. You can edit the draft first or reject it.'],
-      ['What does Web Use do with my passwords?', 'It stops and hands the page to you. You sign in yourself, and Off Grid AI never reads the password.'],
-      ['Which parts are free?', 'Chat and voice replies are free. Briefings, approvals, dictation and Web Use are part of Off Grid AI Pro.'],
+      ['What do tasks do with my passwords?', 'It stops and hands the page to you. You sign in yourself, and Off Grid AI never reads the password.'],
+      ['Which parts are free?', 'Chat and voice replies are free. Briefings, approvals, dictation and tasks are part of Off Grid AI Pro.'],
       ['Does it work offline?', 'Chat and voice run on local models with the Wi-Fi off. Email, calendar and the web need a connection.'],
     ],
     articles: [
