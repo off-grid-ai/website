@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { TextField } from '@radix-ui/themes';
 import { EnvelopeSimple, ChatCircle, Key, Robot, ArrowUpRight, PlugsConnected, LinkSimple, Waveform, Check, X } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SectionBg, SceneCard, BrowserScene } from '../shared.jsx';
-import { Faq } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SectionBg, SceneCard, BrowserScene, MobileRail, useZoomOwner, useZoomRegister } from '../shared.jsx';
+import { Faq, Fit } from './_product.jsx';
 
 // The browser extension is in early access: people ask to join, and the request is recorded in PostHog,
 // the same way the newsletter signs people up (identify + one capture with the details).
@@ -32,6 +32,19 @@ function RequestAccess({ placement }) {
     </div>
     <p className={`ex-status ${status[1]}`} aria-live="polite">{status[0]}</p>
   </form>;
+}
+
+// The hero's browser scene, scaled to its box on any screen and opening full screen on a click.
+function HeroScene() {
+  const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Your Vault in the sign-in field', line: 'A saved login filled from your Off Grid AI Vault, in your own browser.', progress: null, goTo: () => {} });
+  const box = useRef(null);
+  useZoomRegister(zoom, [['__scene', 'A saved login filled from your Off Grid AI Vault, in your own browser.', 6000, () => <BrowserScene />]], () => !!box.current?.getClientRects().length, true);
+  return <div className="ex-visual" ref={box}>
+    <button type="button" className="ex-open" aria-label="Open the browser demo full screen" onClick={() => zoom.open()}>
+      <SceneCard className="ex-scene"><Fit w={640} h={400} max={1.2}><BrowserScene /></Fit></SceneCard>
+    </button>
+    {viewer}
+  </div>;
 }
 
 const DOES = [
@@ -66,26 +79,26 @@ export default function ExtensionPage() {
           <Title as="h1" id="ex-h1" className="pp-h1" lead="Your AI, in your browser." dim="Signed in, like you." />
           <Lede className="pp-lede">Tasks run in your own tabs, with your logins. Your desktop model does the thinking.</Lede>
           <RequestAccess placement="hero" />
-          <p className="ex-fine">Needs <a href="/desktop/">Off Grid AI Desktop</a>. Chrome, Edge, Brave and Arc first.</p>
+          <p className="ex-fine">Needs <a href="/desktop/">Off Grid AI Desktop</a>.</p>
         </div>
-        <div className="ex-visual"><SceneCard className="ex-scene"><BrowserScene /></SceneCard></div>
+        <HeroScene />
       </div>
     </section>
 
     <section className="chapter pp ex-why" aria-labelledby="ex-why-h">
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHERE THE WORK HAPPENS</Kicker><Title id="ex-why-h" lead="Your browser." dim="Not a remote one." /></div>
-        <div className="ex-vs" role="table" aria-label="An agent in a remote browser compared with Off Grid AI in your browser">
+        <MobileRail className="ex-vs" start={1} labels={['Remote browser', 'Off Grid AI']}>
           <div className="ex-vs-col" role="rowgroup"><span className="ex-vs-h" role="columnheader">Agent in a remote browser</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div>
           <div className="ex-vs-col is-us" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI in your browser</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div>
-        </div>
+        </MobileRail>
       </div>
     </section>
 
     <section className="chapter pp ex-does" aria-labelledby="ex-does-h">
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHAT IT DOES</Kicker><Title id="ex-does-h" lead="What it does." dim="All through your desktop." /></div>
-        <ul className="ex-list">{DOES.map(([Icon, t, l]) => <li key={t}><span className="ex-ic"><Icon size={20} /></span><b>{t}</b><span>{l}</span></li>)}</ul>
+        <MobileRail className="ex-list">{DOES.map(([Icon, t, l]) => <div className="ex-card" key={t}><span className="ex-ic"><Icon size={20} /></span><b>{t}</b><span>{l}</span></div>)}</MobileRail>
       </div>
     </section>
 
