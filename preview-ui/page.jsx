@@ -103,7 +103,7 @@ const HEADER_MENUS = [
 const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008g';
+export const SHOT_V = '20261008h';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
