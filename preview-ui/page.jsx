@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
-  ThumbsUp, ThumbsDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
+  ThumbsUp, ThumbsDown, CaretDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
@@ -100,7 +100,21 @@ const HEADER_MENUS = [
   ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
   ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
 ];
-const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
+// Phone menu: the same groups as the header dropdowns. Each group opens to its pages; the current page's group starts open.
+const groupOf = (path) => HEADER_MENUS.findIndex(([, links]) => links.some(([, href]) => href.split('#')[0] !== '/' && path.startsWith(href.split('#')[0])));
+function MobileMenu() {
+  const [open, setOpen] = useState(-1); const [path, setPath] = useState('');
+  useEffect(() => { setPath(location.pathname); setOpen(groupOf(location.pathname)); }, []);
+  return <nav aria-label="Mobile navigation" className="mnav">{HEADER_MENUS.map(([group, links], g) => {
+    const on = open === g; const id = `mnav-${group.toLowerCase()}`;
+    return <div key={group} className={`mnav-group${on ? ' is-open' : ''}`}>
+      <button type="button" className="mnav-head" aria-expanded={on} aria-controls={id} onClick={() => setOpen(on ? -1 : g)}><span>{group}</span><CaretDown size={16} className="mnav-caret" /></button>
+      <AnimatePresence initial={false}>{on && <motion.ul id={id} className="mnav-list" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .28, ease: [.2, .8, .2, 1] }}>
+        {links.map(([l, href, note]) => <li key={href}><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
+      </motion.ul>}</AnimatePresence>
+    </div>;
+  })}</nav>;
+}
 
 // Real app screens, captured from the seeded desktop build in both themes.
 export const SHOT_V = '20261008i';
@@ -1288,7 +1302,8 @@ export function PageShell({ children, feedback = true }) {
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" /><Dialog.Content className="mobile-nav">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
-            <nav aria-label="Mobile navigation">{MENU.map(([label, href]) => <Dialog.Close asChild key={href}><a href={href}>{label}<ArrowUpRight size={20} /></a></Dialog.Close>)}</nav>
+            <MobileMenu />
+            <div className="mnav-ctas"><Button asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button asChild><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" aria-label="Community links">
               <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>

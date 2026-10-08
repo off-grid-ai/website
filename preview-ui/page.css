@@ -1772,3 +1772,21 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .tour-cmd-chip:has(.scene-roll){flex-wrap:nowrap;height:42px;padding:0 14px 0 16px}
   .tour-cmd-chip .scene-roll{flex:none}
 }
+/* Phone menu: the header's groups, each opening to its pages. Group rows are the main targets; pages sit indented under them. */
+.mobile-nav{display:flex;flex-direction:column;padding:20px 20px 24px}
+.mobile-nav .mnav{display:flex;flex-direction:column;margin-top:36px}
+.mnav-group{border-bottom:1px solid var(--line)}
+.mnav-head{all:unset;box-sizing:border-box;display:flex;width:100%;align-items:center;justify-content:space-between;min-height:56px;padding:0 4px;cursor:pointer;font:500 19px/1.2 var(--og-font-mono);letter-spacing:-.02em;color:var(--og-text)}
+.mnav-head:focus-visible{outline:2px solid var(--og-border-focus);outline-offset:2px;border-radius:6px}
+.mnav-caret{color:var(--og-text-muted);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.mnav-group.is-open .mnav-caret{transform:rotate(180deg);color:var(--og-primary)}
+.mnav-list{list-style:none;margin:0;padding:0 0 10px;overflow:hidden}
+.mobile-nav .mnav a{display:flex;flex-direction:column;gap:2px;padding:10px 4px 10px 16px;margin-left:4px;border-left:1px solid var(--line-2);border-bottom:0;font-size:15.5px;letter-spacing:-.01em;color:var(--og-text)}
+.mobile-nav .mnav a small{font-size:12px;letter-spacing:0;color:var(--og-text-muted)}
+.mobile-nav .mnav a[aria-current=page]{border-left:2px solid var(--og-primary);padding-left:15px;color:var(--og-primary)}
+.mobile-nav .mnav a:active{background:rgb(var(--og-rgb-text)/.04)}
+.mnav-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.mnav-ctas a{height:48px!important;width:100%;justify-content:center}
+.mobile-nav .mobile-community{margin-top:auto;padding-top:20px}
+.mobile-nav .mnav a{align-items:flex-start!important;justify-content:flex-start!important;text-align:left;border-left:1px solid rgb(var(--og-rgb-text)/.14)}
+.mobile-nav .mnav a[aria-current=page]{border-left:2px solid var(--og-primary)}
