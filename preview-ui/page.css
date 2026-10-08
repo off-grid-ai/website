@@ -1693,3 +1693,12 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .shot-mac-wrap::after{display:none!important}
 }
 @media(max-width:860px){.wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){inset:19% 0 auto auto!important}}
+/* Tour command line (explorers, heroes, Pro tabs): window dots and the typed command for the screen on show. */
+.tour-cmd{display:flex;align-items:center;gap:12px;height:40px;padding:0 14px;flex:none;border-bottom:1px solid var(--line);font-family:var(--og-font-mono);font-size:12.5px;color:var(--og-text);white-space:nowrap;overflow:hidden}
+.tour-cmd-dots{display:flex;gap:6px;flex:none}.tour-cmd-dots i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.tour-cmd-text{min-width:0;overflow:hidden;text-overflow:clip}.tour-cmd .cmd-caret{color:var(--og-primary);margin-right:8px}
+.tour-cmd-text span{font:inherit!important;letter-spacing:inherit!important}
+.pillar-view>.tour-cmd{margin:-16px -16px 0}
+.tour-cmd-card{margin:-10px -10px 10px;border-radius:8px 8px 0 0}
+.tour-cmd-chip{height:34px;margin:0 auto 14px;width:fit-content;max-width:100%;border:1px solid var(--line-2);border-radius:999px;padding:0 14px}
+.tour-cmd-chip .tour-cmd-dots{display:none}

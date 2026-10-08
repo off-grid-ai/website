@@ -10,7 +10,7 @@ import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload, ZoomCtx, useZoomOwner, ScreenCtx, CmdBar, CmdScope } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { useAutoProgress } from './_product.jsx';
 
@@ -33,12 +33,12 @@ function Hero({ pricing }) {
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
-      <SceneCard className="pp-hero-card" busy>
-        <div className="pp-frame"><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="god" alt="" lazy={false} /></div></div><ShotSeq ms={3800} shots={[
+      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="brief me, Ares">{(text) => <><CmdBar text={text} className="tour-cmd-card" />
+        <div className="pp-frame"><ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="god" alt="" lazy={false} /></div></div></ScreenCtx.Provider><ShotSeq ms={3800} shots={[
           ['god', 'Off Grid AI God: Ares briefs you on your day, with approvals waiting.'],
           ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
         ]} /></div>
-      </SceneCard>
+      </>}</CmdScope></SceneCard>
     </div>
   </section>;
 }
@@ -275,15 +275,15 @@ function StickyBuy({ pricing }) {
 /* ───────── What Pro is: one tab per capability, one large real screen ───────── */
 
 const CAPS = [
-  { id: 'memory', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
+  { id: 'memory', cmd: 'remember my work', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
     shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['replay', 'Off Grid AI Replay: recorded screen activity on your device.']] },
-  { id: 'act', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
+  { id: 'act', cmd: 'draft the reply to Sam', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
     shots: [['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.']] },
-  { id: 'god', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
+  { id: 'god', cmd: 'brief me, Ares', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
     shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
-  { id: 'reflect', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
+  { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
-  { id: 'vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',
+  { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. A clipboard you can search.',
     shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400], ['clipboard', 'Off Grid AI Clipboard history with search.', 3400]] },
 ];
 // Each tab plays all of its screens once, then hands over.
@@ -316,11 +316,11 @@ function WhatPro({ again }) {
       </div>
       <div className="pp-cap-view">
         <motion.div key={C.id} className="pp-cap-head" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3 }}><Heading as="h3">{C.title}</Heading><Text as="p">{C.line}</Text></motion.div>
-        <SceneCard className="pp-cap-card"><div className="pp-frame">
+        <SceneCard className="pp-cap-card"><CmdScope key={C.id} chapter={C.id} cmd={C.cmd}>{(text) => <><CmdBar text={text} className="tour-cmd-card" /><div className="pp-frame">
           <Preload names={CAPS.map(c => c.shots[0][0])} />
-          <div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div>
+          <ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name={(P || C).shots[0][0]} alt="" lazy={false} /></div></div></ScreenCtx.Provider>
           <ZoomCtx.Provider value={zoom}><ShotSeq key={C.id} ms={3400} shots={C.shots} /></ZoomCtx.Provider>
-        </div></SceneCard>
+        </div></>}</CmdScope></SceneCard>
         <div className="pp-cap-ctl">
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!hold} onClick={() => setHold(h => !h)}>{hold ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
           <span className="pp-hint">Pick a tab to look closer.</span>

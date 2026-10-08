@@ -199,6 +199,8 @@ export function Shot({ name, alt, className = '', lazy = true, mobile = false, o
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
   const [open, setOpen] = useState(false); const seqOpen = useContext(SeqOpenCtx); const zc = useContext(ZoomCtx); const btns = useRef([]);
   useZoomRegister(seqOpen ? null : zc, [[mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw, alt]], () => btns.current.some(b => b?.getClientRects().length));
+  const onScreen = useContext(ScreenCtx);
+  useEffect(() => { if (!seqOpen) onScreen?.(mobile ? `mobile/${base}` : base); }, []);
   const fixed = mobile && name.match(/-(dark|light)$/);
   const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
   // The Magic UI iPhone frame uses a fixed SVG mask id, so a framed shot renders only the current theme:
@@ -618,7 +620,7 @@ const SCREEN_CMDS = {
   'day': 'open today',
   'god': 'brief me, Ares', 'god-prep': 'prep me for the Northwind meeting', 'god-waiting': "what's waiting for me?", 'god-voice': 'brief me out loud', 'god-choose': 'choose my god',
   'mobile/sync-ios-1': 'pair my phone and my Mac', 'mobile/chat-ios-1': 'send it to my phone', 'mobile/project-ios-2': 'ask the Acme project on my phone',
-  'replay': 'replay what I worked on', 'capture-settings': 'keep 1Password out of capture',
+  'replay': 'replay what I worked on', 'capture-settings': 'keep my banking app out of capture',
   'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
   'reflect': 'where did my time go?', 'approval': 'draft the reply to Sam',
   'web-plan': 'compare Team pricing for three note apps', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
@@ -628,10 +630,23 @@ const SCREEN_CMDS = {
   'mobile/models-ios-1': 'choose models for my phone', 'models-text': 'show text models', 'models-voice-list': 'pick a voice', 'models-voice': 'show voice models',
   'models-vision': 'show vision models', 'models-image': 'show image models', 'models-transcription': 'show transcription models', 'models-computer-use': 'show computer use models',
   'gateway': 'curl localhost:7878/v1/chat/completions',
+  'vision-chat': 'what does this chart show?', 'voice-reply': 'read this reply aloud', 'voice': 'dictate a note', 'artifacts': 'draw the rollout as a flowchart', 'projects': 'ask the Acme project', 'models': 'show text models',
+  'chat-translate': 'translate this for Sam’s team', 'project-compare': 'what changed from v2 to v3?', 'project-checklist': 'make the launch checklist', 'project-summary': 'summarize the rollout plan',
+  'mobile/chat-ios-1': 'draft a reply to Sam', 'mobile/project-ios-1': 'open the Acme project', 'mobile/tools-ios-1': 'how many seat-days is the pilot?', 'mobile/remote-ios-2': 'use the model on my Mac',
+  'mobile/voice-ios-1': 'brief me out loud', 'mobile/models-ios-2': 'pick a voice', 'mobile/sync-ios-1': 'pair my phone and my Mac',
 };
 export const cmdFor = (chapter, screen, fallback) => (screen && (SCREEN_CMDS[`${chapter}:${screen}`] || SCREEN_CMDS[screen])) || fallback;
 // A tour window listens for the screen its sequence is showing.
 export const ScreenCtx = createContext(null);
+// A tour's command line: window dots and the typed command for the screen on show.
+export function CmdBar({ text, className = '' }) {
+  return <div className={`tour-cmd ${className}`} aria-hidden="true"><span className="tour-cmd-dots"><i /><i /><i /></span><span className="tour-cmd-text"><span className="cmd-caret">›</span><TypingAnimation key={text} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{text}</TypingAnimation></span></div>;
+}
+// Collects screen reports for one feature (mount one per feature so reports never leak between them).
+export function CmdScope({ chapter, cmd, children }) {
+  const [scr, setScr] = useState(null); const on = useCallback((name) => setScr(name), []);
+  return <ScreenCtx.Provider value={on}>{children(cmdFor(chapter, scr, cmd))}</ScreenCtx.Provider>;
+}
 
 // The full-screen composition for one screen: a device frame, or the desktop + phone pair.
 function Composition({ name, alt, theme, scene }) {
@@ -723,7 +738,7 @@ const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]) },
   { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/sync-ios-1', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi, ready to pass work across.', 3600], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.', 3800]) },
-  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured and summarised on your device.', 4000], ['capture-settings', 'Off Grid AI capture settings: capturing on this Mac, with 1Password, Messages and banking apps excluded.', 4000]) },
+  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured and summarised on your device.', 4000], ['capture-settings', 'Off Grid AI capture settings: capturing on this Mac, with banking and messaging apps excluded.', 4000]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']) },
   { id: 'reflect', cmd: 'where did my time go?', title: 'Your time, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.']) },
   { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000]) },

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, CheckCircle, Check, LockKey, ChatCircle, VideoCamera, FilePdf, Sparkle } from '@phosphor-icons/react';
 import { AnimatedList } from '@magicui/animated-list';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
 import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, ImageScene, VoiceScene, OfflineScene, ToolsScene, ApprovalScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
@@ -70,6 +70,8 @@ const inPhone = (id) => (compact) => {
   return <><div className="only-dark">{r.dark ? real(r.dark, compact) : composed(id, compact)}</div><div className="only-light">{r.light ? real(r.light, compact) : composed(id, compact)}</div></>;
 };
 
+// The command each feature's window types before (or without) a screen of its own.
+const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', personas: "set my assistant's voice", approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
 const FREE = [
   ['chat', 'Chat', 'Write, ask, and reason with local models such as Qwen, Llama, Gemma, and Phi.'],
   ['images', 'Image generation', 'Create images with on-device Stable Diffusion and a live preview.'],
@@ -79,13 +81,13 @@ const FREE = [
   ['tools', 'Tools', 'Use web search, a calculator, and document lookup with compatible models.'],
   ['larger', 'Larger models', 'Use Off Grid AI Desktop, Ollama, or LM Studio over your local network.'],
   ['offline', 'Offline by default', 'Download a model once. Use it without internet.'],
-].map(([id, title, line]) => ({ id, title, line, visual: inPhone(id) }));
+].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 const PRO = [
   ['voicemode', 'Voice mode', 'Talk hands-free. Kokoro generates spoken replies on your phone.'],
   ['personas', 'Custom personas', "Set your assistant's instructions, voice, and persistent memory."],
   ['approve', 'Draft, then approve', 'Draft replies and tasks through connected tools. You approve before sending.'],
   ['sync', 'Sync is live', 'Continue chats across paired devices. Transfers are encrypted, without an Off Grid AI storage server.'],
-].map(([id, title, line]) => ({ id, title, line, visual: inPhone(id) }));
+].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 
 // Hero phone: the real app, screen after screen, in the page's theme.
 const HERO_LIGHT = [
@@ -105,7 +107,7 @@ const HERO_DARK = [
   ['models-ios-1-dark', 'Models picked for your phone, with vision and tools marked.', 3800],
 ];
 function HeroPhone() {
-  return <div className="mp-hero-phone"><div className="only-dark"><PhoneShots shots={HERO_DARK} controls /></div><div className="only-light"><PhoneShots shots={HERO_LIGHT} controls /></div></div>;
+  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="draft a reply to Sam">{(text) => <><CmdBar text={text} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
 }
 
 const FAQ = (p) => [
