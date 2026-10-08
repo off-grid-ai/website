@@ -16,8 +16,6 @@ A thought on your phone can become work on your Mac. OGAM (Off Grid AI Mobile) l
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

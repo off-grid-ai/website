@@ -16,7 +16,7 @@ You can turn Hindi, Spanish, French, and other supported languages into editable
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: local speech-to-text models for transcription.](/assets/img/home/app/models-transcription-light-1760.webp)
 
 ---
 

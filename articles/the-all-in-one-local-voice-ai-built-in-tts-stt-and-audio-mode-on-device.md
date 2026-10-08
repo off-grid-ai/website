@@ -62,6 +62,10 @@ Every message has a Speak button. Press it and that message reads aloud. Useful 
 There is no per-character fee. Cloud TTS bills you by the character or the second. Kokoro runs on your hardware, so you can read aloud a whole document and it costs nothing but a little compute.
 
 
+![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.*
+
 ## Audio mode: hands-free back-and-forth
 
 The two directions combine into a voice mode. Turn on auto-speak and the loop runs itself. You speak, the model answers, the answer reads aloud, you speak again. No clicking, no typing.
@@ -70,6 +74,10 @@ This is the part most local setups never reach. Stitching Whisper and a TTS engi
 
 Cook dinner and ask questions. Pace the room and think out loud. Drive a brainstorm with your hands free. The conversation stays a conversation, and all of it stays on the device.
 
+
+![A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.](/assets/img/home/app/voice-reply-light-1760.webp)
+
+*A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.*
 
 ## How it runs on your hardware
 
@@ -109,11 +117,6 @@ Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokor
 - More TTS voices and finer control over speed and tone.
 - Wider language coverage tuned for both directions.
 - Using the local voice stack from other paired devices over the mesh.
-
-
-![The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.](/assets/img/home/app/models-voice-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text-to-speech voice models.*
 
 ## FAQ
 

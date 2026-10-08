@@ -16,7 +16,7 @@ You can turn a saved lecture recording into study notes without uploading it to 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Current desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD](https://getoffgridai.co/assets/cover.png)
+![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 

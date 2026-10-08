@@ -16,8 +16,6 @@ You can attach a file to an AI conversation on your phone and find it in the sam
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

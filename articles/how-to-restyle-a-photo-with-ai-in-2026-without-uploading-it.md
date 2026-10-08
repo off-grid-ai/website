@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you start from a local photo and generate a new 
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Image generation in an Off Grid AI Desktop chat: the picture, the prompt behind it and the model settings, all on your computer.](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 ---
 

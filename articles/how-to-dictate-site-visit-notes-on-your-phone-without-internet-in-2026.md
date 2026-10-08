@@ -16,8 +16,6 @@ After a site visit, the details are still fresh but typing a complete note on yo
 
 [Get OGAM for your phone](https://getoffgridai.co/mobile/) | [Mobile releases](https://github.com/off-grid-ai/OGAM/releases)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

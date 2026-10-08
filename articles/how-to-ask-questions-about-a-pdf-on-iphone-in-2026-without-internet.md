@@ -16,8 +16,6 @@ You have a course handbook on your phone and need one answer, not another long s
 
 [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

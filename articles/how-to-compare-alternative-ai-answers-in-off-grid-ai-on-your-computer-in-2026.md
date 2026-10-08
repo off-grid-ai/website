@@ -18,7 +18,8 @@ The first AI answer is not always the one you want to use. You may like its fact
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI Desktop chat: a local Qwen 3.5 9B model answers a work question and cites the meeting and the document it used.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 

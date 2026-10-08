@@ -16,8 +16,6 @@ OGAD (Off Grid AI Desktop) can infer the spoken language while it transcribes a 
 
 [Get OGAM (Off Grid AI Mobile) for your phone](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

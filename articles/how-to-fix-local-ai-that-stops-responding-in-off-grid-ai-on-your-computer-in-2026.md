@@ -18,8 +18,6 @@ Your local AI stops answering. Before you delete models or reinstall the app, ch
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -16,8 +16,6 @@ You have a product manual on your phone and need one answer, not another long sc
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Current mobile release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

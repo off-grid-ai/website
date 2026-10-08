@@ -61,6 +61,10 @@ Pick by VRAM. That is the constraint that decides what runs well.
 
 On 8GB cards, the few-step models are the comfortable default. SDXL-Lightning and Z-Image-Turbo reach a usable image in a fraction of the steps standard SDXL needs, which is the biggest factor in how long you wait.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Hardware Acceleration Works
 
 Generation is an iterative denoising loop. The model starts from noise and refines it over a set number of steps, and each step is heavy matrix math. On NVIDIA hardware, `stable-diffusion.cpp` runs that math through CUDA. On AMD and Intel GPUs it uses Vulkan. With no usable GPU, it falls back to the CPU and runs slower.
@@ -100,11 +104,6 @@ Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no 
 - Tighter ties between image generation and the rest of the local studio.
 
 Grounded roadmap. The local spine comes first.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

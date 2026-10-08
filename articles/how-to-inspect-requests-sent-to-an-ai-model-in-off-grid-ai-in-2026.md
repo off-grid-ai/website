@@ -20,8 +20,6 @@ This guide covers the view released in **v0.0.54-beta.108**, a prerelease. Recor
 
 [Download OGAD](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108) | [Off Grid AI](https://getoffgridai.co)
 
-![Off Grid AI — private AI on your own devices](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -16,7 +16,7 @@ You do not need a final-size image to decide whether an idea works. OGAD (Off Gr
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: image generation models available to download.](/assets/img/home/app/models-image-light-1760.webp)
 
 ---
 

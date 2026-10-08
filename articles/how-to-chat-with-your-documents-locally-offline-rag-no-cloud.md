@@ -62,6 +62,10 @@ Third, those chunks get handed to the local language model as context, along wit
 
 So the model never has to memorize your files. It reads the relevant pages at question time, which is why a 7B model on your laptop can answer questions about a 400-page document it has never seen before.
 
+![An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.](/assets/img/home/app/chat-dark-1760.webp)
+
+*An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.*
+
 ## How Hardware Acceleration Works
 
 On a Mac, the bundled `llama.cpp` server uses Metal and Apple's unified memory. The CPU, GPU, and model share one memory pool, so a quantized model loads without copying weights back and forth. That is why an M-series laptop runs a 7B model at usable speed.
@@ -101,11 +105,6 @@ For anything covered by an NDA, a privacy regulation, or just your own preferenc
 - Cross-device sync, so a project indexed on your laptop is available on your other machines, still without a server in the middle.
 - More embedding and chat models in the built-in browser.
 - Unified search across projects and captured memory.
-
-
-![An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.](/assets/img/home/app/chat-dark-1760.webp)
-
-*An answer in Off Grid AI Desktop chat that cites the meeting and the PDF it came from.*
 
 ## FAQ
 

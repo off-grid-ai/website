@@ -16,8 +16,6 @@ You can have a spoken AI conversation on your Android phone without sending the 
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Mobile features](https://getoffgridai.co/mobile/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

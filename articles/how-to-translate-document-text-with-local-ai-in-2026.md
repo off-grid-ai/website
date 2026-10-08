@@ -16,8 +16,6 @@ You need to understand a document in another language, but do not want to upload
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

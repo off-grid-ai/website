@@ -16,8 +16,6 @@ A beta can give you a new feature before it is ready for your everyday work. Whe
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

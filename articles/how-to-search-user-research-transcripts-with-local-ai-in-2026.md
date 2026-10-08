@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you add transcripts to a project and ask questio
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![Voice in Off Grid AI Desktop: dictated notes and a transcribed audio file, each turned into text with its to-dos pulled out on your computer.](https://getoffgridai.co/assets/img/home/app/voice-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

@@ -16,8 +16,6 @@ A password list can hide two problems: a weak password and the same password use
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

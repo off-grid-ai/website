@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can import a downloaded `.gguf` file, register it in 
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop: text models on this computer and models to download, each with its size, plus size filters and an Import .gguf button.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
 
 ---
 

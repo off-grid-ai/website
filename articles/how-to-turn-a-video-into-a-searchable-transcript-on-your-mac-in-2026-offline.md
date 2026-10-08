@@ -16,7 +16,7 @@ You can find spoken details in a saved video without replaying the whole recordi
 
 [OGAD Pro](https://getoffgridai.co/pro/) | [Desktop downloads and platform details](https://getoffgridai.co/desktop/)
 
-![OGAD brand artwork](https://getoffgridai.co/assets/cover-democratizing-intelligence.png)
+![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
 
 ---
 

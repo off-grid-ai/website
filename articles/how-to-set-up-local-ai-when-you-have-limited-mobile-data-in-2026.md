@@ -18,7 +18,7 @@ OGAM (Off Grid AI Mobile) lets you select local models and manage their download
 
 [Download OGAM](https://getoffgridai.co/mobile/) | [Mobile release 0.0.111](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs.](https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

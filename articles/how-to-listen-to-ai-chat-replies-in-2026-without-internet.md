@@ -16,7 +16,7 @@ OGAD (Off Grid AI Desktop) and OGAM (Off Grid AI Mobile) can read an assistant r
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Get OGAM](https://getoffgridai.co/mobile/)
 
-![OGAD and OGAM](https://getoffgridai.co/assets/cover.png)
+![A voice chat in Off Grid AI Desktop: your spoken question and the spoken reply from the local Kokoro voice, each as a voice note with its transcript.](https://getoffgridai.co/assets/img/home/app/voice-reply-light-1760.webp)
 
 ---
 

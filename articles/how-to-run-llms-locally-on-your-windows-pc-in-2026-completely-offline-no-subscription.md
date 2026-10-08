@@ -60,6 +60,10 @@ Match the model to your VRAM. Quantized GGUF files are compressed, so a model th
 
 The rule of thumb: keep the whole model inside VRAM. The moment it overflows into system RAM, speed drops sharply, so size down one step before that happens.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## How Hardware Acceleration Works
 
 Off Grid AI Desktop bundles `llama.cpp` and offloads the model's layers to your GPU. On an NVIDIA card it uses CUDA, NVIDIA's compute framework. On AMD, Intel Arc, or other GPUs it uses Vulkan, the cross-vendor graphics API. With no usable GPU, it runs the same model on your CPU.
@@ -101,11 +105,6 @@ npm run dev
 - More bundled models and one-click presets for common tasks.
 - Cross-device sync so your chats and models follow you between machines, still local-first.
 - Unified search across your chats and documents.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

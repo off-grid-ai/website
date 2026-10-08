@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you try local text, vision, image, and speech wo
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop: text models on this computer, with Qwen 3.5 9B active, and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

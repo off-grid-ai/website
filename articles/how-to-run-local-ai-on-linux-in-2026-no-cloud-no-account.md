@@ -20,7 +20,7 @@ Use **0.0.54 stable** for the core app or **0.0.55-beta.114 preview** for Linux 
 
 [Download for Linux]({{ '/download/' | relative_url }}) | [Off Grid AI](https://getoffgridai.co)
 
-![Off Grid AI — private AI on your own devices](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop: text models on this computer, with Qwen 3.5 9B active, and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
 
 ---
 

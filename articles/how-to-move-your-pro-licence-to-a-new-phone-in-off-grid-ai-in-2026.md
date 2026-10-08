@@ -18,8 +18,6 @@ OGAM (Off Grid AI Mobile) lets you activate your existing Pro licence on a new p
 
 [Install OGAM on your new phone](https://getoffgridai.co/mobile/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

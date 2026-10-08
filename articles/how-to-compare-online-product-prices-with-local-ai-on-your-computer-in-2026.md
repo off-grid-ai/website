@@ -16,7 +16,8 @@ The lowest product price is not always the lowest delivered price. OGAD (Off Gri
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![A browser task in Off Grid AI Desktop comparing prices: the step plan and progress on the left, the live web page on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

@@ -3,16 +3,17 @@ import { createPortal } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
-  ThumbsUp, ThumbsDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, EnvelopeSimple, FilePdf, ChatsCircle,
+  ThumbsUp, ThumbsDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
-import { motion, MotionConfig, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useReducedMotion, animate } from 'motion/react';
+import { motion, MotionConfig, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
 import { Carousel, CarouselContent, CarouselItem, CarouselIndicator } from '@motion-primitives/carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import CoverflowCarousel from '@smoothui/coverflow-carousel';
 import Button from '@smoothui/smooth-button';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '@shadcn/navigation-menu';
 import MagneticButton from '@smoothui/magnetic-button';
 import ThemeToggle from '@smoothui/theme-toggle';
 import AIApproval from '@smoothui/ai-approval';
@@ -30,6 +31,9 @@ import { NumberTicker } from '@magicui/number-ticker';
 import { Marquee } from '@magicui/marquee';
 import { MagicCard } from '@magicui/magic-card';
 import { Iphone } from '@magicui/iphone';
+import { MacbookPro } from '@eldoraui/macbook-pro';
+import { AnimatedGridPattern } from '@magicui/animated-grid-pattern';
+import { Particles } from '@magicui/particles';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import { Ripple } from '@magicui/ripple';
 import { AnimatedList } from '@magicui/animated-list';
@@ -88,35 +92,62 @@ function ModelChip({ name, kind, maker }) {
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
 // Header: where people want to go from any page. Home-only anchors live in the phone menu.
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
-const MENU = [...NAV, ['How it works', '/#how'], ['Privacy', '/#private'], ['Download', '/download/'], ['Get Pro', '/pro/#buy'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']];
+// Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
+const HEADER_MENUS = [
+  ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
+  ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
+  ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
+  ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
+  ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
+];
+const MENU = HEADER_MENUS.flatMap(([group, links]) => links.map(([l, href]) => [l === 'Overview' ? group : group === 'Learn' || group === 'Company' ? l : `${group} ${l.toLowerCase()}`, href]));
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261007g';
-export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange }) {
-  mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
+export const SHOT_V = '20261008b';
+// A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
+export function Device({ name, theme, alt, full = false }) {
+  const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
+  const fixed = mobile && n.match(/-(dark|light)$/); const base = fixed ? n.replace(/-(dark|light)$/, '') : n;
+  const src = `/assets/img/home/${mobile ? 'mobile' : 'app'}/${base}-${fixed ? fixed[1] : theme}${full ? '' : `-${mobile ? 640 : 1760}`}.webp?v=${SHOT_V}`;
+  return mobile ? <div className="shot-device-phone" role="img" aria-label={alt}><Iphone src={src} className="shot-device-image" aria-hidden="true" /></div>
+    : <div className="shot-device-mac" role="img" aria-label={alt}><MacbookPro className="shot-device-image" aria-hidden="true" /><div className="shot-device-screen"><img className="shot-device-shot" src={src} alt="" draggable={false} /></div></div>;
+}
+// Full-screen view in the same window. It shows the same composition as the page, in its device frames,
+// with a rotate control on phones for landscape.
+export function ShotView({ open, onOpenChange, alt, ratio, children }) {
+  return <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Portal>
+      <Dialog.Overlay className="screenshot-overlay" />
+      <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
+        <Dialog.Title className="sr-only">{alt}</Dialog.Title>
+        <div className="screenshot-stage" style={{ '--ar': ratio }}>{children}</div>
+        {ratio > 1.2 && <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>}
+        <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>;
+}
+const MAC_RATIO = 650 / 400; const PHONE_RATIO = 433 / 882;
+export function Shot({ name, alt, className = '', lazy = true, mobile = false, onOpenChange, frame = false }) {
+  const raw = name; mobile = mobile || name.startsWith('mobile/'); name = name.replace(/^mobile\//, '');
   const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
+  const [open, setOpen] = useState(false);
   const fixed = mobile && name.match(/-(dark|light)$/);
   const base = fixed ? name.replace(/-(dark|light)$/, '') : name;
-  const themes = fixed ? [fixed[1]] : ['dark', 'light'];
+  // The Magic UI iPhone frame uses a fixed SVG mask id, so a framed shot renders only the current theme:
+  // a hidden twin would own the mask and paint the screen grey.
+  const themes = fixed ? [fixed[1]] : frame ? [theme] : ['dark', 'light'];
   const folder = mobile ? 'mobile' : 'app'; const width = mobile ? 640 : 1760;
+  const toggle = (v) => { setOpen(v); hold(v); onOpenChange?.(v); };
   return <>{themes.map(t => {
     const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
     const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
-    return <Dialog.Root key={t} onOpenChange={(open) => { hold(open); onOpenChange?.(open); }}>
-      <Dialog.Trigger asChild><button type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()}>
-        <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />
-      </button></Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="screenshot-overlay" />
-        <Dialog.Content className="screenshot-view" aria-describedby={undefined}>
-          <Dialog.Title className="sr-only">{alt}</Dialog.Title>
-          <img src={full} alt={alt} className="screenshot-full" />
-          <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>
-          <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>;
-  })}</>;
+    return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} onClick={() => toggle(true)}>
+      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
+    </button>;
+  })}
+  {open && <ShotView open onOpenChange={toggle} alt={alt} ratio={mobile ? PHONE_RATIO : MAC_RATIO}><Device name={mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw} theme={theme} alt={alt} full /></ShotView>}
+  </>;
 }
 
 // Replays a looping demo: the returned key changes every `ms` while mounted.
@@ -190,9 +221,11 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['PRODUCT', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/pro/#buy'], ['Download', '/download/'], ['Hardware', '/ogap/']]],
-  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/'], ['Desktop releases', '/desktop/releases/'], ['Mobile releases', '/mobile/releases/']]],
-  ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Design partners', '/design-partners/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
+  ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Releases', '/desktop/releases/']]],
+  ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
+  ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
+  ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
+  ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@offgridmobileai.co']]],
 ];
 
@@ -315,26 +348,6 @@ const SYNCED = [
   { Icon: ChatCircle, title: 'What did I promise Sam?', meta: 'Chat · 2 sources' },
   { Icon: FilePdf, title: 'Acme_rollout_v3.pdf', meta: 'Attachment · 1.2 MB' },
 ];
-function ContinueScene() {
-  const box = useRef(null); const desk = useRef(null); const phone = useRef(null);
-  const phase = useSteps([2400, 4800]);
-  const [desktop, mobile, label] = [
-    ['gateway', 'remote-ios-1', 'Your phone connected to Off Grid AI Desktop.'],
-    ['chat', 'chat-ios-1', 'Off Grid AI Chat on your computer and phone.'],
-    ['projects', 'project-ios-2', 'Off Grid AI Projects and cited document answers on your computer and phone.'],
-  ][phase];
-  return <div className="scene scene-continue" ref={box}>
-    <div className="sync-card sync-shot" ref={desk}><Shot name={desktop} alt={label} lazy={false} /></div>
-    <div className="dev-phone" ref={phone}>
-      <Iphone />
-      <div className="phone-live phone-capture">
-        <Shot name={mobile} mobile alt={label} lazy={false} />
-      </div>
-    </div>
-    <span className="sync-tag"><LockKey size={13} /> Your computer and phone. Select a screen to enlarge it.</span>
-    <Beam containerRef={box} fromRef={desk} toRef={phone} curvature={0} duration={2.2} pathWidth={2} pathColor="var(--og-text-muted)" pathOpacity={.18} gradientStartColor="var(--og-primary)" gradientStopColor="var(--og-primary-light)" />
-  </div>;
-}
 // Browser: a sign-in page in Safari, the Off Grid side panel docked inside it, the vault login filling the form.
 function BrowserScene() {
   const s = useSteps([500, 1300, 2700, 3700, 4500]);
@@ -504,13 +517,28 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 // Pair only captures of the same task or the connection used for that task.
 const SHOT_PAIRS = {
+  'mobile/remote-ios-1': ['gateway', 'Off Grid AI Desktop Gateway: the computer serving models to the phone.'],
+  'mobile/chat-ios-1': ['chat', 'Off Grid AI Chat on desktop with a sourced answer about the Acme pilot.'],
   'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
   'mobile/imagegen-ios-1': ['imagegen-chat', 'Desktop image generation: the generated landscape and its prompt.'],
   'mobile/models-ios-1': ['models-text', 'Text models available on desktop.'],
   'mobile/models-ios-2': ['models-voice', 'Voice models available on desktop.'],
-  'mobile/voice-ios-1': ['mobile/chat-ios-1', 'The same reply shown as text before its spoken version.'],
-  'mobile/vision-ios-1': ['mobile/remote-ios-1', 'The phone connected to the Mac that runs its vision model.'],
+  'mobile/voice-ios-1': ['mobile/chat-ios-1', 'A reply drafted in text on the phone.'],
+  'mobile/vision-ios-1': ['models-vision', 'Vision models on the Mac that answers the phone.'],
 };
+// Desktop and phone shown together; either device opens the same pair, framed, full screen.
+function ShotPair({ pair, name, alt }) {
+  const theme = useContext(ThemeCtx); const { hold } = useContext(PlayCtx);
+  const [open, setOpen] = useState(false); const toggle = (v) => { setOpen(v); hold(v); };
+  const phones = pair[0].startsWith('mobile/');
+  const items = (full, Tag) => [pair, [name, alt]].map(([screen, description], index) => <Tag key={screen} {...(Tag === 'button' ? { type: 'button', 'aria-label': `Enlarge screenshot: ${description}`, onPointerDown: e => e.stopPropagation(), onClick: () => toggle(true) } : {})} className={`shot-pair-item${index === 0 ? ' shot-pair-companion' : ''}`}>
+    <Device name={screen} theme={theme} alt={description} full={full} />
+  </Tag>);
+  return <>
+    {items(false, 'button')}
+    {open && <ShotView open onOpenChange={toggle} alt={`${pair[1]} ${alt}`} ratio={phones ? 1.05 : 5 / 3}><div className={`zoom-pair wt-shot-pair${phones ? ' wt-shot-pair-phones' : ''}`}>{items(true, 'div')}</div></ShotView>}
+  </>;
+}
 export function ShotSeq({ shots, ms = 3200 }) {
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
@@ -523,7 +551,9 @@ export function ShotSeq({ shots, ms = 3200 }) {
       {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} initial={reduce ? false : { clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: reduce ? { duration: 0 } : WIPE }} exit={{ opacity: 1, transition: { delay: reduce ? 0 : .7, duration: 0 } }}>
-          {pair ? <><div className="shot-pair-item shot-pair-companion"><Shot name={pair[0]} alt={pair[1]} lazy={false} /></div><div className="shot-pair-item"><Shot name={name} alt={alt} lazy={false} /></div></> : <Shot name={name} alt={alt} lazy={false} />}
+          {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <Shot name={name} alt={alt} lazy={false} />
+            // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
+            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Shot name={name} alt={alt} lazy={false} /></div></div></div>}
           {!reduce && <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE} />}
         </motion.div>
       </AnimatePresence>
@@ -534,24 +564,24 @@ export function ShotSeq({ shots, ms = 3200 }) {
 }
 const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { fill: true, duration: shots.reduce((total, shot) => total + (shot[2] || 3200), 0) });
 const WALK = [
-  { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.'], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.']) },
-  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.'], ['actions', 'Off Grid AI Actions: approvals waiting for your yes.']) },
-  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 7000, View: ContinueScene },
-  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['integrations', 'Off Grid AI Integrations: accounts and tools you choose to connect.', 4000], ['replay', 'Off Grid AI Replay: a captured screen stored on your device.', 4000]) },
+  { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.']) },
+  { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.']) },
+  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/chat-ios-1', 'Off Grid AI on iPhone drafting a reply about the Acme pilot.'], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']) },
+  { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured and summarised on your device.', 4000], ['capture-settings', 'Off Grid AI capture settings: capturing on this Mac, with 1Password, Messages and banking apps excluded.', 4000]) },
   { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 0, View: shotView(['day', 'Off Grid AI Day: a timeline built from your captured work.', 4000], ['entities', 'Off Grid AI People: related people, companies and projects.', 4000], ['search', 'Off Grid AI Search: find a past decision in your memory.', 4000]) },
-  { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff with Sam.']) },
-  { id: 'reflect', cmd: 'where did my week go?', title: 'Your week, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.'], ['replay', 'Off Grid AI Replay: scrub back through what you chose to record.']) },
+  { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']) },
+  { id: 'reflect', cmd: 'where did my time go?', title: 'Your time, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.']) },
   { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000], ['mobile/project-ios-2', 'Off Grid AI on iPhone: a project answer citing your document.', 4000]) },
-  { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 0, View: shotView(['actions', 'Off Grid AI Actions: proposals waiting for approval.', 4000], ['god', 'Off Grid AI God: the briefing and tasks waiting for your decision.', 4000]) },
+  { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 0, View: shotView(['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.', 4000]) },
   { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: reading and comparing note-app pricing.', 4000], ['web-takeover', 'Off Grid AI Web use: sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: completed task and its result.', 4000]) },
-  { id: 'meetings', cmd: 'summarize the design review', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.'], ['voice', 'Off Grid AI Voice notes with transcripts and to-dos.']) },
+  { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.']) },
   { id: 'voice', cmd: 'talk to my AI', title: 'Your AI has a voice.', line: 'Listen to spoken replies and read their transcripts on your phone.', chips: ['Voice', 'Transcripts', 'Phone'], loop: 0, View: shotView(['mobile/voice-ios-1', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]) },
   { id: 'vision', cmd: 'what is in this picture?', title: 'Your photos become answers.', line: 'Ask about a photo on your phone. This answer uses a vision model running on your Mac.', chips: ['Vision', 'Phone', 'Shared compute'], loop: 0, View: shotView(['mobile/vision-ios-1', 'Off Grid AI on iPhone: a photo answered by Qwen 3.5 9B running on your Mac.', 4200]) },
   { id: 'browser', cmd: 'take over for sign-in', title: 'Your browser, with AI.', line: 'Your AI handles the task. You take over for sign-in and keep your passwords in your vault.', chips: ['Browser tasks', 'Takeover', 'Vault'], loop: 0, View: shotView(['web-takeover', 'Off Grid AI browser task waiting for you to sign in.', 4000], ['vault-open', 'Off Grid AI Vault: your saved logins and secrets.', 4000]) },
   { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: shotView(['vault-locked', 'Off Grid AI Vault: locked.', 2200], ['vault-typing', 'Off Grid AI Vault: entering the master password.', 2200], ['vault-open', 'Off Grid AI Vault: saved logins and notes.', 4000]) },
-  { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard history with search.']) },
+  { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text.']) },
   { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its prompt.', 4600]) },
-  { id: 'models', cmd: 'choose models for my devices', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['mobile/models-ios-1', 'Off Grid AI on iPhone: the model library.', 4200], ['mobile/models-ios-2', 'Off Grid AI on iPhone: model options for your device.', 4200], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
+  { id: 'models', cmd: 'choose models for my devices', title: 'Your models. Every kind.', line: 'Text, vision, images, speech and computer use. Downloaded once, then it works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['mobile/models-ios-1', 'Off Grid AI on iPhone: the model library.', 4200], ['models-voice-list', 'Off Grid AI Models: Kokoro voices on your computer, such as Heart, River and Sarah.', 3200], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
   { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine. Chat, images, speech and embeddings.', chips: ['OpenAI-compatible', 'MCP', 'No API key'], loop: 0, View: shotView(['gateway', 'Off Grid AI Gateway: local API endpoints and active models.', 4000]) },
 ];
 const PROMPTS = [
@@ -569,7 +599,7 @@ function CommandBar({ onRun }) {
     <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
       label="Open the example shown" submitLabel="Open example chapter"
       onVanishComplete={(text) => onRun((PROMPTS.find(prompt => prompt.label === text) || PROMPTS[0]).id)} />
-    <p className="cmd-note">Select the field or press Enter to open the example. Or choose an option below.</p>
+    <p className="cmd-note">Press Enter, or pick one below.</p>
   </div>;
 }
 
@@ -583,10 +613,11 @@ function Walkthrough({ reduce, theme }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const N = WALK.length;
+  const chapterProgress = useMotionValue(0);
   const [ch, setCh] = useState(0); const [rot, setRot] = useState(0); const rotRef = useRef(0); const spin = useRef(null); const settle = useRef(null);
-  const [paused, setPaused] = useState(false); const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
+  const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
-  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
+  const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const [wheelR, setWheelR] = useState(360); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
   const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false });
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
@@ -595,8 +626,9 @@ function Walkthrough({ reduce, theme }) {
     ro.observe(el); return () => ro.disconnect();
   }, []);
   useEffect(() => {
-    const fitWheel = () => { const mob = innerWidth <= 860; const w = wheelBox.current?.parentElement?.clientWidth || 320;
-      setWz(mob ? Math.min(.62, (innerWidth - 24) / 680) : Math.max(.36, Math.min(w / 680, (innerHeight - 68 - 170) / 680, .62))); };
+    const fitWheel = () => { const mob = innerWidth <= 860; const par = wheelBox.current?.parentElement; const w = par ? par.clientWidth - parseFloat(getComputedStyle(par).paddingLeft) - parseFloat(getComputedStyle(par).paddingRight) : 320;
+      // Desktop: radius 360 (diameter 800); phones keep radius 300 (diameter 680) so the visible arc keeps 44px targets.
+      setWz(mob ? Math.min(.62, (innerWidth - 24) / 680) : Math.max(.32, Math.min(w / 800, (innerHeight - 68 - 170) / 800, .72))); setWheelR(mob ? 300 : 360); };
     fitWheel(); addEventListener('resize', fitWheel); return () => removeEventListener('resize', fitWheel);
   }, []);
   useEffect(() => {
@@ -627,8 +659,8 @@ function Walkthrough({ reduce, theme }) {
   // Keep the selected chapter tab in view on phones.
   useEffect(() => { const row = tabsRef.current; const t = row?.querySelector('[aria-pressed="true"]'); if (!t || !row.offsetParent) return; row.scrollTo({ left: t.offsetLeft - (row.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' }); }, [ch]);
   useEffect(() => { const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting)); if (ref.current) io.observe(ref.current); return () => io.disconnect(); }, []);
-  // Any drag, key or tap on the wheel means the visitor is driving: autoplay stops for good.
-  const onWheel = (r) => { if (performance.now() < lock.current) return; setManual(true); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
+  // Selecting a chapter starts its own cycle; only the Pause control stops autoplay.
+  const onWheel = (r) => { if (performance.now() < lock.current) return; setManual(false); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
   const dockTop = () => { const el = ref.current; if (!el) return null; return el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * Math.min(1, STAGE * 1.1); };
   const go = useCallback((i) => {
     const n = (i + N) % N;
@@ -656,15 +688,36 @@ function Walkthrough({ reduce, theme }) {
     const t = setTimeout(() => { const top = dockTop(); if (top != null) scrollTo({ top, behavior: 'instant' }); spinTo(n, true); setTimeout(() => { linkDone.current = true; }, 300); }, 350);
     return () => { clearTimeout(t); removeEventListener('hashchange', onHash); };
   }, []);
+  // Left/right move between chapters while the tour is on screen, without first focusing the wheel.
+  useEffect(() => {
+    if (!docked || !inView) return;
+    const onKey = (e) => {
+      if ((e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') || e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
+      if (e.target.closest?.('input, textarea, select, [contenteditable], [role="slider"], [role="tablist"], [role="dialog"], .og-wheel')) return;
+      e.preventDefault(); setManual(false); goRef.current(ch + (e.key === 'ArrowRight' ? 1 : -1));
+    };
+    addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
+  }, [docked, inView, ch]);
   const submit = (e) => { e.preventDefault(); const hit = INTENTS.find(([re]) => re.test(q)); setTimeout(() => goId(hit ? hit[1] : 'ask'), 700); };
-  // Chapters inside the act advance on their own; hovering the window holds the current one.
-  useEffect(() => { if (!docked || !inView || paused || manual || reduce) return; const t = setTimeout(() => spinTo((ch + 1) % N), WALK[ch].View.duration || WALK[ch].loop || 7000); return () => clearTimeout(t); }, [docked, inView, paused, manual, ch, reduce, spinTo]);
+  // The progress value owns chapter timing and resumes from its current position.
+  useEffect(() => { chapterProgress.set(0); }, [ch, chapterProgress]);
+  useEffect(() => {
+    if (!docked || !inView || manual || reduce) return;
+    const duration = (WALK[ch].View.duration || WALK[ch].loop || 7000) / 1000;
+    const clock = animate(chapterProgress, 1, { duration: duration * (1 - chapterProgress.get()), ease: 'linear', onComplete: () => spinTo((ch + 1) % N) });
+    return () => clock.stop();
+  }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
   const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
       <div className="walk-igrid"><InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" /></div>
+      {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
+      {!reduce && <div className={`walk-alive ${docked ? 'off' : ''}`} aria-hidden="true">
+        <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
+        <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
+      </div>}
 
       <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
@@ -672,9 +725,9 @@ function Walkthrough({ reduce, theme }) {
           <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
-        <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
-        <CommandBar onRun={(id) => { setManual(true); goId(id); }} />
-        <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => { setManual(true); goId(sug.id); }} />
+        <div className="hero-title rot-line" aria-hidden="true" style={{ '--rot-ch': Math.max(...ROT_WORDS.map(w => w.length)) }}><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
+        <CommandBar onRun={(id) => { setManual(false); goId(id); }} />
+        <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => { setManual(false); goId(sug.id); }} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
@@ -683,17 +736,17 @@ function Walkthrough({ reduce, theme }) {
 
       <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH SAM</Kicker>
-        <div className="wheel-wrap" ref={wheelBox} style={{ '--wz': wz }} onMouseEnter={() => setPaused(true)} onMouseLeave={() => { setPaused(false); setHoverI(-1); }}
+        <div className={`wheel-wrap${wz < .5 ? ' wheel-tight' : ''}`} ref={wheelBox} style={{ '--wz': wz, '--wd': `${wheelR * 2 + 80}px` }} onMouseLeave={() => setHoverI(-1)}
           // The wheel captures the pointer for dragging, so its circles never receive a click. A press and release on the same circle without moving opens that chapter.
           onPointerDownCapture={(e) => { const b = e.target.closest?.('.og-wheel > button'); tap.current = b ? { b, x: e.clientX, y: e.clientY } : null; }}
-          onPointerUpCapture={(e) => { const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(true); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
+          onPointerUpCapture={(e) => { const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(false); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
           onFocus={(e) => { const b = e.target.closest?.('.og-wheel > button'); if (b) setHoverI([...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b)); }} onBlur={() => setHoverI(-1)}
           onPointerMove={(e) => { if (e.buttons) return; const b = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.og-wheel > button'); const i = b ? [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b) : -1; setHoverI(v => (v === i ? v : i)); }}>
-          <OrbitalImageWheel className="og-wheel" radius={300} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
+          <OrbitalImageWheel className="og-wheel" radius={wheelR} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
           <div className="wheel-center">
             {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek"><span className="walk-count">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Click to open</small></div>}
-            <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b key={`${ch}-${paused}-${manual}-${docked}-${inView}`} initial={{ scaleX: 0 }} animate={{ scaleX: !docked || !inView || paused || manual ? 0 : 1 }} transition={{ duration: !docked || !inView || paused || manual ? 0 : (C.View.duration || C.loop || 7000) / 1000, ease: 'linear' }} /></i></div>
+            <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail" aria-hidden="true" style={reduce || manual ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></div>
             <div className="chapter-stack">
               <AnimatePresence initial={false}>
                 <motion.div key={C.id} className="chapter-copy" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: .3 }}>
@@ -705,23 +758,23 @@ function Walkthrough({ reduce, theme }) {
           </div>
         </div>
         <div className="chap-nav">
-          <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(true); go(ch - 1); }}><ArrowLeft size={16} /></Button>
+          <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(false); go(ch - 1); }}><ArrowLeft size={16} /></Button>
           <div className="chap-tabs" role="group" aria-label="Tour chapters" ref={tabsRef}>
-            <AnimatedBackground className="rail-tab-hl" defaultValue={WALK[ch].id} onValueChange={(v) => { const k = WALK.findIndex(w => w.id === v); if (k >= 0 && k !== ch) { setManual(true); go(k); } }}>
+            <AnimatedBackground className="rail-tab-hl" defaultValue={WALK[ch].id} onValueChange={(v) => { const k = WALK.findIndex(w => w.id === v); if (k >= 0 && k !== ch) { setManual(false); go(k); } }}>
               {WALK.map((w, k) => { const Icon = WALK_ICONS[w.id]; return <button type="button" key={w.id} data-id={w.id} aria-pressed={k === ch} className="rail-tab chap-tab"><Icon size={14} /> {WALK_LABELS[w.id]}</button>; })}
             </AnimatedBackground>
           </div>
-          <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(true); go(ch + 1); }}><ArrowRight size={16} /></Button>
+          <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(false); go(ch + 1); }}><ArrowRight size={16} /></Button>
         </div>
-        <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}<i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b key={`${ch}-${paused}-${manual}-${docked}-${inView}`} initial={{ scaleX: 0 }} animate={{ scaleX: !docked || !inView || paused || manual ? 0 : 1 }} transition={{ duration: !docked || !inView || paused || manual ? 0 : (C.View.duration || C.loop || 7000) / 1000, ease: 'linear' }} /></i></span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
-        <div className="wheel-hint" style={{ width: `${680 * wz}px` }}>
+        <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}<i className="ch-rail" aria-hidden="true" style={reduce || manual ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
+        <div className="wheel-hint" style={{ width: `${(wheelR * 2 + 80) * wz}px` }}>
           <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!manual} onClick={() => setManual(m => !m)}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
           <span className="hint-desk">Drag to spin, click a chapter, or use ← →.</span><span className="hint-mob">Swipe the dial or tap a chapter.</span>
         </div>
       </motion.div>
 
-      <motion.div className={`wt-window ${geo.ready ? 'is-ready' : ''}`} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} style={{ scale, y }} drag={docked ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
-        onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 60) setManual(true); if (info.offset.x < -60) go(ch + 1); else if (info.offset.x > 60) go(ch - 1); }}>
+      <motion.div className={`wt-window ${geo.ready ? 'is-ready' : ''}`} style={{ scale, y }} drag={docked ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
+        onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 60) setManual(false); if (info.offset.x < -60) go(ch + 1); else if (info.offset.x > 60) go(ch - 1); }}>
         <div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={C.id} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{C.cmd}</TypingAnimation></span>
@@ -746,9 +799,9 @@ function Walkthrough({ reduce, theme }) {
 
 /* ───────────────────────── Privacy ───────────────────────── */
 
-const SAMPLE_PROMPTS = ['Summarize my blood test results', 'Review this NDA before I sign it', 'Compare these two salary offers', 'Draft a reply to my landlord about the deposit'];
+const SAMPLE_PROMPTS = ['Summarize my blood test', 'Review this NDA for me', 'Compare two salary offers', 'Reply to my landlord'];
 function PrivLane({ local, prompt, n }) {
-  const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null);
+  const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null); const d = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
   const log = local ? [['PROCESSED', 'on your own devices'], ['STORED', 'on your own devices'], ['THIRD PARTIES', 'none receive it'], ['ANSWER', 'stays with you']]
     : [['SENT', "to the provider's servers"], ['LOGGED', `"${prompt}"`], ['STORED', 'per their retention policy'], ['TRAINING', 'depends on the provider']];
@@ -756,11 +809,17 @@ function PrivLane({ local, prompt, n }) {
     <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count">{local ? 'Stays on your devices' : 'Leaves your device'}</span></div>
     {local ? <div className="lane-viz lane-local">
       <DotPattern width={10} height={10} cr={.8} className="local-dots" />
-      <span className="map-tag"><LockKey size={12} /> Your prompt, between your own devices</span>
-      <div className="dev-pair" ref={box}>
-      <span className="dev-ic" ref={a}><DeviceMobile size={26} /></span>
-      <span className="dev-ic" ref={b}><Laptop size={30} /></span>
-      {[[0, false], [.95, false], [1.9, false], [.45, true], [1.4, true]].map(([d, r], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={a} toRef={b} curvature={-26} reverse={r} duration={2.8} delay={d} repeatDelay={0} pathWidth={3} pathColor={k ? 'transparent' : 'var(--og-primary)'} pathOpacity={.18} gradientStartColor="#34D399" gradientStopColor="#059669" />)}
+      <span className="map-tag"><LockKey size={12} /> Your prompt never leaves your devices</span>
+      {/* A closed network: your phone and laptop ask, your chip answers, your disk keeps it. No path leads outside. */}
+      <div className="dev-net" ref={box}>
+        <span className="dev-net-edge" aria-hidden="true"><i>YOUR DEVICES</i></span>
+        <div className="dev-col">
+          <span className="dev-node"><span className="dev-ic" ref={a}><DeviceMobile size={22} /></span><small>Phone</small></span>
+          <span className="dev-node"><span className="dev-ic" ref={d}><Laptop size={24} /></span><small>Laptop</small></span>
+        </div>
+        <span className="dev-node dev-hub"><span className="dev-ic" ref={b}><Cpu size={28} /></span><small>Your chip</small></span>
+        <span className="dev-node"><span className="dev-ic" ref={c}><HardDrives size={22} /></span><small>Your disk</small></span>
+        {[[a, b, 0, false, 18], [d, b, .6, false, -18], [b, c, 1.2, false, 0], [b, a, 1.8, true, 18]].map(([f, t, delay, r, cv], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={f} toRef={t} curvature={cv} duration={2.6} delay={delay} repeatDelay={.4} pathWidth={2} pathColor="var(--og-primary)" pathOpacity={.16} gradientStartColor="#34D399" gradientStopColor="#059669" reverse={r} />)}
       </div>
     </div>
     : <div className="lane-viz lane-map">
@@ -916,9 +975,17 @@ export function PageShell({ children, feedback = true }) {
     <ScrollProgress className="h-0.5 z-[100] from-(--og-primary-dark) via-(--og-primary) to-(--og-primary-light)" />
     <header className="site-header"><div className="header-inner">
       <a className="wordmark" href="/" aria-label="Off Grid AI home"><Logo size={30} /><span>Off Grid AI</span></a>
-      <nav className="desktop-nav" aria-label="Main navigation"><AnimatedBackground enableHover className="nav-hover">{NAV.map(([label, href]) => <a data-id={href} key={href} href={href}>{label}</a>)}</AnimatedBackground></nav>
+      <NavigationMenu className="desktop-nav" aria-label="Main navigation" viewport={false}>
+        <NavigationMenuList>
+          {HEADER_MENUS.map(([label, links]) => <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger">{label}</NavigationMenuTrigger>
+            <NavigationMenuContent className="learn-menu">{links.map(([l, href, note]) => <NavigationMenuLink asChild key={href}><a href={href}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}</NavigationMenuContent>
+          </NavigationMenuItem>)}
+        </NavigationMenuList>
+      </NavigationMenu>
       <div className="header-actions">
-        <a className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
+        <a className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
+        <a className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
+        <a className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
         <Button asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
         <Button asChild className="header-download"><a href="/download/">Download</a></Button>
@@ -927,6 +994,11 @@ export function PageShell({ children, feedback = true }) {
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <nav aria-label="Mobile navigation">{MENU.map(([label, href]) => <Dialog.Close asChild key={href}><a href={href}>{label}<ArrowUpRight size={20} /></a></Dialog.Close>)}</nav>
+            <div className="mobile-community" aria-label="Community links">
+              <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
+              <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
+              <a className="icon-link" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community"><SlackLogo size={18} /></a>
+            </div>
           </Dialog.Content></Dialog.Portal>
         </Dialog.Root>
       </div>
@@ -987,7 +1059,7 @@ function HomeSections({ pricing }) {
           <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-view="design_partner_offer_viewed" data-analytics-placement="home_card">
             <Badge variant="outline">Teams under 50 people</Badge><div className="ex-mark">[ your team ]<br /><span>+ Off Grid AI</span></div><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/ogap/">
-            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-mobile.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-mobile.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="768" height="512" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
+            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-1200.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-1200.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3"><a href="/mobile/recorder/">
             <Badge variant="outline">Private alpha · Cohort full</Badge><div className="ex-mark ex-ic"><Microphone size={56} weight="thin" /></div><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></a></Card>
         </MobileRail>

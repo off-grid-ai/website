@@ -16,8 +16,6 @@ You start an AI conversation on your phone, then reach your computer and have to
 
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

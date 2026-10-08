@@ -18,8 +18,6 @@ OGAM (Off Grid AI Mobile) and OGAD (Off Grid AI Desktop) provide this through Pr
 
 [Get OGAM for your phone](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

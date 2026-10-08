@@ -16,7 +16,7 @@ Your iPhone may not have enough free memory for the model you want to use. Your 
 
 [Get OGAD for Windows PC](https://getoffgridai.co/desktop/) | [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Gateway: local API endpoints for chat, images, and audio.](/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the peop
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Ares in Off Grid AI Desktop: a morning briefing at 8:50 AM, approvals waiting on the right, and a Northwind board prep card with notes from last time.](https://getoffgridai.co/assets/img/home/app/god-light-1760.webp)
 
 ---
 

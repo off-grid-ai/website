@@ -16,7 +16,7 @@ Your phone can be the place you create without doing all the processing. OGAM (O
 
 [Download OGAM](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
+![OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture.](https://getoffgridai.co/assets/img/home/mobile/imagegen-ios-1-light-640.webp)
 
 ---
 

@@ -16,7 +16,7 @@ Finding an email and writing a useful reply are two separate jobs. OGAD (Off Gri
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.](https://getoffgridai.co/assets/img/home/app/approval-light-1760.webp)
 
 ---
 

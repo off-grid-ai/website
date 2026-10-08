@@ -16,8 +16,6 @@ You can listen to the comic you made on your Mac. OGAD (Off Grid AI Desktop) inc
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

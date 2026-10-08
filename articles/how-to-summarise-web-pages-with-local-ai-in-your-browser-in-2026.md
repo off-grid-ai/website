@@ -16,8 +16,6 @@ A long page can hide the detail you need. The Off Grid AI browser extension can 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

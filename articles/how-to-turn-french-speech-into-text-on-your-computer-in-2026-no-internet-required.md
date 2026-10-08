@@ -16,8 +16,6 @@ You can turn spoken French into editable text on your Mac or Windows PC without 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD brand artwork](https://getoffgridai.co/assets/cover-democratizing-intelligence.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

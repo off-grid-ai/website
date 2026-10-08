@@ -18,7 +18,8 @@ OGAD (Off Grid AI Desktop) can request your Mac's location and use it as the sta
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

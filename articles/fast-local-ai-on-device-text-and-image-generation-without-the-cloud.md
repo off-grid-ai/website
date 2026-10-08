@@ -66,6 +66,10 @@ The cloud row has four steps that are pure overhead. The local row deletes them.
 
 You are not paying a memory tax for features you are not using. The app loads the model the current task needs and releases it when you move on. Chat does not hold the image model in memory, and image generation does not hold the chat model. That keeps a consumer machine responsive while still giving you the full multimodal stack.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## Tips for keeping it fast
 
 Real, simple guidance.
@@ -98,11 +102,6 @@ curl http://127.0.0.1:7878/v1/chat/completions \
 - Cross-device sync over a private mesh.
 - Using the local gateway from other paired devices over that mesh.
 - More few-step and quantized models as the formats improve.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

@@ -18,7 +18,8 @@ You need the reason behind a decision, not another vague summary.
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Entities in Off Grid AI Desktop: a profile of a person built from your work, with a timeline of related emails and meetings.](https://getoffgridai.co/assets/img/home/app/entities-light-1760.webp)
 
 ---
 

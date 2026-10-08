@@ -32,8 +32,8 @@ Off Grid gives you access to models from two sources:
 
 All of these models show up in one model selector. Tap to switch. Continue chatting. That is it.
 
-![The Models screen in Off Grid on the phone, with several models downloaded and ready to switch between.](/assets/img/home/mobile/models-ios-1-light-640.webp)
-*The Models screen in Off Grid on the phone, with several models downloaded and ready to switch between.*
+![OGAM model browser on iPhone, showing available models and download status.](/assets/img/home/mobile/models-ios-1-light-640.webp)
+*OGAM model browser on iPhone, showing available models and download status.*
 
 ## Why you would want to switch models mid-chat
 

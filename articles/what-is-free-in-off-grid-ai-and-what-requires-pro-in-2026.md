@@ -18,8 +18,6 @@ Start with the task, then decide whether you need Pro.
 
 [Try Off Grid AI](https://getoffgridai.co/) | [Desktop downloads](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

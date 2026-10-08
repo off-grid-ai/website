@@ -17,7 +17,7 @@ The Model Context Protocol lets an AI assistant talk to your tools through a sta
 **[GitHub →](https://github.com/off-grid-ai/desktop)** Free, open-source, runs offline.
 
 
-![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-dark-1760.webp)
+![Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.](/assets/img/home/app/integrations-light-1760.webp)
 
 *Integrations in Off Grid AI Desktop: Notion, Jira and Linear connected, with actions that run only after you approve them.*
 
@@ -53,6 +53,10 @@ Three steps, and the boundary between them is the whole point.
 Nothing executes without a logged approval. The model can suggest all day. It cannot act until you say so, and you can see afterward exactly what ran and when.
 
 <!-- GIF: model proposes "create Linear issue", action appears in the approval queue, user approves, audit log entry shows up -->
+
+![A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.](/assets/img/home/app/approval-light-1760.webp)
+
+*A chat in Off Grid AI Desktop where a drafted Gmail reply to Sam waits under Approval needed, showing To, Subject and the full body with Approve, Edit and Reject. Nothing is sent until you approve.*
 
 ## How it works end to end
 
@@ -115,11 +119,6 @@ Off Grid AI Desktop collapses all three onto your machine. The credential is loc
 - More verified connectors on top of the general MCP support.
 - Per-connector permission profiles so you can pin read-only vs write access per tool.
 - Cross-device sync so a connector you set up on one machine is available on another, still without a cloud middleman.
-
-
-![Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.](/assets/img/home/app/actions-dark-1760.webp)
-
-*Actions in Off Grid AI Desktop: what to do next and what Off Grid proposes, each one your call.*
 
 ## FAQ
 

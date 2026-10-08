@@ -16,7 +16,8 @@ Before relying on offline AI, test the whole task you expect to complete. OGAD (
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![Off Grid AI Desktop chat: a local Qwen 3.5 9B model answers a work question and cites the meeting and the document it used.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 

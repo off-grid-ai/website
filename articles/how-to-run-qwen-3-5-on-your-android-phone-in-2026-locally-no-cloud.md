@@ -20,22 +20,10 @@ Off Grid is a free, open-source app that runs Qwen 3.5 and other GGUF models ent
 
 ## Which Qwen 3.5 Model Fits Your Phone
 
-<table>
-    <tr>
-      <td align="center">
-        <img src="/assets/img/home/mobile/chat-ios-1-dark-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
-        <b>Text Generation</b>
-      </td>
-      <td align="center">
-        <img src="/assets/img/home/mobile/project-ios-2-dark-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
-        <b>Attachments</b>
-      </td>
-      <td align="center">
-        <img src="/assets/img/home/mobile/vision-ios-1-dark-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
-        <b>Vision AI</b>
-      </td>
-    </tr>
-</table>
+<figure>
+  <img src="/assets/img/home/mobile/models-ios-1-light-640.webp" alt="Off Grid AI model library on iPhone, showing Qwen 3.5 models and their device requirements." width="280" loading="lazy" />
+  <figcaption>Qwen 3.5 in the mobile model library. iPhone shown.</figcaption>
+</figure>
 
 **Qwen3.5-0.8B (Q4_K_M) — ~500MB download.** Fits on any phone with 4GB+ RAM. Designed for edge deployment. Fast at 15 to 25 tokens per second on mid-range hardware. Surprisingly capable for its size thanks to the MoE architecture — it activates only a fraction of its parameters per token.
 

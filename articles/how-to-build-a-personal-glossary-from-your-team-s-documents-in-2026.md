@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you build a glossary from the documents you 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD project chat](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

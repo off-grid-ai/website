@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can turn a short dictated note into suggested to-
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Voice: dictation and saved transcripts on the computer.](/assets/img/home/app/voice-light-1760.webp)
 
 ---
 

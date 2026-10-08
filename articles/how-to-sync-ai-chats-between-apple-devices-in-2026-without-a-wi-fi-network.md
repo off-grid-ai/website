@@ -16,8 +16,6 @@ You have your iPhone and Mac with you, but there is no Wi-Fi router to join. OGA
 
 [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882) | [Get OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

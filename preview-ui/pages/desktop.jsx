@@ -6,7 +6,7 @@ import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, Shot, PlatformIcon, useSteps } from '../shared.jsx';
-import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, SceneHead, ChatScene, ImageScene, OfflineScene, useStream } from './_product.jsx';
+import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, SceneHead, OfflineScene, useStream } from './_product.jsx';
 import AIMessage from '@smoothui/ai-message';
 import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
@@ -25,9 +25,9 @@ const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/OGAD', smal
 const CHAPTERS = [
   { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: Ares briefing you, with approvals waiting.', 3800]] },
   { id: 'models', label: 'Models', cmd: 'download models for this computer', shots: [['models-text', 'Off Grid AI Models: text models.', 1700], ['models-vision', 'Off Grid AI Models: vision models.', 1700], ['models-image', 'Off Grid AI Models: image models.', 1700], ['models-voice', 'Off Grid AI Models: text to speech models.', 1700], ['models-transcription', 'Off Grid AI Models: speech to text models.', 1700], ['models-computer-use', 'Off Grid AI Models: computer use models.', 2200]] },
-  { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400], ['actions', 'Off Grid AI Actions: follow-ups pulled from the day.', 3000]] },
-  { id: 'people', label: 'People', cmd: 'who is Sam Okafor?', shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.', 3400], ['meetings', 'Off Grid AI Meetings: summary, decisions and transcript.', 3000]] },
-  { id: 'reflect', label: 'Reflect', cmd: 'where did my week go?', shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.', 3400], ['replay', 'Off Grid AI Replay: scrub back through what you chose to record.', 3000]] },
+  { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400]] },
+  { id: 'people', label: 'People', cmd: 'who is Sam Okafor?', shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.', 3400]] },
+  { id: 'reflect', label: 'Reflect', cmd: 'where did my time go?', shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.', 3400]] },
   { id: 'vault', label: 'Vault', cmd: 'unlock my vault', shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1600], ['vault-typing', 'Entering the master password.', 1400], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400]] },
 ];
 
@@ -61,20 +61,6 @@ function Hero() {
 }
 
 /* ── Free capabilities ── */
-const GEN = [['juggernaut', 'Juggernaut XL', 'Neon city street after rain, cinematic'], ['realvis', 'RealVisXL', 'Alpine lake at sunrise, still water'], ['dreamshaper', 'DreamShaper XL', 'A golden retriever in an autumn park'], ['realvis-lightning', 'RealVisXL Lightning', 'Portrait of an old fisherman, film grain']];
-function ArtifactScene() {
-  return <div className="ms ds-artifact">
-    <SceneHead title="Chat" badge="HTML artifact" />
-    <AIMessage from="user">Make a pricing table for the pilot.</AIMessage>
-    <div className="ds-art">
-      <motion.pre className="ds-code" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .4 }}>{'<table>\n  <tr>\n    <th>Plan</th>\n    <th>Seats</th>\n    <th>Start</th>\n  </tr>\n  <tr>\n    <td>Pilot</td>\n    <td>40</td>\n    <td>14 Nov</td>\n  </tr>\n</table>'}</motion.pre>
-      <motion.div className="ds-preview" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.1 }}>
-        <small>Preview</small>
-        <div className="ds-table" role="table">{[['Plan', 'Seats', 'Start'], ['Pilot', '40', '14 Nov'], ['Rollout', '400', 'Q1']].map((r, i) => <div role="row" key={r[0]} className={i ? '' : 'th'}>{r.map(c => <span role={i ? 'cell' : 'columnheader'} key={c}>{c}</span>)}</div>)}</div>
-      </motion.div>
-    </div>
-  </div>;
-}
 function ConnectorsScene() {
   const [done, setDone] = useState(false);
   useEffect(() => { const t = setTimeout(() => setDone(true), 1800); return () => clearTimeout(t); }, []);
@@ -90,10 +76,10 @@ function ConnectorsScene() {
 const card = (node) => (compact) => compact ? <div className="pp-card-scene"><Loop>{node}</Loop></div> : <Fit><SceneCard className="pp-scene-card"><Loop>{node}</Loop></SceneCard></Fit>;
 const FREE = [
   { id: 'chat', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Framed><Shot lazy={false} name="chat" alt="Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document." /></Framed> },
-  { id: 'images', title: 'Image generation', line: 'Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: card(<ImageScene runs={GEN} />) },
-  { id: 'voice', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: dictation and transcripts, on this device." /></Framed> },
-  { id: 'projects', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: card(<ChatScene file="Acme_rollout_v3.pdf" model="Projects" q="How many seats are in the pilot?" a="The pilot covers 40 seats and starts after the security review [1]. Rollout follows in Q1 [2]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }, { id: 'p9', index: 2, title: 'Page 9' }]} />) },
-  { id: 'artifacts', title: 'Artifacts', line: 'View generated HTML, React, SVG, and Mermaid beside your chat.', visual: card(<ArtifactScene />) },
+  { id: 'images', title: 'Image generation', line: 'Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: () => <Seq shots={[['models-image', 'Off Grid AI Models: Z-Image Turbo and SDXL Lightning on this computer.', 3200], ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.', 3800]]} /> },
+  { id: 'voice', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice-reply" alt="Off Grid AI chat in voice mode: your spoken question and a Kokoro reply, both with transcripts." /></Framed> },
+  { id: 'projects', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: () => <Framed><Shot lazy={false} name="projects" alt="Off Grid AI Projects: an answer about the Acme pilot with document citations." /></Framed> },
+  { id: 'artifacts', title: 'Artifacts', line: 'View generated HTML, React, SVG, and Mermaid beside your chat.', visual: () => <Framed><Shot lazy={false} name="artifacts" alt="Off Grid AI chat with the canvas beside it: a Mermaid flowchart of the Acme rollout." /></Framed> },
   { id: 'connectors', title: 'Connectors', line: 'Use connected MCP tools inside your chat.', visual: card(<ConnectorsScene />) },
   { id: 'models', title: 'Any model', line: 'Choose from the catalog or find compatible GGUF models on Hugging Face.', note: 'Run any model: a curated catalog plus direct Hugging Face search, all local.', visual: () => <Seq shots={[['models-text', 'Off Grid AI model library: text models.', 1800], ['models-vision', 'Vision models.', 1800], ['models-image', 'Image models.', 1800], ['models-transcription', 'Speech to text models.', 1800]]} /> },
   { id: 'offline', title: 'Offline by default', line: 'Download a model once. Use it without an account or internet.', visual: card(<OfflineScene where="your computer" />) },
@@ -102,13 +88,13 @@ const FREE = [
 /* ── Pro capabilities ── */
 const SEARCH_HITS = [[Monitor, 'Screen · 10:42', 'Acme_rollout_v3.pdf, page 4'], [VideoCamera, 'Meeting · 15:00', 'Acme Corp sync: pilot moves to 14 Nov'], [ClipboardText, 'Clipboard · 16:05', 'https://acme.example/pilot/rollout-plan'], [NotePencil, 'Memory', 'Sam Okafor owns the pilot at Acme Corp']];
 const PRO = [
-  { id: 'sees', title: 'It sees', line: 'Turn the screen activity you choose to record into searchable memory.', visual: () => <Framed><Shot lazy={false} name="actions" alt="Off Grid AI Actions: follow-ups pulled from the screen activity you chose to record." /></Framed> },
+  { id: 'sees', title: 'It sees', line: 'Turn the screen activity you choose to record into searchable memory.', visual: () => <Framed><Shot lazy={false} name="replay" alt="Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary and a work-thread timeline." /></Framed> },
   { id: 'remembers', title: 'It remembers', line: 'Review your day in a journal or replay recorded screens.', note: 'Your Day: the brief a chief of staff would hand you each morning.', visual: () => <Framed><Shot lazy={false} name="day" alt="Off Grid AI Pro showing Your Day: a journal, to-do list, and timeline of the day." /></Framed> },
   { id: 'maps', title: 'It maps your world', line: 'Keep summaries of people, projects, and open work from captured activity.', note: 'Entities: the people, projects, and companies you touch, kept current for you.', visual: () => <Framed><Shot lazy={false} name="entities" alt="Off Grid AI Pro Entities view: the people, projects, and companies you touch, each with a running summary." /></Framed> },
   { id: 'reflects', title: 'It reflects', line: 'See time spent by app and how often you switch tasks.', note: 'Reflect: where your attention actually went, by hour and by app.', visual: () => <Framed><Shot lazy={false} name="reflect" alt="Off Grid AI Pro Reflect view: mind-share, time by app, and focus versus context-switching." /></Framed> },
   { id: 'meetings', title: 'Meetings', line: 'Record and transcribe Google Meet and Zoom locally. Find summaries in your timeline.', visual: () => <Framed><Shot lazy={false} name="meetings" alt="Off Grid AI Meetings: a recorded meeting with summary, decisions and transcript." /></Framed> },
   { id: 'dictation', title: 'Dictation', line: 'Hold the dictation key. Speak. Insert transcribed text at your cursor.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: hold the dictation key and speak." /></Framed> },
-  { id: 'clipboard', title: 'Clipboard', line: 'Search copied text, images, and files stored on your disk.', visual: () => <Framed><Shot lazy={false} name="clipboard" alt="Off Grid AI Clipboard history with search." /></Framed> },
+  { id: 'clipboard', title: 'Clipboard', line: 'Search copied text, images, and files stored on your disk.', visual: () => <Framed><Shot lazy={false} name="clipboard" alt="Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text." /></Framed> },
   { id: 'search', title: 'One search', line: 'Find context across recorded screens, meetings, clipboard, and memory.', visual: () => <Framed><Shot lazy={false} name="search" alt="Off Grid AI Search: one query across screens, meetings, chats, people and documents." /></Framed> },
   { id: 'use', title: 'Computer Use and Web Use', line: 'Approve a task in your apps or browser. Pause, stop, or take over at any time.', visual: (c) => web(c) },
 ];

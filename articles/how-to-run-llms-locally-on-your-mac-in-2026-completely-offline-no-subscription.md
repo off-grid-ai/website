@@ -58,6 +58,10 @@ Match the model to your RAM. Quantized GGUF files are compressed, so a model tha
 
 Start one tier below what you think you need. A fast small model you actually use beats a large one that makes you wait.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## How Hardware Acceleration Works
 
 Off Grid AI Desktop bundles `llama.cpp` and runs the model through Metal, Apple's GPU framework. Because Apple Silicon uses unified memory, the GPU reads model weights straight from the same RAM the CPU uses. There is no copying weights across a PCIe bus the way a discrete graphics card does on a PC.
@@ -99,11 +103,6 @@ npm run dev
 - More bundled models and one-click presets for common tasks.
 - Cross-device sync so your chats and models follow you between machines, still local-first.
 - Unified search across your chats and documents.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

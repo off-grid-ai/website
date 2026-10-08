@@ -18,7 +18,7 @@ A transcript tells you what was said. It may not remind you which document you o
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Replay in Off Grid AI Desktop while capturing: a saved frame of Acme_rollout_v3.pdf, the note made from it, and the Acme Corp pilot work thread.](/assets/img/home/app/replay-light-1760.webp)
 
 ---
 

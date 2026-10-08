@@ -18,8 +18,6 @@ OGAM (Off Grid AI Mobile) lets you add readable documents to a project and ask q
 
 [Download OGAM](https://getoffgridai.co/mobile/) | [Mobile release 0.0.111](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
-
 > **What would you like to do with Off Grid AI?**
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.

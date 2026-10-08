@@ -16,8 +16,6 @@ A model that does not fit in your phone can still be useful from your phone. OGA
 
 [Download OGAM for Android or iPhone](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

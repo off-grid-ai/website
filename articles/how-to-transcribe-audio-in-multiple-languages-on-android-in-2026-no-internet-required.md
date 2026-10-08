@@ -16,8 +16,6 @@ You can turn Hindi, Spanish, French, and other supported languages into text on 
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Latest Android releases](https://github.com/off-grid-ai/OGAM/releases)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

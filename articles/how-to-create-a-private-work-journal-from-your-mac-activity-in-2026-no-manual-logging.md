@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can turn captured Mac activity into a private work jo
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Day in Off Grid AI Desktop: to-dos, the day's meetings, an automatic journal of the work and the time spent in each app.](https://getoffgridai.co/assets/img/home/app/day-light-1760.webp)
 
 ---
 

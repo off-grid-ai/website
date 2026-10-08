@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can save sampled screen activity on Windows after
 
 [Download OGAD for Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
 
 ---
 

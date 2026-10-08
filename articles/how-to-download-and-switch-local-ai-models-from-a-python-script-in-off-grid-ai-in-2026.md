@@ -16,7 +16,7 @@ A repeatable local-AI setup should not depend on clicking the same download butt
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Gateway: local API endpoints for chat, images, and audio.](/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

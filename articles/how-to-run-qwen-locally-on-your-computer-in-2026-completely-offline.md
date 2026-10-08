@@ -53,6 +53,10 @@ Chat is the core, but Qwen plugs into more than a text box.
 - **Chat with your documents.** Upload PDFs, notes, or a whole folder and ask questions with cited sources, all on-device.
 - **Use tools.** An agentic loop lets Qwen call built-in local tools like a calculator and date functions.
 
+![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
+
+*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
+
 ## Which Qwen to Use
 
 Bigger is not always better. A model that fits in memory beats one that spills to disk.
@@ -109,11 +113,6 @@ npm run dev
 - Cross-device sync, so chats and memory move between your machines, encrypted.
 - More bundled models as new open-weight releases ship.
 - Unified search across chats, documents, and captured work.
-
-
-![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
-
-*Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.*
 
 ## FAQ
 

@@ -18,7 +18,7 @@ OGAM (Off Grid AI Mobile) lets you attach a screenshot and ask a local vision mo
 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
+![OGAM on iPhone answering a question about an attached screenshot.](https://getoffgridai.co/assets/img/home/mobile/vision-ios-1-light-640.webp)
 
 ---
 

@@ -18,8 +18,6 @@ After installation and Pro setup, that handoff works without a cloud sync servic
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -16,8 +16,6 @@ You start a computer task, then move away from the desk. OGAM (Off Grid AI Mobil
 
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Mobile](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

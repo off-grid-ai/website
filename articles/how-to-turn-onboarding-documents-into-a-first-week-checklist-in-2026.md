@@ -16,7 +16,7 @@ A folder of onboarding documents is not yet a plan for your first week. OGAD (Of
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

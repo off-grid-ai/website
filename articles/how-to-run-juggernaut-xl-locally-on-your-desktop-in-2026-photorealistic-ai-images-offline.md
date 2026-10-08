@@ -56,6 +56,10 @@ The image studio is one tab in a full local AI app. Here is what you get for thi
 
 You also get local LLM chat, voice in and out, and a Hugging Face model browser in the same app, so you can write a prompt with a local model and generate from it without leaving the window.
 
+![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
+
 ## How Hardware Acceleration Works
 
 On a Mac, Off Grid AI Desktop uses Metal. Apple Silicon shares one pool of memory between CPU and GPU, so the model weights do not get copied back and forth the way they do on a discrete-GPU PC. That unified memory is why a 16 GB MacBook can run a checkpoint that would need a dedicated 8 GB card on a desktop.
@@ -98,11 +102,6 @@ shallow depth of field, natural skin texture, film grain
 - More curated SDXL checkpoints in the model browser.
 - Cross-device sync so a render started on your desktop shows up on your other machine.
 - Unified search across your generated artifacts.
-
-
-![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing image generation models you can download.*
 
 ## FAQ
 

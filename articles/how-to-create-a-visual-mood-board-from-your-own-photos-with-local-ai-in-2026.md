@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you compare your own photos with a local vis
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![An image generated in an Off Grid AI Desktop chat, with the prompt, size, steps, seed and model shown under it.](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

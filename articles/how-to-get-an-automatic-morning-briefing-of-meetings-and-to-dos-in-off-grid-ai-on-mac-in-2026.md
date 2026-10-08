@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can bring available meetings and to-dos into a sh
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI God: a morning briefing with pending approvals in the right pane.](/assets/img/home/app/god-light-1760.webp)
 
 ---
 

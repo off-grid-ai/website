@@ -16,7 +16,7 @@ An API key is easy to lose in a scratch file or old message. OGAD (Off Grid AI D
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Vault: saved logins, keys, and notes in the unlocked vault.](/assets/img/home/app/vault-open-light-1760.webp)
 
 ---
 

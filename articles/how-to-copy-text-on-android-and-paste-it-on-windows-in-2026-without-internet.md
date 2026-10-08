@@ -18,8 +18,6 @@ You can move text from Android to your Windows PC without emailing it or using c
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

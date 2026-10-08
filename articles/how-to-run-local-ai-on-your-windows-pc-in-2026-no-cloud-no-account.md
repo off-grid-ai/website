@@ -63,6 +63,10 @@ Pick the model to fit your VRAM, not the other way around.
 
 Quantization is the lever. A Q4_K model is roughly half the size of Q8_0 and fits more comfortably in tight VRAM, at a small quality cost. Z-Image-Turbo and SDXL-Lightning reach a usable image in far fewer steps than standard SDXL, which matters most on smaller cards.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ## How Hardware Acceleration Works
 
 A language model is mostly matrix multiplication. Your GPU does that work in parallel across thousands of cores. On NVIDIA hardware, `llama.cpp` offloads those layers through CUDA. On AMD and Intel GPUs it uses Vulkan. If a model is too large for VRAM, layers spill to system RAM and run slower but still run.
@@ -100,11 +104,6 @@ Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU a
 - Unified search across chats, documents, and captured memory.
 
 Honest roadmap. We build the local spine first.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

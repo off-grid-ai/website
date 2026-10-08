@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) keeps project conversations together and lets you sea
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
+![Search in Off Grid AI Desktop: one query returns matching chats, meetings, screen moments and people from your own history.](https://getoffgridai.co/assets/img/home/app/search-light-1760.webp)
 
 ---
 

@@ -16,7 +16,7 @@ Some notes belong in a locked place, not a general chat or scratch document. OGA
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Vault: saved logins, keys, and notes in the unlocked vault.](/assets/img/home/app/vault-open-light-1760.webp)
 
 ---
 

@@ -45,6 +45,10 @@ One app covers the three things you would otherwise pay three services for. Ever
 
 A ChatGPT-style window backed by a model on your drive. Temperature and context controls are right there. The model's HTML, SVG, Mermaid, and React output renders live in a sandboxed preview.
 
+![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
+
+*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
+
 ### Generate images on-device
 
 Built on `stable-diffusion.cpp`. Run SDXL, the fast few-step SDXL-Lightning, SD 1.5 and 2.1, or the 2026 flagship Z-Image-Turbo at around 8 steps. You get text-to-image and image-to-image, a live per-step preview, progress and ETA, a cancel button, a lightbox, an artifacts gallery, and style presets like Sketch, Cinematic, and Anime.
@@ -96,11 +100,6 @@ npm run dev
 - More bundled image and chat models with one-click presets.
 - Cross-device sync so your chats, images, and models follow you, still local-first.
 - Unified search across everything you have made on-device.
-
-
-![The Models screen in Off Grid AI Desktop, listing text models sized to your machine.](/assets/img/home/app/models-text-dark-1760.webp)
-
-*The Models screen in Off Grid AI Desktop, listing text models sized to your machine.*
 
 ## FAQ
 

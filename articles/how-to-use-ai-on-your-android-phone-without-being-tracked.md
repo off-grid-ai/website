@@ -50,31 +50,25 @@ Here's what "completely on your device" actually means:
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
-![Off Grid AI: your personal AI on hardware you already own.](/assets/cover.png)
-
 <table>
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/other-1-light-640.webp" alt="The Off Grid home screen once set up: downloaded models by type and a New Chat button" width="200" height="434" style="object-fit: cover;" />
-        <b>Onboarding</b>
+        <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="OGAM on iPhone showing a draft reply for the Acme example project" width="200" height="434" style="object-fit: cover;" />
+        <b>Example chat (iPhone)</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/chat-ios-1-light-640.webp" alt="Off Grid on the phone drafting a reply to the Acme team with a local model, no connection needed" width="200" height="434" style="object-fit: cover;" />
-        <b>Text Generation</b>
-      </td>
-      <td align="center">
-        <img src="/assets/img/home/mobile/imagegen-2-light-640.webp" alt="An image generated on an Android phone in Off Grid from a short prompt" width="200" height="434" style="object-fit: cover;" />
-        <b>Image Generation</b>
+        <img src="/assets/img/home/mobile/imagegen-ios-1-light-640.webp" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." width="200" height="434" style="object-fit: cover;" />
+        <b>Image generation (shown on iPhone)</b>
       </td>
 </tr>
 <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/vision-ios-1-light-640.webp" alt="Off Grid AI on the phone answering what is in an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop" width="200" height="434" style="object-fit: cover;" />
-        <b>Vision</b>
+        <img src="/assets/img/home/mobile/models-ios-1-light-640.webp" alt="OGAM model browser on iPhone, showing available and downloaded text models" width="200" height="434" style="object-fit: cover;" />
+        <b>Available models (iPhone)</b>
       </td>
       <td align="center">
-        <img src="/assets/img/home/mobile/project-ios-2-light-640.webp" alt="Off Grid on the phone answering from an added document and citing it (Acme_rollout_v3.txt)" width="200" height="434" style="object-fit: cover;" />
-        <b>Attachments</b>
+        <img src="/assets/img/home/mobile/project-ios-2-light-640.webp" alt="OGAM on iPhone answering from an example project document and citing its filename" width="200" height="434" style="object-fit: cover;" />
+        <b>Project documents (iPhone)</b>
       </td>
     </tr>
   </table>

@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) exposes speculative decoding in its text settings. St
 
 [Get OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) gives you two ways to control that: ask for a specifi
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

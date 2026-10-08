@@ -16,7 +16,7 @@ You can keep a useful work history without recording every session. OGAD (Off Gr
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Replay in Off Grid AI Desktop with Capture & processing open: capture running with a Pause capture button, and excluded apps such as 1Password, Messages, Keychain Access and Banking.](https://getoffgridai.co/assets/img/home/app/capture-settings-light-1760.webp)
 
 ---
 

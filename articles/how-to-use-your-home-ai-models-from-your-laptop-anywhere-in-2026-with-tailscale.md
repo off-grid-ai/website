@@ -16,7 +16,7 @@ Your laptop does not need to fit the same AI model as your home computer. OGAD (
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Install Tailscale](https://tailscale.com/docs/how-to/quickstart)
 
-![OGAD desktop chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Gateway: local API endpoints for chat, images, and audio.](/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

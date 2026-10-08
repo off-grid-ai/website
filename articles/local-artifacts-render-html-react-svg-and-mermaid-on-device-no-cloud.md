@@ -21,9 +21,9 @@ Off Grid AI Desktop has a canvas that renders the model's output live on your ma
 Free, open-source, runs offline. No account, no API keys, no telemetry.
 
 
-![An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.](/assets/img/home/app/artifacts-dark-1760.webp)
+![The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.](/assets/img/home/app/artifacts-dark-1760.webp)
 
-*An HTML artifact the model generated, rendered in Off Grid AI Desktop next to the project it belongs to.*
+*The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.*
 
 ## What it does
 
@@ -122,11 +122,6 @@ Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtim
 - More renderable block types and richer diagram support.
 - Editing an artifact in place and re-rendering on the fly.
 - Saving artifacts into projects alongside your documents.
-
-
-![Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.](/assets/img/home/app/chat-dark-1760.webp)
-
-*Off Grid AI Desktop chat, where you ask a local model for the page or diagram that opens as an artifact.*
 
 ## FAQ
 

@@ -19,7 +19,7 @@ You want to find yesterday's detail without writing everything down.
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Replay: a recorded browser screen with a capture timeline.](https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp)
+![Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary and a work-thread timeline.](https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp)
 
 ---
 

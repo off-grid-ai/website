@@ -16,8 +16,6 @@ You want to reuse a project write-up without including the client's name. OGAD (
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
-
 > **What would you like to do with Off Grid AI?**
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.

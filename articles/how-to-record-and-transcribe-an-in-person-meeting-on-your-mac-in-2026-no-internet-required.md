@@ -18,8 +18,6 @@ OGAD (Off Grid AI Desktop) can record an in-person meeting through your Mac's mi
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI](https://getoffgridai.co/assets/cover.png)
-
 ---
 
 > **What would you like to do with Off Grid AI?**

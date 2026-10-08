@@ -16,7 +16,7 @@ You have a chat client or writing tool you like, but you want its model to run o
 
 [Download OGAD](https://getoffgridai.co/desktop/)
 
-![OGAD](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Gateway: local API endpoints for chat, images, and audio.](/assets/img/home/app/gateway-light-1760.webp)
 
 ---
 

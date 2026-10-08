@@ -16,7 +16,7 @@ Yes. A SIM card is not needed for a prepared on-device AI task. OGAM (Off Grid A
 
 [Get OGAM for your phone](https://getoffgridai.co/mobile/) | [Mobile releases](https://github.com/off-grid-ai/OGAM/releases)
 
-![OGAM](https://getoffgridai.co/assets/cover.png)
+![The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs.](https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp)
 
 ---
 

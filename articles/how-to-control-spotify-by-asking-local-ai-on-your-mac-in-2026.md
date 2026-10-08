@@ -16,7 +16,8 @@ You know the album or playlist you want, but you do not want to hunt through sev
 
 [Get OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+
+![A computer task running in Off Grid AI Desktop: the step plan and progress on the left, the live screen on the right.](https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp)
 
 ---
 

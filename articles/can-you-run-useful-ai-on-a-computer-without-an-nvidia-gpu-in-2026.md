@@ -18,7 +18,7 @@ Start with a small local text task, check its quality and responsiveness, and ex
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Beta with backend controls](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108)
 
-![Off Grid AI brand artwork](https://getoffgridai.co/assets/cover.png)
+![The Models screen in Off Grid AI Desktop: text models on this computer, with Qwen 3.5 9B active, and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

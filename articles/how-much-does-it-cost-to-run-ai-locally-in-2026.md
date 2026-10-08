@@ -16,7 +16,7 @@ Local AI can start on hardware you already own, but its cost is more than the mo
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![OGAD chat interface](https://getoffgridai.co/assets/img/desktop-chat.png)
+![Off Grid AI Models: text models with download sizes and device requirements.](/assets/img/home/app/models-text-light-1760.webp)
 
 ---
 
