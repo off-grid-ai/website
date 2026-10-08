@@ -28,4 +28,5 @@
 .only-dark{display:contents}.light .only-dark{display:none}
 .only-light{display:none}.light .only-light{display:contents}
 @media (max-width:860px){.mp-hero-grid{grid-template-columns:1fr!important}}
-.mp-pro-desk{margin:40px 0 16px}
+.mp-pro-label{margin:0 0 16px;font-family:var(--og-font-mono);font-size:14px;color:var(--og-text-secondary);text-align:left}
+.mp-pro-desk{margin-top:48px}

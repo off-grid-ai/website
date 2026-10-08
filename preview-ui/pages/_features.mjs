@@ -23,16 +23,19 @@ export const FEATURES = [
         ['day', "Off Grid AI Day: to-dos, today's meetings, the journal, time spent and suggestions."],
         ['today-journal', 'Off Grid AI Day: the journal written from the day, the kickoff, the promise and the reply.'],
         ['today-timeline', 'Off Grid AI Day: the timeline, hour by hour across Slack, Zoom, Mail, Linear and Figma.'],
+        ['day-earlier', "Off Grid AI Day: Wednesday's recap, its journal, time spent and timeline."],
         ['today-yesterday', "Off Grid AI Day: yesterday's recap, its journal and timeline."]] },
       { id: 'reflect', title: 'Time tracking', cmd: 'where did my time go?', line: 'Time by app, project and person. No timers to start.', shots: [
         ['reflect', 'Off Grid AI Reflect: time by app, people and focus.'],
-        ['reflect-day', 'Off Grid AI Reflect: mind share, focus and the insights from one day.']] },
+        ['reflect-day', 'Off Grid AI Reflect: mind share, focus and the insights from one day.'],
+        ['reflect-week', 'Off Grid AI Reflect: the week, day by day, work against communication.']] },
       { id: 'search', title: 'Search everything', cmd: 'what did I promise Sam?', line: 'Chats, meetings, screens and people in one search. Every answer shows its sources.', shots: [
         ['search', 'Off Grid AI Search: acme pilot across chats, meetings, screens and people.'],
         ['ask-filter', 'Off Grid AI Search: results narrowed to meetings and mail, newest first.'],
         ['chat', 'Off Grid AI Chat: what Alex promised Sam, with the kickoff and the rollout plan as sources.']] },
       { id: 'people', title: 'People', cmd: 'who is Sam Okafor?', line: 'People and companies from your mail, meetings and screens, each with a timeline.', shots: [
         ['people-directory', 'Off Grid AI People: Sam, Priya, Tom, Maya and Daniel, with their companies.'],
+        ['people-list', 'Off Grid AI People: each person with their company, mentions and last seen.'],
         ['people-sam', "Off Grid AI People: Sam Okafor's story, open to-dos and today's timeline."],
         ['people-why', 'Off Grid AI People: Why opens the captured screen behind a claim about Sam.'],
         ['people-companies', 'Off Grid AI People: companies, Acme Corp and Northwind Capital.']] },
@@ -64,8 +67,10 @@ export const FEATURES = [
         ['god-rules', 'Off Grid AI God: the rules Ares follows, like never sending anything to Acme without asking.']] },
       { id: 'act', title: 'Approvals', cmd: 'draft the reply to Sam', line: 'It drafts the email and you approve, edit or reject it.', shots: [
         ['act-todos', 'Off Grid AI Actions: to-dos with owners, due dates and where they came from.'],
+        ['act-list', 'Off Grid AI Actions: pending approvals, each with the notes it came from and the exact request.'],
         ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'],
         ['approval', 'Off Grid AI approval card: the Gmail reply to Sam, waiting for Approve, Edit or Reject.'],
+        ['act-done', 'Off Grid AI Actions: the reply to Sam, sent after approval, with its sources and result.'],
         ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
       { id: 'tasks', title: 'Tasks', cmd: 'calculate Team pricing for 40 people', line: 'Computer Use and Web Use: it works in your apps and browser. You take over for passwords.', shots: [
         ['web-tasks', 'Off Grid AI Tasks: the history of finished tasks, with replays.'],
@@ -142,6 +147,8 @@ export const FEATURES = [
       { id: 'clipboard', title: 'Clipboard', cmd: 'search what I copied for acme', line: 'Everything you copied, searchable, on every device. One shortcut opens it over any app.', shots: [
         ['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.'],
         ['clipboard-search', 'Off Grid AI Clipboard: a search for acme across copies.'],
+        ['clipboard-file', 'Off Grid AI Clipboard: files only, the rollout plan PDF previewed as text.'],
+        ['clipboard-tags', 'Off Grid AI Clipboard: tagged copies, ready to find again.'],
         ['clipboard-phone', "Off Grid AI Clipboard: a note copied on Alex's iPhone, on the Mac."],
         ['clipboard-quick', 'Off Grid AI Clipboard: quick open over any app, searching for Sam.']] },
       { id: 'vault', title: 'Vault', cmd: 'unlock my vault', line: 'Passwords, keys, notes and files, encrypted and unlocked only by you.', shots: [
@@ -190,6 +197,7 @@ export const FEATURES = [
         ['chat-translate', 'Off Grid AI Chat: the reply to Sam translated into Spanish, names and dates kept.']] },
       { id: 'api', title: 'Local API', cmd: 'curl localhost:7878/v1/chat/completions', line: 'An OpenAI-compatible endpoint on your machine for your other apps. No API key.', shots: [
         ['gateway', 'Off Grid AI Gateway: the local base URL, a curl example, and endpoints for chat, images, speech and embeddings.'],
+        ['gateway-log', 'Off Grid AI activity: every model call, with its request, response and timing.'],
         ['api-activity', 'Off Grid AI activity: every model call, with its request and response.']] },
     ],
     faq: [

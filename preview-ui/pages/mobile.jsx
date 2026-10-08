@@ -119,10 +119,10 @@ export default function MobilePage({ data }) {
 
     <section className="chapter pp pp-pro" aria-labelledby="keep-your-assistant-close">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2>
-          <p className="pp-lede-p">One Pro covers up to {p.devices} devices. On your phone:</p></div>
+        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2></div>
+        <p className="mp-pro-label">One Pro covers up to {p.devices} devices. On your phone:</p>
         <Explorer items={PRO} label="Pro on your phone" className="mp-explorer mp-explorer-pro" />
-        <p className="pp-lede-p mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
+        <p className="mp-pro-label mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
         <Explorer items={PRO_DESKTOP} label="Pro on your computer" />
       </div>
     </section>
