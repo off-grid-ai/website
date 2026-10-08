@@ -1678,3 +1678,18 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   .announcement-bar-cta::after{content:'';position:absolute;inset:0}
 }
 @media(max-width:360px){.announcement-bar-tag{display:none!important}}
+/* Phones, home tour: the same compositions as desktop, sized to the window.
+   Mac + iPhone: the MacBook fills the width, the iPhone overlaps its lower right. Two phones: side by side.
+   No inner box around the shot; no overlaid "Tap to enlarge". */
+@media(max-width:860px){
+  .wt-view .wt-shot{border:0!important;background:transparent!important;inset:8px!important}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-companion{display:grid!important;position:absolute!important;inset:0 16% 0 0!important;width:auto!important;height:auto!important;place-items:center}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){position:absolute!important;inset:auto 0 10% auto!important;height:62%!important;width:auto!important;aspect-ratio:433/882!important;display:block!important;filter:drop-shadow(0 12px 22px rgb(0 0 0/.4))!important}
+  .light .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){filter:drop-shadow(0 12px 22px rgb(0 0 0/.16))!important}
+  .wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion) .shot-device-phone{height:100%!important;width:100%!important;max-width:none}
+  .wt-shot-in.wt-shot-pair.wt-shot-pair-phones{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;align-items:center}
+  .wt-shot-pair.wt-shot-pair-phones>.shot-pair-item{position:relative!important;inset:auto!important;height:100%!important;width:100%!important;display:grid!important;place-items:center}
+  .wt-shot-pair.wt-shot-pair-phones .shot-device-phone{height:auto!important;width:min(100%,calc(100cqh * 433 / 882))!important;aspect-ratio:433/882}
+  .shot-mac-wrap::after{display:none!important}
+}
+@media(max-width:860px){.wt-shot-pair:not(.wt-shot-pair-phones)>.shot-pair-item:not(.shot-pair-companion){inset:19% 0 auto auto!important}}
