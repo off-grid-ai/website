@@ -29,18 +29,16 @@ function InstallScene() {
 const shot = (name, alt) => () => <Framed><Shot name={name} alt={alt} /></Framed>;
 
 const STEPS = [
-  { id: 'install', cmd: 'install Off Grid AI', title: 'Install', line: 'Get the app for your phone or computer. Start with stable.',
+  { id: 'install', cmd: 'install Off Grid AI', title: 'Install', line: 'Get the app for your phone or computer.',
     note: <>Use <a href="/download/#choose-a-release-track">preview builds</a> for the newest features.</>, visual: () => <InstallScene /> },
   { id: 'model', cmd: 'download a model', title: 'Prepare a model',
-    line: <><span className="qs-k">Desktop:</span> open Models, pick a text model that fits your memory, and select Download. <span className="qs-k">Mobile:</span> open Models, choose a small text model, select Download, then Load.</>,
-    note: 'Pick a model that fits your memory. Download size is not the total memory it needs. Add image or speech models when you need them.',
+    line: 'Open Models and download a text model that fits your memory. On a phone, tap Load.',
     visual: shot('models-text', 'Off Grid AI Models: local models that fit this computer, ready to download.') },
   { id: 'chat', cmd: 'start a chat', title: 'Start a chat',
-    line: <>Open Chat with a local text model. Paste a short note and ask: <q>Rewrite this in three bullets. Keep the facts. Do not add details.</q> Check the answer.</>,
-    note: 'Once the download is complete, local chat works offline. Web tools and remote models need a connection.',
+    line: 'Open Chat and ask something. It works offline once the model is downloaded.',
     visual: (compact) => { const n = <Loop><ChatScene model="Qwen 3.8 · on device" q="Rewrite this in three bullets. Keep the facts. Do not add details." a="• Acme Corp pilot moves to 14 November. • 40 seats stay at the current price. • Revised rollout plan due Friday." /></Loop>; return compact ? <div className="pp-card-scene">{n}</div> : <Fit><SceneCard className="pp-scene-card">{n}</SceneCard></Fit>; } },
   { id: 'pro', cmd: 'turn on memory and actions', title: 'Add memory and actions',
-    line: 'Activate Pro with your license key. Choose what your assistant can capture or remember. On desktop, approve a task in your apps or browser; pause, stop, or take over.',
+    line: 'Enter your Pro key. Choose what it captures. Approve each action.',
     note: <>Features differ by platform and release. Check <a href="/desktop/releases/">desktop support</a> or <a href="/mobile/releases/">mobile support</a>.</>,
     visual: (compact) => compact ? <Framed><Shot name="replay" alt="Off Grid AI Replay: the screen activity you chose to capture." /></Framed> : <Seq shots={[['replay', 'Off Grid AI Replay: the screen activity you chose to capture.', 3400], ['approval', 'Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject.', 3400]]} /> },
 ];
@@ -59,7 +57,7 @@ export default function QuickStartPage() {
       <div className="section-shell qs-hero-in">
         <Kicker>QUICK START</Kicker>
         <Title as="h1" id="quick-start" className="pp-h1" lead="From download" dim="to first answer." />
-        <Lede className="pp-lede">{'Your personal AI on hardware you already own. Start free. No account or API key for local chat.'}</Lede>
+        <Lede className="pp-lede">{'Free on the hardware you own. No account, no API key.'}</Lede>
         <Button asChild size="lg" className="pp-main"><a href="/download/" data-cta>Get the app <ArrowRight size={16} /></a></Button>
       </div>
     </section>

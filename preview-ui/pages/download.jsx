@@ -189,7 +189,7 @@ function Pro({ pricing }) {
           <span id="sync" className="dn-anchor" />
           <span className="dn-track-ic"><ArrowsClockwise size={22} /></span>
           <h2 className="dn-track-t">Continue across devices</h2>
-          <p>Pair your devices to share chats, projects, settings, images, files and compatible models. Encrypted between your devices. No Off Grid AI server stores the content. One key covers up to {pricing.devices} devices.</p>
+          <p>Pair your devices to share chats, files and models, encrypted. One key covers up to {pricing.devices} devices.</p>
           <p className="pp-fine">Latest mobile Sync build: <a href={SYNC_MAIL}>email Mac</a> with your device and store email.</p>
         </SceneCard>
         <SceneCard className="dn-track">

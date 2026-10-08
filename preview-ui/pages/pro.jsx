@@ -182,7 +182,7 @@ function Checkout({ pricing, checkout }) {
       {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : null}
     </p>
     <ul className="pp-trust">
-      <li><Key size={13} />Your key arrives by email. Enter it in the app and Pro unlocks.</li>
+      <li><Key size={13} />Your key arrives by email. Enter it in the app.</li>
       <li><LockKey size={13} />Secure checkout by RevenueCat. Promo codes go in there.</li>
       <li><ShieldCheck size={13} />Your devices, models and data never touch the purchase.</li>
     </ul>
@@ -223,7 +223,7 @@ const FAQ = (p) => [
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
-  ['What happens after I pay?', 'We email your key. Enter it in the app and Pro unlocks right away.'],
+  ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Can I use a promo code?', 'Yes. Enter it on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {

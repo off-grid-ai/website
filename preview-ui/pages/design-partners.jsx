@@ -30,7 +30,7 @@ export default function DesignPartnersPage() {
         <div className="sec-head ideas-head">
           <Kicker>DESIGN PARTNERS · TEAMS UNDER 50</Kicker>
           <Title as="h1" id="build-a-solution-for-your-daily-work-pay-0" lead="Build a solution for your daily work." dim="Pay $0." />
-          <Lede>For small businesses with fewer than 50 people that want to use Off Grid AI in their daily work. Work directly with me on a real problem. I set it up and implement it at no cost.</Lede>
+          <Lede>For teams under 50. Bring a real problem from your work. I set it up with you, at no cost.</Lede>
           <div className="ideas-ctas dp-hero-ctas">
             <Button asChild size="lg" className="ideas-cta-primary"><a href="#start-with-a-conversation">Start with a conversation <ArrowDown size={16} /></a></Button>
             <Button asChild size="lg" variant="outline" className="ideas-cta"><a href="#what-you-get">What you get</a></Button>

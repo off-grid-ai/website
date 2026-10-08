@@ -54,20 +54,20 @@ const inPhone = (id) => (compact) => {
 // The command each feature's window types before (or without) a screen of its own.
 const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', personas: "set my assistant's voice", approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
 const FREE = [
-  ['chat', 'Chat', 'Write, ask, and reason with local models such as Qwen, Llama, Gemma, and Phi.'],
-  ['images', 'Image generation', 'Create images on your phone with Stable Diffusion. Short prompts are enhanced first.'],
-  ['vision', 'Vision AI', 'Ask about a photo, read a receipt, or extract text. On the phone, or with your computer’s vision models.'],
-  ['voice', 'Voice input', 'Turn speech into text on your phone with Whisper.'],
-  ['projects', 'Projects', 'Ask about your documents and notes. Answers cite their sources.'],
-  ['tools', 'Tools', 'Let compatible models use a calculator, web search and document lookup. Here, the calculator works out seat-days.'],
-  ['larger', 'Larger models', 'Use bigger models on your Mac, or Ollama and LM Studio, over your own network. Start a task on the Mac and follow it from your phone.'],
-  ['offline', 'Offline by default', 'Download a model once. Use it without internet.'],
+  ['chat', 'Chat', 'Qwen, Llama, Gemma and Phi, on your phone.'],
+  ['images', 'Image generation', 'Stable Diffusion on your phone. Short prompts get enhanced.'],
+  ['vision', 'Vision AI', 'Ask about a photo, a receipt or a page.'],
+  ['voice', 'Voice input', 'Whisper turns speech into text, on the phone.'],
+  ['projects', 'Projects', 'Answers from your documents, with sources.'],
+  ['tools', 'Tools', 'It can use a calculator or search the web.'],
+  ['larger', 'Larger models', 'Use bigger models on your computer, over your own Wi-Fi.'],
+  ['offline', 'Offline by default', 'Download once. No internet needed.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 const PRO = [
-  ['voicemode', 'Voice mode', 'Talk hands-free. Kokoro generates spoken replies on your phone.'],
-  ['personas', 'Custom personas', "Set your assistant's instructions, voice, and persistent memory."],
-  ['approve', 'Draft, then approve', 'Draft replies and tasks through connected tools. You approve before sending.'],
-  ['sync', 'Sync is live', 'Pair your phone and computer over your own Wi-Fi. Transfers are encrypted, without an Off Grid AI storage server.'],
+  ['voicemode', 'Voice mode', 'Talk hands-free. Kokoro answers out loud.'],
+  ['personas', 'Custom personas', 'Give it instructions and a voice. It remembers.'],
+  ['approve', 'Draft, then approve', 'It drafts. You approve before anything is sent.'],
+  ['sync', 'Sync is live', 'Phone and computer, encrypted, over your own Wi-Fi.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 
 // Hero phone: the real app, screen after screen, in the page's theme.
@@ -85,12 +85,10 @@ function HeroPhone() {
 }
 
 const FAQ = (p) => [
-  ['Is it really free?', 'Local chat, images, and document tools are free. Pro adds memory, voice, approved draft actions, and Sync.'],
-  ['Does it work offline?', 'Yes, with downloaded local models. Online tools and remote models need a connection.'],
+  ['Is it really free?', 'Yes. Chat, images, vision and documents are free. Pro adds memory, voice mode, approvals and Sync.'],
   ['Which phones?', 'iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.'],
-  ['Does it phone home?', 'Local inference stays on your phone. Pro activates with a key. Connected services and Sync use your chosen connections.'],
-  ['What models can I run?', 'Qwen, Gemma, Llama, Phi, and compatible GGUF models that fit your memory. Use desktop models over your local network.'],
-  ['What does Pro cost?', `$${p.lifetime} for lifetime access or $${p.monthly}/month. Up to ${p.devices} devices. The lifetime price rises as we grow.`],
+  ['Does it phone home?', 'No. Local models run on your phone. Pro activates with a key.'],
+  ['What models can I run?', 'Qwen, Gemma, Llama, Phi and other GGUF models that fit your memory.'],
 ];
 
 export default function MobilePage({ data }) {
@@ -101,11 +99,11 @@ export default function MobilePage({ data }) {
         <div className="pp-hero-copy">
           <span className="pp-plat"><Kicker>OFF GRID AI MOBILE</Kicker><span className="pp-plat-ic" role="img" aria-label="Android, iOS"><PlatformIcon id="android" size={15} /><PlatformIcon id="ios" size={15} /></span></span>
           <Title as="h1" id="pp-h1" className="pp-h1" lead="Your personal AI." dim="On your phone." />
-          <Lede className="pp-lede">Built for the phone you already own. Start free. Add Pro for memory, voice, and actions you approve.</Lede>
+          <Lede className="pp-lede">Free on the phone you own. Pro adds memory, voice and actions you approve.</Lede>
           <div className="pp-dl-row mp-stores"><Dl {...IOS} className="dl-main" /><Dl {...ANDROID} /></div>
           <div className="pp-alts"><a className="pp-alt" href={GITHUB.href} target="_blank" rel="noopener">Star on GitHub <ArrowUpRight size={13} /></a></div>
           <p className="pp-fine">GitHub: 0.0.111 · Preview: 0.0.112-beta.1. Store versions can differ: <a href="/mobile/releases/">see what shipped</a>.<br />iOS 17+ · iPhone 12+ · Android 10+ · 4GB RAM</p>
-          <p className="pp-offline-note"><LockKey size={13} /> Your local AI works offline after you download a model. Your prompts stay on your phone.</p>
+          <p className="pp-offline-note"><LockKey size={13} /> Download a model once. Your prompts stay on your phone.</p>
           <Proof />
         </div>
         <HeroPhone />
@@ -114,8 +112,7 @@ export default function MobilePage({ data }) {
 
     <section className="chapter pp pp-free" aria-labelledby="what-you-get-for-free">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>FREE · ON YOUR PHONE</Kicker><h2 id="what-you-get-for-free" className="pp-h2"><span className="t-line">What you get for free.</span><span className="t-line t-dim">Your phone runs the AI.</span></h2>
-          <Lede>Write a draft, understand a photo, or ask about a document.</Lede></div>
+        <div className="sec-head"><Kicker>FREE · ON YOUR PHONE</Kicker><h2 id="what-you-get-for-free" className="pp-h2"><span className="t-line">What you get for free.</span><span className="t-line t-dim">Your phone runs the AI.</span></h2></div>
         <Explorer items={FREE} label="Free features" className="mp-explorer" />
       </div>
     </section>
@@ -123,7 +120,7 @@ export default function MobilePage({ data }) {
     <section className="chapter pp pp-pro" aria-labelledby="keep-your-assistant-close">
       <div className="section-shell">
         <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Keep your assistant close.</span><span className="t-line t-dim">Pro, in your pocket.</span></h2>
-          <p className="pp-lede-p">Pro adds memory, voice, approved actions, and Sync. One Pro purchase covers up to {p.devices} devices. Also available on <a href="/desktop/">desktop</a>.</p></div>
+          <p className="pp-lede-p">One Pro covers up to {p.devices} devices, phone and <a href="/desktop/">desktop</a>.</p></div>
         <Explorer items={PRO} label="Pro features" className="mp-explorer mp-explorer-pro" />
       </div>
     </section>
