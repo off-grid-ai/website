@@ -16,6 +16,10 @@ You want a conversation to follow you to your laptop, but not every screenshot o
 
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
+<div style="width: 100%;">
+  <img width="320" alt="The Sync screen in OGAM on iPhone: Maya's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

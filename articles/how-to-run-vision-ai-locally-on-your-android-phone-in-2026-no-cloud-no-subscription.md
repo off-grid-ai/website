@@ -25,8 +25,8 @@ Vision AI means the model can see images, not just read text. You give it a phot
 <table>
     <tr>
       <td align="center">
-        <img src="/assets/img/home/mobile/vision-ios-1-light-640.webp" alt="OGAM on iPhone answering a question about an attached screenshot." width="200" height="434" style="object-fit: cover;" />
-        <b>Available models (iPhone)</b>
+        <img src="/assets/img/home/mobile/vision-ios-2-light-640.webp" alt="OGAM on iPhone reading a photo of a printed cafe receipt: asked for the total, it answers $18.90 including $1.40 in tax." width="200" height="434" style="object-fit: cover;" />
+        <b>Reading a receipt photo (iPhone)</b>
       </td>
 
 

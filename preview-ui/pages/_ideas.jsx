@@ -6,9 +6,8 @@ import { AnimatedBackground } from '@motion-primitives/animated-background';
 import { MagicCard } from '@magicui/magic-card';
 import { BlurFade } from '@magicui/blur-fade';
 import { TextAnimate } from '@magicui/text-animate';
-import { TextReveal } from '@magicui/text-reveal';
 import { NumberTicker } from '@magicui/number-ticker';
-import { Kicker, Title, Lede, SectionBg, MobileRail, PlatformIcon } from '../shared.jsx';
+import { Kicker, Title, Lede, Reveal, SectionBg, MobileRail, PlatformIcon } from '../shared.jsx';
 
 // Shared composition for the ideas pages (ethos, mission, vision, design partners).
 // Every visual element is an upstream component; this file only arranges them.
@@ -83,9 +82,9 @@ export function Points({ items, className = '', featured }) {
   </MobileRail>;
 }
 
-// One sentence, revealed word by word as the reader scrolls (Magic UI TextReveal).
+// One sentence, revealed word by word as it scrolls into view (shared Reveal: Magic UI TextAnimate).
 export function Statement({ children, label }) {
-  return <section className="has-bg manifesto ideas-statement" aria-label={label}><SectionBg /><TextReveal className="reveal">{children}</TextReveal></section>;
+  return <section className="has-bg manifesto ideas-statement" aria-label={label}><SectionBg /><Reveal>{children}</Reveal></section>;
 }
 
 export const PROOF = [[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community members']];

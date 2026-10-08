@@ -16,6 +16,10 @@ You can have a spoken AI conversation on your Android phone without sending the 
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Mobile features](https://getoffgridai.co/mobile/)
 
+<div style="width: 100%;">
+  <img width="320" alt="OGAM on iPhone in voice mode: spoken questions and spoken replies, each shown as a voice note with its transcript." src="https://getoffgridai.co/assets/img/home/mobile/voice-ios-2-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

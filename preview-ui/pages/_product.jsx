@@ -111,7 +111,7 @@ export function AppWindow({ chapters, label }) {
   useEffect(() => { if (hold || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % chapters.length), dwell); return () => clearTimeout(t); }, [i, hold, manual, reduce]);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
   const still = hold || manual || reduce;
-  return <div className="pp-app" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
+  return <div className="pp-app">
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
       <div className="pp-bar">
@@ -147,7 +147,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
     </article>)}
   </MobileRail>;
   const P = items[i];
-  return <div className={`pillar-grid pp-explorer ${className}`} onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
+  return <div className={`pillar-grid pp-explorer ${className}`}>
     <div className="pillar-list" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">

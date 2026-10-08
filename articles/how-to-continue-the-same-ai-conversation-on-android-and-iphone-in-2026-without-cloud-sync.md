@@ -18,6 +18,10 @@ After installation and Pro setup, that handoff works without a cloud sync servic
 
 [Get OGAM on Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM on the App Store](https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882)
 
+<div style="width: 100%;">
+  <img width="320" alt="The Sync screen in OGAM on iPhone, shown here paired with a Mac over Wi-Fi: 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

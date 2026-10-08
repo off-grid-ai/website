@@ -2,6 +2,6 @@
 // real app screens, section backgrounds and phone rails. Pages import from here, never from page.jsx.
 export {
   PageShell, DocEnd, ThemeCtx, NAV, FOOTER, DOWNLOADS, SLACK, MODELS, GENERATED,
-  Logo, PlatformIcon, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, useNarrow,
+  Logo, PlatformIcon, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useNarrow,
   Shot, ShotSeq, Preload, useCycle, useSteps,
 } from './page.jsx';

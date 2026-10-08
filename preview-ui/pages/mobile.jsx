@@ -51,10 +51,11 @@ const REAL = {
   chat: { light: [["chat-ios-1-light", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]], dark: [["chat-ios-1-dark", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]] },
   projects: { light: [["project-ios-1-light", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-light", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]], dark: [["project-ios-1-dark", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-dark", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]] },
   images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
-  voicemode: { light: [['voice-ios-1-light', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]], dark: [['voice-ios-1-dark', 'Off Grid AI on iPhone: a spoken reply as a voice note, with its transcript.', 4200]] },
-  vision: { light: [['vision-ios-1-light', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]], dark: [['vision-ios-1-dark', 'Off Grid AI on iPhone answering "What\'s in this picture?" about an attached picture, using Qwen 3.5 9B running on your Mac through Off Grid AI Desktop.', 4200]] },
+  voicemode: { light: [['voice-ios-2-light', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]], dark: [['voice-ios-2-dark', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]] },
+  vision: { light: [['vision-ios-2-light', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]], dark: [['vision-ios-2-dark', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]] },
   tools: { light: [['tools-ios-1-light', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]], dark: [['tools-ios-1-dark', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]] },
-  sync: { light: [['sync-1-light', 'Off Grid AI Sync sharing: what to send and receive between paired devices.', 3800], ['sync-2-light', 'Off Grid AI Sync rules for screenshots, downloads, media and attachments.', 3800]] },
+  sync: { light: [['sync-ios-1-light', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]], dark: [['sync-ios-1-dark', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]] },
+  larger: { light: [['remote-ios-2-light', 'Off Grid AI on iPhone using a model on your Mac over your own Wi-Fi.', 4200]] },
 };
 const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;
 const real = (shots, compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><PhoneShots shots={shots} /></div>;
@@ -84,16 +85,16 @@ const PRO = [
 const HERO_LIGHT = [
   ['chat-ios-1-light', 'A reply drafted on the phone for the Acme team.', 3800],
   ['imagegen-ios-1-light', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
-  ['vision-ios-1-light', 'Asking about a picture, answered by your computer’s vision model.', 3800],
-  ['voice-ios-1-light', 'A spoken reply as a voice note, with its transcript.', 3800],
+  ['vision-ios-2-light', 'A photo of a receipt, answered with the total.', 3800],
+  ['voice-ios-2-light', 'Asked by voice, answered as voice notes with transcripts.', 3800],
   ['project-ios-2-light', 'A project answer that cites its document.', 3800],
   ['models-ios-1-light', 'Models picked for your phone, with vision and tools marked.', 3800],
 ];
 const HERO_DARK = [
   ['chat-ios-1-dark', 'A reply drafted on the phone for the Acme team.', 3800],
   ['imagegen-ios-1-dark', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
-  ['vision-ios-1-dark', 'Asking about a picture, answered by your computer’s vision model.', 3800],
-  ['voice-ios-1-dark', 'A spoken reply as a voice note, with its transcript.', 3800],
+  ['vision-ios-2-dark', 'A photo of a receipt, answered with the total.', 3800],
+  ['voice-ios-2-dark', 'Asked by voice, answered as voice notes with transcripts.', 3800],
   ['project-ios-2-dark', 'A project answer that cites its document.', 3800],
   ['models-ios-1-dark', 'Models picked for your phone, with vision and tools marked.', 3800],
 ];

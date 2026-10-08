@@ -18,7 +18,9 @@ OGAM (Off Grid AI Mobile) offers **Auto Setup** to prepare that starting set. Ch
 
 [Download OGAM for iPhone](https://getoffgridai.co/mobile/)
 
-![The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs.](https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp)
+<div style="width: 100%;">
+  <img width="320" alt="The Models screen in OGAM on iPhone: text models recommended for the phone's RAM, each with its size and memory needs." src="https://getoffgridai.co/assets/img/home/mobile/models-ios-1-light-640.webp" />
+</div>
 
 ---
 
