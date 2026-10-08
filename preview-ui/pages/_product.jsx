@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -106,14 +106,17 @@ export function Dl({ href, id, small, label, aria, external, beta, className = '
 
 export function useAutoProgress(i, ms, paused, next) {
   const v = useMotionValue(0); const last = useRef(-1); const nextRef = useRef(next); nextRef.current = next;
+  // seekTo(f): a screen picked from the camera roll moves the timer to that screen.
+  const startAt = useRef(null); const [tick, setTick] = useState(0);
+  v.seekTo = (f) => { startAt.current = f; v.jump(f); setTick(t => t + 1); };
   useEffect(() => {
     const fresh = last.current !== i; last.current = i;
     if (fresh) v.jump(0);
     if (paused) return;
-    const from = fresh ? 0 : Math.min(v.get(), .999);
+    const from = fresh ? 0 : startAt.current != null ? startAt.current : Math.min(v.get(), .999); startAt.current = null;
     const run = animate(v, [from, 1], { duration: (ms / 1000) * (1 - from), ease: 'linear', onComplete: () => nextRef.current() });
     return () => run.stop();
-  }, [i, ms, paused]);
+  }, [i, ms, paused, tick]);
   return v;
 }
 
@@ -132,7 +135,7 @@ export function AppWindow({ chapters, label }) {
   const [seq, setSeq] = useState(null);
   const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
-  return <div className="pp-app">
+  return <PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className="pp-app">
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
       <div className="pp-bar">
@@ -153,7 +156,7 @@ export function AppWindow({ chapters, label }) {
     </div>
     {!reduce && <AutoCtl className="pp-auto-c" manual={manual} onToggle={() => setManual(m => !m)} hint="Pick a view or drag the window." />}
     {viewer}
-  </div>;
+  </div></PickCtx.Provider>;
 }
 
 // Capabilities: a tab list with a live stage on wider screens, a swipe row of cards on phones.
@@ -177,7 +180,7 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
     </article>)}
   </MobileRail>;
   const P = items[i];
-  return <ScreenCountCtx.Provider value={onCount}><div className={`pillar-grid pp-explorer ${className}`}>
+  return <ScreenCountCtx.Provider value={onCount}><PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className={`pillar-grid pp-explorer ${className}`}>
     <div className="pillar-list" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
@@ -197,7 +200,7 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
     </div>
     <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? <> {p.note}</> : null}</p>)}</div>
     {viewer}
-  </div></ScreenCountCtx.Provider>;
+  </div></PickCtx.Provider></ScreenCountCtx.Provider>;
 }
 
 // A fixed design canvas scaled to fill its box (CSS zoom, like the home walkthrough's --fit),
