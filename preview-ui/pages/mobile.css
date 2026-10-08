@@ -30,3 +30,8 @@
 @media (max-width:860px){.mp-hero-grid{grid-template-columns:1fr!important}}
 .mp-pro-label{margin:0 0 16px;font-family:var(--og-font-mono);font-size:14px;color:var(--og-text-secondary);text-align:left}
 .mp-pro-desk{margin-top:48px}
+/* Hero store buttons: compact, one row. */
+.mp-stores{gap:8px}
+.mp-stores .dl{min-height:44px!important;padding:6px 14px!important;gap:10px}
+.mp-stores .dl small{font-size:10px;line-height:1.1}
+.mp-stores .dl b,.mp-stores .dl strong{font-size:14px;line-height:1.2}

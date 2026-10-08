@@ -944,7 +944,7 @@ function Walkthrough({ reduce, theme }) {
   useEffect(() => {
     const measure = () => {
       const mobile = innerWidth <= 860; const col = Math.min(1200, innerWidth - 48); const vh = innerHeight;
-      const heroBottom = 68 + (heroRef.current ? heroRef.current.offsetTop + heroRef.current.offsetHeight : vh * .6) + 48;
+      const heroBottom = 68 + (heroRef.current ? heroRef.current.offsetTop + heroRef.current.offsetHeight : vh * .6) + (mobile ? 20 : 48);
       if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; setCopyH(ch); setGeo({ d: heroBottom + 8 - (14 + ch + 10), s: 1, mobile, ready: true }); return; }
       // The window's real height (CSS sizes it), so the hero always keeps its breathing room above it.
       const win = document.querySelector('.wt-window'); const W = win?.offsetWidth || col * .7; const H = win?.offsetHeight || Math.min(W * .66, (vh - 68) * .9); const hs = col / W;
