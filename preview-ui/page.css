@@ -1805,3 +1805,5 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
   background-image:radial-gradient(rgb(var(--og-rgb-primary)/.3) 1px,transparent 1.6px),radial-gradient(ellipse 60% 50% at 50% 0%,rgb(var(--og-rgb-primary)/.07),transparent 70%);
   background-size:14px 14px,100% 100%;
   -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 100%);mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 100%)}
+/* Feature explorers everywhere: the list sits vertically centred against the screen beside it. */
+@media(min-width:861px){.pillar-grid>.pillar-list{justify-content:center}}
