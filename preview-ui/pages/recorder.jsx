@@ -52,12 +52,12 @@ function RecorderScene() {
 }
 
 const DOES = [
-  [Microphone, 'It listens, and writes it down', 'The meeting, the call, the hallway aside. Whisper runs on the phone in resumable chunks, so a three-hour recording transcribes without eating your memory.'],
-  [MagnifyingGlass, 'It finds what matters', 'A local model turns each recording into a summary, key points and the follow-ups you owe. Give it the names and jargon to get right.'],
+  [Microphone, 'It listens, and writes it down', 'The meeting, the call, the hallway aside. Whisper runs on the phone, so a three-hour recording transcribes without filling memory.'],
+  [MagnifyingGlass, 'It finds what matters', 'A local model writes the summary and the follow-ups you owe.'],
   [ChatCircle, 'You can ask it anything', 'Every transcript is indexed on-device. Open a chat about one recording: "what did I promise her", answered from the room you were in.'],
-  [CalendarBlank, 'It knows your day', 'Reads your calendar, nudges you before a meeting, files each recording against it. Reminders are local notifications, so they work with no signal.'],
-  [Waveform, 'It keeps the speech, not the silence', 'An on-device voice-activity model drops silence before anything is written. Compress after analysis, or strip to speech and restore the full timeline later.'],
-  [ShieldCheck, 'You are the only one with a copy', 'No account, no upload. Off until you turn it on, it shows when it is running, and you can delete any of it outright.'],
+  [CalendarBlank, 'It knows your day', 'It reads your calendar and files each recording against its meeting. Reminders work with no signal.'],
+  [Waveform, 'It keeps the speech, not the silence', 'It drops silence before anything is written. Keep the speech, or the full timeline.'],
+  [ShieldCheck, 'You are the only one with a copy', 'No account, no upload. Off until you turn it on. Delete any of it.'],
 ];
 
 // Wide screens: six quiet columns under one heading. Phones: a swipe row of cards.
@@ -112,7 +112,7 @@ export default function RecorderPage() {
       <div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>THE PART NO ONE ELSE WILL GIVE YOU</Kicker><Title id="local-h" lead="Nothing leaves your phone." dim="Not to us. Not to anyone." /><Lede>Not a policy. How it is built. Airplane mode for a day and all of it still works.</Lede></BlurFade>
         <MobileRail className="rc-local">{LOCAL.map(([Icon, t, d]) => <SceneCard key={t} className="rc-local-card"><div className="rc-local-in"><Icon size={22} /><Heading as="h3">{t}</Heading><Text as="p">{d}</Text><span className="rc-zero">0 bytes sent</span></div></SceneCard>)}</MobileRail>
-        <Text as="p" className="fine rc-sync">Sync is live. Chats, projects, model settings, generated images and chat attachments move between paired devices. No Off Grid AI server receives or stores the synced content.</Text>
+        <Text as="p" className="fine rc-sync">Sync is live. Chats, projects and images move between your paired devices, with no Off Grid AI server.</Text>
       </div>
     </section>
 
@@ -122,7 +122,7 @@ export default function RecorderPage() {
         <SceneCard className="rc-status"><div className="rc-status-in">
           <Kicker>STATUS</Kicker>
           <Heading as="h3">The current private alpha cohort is full.</Heading>
-          <Text as="p">They run it daily, tell us what works and what does not, and shape what this becomes. We are not taking more people into this round.</Text>
+          <Text as="p">They run it daily, tell us what works and what does not, and shape what this becomes.</Text>
         </div></SceneCard>
         <MobileRail className="explore rc-next">
           <Card asChild className="ex" size="3"><a href="/mobile/" data-analytics-event="recorder_related_clicked" data-analytics-placement="recorder_mobile"><Badge variant="outline">Free · Open source</Badge><Heading as="h3">Get the free app.</Heading><Text as="p">Chat, vision, image, voice and documents on your phone. No account.</Text><span className="ex-link">Explore Mobile <ArrowRight size={15} /></span></a></Card>
