@@ -97,8 +97,8 @@ function Hero({ dev }) {
       <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text) => <><CmdBar text={text} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq shots={[
             ['god', 'Off Grid AI God: the 8:50 AM briefing, with three approvals waiting.', 3400],
             ['chat', 'Off Grid AI Chat: what you promised Sam, answered with sources.', 3400],
-            ['meetings', 'Off Grid AI Meetings: an Acme Corp call summarized and transcribed on device.', 3400],
-            ['mobile/chat-ios-1', 'Off Grid AI on iPhone: the reply to Sam drafted on the phone.', 3600],
+            ['meetings', 'Off Grid AI Meetings: an Acme Corp call, summarized on device, with what was on screen.', 3400],
+            ['mobile/voice-ios-1', 'Off Grid AI on iPhone: a spoken brief on the Acme pilot, with its transcript.', 3600],
             ['models-text', 'Off Grid AI Models: the text models on this computer and the catalog.', 3000],
           ]} /></div></>}</CmdScope></SceneCard>
     </div>

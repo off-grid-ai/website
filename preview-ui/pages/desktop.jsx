@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Badge } from '@radix-ui/themes';
-import { ArrowUpRight, LockKey, Check, CheckCircle, MagnifyingGlass, VideoCamera, ClipboardText, Monitor, NotePencil } from '@phosphor-icons/react';
+import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react';
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
@@ -23,12 +23,10 @@ const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/OGAD', smal
 
 // The real desktop app, chapter by chapter.
 const CHAPTERS = [
-  { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]] },
-  { id: 'models', label: 'Models', cmd: 'download models for this computer', shots: [['models-text', 'Off Grid AI Models: text models.', 1700], ['models-vision', 'Off Grid AI Models: vision models.', 1700], ['models-image', 'Off Grid AI Models: image models.', 1700], ['models-voice', 'Off Grid AI Models: text to speech models.', 1700], ['models-transcription', 'Off Grid AI Models: speech to text models.', 1700], ['models-computer-use', 'Off Grid AI Models: computer use models.', 2200]] },
-  { id: 'day', label: 'Day', cmd: 'open today', shots: [['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.', 3400]] },
-  { id: 'people', label: 'People', cmd: 'who is Sam Okafor?', shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.', 3400]] },
-  { id: 'reflect', label: 'Reflect', cmd: 'where did my time go?', shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.', 3400]] },
-  { id: 'vault', label: 'Vault', cmd: 'unlock my vault', shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1600], ['vault-typing', 'Entering the master password.', 1400], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400]] },
+  { id: 'god', label: 'God', cmd: 'brief me, Ares', shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.', 3400], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]] },
+  { id: 'act', label: 'Actions', cmd: 'what do I owe people?', shots: [['actions', 'Off Grid AI Actions: open to-dos from your work, Suggest actions, and three approvals waiting.', 3600], ['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.', 4000]] },
+  { id: 'vault', label: 'Vault', cmd: 'unlock my vault', shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1600], ['vault-typing', 'Entering the master password.', 1400], ['vault-open', 'Off Grid AI Vault: logins, an API key, a secure note and a signed PDF.', 3400]] },
+  { id: 'api', label: 'API', cmd: 'curl localhost:7878/v1/chat/completions', shots: [['gateway', 'Off Grid AI Gateway: the local base URL, a curl example, and endpoints for chat, images, speech, embeddings and models.', 4000]] },
 ];
 
 function OsPick({ os }) {
@@ -85,35 +83,28 @@ function ConnectorsScene() {
 }
 const card = (node) => (compact) => compact ? <div className="pp-card-scene"><Loop>{node}</Loop></div> : <Fit><SceneCard className="pp-scene-card"><Loop>{node}</Loop></SceneCard></Fit>;
 const FREE = [
-  { id: 'chat', cmd: 'what did I promise Sam?', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Seq shots={[['chat', 'Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document.', 3800], ['vision-chat', 'Off Grid AI Chat reading an attached chart with a local vision model.', 3800]]} /> },
-  { id: 'images', cmd: 'make an image', title: 'Image generation', line: 'Create or edit images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: () => <Seq shots={[['models-image', 'Off Grid AI Models: Z-Image Turbo and SDXL Lightning on this computer.', 3200], ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.', 3800]]} /> },
-  { id: 'voice', cmd: 'read this reply aloud', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice-reply" alt="Off Grid AI chat in voice mode: your spoken question and a Kokoro reply, both with transcripts." /></Framed> },
-  { id: 'projects', cmd: 'ask the Acme project', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: () => <Framed><Shot lazy={false} name="projects" alt="Off Grid AI Projects: an answer about the Acme pilot with document citations." /></Framed> },
-  { id: 'artifacts', cmd: 'draw the rollout as a flowchart', title: 'Artifacts', line: 'View generated HTML, React, SVG, and Mermaid beside your chat.', visual: () => <Framed><Shot lazy={false} name="artifacts" alt="Off Grid AI chat with the canvas beside it: a Mermaid flowchart of the Acme rollout." /></Framed> },
+  { id: 'chat', cmd: 'what did I promise Sam?', title: 'Chat', line: 'Write, ask, and reason with local text and vision models.', visual: () => <Seq shots={[['chat', 'Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document.', 3800], ['chat-translate', 'Off Grid AI Chat: the reply to Sam translated into Spanish, names and dates kept.', 3800], ['vision-chat', 'Off Grid AI Chat reading an attached chart with a local vision model.', 3800]]} /> },
+  { id: 'images', cmd: 'make an image', title: 'Image generation', line: 'Create images on your GPU with Z-Image-Turbo and SDXL-Lightning.', visual: () => <Seq shots={[['models-image', 'Off Grid AI Models: Z-Image Turbo and SDXL Lightning on this computer.', 3200], ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.', 3800]]} /> },
+  { id: 'voice', cmd: 'ask about the pilot out loud', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro. Both run locally.', visual: () => <Framed><Shot lazy={false} name="voice-reply" alt="Off Grid AI chat in voice mode: a spoken question about the Acme pilot and a spoken answer, both with transcripts." /></Framed> },
+  { id: 'projects', cmd: 'ask the Acme project', title: 'Projects', line: 'Ask about your documents and notes. Answers cite their sources.', visual: () => <Seq shots={[['projects', 'Off Grid AI Projects: an answer about the Acme pilot with document citations.', 3800], ['project-compare', 'Off Grid AI Projects: what changed from v2 to v3 of the rollout plan, citing both PDFs.', 3800], ['project-checklist', 'Off Grid AI Projects: a launch checklist for 14 Nov, built from three project documents.', 3800]]} /> },
+  { id: 'artifacts', cmd: 'draw the rollout as a flowchart', title: 'Artifacts', line: 'See a flowchart, page or chart render beside your chat: Mermaid, HTML, React or SVG.', visual: () => <Framed><Shot lazy={false} name="artifacts" alt="Off Grid AI chat with the canvas beside it: a Mermaid flowchart of the Acme rollout." /></Framed> },
   { id: 'connectors', cmd: 'connect my tools', title: 'Connectors', line: 'Use connected MCP tools inside your chat.', visual: card(<ConnectorsScene />) },
-  { id: 'models', cmd: 'show text models', title: 'Any model', line: 'Choose from the catalog or find compatible GGUF models on Hugging Face.', note: 'Run any model: a curated catalog plus direct Hugging Face search, all local.', visual: () => <Seq shots={[['models-text', 'Off Grid AI model library: text models.', 1800], ['models-vision', 'Vision models.', 1800], ['models-image', 'Image models.', 1800], ['models-transcription', 'Speech to text models.', 1800]]} /> },
+  { id: 'models', cmd: 'show text models', title: 'Any model', line: 'Choose from the catalog or find compatible GGUF models on Hugging Face.', note: 'Run any model: a curated catalog plus direct Hugging Face search, all local.', visual: () => <Seq shots={[['models-text', 'Off Grid AI model library: text models.', 1800], ['models-vision', 'Vision models.', 1800], ['models-transcription', 'Speech to text models.', 1800], ['models-computer-use', 'Computer use models.', 1800], ['models-voice', 'Text to speech models.', 1800]]} /> },
   { id: 'offline', cmd: 'turn off Wi-Fi and ask', title: 'Offline by default', line: 'Download a model once. Use it without an account or internet.', visual: card(<OfflineScene where="your computer" />) },
 ];
 
 /* ── Pro capabilities ── */
-const SEARCH_HITS = [[Monitor, 'Screen · 10:42', 'Acme_rollout_v3.pdf, page 4'], [VideoCamera, 'Meeting · 15:00', 'Acme Corp sync: pilot moves to 14 Nov'], [ClipboardText, 'Clipboard · 16:05', 'https://acme.example/pilot/rollout-plan'], [NotePencil, 'Memory', 'Sam Okafor owns the pilot at Acme Corp']];
 const PRO = [
   { id: 'sees', cmd: 'replay what I worked on', title: 'It sees', line: 'Turn the screen activity you choose to record into searchable memory.', visual: () => <Framed><Shot lazy={false} name="replay" alt="Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary and a work-thread timeline." /></Framed> },
-  { id: 'remembers', cmd: 'open today', title: 'It remembers', line: 'Review your day in a journal or replay recorded screens.', note: 'Your Day: the brief a chief of staff would hand you each morning.', visual: () => <Framed><Shot lazy={false} name="day" alt="Off Grid AI Pro showing Your Day: a journal, to-do list, and timeline of the day." /></Framed> },
-  { id: 'maps', cmd: 'who is Sam Okafor?', title: 'It maps your world', line: 'Keep summaries of people, projects, and open work from captured activity.', note: 'Entities: the people, projects, and companies you touch, kept current for you.', visual: () => <Framed><Shot lazy={false} name="entities" alt="Off Grid AI Pro Entities view: the people, projects, and companies you touch, each with a running summary." /></Framed> },
-  { id: 'reflects', cmd: 'where did my time go?', title: 'It reflects', line: 'See time spent by app and how often you switch tasks.', note: 'Reflect: where your attention actually went, by hour and by app.', visual: () => <Framed><Shot lazy={false} name="reflect" alt="Off Grid AI Pro Reflect view: mind-share, time by app, and focus versus context-switching." /></Framed> },
-  { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Meetings', line: 'Record and transcribe Google Meet and Zoom locally. Find summaries in your timeline.', visual: () => <Framed><Shot lazy={false} name="meetings" alt="Off Grid AI Meetings: a recorded meeting with summary, decisions and transcript." /></Framed> },
-  { id: 'dictation', cmd: 'dictate a note', title: 'Dictation', line: 'Hold the dictation key. Speak. Insert transcribed text at your cursor.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: hold the dictation key and speak." /></Framed> },
-  { id: 'clipboard', cmd: 'find that link I copied', title: 'Clipboard', line: 'Search copied text, images, and files stored on your disk.', visual: () => <Framed><Shot lazy={false} name="clipboard" alt="Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text." /></Framed> },
-  { id: 'search', cmd: 'search everything for acme pilot', title: 'One search', line: 'Find context across recorded screens, meetings, clipboard, and memory.', visual: () => <Framed><Shot lazy={false} name="search" alt="Off Grid AI Search: one query across screens, meetings, chats, people and documents." /></Framed> },
-  { id: 'use', cmd: 'compare Team pricing for three note apps', title: 'Computer Use and Web Use', line: 'Approve a task in your apps or browser. Pause, stop, or take over at any time.', visual: (c) => web(c) },
+  { id: 'remembers', cmd: 'open today', title: 'It remembers', line: 'Review your day: meetings, to-dos, a journal and a timeline.', note: 'Your Day: the brief a chief of staff would hand you each morning.', visual: () => <Framed><Shot lazy={false} name="day" alt="Off Grid AI Day: to-dos, a journal, meetings, time spent and a timeline of the day." /></Framed> },
+  { id: 'maps', cmd: 'who is Sam Okafor?', title: 'It maps your world', line: 'Keep summaries of people, projects, and open work from captured activity.', note: 'Entities: the people, projects, and companies you touch, kept current for you.', visual: () => <Framed><Shot lazy={false} name="entities" alt="Off Grid AI People: Sam Okafor's dossier, with his story, open to-dos and a timeline from mail and screens." /></Framed> },
+  { id: 'reflects', cmd: 'where did my time go?', title: 'It reflects', line: 'See time spent by app and how often you switch tasks.', note: 'Reflect: where your attention went, by project, person and app.', visual: () => <Framed><Shot lazy={false} name="reflect" alt="Off Grid AI Pro Reflect view: mind-share, time by app, and focus versus context-switching." /></Framed> },
+  { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Meetings', line: 'Record and transcribe Zoom, Meet and Teams on this computer. See the summary, the screens shared and your focus.', visual: () => <Framed><Shot lazy={false} name="meetings" alt="Off Grid AI Meetings: the Acme Corp pilot kickoff, with its summary, the screens shared during the call and a Locked in focus verdict." /></Framed> },
+  { id: 'dictation', cmd: 'dictate a note', title: 'Dictation', line: 'Hold the dictation key. Speak. Insert transcribed text at your cursor.', visual: () => <Framed><Shot lazy={false} name="voice" alt="Off Grid AI Voice: transcribed takes pasted where you were typing, with to-dos pulled out." /></Framed> },
+  { id: 'clipboard', cmd: 'search what I copied for acme', title: 'Clipboard', line: 'Search copied text, images, and files stored on your disk.', visual: () => <Framed><Shot lazy={false} name="clipboard" alt="Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text." /></Framed> },
+  { id: 'search', cmd: 'search everything for acme pilot', title: 'One search', line: 'Find context across recorded screens, meetings, chats and people.', visual: () => <Framed><Shot lazy={false} name="search" alt="Off Grid AI Search: one query across chats, screens, a meeting and people." /></Framed> },
 ];
 
-// Web use: Off Grid works through a real task in the browser, step by step, and hands you the sign-in.
-// Composed (no captured test pages): same approach as the home page's Web chapter.
-const WEB_STEPS = ['Search for local-first note apps', 'Read three product pages', 'Compare price, sync and offline', 'Your turn: sign in to save the doc', 'Saved to your docs'];
-const WEB_ROWS = [['Notesmith', '$0', 'Device to device', 'Yes'], ['Leafline', '$8/mo', 'Their cloud', 'Partial'], ['Inkwell', '$4/mo', 'Their cloud', 'No']];
-const POINTER = [[12, 14], [38, 48], [62, 62], [78, 30], [50, 82]];
 // Real web-use task: it plans and works the page, hands you the sign-in, then finishes.
 const WEB_SHOTS = [['web-plan', 'Off Grid AI working a web task step by step on a comparison site.', 4200], ['web-takeover', 'Your turn: Off Grid AI pauses for you to sign in. It never reads your password.', 4200], ['web-done', 'The web task finished, with the result.', 4200]];
 const web = () => <Seq shots={WEB_SHOTS} />;
@@ -121,7 +112,7 @@ const web = () => <Seq shots={WEB_SHOTS} />;
 function ComputerUse() {
   return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use"><SectionBg />
     <div className="section-shell">
-      <div className="sec-head"><Kicker>PRO · LIVE NOW</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Computer Use and Web Use are live.</span></h2><Lede>Ask your assistant to work in your apps or browser. You approve the task and can pause, stop, or take over.</Lede></div>
+      <div className="sec-head"><Kicker>PRO · LIVE NOW</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Computer Use and Web Use are live.</span></h2><Lede>Ask your assistant to work in your browser. You approve the task and can pause, stop, or take over.</Lede></div>
       <div className="pp-web-stage">{web(false)}</div>
     </div>
   </section>;
@@ -201,7 +192,7 @@ export default function DesktopPage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with local text and vision models', 'Image generation on your GPU', 'Voice: Whisper and Kokoro', 'Projects with cited answers', 'Artifacts and MCP connectors', 'Offline, no account']}
-      pro={['Capture and searchable memory', 'Day, Replay and Reflect', 'People and projects, kept current', 'Meetings, dictation and clipboard', 'Computer Use and Web Use, with your approval', `Up to ${p.devices} devices`]}
+      pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Actions and Web Use, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, CheckCircle, Check, LockKey, ChatCircle, VideoCamera, FilePdf, Sparkle } from '@phosphor-icons/react';
-import { AnimatedList } from '@magicui/animated-list';
+import { ArrowUpRight, CheckCircle, LockKey, Sparkle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, ImageScene, VoiceScene, OfflineScene, ToolsScene, ApprovalScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -17,51 +16,33 @@ function FreeDownload() {
 }
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 
-const GEN = [['dreamshaper', 'Stable Diffusion', 'A golden retriever in an autumn park'], ['realvis', 'Stable Diffusion', 'Alpine lake at sunrise, still water'], ['juggernaut', 'Stable Diffusion', 'Neon city street after rain']];
-
 function PersonaScene() {
   return <div className="ms">
     <SceneHead title="Persona" badge="Pro" />
     <div className="ms-persona"><span className="ms-avatar"><Sparkle size={16} /></span><span><b>Research partner</b><small>Your assistant, your rules</small></span></div>
-    {[['Instructions', 'Short answers. Cite the source. Ask before guessing.'], ['Voice', 'Kokoro · calm, clear'], ['Memory', 'Works at Acme Corp · prefers metric units · pilot starts 14 Nov']].map(([k, v], i) =>
+    {[['Instructions', 'Short answers. Cite the source. Ask before guessing.'], ['Voice', 'Kokoro · calm, clear'], ['Memory', 'Works with Acme Corp on the pilot · prefers metric units · pilot starts 14 Nov']].map(([k, v], i) =>
       <motion.div key={k} className="ms-field" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3 + i * .35 }}><small>{k}</small><span>{v}</span></motion.div>)}
   </div>;
 }
 
-const SYNCED = [[CheckCircle, 'Reply to Sam sent', 'Approved on your Mac'], [VideoCamera, 'Acme Corp sync', 'Pilot moves to 14 Nov'], [ChatCircle, 'What did I promise Sam?', 'Chat · 2 sources'], [FilePdf, 'Acme_rollout_v3.pdf', 'Attachment · 1.2 MB']];
-function SyncScene() {
-  return <div className="ms">
-    <SceneHead title="Synced" badge={<><LockKey size={10} /> Encrypted</>} />
-    <AnimatedList delay={700} className="ms-sync">
-      {SYNCED.map(([Icon, t, m]) => <div className="ms-server" key={t}><span className="tl-ic"><Icon size={13} /></span><span className="ms-sync-tx"><b>{t}</b><small>{m}</small></span><Check size={12} weight="bold" className="ms-ok" /></div>)}
-    </AnimatedList>
-    <p className="ms-foot">Device to device. No Off Grid AI storage server.</p>
-  </div>;
-}
-
 const SCENES = {
-  chat: () => <ChatScene model="Qwen 3.8 · on device" q="Draft a reply to my landlord about the deposit." a="Hi, I moved out on 30 September and left the flat as I found it. Could you return the deposit by Friday? Thanks, Sam" />,
-  images: () => <ImageScene runs={GEN} label="On this phone" />,
   voice: () => <VoiceScene />,
-  projects: () => <ChatScene file="Acme_rollout_v3.pdf" model="Project" q="How many seats are in the pilot?" a="The pilot covers 40 seats and starts after the security review [1]." citations={[{ id: 'p4', index: 1, title: 'Page 4' }]} />,
-  tools: () => <ToolsScene />,
   larger: () => <ChatScene model="Qwen 3.5 9B · on your Mac" q="Summarize the Acme rollout plan in three bullets." a="Pilot kicks off 14 November with 40 seats. Priya Nair owns the plan. Tom Reyes signs off the gateway policy first." />,
   offline: () => <OfflineScene where="your phone" />,
-  voicemode: () => <VoiceScene title="Voice mode" badge="Kokoro · on device" speaking text="Your pilot with Acme Corp moves to the fourteenth. Want me to tell Sam?" />,
   personas: () => <PersonaScene />,
   approve: () => <ApprovalScene to="Sam Okafor" question="Send this reply to Sam?" draft="Hi Sam, confirming the pilot moves to 14 November. The revised rollout plan reaches you by Friday." />,
-  sync: () => <SyncScene />,
 };
 // Real screens where the app has them, only in their own theme; a composed scene stands in for the other theme.
+// Every REAL entry below has both themes except `larger`, so only `larger` (dark) falls back to SCENES.
 const REAL = {
-  chat: { light: [["chat-ios-1-light", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]], dark: [["chat-ios-1-dark", "Gemma, running on the phone, drafts a reply to Sam Okafor about the Acme Corp pilot.", 3800]] },
+  chat: { light: [["chat-ios-1-light", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3800]], dark: [["chat-ios-1-dark", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3800]] },
   projects: { light: [["project-ios-1-light", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-light", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]], dark: [["project-ios-1-dark", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-dark", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]] },
   images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
   voicemode: { light: [['voice-ios-2-light', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]], dark: [['voice-ios-2-dark', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]] },
   vision: { light: [['vision-ios-2-light', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]], dark: [['vision-ios-2-dark', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]] },
   tools: { light: [['tools-ios-1-light', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]], dark: [['tools-ios-1-dark', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]] },
   sync: { light: [['sync-ios-1-light', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]], dark: [['sync-ios-1-dark', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]] },
-  larger: { light: [['remote-ios-2-light', 'Off Grid AI on iPhone using a model on your Mac over your own Wi-Fi.', 4200]] },
+  larger: { light: [['remote-ios-2-light', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200]] },
 };
 const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;
 const real = (shots, compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><PhoneShots shots={shots} /></div>;
@@ -74,11 +55,11 @@ const inPhone = (id) => (compact) => {
 const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', personas: "set my assistant's voice", approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
 const FREE = [
   ['chat', 'Chat', 'Write, ask, and reason with local models such as Qwen, Llama, Gemma, and Phi.'],
-  ['images', 'Image generation', 'Create images with on-device Stable Diffusion and a live preview.'],
+  ['images', 'Image generation', 'Create images on your phone with Stable Diffusion. Short prompts are enhanced first.'],
   ['vision', 'Vision AI', 'Ask about a photo, read a receipt, or extract text. On the phone, or with your computer’s vision models.'],
   ['voice', 'Voice input', 'Turn speech into text on your phone with Whisper.'],
-  ['projects', 'Projects', 'Ask about your PDFs and documents. Answers cite their sources.'],
-  ['tools', 'Tools', 'Use web search, a calculator, and document lookup with compatible models.'],
+  ['projects', 'Projects', 'Ask about your documents and notes. Answers cite their sources.'],
+  ['tools', 'Tools', 'Let compatible models use a calculator, web search and document lookup. Here, the calculator works out seat-days.'],
   ['larger', 'Larger models', 'Use Off Grid AI Desktop, Ollama, or LM Studio over your local network.'],
   ['offline', 'Offline by default', 'Download a model once. Use it without internet.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
@@ -86,28 +67,23 @@ const PRO = [
   ['voicemode', 'Voice mode', 'Talk hands-free. Kokoro generates spoken replies on your phone.'],
   ['personas', 'Custom personas', "Set your assistant's instructions, voice, and persistent memory."],
   ['approve', 'Draft, then approve', 'Draft replies and tasks through connected tools. You approve before sending.'],
-  ['sync', 'Sync is live', 'Continue chats across paired devices. Transfers are encrypted, without an Off Grid AI storage server.'],
+  ['sync', 'Sync is live', 'Pair your phone and computer over your own Wi-Fi. Transfers are encrypted, without an Off Grid AI storage server.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 
 // Hero phone: the real app, screen after screen, in the page's theme.
+// Screens the explorers below don't use, so the hero never repeats them.
 const HERO_LIGHT = [
-  ['chat-ios-1-light', 'A reply drafted on the phone for the Acme team.', 3800],
-  ['imagegen-ios-1-light', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
-  ['vision-ios-2-light', 'A photo of a receipt, answered with the total.', 3800],
-  ['voice-ios-2-light', 'Asked by voice, answered as voice notes with transcripts.', 3800],
-  ['project-ios-2-light', 'A project answer that cites its document.', 3800],
   ['models-ios-1-light', 'Models picked for your phone, with vision and tools marked.', 3800],
+  ['voice-ios-1-light', 'A spoken brief on the Acme pilot, with its transcript.', 3800],
+  ['models-ios-2-light', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 const HERO_DARK = [
-  ['chat-ios-1-dark', 'A reply drafted on the phone for the Acme team.', 3800],
-  ['imagegen-ios-1-dark', 'An image generated from a short prompt, with the enhanced prompt it used.', 3800],
-  ['vision-ios-2-dark', 'A photo of a receipt, answered with the total.', 3800],
-  ['voice-ios-2-dark', 'Asked by voice, answered as voice notes with transcripts.', 3800],
-  ['project-ios-2-dark', 'A project answer that cites its document.', 3800],
   ['models-ios-1-dark', 'Models picked for your phone, with vision and tools marked.', 3800],
+  ['voice-ios-1-dark', 'A spoken brief on the Acme pilot, with its transcript.', 3800],
+  ['models-ios-2-dark', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 function HeroPhone() {
-  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="draft a reply to Sam">{(text) => <><CmdBar text={text} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
+  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text) => <><CmdBar text={text} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
 }
 
 const FAQ = (p) => [
@@ -165,7 +141,7 @@ export default function MobilePage({ data }) {
     </section>
 
     <FreeVsPro pricing={p}
-      free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation with live preview', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
+      free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
       pro={['Memory', 'Voice mode with Kokoro', 'Custom personas', 'Drafts you approve', 'Sync across paired devices', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 

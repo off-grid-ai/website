@@ -32,7 +32,7 @@ const STEPS = [
   { id: 'install', cmd: 'install Off Grid AI', title: 'Install', line: 'Get the app for your phone or computer. Start with stable.',
     note: <>Use <a href="/download/#choose-a-release-track">preview builds</a> for the newest features.</>, visual: () => <InstallScene /> },
   { id: 'model', cmd: 'download a model', title: 'Prepare a model',
-    line: <><span className="qs-k">Desktop:</span> use the setup flow, or open Settings → Setup & health, review the model downloads and select Configure. <span className="qs-k">Mobile:</span> open Models, choose a small text model, select Download, then Load.</>,
+    line: <><span className="qs-k">Desktop:</span> open Models, pick a text model that fits your memory, and select Download. <span className="qs-k">Mobile:</span> open Models, choose a small text model, select Download, then Load.</>,
     note: 'Pick a model that fits your memory. Download size is not the total memory it needs. Add image or speech models when you need them.',
     visual: shot('models-text', 'Off Grid AI Models: local models that fit this computer, ready to download.') },
   { id: 'chat', cmd: 'start a chat', title: 'Start a chat',
@@ -42,7 +42,7 @@ const STEPS = [
   { id: 'pro', cmd: 'turn on memory and actions', title: 'Add memory and actions',
     line: 'Activate Pro with your license key. Choose what your assistant can capture or remember. On desktop, approve a task in your apps or browser; pause, stop, or take over.',
     note: <>Features differ by platform and release. Check <a href="/desktop/releases/">desktop support</a> or <a href="/mobile/releases/">mobile support</a>.</>,
-    visual: (compact) => compact ? <Framed><Shot name="approval" alt="Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject." /></Framed> : <Seq shots={[['approval', 'Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject.', 3400], ['replay', 'Off Grid AI Replay: the screen activity you chose to capture.', 3400]]} /> },
+    visual: (compact) => compact ? <Framed><Shot name="replay" alt="Off Grid AI Replay: the screen activity you chose to capture." /></Framed> : <Seq shots={[['replay', 'Off Grid AI Replay: the screen activity you chose to capture.', 3400], ['approval', 'Off Grid AI approval card: a drafted Gmail reply with Approve, Edit and Reject.', 3400]]} /> },
 ];
 
 const NEXT = [

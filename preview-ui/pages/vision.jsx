@@ -24,8 +24,8 @@ export default function VisionPage() {
     <Chapter id="your-morning" n="01" kicker="IMAGINE" title="You wake up. Your devices already know your day."
       pull="By the time you pick up your phone, the briefing is ready. You didn't ask for it.">
       <p>Not from a server. From the intelligence layer on your phone and laptop, synced over your home network while you slept.</p>
-      <p>It noticed your 9am is with someone you haven't spoken to in three months, and the last conversation left an open item.</p>
-      <SceneCard className="ideas-shot"><Shot name="day" alt="Off Grid AI Day view: to-dos, journal, meetings and timeline for the day." /></SceneCard>
+      <p>It noticed your 9am is with someone you haven't spoken to in weeks, and the last conversation left an open item.</p>
+      <SceneCard className="ideas-shot"><Shot name="god-prep" alt="Off Grid AI God: prep for the Northwind board meeting, with what you discussed last time and the item you still owe." /></SceneCard>
     </Chapter>
 
     <Chapter id="one-brain-all-your-devices" n="02" kicker="ONE BRAIN" title="One brain. All your devices."

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, Play, Pause } from '@phosphor-icons/react';
+import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, Play, Pause, ClipboardText } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
 import { BlurFade } from '@magicui/blur-fade';
 import { ShimmerButton } from '@magicui/shimmer-button';
@@ -33,10 +33,10 @@ function Hero({ pricing }) {
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
-      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="brief me, Ares">{(text) => <><CmdBar text={text} className="tour-cmd-card" />
-        <div className="pp-frame"><ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="god" alt="" lazy={false} /></div></div></ScreenCtx.Provider><ShotSeq ms={3800} shots={[
-          ['god', 'Off Grid AI God: Ares briefs you on your day, with approvals waiting.'],
+      <SceneCard className="pp-hero-card" busy><CmdScope chapter="pro-hero" cmd="open today">{(text) => <><CmdBar text={text} className="tour-cmd-card" />
+        <div className="pp-frame"><ScreenCtx.Provider value={null}><div className="wt-shot pp-under" aria-hidden="true"><div className="wt-shot-in"><Shot name="day" alt="" lazy={false} /></div></div></ScreenCtx.Provider><ShotSeq ms={3800} shots={[
           ['day', 'Off Grid AI Day: to-dos, journal, meetings and time spent.'],
+          ['approval', 'Off Grid AI approval card: the reply to Sam Okafor, waiting for Approve, Edit or Reject.'],
         ]} /></div>
       </>}</CmdScope></SceneCard>
     </div>
@@ -276,15 +276,17 @@ function StickyBuy({ pricing }) {
 
 const CAPS = [
   { id: 'memory', cmd: 'remember my work', anchors: ['it-sees', 'it-remembers'], Icon: Brain, tab: 'Memory', title: 'It sees. It remembers.', line: 'Screens, meetings, mail and docs become one local memory.',
-    shots: [['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['replay', 'Off Grid AI Replay: recorded screen activity on your device.']] },
-  { id: 'act', cmd: 'draft the reply to Sam', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, tickets and docs in Slack, Gmail, Linear, Jira and GitHub. Nothing runs without your yes.',
-    shots: [['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.']] },
+    shots: [['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured with a summary.'], ['meetings', 'Off Grid AI Meetings: the Acme Corp pilot kickoff, with summary and decisions.'], ['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']] },
+  { id: 'act', cmd: 'what do I owe people?', anchors: ['it-acts-you-approve', 'built-for-people-who-build'], Icon: CheckCircle, tab: 'Actions', title: 'It acts. You approve.', line: 'Replies, issues and docs through Gmail, Linear, Jira and Notion. Nothing runs without your yes.',
+    shots: [['actions', 'Off Grid AI Actions: open to-dos, Suggest actions and three approvals waiting.'], ['integrations', 'Off Grid AI Integrations: Notion, Jira and Linear connected; actions run only after approval.']] },
   { id: 'god', cmd: 'brief me, Ares', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
-    shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
-  { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by task, app and person. No timers.',
+    shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
+  { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by project, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
-  { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys and notes, encrypted. Plus a searchable history of everything you copy.',
-    shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault unlocked: logins, keys and notes.', 3400], ['clipboard', 'Off Grid AI Clipboard history with search.', 3400]] },
+  { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys, notes and files, encrypted. Unlocked only by you.',
+    shots: [['vault-locked', 'Off Grid AI Vault, locked.', 1500], ['vault-typing', 'Entering the master password.', 1300], ['vault-open', 'Off Grid AI Vault: logins, an API key, a secure note and a signed PDF.', 3400]] },
+  { id: 'clipboard', cmd: 'search what I copied for acme', anchors: [], Icon: ClipboardText, tab: 'Clipboard', title: 'Your clipboard remembers.', line: 'Text, links, images and files you copy, searchable on your disk.',
+    shots: [['clipboard', 'Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text.']] },
 ];
 // Each tab plays all of its screens once, then hands over.
 const dwell = (c) => Math.max(6500, c.shots.reduce((t, x) => t + (x[2] || 3400), 0));
