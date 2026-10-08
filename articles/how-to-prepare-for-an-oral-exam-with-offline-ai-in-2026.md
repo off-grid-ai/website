@@ -22,7 +22,7 @@ OGAD (Off Grid AI Desktop) can help you rehearse with a local text model and sav
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 This guide uses text chat as a practice partner. You can speak your answer aloud to yourself and then type a summary for review. It does not assess your voice, body language, or how an examiner will grade you.
 

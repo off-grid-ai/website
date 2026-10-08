@@ -132,4 +132,4 @@ If any provision of these Terms is found unenforceable, the remaining provisions
 
 ## 15. Contact
 
-Questions about these Terms? Email the Off Grid AI Support Team at **support@offgridmobileai.co**.
+Questions about these Terms? Email the Off Grid AI Support Team at **support@getoffgridai.co**.

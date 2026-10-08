@@ -25,7 +25,7 @@ You know the picture you want. The prompt does not say it yet. OGAD (Off Grid AI
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 The benefit is a shorter path from “something like this” to a picture you can judge. You can work through private concepts without a required cloud prompt-writing service. Download the chat and image models first; the local workflow can then run without internet.
 

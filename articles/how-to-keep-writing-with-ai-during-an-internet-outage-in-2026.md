@@ -24,7 +24,7 @@ OGAD (Off Grid AI Desktop) runs local text models after setup. Prepare the app a
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 This works best for writing based on known information: a project update, a proposal outline, an article from your own notes, or an edit of an existing draft. It does not make live research available without a network.
 

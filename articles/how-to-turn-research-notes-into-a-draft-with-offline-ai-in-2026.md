@@ -24,7 +24,7 @@ You have research notes in several files, but no clear first draft. OGAD (Off Gr
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 The aim is a draft you can review, not an article that only sounds well researched. Build it from claims you have checked instead of asking the model to fill every gap.
 

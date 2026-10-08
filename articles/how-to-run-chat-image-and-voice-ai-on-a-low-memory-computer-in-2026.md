@@ -26,7 +26,7 @@ OGAD (Off Grid AI Desktop) brings those local model types into one app. On a Mac
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 The steps below use a Mac. [OGAD beta108](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108) also includes local speech output on Windows through its English (US and UK) voices. Prepare the selected voice before offline use. This Windows path does not provide the full multilingual speech support described in the Mac guide.
 

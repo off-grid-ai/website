@@ -24,7 +24,7 @@ A busy day can feel productive without leaving you sure where it went. OGAD (Off
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@offgridmobileai.co](mailto:support@offgridmobileai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 You can use the result to notice a fragmented afternoon or a useful block of concentrated work. You do not need to start a separate timer for every app. Reflect is a Pro feature and works from captured observations, so it shows an estimate of recorded activity rather than a complete account of your attention.
 

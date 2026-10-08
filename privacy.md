@@ -97,4 +97,4 @@ We may update this Policy at any time by posting the revised version. Changes ar
 
 ## 12. Contact
 
-Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@offgridmobileai.co**.
+Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@getoffgridai.co**.
