@@ -45,6 +45,7 @@ import { InteractiveGridPattern } from '@magicui/interactive-grid-pattern';
 import AISuggestions from '@smoothui/ai-suggestions';
 import { WordRotate } from '@magicui/word-rotate';
 import { Dock, DockIcon } from '@magicui/dock';
+import { FEATURES } from './pages/_features.mjs';
 import { Safari } from '@magicui/safari';
 import { AnimatedCircularProgressBar } from '@magicui/animated-circular-progress-bar';
 import { Confetti } from '@magicui/confetti';
@@ -94,6 +95,7 @@ export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Jug
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
 // Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
 const HEADER_MENUS = [
+  ['Features', FEATURES.map(f => [f.name, `/features/${f.slug}/`, f.note])],
   ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
   ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
   ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],

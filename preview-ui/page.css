@@ -1790,3 +1790,6 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .mobile-nav .mobile-community{margin-top:auto;padding-top:20px}
 .mobile-nav .mnav a{align-items:flex-start!important;justify-content:flex-start!important;text-align:left;border-left:1px solid rgb(var(--og-rgb-text)/.14)}
 .mobile-nav .mnav a[aria-current=page]{border-left:2px solid var(--og-primary)}
+/* Phone menu: full screen, edge to edge. */
+.mobile-nav{inset:0!important;width:100%;height:100dvh;border:0!important;border-radius:0!important;padding:20px 24px calc(24px + env(safe-area-inset-bottom))!important}
+.mobile-nav .nav-close{top:12px!important;right:12px!important}
