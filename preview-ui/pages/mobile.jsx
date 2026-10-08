@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, CheckCircle, LockKey } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Seq, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -60,6 +60,15 @@ const PRO = [
   ['approve', 'Draft, then approve', 'It drafts. You approve before anything is sent.'],
   ['sync', 'Sync is live', 'Phone and computer, encrypted, over your own Wi-Fi.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
+// The same Pro also runs on your computer: those features, shown on the Mac.
+const PRO_DESKTOP = [
+  ['god', 'God', 'brief me, Ares', 'A morning brief on your computer, with work lined up for your yes.', [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, and what Priya and Tom owe you.']]],
+  ['meetings', 'Meeting recorder', 'summarize the Acme pilot kickoff', 'Zoom, Meet and Teams, transcribed on your computer.', [['meetings', 'Off Grid AI Meetings: the Acme pilot kickoff summary, screens shared and decisions.'], ['meetings-transcript', 'Off Grid AI Meetings: the transcript, made on the computer.']]],
+  ['memory', 'Memory and search', 'what did I promise Sam?', 'Find anything you saw, said or read, with sources.', [['replay', 'Off Grid AI Replay: the rollout plan you had open, with its summary.'], ['search', 'Off Grid AI Search: acme pilot across chats, meetings, screens and people.'], ['chat', 'Off Grid AI Chat: what Alex promised Sam, with sources.']]],
+  ['day', 'Day and journal', 'write my journal', 'Your day, written for you.', [['day', "Off Grid AI Day: to-dos, today's meetings, the journal and time spent."], ['today-journal', 'Off Grid AI Day: the journal written from the day.']]],
+  ['web', 'Web Use', 'calculate Team pricing for 40 people', 'Web errands, step by step. You take over for passwords.', [['web-plan', 'Off Grid AI Web Use: the plan on the pricing page, step by step.'], ['web-compare', 'Off Grid AI chat: Team pricing in a table, with a recommendation.'], ['web-done', 'Off Grid AI Web Use: the finished task with its result.']]],
+  ['private', 'Clipboard and Vault', 'unlock my vault', 'Everything you copied, and your passwords, encrypted.', [['clipboard-all', 'Off Grid AI Clipboard: everything copied today.'], ['vault-open', 'Off Grid AI Vault: logins, an API key, a secure note and a signed PDF.']]],
+].map(([id, title, cmd, line, shots]) => ({ id: `desk-${id}`, cmd, title, line, visual: () => <Seq shots={shots} /> }));
 
 // Hero phone: the real app, screen after screen, in the page's theme.
 // Screens the explorers below don't use, so the hero never repeats them.
@@ -110,9 +119,11 @@ export default function MobilePage({ data }) {
 
     <section className="chapter pp pp-pro" aria-labelledby="keep-your-assistant-close">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Keep your assistant close.</span><span className="t-line t-dim">Pro, in your pocket.</span></h2>
-          <p className="pp-lede-p">One Pro covers up to {p.devices} devices, phone and <a href="/desktop/">desktop</a>.</p></div>
-        <Explorer items={PRO} label="Pro features" className="mp-explorer mp-explorer-pro" />
+        <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2>
+          <p className="pp-lede-p">One Pro covers up to {p.devices} devices. On your phone:</p></div>
+        <Explorer items={PRO} label="Pro on your phone" className="mp-explorer mp-explorer-pro" />
+        <p className="pp-lede-p mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
+        <Explorer items={PRO_DESKTOP} label="Pro on your computer" />
       </div>
     </section>
 
@@ -128,7 +139,7 @@ export default function MobilePage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
-      pro={['Memory across your projects', 'Voice mode with Kokoro', 'Drafts you approve', 'Sync across paired devices', `Up to ${p.devices} devices`]}
+      pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Web Use, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />
