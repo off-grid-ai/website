@@ -992,6 +992,16 @@ function Walkthrough({ reduce, theme }) {
     const t = setTimeout(() => { const top = dockTop(); if (top != null) scrollTo({ top, behavior: 'instant' }); spinTo(n, true); setTimeout(() => { linkDone.current = true; }, 300); }, 350);
     return () => { clearTimeout(t); removeEventListener('hashchange', onHash); };
   }, []);
+  // The first time the wheel is on screen it turns once and settles on the current chapter, so people see it spins.
+  const introDone = useRef(false);
+  useEffect(() => {
+    if (introDone.current || !docked || !inView || reduce) return;
+    introDone.current = true;
+    const target = rotRef.current; const from = target + 100;
+    spin.current?.stop(); lock.current = performance.now() + 1700;
+    rotRef.current = from; setRot(from);
+    spin.current = animate(from, target, { duration: 1.3, ease: [.16, 1, .3, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
+  }, [docked, inView, reduce]);
   // Left/right move between chapters while the tour is on screen, without first focusing the wheel.
   useEffect(() => {
     if (!inView) return;
@@ -1065,7 +1075,7 @@ function Walkthrough({ reduce, theme }) {
           <OrbitalImageWheel className="og-wheel" radius={wheelR} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
             items={WALK.map((w) => ({ id: w.id, image: `/assets/img/home/wheel/${w.id}-${theme}.svg`, alt: w.title, label: `${w.title} ${w.line}` }))} />
           <div className="wheel-center">
-            {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek" key={hoverI}><span className="peek-ic"><img src={`/assets/img/home/wheel/${WALK[hoverI].id}-${theme}.svg`} alt="" /></span><span className="peek-n">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Open <ArrowRight size={12} /></small></div>}
+            {hoverI >= 0 && hoverI !== ch && <div className="wheel-peek" key={hoverI}><span className="peek-ic">{(() => { const PeekIcon = WALK_ICONS[WALK[hoverI].id]; return PeekIcon ? <PeekIcon size={26} /> : null; })()}</span><span className="peek-n">{String(hoverI + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><b>{WALK[hoverI].title}</b><small>Open <ArrowRight size={12} /></small></div>}
             <div className="walk-count"><span>{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span><i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></div>
             <div className="chapter-stack">
               <AnimatePresence initial={false}>

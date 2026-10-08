@@ -1829,3 +1829,6 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 @media (prefers-reduced-motion:reduce){.wheel-peek{animation:none}}
 .wheel-peek .peek-ic{border:0;background:none;width:calc(60px * var(--wz));height:calc(60px * var(--wz));min-width:40px;min-height:40px}
 .wheel-peek .peek-ic img{width:100%;height:100%}
+/* Hover preview icon: the chapter's glyph in green, filling a thin ring. */
+.wheel-peek .peek-ic{display:grid!important;place-items:center;width:calc(64px * var(--wz))!important;height:calc(64px * var(--wz))!important;min-width:44px!important;min-height:44px!important;border-radius:50%;border:1px solid rgb(var(--og-rgb-primary)/.45)!important;background:rgb(var(--og-rgb-primary)/.08)!important;color:var(--og-primary)}
+.wheel-peek .peek-ic svg{width:58%;height:58%}
