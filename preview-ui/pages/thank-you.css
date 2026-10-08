@@ -48,7 +48,7 @@
 .ty-shot-card .scene-card-in{padding:8px}
 .ty-shot figcaption{font-size:12.5px;line-height:1.6;color:var(--og-text-muted);text-align:center}
 /* The real app screen, always whole */
-.ty-frame{position:relative;aspect-ratio:1760/944;border-radius:6px;overflow:hidden;background:var(--og-background);width:100%}
+.ty-frame{position:relative;aspect-ratio:1512/977;border-radius:6px;overflow:hidden;background:var(--og-background);width:100%}
 .ty-frame .shot{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;border:0!important;border-radius:0!important;animation:none!important;transform:none!important}
 
 /* Your apps */

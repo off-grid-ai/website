@@ -143,7 +143,7 @@ export function Shot({ name, alt, className = '', lazy = true, mobile = false, o
     const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
     const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
     return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} onClick={() => toggle(true)}>
-      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3520}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 944} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
+      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3024}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 1137} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
     </button>;
   })}
   {open && <ShotView open onOpenChange={toggle} alt={alt} ratio={mobile ? PHONE_RATIO : MAC_RATIO}><Device name={mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw} theme={theme} alt={alt} full /></ShotView>}

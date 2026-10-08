@@ -67,7 +67,7 @@
 .pp-card-vis{position:relative;display:grid;place-items:center;padding:10px;border-bottom:1px solid var(--line);background:var(--og-background);min-height:0}
 .pp-card-vis .pillar-shot,.pp-card-vis .pp-framed{width:100%}
 .pp-card-vis .pp-framed .shot{width:100%!important;height:auto!important}
-.pp-card-vis .pp-seq{min-height:0;aspect-ratio:1760/944;height:auto}
+.pp-card-vis .pp-seq{min-height:0;aspect-ratio:1512/977;height:auto}
 .pp-card-vis .pp-scene{height:auto}
 .pp-card-vis .pp-scene-card .scene-card-in{padding:12px 14px;font-size:12.5px}
 .pp-card-tx{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px}
