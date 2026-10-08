@@ -71,6 +71,7 @@ export const FEATURES = [
         ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'],
         ['approval', 'Off Grid AI approval card: the Gmail reply to Sam, waiting for Approve, Edit or Reject.'],
         ['act-done', 'Off Grid AI Actions: the reply to Sam, sent after approval, with its sources and result.'],
+        ['mobile/seq-approve-3', 'Off Grid AI on iPhone: the draft to Sam is ready in your mail app. Nothing is sent until you send it.'],
         ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
       { id: 'tasks', title: 'Tasks', cmd: 'calculate Team pricing for 40 people', line: 'Computer Use and Web Use: it works in your apps and browser. You take over for passwords.', shots: [
         ['web-tasks', 'Off Grid AI Tasks: the history of finished tasks, with replays.'],
@@ -83,6 +84,7 @@ export const FEATURES = [
         ['voice-library', 'Off Grid AI Voice: dictations with the people, projects and to-dos pulled out.'],
         ['voice-clean', 'Off Grid AI Voice: the same take with filler words, before cleanup.'],
         ['voice-reply', 'Off Grid AI chat in voice mode: spoken question, spoken answer.'],
+        ['mobile/seq-voice-2', 'Off Grid AI on iPhone: the spoken question, transcribed into the message box.'],
         ['mobile/voice-ios-2', 'Off Grid AI on iPhone: replies come back as voice notes, each with a transcript.']] },
     ],
     faq: [
@@ -108,6 +110,7 @@ export const FEATURES = [
         ['project-summary', 'Off Grid AI Projects: Acme_rollout_v3.pdf summarised with page numbers and a cited source.'],
         ['project-compare', 'Off Grid AI Projects: what changed from v2 to v3 of the rollout plan, citing both PDFs.'],
         ['project-checklist', 'Off Grid AI Projects: a launch checklist for 14 Nov, built from three documents.'],
+        ['mobile/seq-projects-1', 'Off Grid AI on iPhone: the Acme Corp pilot project and its instructions.'],
         ['mobile/project-ios-1', 'Off Grid AI on iPhone: the Acme Corp pilot project with its documents and chats.'],
         ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']] },
       { id: 'connectors', title: 'Connectors', cmd: 'connect my work tools', line: 'Google, Microsoft, Notion, Jira and Linear, read live when you ask.', shots: [
@@ -116,6 +119,7 @@ export const FEATURES = [
         ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
       { id: 'tools', title: 'Tools and MCP', cmd: 'how many seat-days is the pilot?', line: 'Built-in tools and your MCP servers. Switch each one on or off.', shots: [
         ['settings-mcp', 'Off Grid AI settings: tool groups for calendar, web, memory, device and more, each on or off.'],
+        ['mobile/seq-tools-2', 'Off Grid AI on iPhone: the calculator tool working out 40 by 30.'],
         ['mobile/tools-ios-1', 'Off Grid AI on iPhone: a calculator tool call works out 1,200 seat-days.']] },
       { id: 'artifacts', title: 'Artifacts', cmd: 'draw the rollout as a flowchart', line: 'Flowcharts, pages and charts, drawn beside your chat.', shots: [
         ['artifacts', 'Off Grid AI Canvas: the Acme rollout plan as a flowchart beside the chat.']] },
@@ -141,8 +145,10 @@ export const FEATURES = [
     items: [
       { id: 'sync', title: 'Sync', cmd: 'pair my phone and my Mac', line: 'Chats, files, images and models move between your devices, encrypted, over your own network.', shots: [
         ['sync-devices', "Off Grid AI Devices: Alex's iPhone connected over Wi-Fi, with Send model."],
+        ['mobile/seq-sync-1', 'Off Grid AI on iPhone: pair by scanning the code on the other device.'],
         ['mobile/sync-ios-1', 'Off Grid AI Sync on iPhone: the Mac connected over Wi-Fi.'],
         ['sync-sharing', 'Off Grid AI Devices: what syncs automatically, what asks first, and what never leaves.'],
+        ['mobile/seq-sync-3', 'Off Grid AI on iPhone: the rollout PDF arriving from the Mac.'],
         ['sync-activity', "Off Grid AI Devices: files, a model and an image sent to and from Alex's iPhone."]] },
       { id: 'clipboard', title: 'Clipboard', cmd: 'search what I copied for acme', line: 'Everything you copied, searchable, on every device. One shortcut opens it over any app.', shots: [
         ['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.'],
@@ -184,11 +190,13 @@ export const FEATURES = [
         ['mobile/remote-ios-2', "Off Grid AI on iPhone: Remote Servers using Alex's Mac over Wi-Fi."],
         ['gateway', 'Off Grid AI Gateway: the computer serving its models to the phone.']] },
       { id: 'vision', title: 'Vision', cmd: "what's the total on this receipt?", line: 'Ask about a photo, a page, a chart or two versions of a slide.', shots: [
+        ['mobile/seq-vision-1', 'Off Grid AI on iPhone: a receipt photo attached, with the question typed.'],
         ['mobile/vision-ios-2', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.'],
         ['vision-screenshot', 'Off Grid AI Chat reading a page of the rollout plan: the start date and the owner.'],
         ['vision-compare', 'Off Grid AI Chat comparing v2 and v3 of a rollout slide: new dates, a new stage, named owners.'],
         ['vision-chat', 'Off Grid AI Chat reading an attached chart.']] },
       { id: 'images', title: 'Image generation', cmd: 'make an image', line: 'Open image models on your own machine. No credits and no queue.', shots: [
+        ['mobile/seq-images-2', 'Off Grid AI on iPhone: the prompt enhanced, the image generating.'],
         ['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its enhanced prompt.'],
         ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.'],
         ['models-image', 'Off Grid AI Models: image models on this computer.']] },
