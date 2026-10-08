@@ -1793,3 +1793,15 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* Phone menu: full screen, edge to edge. */
 .mobile-nav{inset:0!important;width:100%;height:100dvh;border:0!important;border-radius:0!important;padding:20px 24px calc(24px + env(safe-area-inset-bottom))!important}
 .mobile-nav .nav-close{top:12px!important;right:12px!important}
+/* Every plain section gets a quiet background, alternating a faint grid and a faint green dot field,
+   so no page reads as flat. Sections with their own animated background (has-bg) or visual keep theirs. */
+:is(main, main > div) > section:not(.has-bg):not(.walk):not(.models-band):not(.manifesto){position:relative;isolation:isolate}
+:is(main, main > div) > section:not(.has-bg):not(.walk):not(.models-band):not(.manifesto)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+:is(main, main > div) > section:not(.has-bg):not(.walk):not(.models-band):not(.manifesto):nth-child(odd)::before{
+  background-image:linear-gradient(rgb(var(--og-rgb-text)/.075) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--og-rgb-text)/.075) 1px,transparent 1px);
+  background-size:56px 56px;background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 100%)}
+:is(main, main > div) > section:not(.has-bg):not(.walk):not(.models-band):not(.manifesto):nth-child(even)::before{
+  background-image:radial-gradient(rgb(var(--og-rgb-primary)/.3) 1px,transparent 1.6px),radial-gradient(ellipse 60% 50% at 50% 0%,rgb(var(--og-rgb-primary)/.07),transparent 70%);
+  background-size:14px 14px,100% 100%;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 100%);mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 20%,transparent 100%)}

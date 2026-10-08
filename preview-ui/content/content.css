@@ -206,3 +206,14 @@
 .doc-end-in{max-width:700px;margin-inline:auto}
 @media (min-width:1100px){.doc-page:has(.doc.has-toc) .doc-end-in,.doc-page:has(.doc.has-toc) .doc-after{max-width:980px}}
 .doc-page:has(.doc.has-toc) .doc-after>*{max-width:700px}
+/* Articles, guides and other reading pages: the site's faint grid behind the title, fading out before the text,
+   and the green dot field behind what comes after the article. Text stays on a clean background. */
+#og-content-root{position:relative;isolation:isolate}
+#og-content-root::before{content:"";position:absolute;left:0;right:0;top:0;height:640px;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgb(var(--og-rgb-text)/.075) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--og-rgb-text)/.075) 1px,transparent 1px);
+  background-size:56px 56px;background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 70% 100% at 50% 0%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 100% at 50% 0%,#000 25%,transparent 80%)}
+.doc-after{position:relative;isolation:isolate}
+.doc-after::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgb(var(--og-rgb-primary)/.28) 1px,transparent 1.6px);background-size:14px 14px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 15%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 15%,transparent 100%)}
