@@ -948,13 +948,16 @@ function Walkthrough({ reduce, theme }) {
   const heroLift = useTransform(dock, [0, 1], [0, -60]);
   const copyFade = useTransform(dock, [.55, 1], [0, 1]);
   // The wheel turns to a chapter; whatever sits at the top plays in the window.
+  const pend = useRef(null);
   const spinTo = useCallback((i, instant) => {
     const cur = rotRef.current; const d = ((((-i * STEP) - cur) % 360) + 540) % 360 - 180; const target = cur + d;
     spin.current?.stop(); clearTimeout(settle.current);
-    if (instant || reduce) { rotRef.current = target; setRot(target); setCh(i); return; }
-    // Hold off the wheel's own rotation reports while it turns, or they cancel the spin (keys, buttons, autoplay).
-    setCh(i); lock.current = performance.now() + 760;
-    spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
+    if (instant || reduce) { pend.current = null; rotRef.current = target; setRot(target); setCh(i); return; }
+    // Spin first, then switch the chapter once the wheel lands, the way the wheel itself does: switching first
+    // mounts the next chapter's screens mid-spin and freezes the animation. Hold off the wheel's own rotation
+    // reports while it turns, or they cancel the spin (keys, buttons, autoplay).
+    pend.current = i; lock.current = performance.now() + 760;
+    spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); }, onComplete: () => { pend.current = null; setCh(i); } });
   }, [STEP, reduce]);
   // Keep the selected chapter tab in view on phones.
   useEffect(() => { const row = tabsRef.current; const t = row?.querySelector('[aria-pressed="true"]'); if (!t || !row.offsetParent) return; row.scrollTo({ left: t.offsetLeft - (row.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' }); }, [ch]);
@@ -996,7 +999,7 @@ function Walkthrough({ reduce, theme }) {
       if ((e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') || e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey) return;
       if (e.target.closest?.('input, textarea, select, [contenteditable], [role="slider"], [role="tablist"], [role="dialog"], .og-wheel')) return;
       // Spin the wheel in place (no scroll jump), so the change is visible.
-      e.preventDefault(); setManual(false); spinTo((ch + (e.key === 'ArrowRight' ? 1 : -1) + N) % N);
+      e.preventDefault(); setManual(false); spinTo(((pend.current ?? ch) + (e.key === 'ArrowRight' ? 1 : -1) + N) % N);
     };
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
   }, [inView, ch, N, spinTo]);
