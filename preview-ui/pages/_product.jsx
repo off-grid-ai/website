@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -102,15 +102,29 @@ export function Dl({ href, id, small, label, aria, external, beta, className = '
 }
 
 // The real app in a window: each chapter types its command and wipes through its screens.
-// Tabs below, autoplay with a progress bar, hover holds, drag or swipe the window to step.
+// Autoplay progress for one item at a time: a new item starts at zero, pausing freezes the bar where it
+// is, resuming continues from there, and finishing calls next().
+export function useAutoProgress(i, ms, paused, next) {
+  const v = useMotionValue(0); const last = useRef(-1); const nextRef = useRef(next); nextRef.current = next;
+  useEffect(() => {
+    const fresh = last.current !== i; last.current = i;
+    if (fresh) v.jump(0);
+    if (paused) return;
+    const from = fresh ? 0 : Math.min(v.get(), .999);
+    const run = animate(v, [from, 1], { duration: (ms / 1000) * (1 - from), ease: 'linear', onComplete: () => nextRef.current() });
+    return () => run.stop();
+  }, [i, ms, paused]);
+  return v;
+}
+
+// Tabs below, autoplay with a progress bar, drag or swipe the window to step.
 export function AppWindow({ chapters, label }) {
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   const C = chapters[i];
   const dwell = C.dwell || C.shots.reduce((a, s) => a + (s[2] || 3200), 0) + 300;
-  useEffect(() => { if (hold || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % chapters.length), dwell); return () => clearTimeout(t); }, [i, hold, manual, reduce]);
+  const prog = useAutoProgress(i, dwell, hold || manual || reduce, () => setI(v => (v + 1) % chapters.length));
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
-  const still = hold || manual || reduce;
   return <div className="pp-app">
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
@@ -125,7 +139,7 @@ export function AppWindow({ chapters, label }) {
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
         {chapters.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-tab">
           {c.label}
-          {n === i && <motion.i key={`${i}-${still}`} className="pp-tab-bar" initial={{ scaleX: 0 }} animate={{ scaleX: still ? 0 : 1 }} transition={{ duration: still ? .2 : dwell / 1000, ease: 'linear' }} />}
+          {n === i && !reduce && <><i className="pp-tab-track" aria-hidden="true" /><motion.i className="pp-tab-bar" style={{ scaleX: prog }} /></>}
         </button>)}
       </AnimatedBackground>
     </div>
@@ -139,7 +153,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
   const narrow = useNarrow();
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
-  useEffect(() => { if (hold || narrow || manual || reduce) return; const t = setTimeout(() => setI(v => (v + 1) % items.length), ms); return () => clearTimeout(t); }, [i, hold, narrow, manual, reduce]);
+  const prog = useAutoProgress(i, ms, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
   if (narrow) return <MobileRail className={`pp-rail ${className}`}>
     {items.map(it => <article className="pp-card" key={it.id}>
       <div className="pp-card-vis">{typeof it.visual === 'function' ? it.visual(true) : null}</div>
@@ -153,7 +167,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
           <span className="pillar-num">{String(n + 1).padStart(2, '0')}</span>
           <span className="pillar-tx"><b>{p.title}</b>{n === i && <motion.span className="pillar-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{p.line}</motion.span>}</span>
-          {n === i && <motion.i key={`${i}-${hold}-${manual}`} className="pillar-bar" initial={{ scaleX: 0 }} animate={{ scaleX: hold || manual || reduce ? 0 : 1 }} transition={{ duration: hold || manual || reduce ? .2 : ms / 1000, ease: 'linear' }} />}
+          {n === i && !reduce && <><i className="pillar-track" aria-hidden="true" /><motion.i className="pillar-bar" style={{ scaleX: prog }} /></>}
         </button>)}
       </AnimatedBackground>
       {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}

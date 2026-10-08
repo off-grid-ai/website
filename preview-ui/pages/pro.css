@@ -208,3 +208,5 @@
 .plan-hero .pp-fine a,.plan-hero .pp-status a{background:none!important;border:0!important;padding:0!important;display:inline!important}
 .plan-hero .pp-fine a{color:var(--og-text-muted)!important}
 .plan-hero .pp-status a{color:var(--og-primary)!important}
+.pp-cap-track{position:absolute;left:-16px;right:-16px;bottom:-10px;height:2px;background:rgb(var(--og-rgb-text)/.12)}
+@media (max-width:860px){.pp-cap-track{left:-12px;right:-12px}}

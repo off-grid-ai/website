@@ -12,6 +12,7 @@ import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, ShotSeq, Shot, Preload } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
+import { useAutoProgress } from './_product.jsx';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -290,8 +291,8 @@ const dwell = (c) => Math.max(6500, c.shots.reduce((t, x) => t + (x[2] || 3400),
 
 function WhatPro({ again }) {
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const prev = useRef(null);
-  useEffect(() => { if (hold) return; const t = setTimeout(() => go((i + 1) % CAPS.length), dwell(CAPS[i])); return () => clearTimeout(t); }, [i, hold]);
   const go = (k) => setI(cur => { if (k !== cur) prev.current = CAPS[cur]; return k; });
+  const prog = useAutoProgress(i, dwell(CAPS[i]), hold, () => go((i + 1) % CAPS.length));
   // Old deep links (#it-sees, #it-acts-you-approve, ...) open their tab.
   useEffect(() => {
     const open = () => { const h = location.hash.slice(1); const k = CAPS.findIndex(c => c.anchors.includes(h) || c.id === h); if (k >= 0) { go(k); setHold(true); } };
@@ -308,7 +309,7 @@ function WhatPro({ again }) {
         <AnimatedBackground defaultValue={C.id} onValueChange={(id) => id && pick(id)} className="pp-cap-hover">
           {CAPS.map((c, n) => <button type="button"  data-id={c.id} key={c.id} aria-pressed={n === i} className="pp-cap-tab">
             <c.Icon size={15} /><span>{c.tab}</span>
-            {n === i && !hold && <motion.i key={`${i}`} className="pp-cap-bar" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: dwell(c) / 1000, ease: 'linear' }} />}
+            {n === i && <><i className="pp-cap-track" aria-hidden="true" /><motion.i className="pp-cap-bar" style={{ scaleX: prog }} /></>}
           </button>)}
         </AnimatedBackground>
       </div>
