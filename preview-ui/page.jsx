@@ -589,7 +589,7 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
 // Pair only captures of the same task or the connection used for that task.
 const SHOT_PAIRS = {
-  'mobile/sync-ios-1': ['chat', 'Off Grid AI Desktop: the chat you are sending to your phone.'],
+  'mobile/sync-ios-1': ['projects', 'Off Grid AI Desktop: the Acme project you pick up on your phone.'],
   'mobile/remote-ios-1': ['gateway', 'Off Grid AI Desktop Gateway: the computer serving models to the phone.'],
   'mobile/chat-ios-1': ['chat', 'Off Grid AI Chat on desktop with a sourced answer about the Acme pilot.'],
   'mobile/project-ios-2': ['projects', 'Desktop project answer with document citations.'],
@@ -597,7 +597,7 @@ const SHOT_PAIRS = {
   'mobile/models-ios-1': ['models-text', 'Text models available on desktop.'],
   'mobile/models-ios-2': ['models-voice', 'Voice models available on desktop.'],
   'mobile/voice-ios-2': ['mobile/voice-ios-1', 'A spoken reply about the Acme pilot, with its transcript.'],
-  'mobile/vision-ios-2': ['models-vision', 'Vision models on the Mac that answers the phone.'],
+  'mobile/vision-ios-2': ['vision-chat', 'Off Grid AI Desktop reading a chart with a local vision model.'],
 };
 // Desktop and phone shown together; either device opens the same pair, framed, full screen.
 function ShotPair({ pair, name, alt }) {
@@ -620,10 +620,8 @@ const SCREEN_CMDS = {
   'mobile/sync-ios-1': 'pair my phone and my Mac', 'mobile/chat-ios-1': 'send it to my phone', 'mobile/project-ios-2': 'ask the Acme project on my phone',
   'replay': 'replay what I worked on', 'capture-settings': 'keep 1Password out of capture',
   'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
-  'remember:day': 'what happened today?', 'ask:mobile/project-ios-2': 'ask the same on my phone',
   'reflect': 'where did my time go?', 'approval': 'draft the reply to Sam',
   'web-plan': 'compare Team pricing for three note apps', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
-  'browser:vault-open': 'fill my Leafline login',
   'meetings': 'summarize the Acme pilot kickoff', 'mobile/voice-ios-2': 'talk to my AI', 'mobile/vision-ios-2': "what's the total on this receipt?",
   'vault-locked': 'unlock my vault', 'vault-typing': 'enter my master password', 'vault-open': 'show my logins and keys',
   'clipboard': 'find that link I copied', 'mobile/imagegen-ios-1': 'make an image', 'imagegen-chat': 'make an image',
@@ -724,18 +722,16 @@ const shotView = (...shots) => Object.assign(() => <ShotSeq shots={shots} />, { 
 const WALK = [
   { id: 'today', cmd: 'open today', title: 'Your day, already sorted.', line: 'Meetings, to-dos, journal and time spent. Built from what you chose to share.', chips: ['Day', 'Journal', 'Timeline'], loop: 0, View: shotView(['day', 'Off Grid AI Day view with to-dos, journal, meetings and time spent.']) },
   { id: 'god', cmd: 'brief me, Ares', title: 'Your God knows your day.', line: 'God is your chief of staff. It knows your accounts, calendar and memory, briefs you, and lines up work for your yes.', chips: ['Briefings', 'Routines', 'Approvals'], loop: 0, View: shotView(['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.', 3800], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.', 3800], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.', 3600], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.', 3200], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.', 3000]) },
-  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/sync-ios-1', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi, ready to pass work across.', 3600], ['mobile/chat-ios-1', 'Off Grid AI on iPhone drafting a reply about the Acme pilot.'], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']) },
+  { id: 'phone', cmd: 'send it to my phone', title: 'Your phone picks it up.', line: 'Device to device and encrypted. No Off Grid AI server in between.', chips: ['Pro Sync', 'Shared compute'], loop: 0, View: shotView(['mobile/sync-ios-1', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi, ready to pass work across.', 3600], ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.', 3800]) },
   { id: 'capture', cmd: 'capture my day', title: 'Your work, captured on your disk.', line: 'Mail, files, chats and meetings. Stored on your disk.', chips: ['Opt in per device', 'On device'], loop: 0, View: shotView(['replay', 'Off Grid AI Replay: the Acme rollout plan you had open, captured and summarised on your device.', 4000], ['capture-settings', 'Off Grid AI capture settings: capturing on this Mac, with 1Password, Messages and banking apps excluded.', 4000]) },
-  { id: 'remember', cmd: 'remember today', title: 'Your day becomes memory.', line: 'People, projects and dates, sorted for you.', chips: ['Timeline', 'People', 'Projects'], loop: 0, View: shotView(['day', 'Off Grid AI Day: a timeline built from your captured work.', 4000], ['entities', 'Off Grid AI People: related people, companies and projects.', 4000], ['search', 'Off Grid AI Search: find a past decision in your memory.', 4000]) },
   { id: 'people', cmd: 'who is Sam Okafor?', title: 'Your people, already mapped.', line: 'People and companies from your mail, meetings and chats. Always current.', chips: ['People', 'Companies', 'Projects'], loop: 0, View: shotView(['entities', 'Off Grid AI People: Sam Okafor at Acme Corp, with his timeline.']) },
   { id: 'reflect', cmd: 'where did my time go?', title: 'Your time, accounted for.', line: 'Time by app, project and person. No timers.', chips: ['Reflect', 'Focus'], loop: 0, View: shotView(['reflect', 'Off Grid AI Reflect: time by app, people and focus.']) },
-  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000], ['mobile/project-ios-2', 'Off Grid AI on iPhone: a project answer citing your document.', 4000]) },
+  { id: 'ask', cmd: 'what did I promise Sam?', title: 'Your answers come with sources.', line: 'Every answer shows where it came from.', chips: ['Recall', 'Sources'], loop: 0, View: shotView(['search', 'Off Grid AI Search with relevant memory and source references.', 4000], ['chat', 'Off Grid AI Chat with an answer from your work.', 4000]) },
   { id: 'act', cmd: 'draft the reply to Sam', title: 'Your yes sends it.', line: 'Nothing goes out without your yes.', chips: ['Actions', 'Approvals', 'Audit log'], loop: 0, View: shotView(['approval', 'Off Grid AI approval card: the full Gmail reply to Sam Okafor, waiting for Approve, Edit or Reject.', 4000]) },
   { id: 'web', cmd: 'compare note apps on the web', title: 'Your web errands, handled.', line: 'Step by step. You take over for passwords.', chips: ['Web use', 'Computer use', 'Takeover'], loop: 0, View: shotView(['web-plan', 'Off Grid AI Web use: reading and comparing note-app pricing.', 4000], ['web-takeover', 'Off Grid AI Web use: sign-in handed to you.', 4000], ['web-done', 'Off Grid AI Web use: completed task and its result.', 4000]) },
   { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Your meetings become answers.', line: 'Local transcripts, decisions and follow-ups. No bot joins your call.', chips: ['Notetaker', 'Recorder', 'Ask a recording'], loop: 0, View: shotView(['meetings', 'Off Grid AI Meetings with summary, decisions and transcript.']) },
   { id: 'voice', cmd: 'talk to my AI', title: 'Your AI has a voice.', line: 'Listen to spoken replies and read their transcripts on your phone.', chips: ['Voice', 'Transcripts', 'Phone'], loop: 0, View: shotView(['mobile/voice-ios-2', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]) },
   { id: 'vision', cmd: 'what is in this picture?', title: 'Your photos become answers.', line: 'Ask about a photo on your phone. This answer uses a vision model running on your Mac.', chips: ['Vision', 'Phone', 'Shared compute'], loop: 0, View: shotView(['mobile/vision-ios-2', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total by a vision model on your Mac', 4200]) },
-  { id: 'browser', cmd: 'take over for sign-in', title: 'Your browser, with AI.', line: 'Your AI handles the task. You take over for sign-in and keep your passwords in your vault.', chips: ['Browser tasks', 'Takeover', 'Vault'], loop: 0, View: shotView(['web-takeover', 'Off Grid AI browser task waiting for you to sign in.', 4000], ['vault-open', 'Off Grid AI Vault: your saved logins and secrets.', 4000]) },
   { id: 'vault', cmd: 'unlock my vault', title: 'Your secrets stay yours.', line: 'Encrypted passwords, keys and files. A clipboard you can search.', chips: ['Vault', 'Clipboard'], loop: 0, View: shotView(['vault-locked', 'Off Grid AI Vault: locked.', 2200], ['vault-typing', 'Off Grid AI Vault: entering the master password.', 2200], ['vault-open', 'Off Grid AI Vault: saved logins and notes.', 4000]) },
   { id: 'clipboard', cmd: 'find that link I copied', title: 'Your clipboard remembers.', line: 'Text, links, images and files. One shortcut, from any app.', chips: ['Clipboard', 'Quick open', 'Synced'], loop: 0, View: shotView(['clipboard', 'Off Grid AI Clipboard: a search for acme finds an image, a PDF, a link and text.']) },
   { id: 'images', cmd: 'make an image', title: 'Your images. Made offline.', line: 'Open image models on your own machine. No credits, no queue.', chips: ['Image generation', 'Vision'], loop: 0, View: shotView(['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its prompt.', 4600]) },
@@ -744,10 +740,10 @@ const WALK = [
 ];
 const PROMPTS = [
   { id: 'ask', label: 'What did I promise Sam?' }, { id: 'act', label: 'Draft the reply' }, { id: 'phone', label: 'Send it to my phone' },
-  { id: 'browser', label: 'Fill my login' }, { id: 'meetings', label: 'Summarize my meeting' },
+  { id: 'vault', label: 'Fill my login' }, { id: 'meetings', label: 'Summarize my meeting' },
 ];
 const INTENTS = [[/image|picture|draw|photo/i, 'images'], [/clipboard|copied|paste/i, 'clipboard'], [/brief|ares|god|chief/i, 'god'], [/who is|people|crm|contact/i, 'people'], [/week|time|hours|reflect/i, 'reflect'],[/promise|agree|what did|ask|recall|remember/i, 'ask'], [/draft|reply|email|send.*sam|approve/i, 'act'], [/phone|sync|mobile/i, 'phone'],
-  [/login|password|fill|browser|chrome|firefox/i, 'browser'], [/meeting|summar|call|record/i, 'meetings'], [/vault|secret|key/i, 'vault'], [/model|offline|qwen|gemma/i, 'models'], [/web|search|compare|browse/i, 'web'], [/today|day|journal/i, 'today']];
+  [/login|password|fill|browser|chrome|firefox/i, 'vault'], [/meeting|summar|call|record/i, 'meetings'], [/vault|secret|key/i, 'vault'], [/model|offline|qwen|gemma/i, 'models'], [/web|search|compare|browse/i, 'web'], [/today|day|journal/i, 'today']];
 
 // Preset prompts keep the animated hero interaction without accepting free text.
 const BAR_PROMPTS = PROMPTS.map(prompt => prompt.label);
@@ -838,8 +834,9 @@ function Walkthrough({ reduce, theme }) {
     history.replaceState(null, '', `${location.pathname}${location.search}${want}`);
   }, [docked, ch]);
   useEffect(() => {
-    const id = linkRef.current || ''; const n = WALK.findIndex(w => w.id === id);
-    const onHash = () => { const k = WALK.findIndex(w => `#${w.id}` === location.hash); if (k >= 0) goRef.current(k); };
+    const resolve = (h) => { const k = h.replace(/^#/, ''); return WALK.findIndex(w => w.id === k); };
+    const id = linkRef.current || ''; const n = resolve(id);
+    const onHash = () => { const k = resolve(location.hash); if (k >= 0) goRef.current(k); };
     addEventListener('hashchange', onHash);
     if (n < 0) { linkDone.current = true; return () => removeEventListener('hashchange', onHash); }
     try { history.scrollRestoration = 'manual'; } catch (_) {}
