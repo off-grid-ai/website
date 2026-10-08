@@ -55,7 +55,6 @@ import { PlaceholdersAndVanishInput } from '@aceternity/placeholders-and-vanish-
 import { PlaceholdersAndVanishInput as PresetVanishInput } from '@offgrid-ui/placeholders-and-vanish-input';
 import { TextAnimate } from '@magicui/text-animate';
 import { HyperText } from '@magicui/hyper-text';
-import { TextReveal } from '@magicui/text-reveal';
 import { ShineBorder } from '@magicui/shine-border';
 import { DotPattern } from '@magicui/dot-pattern';
 import { OrbitingCircles } from '@magicui/orbiting-circles';
@@ -215,6 +214,11 @@ export function Title({ id, lead, dim, as = 'h2', className }) {
     <TextAnimate as="span" by="word" animation="slideUp" once startOnView className="t-line">{lead}</TextAnimate>
     {dim && <TextAnimate as="span" by="word" animation="slideUp" once startOnView delay={.2} className="t-line t-dim">{dim}</TextAnimate>}
   </Heading>;
+}
+// A one-sentence statement: Magic UI TextAnimate reveals it word by word when it scrolls into view, then it stays.
+// (Magic UI TextReveal's scroll-linked opacity drops back to 0 after each word's range in motion 12.36.)
+export function Reveal({ children }) {
+  return <div className="reveal-wrap"><TextAnimate as="p" by="word" animation="blurInUp" duration={1.4} once startOnView className="reveal-line">{children}</TextAnimate></div>;
 }
 export function Lede({ children, className }) {
   return <TextAnimate as="p" by="word" animation="fadeIn" duration={.6} once startOnView className={className}>{children}</TextAnimate>;
@@ -1032,7 +1036,7 @@ function HomeSections({ pricing }) {
         </ScrollVelocityContainer>
       </section>
       <PrivacySection />
-      <section className="manifesto" aria-label="Why local"><p className="sr-only">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</p><div aria-hidden="true"><TextReveal className="reveal">Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</TextReveal></div></section>
+      <section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section>
 
       {/* Pricing: Radix cards, Magic UI border beam on the recommended plan. */}
       <section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">

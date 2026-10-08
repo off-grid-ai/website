@@ -7,10 +7,9 @@ import Button from '@smoothui/smooth-button';
 import { MagicCard } from '@magicui/magic-card';
 import { BlurFade } from '@magicui/blur-fade';
 import { NumberTicker } from '@magicui/number-ticker';
-import { TextReveal } from '@magicui/text-reveal';
 import { Ripple } from '@magicui/ripple';
 import { ShimmerButton } from '@magicui/shimmer-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, useNarrow } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useNarrow } from '../shared.jsx';
 
 const IMG = '/assets/img/ogap/website-v2/';
 
@@ -164,7 +163,7 @@ const LIMIT = 'A phone running AI all day runs hot and runs out. Software can on
 function Limit() {
   const narrow = useNarrow();
   if (narrow) return <section className="has-bg og-limit" aria-label="The honest limit of on-device AI"><SectionBg /><div className="section-shell"><Kicker>THE HONEST LIMIT</Kicker><Title lead={LIMIT} className="og-limit-h" /></div></section>;
-  return <section className="has-bg manifesto" aria-label="The honest limit of on-device AI"><SectionBg /><TextReveal className="reveal">{LIMIT}</TextReveal></section>;
+  return <section className="has-bg manifesto" aria-label="The honest limit of on-device AI"><SectionBg /><Reveal>{LIMIT}</Reveal></section>;
 }
 
 export default function OgapPage({ data }) {

@@ -5,10 +5,9 @@ import { useReducedMotion } from 'motion/react';
 import Button from '@smoothui/smooth-button';
 import { MagicCard } from '@magicui/magic-card';
 import { BlurFade } from '@magicui/blur-fade';
-import { TextReveal } from '@magicui/text-reveal';
 import { AnimatedList } from '@magicui/animated-list';
 import { TypingAnimation } from '@magicui/typing-animation';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, useCycle, useNarrow } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useCycle, useNarrow } from '../shared.jsx';
 
 // A day in the recorder, shown as it works: speech arrives, is written down, and becomes what mattered.
 const HEARD = [
@@ -81,7 +80,7 @@ const FORGOT = 'Think about everything you forgot today. The name, the one line 
 function Forgot() {
   const narrow = useNarrow();
   if (narrow) return <section className="has-bg rc-forgot" aria-label="Everything you forgot today"><SectionBg /><div className="section-shell"><Title lead={FORGOT} className="rc-forgot-h" /></div></section>;
-  return <section className="has-bg manifesto" aria-label="Everything you forgot today"><SectionBg /><TextReveal className="reveal">{FORGOT}</TextReveal></section>;
+  return <section className="has-bg manifesto" aria-label="Everything you forgot today"><SectionBg /><Reveal>{FORGOT}</Reveal></section>;
 }
 
 export default function RecorderPage() {
