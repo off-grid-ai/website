@@ -24,6 +24,11 @@
       var element = entry.target;
       if (viewed.has(element)) return;
       viewed.add(element);
+      // Placements on every page (the announcement bar) count once per visit, not on every page view.
+      if (element.dataset.analyticsOnce === 'session') {
+        var key = 'og-viewed:' + element.dataset.analyticsView + ':' + element.dataset.analyticsPlacement;
+        try { if (sessionStorage.getItem(key)) { observer.unobserve(element); return; } sessionStorage.setItem(key, '1'); } catch (error) {}
+      }
       capture(element.dataset.analyticsView, { placement: element.dataset.analyticsPlacement });
       observer.unobserve(element);
     });
