@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, CheckCircle, LockKey, Sparkle } from '@phosphor-icons/react';
+import { ArrowUpRight, CheckCircle, LockKey } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, SceneHead, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
+import { Proof, Dl, Explorer, Loop, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Screen, ChatScene, VoiceScene, OfflineScene, ApprovalScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -16,20 +17,11 @@ function FreeDownload() {
 }
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 
-function PersonaScene() {
-  return <div className="ms">
-    <SceneHead title="Persona" badge="Pro" />
-    <div className="ms-persona"><span className="ms-avatar"><Sparkle size={16} /></span><span><b>Research partner</b><small>Your assistant, your rules</small></span></div>
-    {[['Instructions', 'Short answers. Cite the source. Ask before guessing.'], ['Voice', 'Kokoro · calm, clear'], ['Memory', 'Works with Acme Corp on the pilot · prefers metric units · pilot starts 14 Nov']].map(([k, v], i) =>
-      <motion.div key={k} className="ms-field" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3 + i * .35 }}><small>{k}</small><span>{v}</span></motion.div>)}
-  </div>;
-}
 
 const SCENES = {
   voice: () => <VoiceScene />,
   larger: () => <ChatScene model="Qwen 3.5 9B · on your Mac" q="Summarize the Acme rollout plan in three bullets." a="Pilot kicks off 14 November with 40 seats. Priya Nair owns the plan. Tom Reyes signs off the gateway policy first." />,
   offline: () => <OfflineScene where="your phone" />,
-  personas: () => <PersonaScene />,
   approve: () => <ApprovalScene to="Sam Okafor" question="Send this reply to Sam?" draft="Hi Sam, confirming the pilot moves to 14 November. The revised rollout plan reaches you by Friday." />,
 };
 // Real screens where the app has them, only in their own theme; a composed scene stands in for the other theme.
@@ -52,7 +44,7 @@ const inPhone = (id) => (compact) => {
 };
 
 // The command each feature's window types before (or without) a screen of its own.
-const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', personas: "set my assistant's voice", approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
+const FEATURE_CMDS = { chat: 'draft a reply to Sam', images: 'make an image', vision: "what's the total on this receipt?", voice: 'dictate a note', projects: 'ask the Acme project', tools: 'how many seat-days is the pilot?', larger: 'use the bigger model on my Mac', offline: 'turn off Wi-Fi and ask', voicemode: 'talk to my AI', approve: 'draft a reply for my yes', sync: 'pair my phone and my Mac' };
 const FREE = [
   ['chat', 'Chat', 'Qwen, Llama, Gemma and Phi, on your phone.'],
   ['images', 'Image generation', 'Stable Diffusion on your phone. Short prompts get enhanced.'],
@@ -65,7 +57,6 @@ const FREE = [
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 const PRO = [
   ['voicemode', 'Voice mode', 'Talk hands-free. Kokoro answers out loud.'],
-  ['personas', 'Custom personas', 'Give it instructions and a voice. It remembers.'],
   ['approve', 'Draft, then approve', 'It drafts. You approve before anything is sent.'],
   ['sync', 'Sync is live', 'Phone and computer, encrypted, over your own Wi-Fi.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
@@ -92,7 +83,7 @@ const FAQ = (p) => [
 ];
 
 export default function MobilePage({ data }) {
-  const p = data.pricing;
+  const { pricing: p } = usePricing(data.pricing);
   return <PageShell>
     <section className="pp pp-hero mp-hero has-bg" aria-labelledby="pp-h1"><SectionBg />
       <div className="section-shell pp-hero-grid mp-hero-grid">
@@ -137,7 +128,7 @@ export default function MobilePage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
-      pro={['Memory', 'Voice mode with Kokoro', 'Custom personas', 'Drafts you approve', 'Sync across paired devices', `Up to ${p.devices} devices`]}
+      pro={['Memory across your projects', 'Voice mode with Kokoro', 'Drafts you approve', 'Sync across paired devices', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

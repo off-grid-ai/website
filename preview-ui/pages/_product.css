@@ -186,7 +186,7 @@
 .ms-sync-tx{display:flex;flex-direction:column;flex:1;min-width:0}.ms-sync-tx b{font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ms-ok{color:var(--og-primary);flex-shrink:0}
 .ms-foot{margin:auto 0 0;font-size:.82em;color:var(--og-text-muted)}
-.ms-persona{display:flex;gap:10px;align-items:center}.ms-persona b{display:block;font-weight:400}.ms-persona small{font-size:.82em;color:var(--og-text-muted)}
+
 .ms-avatar{display:grid;place-items:center;width:2.6em;height:2.6em;border-radius:50%;background:rgb(var(--og-rgb-primary)/.15);color:var(--og-primary)}
 .ms-field{display:flex;flex-direction:column;gap:2px;padding:8px 10px;border:1px solid rgb(128 128 128/.22);border-radius:8px}
 .ms-field small{font-size:.75em;letter-spacing:.06em;text-transform:uppercase;color:var(--og-text-muted)}
@@ -308,7 +308,7 @@
 .light .pp-web-stage{background:#fff}
 @media (max-width:860px){.pp-web-stage{height:auto;aspect-ratio:420/520;padding:8px}}
 .pp-screen-flat .ms-photo{aspect-ratio:16/6}
-.pp-screen-flat .ms-persona small{display:none}
+
 .pp-screen-flat .ms-field{padding:5px 8px}
 .pp-screen-flat .ms-wave{height:22%;margin-top:2%}
 /* Carousel dots: page.css enlarges each dot's hit area by 18px, so neighbours overlapped and taps landed on the next dot. */

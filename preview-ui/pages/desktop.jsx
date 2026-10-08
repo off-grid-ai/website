@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
 import { Badge } from '@radix-ui/themes';
 import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react';
@@ -6,10 +7,7 @@ import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
 import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
-import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, SceneHead, OfflineScene, useStream } from './_product.jsx';
-import AIMessage from '@smoothui/ai-message';
-import AIResponse from '@smoothui/ai-response';
-import AIReasoning from '@smoothui/ai-reasoning';
+import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene } from './_product.jsx';
 
 const V = '0.0.54';
 const BETA = '0.0.55-beta.114';
@@ -69,18 +67,6 @@ function Hero() {
 }
 
 /* ── Free capabilities ── */
-function ConnectorsScene() {
-  const [done, setDone] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setDone(true), 1800); return () => clearTimeout(t); }, []);
-  const [text, streaming] = useStream('Done. The issue "Acme Corp pilot review, 14 Nov" is in Linear, assigned to you and linked to the rollout plan.', { start: 2000 });
-  return <div className="ms">
-    <SceneHead title="Chat" badge="MCP tools" />
-    <div className="ms-tools">{['Linear', 'Notion', 'Obsidian'].map(t => <span key={t} className="chip"><Check size={10} weight="bold" /> {t}</span>)}</div>
-    <AIMessage from="user">Create a Linear issue for the pilot review.</AIMessage>
-    <AIReasoning isStreaming={!done} duration={1} defaultOpen={false}>Used Linear: create issue. Read the rollout plan from Notion.</AIReasoning>
-    <AIResponse isStreaming={streaming} text={text} />
-  </div>;
-}
 const card = (node) => (compact) => compact ? <div className="pp-card-scene"><Loop>{node}</Loop></div> : <Fit><SceneCard className="pp-scene-card"><Loop>{node}</Loop></SceneCard></Fit>;
 const FREE = [
   { id: 'chat', cmd: 'what did I promise Sam?', title: 'Chat', line: 'Local text and vision models.', visual: () => <Seq shots={[['chat', 'Off Grid AI Chat: a sourced answer about the Acme Corp pilot, citing a meeting and a document.', 3800], ['chat-translate', 'Off Grid AI Chat: the reply to Sam translated into Spanish, names and dates kept.', 3800], ['vision-chat', 'Off Grid AI Chat reading an attached chart with a local vision model.', 3800]]} /> },
@@ -88,7 +74,7 @@ const FREE = [
   { id: 'voice', cmd: 'ask about the pilot out loud', title: 'Voice', line: 'Dictate with Whisper. Hear replies with Kokoro.', visual: () => <Framed><Shot lazy={false} name="voice-reply" alt="Off Grid AI chat in voice mode: a spoken question about the Acme pilot and a spoken answer, both with transcripts." /></Framed> },
   { id: 'projects', cmd: 'ask the Acme project', title: 'Projects', line: 'Answers from your documents, with sources.', visual: () => <Seq shots={[['projects', 'Off Grid AI Projects: an answer about the Acme pilot with document citations.', 3800], ['project-compare', 'Off Grid AI Projects: what changed from v2 to v3 of the rollout plan, citing both PDFs.', 3800], ['project-checklist', 'Off Grid AI Projects: a launch checklist for 14 Nov, built from three project documents.', 3800]]} /> },
   { id: 'artifacts', cmd: 'draw the rollout as a flowchart', title: 'Artifacts', line: 'Charts, pages and diagrams beside your chat.', visual: () => <Framed><Shot lazy={false} name="artifacts" alt="Off Grid AI chat with the canvas beside it: a Mermaid flowchart of the Acme rollout." /></Framed> },
-  { id: 'connectors', cmd: 'connect my tools', title: 'Connectors', line: 'Your MCP tools, inside chat.', visual: card(<ConnectorsScene />) },
+  { id: 'connectors', cmd: 'connect my tools', title: 'Connectors', line: 'Your accounts and MCP tools, inside chat.', visual: () => <Seq shots={[['integrations', 'Off Grid AI Integrations: Google, Microsoft, Notion, Jira and Linear, acting only after approval.', 3400], ['settings-mcp', 'Off Grid AI settings: tool groups for calendar, web, memory and more, each on or off.', 3400]]} /> },
   { id: 'models', cmd: 'show text models', title: 'Any model', line: 'The catalog, or any GGUF on Hugging Face.', visual: () => <Seq shots={[['models-text', 'Off Grid AI model library: text models.', 1800], ['models-vision', 'Vision models.', 1800], ['models-transcription', 'Speech to text models.', 1800], ['models-computer-use', 'Computer use models.', 1800], ['models-voice', 'Text to speech models.', 1800], ['models-fit', 'Off Grid AI Models: text models marked by how well they fit this Mac.', 3400], ['models-storage', 'Off Grid AI Models: storage used by each downloaded model.', 3400]]} /> },
   { id: 'offline', cmd: 'turn off Wi-Fi and ask', title: 'Offline by default', line: 'Download once. No account, no internet.', visual: card(<OfflineScene where="your computer" />) },
 ];
@@ -163,7 +149,7 @@ const FAQ = (p) => [
 
 export default function DesktopPage({ data }) {
   useBetaLinks();
-  const p = data.pricing;
+  const { pricing: p } = usePricing(data.pricing);
   return <PageShell>
     <Hero />
 

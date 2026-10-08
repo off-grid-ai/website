@@ -8,6 +8,7 @@ export default async function proData() {
   return {
     checkout: {
       links: { monthly: config.revenuecat_link_monthly, lifetime: config.revenuecat_link_lifetime },
+      nextLinks: { monthly: config.revenuecat_link_monthly_799, lifetime: config.revenuecat_link_lifetime_119 },
       adsId: config.google_ads_id || '',
       adsLabel: config.google_ads_conversion_label || '',
     },

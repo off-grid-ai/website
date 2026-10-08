@@ -53,8 +53,8 @@ export const FEATURES = [
   {
     slug: 'ai-assistant', name: 'AI assistant', note: 'Briefings, drafts and web errands',
     kicker: 'OFF GRID AI', lead: 'An assistant', dim: 'that waits for your yes.',
-    lede: 'It briefs you, drafts the reply, runs the web errand and reads your documents. Nothing goes out until you approve it.',
-    description: 'Off Grid AI briefs you each morning, drafts replies for your approval, runs web errands, takes dictation and answers from your documents.',
+    lede: 'It briefs you, drafts the reply and runs the web errand. Nothing goes out until you approve it.',
+    description: 'Off Grid AI briefs you each morning, drafts replies for your approval, runs web errands and takes dictation.',
     items: [
       { id: 'god', title: 'Morning briefing', cmd: 'brief me, Ares', line: 'Your calendar, approvals and open work in one brief, every morning.', shots: [
         ['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'],
@@ -78,23 +78,53 @@ export const FEATURES = [
         ['voice-clean', 'Off Grid AI Voice: the same take with filler words, before cleanup.'],
         ['voice-reply', 'Off Grid AI chat in voice mode: spoken question, spoken answer.'],
         ['mobile/voice-ios-2', 'Off Grid AI on iPhone: replies come back as voice notes, each with a transcript.']] },
-      { id: 'docs', title: 'Your documents', cmd: 'what changed from v2 to v3?', line: 'Answers from your PDFs and notes, with the page each one came from.', shots: [
-        ['projects', 'Off Grid AI Projects: an answer about the Acme pilot with document citations.'],
-        ['project-compare', 'Off Grid AI Projects: what changed from v2 to v3 of the rollout plan, citing both PDFs.'],
-        ['project-checklist', 'Off Grid AI Projects: a launch checklist for 14 Nov, built from three documents.'],
-        ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']] },
     ],
     faq: [
       ['Will it send anything without asking?', 'No. Emails, messages and web submissions wait for your Approve. You can edit the draft first or reject it.'],
       ['What does Web Use do with my passwords?', 'It stops and hands the page to you. You sign in yourself, and Off Grid AI never reads the password.'],
-      ['Which parts are free?', 'Chat, documents and voice replies are free. Briefings, approvals, dictation and Web Use are part of Off Grid AI Pro.'],
-      ['Does it work offline?', 'Chat, documents and voice run on local models with the Wi-Fi off. Email, calendar and the web need a connection.'],
+      ['Which parts are free?', 'Chat and voice replies are free. Briefings, approvals, dictation and Web Use are part of Off Grid AI Pro.'],
+      ['Does it work offline?', 'Chat and voice run on local models with the Wi-Fi off. Email, calendar and the web need a connection.'],
     ],
     articles: [
       'how-to-get-an-automatic-morning-briefing-of-meetings-and-to-dos-in-off-grid-ai-on-mac-in-2026',
       'how-to-automate-tasks-in-your-signed-in-browser-with-local-ai-in-2026',
       'how-to-dictate-into-any-mac-app-with-local-ai-in-2026-no-cloud-transcription',
       'how-to-ask-ai-about-your-company-documents-in-2026-without-uploading-them',
+    ],
+  },
+  {
+    slug: 'documents-and-tools', name: 'Documents & tools', note: 'RAG, projects, MCP and connectors',
+    kicker: 'OFF GRID AI', lead: 'Your documents and tools,', dim: 'in one chat.',
+    lede: 'Ask your PDFs and notes, with page citations. Connect your accounts and MCP servers. Actions wait for your yes.',
+    description: 'Chat with your documents using local RAG, organise work into projects, and connect Gmail, Calendar, Notion, Linear, Jira and any MCP server to Off Grid AI. Answers cite their sources and actions wait for your approval.',
+    items: [
+      { id: 'projects', title: 'Projects and RAG', cmd: 'summarise the rollout plan with page numbers', line: 'Answers from your PDFs and notes, with the page each one came from.', shots: [
+        ['project-summary', 'Off Grid AI Projects: Acme_rollout_v3.pdf summarised with page numbers and a cited source.'],
+        ['project-compare', 'Off Grid AI Projects: what changed from v2 to v3 of the rollout plan, citing both PDFs.'],
+        ['project-checklist', 'Off Grid AI Projects: a launch checklist for 14 Nov, built from three documents.'],
+        ['mobile/project-ios-1', 'Off Grid AI on iPhone: the Acme Corp pilot project with its documents and chats.'],
+        ['mobile/project-ios-2', 'Off Grid AI on iPhone answering from the Acme project documents.']] },
+      { id: 'connectors', title: 'Connectors', cmd: 'connect my work tools', line: 'Google, Microsoft, Notion, Jira and Linear, read live when you ask.', shots: [
+        ['integrations', 'Off Grid AI Integrations: Google, Microsoft, Notion, Jira, Linear, Obsidian, Vercel and Attio.'],
+        ['approval', 'Off Grid AI approval card: a Gmail reply to Sam, waiting for Approve, Edit or Reject.'],
+        ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
+      { id: 'tools', title: 'Tools and MCP', cmd: 'how many seat-days is the pilot?', line: 'Built-in tools and your MCP servers. Switch each one on or off.', shots: [
+        ['settings-mcp', 'Off Grid AI settings: tool groups for calendar, web, memory, device and more, each on or off.'],
+        ['mobile/tools-ios-1', 'Off Grid AI on iPhone: a calculator tool call works out 1,200 seat-days.']] },
+      { id: 'artifacts', title: 'Artifacts', cmd: 'draw the rollout as a flowchart', line: 'Flowcharts, pages and charts, drawn beside your chat.', shots: [
+        ['artifacts', 'Off Grid AI Canvas: the Acme rollout plan as a flowchart beside the chat.']] },
+    ],
+    faq: [
+      ['Do my documents get uploaded?', 'No. Off Grid AI indexes them on your device, and answers cite the file and page.'],
+      ['Which accounts can I connect?', 'Google, Microsoft, Notion, Jira, Linear, Obsidian and more, plus any MCP server you add.'],
+      ['Will it act without asking?', 'No. Connected accounts are read when you ask. Every send or change waits for your Approve.'],
+      ['Which parts are free?', 'Projects, MCP servers and artifacts are free. Account connectors and actions are part of Off Grid AI Pro.'],
+    ],
+    articles: [
+      'how-to-chat-with-your-documents-locally-offline-rag-no-cloud',
+      'connector-support-in-off-grid-ai-desktop-private-approval-gated-integrations',
+      'how-to-expose-on-device-ai-models-as-mcp-tools-local-mcp-server-no-cloud',
+      'how-to-export-ai-generated-web-pages-diagrams-and-code-in-off-grid-ai-in-2026',
     ],
   },
   {

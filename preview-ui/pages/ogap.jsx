@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePricing } from '../pricing.js';
 import { Badge, Card, Heading, Text, TextField } from '@radix-ui/themes';
 import * as Accordion from '@radix-ui/react-accordion';
 import { motion, useScroll, useTransform } from 'motion/react';
@@ -167,7 +168,8 @@ function Limit() {
 }
 
 export default function OgapPage({ data }) {
-  const { ogap, pricing } = data;
+  const { ogap } = data;
+  const { pricing } = usePricing(data.pricing);
   const faq = [...FAQ, ['Can I buy it now?', `Yes. Pre-orders are open at $${ogap.price} with shipping included, anywhere in the world. You pay now and hold that price; we email you for your shipping address, then again when your unit ships.`]];
   return <PageShell><div className="og-page">
     <Hero ogap={ogap} />

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePricing } from '../pricing.js';
 import { Badge } from '@radix-ui/themes';
 import { ArrowRight, ArrowUpRight, ArrowDown, PuzzlePiece, ArrowsClockwise, CursorClick, ShieldCheck, Flask, GithubLogo } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
@@ -206,6 +207,7 @@ function Pro({ pricing }) {
 }
 
 export default function DownloadPage({ data }) {
+  const { pricing } = usePricing(data.pricing);
   // Detect the visitor's platform after hydration; the server renders macOS.
   const [dev, setDev] = useState('macos');
   useEffect(() => { setDev(detect()); }, []);
@@ -214,6 +216,6 @@ export default function DownloadPage({ data }) {
     <Hero dev={dev} />
     <Platforms dev={dev} />
     <Tracks />
-    <Pro pricing={data.pricing} />
+    <Pro pricing={pricing} />
   </PageShell>;
 }
