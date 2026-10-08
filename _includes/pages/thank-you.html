@@ -161,12 +161,12 @@
     // somehow not having run.
     var search = typeof window.OG_QUERY === 'string' ? window.OG_QUERY : location.search;
 
-    // What the buyer picked, in order of trust: the redirect URL, then the
-    // cookie the buy button wrote on the way out.
+    // The redirect chooses the plan. Use the recorded checkout price when its
+    // plan matches, so a new-cohort purchase is not reported at an old price.
     var picked = window.CheckoutPlan ? CheckoutPlan.read() : null;
     var queryPlan = param(search, 'plan');
     var plan = PLAN_VALUES[queryPlan] ? queryPlan : (picked ? picked.plan : queryPlan);
-    var value = PLAN_VALUES[queryPlan] || (picked ? picked.value : 0);
+    var value = picked && picked.plan === plan ? picked.value : (plan === 'ogap' ? PLAN_VALUES.ogap : 0);
     var appUserId = param(search, 'app_user_id');
     var txnId = transactionId(plan, appUserId);
 
