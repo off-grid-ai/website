@@ -1,1 +1,7 @@
 @import "../../../preview-ui/pages/_product.css";
+/* Web Use as a tour window: bar on top, the sequence fills the rest at the capture's shape. */
+.pp-web-tour{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);overflow:hidden}
+.pp-web-tour .pp-web-view{position:relative;aspect-ratio:1512/977}
+.pp-web-tour .pp-web-view .pp-seq{position:absolute;inset:0;min-height:0}
+.pp-web-stage.pp-web-tour{height:auto!important;padding:0!important;aspect-ratio:auto!important}
+@media(max-width:860px){.pp-web-tour .pp-web-view{aspect-ratio:1512/1100}}

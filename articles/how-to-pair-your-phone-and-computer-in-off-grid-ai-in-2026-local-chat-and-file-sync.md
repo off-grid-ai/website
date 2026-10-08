@@ -17,7 +17,7 @@ You start an AI conversation on your phone, then reach your computer and have to
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
 <div style="width: 100%;">
-  <img width="320" alt="The Sync screen in OGAM on iPhone: Maya's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+  <img width="320" alt="The Sync screen in OGAM on iPhone: Alex's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
 </div>
 
 ---

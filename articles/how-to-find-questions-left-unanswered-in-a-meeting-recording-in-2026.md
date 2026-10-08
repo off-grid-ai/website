@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you review a saved recording for questions t
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![A meeting transcript in Off Grid AI Desktop, made on device with Whisper Large v3 Turbo, below the call's decisions.](https://getoffgridai.co/assets/img/home/app/meetings-transcript-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

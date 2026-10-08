@@ -16,7 +16,7 @@ You are presenting a Zoom demo and answering questions. Typing notes at the same
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Meetings: the Acme pilot kickoff recording, summary, and transcript.](/assets/img/home/app/meetings-light-1760.webp)
+![A recorded Zoom meeting in Off Grid AI Desktop: the on-device summary, frames of what was on screen and the decisions made during the call.](/assets/img/home/app/meetings-summary-light-1760.webp)
 
 ---
 

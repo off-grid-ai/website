@@ -18,6 +18,8 @@ OGAD (Off Grid AI Desktop) exposes speculative decoding in its text settings. St
 
 [Get OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
+![Performance settings in Off Grid AI Desktop with speculative decoding set to DFlash and a draft model chosen, beside the KV cache, FlashAttention and GPU layer controls.](https://getoffgridai.co/assets/img/home/app/settings-performance-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

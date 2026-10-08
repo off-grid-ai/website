@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you organise saved quotes into a comparison 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![A project chat in Off Grid AI Desktop answering from the project files and citing the PDF, the DOCX and the meeting it used.](https://getoffgridai.co/assets/img/home/app/projects-light-1760.webp)
+![A project chat in Off Grid AI Desktop comparing rollout plan v2 with v3: each change listed, with both documents cited.](https://getoffgridai.co/assets/img/home/app/project-compare-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

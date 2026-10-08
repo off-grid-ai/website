@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can identify requests you made to other people in
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI Actions: a to-do list drawn from the workday.](/assets/img/home/app/actions-light-1760.webp)
+![The Waiting On tab in Actions in Off Grid AI Desktop: tasks handed to Tom Reyes and Priya Nair, each showing who it waits on.](/assets/img/home/app/act-waiting-light-1760.webp)
 
 ---
 

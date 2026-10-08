@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) puts local chat, document work, vision, images, and s
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Beta with backend controls](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108)
 
-![The Models screen in Off Grid AI Desktop: text models on this computer, with Qwen 3.5 9B active, and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
+![The Models screen in Off Grid AI Desktop with fit badges for the computer it runs on, here a Mac: models on the device and models to download, each with its size.](https://getoffgridai.co/assets/img/home/app/models-fit-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

@@ -16,6 +16,10 @@ You start a computer task, then move away from the desk. OGAM (Off Grid AI Mobil
 
 [Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
 
+<div style="width: 100%;">
+  <img width="320" alt="OGAM on iPhone following a Web Use task running on Alex's Mac: the live view of the page, the plan and the current step." src="https://getoffgridai.co/assets/img/home/mobile/web-step-ios-light-640.webp" />
+</div>
+
 ---
 
 > **What would you like to do with Off Grid AI?**

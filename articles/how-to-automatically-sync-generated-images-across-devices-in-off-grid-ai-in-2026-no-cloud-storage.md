@@ -17,7 +17,7 @@ You can generate an AI image on your phone and open the result on your computer 
 [Get OGAM for Android](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [Get OGAM for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) | [Get OGAD](https://getoffgridai.co/desktop/)
 
 <div style="width: 100%;">
-  <img width="320" alt="The Sync screen in OGAM on iPhone: Maya's Mac connected over Wi-Fi, 2 of 5 devices saved, and Sharing, Activity and Files below." src="https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp" />
+  <img width="320" alt="Sync activity in Off Grid AI Desktop: six completed transfers between Alex's Mac and iPhone, including a PDF, a document, images and a model." src="https://getoffgridai.co/assets/img/home/app/phone-activity-light-1760.webp" />
 </div>
 
 ---

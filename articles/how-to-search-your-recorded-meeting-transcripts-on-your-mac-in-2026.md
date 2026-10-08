@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) lets you search saved meeting titles, summaries and t
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![A meeting transcript in Off Grid AI Desktop, made on device with Whisper Large v3 Turbo, below the call's decisions.](https://getoffgridai.co/assets/img/home/app/meetings-transcript-light-1760.webp)
 
 ---
 

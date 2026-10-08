@@ -38,11 +38,11 @@ const REAL = {
   chat: { light: [["chat-ios-1-light", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3800]], dark: [["chat-ios-1-dark", "A reply to Sam Okafor at Acme Corp, drafted on the phone by a local model.", 3800]] },
   projects: { light: [["project-ios-1-light", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-light", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]], dark: [["project-ios-1-dark", "The Acme Corp pilot project and its rollout notes on iPhone.", 3800], ["project-ios-2-dark", "Who owns the rollout and when it starts, answered from the project notes with a citation.", 3800]] },
   images: { light: [['imagegen-ios-1-light', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]], dark: [['imagegen-ios-1-dark', 'Off Grid AI on iPhone: "A lighthouse at dusk, film photo" turned into an enhanced prompt and a finished image.', 4600]] },
-  voicemode: { light: [['voice-ios-2-light', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]], dark: [['voice-ios-2-dark', 'Off Grid AI on iPhone: you ask by voice and the replies come back as voice notes, each with a transcript.', 4600]] },
+  voicemode: { light: [['voice-ios-2-light', 'You ask by voice and the replies come back as voice notes, each with a transcript.', 4600], ['voice-ios-1-light', 'A spoken brief on the Acme pilot, with its transcript.', 4200]], dark: [['voice-ios-2-dark', 'You ask by voice and the replies come back as voice notes, each with a transcript.', 4600], ['voice-ios-1-dark', 'A spoken brief on the Acme pilot, with its transcript.', 4200]] },
   vision: { light: [['vision-ios-2-light', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]], dark: [['vision-ios-2-dark', 'Off Grid AI on iPhone: a photo of a receipt, answered with the total.', 4200]] },
   tools: { light: [['tools-ios-1-light', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]], dark: [['tools-ios-1-dark', 'A calculator tool call in chat: 40 seats for 6 weeks of 5 days is 1,200 seat-days.', 4200]] },
-  sync: { light: [['sync-ios-1-light', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]], dark: [['sync-ios-1-dark', 'Off Grid AI Sync on iPhone: your Mac connected over Wi-Fi.', 4200]] },
-  larger: { light: [['remote-ios-2-light', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200]] },
+  sync: { light: [['sync-ios-1-light', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi.", 4200], ['web-replay-ios-light', 'A finished task from the Mac, replayed step by step on the phone.', 4200]], dark: [['sync-ios-1-dark', "Off Grid AI Sync on iPhone: Alex's Mac connected over Wi-Fi.", 4200], ['web-replay-ios-dark', 'A finished task from the Mac, replayed step by step on the phone.', 4200]] },
+  larger: { light: [['remote-ios-2-light', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200], ['web-step-ios-light', 'The phone following a task that runs on the Mac, step by step.', 4200], ['web-compare-ios-light', "The Mac's answer back on the phone: Team pricing for 40 people in a table.", 4200]], dark: [['remote-ios-2-dark', "Remote Servers on iPhone: your Mac's Off Grid AI gateway, connected over your own Wi-Fi.", 4200], ['web-step-ios-dark', 'The phone following a task that runs on the Mac, step by step.', 4200], ['web-compare-ios-dark', "The Mac's answer back on the phone: Team pricing for 40 people in a table.", 4200]] },
 };
 const composed = (id, compact) => compact ? <Screen><Loop>{SCENES[id]()}</Loop></Screen> : <div className="mp-stage-phone"><Phone><Loop>{SCENES[id]()}</Loop></Phone></div>;
 const real = (shots, compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><PhoneShots shots={shots} /></div>;
@@ -60,7 +60,7 @@ const FREE = [
   ['voice', 'Voice input', 'Turn speech into text on your phone with Whisper.'],
   ['projects', 'Projects', 'Ask about your documents and notes. Answers cite their sources.'],
   ['tools', 'Tools', 'Let compatible models use a calculator, web search and document lookup. Here, the calculator works out seat-days.'],
-  ['larger', 'Larger models', 'Use Off Grid AI Desktop, Ollama, or LM Studio over your local network.'],
+  ['larger', 'Larger models', 'Use bigger models on your Mac, or Ollama and LM Studio, over your own network. Start a task on the Mac and follow it from your phone.'],
   ['offline', 'Offline by default', 'Download a model once. Use it without internet.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
 const PRO = [
@@ -74,16 +74,14 @@ const PRO = [
 // Screens the explorers below don't use, so the hero never repeats them.
 const HERO_LIGHT = [
   ['models-ios-1-light', 'Models picked for your phone, with vision and tools marked.', 3800],
-  ['voice-ios-1-light', 'A spoken brief on the Acme pilot, with its transcript.', 3800],
   ['models-ios-2-light', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 const HERO_DARK = [
   ['models-ios-1-dark', 'Models picked for your phone, with vision and tools marked.', 3800],
-  ['voice-ios-1-dark', 'A spoken brief on the Acme pilot, with its transcript.', 3800],
   ['models-ios-2-dark', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 function HeroPhone() {
-  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text) => <><CmdBar text={text} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
+  return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
 }
 
 const FAQ = (p) => [

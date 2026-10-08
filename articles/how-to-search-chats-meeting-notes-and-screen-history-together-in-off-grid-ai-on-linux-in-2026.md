@@ -16,7 +16,7 @@ You remember the detail but not where it appeared. It could be in an AI chat, a 
 
 OGAD (Off Grid AI Desktop) Pro brings those retained sources into one **Search** view on your Linux computer. Start with a phrase or topic, narrow the source, and open the matching record. You can find the evidence without first remembering which app or conversation held it.
 
-![Off Grid AI example view: Search: results from chats, recorded screens, meetings, and people.](https://getoffgridai.co/assets/img/home/app/search-light-1760.webp)
+![Search in Off Grid AI Desktop for acme pilot: chats, meetings, screen moments and people from across your sources in one list.](https://getoffgridai.co/assets/img/home/app/ask-search-light-1760.webp)
 
 ---
 

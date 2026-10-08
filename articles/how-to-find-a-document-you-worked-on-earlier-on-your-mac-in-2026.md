@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you find its context in your captured Mac ac
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Search in Off Grid AI Desktop: one query returns matching chats, meetings, screen moments and people from your own history.](https://getoffgridai.co/assets/img/home/app/search-light-1760.webp)
+![Search in Off Grid AI Desktop for acme pilot: chats, meetings, screen moments and people from across your sources in one list.](https://getoffgridai.co/assets/img/home/app/ask-search-light-1760.webp)
 
 ---
 

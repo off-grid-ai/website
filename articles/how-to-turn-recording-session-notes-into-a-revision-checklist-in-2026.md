@@ -18,7 +18,7 @@ The session ends. The revision notes still need sorting.
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
+![A project chat in Off Grid AI Desktop turning a pilot scope into a launch checklist grouped by week, citing the three documents it used.](/assets/img/home/app/project-checklist-light-1760.webp)
 
 ---
 

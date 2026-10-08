@@ -16,7 +16,7 @@ Speak a paragraph and place the text in the app where you are writing. OGAD (Off
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 
-![Voice in Off Grid AI Desktop: dictated notes and a transcribed audio file, each turned into text with its to-dos pulled out on your computer.](https://getoffgridai.co/assets/img/home/app/voice-light-1760.webp)
+![Voice settings in Off Grid AI Desktop: hold or toggle mode, the shortcut, paste at cursor, and the Whisper engine used to transcribe.](https://getoffgridai.co/assets/img/home/app/voice-settings-light-1760.webp)
 
 ---
 

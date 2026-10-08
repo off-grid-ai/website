@@ -17,6 +17,8 @@ A private work history should be something you can manage. OGAD (Off Grid AI Des
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
+![Replay in Off Grid AI Desktop on a saved frame of Acme_rollout_v3.pdf, with the frame's note and its edit and delete controls beside the preview.](https://getoffgridai.co/assets/img/home/app/capture-film-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

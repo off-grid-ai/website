@@ -16,6 +16,8 @@ Translation becomes harder when the English source uses long sentences, vague re
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
+![A chat in Off Grid AI Desktop translating an email to Sam into Spanish, with a note that names, dates and numbers were kept exactly as written.](https://getoffgridai.co/assets/img/home/app/chat-translate-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

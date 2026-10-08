@@ -16,7 +16,7 @@ You can speak an email or a paragraph and insert the text into the Mac app where
 
 [Get OGAD for Mac](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Voice: dictation and saved transcripts on the computer.](/assets/img/home/app/voice-light-1760.webp)
+![Voice settings in Off Grid AI Desktop: hold or toggle mode, the shortcut, paste at cursor, and the Whisper engine used to transcribe.](/assets/img/home/app/voice-settings-light-1760.webp)
 
 ---
 
@@ -123,6 +123,10 @@ For a first check, include one term you use often: a project name, a colleague's
 **Remove filler words** can make a cleaned copy by removing supported fillers and stutters. **Paste cleaned text** selects that copy for insertion. The raw transcript remains in the Voice library.
 
 This is a deletion-based cleanup feature. Do not expect it to rewrite an argument, add facts, or turn an unfinished thought into a polished email. Edit the text in the destination app when you need those changes.
+
+![A dictation in the Voice library in Off Grid AI Desktop shown raw, with filler words such as um and uh still in the text.](/assets/img/home/app/voice-clean-light-1760.webp)
+
+*A dictation in the Voice library in Off Grid AI Desktop shown raw, with filler words such as um and uh still in the text.*
 
 ## What happens if automatic paste fails?
 

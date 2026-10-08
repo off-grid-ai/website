@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) helps you find a recorded meeting and ask what was ac
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![A recorded Zoom meeting in Off Grid AI Desktop: the on-device summary, frames of what was on screen and the decisions made during the call.](https://getoffgridai.co/assets/img/home/app/meetings-summary-light-1760.webp)
 
 ---
 

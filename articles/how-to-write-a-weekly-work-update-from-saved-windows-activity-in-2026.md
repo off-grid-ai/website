@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can give you a record to work from. After you enable 
 
 [Download OGAD for Windows](https://getoffgridai.co/desktop/)
 
-![Day in Off Grid AI Desktop: to-dos, the day's meetings, an automatic journal of the work and the time spent in each app.](https://getoffgridai.co/assets/img/home/app/day-light-1760.webp)
+![Day in Off Grid AI Desktop opened on an earlier day: the journal for that day, time spent by app and its hour-by-hour timeline.](https://getoffgridai.co/assets/img/home/app/today-yesterday-light-1760.webp)
 
 ---
 

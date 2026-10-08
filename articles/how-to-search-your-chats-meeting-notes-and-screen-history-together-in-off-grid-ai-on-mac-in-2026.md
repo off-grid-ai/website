@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro brings those retained sources into one **Search**
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
+![Search in Off Grid AI Desktop for acme pilot: chats, meetings, screen moments and people from across your sources in one list.](/assets/img/home/app/ask-search-light-1760.webp)
 
 ---
 

@@ -18,7 +18,7 @@ You may already own the computer you need.
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Linux and optional NVIDIA support in beta108](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108)
 
-![Off Grid AI Models: text models with download sizes and device requirements.](/assets/img/home/app/models-text-light-1760.webp)
+![The Models screen in Off Grid AI Desktop with fit badges for the computer it runs on, here a Mac: models on the device and models to download, each with its size.](/assets/img/home/app/models-fit-light-1760.webp)
 
 ---
 

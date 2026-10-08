@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) Pro can extract concrete to-dos from work-chat text c
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/) | [Beta 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103)
 
-![Off Grid AI Actions: a to-do list drawn from the workday.](/assets/img/home/app/actions-light-1760.webp)
+![Actions in Off Grid AI Desktop: open to-dos pulled from your work, each with its priority, person, due date and source.](/assets/img/home/app/act-todos-light-1760.webp)
 
 ---
 

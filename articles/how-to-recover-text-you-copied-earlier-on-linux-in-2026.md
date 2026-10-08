@@ -16,7 +16,7 @@ Copying a second item should not mean losing the first. OGAD (Off Grid AI Deskto
 
 [Download OGAD for Linux](https://getoffgridai.co/desktop/)
 
-![Off Grid AI example view: Clipboard: search previously copied text, links, images, and files.](https://getoffgridai.co/assets/img/home/app/clipboard-light-1760.webp)
+![Clipboard in Off Grid AI Desktop: today's copied images, files, links and text, each with the app and device it came from.](https://getoffgridai.co/assets/img/home/app/clipboard-today-light-1760.webp)
 
 ---
 

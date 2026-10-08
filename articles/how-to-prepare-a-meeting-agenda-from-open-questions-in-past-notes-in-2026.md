@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) can help you search the notes on your computer, find 
 
 [Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![Ares in Off Grid AI Desktop answering Prep me for Northwind board prep: what was said last time, what Daniel wants today and what to bring, with sources cited.](https://getoffgridai.co/assets/img/home/app/god-prep-light-1760.webp)
 
 > **What would you like to do with Off Grid AI?**
 >

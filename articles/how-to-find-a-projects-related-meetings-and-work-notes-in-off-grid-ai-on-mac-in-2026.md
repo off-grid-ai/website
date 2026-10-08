@@ -18,7 +18,7 @@ OGAD (Off Grid AI Desktop) gives you a local place to find retained meeting reco
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI People: Sam Okafor at Acme Corp, with related work and a timeline.](/assets/img/home/app/entities-light-1760.webp)
+![The Acme Corp pilot project in Off Grid AI Desktop: its story, open to-dos, related people and a timeline of the work behind it.](/assets/img/home/app/people-project-light-1760.webp)
 
 ---
 

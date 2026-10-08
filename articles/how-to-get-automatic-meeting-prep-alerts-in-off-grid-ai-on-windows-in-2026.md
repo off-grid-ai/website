@@ -18,6 +18,8 @@ OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the peop
 
 [Get OGAD for Windows](https://getoffgridai.co/desktop/)
 
+![Day in Off Grid AI Desktop with meeting prep open for Northwind board prep: who Daniel Cole is, what was recently discussed and the open items.](https://getoffgridai.co/assets/img/home/app/today-prep-light-1760.webp)
+
 ---
 
 > **What would you like to do with Off Grid AI?**

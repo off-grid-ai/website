@@ -16,7 +16,7 @@ Two versions of a proposal can look almost identical until a deadline or conditi
 
 [Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
 
-![Off Grid AI Projects: an Acme pilot answer with citations to project documents.](/assets/img/home/app/projects-light-1760.webp)
+![A project chat in Off Grid AI Desktop comparing rollout plan v2 with v3: each change listed, with both documents cited.](/assets/img/home/app/project-compare-light-1760.webp)
 
 ---
 

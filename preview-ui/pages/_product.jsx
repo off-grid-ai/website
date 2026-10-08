@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope } from '../shared.jsx';
+import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -80,9 +80,8 @@ export function Wipe({ id, className = '', children }) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={`pp-wipe ${className}`}>{children}</div>;
   return <AnimatePresence initial={false}>
-    <motion.div key={id} className={`pp-wipe ${className}`} initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={{ clipPath: 'inset(0 0% 0 0)', transition: WIPE_T }} exit={{ opacity: 1, transition: { delay: .7, duration: 0 } }}>
+    <motion.div key={id} className={`pp-wipe ${className}`} variants={DISSOLVE_V} initial="enter" animate="show" exit="leave">
       {children}
-      <motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={WIPE_T} />
     </motion.div>
   </AnimatePresence>;
 }
@@ -123,13 +122,14 @@ export function AppWindow({ chapters, label }) {
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   const C = chapters[i];
-  const dwell = C.dwell || C.shots.reduce((a, s) => a + (s[2] || 3200), 0) + 300;
+  const dwell = C.dwell || C.shots.reduce((a, s) => a + screenTime(s), 0) + 200;
   const prog = useAutoProgress(i, dwell, hold || manual || reduce, () => setI(v => (v + 1) % chapters.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: chapters.length, title: C.label, line: C.cmd, progress: reduce ? null : prog, goTo: setI });
   // The window's command follows the screen on show.
   const [scr, setScr] = useState(null); const iNow = useRef(i); iNow.current = i;
   const chs = useRef(chapters); chs.current = chapters;
   const onScreen = useCallback((name) => { if (chs.current[iNow.current].shots.some(x => x[0] === name)) setScr({ i: iNow.current, name }); }, []);
+  const [seq, setSeq] = useState(null);
   const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
   return <div className="pp-app">
@@ -138,9 +138,10 @@ export function AppWindow({ chapters, label }) {
       <div className="pp-bar">
         <span className="pp-dots"><i /><i /><i /></span>
         <span className="pp-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{cmd}</TypingAnimation></span>
+        <SceneRoll seq={seq && C.shots.some(x => x[0] === seq.shots[0][0]) ? seq : null} />
         <span className="pp-badge"><LockKey size={11} /> On this device</span>
       </div>
-      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><ShotSeq key={C.id} shots={C.shots} /></ScreenCtx.Provider></ZoomCtx.Provider></div>
+      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><ShotSeq key={C.id} shots={C.shots} /></SeqCtrlCtx.Provider></ScreenCtx.Provider></ZoomCtx.Provider></div>
     </motion.div>
     <div className="pp-tabs" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
@@ -157,11 +158,14 @@ export function AppWindow({ chapters, label }) {
 
 // Capabilities: a tab list with a live stage on wider screens, a swipe row of cards on phones.
 // items: { id, title, line, note?, visual: (compact) => node }
-export function Explorer({ items, label, ms = 6500, className = '' }) {
+export function Explorer({ items, label, ms = 4500, className = '' }) {
   const narrow = useNarrow();
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
-  const prog = useAutoProgress(i, ms, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
+  // A feature with screenshots plays all of them (3s each); a composed scene gets `ms`.
+  const [count, setCount] = useState({ i: -1, n: 0 }); const onCount = useCallback((n) => setCount({ i, n }), [i]);
+  const featureMs = count.i === i && count.n ? count.n * SCREEN_MS : ms;
+  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: items.length, title: items[i].title, line: items[i].line, progress: reduce ? null : prog, goTo: setI });
   // Features without screenshots open full screen too: a live copy of their scene.
   const stage = useRef(null); const item = items[i];
@@ -173,7 +177,7 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
     </article>)}
   </MobileRail>;
   const P = items[i];
-  return <div className={`pillar-grid pp-explorer ${className}`}>
+  return <ScreenCountCtx.Provider value={onCount}><div className={`pillar-grid pp-explorer ${className}`}>
     <div className="pillar-list" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
@@ -184,16 +188,16 @@ export function Explorer({ items, label, ms = 6500, className = '' }) {
       </AnimatedBackground>
       {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}
     </div>
-    <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label')) zoom.open(); }}>
-      <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text) => <>
-        <CmdBar text={text} />
+    <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label, [role="button"], .scene-roll, .tour-cmd')) zoom.open(); }}>
+      <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text, seq) => <>
+        <CmdBar text={text} seq={seq} />
         <div className="pillar-visual"><ZoomCtx.Provider value={zoom}>{typeof P.visual === 'function' ? P.visual(false) : null}</ZoomCtx.Provider></div>
         {P.note && <p className="pp-note">{P.note}</p>}
       </>}</CmdScope></Wipe>
     </div>
     <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? ` ${p.note}` : ''}</p>)}</div>
     {viewer}
-  </div>;
+  </div></ScreenCountCtx.Provider>;
 }
 
 // A fixed design canvas scaled to fill its box (CSS zoom, like the home walkthrough's --fit),
@@ -262,16 +266,17 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
   const running = shots.length > 1 && !reduce && (!manual || open);
-  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, shots[i][2] || ms); return () => clearTimeout(t); }, [i, running]);
+  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime([`mobile/${shots[i][0]}`, '', shots[i][2]], ms)); return () => clearTimeout(t); }, [i, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
-  const onScreen = useContext(ScreenCtx);
-  useEffect(() => { onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); }, [i]);
+  const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
+  // Only the copy on screen reports (the other theme's twin is hidden).
+  useEffect(() => { if (!box.current?.getClientRects().length) return; onScreen?.(`mobile/${shots[i][0].replace(/-(dark|light)$/, '')}`); ctrl?.({ shots: shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n]);
   const [f, alt] = shots[i];
   const phone = <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}><div className="pp-phone pp-phone-shot" ref={box}>
     <div className="pp-screen pp-screen-shot">
       {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
-      <Wipe id={`${f}-${i}`}><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} /></Wipe>
+      <Wipe id={`${f}-${i}`}><Zoomed name={`mobile/${f}`} phone><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} /></Zoomed></Wipe>
     </div>
     <Iphone />
   </div>

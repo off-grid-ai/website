@@ -18,7 +18,7 @@ For a first result, connect Gmail, pull a small set of messages about one projec
 
 [Download OGAD for Mac](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Search: results from chats, recorded screens, meetings, and people.](/assets/img/home/app/search-light-1760.webp)
+![Search in Off Grid AI Desktop narrowed to Meeting and Mail sources and sorted by most recent.](/assets/img/home/app/ask-filter-light-1760.webp)
 
 ---
 

@@ -1629,7 +1629,7 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* Tour window = the capture's shape (1512x977, 1.548:1) plus its title bar and inset, so screenshots fill it exactly.
    Width is the smaller of the column share and what the viewport height allows. */
 @media(min-width:861px){
-  .wt-window{--wbar:71px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
+  .wt-window{--wbar:92px;--ww:min(calc(var(--tcol) * .615),calc((100svh - 68px - 48px - var(--wbar)) * 1.548 + 28px));width:var(--ww)!important;height:calc((var(--ww) - 28px) / 1.548 + var(--wbar))!important;aspect-ratio:auto!important}
 }
 /* Inputs inside a field never draw their own focus ring; the field's ring (Radix focus-within, or the
    wrapper's border) already marks focus. Otherwise the global :focus-visible ring draws a second, shorter box. */
@@ -1705,3 +1705,77 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* The active item's track is always visible (paused or just picked); progress fills over it. */
 .pillar-track,.pp-tab-track,.pp-cap-track{background:rgb(var(--og-rgb-primary)/.35)!important}
 .pp-cap-tab{overflow:visible!important}
+/* A phone screen shown on its own sits in the middle of the tour window. */
+.wt-shot-in.wt-shot-mobile{display:grid!important;place-items:center!important}
+/* Detail zoom inside a tour screen: clipped to the screen, the screenshot scales about the area of interest. */
+.shot-zoom{position:absolute;inset:0;overflow:hidden;border-radius:inherit}
+.shot-zoom-in{position:absolute;inset:0;will-change:transform}
+/* Camera roll in tour title bars: scene thumbnails with room between them, the current one ringed in green. */
+.scene-roll{margin:0 0 0 auto!important;height:44px!important;padding:4px 10px!important;gap:10px!important;border-radius:10px!important;border:1px solid var(--line-2)!important;background:transparent!important;backdrop-filter:none!important;flex:none}
+.scene-thumb{border-radius:6px!important;padding:0!important;overflow:hidden;outline:1px solid var(--line-2);opacity:.6;transition:opacity .2s}
+.scene-thumb>div,.scene-thumb img{width:100%;height:100%}
+.scene-thumb img{display:block;object-fit:cover;object-position:left top}
+.scene-thumb:hover,.scene-thumb.is-on{opacity:1}
+.scene-thumb.is-on{outline:2px solid var(--og-primary);outline-offset:2px}
+.scene-thumb:focus-visible{outline:2px solid var(--og-border-focus);outline-offset:2px}
+.wt-bar .scene-roll+.wt-badge,.pp-bar .scene-roll+.pp-badge{margin-left:16px}
+.wt-bar{min-height:58px!important}.pp-bar:has(.scene-roll){min-height:58px}
+@media(max-width:860px){
+  .wt-bar,.pp-bar{flex-wrap:wrap!important;height:auto!important;min-height:0!important;row-gap:8px;padding-top:10px!important;padding-bottom:10px!important}
+  .wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll{order:3;flex:1 1 100%;margin:0!important;justify-content:flex-start!important;height:40px!important;padding:4px 8px!important;gap:8px!important;overflow-x:auto;scrollbar-width:none}
+  .scene-roll::-webkit-scrollbar{display:none}
+  .wt-bar .scene-roll+.wt-badge,.pp-bar .scene-roll+.pp-badge{margin-left:auto}
+  .tour-cmd:has(.scene-roll){flex-wrap:wrap;height:auto;row-gap:8px;padding:10px 14px}
+}
+/* Camera roll in the full-screen viewer: centred above the caption (desktop) or above the controls (phones). */
+.screenshot-roll{position:fixed;left:50%;translate:-50% 0;bottom:150px;z-index:1003;max-width:calc(100dvw - 48px)}
+.screenshot-roll .scene-roll{margin:0!important;background:var(--og-background)!important}
+.screenshot-view:not(.has-caption) .screenshot-roll{bottom:28px}
+.screenshot-view.has-caption .screenshot-stage{top:calc(50% - 96px)}
+@media(max-width:860px){
+  .screenshot-roll{bottom:auto;top:calc(50% + 4px);max-width:calc(100dvw - 32px)}
+  .screenshot-roll .scene-roll{display:flex!important;overflow-x:auto;height:40px!important;padding:4px 8px!important;gap:8px!important}
+  .screenshot-view.has-caption .screenshot-stage{top:calc(50% - 150px);width:min(calc(100dvw - 32px),calc((100dvh - 380px) * var(--ar)))}
+  .screenshot-view:has(.screenshot-rotate input:checked) .screenshot-roll{top:auto;bottom:84px}
+  .screenshot-view.has-caption:has(.screenshot-rotate input:checked) .screenshot-stage{top:calc(50% - 50px)}
+}
+/* Quieter current-scene marker: a thin, softer ring instead of a bright outline. */
+.scene-thumb.is-on{outline:1px solid rgb(var(--og-rgb-primary)/.55)!important;outline-offset:2px!important;box-shadow:0 0 0 3px rgb(var(--og-rgb-primary)/.08)}
+.scene-thumb{outline-color:rgb(var(--og-rgb-text)/.10)!important}
+/* Thumbnails stay legible on dark: a visible frame and lifted brightness for dark-theme captures. */
+.scene-thumb{outline:1px solid rgb(var(--og-rgb-text)/.28)!important;background:var(--og-surface)}
+.dark .scene-thumb img,:root:not(.light) .scene-thumb img{filter:brightness(1.7) contrast(1.05)}
+.scene-thumb{opacity:.75}
+@media(max-width:860px){
+  /* Title bar: just the row of thumbnails, no boxed strip. */
+  .wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll{border:0!important;padding:2px 0!important;background:transparent!important}
+  /* Full screen on phones: device, scenes and caption stacked in one column, no dead space. */
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)){display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:72px 16px 88px}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-stage{position:relative!important;left:auto!important;top:auto!important;transform:none!important;flex:none;width:min(calc(100dvw - 32px),calc((100dvh - 330px) * var(--ar)))!important}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-roll,
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-caption{position:static!important;translate:none!important;transform:none!important;flex:none;max-width:100%}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-roll .scene-roll{justify-content:center!important}
+  .screenshot-caption{gap:3px}
+}
+.dark .scene-thumb img,:root:not(.light) .scene-thumb img{filter:none!important}
+.scene-thumb{background:#fff!important;opacity:.7}
+.scene-thumb:hover,.scene-thumb.is-on{opacity:1}
+.screenshot-roll .scene-roll{height:52px!important;gap:10px!important}
+/* Phones: thumbnails centred, fixed size (no hover magnify, so nothing gets clipped). */
+@media(max-width:860px){
+  .wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll,.screenshot-roll .scene-roll{justify-content:center!important;overflow:visible!important}
+  .scene-roll .scene-thumb{width:30px!important;height:30px!important;flex:none}
+  .screenshot-roll .scene-roll .scene-thumb{width:36px!important;height:36px!important}
+}
+.wt-shot-fade{position:absolute;inset:0}
+/* Room for the hover magnify: the strip is tall enough and nothing above it clips. */
+@media(min-width:861px){
+  .scene-roll{height:52px!important;padding:5px 10px!important;overflow:visible!important}
+  .wt-bar,.pp-bar,.tour-cmd{overflow:visible!important}
+  .wt-bar{min-height:64px!important}
+}
+.wt-shot{cursor:zoom-in}
+/* The current scene's thumbnail sits enlarged, like the hover magnify, with room around it. */
+.scene-thumb{transition:opacity .2s,transform .35s cubic-bezier(.2,.8,.2,1),margin .35s cubic-bezier(.2,.8,.2,1)}
+.scene-thumb.is-on{transform:scale(1.3);margin:0 5px;z-index:1}
+@media(max-width:860px){.scene-thumb.is-on{transform:scale(1.25);margin:0 4px}.wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll{height:46px!important}}
