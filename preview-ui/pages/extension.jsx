@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { TextField } from '@radix-ui/themes';
-import { EnvelopeSimple, ChatCircle, Eye, Key, Robot, ArrowUpRight } from '@phosphor-icons/react';
+import { EnvelopeSimple, ChatCircle, Key, Robot, ArrowUpRight, PlugsConnected, LinkSimple, Waveform, Check, X } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SectionBg, SceneCard, BrowserScene } from '../shared.jsx';
 import { Faq } from './_product.jsx';
 
 // The browser extension is in early access: people ask to join, and the request is recorded in PostHog,
 // the same way the newsletter signs people up (identify + one capture with the details).
-const BROWSERS = ['Chrome', 'Firefox', 'Edge', 'Brave', 'Arc'];
+const BROWSERS = ['Chrome', 'Edge', 'Brave', 'Arc', 'Firefox'];
 function RequestAccess({ placement }) {
   const [email, setEmail] = useState(''); const [browser, setBrowser] = useState('Chrome'); const [status, setStatus] = useState(['', '']);
   const submit = (e) => {
@@ -35,15 +35,25 @@ function RequestAccess({ placement }) {
 }
 
 const DOES = [
-  [ChatCircle, 'Ask about any page', 'Summarise, rewrite or translate what you are reading.'],
-  [Eye, 'Ask about a screenshot', 'A vision model reads the visible tab.'],
-  [Key, 'Fill logins from your Vault', 'Saved logins and new passwords, from your unlocked desktop Vault.'],
-  [Robot, 'Run tasks in the tab', 'Agent mode works through the page while you watch.'],
+  [Robot, 'Tasks in your own tabs', 'It clicks, types and reads in your real browser, signed in. You watch the pointer and can stop it any time.'],
+  [PlugsConnected, "Your desktop's tools", 'Calendar, mail and your connectors, used from the browser. Actions still wait for your yes.'],
+  [ChatCircle, 'A chat for every tab', 'Ask about the page or a screenshot. Each tab keeps its own conversation.'],
+  [Key, 'Your Vault in the sign-in field', 'A key icon fills your saved logins and makes new passwords.'],
+  [LinkSimple, 'A private link to your desktop', 'Pair with six words. Chats sync both ways. It does not count toward your devices.'],
+  [Waveform, 'Every model your desktop runs', 'Text, vision, voice in and out, and images.'],
+];
+// Why a task in your own browser gets further than one in a browser on someone else's servers.
+const WHY = [
+  ['A browser on their servers', 'Your own browser'],
+  ['Signed out of everything', 'Already signed in, like you'],
+  ['Stopped by logins and bot checks', 'Your cookies and sessions, as they are'],
+  ['Your pages go to their cloud', 'Pages stay on your computer'],
 ];
 const FAQ = [
-  ['What do I need?', 'Off Grid AI Desktop running with a model, and Chrome. Firefox, Edge, Brave and Arc builds are in testing.'],
-  ['Does the page leave my computer?', 'No. The extension sends it to Off Grid AI Desktop on your machine, and your model answers there.'],
-  ['Is it free?', 'Chat about pages is free. Vault filling and tasks with your desktop tools need Off Grid AI Pro.'],
+  ['What do I need?', 'Off Grid AI Desktop running with a model, and Chrome, Edge, Brave or Arc. Firefox comes later.'],
+  ['Why my own browser?', 'Most sites expect a real, signed-in person. Tasks run where you already are, so they get past the logins that stop cloud agents.'],
+  ['Will it type my passwords or pay for things?', 'No. Codes, card numbers and CAPTCHAs are refused in code. Sign-ins come from your Vault or from you.'],
+  ['Is it free?', 'Chat and connectors are free. The Vault, your desktop tools and tasks need Off Grid AI Pro.'],
   ['When do I get access?', 'We are letting people in a few at a time. You will get an email when yours is ready.'],
 ];
 
@@ -53,18 +63,28 @@ export default function ExtensionPage() {
       <div className="section-shell ex-hero-grid">
         <div className="ex-copy">
           <Kicker>BROWSER EXTENSION · EARLY ACCESS</Kicker>
-          <Title as="h1" id="ex-h1" className="pp-h1" lead="Your AI, in every tab." dim="On your computer." />
-          <Lede className="pp-lede">Ask about any page. Your desktop model answers.</Lede>
+          <Title as="h1" id="ex-h1" className="pp-h1" lead="Your AI, in your browser." dim="Signed in, like you." />
+          <Lede className="pp-lede">Tasks run in your own tabs, with your logins. Your desktop model does the thinking.</Lede>
           <RequestAccess placement="hero" />
-          <p className="ex-fine">Needs <a href="/desktop/">Off Grid AI Desktop</a>. Chrome first, more browsers soon.</p>
+          <p className="ex-fine">Needs <a href="/desktop/">Off Grid AI Desktop</a>. Chrome, Edge, Brave and Arc first.</p>
         </div>
         <div className="ex-visual"><SceneCard className="ex-scene"><BrowserScene /></SceneCard></div>
       </div>
     </section>
 
+    <section className="chapter pp ex-why" aria-labelledby="ex-why-h">
+      <div className="section-shell">
+        <div className="sec-head"><Kicker>WHY YOUR BROWSER</Kicker><Title id="ex-why-h" lead="Cloud agents get stuck." dim="Yours is already signed in." /></div>
+        <div className="ex-vs" role="table" aria-label="Cloud agents compared with Off Grid AI in your browser">
+          <div className="ex-vs-col" role="rowgroup"><span className="ex-vs-h" role="columnheader">Cloud agents</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div>
+          <div className="ex-vs-col is-us" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div>
+        </div>
+      </div>
+    </section>
+
     <section className="chapter pp ex-does" aria-labelledby="ex-does-h">
       <div className="section-shell">
-        <div className="sec-head"><Kicker>WHAT IT DOES</Kicker><Title id="ex-does-h" lead="Four things." dim="All on your machine." /></div>
+        <div className="sec-head"><Kicker>WHAT IT DOES</Kicker><Title id="ex-does-h" lead="What it does." dim="All through your desktop." /></div>
         <ul className="ex-list">{DOES.map(([Icon, t, l]) => <li key={t}><span className="ex-ic"><Icon size={20} /></span><b>{t}</b><span>{l}</span></li>)}</ul>
       </div>
     </section>
