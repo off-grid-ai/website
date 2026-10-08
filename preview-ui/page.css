@@ -1742,3 +1742,28 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 /* Quieter current-scene marker: a thin, softer ring instead of a bright outline. */
 .scene-thumb.is-on{outline:1px solid rgb(var(--og-rgb-primary)/.55)!important;outline-offset:2px!important;box-shadow:0 0 0 3px rgb(var(--og-rgb-primary)/.08)}
 .scene-thumb{outline-color:rgb(var(--og-rgb-text)/.10)!important}
+/* Thumbnails stay legible on dark: a visible frame and lifted brightness for dark-theme captures. */
+.scene-thumb{outline:1px solid rgb(var(--og-rgb-text)/.28)!important;background:var(--og-surface)}
+.dark .scene-thumb img,:root:not(.light) .scene-thumb img{filter:brightness(1.7) contrast(1.05)}
+.scene-thumb{opacity:.75}
+@media(max-width:860px){
+  /* Title bar: just the row of thumbnails, no boxed strip. */
+  .wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll{border:0!important;padding:2px 0!important;background:transparent!important}
+  /* Full screen on phones: device, scenes and caption stacked in one column, no dead space. */
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)){display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:72px 16px 88px}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-stage{position:relative!important;left:auto!important;top:auto!important;transform:none!important;flex:none;width:min(calc(100dvw - 32px),calc((100dvh - 330px) * var(--ar)))!important}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-roll,
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-caption{position:static!important;translate:none!important;transform:none!important;flex:none;max-width:100%}
+  .screenshot-view.has-caption:not(:has(.screenshot-rotate input:checked)) .screenshot-roll .scene-roll{justify-content:center!important}
+  .screenshot-caption{gap:3px}
+}
+.dark .scene-thumb img,:root:not(.light) .scene-thumb img{filter:none!important}
+.scene-thumb{background:#fff!important;opacity:.7}
+.scene-thumb:hover,.scene-thumb.is-on{opacity:1}
+.screenshot-roll .scene-roll{height:52px!important;gap:10px!important}
+/* Phones: thumbnails centred, fixed size (no hover magnify, so nothing gets clipped). */
+@media(max-width:860px){
+  .wt-bar .scene-roll,.pp-bar .scene-roll,.tour-cmd .scene-roll,.screenshot-roll .scene-roll{justify-content:center!important;overflow:visible!important}
+  .scene-roll .scene-thumb{width:30px!important;height:30px!important;flex:none}
+  .screenshot-roll .scene-roll .scene-thumb{width:36px!important;height:36px!important}
+}
