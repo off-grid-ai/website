@@ -138,3 +138,9 @@
   .ideas-ch-head h2{font-size:clamp(23px,6.6vw,30px)}
 }
 .ideas-pull{max-width:720px}
+/* Phones: headings get room. Smaller sizes, normal letter spacing and a looser line height. */
+@media(max-width:520px){
+  .ideas .ideas-hero h1,.dp .dp-hero h1{font-size:28px!important;line-height:1.18!important;letter-spacing:-.02em!important}
+  .ideas-ch-head h2,.dp .dp-head h2{font-size:22px!important;line-height:1.22!important;letter-spacing:-.015em!important}
+  .ideas .ideas-head>p{font-size:14px;line-height:1.65}
+}
