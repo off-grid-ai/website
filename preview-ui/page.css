@@ -1841,3 +1841,13 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 @media(max-width:860px){
   .walk-hero .cmd-note,.walk-hero .cmd-chips,.walk-hero .hero-plat{display:none!important}
 }
+/* One rhythm for every page, matching home: content sections 56 to 96px top and bottom, closing sections 80 to 128px.
+   Phones: 40px and 56px. Heroes keep their own spacing. */
+html body :is(section.chapter, .pp-sec:not(.pp-hero), .dn-sec, .ideas-ch, .ideas-close, .qs-next){padding-block:clamp(56px,6.5vw,96px)!important}
+html body :is(.final, .pp-final){padding-block:clamp(80px,9vw,128px)!important}
+html body .pp-sec.pp-what{padding-top:clamp(28px,4vw,56px)!important}
+@media(max-width:860px){
+  html body :is(section.chapter, .pp-sec:not(.pp-hero), .dn-sec, .ideas-ch, .ideas-close, .qs-next){padding-block:40px!important}
+  html body :is(.final, .pp-final){padding-block:56px!important}
+  html body .pp-sec.pp-what{padding-top:24px!important}
+}
