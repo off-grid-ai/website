@@ -153,7 +153,7 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
     <ShimmerButton type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy"
       shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">{primary[1]}</ShimmerButton>
     <InteractiveHoverButton type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</InteractiveHoverButton>
-    <p className={`ea-status pp-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
+    <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : count === null ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
     <ul className="pp-trust">

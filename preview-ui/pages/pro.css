@@ -41,10 +41,10 @@
 .pp-buy{width:100%!important;height:46px!important}
 .pp-buy:disabled{opacity:.45;cursor:not-allowed}
 .pp-buy.ihb{font-weight:400!important;font-size:14px}
-.pp-status{min-height:1.2em;font-size:12.5px;line-height:1.6;margin:0}
-.pp-status.ea-status-error{color:var(--og-error)}
-.pp-status.ea-status-success{color:var(--og-primary)}
-.pp-status a{text-decoration:underline;text-underline-offset:3px}
+.pp-pay-status{min-height:1.2em;font-size:12.5px;line-height:1.6;margin:0}
+.pp-pay-status.ea-status-error{color:var(--og-error)}
+.pp-pay-status.ea-status-success{color:var(--og-primary)}
+.pp-pay-status a{text-decoration:underline;text-underline-offset:3px}
 .pp-fine{font-size:11.5px;line-height:1.6;color:var(--og-text-muted)}
 .pp-buy-side{display:flex;flex-direction:column;gap:36px}
 .pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
@@ -206,9 +206,9 @@
   .pp-final-links{flex-direction:column;align-items:center;gap:12px}
 }
 /* The shared plan-hero styles every link in the card as a button; these are plain text links */
-.plan-hero .pp-fine a,.plan-hero .pp-status a{background:none!important;border:0!important;padding:0!important;display:inline!important}
+.plan-hero .pp-fine a,.plan-hero .pp-pay-status a{background:none!important;border:0!important;padding:0!important;display:inline!important}
 .plan-hero .pp-fine a{color:var(--og-text-muted)!important}
-.plan-hero .pp-status a{color:var(--og-primary)!important}
+.plan-hero .pp-pay-status a{color:var(--og-primary)!important}
 .pp-cap-track{position:absolute;left:-16px;right:-16px;bottom:-10px;height:2px;background:rgb(var(--og-rgb-text)/.12)}
 @media (max-width:860px){.pp-cap-track{left:-12px;right:-12px}}
 /* What Pro is sits in the first fold, straight under the hero. */
@@ -220,3 +220,8 @@
   .pp-hero .pp-cta{width:auto;display:flex!important;flex-direction:column;align-items:center}
   .pp-hero .pp-shimmer{width:auto!important;padding:0 26px!important}
 }
+/* Price ladder: the current tier's dot pulses. */
+.pp-tier.cur .pp-dot{position:relative}
+.pp-tier.cur .pp-dot::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--og-primary);animation:tier-pulse 1.8s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes tier-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pp-tier.cur .pp-dot::after{animation:none;opacity:0}}
