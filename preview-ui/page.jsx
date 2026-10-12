@@ -1236,7 +1236,6 @@ export function MobileRail({ className, start = 0, labels, children }) {
   </div>;
 }
 function PrivacySection() {
-  const narrow = useNarrow();
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');
   // Samples rotate only while the section is on screen and until the visitor submits their own prompt.
   const box = useRef(null); const [seen, setSeen] = useState(false); const [held, setHeld] = useState(false);
@@ -1245,13 +1244,15 @@ function PrivacySection() {
   useEffect(() => { if (auto) { setPrompt(SAMPLE_PROMPTS[auto % SAMPLE_PROMPTS.length]); setN(v => v + 1); } }, [auto]);
   useEffect(() => { const root = box.current?.querySelector('.priv-input'); root?.querySelector('input')?.setAttribute('aria-label', 'Type a private question for the illustration'); root?.querySelector('button')?.setAttribute('aria-label', 'Show where it goes'); }, []);
   const send = (e) => { e.preventDefault(); if (!draft.trim()) return; setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); setHeld(true); };
+  // Typing edits the draft only; the diagrams change after submit or a sample advances.
+  const lanes = useMemo(() => <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
+      <PrivLane prompt={prompt} n={n} active={seen} />
+      <PrivLane local prompt={prompt} n={n} active={seen} />
+    </MobileRail>, [prompt, n, seen]);
   return <section id="private" className="chapter" aria-labelledby="priv-heading" ref={box}><div className="section-shell">
     <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></BlurFade>
     <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
-    <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
-      <PrivLane prompt={prompt} n={n} active={seen} />
-      <PrivLane local prompt={prompt} n={n} active={seen} />
-    </MobileRail>
+    {lanes}
   </div></section>;
 }
 
