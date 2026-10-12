@@ -9,7 +9,6 @@ import { MagicCard } from '@magicui/magic-card';
 import { BlurFade } from '@magicui/blur-fade';
 import { NumberTicker } from '@magicui/number-ticker';
 import { Ripple } from '@magicui/ripple';
-import { ShimmerButton } from '@magicui/shimmer-button';
 import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useNarrow } from '../shared.jsx';
 
 const IMG = '/assets/img/ogap/website-v2/';
@@ -37,8 +36,8 @@ function Hero({ ogap }) {
         <Title as="h1" id="ogap-h" className="og-h1" lead="Your phone can" dim="think all day." />
         <Lede className="og-lede">Cooling and a battery that lock around the phone you already own. It stays cool and keeps going.</Lede>
         <div className="og-ctas">
-          <Button asChild size="lg"><a href="#reserve" data-analytics-event="ogap_preorder_cta_clicked" data-analytics-placement="ogap_hero">Pre-order ${ogap.price}, shipped worldwide</a></Button>
-          <Button asChild size="lg" variant="outline"><a href="#what-it-is">See what is in it <ArrowDown size={15} /></a></Button>
+          <Button data-site-button="primary" asChild size="lg"><a href="#reserve" data-analytics-event="ogap_preorder_cta_clicked" data-analytics-placement="ogap_hero">Pre-order ${ogap.price}, shipped worldwide</a></Button>
+          <Button data-site-button="secondary" asChild size="lg" variant="outline"><a href="#what-it-is">See what is in it <ArrowDown size={15} /></a></Button>
         </div>
       </div>
       <figure className="og-hero-fig">
@@ -142,7 +141,7 @@ function Preorder({ ogap }) {
             <TextField.Root ref={emailRef} size="3" type="email" id="ogapEmail" placeholder="your@email.com" autoComplete="email" required value={email} onChange={edit(setEmail)} aria-invalid={bad === 'email' ? 'true' : 'false'} aria-describedby="ogapStatus" className={bad === 'email' ? 'og-input-error' : ''} />
             <label className="og-label" htmlFor="ogapPhone">The phone you carry</label>
             <TextField.Root ref={phoneRef} size="3" type="text" id="ogapPhone" placeholder="iPhone 15 Pro, Pixel 8, Galaxy S24 Ultra..." autoComplete="off" required value={phone} onChange={edit(setPhone)} aria-invalid={bad === 'phone' ? 'true' : 'false'} aria-describedby="ogapStatus" className={bad === 'phone' ? 'og-input-error' : ''} />
-            <ShimmerButton type="submit" disabled={busy} className="og-submit" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">Pre-order OGAP · ${ogap.price}</ShimmerButton>
+            <Button data-site-button="primary" variant="solid" type="submit" disabled={busy} className="og-submit">Pre-order OGAP · ${ogap.price}</Button>
             <p className={`og-status og-status-${status.kind}`} id="ogapStatus" aria-live="polite">{status.text}</p>
           </form>
         </div>

@@ -127,7 +127,7 @@ function EthosHub({ pages, sections }) {
             <Select.Item value="title">Title A–Z</Select.Item>
           </Select.Content>
         </Select.Root>
-        <Button variant="ghost" className="ethos-clear" onClick={onClear}>Clear filters</Button>
+        <Button data-site-button="secondary" variant="ghost" className="ethos-clear" onClick={onClear}>Clear filters</Button>
       </div>
     </motion.div>
 
@@ -149,7 +149,7 @@ function EthosHub({ pages, sections }) {
       </AnimatePresence>
     </motion.div>
     {!matches.length && <p id="article-empty" className="ethos-empty">No pages match. Try another term or clear the filters.</p>}
-    {matches.length > visible && <Button variant="outline" className="ethos-more" onClick={onMore}>Show more pages</Button>}
+    {matches.length > visible && <Button data-site-button="secondary" variant="outline" className="ethos-more" onClick={onMore}>Show more pages</Button>}
   </div>;
 }
 

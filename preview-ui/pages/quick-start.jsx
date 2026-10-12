@@ -58,7 +58,7 @@ export default function QuickStartPage() {
         <Kicker>QUICK START</Kicker>
         <Title as="h1" id="quick-start" className="pp-h1" lead="From download" dim="to first answer." />
         <Lede className="pp-lede">{'Free on the hardware you own. No account, no API key.'}</Lede>
-        <Button asChild size="lg" className="pp-main"><a href="/download/" data-cta>Get the app <ArrowRight size={16} /></a></Button>
+        <Button data-site-button="primary" asChild size="lg" className="pp-main"><a href="/download/" data-cta>Get the app <ArrowRight size={16} /></a></Button>
       </div>
     </section>
 

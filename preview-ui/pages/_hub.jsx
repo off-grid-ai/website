@@ -131,7 +131,7 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
           <TextField.Root id="hub-search-input" ref={inputRef} className="hub-input" size="3" type="search" autoComplete="off" placeholder={placeholder} value={query}
             onChange={(e) => onQuery(e.target.value)} onBlur={reportSearch} onKeyDown={(e) => { if (e.key === 'Enter') reportSearch(); }}>
             <TextField.Slot><MagnifyingGlass size={18} /></TextField.Slot>
-            {query && <TextField.Slot><Button variant="ghost" size="icon-sm" className="hub-input-clear" aria-label="Clear search" onClick={() => { onQuery(''); inputRef.current && inputRef.current.focus(); }}><X size={16} /></Button></TextField.Slot>}
+            {query && <TextField.Slot><Button data-site-button="secondary" variant="ghost" size="icon-sm" className="hub-input-clear" aria-label="Clear search" onClick={() => { onQuery(''); inputRef.current && inputRef.current.focus(); }}><X size={16} /></Button></TextField.Slot>}
           </TextField.Root>
           <div className="hub-controls">
             <Select.Root value={device} onValueChange={(v) => { setDevice(v); setVisible(pageSize); pending.current = ['resource_device_selected']; }}>
@@ -174,7 +174,7 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
               <div className="hub-group-head">
                 <span className="hub-group-ic"><Icon size={18} weight="duotone" /></span>
                 <div className="hub-group-tx"><h3 id={`hub-g-${slug(g.name)}`}>{g.name}</h3>{g.description && <p>{g.description}</p>}</div>
-                {g.items.length > list.length && <Button variant="ghost" size="sm" className="hub-seeall" onClick={(e) => { e.stopPropagation(); pickTopic(g.name, true); }}>See all {g.items.length}<ArrowRight size={14} /></Button>}
+                {g.items.length > list.length && <Button data-site-button="secondary" variant="ghost" size="sm" className="hub-seeall" onClick={(e) => { e.stopPropagation(); pickTopic(g.name, true); }}>See all {g.items.length}<ArrowRight size={14} /></Button>}
               </div>
               <MobileRail className="hub-grid">{list.map(item => <HubCard key={item.url} item={item} position={++pos} />)}</MobileRail>
             </section>;
@@ -185,13 +185,13 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
               <h2 id="hub-results-h">{title}</h2>
               <p role="status" aria-live="polite">{matches.length ? `Showing ${shown} of ${matches.length} ${noun}` : `0 ${noun}`}{topicInfo && !q ? ` · ${topicInfo.description}` : ''}</p>
             </div>
-            <Button variant="outline" size="sm" className="hub-clear" onClick={clear}><X size={14} />Clear filters</Button>
+            <Button data-site-button="secondary" variant="outline" size="sm" className="hub-clear" onClick={clear}><X size={14} />Clear filters</Button>
           </div>
           <div className="hub-grid hub-results" onClick={onResultClick}>
             {matches.slice(0, visible).map((item, i) => <HubCard key={item.url} item={item} position={i + 1} />)}
           </div>
           {!matches.length && <p className="hub-empty">No {noun} match. Try another term or clear the filters.</p>}
-          {matches.length > visible && <div className="hub-more"><Button variant="outline" className="hub-more-btn" onClick={() => { reportSearch(); setVisible(v => v + pageSize); pending.current = ['resource_more_clicked']; }}>Show more {noun}<ArrowRight size={16} /></Button></div>}
+          {matches.length > visible && <div className="hub-more"><Button data-site-button="secondary" variant="outline" className="hub-more-btn" onClick={() => { reportSearch(); setVisible(v => v + pageSize); pending.current = ['resource_more_clicked']; }}>Show more {noun}<ArrowRight size={16} /></Button></div>}
         </>}
         {outro}
       </div>

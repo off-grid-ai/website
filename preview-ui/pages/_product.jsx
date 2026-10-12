@@ -61,7 +61,7 @@ export function useStream(text, { start = 600, every = 70 } = {}) {
 // Autoplay control: a visible pause/resume plus a one-line hint.
 export function AutoCtl({ manual, onToggle, hint, className = '' }) {
   return <div className={`pp-auto ${className}`}>
-    <Button variant="outline" size="sm" className="pp-auto-btn" aria-pressed={!manual} onClick={onToggle}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
+    <Button data-site-button="secondary" variant="outline" size="sm" className="pp-auto-btn" aria-pressed={!manual} onClick={onToggle}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
     <span>{hint}</span>
   </div>;
 }
@@ -239,7 +239,7 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
         <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>PRO</Kicker><div className="price"><span className="amt">${pricing.lifetime}</span><small>once, yours forever</small></div>
           <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. The lifetime price rises as we grow.</p>
-          <div className="pp-plan-ctas"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a><a className="pp-btn" href="/pro/">See everything Pro does</a></div>
+          <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>
       </MobileRail>
     </div>

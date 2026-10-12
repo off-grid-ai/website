@@ -8,8 +8,8 @@ import { FEATURES, fill } from './_features.mjs';
 // A feature group page: a short hero, the group's features in the shared explorer (each plays its screens),
 // guides, questions, and the other groups. Copy lives in _features.mjs.
 function Ctas({ free }) {
-  const pro = <Button asChild variant={free ? 'outline' : undefined} key="pro"><a href="/pro/#buy">Get Pro</a></Button>;
-  const dl = <Button asChild variant={free ? undefined : 'outline'} key="dl"><a href="/download/">Download free</a></Button>;
+  const pro = <Button data-site-button="primary" asChild variant={free ? 'outline' : undefined} key="pro"><a href="/pro/#buy">Get Pro</a></Button>;
+  const dl = <Button data-site-button="primary" asChild variant={free ? undefined : 'outline'} key="dl"><a href="/download/">Download free</a></Button>;
   return <div className="ft-ctas">{free ? [dl, pro] : [pro, dl]}</div>;
 }
 

@@ -35,7 +35,7 @@ function RecorderScene() {
       <div className="rc-scene-head">
         <span className="rc-rec"><Microphone size={14} weight="fill" /> Recording · on this phone</span>
         <span className="rc-head-r"><Badge variant="outline"><WifiSlash size={12} /> Airplane mode</Badge>
-          {!reduce && <Button variant="outline" size="sm" className="rc-play" aria-pressed={paused} aria-label={paused ? 'Play the demo' : 'Pause the demo'} onClick={() => setPaused(v => !v)}>{paused ? <Play size={14} /> : <Pause size={14} />}</Button>}</span>
+          {!reduce && <Button data-site-button="secondary" variant="outline" size="sm" className="rc-play" aria-pressed={paused} aria-label={paused ? 'Play the demo' : 'Pause the demo'} onClick={() => setPaused(v => !v)}>{paused ? <Play size={14} /> : <Pause size={14} />}</Button>}</span>
       </div>
       <div className="rc-heard" key={`h${loop}`}>
         <AnimatedList delay={900} className="rc-list">
@@ -92,7 +92,7 @@ export default function RecorderPage() {
           <div className="rc-badges"><Badge color="green" variant="soft">Private alpha</Badge><Badge variant="outline">Cohort full</Badge></div>
           <Title as="h1" id="rec-h" className="rc-h1" lead="Never forget" dim="anything again." />
           <Lede className="rc-lede">Leave it running. Your phone writes your day down, on the device.</Lede>
-          <div className="rc-ctas"><Button asChild size="lg" variant="outline"><a href="#what-it-does">See what it does <ArrowDown size={15} /></a></Button></div>
+          <div className="rc-ctas"><Button data-site-button="secondary" asChild size="lg" variant="outline"><a href="#what-it-does">See what it does <ArrowDown size={15} /></a></Button></div>
         </div>
         <RecorderScene />
       </div>

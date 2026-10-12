@@ -57,7 +57,7 @@ function Hero({ devices }) {
       </SceneCard>
       {redeem && <p className="ea-status ty-redeem" id="redeemSlot"><LinkSimple size={15} aria-hidden="true" /><a href={redeem} rel="noopener">Attach this purchase to your Off Grid AI account</a></p>}
       <div className="ty-cta">
-        <Button asChild size="lg" className="ty-main btn"><a href="#apps">Get the apps <ArrowDown size={16} /></a></Button>
+        <Button data-site-button="primary" asChild size="lg" className="ty-main btn"><a href="#apps">Get the apps <ArrowDown size={16} /></a></Button>
         <a className="ty-quiet" href="#what-to-do-next">What happens next</a>
       </div>
     </div>

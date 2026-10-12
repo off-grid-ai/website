@@ -93,5 +93,5 @@ export function Proof() {
 }
 
 export function Cta({ href, children, primary, ...rest }) {
-  return <Button asChild size="lg" variant={primary ? undefined : 'outline'} className={primary ? 'ideas-cta-primary' : 'ideas-cta'}><a href={href} {...rest}>{children}<ArrowUpRight size={16} /></a></Button>;
+  return <Button data-site-button="primary" asChild size="lg" variant={primary ? undefined : 'outline'} className={primary ? 'ideas-cta-primary' : 'ideas-cta'}><a href={href} {...rest}>{children}<ArrowUpRight size={16} /></a></Button>;
 }

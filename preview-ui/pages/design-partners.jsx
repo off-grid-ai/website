@@ -34,8 +34,8 @@ export default function DesignPartnersPage() {
           <Title as="h1" id="build-a-solution-for-your-daily-work-pay-0" lead="Build a solution for your daily work." dim="Pay $0." />
           <Lede>For teams under 50. Bring a real problem from your work. I set it up with you, at no cost.</Lede>
           <div className="ideas-ctas dp-hero-ctas">
-            <Button asChild size="lg" className="ideas-cta-primary"><a href="#start-with-a-conversation">Start with a conversation <ArrowDown size={16} /></a></Button>
-            <Button asChild size="lg" variant="outline" className="ideas-cta"><a href="#what-you-get">What you get</a></Button>
+            <Button data-site-button="primary" asChild size="lg" className="ideas-cta-primary"><a href="#start-with-a-conversation">Start with a conversation <ArrowDown size={16} /></a></Button>
+            <Button data-site-button="secondary" asChild size="lg" variant="outline" className="ideas-cta"><a href="#what-you-get">What you get</a></Button>
           </div>
         </div>
         <SceneCard className="dp-price" busy>
@@ -94,7 +94,7 @@ export default function DesignPartnersPage() {
       <div className="sec-head ideas-head ideas-stack dp-head"><Kicker>START WITH A CONVERSATION</Kicker><Title id="dp-start-h" lead="Tell me about your business." dim="We start with your use case." /></div>
       <Card className="dp-mail">
         <div className="dp-mail-to"><span className="eyebrow">Email</span>
-          <Button asChild size="lg" className="ideas-cta-primary dp-mail-btn"><a href={MAILTO} data-analytics-event="design_partner_email_clicked" data-analytics-placement="partner_page"><EnvelopeSimple size={18} /><span>design.partners@getoffgridai.co</span></a></Button>
+          <Button data-site-button="primary" asChild size="lg" className="ideas-cta-primary dp-mail-btn"><a href={MAILTO} data-analytics-event="design_partner_email_clicked" data-analytics-placement="partner_page"><EnvelopeSimple size={18} /><span>design.partners@getoffgridai.co</span></a></Button>
         </div>
         <span className="eyebrow dp-include-h">Include</span>
         <ol className="dp-include">

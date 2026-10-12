@@ -4,8 +4,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { BlurFade } from '@magicui/blur-fade';
-import { ShimmerButton } from '@magicui/shimmer-button';
-import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
@@ -28,8 +26,8 @@ function Hero({ pricing }) {
       <span className="pp-live"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></span>
       <Title as="h1" id="pp-h" className="pp-h1" lead="It remembers your work." dim="You approve." />
       <div className="pp-cta">
-        <ShimmerButton className="pro-shimmer pp-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
-          onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</ShimmerButton>
+        <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
+          onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
@@ -150,9 +148,8 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
       aria-invalid={err ? 'true' : 'false'} aria-describedby="payStatus" className={`pp-input ${err ? 'ea-input-error' : ''}`} value={email} onChange={onInput}>
       <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
     </TextField.Root>
-    <ShimmerButton type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy"
-      shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)">{primary[1]}</ShimmerButton>
-    <InteractiveHoverButton type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</InteractiveHoverButton>
+    <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
+    <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : count === null ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
@@ -219,8 +216,8 @@ function Faq({ pricing }) {
 
 // The primary CTA, repeated after each major section.
 function Again({ pricing, section }) {
-  return <div className="pp-again"><ShimmerButton className="pro-shimmer pp-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
-    onClick={(e) => toBuy(e.currentTarget.textContent.trim(), section)}>Own Pro for ${pricing.lifetime}</ShimmerButton></div>;
+  return <div className="pp-again"><Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
+    onClick={(e) => toBuy(e.currentTarget.textContent.trim(), section)}>Own Pro for ${pricing.lifetime}</Button></div>;
 }
 
 // Phones: a bottom bar once the hero is gone, hidden while the buy block is on screen.
@@ -241,8 +238,8 @@ function StickyBuy({ pricing }) {
   }, []);
   return <AnimatePresence>{show && <motion.div className="pp-bar" initial={{ y: '110%' }} animate={{ y: 0 }} exit={{ y: '110%' }} transition={{ type: 'spring', stiffness: 380, damping: 36 }}>
     <span className="pp-bar-tx"><b>Pro · ${pricing.lifetime} once</b><small>or ${pricing.monthly}/month</small></span>
-    <ShimmerButton className="pro-shimmer pp-shimmer pp-bar-btn" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
-      onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Sticky bar')}>Own Pro · ${pricing.lifetime}</ShimmerButton>
+    <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-bar-btn"
+      onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Sticky bar')}>Own Pro · ${pricing.lifetime}</Button>
   </motion.div>}</AnimatePresence>;
 }
 
@@ -332,8 +329,8 @@ function Final({ pricing }) {
     <div className="section-shell final-in">
       <Kicker>OFF GRID AI PRO</Kicker>
       <Heading as="h2" id="pp-final-h" className="pp-final-h">Yours. Forever.</Heading>
-      <ShimmerButton className="pro-shimmer pp-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)"
-        onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Own Pro for ${pricing.lifetime}</ShimmerButton>
+      <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
+        onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Own Pro for ${pricing.lifetime}</Button>
       <p className="pp-final-links">
         <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_card">Small team? Get Pro free <ArrowRight size={13} /></a>
         <a href="/vision/" data-cta="">Read the vision <ArrowUpRight size={13} /></a>

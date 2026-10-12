@@ -16,7 +16,7 @@ function Slot({ id, html }) {
 // Pagefind search, opened by the button or Cmd/Ctrl+K (the old layout's shortcut).
 function SearchButton() {
   return <div className="doc-tools" data-pagefind-ignore>
-    <Button variant="outline" size="sm" className="doc-search" onClick={() => window.ogOpenSearch && window.ogOpenSearch()} aria-label="Search the site">
+    <Button data-site-button="secondary" variant="outline" size="sm" className="doc-search" onClick={() => window.ogOpenSearch && window.ogOpenSearch()} aria-label="Search the site">
       <MagnifyingGlass size={16} /><span className="doc-search-label">Search</span><kbd>⌘K</kbd>
     </Button>
   </div>;

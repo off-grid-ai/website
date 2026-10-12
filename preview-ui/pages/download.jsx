@@ -88,7 +88,7 @@ function Hero({ dev }) {
         <Title as="h1" id="dn-h" className="pp-h1 dn-h1" lead="Your personal AI." dim="On your devices." />
         <Lede className="pp-lede">{'Free to start. No account. Runs offline.'}</Lede>
         <div className="pp-cta">
-          <Button asChild size="lg" className="pp-main"><a href={P.main.href} aria-label={P.main.aria} title={P.main.aria} {...ext(P.main.external)}><Icon id={dev} size={18} />{P.cta}</a></Button>
+          <Button data-site-button="primary" asChild size="lg" className="pp-main"><a href={P.main.href} aria-label={P.main.aria} title={P.main.aria} {...ext(P.main.external)}><Icon id={dev} size={18} />{P.cta}</a></Button>
           <span className="pp-main-note">{desktop ? `Free · ${OGAD_V} · ${P.req}` : `Free · ${P.req}`}</span>
           <a className="dn-other" href="#all-platforms">Other platforms <ArrowDown size={13} /></a>
         </div>
@@ -161,8 +161,8 @@ function Tracks() {
           <b className="dn-track-t">Preview and beta</b>
           <p>New features first. Expect rough edges.</p>
           <div className="dn-beta-row" ref={betaRef} aria-label={`Desktop beta ${beta.tag}`}>
-            {BETAS.map(([k, id, l, a]) => <a key={k} className="pp-alt" href={beta.links[k]} data-beta-download={k} aria-label={a} title={a}><PlatformIcon id={id} size={14} />{l}</a>)}
-            <a className="pp-alt" href={APK} aria-label={`Download Android ${APK_V} preview APK`} title="Android preview APK"><PlatformIcon id="android" size={14} />APK</a>
+            {BETAS.map(([k, id, l, a]) => <Button asChild data-site-button="secondary" variant="outline" key={k}><a className="pp-alt" href={beta.links[k]} data-beta-download={k} aria-label={a} title={a}><PlatformIcon id={id} size={14} />{l}</a></Button>)}
+            <Button asChild data-site-button="secondary" variant="outline"><a className="pp-alt" href={APK} aria-label={`Download Android ${APK_V} preview APK`} title="Android preview APK"><PlatformIcon id="android" size={14} />APK</a></Button>
           </div>
           <div id="new-in-desktop-preview" className="dn-new">
             <span className="eyebrow">New in desktop {beta.tag}</span>

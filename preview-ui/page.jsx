@@ -61,7 +61,6 @@ import { HyperText } from '@magicui/hyper-text';
 import { ShineBorder } from '@magicui/shine-border';
 import { DotPattern } from '@magicui/dot-pattern';
 import { OrbitingCircles } from '@magicui/orbiting-circles';
-import { ShimmerButton } from '@magicui/shimmer-button';
 import { DottedMap } from '@magicui/dotted-map';
 
 // Composition only. Every visual element is an upstream component imported
@@ -147,11 +146,11 @@ export function ShotView({ open, onOpenChange, alt, ratio, children, onPrev, onN
         {caption && <div className="screenshot-caption" aria-live="polite">{caption}</div>}
         {progress}
         {nav && <div className="screenshot-navs">
-          <Button variant="outline" size="sm" className="screenshot-nav screenshot-prev" aria-label="Previous screen" onClick={onPrev}><ArrowLeft size={20} /></Button>
-          <Button variant="outline" size="sm" className="screenshot-nav screenshot-next" aria-label="Next screen" onClick={onNext}><ArrowRight size={20} /></Button>
+          <Button data-site-button="secondary" variant="outline" size="sm" className="screenshot-nav screenshot-prev" aria-label="Previous screen" onClick={onPrev}><ArrowLeft size={20} /></Button>
+          <Button data-site-button="secondary" variant="outline" size="sm" className="screenshot-nav screenshot-next" aria-label="Next screen" onClick={onNext}><ArrowRight size={20} /></Button>
         </div>}
         {ratio > 1.2 && <label className="screenshot-rotate"><input type="checkbox" aria-label="Rotate screenshot to landscape" /><DeviceMobile size={20} /><span className="sr-only">Rotate screenshot</span></label>}
-        <Dialog.Close asChild><Button variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
+        <Dialog.Close asChild><Button data-site-button="secondary" variant="outline" size="sm" className="screenshot-close" aria-label="Close screenshot"><X size={20} /></Button></Dialog.Close>
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>;
@@ -1107,17 +1106,17 @@ function Walkthrough({ reduce, theme }) {
           </div>
         </div>
         <div className="chap-nav">
-          <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(false); go(ch - 1); }}><ArrowLeft size={16} /></Button>
+          <Button data-site-button="secondary" variant="outline" size="sm" className="rail-btn" aria-label="Previous chapter" onClick={() => { setManual(false); go(ch - 1); }}><ArrowLeft size={16} /></Button>
           <div className="chap-tabs" role="group" aria-label="Tour chapters" ref={tabsRef}>
             <AnimatedBackground className="rail-tab-hl" defaultValue={WALK[ch].id} onValueChange={(v) => { const k = WALK.findIndex(w => w.id === v); if (k >= 0 && k !== ch) { setManual(false); go(k); } }}>
               {WALK.map((w, k) => { const Icon = WALK_ICONS[w.id]; return <button type="button" key={w.id} data-id={w.id} aria-pressed={k === ch} className="rail-tab chap-tab"><Icon size={14} /> {WALK_LABELS[w.id]}</button>; })}
             </AnimatedBackground>
           </div>
-          <Button variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(false); go(ch + 1); }}><ArrowRight size={16} /></Button>
+          <Button data-site-button="secondary" variant="outline" size="sm" className="rail-btn" aria-label="Next chapter" onClick={() => { setManual(false); go(ch + 1); }}><ArrowRight size={16} /></Button>
         </div>
         <div className="mob-copy" aria-hidden="true"><span className="walk-count">{String(ch + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}<i className="ch-rail" aria-hidden="true" style={reduce ? { display: 'none' } : undefined}><motion.b style={{ scaleX: chapterProgress }} /></i></span><AnimatePresence mode="wait" initial={false}><motion.b key={C.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>{C.title}</motion.b></AnimatePresence></div>
         <div className="wheel-hint" style={{ width: `${(wheelR * 2 + 80) * wz}px` }}>
-          <Button variant="outline" size="sm" className="autoplay-btn" aria-pressed={!manual} onClick={() => setManual(m => !m)}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
+          <Button data-site-button="secondary" variant="outline" size="sm" className="autoplay-btn" aria-pressed={!manual} onClick={() => setManual(m => !m)}>{manual ? <><Play size={12} weight="fill" /> Resume autoplay</> : <><Pause size={12} weight="fill" /> Pause autoplay</>}</Button>
           <span className="hint-desk">Drag to spin, click a chapter, or use ← →.</span><span className="hint-mob">Swipe the dial or tap a chapter.</span>
         </div>
       </motion.div>
@@ -1204,9 +1203,9 @@ export function MobileRail({ className, start = 0, labels, children }) {
       {items.map((c, k) => <CarouselItem key={k} className="rail-item"><div inert={k !== i} aria-hidden={k !== i}>{c}</div></CarouselItem>)}
     </CarouselContent>
       <div className="rail-ctl">
-        <Button variant="outline" size="sm" className="rail-btn" aria-label="Previous" disabled={i === 0} onClick={() => setI(Math.max(0, i - 1))}><ArrowLeft size={16} /></Button>
+        <Button data-site-button="secondary" variant="outline" size="sm" className="rail-btn" aria-label="Previous" disabled={i === 0} onClick={() => setI(Math.max(0, i - 1))}><ArrowLeft size={16} /></Button>
         <div className="dots-wrap" aria-hidden="true"><CarouselIndicator className="planes-dots" /></div>
-        <Button variant="outline" size="sm" className="rail-btn" aria-label="Next" disabled={i === items.length - 1} onClick={() => setI(Math.min(items.length - 1, i + 1))}><ArrowRight size={16} /></Button>
+        <Button data-site-button="secondary" variant="outline" size="sm" className="rail-btn" aria-label="Next" disabled={i === items.length - 1} onClick={() => setI(Math.min(items.length - 1, i + 1))}><ArrowRight size={16} /></Button>
       </div>
     </Carousel>
   </div>;
@@ -1281,8 +1280,8 @@ export function DocEnd() {
       <div className="doc-react">
         <Kicker>DID THIS LAND?</Kicker>
         <div className="doc-react-row">
-          <Button variant={reaction === 'agree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'agree'} aria-label="Agree with this" onClick={() => react('agree')}><ThumbsUp size={18} weight={reaction === 'agree' ? 'fill' : 'regular'} /></Button>
-          <Button variant={reaction === 'disagree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'disagree'} aria-label="Disagree with this" onClick={() => react('disagree')}><ThumbsDown size={18} weight={reaction === 'disagree' ? 'fill' : 'regular'} /></Button>
+          <Button data-site-button={reaction === 'agree' ? 'primary' : 'secondary'} variant={reaction === 'agree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'agree'} aria-label="Agree with this" onClick={() => react('agree')}><ThumbsUp size={18} weight={reaction === 'agree' ? 'fill' : 'regular'} /></Button>
+          <Button data-site-button={reaction === 'disagree' ? 'primary' : 'secondary'} variant={reaction === 'disagree' ? 'soft' : 'outline'} size="icon" aria-pressed={reaction === 'disagree'} aria-label="Disagree with this" onClick={() => react('disagree')}><ThumbsDown size={18} weight={reaction === 'disagree' ? 'fill' : 'regular'} /></Button>
           <span className="doc-react-thanks" aria-live="polite">{reaction ? (reaction === 'agree' ? 'Glad it landed.' : 'Thanks for the feedback.') : ''}</span>
         </div>
       </div>
@@ -1292,7 +1291,7 @@ export function DocEnd() {
           <TextField.Root className="doc-news-input" type="email" name="email" required aria-invalid={status[1] === 'error'} size="3" placeholder="your@email.com" autoComplete="email" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} disabled={status[1] === 'success'}>
             <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
           </TextField.Root>
-          <Button type="submit" className="doc-news-btn" disabled={status[1] === 'success'}>Subscribe</Button>
+          <Button data-site-button="primary" type="submit" className="doc-news-btn" disabled={status[1] === 'success'}>Subscribe</Button>
         </div>
         <p className={`doc-news-status ${status[1]}`} aria-live="polite">{status[0]}</p>
       </form>
@@ -1338,14 +1337,14 @@ export function PageShell({ children, feedback = true }) {
         <a className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
         <a className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
-        <Button asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
-        <Button asChild className="header-download"><a href="/download/">Download</a></Button>
-        <Dialog.Root><Dialog.Trigger asChild><Button variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
+        <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
+        <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
+        <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" /><Dialog.Content className="mobile-nav">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
-            <Dialog.Close asChild><Button variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
+            <Dialog.Close asChild><Button data-site-button="secondary" variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <MobileMenu />
-            <div className="mnav-ctas"><Button asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button asChild><a href="/download/">Download</a></Button></div>
+            <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" aria-label="Community links">
               <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
@@ -1393,14 +1392,14 @@ function HomeSections({ pricing }) {
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Button asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
+            <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
           <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <ShimmerButton className="pro-shimmer" shimmerColor="#6EE7B7" shimmerSize="0.08em" borderRadius="8px" shimmerDuration="2.6s" background="var(--og-primary)" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</ShimmerButton>
+            <Button data-site-button="primary" variant="solid" className="pro-shimmer" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</Button>
             <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
           <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
             <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Button asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>
+            <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>
         </MobileRail>
         <Text as="p" className="fine"><a href="/pro/">Full terms</a></Text>
       </div></section>

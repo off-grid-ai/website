@@ -28,7 +28,7 @@ function RequestAccess({ placement }) {
       <TextField.Root className="ex-input" type="email" name="email" required size="3" placeholder="your@email.com" autoComplete="email" aria-label="Email address" aria-invalid={status[1] === 'error'} value={email} onChange={(e) => { setEmail(e.target.value); if (status[0]) setStatus(['', '']); }}>
         <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
       </TextField.Root>
-      <Button type="submit" className="ex-btn" disabled={status[1] === 'success'}>Request access</Button>
+      <Button data-site-button="primary" type="submit" className="ex-btn" disabled={status[1] === 'success'}>Request access</Button>
     </div>
     <p className={`ex-status ${status[1]}`} aria-live="polite">{status[0]}</p>
   </form>;

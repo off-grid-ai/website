@@ -13,7 +13,7 @@ const ANDROID = { id: 'android', href: `https://play.google.com/store/apps/detai
 function FreeDownload() {
   const [d, setD] = useState(IOS);
   useEffect(() => { if (/Android/i.test(navigator.userAgent)) setD(ANDROID); }, []);
-  return <a className="pp-btn" href={d.href} target="_blank" rel="noopener" aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a>;
+  return <Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href={d.href} target="_blank" rel="noopener" aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a></Button>;
 }
 const GITHUB = { id: 'github', href: 'https://github.com/off-grid-ai/off-grid-ai-mobile', small: 'Open source', label: 'Star on GitHub', external: true };
 

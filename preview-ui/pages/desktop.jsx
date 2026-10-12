@@ -30,11 +30,11 @@ const CHAPTERS = [
 function OsPick({ os }) {
   const main = DL[os]; const rest = Object.values(DL).filter(d => d.id !== os);
   return <div className="pp-cta">
-    <Button asChild size="lg" className="pp-main"><a href={main.href} aria-label={main.aria} title={main.aria}><PlatformIcon id={main.id} size={18} /> Download for {main.label}</a></Button>
+    <Button data-site-button="primary" asChild size="lg" className="pp-main"><a href={main.href} aria-label={main.aria} title={main.aria}><PlatformIcon id={main.id} size={18} /> Download for {main.label}</a></Button>
     <span className="pp-main-note">Free · {V} · {main.note}</span>
     <div className="pp-alts">
-      {rest.map(d => <a key={d.id} className="pp-alt" href={d.href} aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} />{d.id === 'linux' ? 'Linux AppImage' : d.label}</a>)}
-      <a className="pp-alt" href={GITHUB.href} target="_blank" rel="noopener">Star on GitHub <ArrowUpRight size={13} /></a>
+      {rest.map(d => <Button asChild data-site-button="secondary" variant="outline" key={d.id}><a className="pp-alt" href={d.href} aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} />{d.id === 'linux' ? 'Linux AppImage' : d.label}</a></Button>)}
+      <Button asChild data-site-button="secondary" variant="outline"><a className="pp-alt" href={GITHUB.href} target="_blank" rel="noopener">Star on GitHub <ArrowUpRight size={13} /></a></Button>
     </div>
   </div>;
 }
@@ -47,7 +47,7 @@ function useOs() {
 }
 function FreeDownload() {
   const d = DL[useOs()];
-  return <a className="pp-btn" href={d.href} aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a>;
+  return <Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href={d.href} aria-label={d.aria} title={d.aria}><PlatformIcon id={d.id} size={15} /> Download free</a></Button>;
 }
 
 function Hero() {
