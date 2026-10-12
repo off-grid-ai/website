@@ -1896,3 +1896,15 @@ html body .pp-sec.pp-what{padding-top:clamp(28px,4vw,56px)!important}
     transform:none!important;
   }
 }
+
+/* Unrevealed words must remain readable before the scroll highlight reaches them. */
+.manifesto .reveal .absolute {
+  opacity:1!important;
+  color:var(--og-text-secondary);
+}
+/* Keep the hero label steady instead of animating background-position every frame. */
+.hero-pill [style*="--shiny-width"] {
+  animation:none!important;
+  background:none!important;
+  color:var(--og-text-secondary)!important;
+}

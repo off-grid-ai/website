@@ -246,8 +246,8 @@ export function useCycle(ms) {
 
 export function Logo({ size = 28, className = '' }) {
   return <span className={`logo ${className}`} style={{ width: size, height: size }}>
-    <img className="logo-dark" src="/assets/img/home/logo-dark.png" width={size} height={size} alt="" />
-    <img className="logo-light" src="/assets/img/home/logo-light.png" width={size} height={size} alt="" />
+    <img className="logo-dark" src="/assets/img/home/logo-dark-96.webp" width={size} height={size} alt="" />
+    <img className="logo-light" src="/assets/img/home/logo-light-96.webp" width={size} height={size} alt="" />
   </span>;
 }
 
@@ -616,14 +616,14 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 // Variant form of the same move: children (the detail zoom) follow the labels, so a zoomed screen
 // pulls the camera back out while the next screen fades in.
 export const DISSOLVE_V = {
-  enter: { opacity: 0, scale: 1.015, filter: 'blur(3px)' },
-  show: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: .7, ease: [.25, .1, .25, 1] } },
-  leave: { opacity: 0, scale: 1, filter: 'blur(2px)', transition: { duration: .7, ease: [.45, 0, .55, 1] } },
+  enter: { opacity: 0, scale: 1.015 },
+  show: { opacity: 1, scale: 1, transition: { duration: .7, ease: [.25, .1, .25, 1] } },
+  leave: { opacity: 0, scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } },
 };
 export const DISSOLVE = {
-  initial: { opacity: 0, scale: 1.035, filter: 'blur(8px)' },
-  animate: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: .75, ease: [.22, 1, .36, 1] } },
-  exit: { opacity: 0, scale: .975, filter: 'blur(6px)', transition: { duration: .55, ease: [.4, 0, .6, 1] } },
+  initial: { opacity: 0, scale: 1.035 },
+  animate: { opacity: 1, scale: 1, transition: { duration: .75, ease: [.22, 1, .36, 1] } },
+  exit: { opacity: 0, scale: .975, transition: { duration: .55, ease: [.4, 0, .6, 1] } },
 };
 // Where the readable result sits in each capture; phones crop to it instead of shrinking the whole app.
 const FOCUS = { day: .42, actions: .45, god: .5, entities: .78, meetings: .66, voice: .55, reflect: .5, replay: .45, clipboard: .42, 'vault-locked': .62, 'vault-typing': .62, 'vault-open': .55, 'models-text': .5, 'models-vision': .5, 'models-image': .5, 'models-voice': .5, 'models-transcription': .5, 'models-computer-use': .5 };
@@ -1070,7 +1070,7 @@ function Walkthrough({ reduce, theme }) {
       <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
-          <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>">Your AI.</TextScramble>
+          <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>" trigger={false}>Your AI.</TextScramble>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
         <div className="hero-title rot-line" aria-hidden="true" style={{ '--rot-ch': Math.max(...ROT_WORDS.map(w => w.length)) }}><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
@@ -1142,7 +1142,7 @@ function Walkthrough({ reduce, theme }) {
         </BeamLayer.Provider></SeqCtrlCtx.Provider></ScreenCtx.Provider></ZoomCtx.Provider></PlayCtx.Provider>
       </motion.div>
     </div>
-    <div className="sr-only">{WALK.map(w => <div key={w.id}><h3>{w.title}</h3><p>{w.line}</p></div>)}</div>
+    <div className="sr-only">{WALK.map(w => <div key={w.id}><h2>{w.title}</h2><p>{w.line}</p></div>)}</div>
     <PickCtx.Provider value={onPick}>{zoomViewer}</PickCtx.Provider>
   </section>;
 }
@@ -1150,7 +1150,7 @@ function Walkthrough({ reduce, theme }) {
 /* ───────────────────────── Privacy ───────────────────────── */
 
 const SAMPLE_PROMPTS = ['Summarize my blood test', 'Review this NDA for me', 'Compare two salary offers', 'Reply to my landlord'];
-function PrivLane({ local, prompt, n }) {
+function PrivLane({ local, prompt, n, active = true }) {
   const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null); const d = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
   const log = local ? [['PROCESSED', 'on your own devices'], ['STORED', 'on your own devices'], ['THIRD PARTIES', 'none receive it'], ['ANSWER', 'stays with you']]
@@ -1173,8 +1173,8 @@ function PrivLane({ local, prompt, n }) {
       </div>
     </div>
     : <div className="lane-viz lane-map">
-      <DottedMap key={n} width={150} height={75} mapSamples={4200} dotRadius={.22} markerColor="#a3a3a3" pulse
-        markers={[{ lat: 19.07, lng: 72.87, size: .9 }, { lat: 39.04, lng: -77.49, size: .7, pulse: true }, { lat: 45.6, lng: -121.18, size: .7, pulse: true }, { lat: 53.35, lng: -6.26, size: .7, pulse: true }, { lat: 1.35, lng: 103.82, size: .7, pulse: true }]} className="map-svg" />
+      {active && <DottedMap key={n} width={150} height={75} mapSamples={4200} dotRadius={.22} markerColor="#a3a3a3" pulse
+        markers={[{ lat: 19.07, lng: 72.87, size: .9 }, { lat: 39.04, lng: -77.49, size: .7, pulse: true }, { lat: 45.6, lng: -121.18, size: .7, pulse: true }, { lat: 53.35, lng: -6.26, size: .7, pulse: true }, { lat: 1.35, lng: 103.82, size: .7, pulse: true }]} className="map-svg" />}
       <span className="map-tag"><Globe size={12} /> Your prompt, copied to their data centers</span>
     </div>}
     <AnimatedList key={n} delay={450} className="plog">
@@ -1224,8 +1224,8 @@ function PrivacySection() {
     <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></BlurFade>
     <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
     <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
-      <PrivLane prompt={prompt} n={n} />
-      <PrivLane local prompt={prompt} n={n} />
+      <PrivLane prompt={prompt} n={n} active={seen} />
+      <PrivLane local prompt={prompt} n={n} active={seen} />
     </MobileRail>
   </div></section>;
 }
