@@ -851,8 +851,21 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
   // instead of wrapping back to the first one while the next chapter loads.
   const countCtx = useContext(ScreenCountCtx); const holdLast = (hold || !!countCtx) && !open && i === shots.length - 1;
   const box = useRef(null); const inView = useInView(box);
-  const running = ((playing && inView) || open) && !reduce && shots.length > 1 && present && !holdLast;
-  useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
+  const active = ((playing && inView) || open) && !reduce && shots.length > 1 && present;
+  const running = active && !holdLast;
+  const progress = useMotionValue(0);
+  // Drive the bar and image from one clock. A parent presence animation may
+  // disable initial animations on the first chapter; this value still starts at zero.
+  useEffect(() => { progress.jump(0); }, [n, progress]);
+  useEffect(() => {
+    if (!active) return;
+    const from = progress.get();
+    const clock = animate(progress, 1, {
+      duration: screenTime(shots[i], ms) / 1000 * (1 - from), ease: 'linear',
+      onComplete: () => { if (!holdLast) { setI(v => (v + 1) % shots.length); setN(v => v + 1); } },
+    });
+    return () => clock.stop();
+  }, [n, active, holdLast, progress]);
   const step = useSeqStep(shots.length, i, setI, setN, null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
@@ -872,7 +885,7 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
         </motion.div>
         </motion.div>
       </AnimatePresence>
-      {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span key={`${n}-${playing}`} initial={{ scaleX: 0 }} animate={{ scaleX: playing ? 1 : 0 }} transition={{ duration: playing ? screenTime(shots[i], ms) / 1000 : 0, ease: 'linear' }} /></span>}
+      {shots.length > 1 && !reduce && <span className="shot-progress" aria-hidden="true"><motion.span style={{ scaleX: progress }} /></span>}
     </div>
     {!zc && <SeqZoom isVisible={() => !!box.current?.getClientRects().length} shots={shots} i={i} n={n} step={step} running={running} ms={ms} open={open} setOpen={setOpen} />}
   </SeqOpenCtx.Provider>;
