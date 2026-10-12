@@ -1403,7 +1403,7 @@ function HomeSections({ pricing }) {
         {modelsVisible && !reduce ? <ScrollVelocityContainer className="models-vel">
           <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
           <ScrollVelocityRow baseVelocity={3} direction={-1}>{MODELS.slice(6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
-        </ScrollVelocityContainer> : <div className="models-vel">{MODELS.map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</div>}
+        </ScrollVelocityContainer> : <div className="models-vel">{[MODELS.slice(0, 6), MODELS.slice(6)].map((row, i) => <div key={i} className="w-full overflow-hidden whitespace-nowrap"><div className="inline-flex items-center">{row.map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</div></div>)}</div>}
       </section>
       <PrivacySection />
       <section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section>
