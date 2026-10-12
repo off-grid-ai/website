@@ -605,7 +605,7 @@ export function Preload({ names }) {
     const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
     const fixed = mobile && n.match(/-(dark|light)$/); const base = fixed ? n.replace(/-(dark|light)$/, '') : n;
     const src = `/assets/img/home/${mobile ? 'mobile' : 'app'}/${base}-${fixed ? fixed[1] : theme}-${mobile ? 640 : 1760}.webp?v=${SHOT_V}`;
-    return <img key={name} src={src} alt="" fetchPriority="low" />;
+    return <img key={name} src={src} width={mobile ? 640 : 1760} height={mobile ? 1386 : 1137} alt="" fetchPriority="low" />;
   })}</div>;
 }
 
@@ -736,7 +736,7 @@ export function SceneRoll({ seq, className = '' }) {
   return <Dock className={`scene-roll ${className}`} iconSize={26} iconMagnification={26} iconDistance={1} direction="middle">
     {seq.shots.map(([name, alt], k) => <DockIcon key={name} className={`scene-thumb${name.startsWith('mobile/') ? ' is-phone' : ''}${k === seq.i ? ' is-on' : ''}`} role="button" tabIndex={0} aria-label={`Show scene ${k + 1}: ${alt}`} aria-pressed={k === seq.i}
       onPointerDown={e => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); choose(k); }} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(k); } }}>
-      <img src={thumbOf(name, theme)} alt="" draggable={false} loading="lazy" />
+      <img src={thumbOf(name, theme)} width="160" height={name.startsWith('mobile/') ? 347 : 103} alt="" draggable={false} loading="lazy" />
     </DockIcon>)}
   </Dock>;
 }

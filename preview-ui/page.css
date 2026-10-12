@@ -1908,3 +1908,5 @@ html body .pp-sec.pp-what{padding-top:clamp(28px,4vw,56px)!important}
   background:none!important;
   color:var(--og-text-secondary)!important;
 }
+/* The wheel owns square tiles; reserve the full tile before its icon loads. */
+.og-wheel img { width:100%; height:100%; aspect-ratio:1; }
