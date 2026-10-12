@@ -1321,6 +1321,7 @@ export function PageShell({ children, feedback = true }) {
   const [theme, setTheme] = useState('dark');
   const play = useContext(PlayCtx); const preferredMotion = useReducedMotion();
   const [reduce, setReduce] = useState(false);
+  const pagePlay = useMemo(() => ({ ...play, reducedMotion: reduce }), [play, reduce]);
   // Match the server tree first. Let section hydration finish before applying
   // device preferences, so pending boundaries retain their server-rendered HTML.
   useEffect(() => { startTransition(() => setReduce(!!preferredMotion)); }, [preferredMotion]);
@@ -1342,7 +1343,7 @@ export function PageShell({ children, feedback = true }) {
   };
   const changeTheme = (next) => { apply(next); setTheme(next); try { localStorage.setItem('theme', next); } catch (_) {} };
 
-  return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={{ ...play, reducedMotion: reduce }}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
+  return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={pagePlay}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
     <a className="skip-link" href="#main">Skip to content</a>
     <ScrollProgress className="h-0.5 z-[100] from-(--og-primary-dark) via-(--og-primary) to-(--og-primary-light)" />
     <Suspense><header className="site-header"><div className="header-inner">
@@ -1401,8 +1402,11 @@ function HomeSections({ pricing }) {
   const modelsRef = useRef(null);
   const modelsVisible = useInView(modelsRef, { margin: '200px' });
   const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
+  // Pricing and model-row visibility do not change the tour. Keep its subtree
+  // stable during those updates; its own controls and clocks still update normally.
+  const walkthrough = useMemo(() => <Walkthrough reduce={reduce} theme={theme} />, [reduce, theme]);
   return <>
-      <Suspense><Walkthrough reduce={reduce} theme={theme} /></Suspense>
+      <Suspense>{walkthrough}</Suspense>
       <section className="models-band" ref={modelsRef} aria-label="Models you can run"><Suspense>
         {modelsVisible && !reduce ? <ScrollVelocityContainer className="models-vel">
           <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
