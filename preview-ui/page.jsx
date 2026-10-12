@@ -230,7 +230,7 @@ export function Shot({ name, alt, className = '', lazy = true, mobile = false, o
     const full = `/assets/img/home/${folder}/${base}-${t}.webp?v=${SHOT_V}`;
     const small = `/assets/img/home/${folder}/${base}-${t}-${width}.webp?v=${SHOT_V}`;
     return <button key={t} type="button" className={`shot-link ${fixed ? '' : `shot-link-${t}`}`} aria-label={`Enlarge screenshot: ${alt}`} onPointerDown={e => e.stopPropagation()} ref={el => { btns.current[t === 'light' ? 1 : 0] = el; }} onClick={() => (seqOpen ? seqOpen(raw) : zc ? zc.open(raw) : toggle(true))}>
-      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={`${small} ${width}w, ${full} ${mobile ? 1290 : 3024}w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 900px, 70vw'} width={width} height={mobile ? 1386 : 1137} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
+      {frame ? <Iphone src={small} className="shot-device-image" aria-hidden="true" /> : <img className={`shot ${fixed ? '' : `shot-${t}`} ${className}`} src={small} srcSet={mobile ? `${small} ${width}w, ${full} 1290w` : `${small.replace('-1760.webp', '-640.webp')} 640w, ${small.replace('-1760.webp', '-960.webp')} 960w, ${small} 1760w, ${full} 3024w`} sizes={mobile ? '(max-width: 860px) 300px, 400px' : '(max-width: 860px) 300px, (max-width: 1280px) 70vw, 1000px'} width={width} height={mobile ? 1386 : 1137} loading={lazy || t !== theme ? 'lazy' : undefined} alt={alt} draggable={false} />}
     </button>;
   })}
   {open && <ShotView open onOpenChange={toggle} alt={alt} ratio={mobile ? PHONE_RATIO : MAC_RATIO}><Device name={mobile && !raw.startsWith('mobile/') ? `mobile/${name}` : raw} theme={theme} alt={alt} full /></ShotView>}
@@ -608,7 +608,7 @@ export function Preload({ names }) {
     const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
     const fixed = mobile && n.match(/-(dark|light)$/); const base = fixed ? n.replace(/-(dark|light)$/, '') : n;
     const src = `/assets/img/home/${mobile ? 'mobile' : 'app'}/${base}-${fixed ? fixed[1] : theme}-${mobile ? 640 : 1760}.webp?v=${SHOT_V}`;
-    return <img key={name} src={src} width={mobile ? 640 : 1760} height={mobile ? 1386 : 1137} alt="" fetchPriority="low" />;
+    return <img key={name} src={src} srcSet={mobile ? undefined : `${src.replace("-1760.webp", "-640.webp")} 640w, ${src.replace("-1760.webp", "-960.webp")} 960w, ${src} 1760w`} sizes={mobile ? undefined : "(max-width: 860px) 300px, (max-width: 1280px) 70vw, 1000px"} width={mobile ? 640 : 1760} height={mobile ? 1386 : 1137} alt="" fetchPriority="low" />;
   })}</div>;
 }
 
