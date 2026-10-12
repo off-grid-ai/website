@@ -1,4 +1,4 @@
-import React, { useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
 import { createPortal } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
@@ -1073,7 +1073,7 @@ function Walkthrough({ reduce, theme }) {
   const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
-      <div className="walk-igrid">{grid}</div>
+      <div className="walk-igrid"><Suspense>{grid}</Suspense></div>
       {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
       {!reduce && inView && !docked && <div className="walk-alive" aria-hidden="true">
         <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
@@ -1316,10 +1316,11 @@ export function PageShell({ children, feedback = true }) {
   const [theme, setTheme] = useState('dark');
   const play = useContext(PlayCtx); const preferredMotion = useReducedMotion();
   const [reduce, setReduce] = useState(false);
-  // Match the server tree first; apply the device preference after hydration.
-  useEffect(() => { setReduce(!!preferredMotion); }, [preferredMotion]);
+  // Match the server tree first. Let section hydration finish before applying
+  // device preferences, so pending boundaries retain their server-rendered HTML.
+  useEffect(() => { startTransition(() => setReduce(!!preferredMotion)); }, [preferredMotion]);
   useEffect(() => {
-    const sync = () => setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+    const sync = () => startTransition(() => setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'));
     sync();
     const pref = window.matchMedia('(prefers-color-scheme: dark)');
     const follow = () => {
@@ -1389,23 +1390,25 @@ export default function PreviewPage({ pricing: initialPricing }) {
   useSectionHash(['private', 'pricing', 'download']);
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
+// Independent boundaries let React yield between sections during hydration.
+// All content is still rendered into the initial HTML.
 function HomeSections({ pricing }) {
   const modelsRef = useRef(null);
   const modelsVisible = useInView(modelsRef, { margin: '200px' });
   const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
   return <>
-      <Walkthrough reduce={reduce} theme={theme} />
-      <section className="models-band" ref={modelsRef} aria-label="Models you can run">
+      <Suspense><Walkthrough reduce={reduce} theme={theme} /></Suspense>
+      <section className="models-band" ref={modelsRef} aria-label="Models you can run"><Suspense>
         {modelsVisible && !reduce ? <ScrollVelocityContainer className="models-vel">
           <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
           <ScrollVelocityRow baseVelocity={3} direction={-1}>{MODELS.slice(6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
         </ScrollVelocityContainer> : <div className="models-vel">{[MODELS.slice(0, 6), MODELS.slice(6)].map((row, i) => <div key={i} className="w-full overflow-hidden whitespace-nowrap"><div className="inline-flex items-center">{row.map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</div></div>)}</div>}
-      </section>
-      <PrivacySection />
-      <section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section>
+      </Suspense></section>
+      <Suspense><PrivacySection /></Suspense>
+      <Suspense><section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section></Suspense>
 
       {/* Pricing: Radix cards, Magic UI border beam on the recommended plan. */}
-      <section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
+      <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></BlurFade>
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
@@ -1420,10 +1423,10 @@ function HomeSections({ pricing }) {
             <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>
         </MobileRail>
         <Text as="p" className="fine"><a href="/pro/">Full terms</a></Text>
-      </div></section>
+      </div></section></Suspense>
 
       {/* Explore: SmoothUI tilt cards over Radix cards. */}
-      <section className="chapter sec-explore" aria-labelledby="explore-heading"><div className="section-shell">
+      <Suspense><section className="chapter sec-explore" aria-labelledby="explore-heading"><div className="section-shell">
         <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHAT COMES NEXT</Kicker><Title id="explore-heading" lead="Where it goes from here." /></BlurFade>
         <MobileRail className="explore" labels={['Partners', 'Hardware', 'Recorder']}>
           <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="home_card">
@@ -1434,10 +1437,10 @@ function HomeSections({ pricing }) {
             <Badge variant="outline">Private alpha · Cohort full</Badge><div className="ex-mark ex-ic"><Microphone size={56} weight="thin" /></div><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></a></Card>
         </MobileRail>
         <nav className="learn" aria-label="Learn more"><AnimatedBackground enableHover className="learn-hover">{[['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/'], ['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']].map(([l, h]) => <a key={h} data-id={h} href={h}>{l}<ArrowUpRight size={13} /></a>)}</AnimatedBackground></nav>
-      </div></section>
+      </div></section></Suspense>
 
       {/* Closing: Magic UI ripple. */}
-      <section id="download" className="has-bg final" aria-labelledby="final-heading"><SectionBg />
+      <Suspense><section id="download" className="has-bg final" aria-labelledby="final-heading"><SectionBg />
         
         <div className="section-shell final-in">
           <Kicker>YOUR INTELLIGENCE. WITH YOU.</Kicker>
@@ -1446,6 +1449,6 @@ function HomeSections({ pricing }) {
           <div className="dl-grid">{DOWNLOADS.map(d => <a className="dl" key={d.id} href={d.href} {...(d.external ? { target: '_blank', rel: 'noopener' } : {})}><PlatformIcon id={d.id} size={22} /><span><small>{d.small}</small>{d.label}</span></a>)}</div>
           <Text as="p" className="fine"><a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/download/">All downloads and betas</a></Text>
         </div>
-      </section>
+      </section></Suspense>
   </>;
 }
