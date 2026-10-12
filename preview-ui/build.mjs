@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { build, transform } from 'esbuild';
 import postcss from 'postcss';
+import Beasties from 'beasties';
 import { createRequire } from 'node:module';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { existsSync, readdirSync } from 'node:fs';
@@ -145,6 +146,15 @@ try {
 const compiledCss = await postcss([radixBreakpoints()]).process(await readFile(resolve(output, 'page.css'), 'utf8'), { from: undefined });
 const compactCss = await transform(compiledCss.css, { loader: 'css', minify: true, target: 'es2020' });
 await writeFile(resolve(output, 'page.css'), compactCss.code);
+// Inline the first screen's styles. Keep the complete stylesheet for all later
+// scenes, dialogs, and sections; extraction never removes source rules.
+const critical = new Beasties({ path: websiteRoot, preload: false, pruneSource: false, logLevel: 'warn',
+  allowRules: [/^:root/, /^html/, /^body/, /^\.dark/, /^\.light/] });
+const firstScreen = rendered.slice(hints.length).split('<section class="models-band"')[0];
+const criticalHtml = await critical.process(`<html data-theme="dark" class="dark"><head><link rel="stylesheet" href="assets/preview/page.css"></head><body>${firstScreen}</body></html>`);
+const criticalTokens = await transform(await readFile(resolve(output, 'tokens.css'), 'utf8'), { loader: 'css', minify: true });
+await writeFile('_includes/home-critical.html', `<style>${criticalTokens.code}</style>\n` + [...criticalHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => `<style>${m[1]}</style>`).join('\n'));
+
 // Cache-bust by content, not build time: the page changes whenever the bundle does.
 const assetHash = createHash('sha256').update(await readFile('assets/preview/page.js')).update(await readFile(resolve(output, 'page.css'))).digest('hex').slice(0, 12);
 await writeFile('_includes/home-version.html', assetHash);

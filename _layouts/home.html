@@ -153,8 +153,9 @@
   </script>
   {% endif %}
   {% include home-hints.html %}
-  <link rel="stylesheet" href="{{ '/assets/preview/tokens.css' | relative_url }}?v={% include home-version.html %}">
-  <link rel="stylesheet" href="{{ '/assets/preview/page.css' | relative_url }}?v={% include home-version.html %}">
+  {% include home-critical.html %}
+  <link data-home-styles rel="stylesheet" media="print" onload="this.media='all'" href="{{ '/assets/preview/page.css' | relative_url }}?v={% include home-version.html %}">
+  <noscript><link rel="stylesheet" href="{{ '/assets/preview/page.css' | relative_url }}?v={% include home-version.html %}"></noscript>
   <noscript><style>.offgrid-page [style*="opacity"]{opacity:1!important}.offgrid-page [style*="transform"]{transform:none!important}</style></noscript>
   <noscript><style>.wt-window{opacity:1!important}</style></noscript>
 </head>

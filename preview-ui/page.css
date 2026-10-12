@@ -19,6 +19,10 @@
 @import 'tailwindcss' source(none);
 @source './page.jsx';
 @source '../node_modules/.cache/offgrid-preview';
+/* Generated bundles contain class strings from every page. Scan source only. */
+@source not '../node_modules/.cache/offgrid-preview/*.mjs';
+@source not '../node_modules/.cache/offgrid-preview/out-*.js';
+@source not '../node_modules/.cache/offgrid-preview/page-*-client.jsx';
 
 @theme inline {
   --color-background: var(--og-background);
