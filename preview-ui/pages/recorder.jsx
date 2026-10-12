@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Badge, Card, Heading, Text } from '@radix-ui/themes';
 import { ArrowDown, ArrowRight, Pause, Play, Microphone, MagnifyingGlass, ChatCircle, CalendarBlank, Waveform, ShieldCheck, WifiSlash, Cpu, Database, Check } from '@phosphor-icons/react';
-import { useReducedMotion } from 'motion/react';
 import Button from '@smoothui/smooth-button';
 import { MagicCard } from '@magicui/magic-card';
 import { BlurFade } from '@magicui/blur-fade';
 import { AnimatedList } from '@magicui/animated-list';
 import { TypingAnimation } from '@magicui/typing-animation';
-import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useCycle, useNarrow } from '../shared.jsx';
+import { PlayCtx, PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useCycle, useNarrow } from '../shared.jsx';
 
 // A day in the recorder, shown as it works: speech arrives, is written down, and becomes what mattered.
 const HEARD = [
@@ -18,7 +17,7 @@ const HEARD = [
 const MATTERED = 'Pilot moves to 14 November at 40 seats. You owe Sam the revised rollout plan by Friday.';
 
 function RecorderScene() {
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   // Plays on its own until the visitor takes over: touching the scene or the control pauses the loop.
   const [paused, setPaused] = useState(false);
   const still = reduce || paused;

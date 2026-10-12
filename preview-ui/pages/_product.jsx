@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useIsPresent, useInView, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, AnimatePresence, useIsPresent, useInView, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -12,7 +12,7 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction } from '../shared.jsx';
+import { PlayCtx, Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
 
@@ -68,7 +68,7 @@ export function AutoCtl({ manual, onToggle, hint, className = '' }) {
 
 // Replays a composed scene every `ms` so every demo loops.
 export function Loop({ ms = 9000, children }) {
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   const [k, setK] = useState(0);
   useEffect(() => { if (reduce) return; const t = setInterval(() => setK(v => v + 1), ms); return () => clearInterval(t); }, [ms, reduce]);
   return <React.Fragment key={k}>{children}</React.Fragment>;
@@ -77,7 +77,7 @@ export function Loop({ ms = 9000, children }) {
 // Left-to-right wipe with a scan line, the home page's screen transition.
 export const WIPE_T = { duration: .7, ease: [.65, 0, .35, 1] };
 export function Wipe({ id, className = '', children }) {
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   if (reduce) return <div className={`pp-wipe ${className}`}>{children}</div>;
   return <AnimatePresence initial={false}>
     <motion.div key={id} className={`pp-wipe ${className}`} variants={DISSOLVE_V} initial="enter" animate="show" exit="leave">
@@ -122,7 +122,7 @@ export function useAutoProgress(i, ms, paused, next) {
 
 // Tabs below, autoplay with a progress bar, drag or swipe the window to step.
 export function AppWindow({ chapters, label }) {
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   const box = useRef(null); const inView = useInView(box);
   const C = chapters[i];
@@ -164,7 +164,7 @@ export function AppWindow({ chapters, label }) {
 // items: { id, title, line, note?, visual: (compact) => node }
 export function Explorer({ items, label, ms = 4500, className = '' }) {
   const narrow = useNarrow();
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
   // A feature with screenshots plays all of them (3s each); a composed scene gets `ms`.
   const [count, setCount] = useState({ i: -1, n: 0 }); const onCount = useCallback((n) => setCount({ i, n }), [i]);
@@ -274,7 +274,7 @@ export function Phone({ children, time = '09:41', status }) {
 const mobSrc = (f) => `/assets/img/home/mobile/${f}-640.webp`;
 export function PhoneShots({ shots, ms = 3600, controls }) {
   const [i, setI] = useState(0); const [n, setN] = useState(0); const [manual, setManual] = useState(false);
-  const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
+  const reduce = useContext(PlayCtx).reducedMotion; const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
   const present = useIsPresent();
   const box = useRef(null); const inView = useInView(box);

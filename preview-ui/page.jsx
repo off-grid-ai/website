@@ -159,7 +159,7 @@ export function ShotView({ open, onOpenChange, alt, ratio, children, onPrev, onN
 // tour, stays open across chapters, cross-fades between screens and keeps playing.
 export const ZoomCtx = createContext(null);
 export function useZoomOwner({ index, count, title, line, progress, goTo }) {
-  const theme = useContext(ThemeCtx); const reduce = useReducedMotion();
+  const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
   const [open, setOpen] = useState(false); const [regs, setRegs] = useState([]);
   const [j, setJ] = useState(0); const [n, setN] = useState(0);
   const want = useRef(null); const fromEnd = useRef(false); const seq = useRef(0);
@@ -239,7 +239,7 @@ export function Shot({ name, alt, className = '', lazy = true, mobile = false, o
 
 // Replays a looping demo: the returned key changes every `ms` while mounted.
 export function useCycle(ms) {
-  const [n, setN] = useState(0); const reduce = useReducedMotion();
+  const [n, setN] = useState(0); const reduce = useContext(PlayCtx).reducedMotion;
   useEffect(() => { if (!ms || reduce) return; const t = setInterval(() => setN(v => v + 1), ms); return () => clearInterval(t); }, [ms, reduce]);
   return n;
 }
@@ -766,7 +766,7 @@ const ratioOf = (name) => { const pair = SHOT_PAIRS[name]; if (pair) return pair
 // Only the copy on screen opens it (theme twins and hidden variants stay closed).
 const zoomOwner = { current: null };
 export function SeqZoom({ isVisible, shots, i, n, step, running, ms = 3200, open, setOpen }) {
-  const zc = null; const theme = useContext(ThemeCtx); const reduce = useReducedMotion();
+  const zc = null; const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
   const [show, setShow] = useState(false); const me = useRef({});
   // One viewer at a time: the copy on screen claims it; the owner lets go as soon as its sequence leaves
   // the screen (a cross-fade, a theme twin, the next feature), and the incoming one claims it.
@@ -833,7 +833,7 @@ const PAIR_PATH = {
   leave: { scale: 1, x: '0%', y: '0%', transition: { duration: .7, ease: [.45, 0, .55, 1] } },
 };
 export function Zoomed({ name, comp, phone, children }) {
-  const reduce = useReducedMotion(); const z = zoomFor(name, comp, phone);
+  const reduce = useContext(PlayCtx).reducedMotion; const z = zoomFor(name, comp, phone);
   if (reduce) return children;
   return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
@@ -842,7 +842,7 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
   const [open, setOpen] = useState(false);
   const [i, setI] = useState(0);
   const [n, setN] = useState(0); const { playing } = useContext(PlayCtx);
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   // The sequence keeps playing in the full-screen view, even while the page behind it holds.
   // A sequence that is fading out (its chapter just changed) stops playing and stops reporting,
   // so it can't take the camera roll back from the sequence that replaced it.
@@ -907,7 +907,7 @@ const INTENTS = [[/document|pdf|rag|project|notes|cite|citation|source|knowledge
 // Preset prompts keep the animated hero interaction without accepting free text.
 const BAR_PROMPTS = PROMPTS.map(prompt => prompt.label);
 function CommandBar({ onRun }) {
-  const reduce = useReducedMotion();
+  const reduce = useContext(PlayCtx).reducedMotion;
   return <div className="cmd-vanish" aria-label="Off Grid AI demo">
     <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
       label="Open the example shown" submitLabel="Open example chapter"
@@ -1047,7 +1047,7 @@ function Walkthrough({ reduce, theme }) {
     return () => clock.stop();
   }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress, restart]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
-  const play = { playing, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
+  const play = { playing, reducedMotion: reduce, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
   // Full screen follows the tour: arrows step screens and then chapters, autoplay keeps running.
   // The window's command follows the screen on show, not just the chapter.
   const [scr, setScr] = useState(null); const chNow = useRef(ch); chNow.current = ch;
@@ -1244,7 +1244,7 @@ function useSectionHash(ids) {
 
 export const ThemeCtx = createContext('dark');
 // Screen motion runs while the tour is visible; chapter autoplay is controlled separately.
-export const PlayCtx = createContext({ playing: true, takeOver: () => {}, hold: () => {} });
+export const PlayCtx = createContext({ playing: true, takeOver: () => {}, hold: () => {}, reducedMotion: false });
 // Every page: theme handling, header, main, footer. Pages pass their sections as children.
 // "Did this land?" (same storage key and PostHog event as the old layout) and the
 // creator newsletter (same identify + newsletter_signup capture as the old sidebar form).
@@ -1301,7 +1301,10 @@ export function DocEnd() {
 
 export function PageShell({ children, feedback = true }) {
   const [theme, setTheme] = useState('dark');
-  const reduce = useReducedMotion();
+  const play = useContext(PlayCtx); const preferredMotion = useReducedMotion();
+  const [reduce, setReduce] = useState(false);
+  // Match the server tree first; apply the device preference after hydration.
+  useEffect(() => { setReduce(!!preferredMotion); }, [preferredMotion]);
   useEffect(() => {
     const sync = () => setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
     sync();
@@ -1320,7 +1323,7 @@ export function PageShell({ children, feedback = true }) {
   };
   const changeTheme = (next) => { apply(next); setTheme(next); try { localStorage.setItem('theme', next); } catch (_) {} };
 
-  return <MotionConfig reducedMotion="user"><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
+  return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={{ ...play, reducedMotion: reduce }}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
     <a className="skip-link" href="#main">Skip to content</a>
     <ScrollProgress className="h-0.5 z-[100] from-(--og-primary-dark) via-(--og-primary) to-(--og-primary-light)" />
     <header className="site-header"><div className="header-inner">
@@ -1365,7 +1368,7 @@ export function PageShell({ children, feedback = true }) {
       </div>
       <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer>
-  </Theme></MotionConfig>;
+  </Theme></PlayCtx.Provider></MotionConfig>;
 }
 
 export default function PreviewPage({ pricing: initialPricing }) {
@@ -1374,7 +1377,7 @@ export default function PreviewPage({ pricing: initialPricing }) {
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
 function HomeSections({ pricing }) {
-  const theme = useContext(ThemeCtx); const reduce = useReducedMotion();
+  const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
   return <>
       <Walkthrough reduce={reduce} theme={theme} />
       <section className="models-band" aria-label="Models you can run">
