@@ -616,6 +616,7 @@ export const WIPE = { duration: .7, ease: [.65, 0, .35, 1] };
 // Variant form of the same move: children (the detail zoom) follow the labels, so a zoomed screen
 // pulls the camera back out while the next screen fades in.
 export const DISSOLVE_V = {
+  first: { opacity: 1, scale: 1 },
   enter: { opacity: 0, scale: 1.015 },
   show: { opacity: 1, scale: 1, transition: { duration: .7, ease: [.25, .1, .25, 1] } },
   leave: { opacity: 0, scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } },
@@ -827,6 +828,7 @@ export const screenTime = () => SCREEN_MS;
 // Mac + iPhone: start wide, push into the Mac, hold, glide right and push into the phone, hold.
 // Offsets are % of the composition (Mac centre ~43%/42%, phone centre ~88%/60%) at 1.3x.
 const PAIR_PATH = {
+  first: { scale: 1, x: '0%', y: '0%' },
   enter: { scale: 1, x: '0%', y: '0%' },
   show: { scale: [1, 1.3, 1.3, 1.3, 1.3], x: ['0%', '8.5%', '8.5%', '-49.8%', '-49.8%'], y: ['0%', '10.4%', '10.4%', '-13%', '-13%'],
     transition: { delay: .2, duration: 2.3, times: [0, .3, .45, .8, 1], ease: [.45, 0, .25, 1] } },
@@ -835,7 +837,7 @@ const PAIR_PATH = {
 export function Zoomed({ name, comp, phone, children }) {
   const reduce = useContext(PlayCtx).reducedMotion; const z = zoomFor(name, comp, phone);
   if (reduce) return children;
-  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
+  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ first: { scale: 1 }, enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
 export function ShotSeq({ shots, ms = 3200, hold }) {
   const zc = useContext(ZoomCtx); const theme = useContext(ThemeCtx);
@@ -877,8 +879,8 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
     <div className="wt-shot" ref={box} onClick={(e) => { if (!e.target.closest('button, a, [role="button"]')) (zc ? zc.open(name) : setOpen(true)); }}>
       {running && <Preload names={[shots[(i + 1) % shots.length][0]]} />}
       <AnimatePresence>
-        <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce || n === 0 ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
-        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
+        <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : n === 0 ? 'first' : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
+        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { first: { scale: 1 }, enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
           {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <div className="shot-solo-phone"><Device name={name} theme={theme} alt={alt} /></div>
             // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
             : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={!inView} /></Zoomed></div></div></div>}
