@@ -615,8 +615,6 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 /* ── Walkthrough: one persistent window ───────────────── */
 .walk{position:relative}
 .walk-pin{position:sticky;top:68px;height:calc(100vh - 68px);height:calc(100svh - 68px);width:100%;overflow:hidden}
-.walk-grid{position:absolute;inset:0;z-index:0;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 10%,transparent 70%)}
-.walk-grid>div{width:100%;height:100%}
 .walk-igrid{position:absolute;inset:0;z-index:1;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 30%,transparent 85%);mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 30%,transparent 85%)}
 .igrid{position:absolute;inset:0;width:100%;height:100%;border:0!important}
 .igrid rect{stroke:var(--line)!important;fill:transparent;transition:fill .15s}
@@ -1003,7 +1001,6 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .has-bg>.section-shell,.has-bg>.final-in,.has-bg>.reveal{position:relative;z-index:2}
 .sec-bg{position:absolute;inset:0;z-index:0;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 45%,#000 25%,transparent 85%);mask-image:radial-gradient(ellipse 85% 75% at 50% 45%,#000 25%,transparent 85%)}
 .sec-bg .igrid{position:absolute;inset:0;width:100%;height:100%}
-.sec-dots{position:absolute;inset:0;width:100%;height:100%;color:rgb(var(--og-rgb-text)/.12)}
 .manifesto .sec-bg{position:sticky;top:0;height:100vh;margin-bottom:-100vh}
 /* Pricing cards with depth */
 .plans{align-items:stretch}

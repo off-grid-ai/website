@@ -24,7 +24,6 @@ import AIReasoning from '@smoothui/ai-reasoning';
 import { TextEffect } from '@motion-primitives/text-effect';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
 import { TextScramble } from '@motion-primitives/text-scramble';
-import { FlickeringGrid } from '@magicui/flickering-grid';
 import { BorderBeam } from '@magicui/border-beam';
 import { BentoGrid, BentoCard } from '@magicui/bento-grid';
 import { AnimatedBeam } from '@magicui/animated-beam';
@@ -269,13 +268,11 @@ export function useSteps(times) {
   return s;
 }
 
-// Living backdrop for every section after the walkthrough: grid cells answer the cursor, dots breathe.
+// Section backdrop: grid cells answer the cursor when the section is visible.
 export function SectionBg() {
   const ref = useRef(null);
   const visible = useInView(ref, { margin: '200px' });
-  const reduce = useContext(PlayCtx).reducedMotion;
   return <div className="sec-bg" ref={ref} aria-hidden="true">
-    {visible && !reduce && <FlickeringGrid squareSize={3} gridGap={10} maxOpacity={.14} flickerChance={.12} color="rgb(52, 211, 153)" className="sec-dots" />}
     {visible && <InteractiveGridPattern width={56} height={56} squares={[40, 30]} className="igrid" squaresClassName="igrid-sq" />}
   </div>;
 }
@@ -1076,7 +1073,6 @@ function Walkthrough({ reduce, theme }) {
   const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
-      {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
       <div className="walk-igrid">{grid}</div>
       {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
       {!reduce && <div className={`walk-alive ${docked ? 'off' : ''}`} aria-hidden="true">
