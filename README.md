@@ -39,5 +39,14 @@ The site is then available at http://localhost:4000.
 
 Every push to `main` triggers the GitHub Actions workflow, which builds the Jekyll site,
 indexes it with Pagefind, and publishes to GitHub Pages. DNS for the domain is managed in
-Cloudflare; the apex `getoffgridai.co` points at GitHub Pages. The former domain
+Cloudflare; the apex `getoffgridai.co` points at GitHub Pages through the Cloudflare proxy.
+The apex and `www` web records are proxied. The existing Full SSL mode remains active.
+The “Long browser cache for versioned website assets” cache rule matches only
+`/assets/preview/` and `/assets/img/home/` URLs with a `v=` query parameter on these
+hostnames. Its edge TTL is 30 days and browser TTL is one year. Keep the complete
+query string in the cache key. Change the version when changing an asset; preview
+bundle versions are generated from content by `npm run build:preview`, and screenshot
+versions use `SHOT_V` in `preview-ui/page.jsx`. HTML and unversioned files retain their
+normal cache policy. To undo this cache change, disable that rule and turn off the
+proxy on the apex and `www` web records. The former domain
 `offgridmobileai.co` 301-redirects to `getoffgridai.co` (Cloudflare redirect rule).

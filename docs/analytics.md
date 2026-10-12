@@ -3,6 +3,12 @@
 Named interaction events are sent to the existing PostHog project. Existing
 event names remain compatible with current reports.
 
+On Home, core PostHog page views and events start immediately. Replay and surveys
+are enabled after the load event, during idle time with a two-second deadline.
+Replay keeps the project sampling and recording rules; this does not force a
+recording. Google Ads and Meta continue to load immediately. The start of a replay
+can therefore follow the initial page paint.
+
 ## Downloads
 
 `docs_download_click` covers App Store, Google Play, and direct Android APK/AAB
