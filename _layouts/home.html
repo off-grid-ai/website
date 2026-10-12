@@ -56,8 +56,9 @@
   </script>
 
   <!-- Fetch tracking dependencies during HTML parsing; keep their existing
-       execution order and capture start time below. Match PostHog's CORS mode. -->
-  <link rel="preload" as="script" href="https://us-assets.i.posthog.com/static/array.js" crossorigin="anonymous">
+       execution order below. Preserve PostHog's async download priority so
+       the preload does not compete with the UI bundle on slow connections. -->
+  <link rel="preload" as="script" href="https://us-assets.i.posthog.com/static/array.js" crossorigin="anonymous" fetchpriority="low">
   <link rel="preload" as="script" href="{{ '/assets/js/site-analytics.js' | relative_url }}">
   <link rel="preload" as="script" href="{{ '/assets/js/ad-click-id.js' | relative_url }}">
 
