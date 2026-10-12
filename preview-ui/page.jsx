@@ -967,10 +967,13 @@ function Walkthrough({ reduce, theme }) {
     const measure = () => {
       const mobile = innerWidth <= 860; const col = Math.min(1200, innerWidth - 48); const vh = innerHeight;
       const heroBottom = 68 + (heroRef.current ? heroRef.current.offsetTop + heroRef.current.offsetHeight : vh * .6) + (mobile ? 20 : 48);
-      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; setCopyH(ch); setGeo({ d: heroBottom + 8 - (14 + ch + 10), s: 1, mobile, ready: true }); return; }
+      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; const d = heroBottom + 8 - (14 + ch + 10); setCopyH(ch); setGeo(prev => prev.ready && prev.d === d && prev.s === 1 && prev.mobile === mobile ? prev : { d, s: 1, mobile, ready: true }); return; }
       // The window's real height (CSS sizes it), so the hero always keeps its breathing room above it.
       const win = document.querySelector('.wt-window'); const W = win?.offsetWidth || col * .7; const H = win?.offsetHeight || Math.min(W * .66, (vh - 68) * .9); const hs = col / W;
-      setGeo({ d: Math.max(vh * .62, heroBottom) - (vh * .5 + 34) + (H * hs) / 2, s: hs, mobile, ready: true });
+      const d = Math.max(vh * .62, heroBottom) - (vh * .5 + 34) + (H * hs) / 2;
+      // ResizeObserver also reports the initial size after the first measure.
+      // Keep the existing state when geometry is unchanged so the tour is not rebuilt.
+      setGeo(prev => prev.ready && prev.d === d && prev.s === hs && prev.mobile === mobile ? prev : { d, s: hs, mobile, ready: true });
     };
     measure(); addEventListener('resize', measure); const ro = new ResizeObserver(measure); if (copyRef.current) ro.observe(copyRef.current); return () => { removeEventListener('resize', measure); ro.disconnect(); };
   }, []);
