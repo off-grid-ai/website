@@ -78,14 +78,13 @@ aliases['@eldoraui/macbook-pro'] = await upstream('karthikmudunuri/eldoraui', el
 await writeFile(resolve(output, 'eldoraui-license.txt'), await readFile(await upstream(
   'karthikmudunuri/eldoraui', eldoraCommit, 'LICENSE.md', 'eldoraui-license.txt'
 )));
-// Shared library package, pinned to commit 604a79f. Bundled for builds without private-repo credentials.
-const presetInputArchive = resolve('preview-ui/vendor/component-library-604a79f.tgz');
-if (createHash('sha256').update(await readFile(presetInputArchive)).digest('hex') !== '8bf54a495d6178db4a320827cd9dad16073872862701d33eed547951f7436b55') throw new Error('Shared preset input package changed');
-const presetInputPackage = resolve(cache, 'component-library-604a79f');
+// Shared library package, pinned to commit dd1e6a3. Bundled for builds without private-repo credentials.
+const presetInputArchive = resolve('preview-ui/vendor/component-library-dd1e6a3.tgz');
+if (createHash('sha256').update(await readFile(presetInputArchive)).digest('hex') !== '8c2df01288fca6ab9088bb3b4988e691b9fc7c793363a5a4c72611ff9e789bc2') throw new Error('Shared preset input package changed');
+const presetInputPackage = resolve(cache, 'component-library-dd1e6a3');
 await mkdir(presetInputPackage, { recursive: true });
 execFileSync('tar', ['-xzf', presetInputArchive, '-C', presetInputPackage, '--strip-components=1']);
 aliases['@offgrid-ui/placeholders-and-vanish-input'] = resolve(presetInputPackage, 'src/components/placeholders-and-vanish-input.tsx');
-aliases['@offgrid-ui/number-ticker'] = resolve(presetInputPackage, 'src/components/number-ticker.tsx');
 await writeFile(resolve(output, 'magicui-license.txt'), await readFile(await upstream(
   'magicuidesign/magicui', magicCommit, 'LICENSE.md', 'magicui-license.txt'
 )));
