@@ -1084,7 +1084,7 @@ function Walkthrough({ reduce, theme }) {
         <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
         <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
       </div>, [theme]);
-  const hero = useMemo(() => <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
+  const hero = useMemo(() => <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}><Suspense>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
           <span>Your AI.</span>
@@ -1097,15 +1097,14 @@ function Walkthrough({ reduce, theme }) {
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
-      </motion.div>, [docked, reduce, goId, heroFade, heroLift]);
+      </Suspense></motion.div>, [docked, reduce, goId, heroFade, heroLift]);
   const scene = useMemo(() => C.View.fill ? <C.View /> : <div className="wt-canvas"><C.View /></div>, [C]);
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
+      {hero}
       <div className="walk-igrid"><Suspense>{grid}</Suspense></div>
       {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
       {!reduce && inView && !docked && background}
-
-      {hero}
 
       <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH ALEX</Kicker>
@@ -1148,18 +1147,18 @@ function Walkthrough({ reduce, theme }) {
 
       <motion.div className={`wt-window ${geo.ready ? 'is-ready' : ''}`} style={{ scale, y }} drag={docked ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
         onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 60) setManual(false); if (info.offset.x < -60) go(ch + 1); else if (info.offset.x > 60) go(ch - 1); }}>
-        <div className="wt-bar">
+        <Suspense><div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
           <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
           {seqMine ? <PickCtx.Provider value={onPick}><SceneRoll seq={seq} /></PickCtx.Provider> : null}
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
-        </div>
+        </div></Suspense>
         <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
           {!C.View.fill && <DotPattern width={18} height={18} cr={1} className="wt-dots" />}
           <AnimatePresence initial={false}>
             <motion.div key={`${C.id}-${cycle}`} className="wt-scene" initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .4 }}>
-              {scene}
+              <Suspense>{scene}</Suspense>
             </motion.div>
           </AnimatePresence>
           <div className="beam-layer" ref={beamLayer} aria-hidden="true" />
