@@ -26,7 +26,7 @@ import { AnimatedBackground } from '@motion-primitives/animated-background';
 import { BorderBeam } from '@magicui/border-beam';
 import { BentoGrid, BentoCard } from '@magicui/bento-grid';
 import { AnimatedBeam } from '@magicui/animated-beam';
-import { NumberTicker } from '@magicui/number-ticker';
+import { NumberTicker } from '@offgrid-ui/number-ticker';
 import { Marquee } from '@magicui/marquee';
 import { MagicCard } from '@magicui/magic-card';
 import { Iphone } from '@magicui/iphone';
@@ -51,7 +51,7 @@ import { Confetti } from '@magicui/confetti';
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import { InteractiveHoverButton } from '@magicui/interactive-hover-button';
 import { Highlighter } from '@magicui/highlighter';
-import { PlaceholdersAndVanishInput } from '@aceternity/placeholders-and-vanish-input';
+import { PlaceholdersAndVanishInput } from '@offgrid-ui/placeholders-and-vanish-input';
 import { PlaceholdersAndVanishInput as PresetVanishInput } from '@offgrid-ui/placeholders-and-vanish-input';
 import { TextAnimate } from '@magicui/text-animate';
 import { TextReveal } from '@magicui/text-reveal';
@@ -1231,11 +1231,10 @@ function PrivacySection() {
   useEffect(() => { const io = new IntersectionObserver(([e]) => setSeen(e.isIntersecting)); if (box.current) io.observe(box.current); return () => io.disconnect(); }, []);
   const auto = useCycle(seen && !held ? 7000 : 0);
   useEffect(() => { if (auto) { setPrompt(SAMPLE_PROMPTS[auto % SAMPLE_PROMPTS.length]); setN(v => v + 1); } }, [auto]);
-  useEffect(() => { const root = box.current?.querySelector('.priv-input'); root?.querySelector('input')?.setAttribute('aria-label', 'Type a private question for the illustration'); root?.querySelector('button')?.setAttribute('aria-label', 'Show where it goes'); }, []);
   const send = (e) => { e.preventDefault(); if (!draft.trim()) return; setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); setHeld(true); };
   return <section id="private" className="chapter" aria-labelledby="priv-heading" ref={box}><div className="section-shell">
     <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></BlurFade>
-    <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
+    <div className="priv-input"><PlaceholdersAndVanishInput label="Type a private question for the illustration" submitLabel="Show where it goes" placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
     <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
       <PrivLane prompt={prompt} n={n} active={seen} />
       <PrivLane local prompt={prompt} n={n} active={seen} />
