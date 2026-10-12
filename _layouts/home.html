@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Start the existing UI files early without blocking the server-rendered hero. -->
+  <link rel="preload" as="style" href="{{ '/assets/preview/page.css' | relative_url }}?v={% include home-version.html %}">
+  <link rel="modulepreload" href="{{ '/assets/preview/page.js' | relative_url }}?v={% include home-version.html %}">
+
   <script>
     (function () {
       var saved;
