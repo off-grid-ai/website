@@ -23,7 +23,6 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import { TextEffect } from '@motion-primitives/text-effect';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
-import { TextScramble } from '@motion-primitives/text-scramble';
 import { BorderBeam } from '@magicui/border-beam';
 import { BentoGrid, BentoCard } from '@magicui/bento-grid';
 import { AnimatedBeam } from '@magicui/animated-beam';
@@ -1084,7 +1083,7 @@ function Walkthrough({ reduce, theme }) {
       <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
-          <TextScramble as="span" duration={.8} speed={.03} characterSet="01/_.:<>" trigger={false}>Your AI.</TextScramble>
+          <span>Your AI.</span>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
         <div className="hero-title rot-line" aria-hidden="true" style={{ '--rot-ch': Math.max(...ROT_WORDS.map(w => w.length)) }}><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
