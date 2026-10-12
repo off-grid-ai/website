@@ -55,10 +55,8 @@
     })();
   </script>
 
-  <!-- Fetch tracking dependencies during HTML parsing; keep their existing
-       execution order below. Preserve PostHog's async download priority so
-       the preload does not compete with the UI bundle on slow connections. -->
-  <link rel="preload" as="script" href="https://us-assets.i.posthog.com/static/array.js" crossorigin="anonymous" fetchpriority="low">
+  <!-- Fetch the small first-party tracking files before the parser reaches
+       them. Keep vendor downloads and all script execution in their usual order. -->
   <link rel="preload" as="script" href="{{ '/assets/js/site-analytics.js' | relative_url }}">
   <link rel="preload" as="script" href="{{ '/assets/js/ad-click-id.js' | relative_url }}">
 
