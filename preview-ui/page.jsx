@@ -1075,7 +1075,7 @@ function Walkthrough({ reduce, theme }) {
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       <div className="walk-igrid">{grid}</div>
       {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
-      {!reduce && <div className={`walk-alive ${docked ? 'off' : ''}`} aria-hidden="true">
+      {!reduce && inView && !docked && <div className="walk-alive" aria-hidden="true">
         <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
         <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
       </div>}
@@ -1144,7 +1144,7 @@ function Walkthrough({ reduce, theme }) {
         </div>
         <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
-          <DotPattern width={18} height={18} cr={1} className="wt-dots" />
+          {!C.View.fill && <DotPattern width={18} height={18} cr={1} className="wt-dots" />}
           <AnimatePresence initial={false}>
             <motion.div key={`${C.id}-${cycle}`} className="wt-scene" initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .4 }}>
               {C.View.fill ? <C.View /> : <div className="wt-canvas"><C.View /></div>}
@@ -1171,7 +1171,7 @@ function PrivLane({ local, prompt, n, active = true }) {
   return <SceneCard className={`plane ${local ? 'plane-local' : ''}`} busy={local}>
     <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count">{local ? 'Stays on your devices' : 'Leaves your device'}</span></div>
     {local ? <div className="lane-viz lane-local">
-      <DotPattern width={10} height={10} cr={.8} className="local-dots" />
+      {active && <DotPattern width={10} height={10} cr={.8} className="local-dots" />}
       <span className="map-tag"><LockKey size={12} /> Your prompt never leaves your devices</span>
       {/* A closed network: your phone and laptop ask, your chip answers, your disk keeps it. No path leads outside. */}
       <div className="dev-net" ref={box}>
@@ -1182,7 +1182,7 @@ function PrivLane({ local, prompt, n, active = true }) {
         </div>
         <span className="dev-node dev-hub"><span className="dev-ic" ref={b}><Cpu size={28} /></span><small>Your chip</small></span>
         <span className="dev-node"><span className="dev-ic" ref={c}><HardDrives size={22} /></span><small>Your disk</small></span>
-        {[[a, b, 0, false, 18], [d, b, .6, false, -18], [b, c, 1.2, false, 0], [b, a, 1.8, true, 18]].map(([f, t, delay, r, cv], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={f} toRef={t} curvature={cv} duration={2.6} delay={delay} repeatDelay={.4} pathWidth={2} pathColor="var(--og-primary)" pathOpacity={.16} gradientStartColor="#34D399" gradientStopColor="#059669" reverse={r} />)}
+        {active && [[a, b, 0, false, 18], [d, b, .6, false, -18], [b, c, 1.2, false, 0], [b, a, 1.8, true, 18]].map(([f, t, delay, r, cv], k) => <AnimatedBeam key={`b${n}-${k}`} containerRef={box} fromRef={f} toRef={t} curvature={cv} duration={2.6} delay={delay} repeatDelay={.4} pathWidth={2} pathColor="var(--og-primary)" pathOpacity={.16} gradientStartColor="#34D399" gradientStopColor="#059669" reverse={r} />)}
       </div>
     </div>
     : <div className="lane-viz lane-map">
