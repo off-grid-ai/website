@@ -55,6 +55,12 @@
     })();
   </script>
 
+  <!-- Fetch tracking dependencies during HTML parsing; keep their existing
+       execution order and capture start time below. Match PostHog's CORS mode. -->
+  <link rel="preload" as="script" href="https://us-assets.i.posthog.com/static/array.js" crossorigin="anonymous">
+  <link rel="preload" as="script" href="{{ '/assets/js/site-analytics.js' | relative_url }}">
+  <link rel="preload" as="script" href="{{ '/assets/js/ad-click-id.js' | relative_url }}">
+
   <!-- Google tag (gtag.js) - page view only. Conversions are sent explicitly
        from the checkout buttons on /pro; see _config.yml (google_ads_*). -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_ads_id }}"></script>
