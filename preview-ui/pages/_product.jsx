@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useIsPresent, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, AnimatePresence, useIsPresent, useInView, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -124,9 +124,10 @@ export function useAutoProgress(i, ms, paused, next) {
 export function AppWindow({ chapters, label }) {
   const reduce = useReducedMotion();
   const [i, setI] = useState(0); const [hold, setHold] = useState(false); const [manual, setManual] = useState(false);
+  const box = useRef(null); const inView = useInView(box);
   const C = chapters[i];
   const dwell = C.dwell || C.shots.reduce((a, s) => a + screenTime(s), 0) + 200;
-  const prog = useAutoProgress(i, dwell, hold || manual || reduce, () => setI(v => (v + 1) % chapters.length));
+  const prog = useAutoProgress(i, dwell, hold || manual || reduce || !inView, () => setI(v => (v + 1) % chapters.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: chapters.length, title: C.label, line: C.cmd, progress: reduce ? null : prog, goTo: setI });
   // The window's command follows the screen on show.
   const [scr, setScr] = useState(null); const iNow = useRef(i); iNow.current = i;
@@ -135,7 +136,7 @@ export function AppWindow({ chapters, label }) {
   const [seq, setSeq] = useState(null);
   const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
-  return <PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className="pp-app">
+  return <PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className="pp-app" ref={box}>
     <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
       <div className="pp-bar">
@@ -168,10 +169,17 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
   // A feature with screenshots plays all of them (3s each); a composed scene gets `ms`.
   const [count, setCount] = useState({ i: -1, n: 0 }); const onCount = useCallback((n) => setCount({ i, n }), [i]);
   const featureMs = count.i === i && count.n ? count.n * SCREEN_MS : ms;
-  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce, () => setI(v => (v + 1) % items.length));
+  const stage = useRef(null); const [inView, setInView] = useState(false);
+  useEffect(() => {
+    if (narrow || !stage.current) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    observer.observe(stage.current);
+    return () => observer.disconnect();
+  }, [narrow]);
+  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce || !inView, () => setI(v => (v + 1) % items.length));
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: items.length, title: items[i].title, line: items[i].line, progress: reduce ? null : prog, goTo: setI });
   // Features without screenshots open full screen too: a live copy of their scene.
-  const stage = useRef(null); const item = items[i];
+  const item = items[i];
   useZoomRegister(narrow ? null : zoom, [['__scene', item.line || item.title, ms, () => (typeof item.visual === 'function' ? item.visual(false) : null)]], () => !!stage.current?.getClientRects().length, true);
   if (narrow) return <MobileRail className={`pp-rail ${className}`}>
     {items.map(it => <article className="pp-card" key={it.id}>
@@ -269,9 +277,10 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const reduce = useReducedMotion(); const zc = useContext(ZoomCtx);
   const [open, setOpen] = useState(false);
   const present = useIsPresent();
-  const running = shots.length > 1 && !reduce && (!manual || open) && present;
+  const box = useRef(null); const inView = useInView(box);
+  const running = shots.length > 1 && !reduce && ((!manual && inView) || open) && present;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime([`mobile/${shots[i][0]}`, '', shots[i][2]], ms)); return () => clearTimeout(t); }, [i, running]);
-  const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
+  const step = useSeqStep(shots.length, i, setI, setN, null);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
   // Only the copy on screen reports (the other theme's twin is hidden).
@@ -282,7 +291,7 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const [f, alt] = shots[i];
   const phone = <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}><div className="pp-phone pp-phone-shot" ref={box}>
     <div className="pp-screen pp-screen-shot">
-      {shots.length > 1 && <div className="preload" aria-hidden="true">{shots.map(x => <img key={x[0]} src={mobSrc(x[0])} alt="" />)}</div>}
+      {running && <div className="preload" aria-hidden="true"><img src={mobSrc(shots[(i + 1) % shots.length][0])} alt="" fetchPriority="low" /></div>}
       <Wipe id={`${f}-${i}`}><Zoomed name={`mobile/${f}`} phone><Shot name={f} mobile alt={alt} className={`pp-mshot ${/-dark$/.test(f) ? 'is-dark' : ''}`} /></Zoomed></Wipe>
     </div>
     <Iphone />

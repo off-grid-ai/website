@@ -8,7 +8,7 @@ import {
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
-import { motion, MotionConfig, AnimatePresence, useIsPresent, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, MotionConfig, AnimatePresence, useIsPresent, useInView, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
 import { Carousel, CarouselContent, CarouselItem, CarouselIndicator } from '@motion-primitives/carousel';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -300,8 +300,8 @@ export function Kicker({ children }) {
 }
 export function Title({ id, lead, dim, as = 'h2', className }) {
   return <Heading as={as} id={id} className={className}>
-    <TextAnimate as="span" by="word" animation="slideUp" once startOnView className="t-line">{lead}</TextAnimate>
-    {dim && <TextAnimate as="span" by="word" animation="slideUp" once startOnView delay={.2} className="t-line t-dim">{dim}</TextAnimate>}
+    <TextAnimate as="span" by="word" animation="slideUp" initial={as === 'h1' ? 'show' : 'hidden'} once startOnView className="t-line">{lead}</TextAnimate>
+    {dim && <TextAnimate as="span" by="word" animation="slideUp" initial={as === 'h1' ? 'show' : 'hidden'} once startOnView delay={.2} className="t-line t-dim">{dim}</TextAnimate>}
   </Heading>;
 }
 // A one-sentence statement: Magic UI TextReveal lights each word as the reader scrolls through it.
@@ -490,15 +490,15 @@ const LOCAL_MODELS = [
 ];
 function ModelsScene() {
   const STEP = 1500;
-  const [v, setV] = useState(0);
-  useEffect(() => { const t = setInterval(() => setV(x => { if (x >= LOCAL_MODELS.length * 100) { clearInterval(t); return x; } return x + 5; }), STEP / 20); return () => clearInterval(t); }, []);
+  const [v, setV] = useState(0); const box = useRef(null); const inView = useInView(box);
+  useEffect(() => { if (!inView) return; const t = setInterval(() => setV(x => { if (x >= LOCAL_MODELS.length * 100) { clearInterval(t); return x; } return x + 5; }), STEP / 20); return () => clearInterval(t); }, [inView]);
   const active = Math.min(LOCAL_MODELS.length - 1, Math.floor(v / 100)); const done = v >= LOCAL_MODELS.length * 100;
   const m = LOCAL_MODELS[active];
-  return <div className="scene scene-models">
-    <Preload names={LOCAL_MODELS.map(x => `models-${x.tab}`)} />
+  return <div className="scene scene-models" ref={box}>
+    {inView && !done && <Preload names={[`models-${LOCAL_MODELS[Math.min(active + 1, LOCAL_MODELS.length - 1)].tab}`]} />}
     <div className="wt-shot">
       <AnimatePresence initial={false}>
-        <motion.div key={m.tab} className="wt-shot-in" initial={DISSOLVE.initial} animate={DISSOLVE.animate} exit={DISSOLVE.exit}><Shot name={`models-${m.tab}`} alt={`Off Grid AI Models: ${m.kind.toLowerCase()} models you can download to this device.`} lazy={false} /><motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={{ duration: .7, ease: [.65, 0, .35, 1] }} /></motion.div>
+        <motion.div key={m.tab} className="wt-shot-in" initial={DISSOLVE.initial} animate={DISSOLVE.animate} exit={DISSOLVE.exit}><Shot name={`models-${m.tab}`} alt={`Off Grid AI Models: ${m.kind.toLowerCase()} models you can download to this device.`} lazy={!inView} /><motion.i className="wipe-edge" initial={{ left: '0%', opacity: 1 }} animate={{ left: '100%', opacity: [1, 1, 0] }} transition={{ duration: .7, ease: [.65, 0, .35, 1] }} /></motion.div>
       </AnimatePresence>
     </div>
     <SceneCard className="models-card" busy={!done}>
@@ -599,9 +599,15 @@ const VaultScene = Object.assign(() => <ShotSeq shots={[['vault-locked', 'Off Gr
 
 /* ───────────────────────── Walkthrough: one window, the whole way down ───────────────────────── */
 
-// Loads every screen of a sequence up front so a wipe never reveals an empty frame.
+// Warm the next screen only, in the active theme, without competing with the visible image.
 export function Preload({ names }) {
-  return <div className="preload" aria-hidden="true" inert>{names.map(n => <Shot key={n} name={n} alt="" lazy={false} />)}</div>;
+  const theme = useContext(ThemeCtx);
+  return <div className="preload" aria-hidden="true" inert>{names.map(name => {
+    const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
+    const fixed = mobile && n.match(/-(dark|light)$/); const base = fixed ? n.replace(/-(dark|light)$/, '') : n;
+    const src = `/assets/img/home/${mobile ? 'mobile' : 'app'}/${base}-${fixed ? fixed[1] : theme}-${mobile ? 640 : 1760}.webp?v=${SHOT_V}`;
+    return <img key={name} src={src} alt="" fetchPriority="low" />;
+  })}</div>;
 }
 
 // Real app screens. Each one wipes in left to right; chapters with several screens step through them.
@@ -722,7 +728,7 @@ export const PickCtx = createContext(null);
 // How far into a sequence screen k starts, as a fraction of the whole (screens can have different lengths).
 export const pickFraction = (shots, k) => { const total = shots.reduce((t, x) => t + screenTime(x), 0); return total ? shots.slice(0, k).reduce((t, x) => t + screenTime(x), 0) / total : 0; };
 // Thumbnails match the page's theme, so the roll reads as mini screens rather than grey blocks.
-const thumbOf = (name, theme) => { const t = theme === 'light' ? 'light' : 'dark'; return name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-${t}-640.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-${t}-1760.webp?v=${SHOT_V}`; };
+const thumbOf = (name, theme) => { const t = theme === 'light' ? 'light' : 'dark'; return name.startsWith('mobile/') ? `/assets/img/home/mobile/${name.slice(7).replace(/-(dark|light)$/, '')}-${t}-160.webp?v=${SHOT_V}` : `/assets/img/home/app/${name}-${t}-160.webp?v=${SHOT_V}`; };
 // Camera roll: the chapter's scenes as small, steady thumbnails in their screen's own shape (no hover magnify, so nothing shifts or clips).
 export function SceneRoll({ seq, className = '' }) {
   const theme = useContext(ThemeCtx); const pick = useContext(PickCtx);
@@ -845,9 +851,10 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
   // Inside a tour or feature explorer the chapter decides when to move on, so the sequence holds its last screen
   // instead of wrapping back to the first one while the next chapter loads.
   const countCtx = useContext(ScreenCountCtx); const holdLast = (hold || !!countCtx) && !open && i === shots.length - 1;
-  const running = (playing || open) && !reduce && shots.length > 1 && present && !holdLast;
+  const box = useRef(null); const inView = useInView(box);
+  const running = ((playing && inView) || open) && !reduce && shots.length > 1 && present && !holdLast;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime(shots[i], ms)); return () => clearTimeout(t); }, [n, running]);
-  const step = useSeqStep(shots.length, i, setI, setN, null); const box = useRef(null);
+  const step = useSeqStep(shots.length, i, setI, setN, null);
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
   useEffect(() => { if (!present) return; onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n, present]);
@@ -856,13 +863,13 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
   // Any tap on the screen area opens full screen (on phones the device frame covers most of it).
   return <SeqOpenCtx.Provider value={(nm) => (zc ? zc.open(nm) : setOpen(true))}>
     <div className="wt-shot" ref={box} onClick={(e) => { if (!e.target.closest('button, a, [role="button"]')) (zc ? zc.open(name) : setOpen(true)); }}>
-      {shots.length > 1 && <Preload names={shots.map(x => x[0])} />}
+      {running && <Preload names={[shots[(i + 1) % shots.length][0]]} />}
       <AnimatePresence>
-        <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
+        <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce || n === 0 ? false : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
         <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
           {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <div className="shot-solo-phone"><Device name={name} theme={theme} alt={alt} /></div>
             // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
-            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={false} /></Zoomed></div></div></div>}
+            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={!inView} /></Zoomed></div></div></div>}
         </motion.div>
         </motion.div>
       </AnimatePresence>
