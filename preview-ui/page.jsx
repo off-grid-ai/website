@@ -271,9 +271,12 @@ export function useSteps(times) {
 
 // Living backdrop for every section after the walkthrough: grid cells answer the cursor, dots breathe.
 export function SectionBg() {
-  return <div className="sec-bg" aria-hidden="true">
-    <FlickeringGrid squareSize={3} gridGap={10} maxOpacity={.14} flickerChance={.12} color="rgb(52, 211, 153)" className="sec-dots" />
-    <InteractiveGridPattern width={56} height={56} squares={[40, 30]} className="igrid" squaresClassName="igrid-sq" />
+  const ref = useRef(null);
+  const visible = useInView(ref, { margin: '200px' });
+  const reduce = useContext(PlayCtx).reducedMotion;
+  return <div className="sec-bg" ref={ref} aria-hidden="true">
+    {visible && !reduce && <FlickeringGrid squareSize={3} gridGap={10} maxOpacity={.14} flickerChance={.12} color="rgb(52, 211, 153)" className="sec-dots" />}
+    {visible && <InteractiveGridPattern width={56} height={56} squares={[40, 30]} className="igrid" squaresClassName="igrid-sq" />}
   </div>;
 }
 
@@ -938,6 +941,7 @@ export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: Clipboa
 function Walkthrough({ reduce, theme }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
+  const grid = useMemo(() => <InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" />, []);
   const N = WALK.length;
   const chapterProgress = useMotionValue(0);
   // Picking a screen from the camera roll moves the chapter timer to that screen, so the chapter ends with its last screen.
@@ -1073,7 +1077,7 @@ function Walkthrough({ reduce, theme }) {
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {!reduce && <div className="walk-grid" aria-hidden="true"><FlickeringGrid squareSize={3} gridGap={9} maxOpacity={.2} flickerChance={.16} color="rgb(52, 211, 153)" /></div>}
-      <div className="walk-igrid"><InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" /></div>
+      <div className="walk-igrid">{grid}</div>
       {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
       {!reduce && <div className={`walk-alive ${docked ? 'off' : ''}`} aria-hidden="true">
         <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
@@ -1390,14 +1394,16 @@ export default function PreviewPage({ pricing: initialPricing }) {
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
 function HomeSections({ pricing }) {
+  const modelsRef = useRef(null);
+  const modelsVisible = useInView(modelsRef, { margin: '200px' });
   const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
   return <>
       <Walkthrough reduce={reduce} theme={theme} />
-      <section className="models-band" aria-label="Models you can run">
-        <ScrollVelocityContainer className="models-vel">
+      <section className="models-band" ref={modelsRef} aria-label="Models you can run">
+        {modelsVisible && !reduce ? <ScrollVelocityContainer className="models-vel">
           <ScrollVelocityRow baseVelocity={3} direction={1}>{MODELS.slice(0, 6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
           <ScrollVelocityRow baseVelocity={3} direction={-1}>{MODELS.slice(6).map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</ScrollVelocityRow>
-        </ScrollVelocityContainer>
+        </ScrollVelocityContainer> : <div className="models-vel">{MODELS.map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</div>}
       </section>
       <PrivacySection />
       <section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section>
