@@ -940,7 +940,6 @@ export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: Clipboa
 function Walkthrough({ reduce, theme }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
-  const grid = useMemo(() => <InteractiveGridPattern width={48} height={48} squares={[40, 24]} className="igrid" squaresClassName="igrid-sq" />, []);
   const N = WALK.length;
   const chapterProgress = useMotionValue(0);
   // Picking a screen from the camera roll moves the chapter timer to that screen, so the chapter ends with its last screen.
@@ -950,7 +949,9 @@ function Walkthrough({ reduce, theme }) {
   const [docked, setDocked] = useState(false); const [q, setQ] = useState('');
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
   const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const [wheelR, setWheelR] = useState(360); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
-  const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false });
+  const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false, columns: 40, rows: 24 });
+  // Keep every visible hover cell, but omit cells beyond the clipped viewport.
+  const grid = useMemo(() => <InteractiveGridPattern width={48} height={48} squares={[geo.columns, geo.rows]} className="igrid" squaresClassName="igrid-sq" />, [geo.columns, geo.rows]);
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
     const el = view.current; if (!el) return;
@@ -966,14 +967,15 @@ function Walkthrough({ reduce, theme }) {
   useEffect(() => {
     const measure = () => {
       const mobile = innerWidth <= 860; const col = Math.min(1200, innerWidth - 48); const vh = innerHeight;
+      const columns = Math.min(40, Math.ceil(innerWidth / 48)); const rows = Math.min(24, Math.ceil(vh / 48));
       const heroBottom = 68 + (heroRef.current ? heroRef.current.offsetTop + heroRef.current.offsetHeight : vh * .6) + (mobile ? 20 : 48);
-      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; const d = heroBottom + 8 - (14 + ch + 10); setCopyH(ch); setGeo(prev => prev.ready && prev.d === d && prev.s === 1 && prev.mobile === mobile ? prev : { d, s: 1, mobile, ready: true }); return; }
+      if (mobile) { const ch = copyRef.current ? copyRef.current.offsetHeight : 260; const d = heroBottom + 8 - (14 + ch + 10); setCopyH(ch); setGeo(prev => prev.ready && prev.d === d && prev.s === 1 && prev.mobile === mobile && prev.columns === columns && prev.rows === rows ? prev : { d, s: 1, mobile, ready: true, columns, rows }); return; }
       // The window's real height (CSS sizes it), so the hero always keeps its breathing room above it.
       const win = document.querySelector('.wt-window'); const W = win?.offsetWidth || col * .7; const H = win?.offsetHeight || Math.min(W * .66, (vh - 68) * .9); const hs = col / W;
       const d = Math.max(vh * .62, heroBottom) - (vh * .5 + 34) + (H * hs) / 2;
       // ResizeObserver also reports the initial size after the first measure.
       // Keep the existing state when geometry is unchanged so the tour is not rebuilt.
-      setGeo(prev => prev.ready && prev.d === d && prev.s === hs && prev.mobile === mobile ? prev : { d, s: hs, mobile, ready: true });
+      setGeo(prev => prev.ready && prev.d === d && prev.s === hs && prev.mobile === mobile && prev.columns === columns && prev.rows === rows ? prev : { d, s: hs, mobile, ready: true, columns, rows });
     };
     measure(); addEventListener('resize', measure); const ro = new ResizeObserver(measure); if (copyRef.current) ro.observe(copyRef.current); return () => { removeEventListener('resize', measure); ro.disconnect(); };
   }, []);
@@ -1008,7 +1010,7 @@ function Walkthrough({ reduce, theme }) {
     spinTo(n);
   }, [N, docked, spinTo]);
   const goRef = useRef(go); goRef.current = go;
-  const goId = (id) => go(WALK.findIndex(w => w.id === id));
+  const goId = useCallback((id) => go(WALK.findIndex(w => w.id === id)), [go]);
   const linkRef = useRef(null); const linkDone = useRef(false);
   if (linkRef.current === null && typeof window !== 'undefined') linkRef.current = location.hash.slice(1);
   // The URL tracks the chapter, so every step is a shareable link (#ask, #browser, ...).
@@ -1066,7 +1068,7 @@ function Walkthrough({ reduce, theme }) {
     return () => clock.stop();
   }, [docked, inView, manual, ch, reduce, spinTo, chapterProgress, restart]);
   const C = WALK[docked ? ch : 0]; const playing = docked && inView; const cycle = useCycle(playing ? C.loop : 0);
-  const play = { playing, reducedMotion: reduce, takeOver: () => setManual(true), hold: (open) => setInView(!open) };
+  const play = useMemo(() => ({ playing, reducedMotion: reduce, takeOver: () => setManual(true), hold: (open) => setInView(!open) }), [playing, reduce]);
   // Full screen follows the tour: arrows step screens and then chapters, autoplay keeps running.
   // The window's command follows the screen on show, not just the chapter.
   const [scr, setScr] = useState(null); const chNow = useRef(ch); chNow.current = ch;
@@ -1076,16 +1078,13 @@ function Walkthrough({ reduce, theme }) {
   const cmd = cmdFor(WALK[ch].id, mine ? scr.name : null, WALK[ch].cmd);
   const [seq, setSeq] = useState(null); const seqMine = seq && WALK[ch].View.shots?.some(x => x[0] === seq.shots[0][0]) ? seq : null;
   const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
-  return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
-    <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
-      <div className="walk-igrid"><Suspense>{grid}</Suspense></div>
-      {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
-      {!reduce && inView && !docked && <div className="walk-alive" aria-hidden="true">
+  // Wheel rotation and screen reports do not change the hero or its effects.
+  // Keep the same elements so their own animation state can run independently.
+  const background = useMemo(() => <div className="walk-alive" aria-hidden="true">
         <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
         <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
-      </div>}
-
-      <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
+      </div>, [theme]);
+  const hero = useMemo(() => <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
           <span>Your AI.</span>
@@ -1098,7 +1097,15 @@ function Walkthrough({ reduce, theme }) {
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
-      </motion.div>
+      </motion.div>, [docked, reduce, goId, heroFade, heroLift]);
+  const scene = useMemo(() => C.View.fill ? <C.View /> : <div className="wt-canvas"><C.View /></div>, [C]);
+  return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
+    <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
+      <div className="walk-igrid"><Suspense>{grid}</Suspense></div>
+      {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
+      {!reduce && inView && !docked && background}
+
+      {hero}
 
       <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH ALEX</Kicker>
@@ -1152,7 +1159,7 @@ function Walkthrough({ reduce, theme }) {
           {!C.View.fill && <DotPattern width={18} height={18} cr={1} className="wt-dots" />}
           <AnimatePresence initial={false}>
             <motion.div key={`${C.id}-${cycle}`} className="wt-scene" initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .4 }}>
-              {C.View.fill ? <C.View /> : <div className="wt-canvas"><C.View /></div>}
+              {scene}
             </motion.div>
           </AnimatePresence>
           <div className="beam-layer" ref={beamLayer} aria-hidden="true" />
