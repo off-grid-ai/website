@@ -1340,7 +1340,7 @@ export function PageShell({ children, feedback = true }) {
   return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={{ ...play, reducedMotion: reduce }}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
     <a className="skip-link" href="#main">Skip to content</a>
     <ScrollProgress className="h-0.5 z-[100] from-(--og-primary-dark) via-(--og-primary) to-(--og-primary-light)" />
-    <header className="site-header"><div className="header-inner">
+    <Suspense><header className="site-header"><div className="header-inner">
       <a className="wordmark" href="/" aria-label="Off Grid AI home"><Logo size={30} /><span>Off Grid AI</span></a>
       <NavigationMenu className="desktop-nav" aria-label="Main navigation" viewport={false}>
         <NavigationMenuList>
@@ -1370,18 +1370,18 @@ export function PageShell({ children, feedback = true }) {
           </Dialog.Content></Dialog.Portal>
         </Dialog.Root>
       </div>
-    </div></header>
+    </div></header></Suspense>
 
     <main id="main" tabIndex={-1}><ThemeCtx.Provider value={theme}>{children}</ThemeCtx.Provider></main>
 
-    {feedback && <div className="section-shell page-feedback"><DocEnd /></div>}
-    <footer className="site-footer"><div className="section-shell">
+    {feedback && <Suspense><div className="section-shell page-feedback"><DocEnd /></div></Suspense>}
+    <Suspense><footer className="site-footer"><div className="section-shell">
       <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
       <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
-    </div></footer>
+    </div></footer></Suspense>
   </Theme></PlayCtx.Provider></MotionConfig>;
 }
 
