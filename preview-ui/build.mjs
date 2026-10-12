@@ -150,8 +150,9 @@ await writeFile(resolve(output, 'page.css'), compactCss.code);
 // scenes, dialogs, and sections; extraction never removes source rules.
 const critical = new Beasties({ path: websiteRoot, preload: false, pruneSource: false, logLevel: 'warn',
   allowRules: [/^:root/, /^html/, /^body/, /^\.dark/, /^\.light/] });
+const announcement = await readFile('_includes/announcement-bar.html', 'utf8');
 const firstScreen = rendered.slice(hints.length).split('<section class="models-band"')[0];
-const criticalHtml = await critical.process(`<html data-theme="dark" class="dark"><head><link rel="stylesheet" href="assets/preview/page.css"></head><body>${firstScreen}</body></html>`);
+const criticalHtml = await critical.process(`<html data-theme="dark" class="dark"><head><link rel="stylesheet" href="assets/preview/page.css"></head><body>${announcement}${firstScreen}</body></html>`);
 const criticalTokens = await transform(await readFile(resolve(output, 'tokens.css'), 'utf8'), { loader: 'css', minify: true });
 await writeFile('_includes/home-critical.html', `<style>${criticalTokens.code}</style>\n` + [...criticalHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => `<style>${m[1]}</style>`).join('\n'));
 
