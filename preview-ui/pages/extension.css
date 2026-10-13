@@ -47,4 +47,6 @@
   .ex-row{flex-direction:row}.ex-btn{width:auto}
   .ex-hero .pp-lede{font-size:15px}
 }
-.ex-copy,.ex-form,.ex-visual{min-width:0;max-width:100%}
+.ex-copy,.ex-visual{min-width:0;max-width:100%}
+.ex-form{min-width:0;max-width:min(520px,100%)}
+.pp-final .fine a{display:inline-flex;align-items:center;gap:var(--og-space-xs);white-space:nowrap}
