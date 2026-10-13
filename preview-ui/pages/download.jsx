@@ -15,10 +15,10 @@ const OGAD_V = '0.0.54';
 const OGAM_REL = `https://github.com/off-grid-ai/OGAM/releases/tag/v${OGAM_V}`;
 const OGAD_REL = `https://github.com/off-grid-ai/OGAD/releases/tag/v${OGAD_V}`;
 const D = `https://github.com/off-grid-ai/OGAD/releases/download/v${OGAD_V}/`;
-const APK_V = '0.0.112-beta.1';
+const APK_V = '0.0.114-beta.1';
 const APK = `https://github.com/off-grid-ai/OGAM/releases/download/v${APK_V}/OffgridMobile-${APK_V}.apk`;
 const STAR = 'https://github.com/off-grid-ai/OGAD?utm_source=offgrid-docs&utm_medium=website&utm_campaign=github';
-const BETA_V = '0.0.55-beta.114';
+const BETA_V = '0.0.55-beta.122';
 const B = `https://github.com/off-grid-ai/OGAD/releases/download/v${BETA_V}/`;
 const BETA = { dmg: `${B}OffGrid-${BETA_V}.dmg`, exe: `${B}off-grid-ai-${BETA_V}-setup.exe`, AppImage: `${B}off-grid-ai-${BETA_V}.AppImage`, deb: `${B}off-grid-ai_${BETA_V}_amd64.deb` };
 
@@ -146,7 +146,7 @@ function Tracks() {
   return <section id="choose-a-release-track" className="pp dn-sec" aria-labelledby="dn-track-h">
     <div className="section-shell">
       <div className="sec-head"><Kicker>RELEASE TRACKS</Kicker><Title id="dn-track-h" lead="Stable to start." dim="Beta for what's next." /></div>
-      <MobileRail className="dn-tracks" labels={['Stable', 'Preview and beta']}>
+      <MobileRail className="dn-tracks" labels={['Stable', 'Desktop beta', 'Mobile beta']}>
         <SceneCard className="dn-track">
           <span className="dn-track-ic"><ShieldCheck size={22} /></span>
           <b className="dn-track-t">Stable</b>
@@ -158,21 +158,32 @@ function Tracks() {
         </SceneCard>
         <SceneCard className="dn-track">
           <span className="dn-track-ic"><Flask size={22} /></span>
-          <b className="dn-track-t">Preview and beta</b>
+          <b className="dn-track-t">Desktop beta</b>
           <p>New features first. Expect rough edges.</p>
           <div className="dn-beta-row" ref={betaRef} aria-label={`Desktop beta ${beta.tag}`}>
             {BETAS.map(([k, id, l, a]) => <Button asChild data-site-button="secondary" variant="outline" key={k}><a className="pp-alt" href={beta.links[k]} data-beta-download={k} aria-label={a} title={a}><PlatformIcon id={id} size={14} />{l}</a></Button>)}
-            <Button asChild data-site-button="secondary" variant="outline"><a className="pp-alt" href={APK} aria-label={`Download Android ${APK_V} preview APK`} title="Android preview APK"><PlatformIcon id="android" size={14} />APK</a></Button>
           </div>
           <div id="new-in-desktop-preview" className="dn-new">
-            <span className="eyebrow">New in desktop {beta.tag}</span>
+            <span className="eyebrow">New in desktop {BETA_V}</span>
             <ul>
-              <li><PlatformIcon id="linux" size={13} /><span>Pro: screen capture, Replay, Clipboard and Vault.</span></li>
-              <li><PlatformIcon id="windows" size={13} /><span>Pro: Day, Notifications and Reflect.</span></li>
-              <li><Flask size={13} /><span>Edit and reprocess Replay frames. Faster chat and model search.</span></li>
+              <li><Flask size={13} /><span>Pro: scheduled routines and hands-free voice with Ares.</span></li>
+              <li><ShieldCheck size={13} /><span>Desktop approval before browser chat sends or changes anything.</span></li>
+              <li><ArrowsClockwise size={13} /><span>Keep your settings and linked models when you upgrade or move model files.</span></li>
             </ul>
           </div>
-          <p className="pp-fine"><a href="/desktop/releases/">Preview release notes</a> · Android APK {APK_V} · <a href="/mobile/releases/">Release notes</a></p>
+          <p className="pp-fine"><a href="/desktop/releases/">Desktop beta release notes</a></p>
+        </SceneCard>
+        <SceneCard className="dn-track">
+          <span className="dn-track-ic"><PlatformIcon id="android" size={22} /></span>
+          <h3 id="mobile-beta" className="dn-track-t">Mobile beta</h3>
+          <p>Try new features on your phone before the stable release. Beta builds can have bugs.</p>
+          <div className="dn-beta-row" role="group" aria-labelledby="mobile-beta">
+            <Button asChild data-site-button="secondary" variant="outline"><a className="pp-alt" href="https://play.google.com/apps/testing/ai.offgridmobile" {...ext(true)}><PlatformIcon id="android" size={14} />Join on Android</a></Button>
+            <Button asChild data-site-button="secondary" variant="outline"><a className="pp-alt" href="https://testflight.apple.com/join/4QgabJGe" {...ext(true)}><PlatformIcon id="ios" size={14} />Join on iPhone</a></Button>
+          </div>
+          <p>Android: join with your Google account, then install from Google Play. iPhone: install Apple's TestFlight app, then open the link.</p>
+          <p>Enrollment can be unavailable while a build awaits review. The store page shows whether you can join.</p>
+          <p className="pp-fine"><a href={APK} aria-label={`Download Android ${APK_V} preview APK`}>Android preview APK {APK_V}</a> · <a href="/mobile/releases/">Mobile release notes</a></p>
         </SceneCard>
       </MobileRail>
     </div>

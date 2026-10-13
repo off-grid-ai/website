@@ -11,14 +11,32 @@ description: Off Grid AI Mobile releases for Android and iOS. Updates to your pe
 
 Every release, newest first.
 
-GitHub: **0.0.111**. Preview: **0.0.112-beta.1**. Store versions can differ.
+GitHub release: **0.0.111**. Latest preview: **0.0.114-beta.1**. Store versions can differ.
 
 - **Store builds** - [App Store](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882) and [Google Play](https://play.google.com/store/apps/details?id=ai.offgridmobile).
+- **Join the beta** - [Android open testing](https://play.google.com/apps/testing/ai.offgridmobile) or [iPhone via TestFlight](https://testflight.apple.com/join/4QgabJGe). Enrollment and available builds depend on store approval and eligibility. iPhone testers need Apple's TestFlight app.
 - **Direct builds** - [GitHub releases](https://github.com/off-grid-ai/OGAM/releases).
 
 <p class="ea-pricing-note">GitHub release: <a href="https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111" target="_blank" rel="noopener">OGAM 0.0.111</a>. <a href="https://github.com/off-grid-ai/OGAM/releases" target="_blank" rel="noopener">Full release history</a>.</p>
 
 ---
+
+## 0.0.114-beta.1 - preview - October 13, 2026
+
+Build **1791863375**. Android APK, Android App Bundle, and iOS archive are published on GitHub. This does not confirm availability on Google Play or TestFlight.
+
+- Stop remote image generation on Desktop when you cancel it on your phone. Cancelled requests cannot save results into another chat.
+- Keep voice transcripts in the chat where you recorded them. Android remembers denied microphone permission after a restart.
+- Route tools to the server and account you selected. Assistant and tool controls show their on or off state more clearly.
+- Delete synced images when you remove their chat, and report missing images or failed cleanup.
+
+[Android preview APK](https://github.com/off-grid-ai/OGAM/releases/download/v0.0.114-beta.1/OffgridMobile-0.0.114-beta.1.apk) · [Full notes](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1).
+
+## 0.0.113-beta.1 - preview - October 13, 2026
+
+Earlier preview, build **1791845979**. No downloadable packages are attached to this GitHub release. Use the newer preview above.
+
+[Full notes](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.113-beta.1).
 
 ## 0.0.112-beta.1 - preview - October 5, 2026
 
