@@ -31,7 +31,8 @@ const PLATFORMS = [
   { id: 'windows', name: 'Windows', req: 'x64', cta: 'Download for Windows', main: { small: 'Download', label: '.exe installer', href: `${D}off-grid-ai-${OGAD_V}-setup.exe`, aria: 'Download for Windows stable' } },
   { id: 'linux', name: 'Linux', req: 'Ubuntu 24.04+ · x64', cta: 'Download for Linux', main: { small: 'Download', label: 'AppImage', href: `${D}off-grid-ai-${OGAD_V}.AppImage`, aria: 'Download for Linux stable (AppImage)' },
     more: [['.deb package', `${D}off-grid-ai_${OGAD_V}_amd64.deb`, 'Download for Linux stable (deb)']] },
-  { id: 'extension', name: 'Browser extension', req: 'Chrome and Firefox · needs Desktop', main: { small: 'Early access', label: 'Request access', href: '/browser-extension/', aria: 'Request access to the browser extension' } },
+  { id: 'extension', name: 'Browser extension', req: 'Chrome · needs Desktop', main: { small: 'Chrome Web Store', label: 'Add to Chrome', href: 'https://chromewebstore.google.com/detail/off-grid-ai/mohdjadebdkpineabaglhbeepcehahkd', aria: 'Add Off Grid AI to Chrome', external: true },
+    more: [['Other browsers: join waitlist', '/browser-extension/#waitlist']] },
 ];
 const BY_ID = Object.fromEntries(PLATFORMS.map(p => [p.id, p]));
 
