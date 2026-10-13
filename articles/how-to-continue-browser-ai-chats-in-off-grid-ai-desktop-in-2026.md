@@ -81,6 +81,21 @@ If the conversation concerns a live portal, recheck the page before relying on a
 
 Ask a follow-up that names the new evidence: “This status changed today. Update the brief using the current page, and show what changed.” On a device that cannot access that page, supply the relevant current text or return to the connected browser.
 
+
+## Clear a browser copy without deleting the Desktop chat
+
+In the paired browser extension, open **Settings > General** and find **Browser chat cache**. Its **Clear** control removes this browser's cached copies. Your conversations remain in OGAD, and a later sync can bring them back. This is useful for clearing local browser storage; it is not a permanent deletion from the Desktop library.
+
+Deleting an individual conversation from browser history is different. The extension asks Desktop to delete the saved conversation and asks you to confirm. Read the conversation title before confirming. Renaming and searching history also use the Desktop-owned records.
+
+| What you want | Use |
+| --- | --- |
+| Remove this browser's cached copies | Browser chat cache > Clear |
+| Remove a saved conversation | Its confirmed Delete action |
+| Stop an active reply | Stop in the relevant chat |
+
+Keep OGAD reachable when changing saved history. A disconnected panel cannot prove that Desktop accepted a deletion. Clearing a cache or deleting a chat also does not erase independent exports, screenshots, or backups.
+
 ## If the conversation is missing
 
 Check which desktop the browser is paired with, then which desktop the phone is syncing with. Confirm that conversation sharing is enabled and that the relevant apps can communicate. Search by the distinctive message rather than only the generated title.

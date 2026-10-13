@@ -11,12 +11,13 @@ devto_article: true
 devto_id: 4771290
 devto_url: "https://dev.to/alichherawalla/how-to-fix-a-local-ai-model-that-cannot-read-images-in-off-grid-ai-in-2026-323o"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F0ubk5r97y8l02svntl4q.png"
+last_modified_at: "2026-10-13"
 ---
 Your local model answers text questions, but cannot use the image you attach. The text model may be installed while its separate vision file is missing. OGAD (Off Grid AI Desktop) can show **Add vision support** for a supported installed model and download the missing file without making you download the whole model again.
 
 [Get OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
 
-![Off Grid AI Models: downloadable vision models for image understanding.](/assets/img/home/app/models-vision-light-1760.webp)
+![Off Grid AI Models: downloadable vision models for image understanding.](https://getoffgridai.co/assets/img/home/app/models-vision-light-1760.webp)
 
 ---
 
@@ -45,6 +46,22 @@ A text-only model is a different case. It cannot gain image understanding just b
 For example, use a photo of three objects and ask the model to name them. Then try a short screenshot with large, readable text. Start with an easy check before relying on a dense diagram or a long document image.
 
 The repair control appears when the app recognizes a vision-capable catalog model whose projector is missing. It is not a general button that appears for every model.
+
+## Repair the vision file on Android or iPhone
+
+OGAM (Off Grid AI Mobile) has a phone-specific repair path in [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1). When a supported local vision model has a missing or unlinked vision file, chat can show an advice card with **Get vision file**. Use that control, wait for the reported result, and let the model reload after a successful repair.
+
+You can also open **Download Manager** when the missing-vision message offers that route. A downloaded model can show **Needs repair** and a repair control. This matters for files found by a scan or import: a text model that loads successfully can still have an incomplete vision setup.
+
+1. Select the intended local vision model in OGAM.
+2. Read the missing-file notice rather than choosing a new model immediately.
+3. Use **Get vision file**, or the repair control in Download Manager.
+4. Wait until the result confirms that the required file was obtained or linked.
+5. Reload if prompted, attach one clear image, and ask a question whose answer you can see.
+
+The repair may reuse a matching file already present or need internet to download it. A remote model has no local phone projector to repair. For a remote connection, check the server's actual vision support instead. A text-only model also cannot gain vision from an arbitrary companion file.
+
+[Get OGAM](https://getoffgridai.co/mobile/) and use the current beta that exposes these controls. Store availability can follow the source release; check the installed version if the interface differs.
 
 ## What if Add vision support is absent?
 

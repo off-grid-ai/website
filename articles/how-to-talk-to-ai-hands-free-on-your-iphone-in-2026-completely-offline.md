@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4769665
 devto_url: "https://dev.to/alichherawalla/how-to-talk-to-ai-hands-free-on-your-iphone-in-2026-completely-offline-258i"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F02y6ytf456zn5comqw0e.png"
+last_modified_at: "2026-10-13"
 ---
 You can ask a question aloud on your iPhone, hear an AI answer, and continue speaking without using the microphone button for each turn. OGAM (Off Grid AI Mobile) Pro provides this through its Audio interface and Hands-free turn setting. Download the local models and voice assets first. The conversation can then run without internet.
 
@@ -153,6 +154,13 @@ Background speech and music can keep the audio level above the silence threshold
 When transcription, chat, and voice output all use downloaded local models, those processing steps run on the phone. App downloads, Pro activation, and model setup are separate connection-dependent steps.
 
 A remote speech service, remote chat model, or connected tool changes that setup. Keep the first test local, with a simple prompt and airplane mode enabled.
+
+
+## Recover a silent reply before restarting the whole setup
+
+The voice file and the loaded voice runtime are separate. In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), the app checks stored voice files when you open a completed reply's menu and can offer **Speak** after the voice runtime was unloaded. Confirm the selected language and speaker, then try Speak on a short completed answer.
+
+If Speak is absent, check the TTS setting and finish the selected voice download. If it is offered but no sound plays, check the output device and the reported model error. Reinstalling every model is not the first recovery step. Keep the prepared local speech and chat models selected for an offline conversation.
 
 ## iPhone hands-free FAQ
 

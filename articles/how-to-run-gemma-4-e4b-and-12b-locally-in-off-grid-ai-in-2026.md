@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4843126
 devto_url: "https://dev.to/alichherawalla/how-to-run-gemma-4-e4b-and-12b-locally-in-off-grid-ai-in-2026-3b6h"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fmodels-text-light-1760.webp"
+last_modified_at: "2026-10-13"
 ---
 OGAD (Off Grid AI Desktop) includes catalog entries for Gemma 4 E4B and Gemma 4 12B. You can download a supported model package, select it in the app, and run local chat on your computer.
 
@@ -89,6 +90,15 @@ Let the app manage the supported package where possible. If a companion download
 | Work slows with long conversations | Context size, memory pressure, and other active work |
 
 Close unnecessary heavy applications and shorten the test context when diagnosing memory pressure. An external drive can provide storage capacity, but it does not add RAM.
+
+
+## Try the model's matching MTP option
+
+After a normal reply works, inspect the model's available MTP companion in **Models**. Use the E4B companion for E4B and the 12B companion for 12B. Finish its download, then open **Settings > Text > Advanced > Speculative decoding** and select **MTP** when the app offers it.
+
+Leave the draft-token limit on **Auto** for the first comparison. In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), that uses two proposed tokens per MTP step. More draft tokens can create more rejected work. Keep the main model, context, and prompt unchanged when comparing Off and MTP.
+
+Use a real task such as rewriting a saved project update. Check both the time and the retained facts. The companion is a performance option for a compatible main model, not a replacement for the main model or its vision file.
 
 ## Use local chat after setup
 

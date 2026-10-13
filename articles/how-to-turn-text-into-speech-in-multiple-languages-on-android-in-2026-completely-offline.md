@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4769475
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-in-multiple-languages-on-android-completely-offline-3p90"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fubsckffpqjbb1z2f8fvz.png"
+last_modified_at: "2026-10-13"
 ---
 You can hear text spoken in Hindi, Spanish, French, and other supported languages on your Android phone without a cloud speech service. OGAM (Off Grid AI Mobile) Pro generates the voice on your device. Download the voice resources first, choose a language and speaker, then play an assistant message while offline.
 
@@ -140,6 +141,15 @@ Check that its download finished and its language matches the text. Then check t
 | No new answer appears while offline | Select a downloaded local text model as well as the local voice. |
 
 Test a short paragraph before a long answer. Names, abbreviations, and sentences that mix languages can need closer review. Selecting one voice does not promise natural pronunciation for every language inside the same passage.
+
+
+## Restore Speak after changing or unloading a voice
+
+In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), OGAM checks the saved voice files when the reply menu opens. A voice can be downloaded without being loaded in memory. **Speak** can use the prepared voice after its runtime has been unloaded, so you should not need to download it again merely because another model was active.
+
+Open a completed assistant reply's menu. If Speak is absent, check that text-to-speech is enabled and that the selected voice files are still present. Return to **Models > Voice** or the voice settings to finish a missing download. Keep the chosen language and speaker selected, then reopen the reply menu and try a short passage.
+
+OGAM uses the saved voice choice for playback. Selecting a voice in another language does not translate the answer. If the files are present but playback fails, inspect the model error and audio output before deleting a working download. A folder-read error alone is not proof that the voice files were removed.
 
 ## Is multilingual text-to-speech free?
 

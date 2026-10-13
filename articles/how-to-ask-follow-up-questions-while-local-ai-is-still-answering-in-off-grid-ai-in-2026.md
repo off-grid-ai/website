@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4771176
 devto_url: "https://dev.to/alichherawalla/how-to-ask-follow-up-questions-while-local-ai-is-still-answering-in-off-grid-ai-in-2026-148a"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fkdgfc2e5lrdt6vd4r5ae.png"
+last_modified_at: "2026-10-13"
 ---
 You ask AI for an outline, then think of the next two things you need before it finishes. Waiting for each reply interrupts your train of thought.
 
@@ -39,7 +40,7 @@ This is a serial chat workflow. A queued message waits for the current reply; it
 
 ## Try it with three clear requests
 
-Use the core chat workflow in [OGAD 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51) on Mac or Windows. Download a suitable text model first, then select it for local processing.
+Use the core chat workflow in [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122) on Mac or Windows. Download a suitable text model first, then select it for local processing.
 
 1. Start a chat and paste a short set of notes you wrote.
 2. Send: **“Turn these notes into a five-part outline. Use only the information provided.”**
@@ -60,6 +61,26 @@ Good queued requests have a clear relationship to the work already in the chat:
 Avoid queuing a decision that depends on an answer you have not seen. For example, “Use option three” is unclear if you do not yet know what option three will be. Wait for that reply, choose the option yourself, and then continue.
 
 A long queue can also produce work you no longer need. Start with one or two follow-ups. That is enough to keep your thoughts moving without creating a long chain of assumptions.
+
+## Send an urgent correction before the queue finishes
+
+[Desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122) adds **Send now** and **Delete queued message** to individual queued items. Use Send now when a correction must precede the next answer. It stops the active reply so the chosen message can run. The other queued items remain available. Delete removes only the selected queued request.
+
+While a reply runs, **Enter** queues the next message and **Cmd+Enter** on Mac or **Ctrl+Enter** sends it now. Read the composer's keyboard hint if you changed the Enter setting. For example, send "The review is Thursday, not Tuesday" now before a queued request drafts a calendar note from the wrong date.
+
+An interrupted reply can remain as a partial answer. Check it before copying it into another document. Send now changes the next chat input; it does not undo an email, file change, or other action that has already completed.
+
+## Use the queue in the browser extension
+
+The paired browser panel also queues messages and offers Send now. It keeps queued items on hold after a stopped reply, a failed turn, or a lost Desktop connection. Restore the connection and take a deliberate send action when ready. Do not assume a reconnect sent every waiting message.
+
+| Control or event | Desktop chat | Browser panel |
+| --- | --- | --- |
+| Send now | Interrupts the reply and preserves the remaining queue | Sends the selected urgent item after stopping the reply |
+| Ordinary Stop | Stops the reply and clears queued follow-ups | Stops the reply and holds queued items |
+| Delete queued message | Removes that queued item | Removes that queued item |
+
+Keep the panel connected to OGAD during the sequence. Closing the panel is not a substitute for Stop because Desktop owns the active run.
 
 ## What happens if you press Stop?
 

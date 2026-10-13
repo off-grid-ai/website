@@ -81,6 +81,15 @@ This is a separate route from signing into a standalone MCP server directly on t
 
 Use the displayed execution device and source account in your checks. A request started from the phone can still depend on the desktop and its online account connections.
 
+
+## Recheck tool selection after an account changes
+
+In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), a tool stays tied to the source account or server you selected. Changing that source can turn the affected tool off until you choose the intended source again. This prevents a tool with the same name at another connection from silently taking its place.
+
+After changing an account, open its tool settings and inspect the on/off state. Select the intended source, enable only the tools you want, and run a small read-only check with a known result. Ask for the source account in that check and inspect the actual tool result.
+
+If a server has no available tools, read its displayed connection state and tool count separately. A saved server entry does not prove that a usable tool was returned. Resolve the provider or connection problem before enabling another similarly named tool as a substitute.
+
 ## Fix account and tool problems
 
 | Symptom | Next check |

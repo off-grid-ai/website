@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4842752
 devto_url: "https://dev.to/alichherawalla/how-to-set-up-a-personal-ai-chief-of-staff-on-your-computer-in-2026-317h"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fgod-light-1760.webp"
+last_modified_at: "2026-10-13"
 ---
 Your next meeting is in the calendar. The decision you need is in yesterday's notes. An unfinished task is in another conversation. OGAD (Off Grid AI Desktop) Pro can bring that context into one assistant so you can ask what needs attention before you start opening each app.
 
@@ -81,6 +82,15 @@ Start with one routine. If you add a morning brief, meeting preparation, and an 
 God also has a voice mode and optional wake-word setup. You can speak a request while preparing for a meeting, or hear a reply while your hands are occupied. Check the selected speech models and the microphone state before you use hands-free controls.
 
 Chat mode is a useful starting point because you can inspect the request, sources, and answer together. The character and desktop display are presentation choices. The useful work still depends on the model, the connected sources, and your instructions.
+
+
+## Ask for help with the next setup step
+
+You can ask the assistant how to use an Off Grid AI feature. In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), its product-help tool can find relevant quick-start pages, guides, articles, and release information, then read selected pages in full. This help needs internet because it reads public sources.
+
+Try: "How do I connect an Obsidian vault in Off Grid AI? Give me the current steps and the source link." Open the cited page and check that its device and release match yours. A help answer should explain the next setting or action, not claim to have completed the setup for you.
+
+If public help is unavailable while you are offline, prepared local chat and local files can still work. Reconnect to fetch current documentation when needed. Keep support questions separate from private material: there is no need to paste account tokens or a full client document to ask where a setting is.
 
 ## When the brief is incomplete
 

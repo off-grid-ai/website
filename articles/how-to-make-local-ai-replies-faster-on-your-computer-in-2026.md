@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4770692
 devto_url: "https://dev.to/alichherawalla/how-to-make-local-ai-replies-faster-on-your-computer-in-2026-1gjn"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fm5w1j87o0oxj30q4p45x.png"
+last_modified_at: "2026-10-13"
 ---
 A local model is useful when you can finish the work while the answer is still relevant. Waiting for an oversized model to write a long response is not always the best use of your computer.
 
@@ -55,6 +56,19 @@ Use a practical **Context window** in the model settings. More context is useful
 Start a new conversation with a short checked handoff when the old discussion contains many abandoned versions. Include the current facts, the latest draft and the next task. Do not depend on a summary to preserve every earlier detail.
 
 Unload a model you no longer need from the model picker. Close other heavy work while making your comparison. The first request after loading may include setup time, so compare that separately from repeated requests with the model already available.
+
+## Let OGAD choose the starting speed settings
+
+With a local text model selected, open chat settings and look for **Use fastest settings**. In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), this applies the app's settings plan for the detected hardware and model. The app can keep that plan current as the hardware or model changes. If the settings are already applied, the button may not be offered.
+
+1. Record the current model and use a short request that you can repeat.
+2. Choose **Use fastest settings** when it is available.
+3. Allow a model reload to finish if the chosen backend or load settings change.
+4. Repeat the same request in a fresh chat and compare the answer, first-token wait, and total time.
+
+A manual speed-setting change ends automatic management of those settings. Use the automatic control again when you want the app to choose them. The button name describes the app's configuration choice; it is not a measured guarantee that every request will finish faster.
+
+If the model still cannot fit in memory, choose a smaller model or a shorter context. Settings cannot add physical RAM. Keep the sample prompt and required answer length the same while comparing results.
 
 ## Change advanced settings carefully
 

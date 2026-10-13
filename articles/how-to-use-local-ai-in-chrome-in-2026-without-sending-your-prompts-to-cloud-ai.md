@@ -81,6 +81,15 @@ For local text chat, the selected model runs in OGAD on your computer. The exten
 
 Only grant page access for the work you want to do. Do not include an unrelated private page just because it is open nearby. Saved conversations can retain text used in your question; closing a tab does not necessarily delete the desktop conversation.
 
+
+## Choose the next question and inspect the reply
+
+After a finished answer, the composer can show a suggested next message. Press **Tab** to accept the suggestion into the input when offered, then read and edit it before sending. You can also ignore it and type your own question. A suggestion is not an instruction that has already run.
+
+For a page summary, a useful follow-up is "List the dates stated on this page and quote the sentence behind each date." Check that the suggestion fits the page you intend to use. If you switch pages, review the current page before sending a page-specific request.
+
+Open **Settings > General > Show generation details** when you want the model, speed, and token information reported under completed replies. These details help compare your own requests. They do not prove that an answer is correct or that every part of the workflow stayed offline.
+
 ## If the first reply fails
 
 Check the desktop before changing browser settings. Confirm that the app is running, the model is loaded, and the extension has the correct desktop address. Then check pairing and page permissions.

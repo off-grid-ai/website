@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4771297
 devto_url: "https://dev.to/alichherawalla/how-to-test-faster-local-ai-replies-with-speculative-decoding-in-off-grid-ai-in-2026-7p"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F5us7yohco40wdfdh0kzu.png"
+last_modified_at: "2026-10-13"
 ---
 You have a local model that writes useful answers, but waiting for each long reply breaks your flow. Before downloading another model, you can test whether the one you already use can generate its answer faster.
 
@@ -117,13 +118,21 @@ Start with the option that your current model supports. The menu does not make e
 | Option | What it needs | What to check |
 |---|---|---|
 | N-gram | No separate model | Compare the actual task with Off |
-| MTP | Prediction support in the main model | The app must recognize that support |
+| MTP | Prediction heads in the main model, or its matching installed MTP file | Use the companion offered for that exact model |
 | Draft model | An explicitly compatible draft pair | Do not choose an arbitrary small GGUF |
 | DFlash | A compatible installed draft file associated with the selected model | Complete the matching model-specific download first |
 
-In the checked release, ordinary **Draft model** pairs are not declared in the catalog, so that choice can remain disabled. **MTP** is disabled when the app identifies the main model as unsupported. **DFlash** requires the matching installed file; a random draft with a similar name is not enough.
+A method can remain disabled when its required support or compatible file is absent. **MTP** can use the supported prediction heads or the matching companion offered for the selected model. **DFlash** needs its matching installed file. A random smaller model with a similar name is not a substitute.
 
-The released [OGAD model checks](https://github.com/off-grid-ai/OGAD/blob/v0.0.51/src/main/llm.ts) enforce those distinctions. Extra model files also use storage and can need more working memory. Try another method only when it is available for your selected model and you have a reason to compare it.
+The [beta 122 model checks](https://github.com/off-grid-ai/OGAD/blob/v0.0.55-beta.122/src/main/llm.ts) enforce model compatibility. Extra model files also use storage and can need more working memory. Try another method only when it is available for your selected model and you have a reason to compare it.
+
+## Set up a matching MTP companion
+
+In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), the model interface offers compatible MTP companions for supported Gemma 4 E4B and 12B entries. Complete the main model and matching companion download before selecting the MTP path. Keep each companion paired with its own main model.
+
+Open **Settings > Text > Advanced** and select **MTP** under **Speculative decoding** when available. Check the selected companion. The draft-token limit controls the maximum proposal per step. **Auto** uses two tokens for MTP in this release; Draft and DFlash use the engine default.
+
+Start with Auto. Compare the same complete request with decoding Off, then with MTP. Record the available generation details and inspect the answer. Increasing the draft limit can add rejected work, so a larger value does not guarantee a faster result. If loading fails, return to Off and check that the main model still runs before changing more settings.
 
 ## What should you do with the result?
 
