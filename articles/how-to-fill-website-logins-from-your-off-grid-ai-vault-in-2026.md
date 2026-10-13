@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Fill Website Logins From Your Off Grid AI Vault in 2026"
-description: "Use the paired browser extension to fill a matching website login from an unlocked desktop Vault."
+title: "How to Use a Local Password Manager in Chrome in 2026 Without Cloud Sync"
+description: "Keep passwords in your desktop Vault, then fill logins in Chrome through a paired extension. Includes setup, password generation and recovery checks."
 date: "2026-10-07"
 permalink: /articles/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026/
 published_at: "2026-10-07T20:58:51Z"
@@ -11,10 +11,15 @@ devto_article: true
 devto_id: 4814429
 devto_url: "https://dev.to/alichherawalla/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026-52bh"
 image: "https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/6up10j7xtbmkd0ucwc3z.png"
+last_modified_at: "2026-10-13"
 ---
-You can use a saved login without copying its password into each form. The Off Grid AI extension can request a matching login from the unlocked Vault in OGAD (Off Grid AI Desktop). Pair the browser once, then choose the entry for the website you are using.
+You can keep website passwords on your computer and use them in Chrome without a cloud password account. OGAD (Off Grid AI Desktop) Pro stores them in its encrypted Vault. The Off Grid AI browser extension asks that Vault for the login you choose, then fills the website form.
 
-[Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
+This is useful when your browser is where you work, but you want your password database to stay on your desktop. The desktop must be running, paired, and unlocked for the extension to use Vault. Websites still need their normal internet connection.
+
+[Download OGAD](https://getoffgridai.co/desktop/) | [Request browser extension access](https://getoffgridai.co/browser-extension/)
+
+![Off Grid AI Desktop Vault with a sample website login and a masked password.](https://getoffgridai.co/assets/img/home/app/vault-open-light-1760.webp)
 
 ---
 
@@ -24,66 +29,63 @@ You can use a saved login without copying its password into each form. The Off G
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## What must be ready?
+## What stays on your computer?
 
-Vault is a Pro feature. Create or open your desktop Vault, store the login with the correct website address, and unlock Vault in OGAD. The extension cannot unlock it by accepting your master password inside a web page.
+Vault stores its database locally in an encrypted KDBX file. The browser connects to OGAD through an approved pairing. You do not need to upload that database to a password service to fill a login.
 
-The browser link uses the approved desktop pairing. The desktop remains the source of Vault data. This setup does not require a cloud password service, and you do not need an AI model to fill a stored password.
+Password generation is also a local operation. It does not ask a language model to invent a secret. You can use generated passwords or passphrases, then save the result in Vault.
 
-## Install and connect the browser extension
+The website still receives the credentials you submit to it. Local storage changes where you keep your password collection. It does not remove the website from the sign-in process. This guide covers desktop Vault with the browser extension; it does not claim that the same database syncs to your phone.
 
-The extension needs **Node.js 20 or later** for a source build. It is not listed in the browser stores in this setup. Downloading the source and dependencies needs internet.
+## Start with one website login
 
-```bash
-git clone https://github.com/off-grid-ai/browser-extension.git
-cd browser-extension
-git checkout 970fec49e2a630a3e1f419c1fc86df241891d40c
-npm install
-npm run build:chrome
-```
+Use a current OGAD beta with Pro enabled. This guide follows [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). The extension is in [early access](https://getoffgridai.co/browser-extension/). Get it through the access process rather than assuming a public browser-store listing is available.
 
-In Chrome, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose `dist/chrome`. Start OGAD and select a downloaded local text model. Open the extension from the toolbar. Its default desktop connection is `http://127.0.0.1:7878/v1` on the same computer.
+1. Open **Vault** in OGAD and complete its setup. Keep the recovery information in a place you can reach if this computer is unavailable.
+2. Add a website login. Give it a clear title, the website URL, the correct username, and its password.
+3. Open the extension's **Settings > Desktop** and select **Pair with desktop**.
+4. Compare the six words in the extension and desktop prompt. Approve the matching request in OGAD.
+5. Keep Vault unlocked. Open the website's normal sign-in page in Chrome.
+6. Use the key control in the login field, or open the matching Vault entry in the panel. Select the login to fill.
 
-For shared chats, desktop tools, or Vault, open the extension's **Settings > Desktop** and select **Pair with desktop**. Check that the six words match the dialog in OGAD, then approve there. A running gateway and an approved pairing serve different purposes.
+Check the username before you submit. A work account and a personal account can use the same website. Clear titles such as “Design portal — work” help you select the right entry.
 
-The pinned [extension source](https://github.com/off-grid-ai/browser-extension/tree/970fec49e2a630a3e1f419c1fc86df241891d40c) includes the browser connection used here. Later source changes can alter the setup.
+The first success is simple: the correct username and password appear on the correct website, and the website accepts the login. You do not need to import every password to check this.
 
-## Try a login on its correct website
+## Create a password for a new account
 
-1. In OGAD **Vault**, create or check the **Web Login** entry. Confirm the website address, username, and saved password.
-2. Leave Vault unlocked for this operation.
-3. Open the website's normal HTTPS login page in the paired browser.
-4. Open the extension's **Vault** screen.
-5. Under **On this site**, select **Fill** for the matching entry.
-6. Check the username and destination before you submit the form.
-7. Lock Vault when you finish.
+Suppose you are opening an account for a new project portal. Open the extension's password generator and choose a password that meets the website's rules. Use **Use on this page** when it is available for the new-password field.
 
-Use an account you control for this check. If the site uses a multi-step login, you may need to move to its password page before filling again. A filled form is not a completed login; the website still handles submission and authentication.
+Complete the registration yourself. If the extension offers to save the login, check the saved record afterward. Confirm the URL and username, then try a normal sign-in. Some websites collect the username and password on different pages, so the final saved entry deserves a check.
 
-## Why does the website address matter?
+A passphrase can help when you must type a secret manually. A random password suits a form that Vault will fill. In either case, make a separate secret for each account. A site that rejects a character or length needs a compatible password, not a reused one.
 
-The desktop checks the requesting website against the saved login's domain. It requires HTTPS for ordinary websites; loopback development addresses have a separate allowance. This prevents a matching-looking page on another domain from simply receiving the same secret.
+## What else can Vault hold?
 
-Check the address bar before filling. A title or logo is not enough to identify a site. If a login is absent from **On this site**, inspect its saved URL and the current page instead of weakening the boundary.
+The browser view also supports secure notes, cards, and identities. An identity can hold address details for a form. A card entry can hold payment details; an entry with only the last four digits cannot supply a complete card number.
 
-A company may use a different sign-in domain from its main website. Store the actual approved sign-in address. Do not add a domain only because an error message asks you to do so.
+These are separate actions from an AI browser task. Selecting a saved item to fill a form does not authorize a purchase. Read the completed form before you submit it.
 
-## What can the extension access?
+A login can also contain a supported authenticator setup key and show its current one-time code. Keep the account's recovery method accessible. Do not assume that saving a code in the same Vault provides an independent recovery route if you lose access to that Vault.
 
-The reviewed desktop link supports logins and secure notes in this browser workflow. It does not mean every desktop Vault type, such as a file or API key, is available to a website.
+Desktop Vault has additional item types, including files and keys. Their presence on the desktop does not mean every type is available to browser forms.
 
-The extension needs the desktop connection and an unlocked Vault. If the desktop locks, the browser view stops retaining the unlocked result. Open OGAD to unlock again when needed.
+## Move existing passwords in small steps
 
-Keep your master password in the desktop unlock flow. Browser pairing words confirm the connection; they are not a replacement for Vault unlock. You may need to complete both steps during the first setup.
+The browser import route supports a specific LastPass-style CSV format. It is not a general promise that any password CSV will work. Start with a small sample in the supported format, then inspect the imported title, URL, username, and notes.
 
-## What if filling fails?
+An exported CSV can contain readable passwords. Keep it out of shared folders, and remove the temporary export after you have checked the import and your recovery plan. Keep access to your previous password collection until you have confirmed the entries you need.
 
-Check the current domain, HTTPS, paired state, and desktop lock state. Then check whether the form has visible username and password fields. A custom site control or embedded cross-domain form can behave differently from a simple login page.
+## If a login does not fill
 
-Manual copy from the desktop Vault remains an alternative. That puts the secret on the system clipboard, so inspect clipboard history and sync settings before using it. Filling directly into the right form avoids that manual copy step when the site supports the workflow.
+| What you see | What to check |
+|---|---|
+| Vault is unavailable in the panel | OGAD is running, Pro is active, and pairing is approved |
+| The entry is hidden after it worked earlier | Unlock desktop Vault again |
+| No matching login appears | Check the saved URL against the website you opened |
+| The wrong account appears | Select the entry with the correct username |
+| A form remains empty | Use the entry's copy controls, then check each field before submitting |
 
-Changing a saved password does not change the real account password. Use the website's password-change process, then update Vault with the accepted new value. If the website rejects a stored value, first confirm which account and login page you are using.
+Locking desktop Vault also closes browser access to its contents. Treat that as part of your normal work routine when you leave the computer.
 
-This guide covers **OGAD beta 0.0.55-beta.114**. The [release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114) and [build record](https://github.com/off-grid-ai/OGAD/actions/runs/37334426829) identify the desktop version and its included Pro code. Setup details follow that code; they are not a device test.
-
-[Download OGAD](https://getoffgridai.co/desktop/), prepare Vault, and check one matching login through the paired extension.
+Start with one account you use often. [Set up OGAD](https://getoffgridai.co/desktop/), pair the extension, and confirm one complete sign-in before you move the rest of your passwords.
