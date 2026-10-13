@@ -32,21 +32,11 @@ For a technical guide, ask for requirements and the order of work. For a policy,
 
 ## Install and connect the browser extension
 
-The extension needs **Node.js 20 or later** for a source build. It is not listed in the browser stores in this setup. Downloading the source and dependencies needs internet.
+Install [Off Grid AI from the Chrome Web Store](https://chromewebstore.google.com/detail/off-grid-ai/mohdjadebdkpineabaglhbeepcehahkd). The extension source is private. For other browsers, [join the waitlist](/browser-extension/#waitlist).
 
-```bash
-git clone https://github.com/off-grid-ai/browser-extension.git
-cd browser-extension
-git checkout 970fec49e2a630a3e1f419c1fc86df241891d40c
-npm install
-npm run build:chrome
-```
-
-In Chrome, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose `dist/chrome`. Start OGAD and select a downloaded local text model. Open the extension from the toolbar. Its default desktop connection is `http://127.0.0.1:7878/v1` on the same computer.
+Start OGAD and select a downloaded local text model. Open the extension from the toolbar. Its default desktop connection is `http://127.0.0.1:7878/v1` on the same computer.
 
 For shared chats, desktop tools, or Vault, open the extension's **Settings > Desktop** and select **Pair with desktop**. Check that the six words match the dialog in OGAD, then approve there. A running gateway and an approved pairing serve different purposes.
-
-The pinned [extension source](https://github.com/off-grid-ai/browser-extension/tree/970fec49e2a630a3e1f419c1fc86df241891d40c) includes the browser connection used here. Later source changes can alter the setup.
 
 ## Summarise one page
 
