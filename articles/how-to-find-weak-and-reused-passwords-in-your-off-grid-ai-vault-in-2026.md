@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Find Weak and Reused Passwords in Your Off Grid AI Vault in 2026"
-description: "Review weak, reused, and old saved passwords through the paired browser extension, then update the real accounts."
+description: "Use the local Vault Security check to find weak passwords, repeated values, and old entries, then fix the actual website accounts."
 date: "2026-10-07"
 permalink: /articles/how-to-find-weak-and-reused-passwords-in-your-off-grid-ai-vault-in-2026/
 published_at: "2026-10-07T21:00:59Z"
@@ -11,10 +11,15 @@ devto_article: true
 devto_id: 4814435
 devto_url: "https://dev.to/alichherawalla/how-to-find-weak-and-reused-passwords-in-your-off-grid-ai-vault-in-2026-e1l"
 image: "https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/6up10j7xtbmkd0ucwc3z.png"
+last_modified_at: "2026-10-13"
 ---
-A password list can hide two problems: a weak password and the same password used for several accounts. The Off Grid AI extension can show a **Security check** from the Vault in OGAD (Off Grid AI Desktop). Use it to choose which real account to improve first.
+A password list can look tidy while several accounts still share the same secret. The **Security check** in the browser Vault helps you find weak passwords, repeated values, and older entries stored in OGAD (Off Grid AI Desktop).
 
-[Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
+The check runs against the local Pro Vault. It gives you a repair list, not proof that an account is compromised. You still need to change each password on the real website and then update its saved Vault entry.
+
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
+
+![Off Grid AI Desktop Vault showing a sample login with its password masked](https://getoffgridai.co/assets/img/home/app/vault-open-light-1760.webp)
 
 ---
 
@@ -24,66 +29,64 @@ A password list can hide two problems: a weak password and the same password use
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## What does the check tell you?
+## What does Security check measure?
 
-The check reports weak passwords, groups of reused passwords, and passwords not changed for a long time. It also shows a score. These are ways to inspect saved entries. They do not prove that an account was breached or that every possible password attack was checked.
+The view shows a score from 0 to 100 and groups findings under **Weak passwords**, **Same password, group N**, and **Old passwords**. Older entries are those whose password has not been changed in about a year.
 
-A reused password matters because the same secret protects more than one account. A weak password can be easier to guess. Age alone does not show that a password is compromised. Review the account and its actual requirements before changing a value.
+Each category answers a different question. A weak password may be unsuitable on its own. A reused value connects several accounts to the same secret. An old value is a prompt to review the entry's age, not evidence that somebody stole it.
 
-Vault is a Pro feature. The desktop must be paired and unlocked for the browser to receive the audit. This workflow does not require an AI model to reason over your secrets.
+The audit is computed by the desktop. Passwords are not sent to a language model or exported into the browser panel merely to calculate the score. This check is not a breach-database search and cannot certify that every account is safe.
 
-## Install and connect the browser extension
+## Open the check for the intended Vault
 
-The extension needs **Node.js 20 or later** for a source build. It is not listed in the browser stores in this setup. Downloading the source and dependencies needs internet.
+Install [OGAD](https://getoffgridai.co/desktop/), unlock its Pro Vault, and connect the [browser extension](https://getoffgridai.co/browser-extension/). Confirm which desktop the browser is paired with before you review the results.
 
-```bash
-git clone https://github.com/off-grid-ai/browser-extension.git
-cd browser-extension
-git checkout 970fec49e2a630a3e1f419c1fc86df241891d40c
-npm install
-npm run build:chrome
-```
+Open the Vault's **Security check** and wait for the summary. If the Vault is locked or the desktop is unavailable, fix that connection first. A missing result does not mean the Vault has no weak passwords.
 
-In Chrome, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose `dist/chrome`. Start OGAD and select a downloaded local text model. Open the extension from the toolbar. Its default desktop connection is `http://127.0.0.1:7878/v1` on the same computer.
+Choose a small set of accounts to repair in this session. Start with records you can identify and access. Do not make a long list of exposed password values in a separate note; use item names to track your work.
 
-For shared chats, desktop tools, or Vault, open the extension's **Settings > Desktop** and select **Pair with desktop**. Check that the six words match the dialog in OGAD, then approve there. A running gateway and an approved pairing serve different purposes.
+## Fix a reused-password group
 
-The pinned [extension source](https://github.com/off-grid-ai/browser-extension/tree/970fec49e2a630a3e1f419c1fc86df241891d40c) includes the browser connection used here. Later source changes can alter the setup.
+Open one **Same password** group and identify the accounts it contains. Visit each account's real password-change page. Use a distinct new value for each account rather than replacing the shared password with another shared password.
 
-## Open the audit
+A practical sequence for one account is:
 
-1. Unlock **Vault** in OGAD.
-2. Open the paired extension's **Vault** screen.
-3. Select **Vault tools > Security check**.
-4. Review the weak entries and reused-password groups.
-5. Open an entry to identify the account you want to improve.
+1. Check the website address and sign in through its normal flow.
+2. Open its password-change form.
+3. Generate a new value with the Vault's **Password generator**.
+4. Submit the change on the website and wait for confirmation.
+5. Update the matching saved login in the Vault.
+6. Test a fresh sign-in before moving to the next account.
 
-Start with one reused group. Identify each website and username before changing anything. Similar entry titles can refer to different accounts, and an old saved entry may no longer be used.
+Changing the saved entry first does not change the server-side account. If the website rejects the change, retain the credential that still works until you complete the site's process.
 
-## Fix the real account, then its saved entry
+## Handle weak passwords and old entries
 
-Choose an account you still use. Open its normal website and follow its password-change procedure. Create a unique password that meets the site's rules. Confirm that the site accepts it, then update the correct saved Vault entry.
+For a weak-password finding, check the website's accepted length and character rules, then use the generator to make a new value that fits. Avoid reusing a value from another item simply because that item received no warning.
 
-Do not change only the Vault value. That would leave the real account using the old password and make your saved login wrong. Keep the account change and the saved-entry update together.
+For an old entry, first decide whether the account is still used. Check whether the record points to the right website and username. A stale duplicate may describe an account you already updated under another name.
 
-After updating, check a normal sign-in and run **Security check** again. The reused group should no longer include that changed value once the saved data is current. If it still appears, inspect duplicate entries before repeating a change.
+The age finding does not require you to assume a breach. Treat it as a review queue. If you decide to replace a password, follow the site's change process and check a new sign-in before you remove the old saved value.
 
-Work through the remaining active accounts one at a time. You can make progress without trying to repair every old record in one sitting. Keep a note of accounts that need a separate recovery step.
+## Check the result after each change
 
-## How should you use the score?
+Return to **Security check** after you save the updated item. Review the relevant group rather than looking only at the overall score. A reused group may shrink when one account gets a unique password, even while other accounts in that group still need work.
 
-Use the score to guide review, not as a security guarantee. A high score cannot tell you whether a website has poor account controls, whether someone has an active session, or whether an important account has extra protection enabled.
+Keep the repair result tied to a real account action. “Saved item updated” and “website password changed and tested” are different states. The second one is what you need before considering that account repaired.
 
-The weak-password check evaluates what is stored. It cannot correct an entry you never saved, determine whether a password-change attempt succeeded on the website, or rotate the website's password for you.
+If a finding remains, inspect whether another duplicate record still contains the old value. Do not delete items merely to improve the score. First establish which records are active and which are obsolete.
 
-If an old entry is no longer needed, identify it carefully before removing it. Keep the recovery material you need for active accounts. Deleting a Vault entry does not close its account.
+## Common problems and their next checks
 
-## What if the check is empty or unavailable?
+| Problem | Next check |
+| --- | --- |
+| Score did not change | Confirm the updated item was saved and rerun the view |
+| Reuse warning remains | Inspect every member of the group, including duplicates |
+| New saved password fails | Check whether the website accepted the change |
+| Old-password finding seems wrong | Check the saved entry and its update history |
 
-Check the paired desktop and unlocked Vault first. An empty list can mean there are no saved logins in the selected scope; it does not prove that your other accounts are protected. If the desktop locks during review, return to OGAD to unlock it.
+A perfect score does not prove that a website, recovery email, browser, or computer is secure. It describes the properties this local check can inspect in the saved records. Keep the score useful by treating it as a guide to specific changes.
 
-Keep audit results private. Account names and reused groups can reveal useful information even when passwords are not displayed. Lock Vault when you finish and avoid sharing screenshots with secret values visible.
+## Finish one repair before starting ten more
 
-This guide covers **OGAD beta 0.0.55-beta.114**. The [release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114) and [build record](https://github.com/off-grid-ai/OGAD/actions/runs/37334426829) identify the desktop version and its included Pro code. Setup details follow that code; they are not a device test.
-
-[Download OGAD](https://getoffgridai.co/desktop/), open the Vault security check, and replace one reused password on its real website before updating its saved entry.
+[Open OGAD](https://getoffgridai.co/desktop/), run the local Vault check, and choose one reused-password group. Change one account on its real website, save the accepted value, and test sign-in. Repeat that complete sequence for the other accounts instead of making unverified edits across the whole Vault.

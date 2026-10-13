@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Use Local AI in Chrome in 2026 Without Sending Your Prompts to Cloud AI"
-description: "Chat beside a Chrome page with a model running in Off Grid AI Desktop. Set up the local connection and use page context."
+description: "Connect Chrome to a local desktop model, ask about a page, and check which settings control where your prompt is processed."
 date: "2026-10-07"
 permalink: /articles/how-to-use-local-ai-in-chrome-in-2026-without-sending-your-prompts-to-cloud-ai/
 published_at: "2026-10-07T20:57:44Z"
@@ -11,10 +11,15 @@ devto_article: true
 devto_id: 4814420
 devto_url: "https://dev.to/alichherawalla/how-to-use-local-ai-in-chrome-in-2026-without-sending-your-prompts-to-cloud-ai-2o01"
 image: "https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/raxow6ulbm6hohidv1p7.png"
+last_modified_at: "2026-10-13"
 ---
-Keep Chrome open and ask your question beside the page. The Off Grid AI browser extension connects Chrome to OGAD (Off Grid AI Desktop), where the model runs on your computer. It does not download model weights into Chrome or require a hosted AI chat service.
+You can use a model on your own computer from Chrome. OGAD (Off Grid AI Desktop) runs the model, and the Off Grid AI extension puts the conversation beside the page you are reading. Select a local model to keep prompts and page context out of a cloud AI endpoint.
 
-[Download OGAD](https://getoffgridai.co/desktop/) | [Get beta 114](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
+The extension is in early access. This guide uses the paired desktop connection, with Pro available for desktop tools and tasks. Websites still use the internet normally. You will also need internet to get the app, extension, and model before you start.
+
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
+
+![Off Grid AI Desktop chat with a sample answer and source cards. The browser extension uses the desktop model.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 
@@ -24,66 +29,62 @@ Keep Chrome open and ask your question beside the page. The Off Grid AI browser 
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## What can you do in the side panel?
+## Start with a question about one page
 
-Ask a normal text question, rewrite a passage you provide, or ask about readable text on the current page. The panel stays beside the browser content, so you can compare the answer with the source instead of switching between a website and a separate chat app.
+Suppose you are reading a long help page and need to find the export procedure. Open the extension and ask for the relevant steps, with the page section that supports them. You can keep the instructions beside the website while you work.
 
-For example, open a software setup guide and ask which requirements apply to your computer. Keep the guide visible and check each requirement the answer names. This is useful for long pages whose important conditions are spread across several sections.
+This is a reading task. You do not need to let the assistant click through the site to get a useful answer. The extension can send readable page context with your question. A page that cannot be read, or content that has not loaded, needs a different approach.
 
-The local result depends on the selected model. Download and activate a suitable text model in OGAD before the first request. A remote model changes the processing route. Select a local model when you want the prompt processed on this computer.
+## Prepare the desktop model
 
-## Install and connect the browser extension
+Install OGAD and open its model controls. Download a text model that fits your available memory, then load it. Confirm that a short question works in desktop chat before connecting Chrome. This separates a model problem from a browser connection problem.
 
-The extension needs **Node.js 20 or later** for a source build. It is not listed in the browser stores in this setup. Downloading the source and dependencies needs internet.
+A downloaded model file and a running model are different states. If the extension cannot get a response, return to the desktop and check the active selection. A laptop under memory pressure may need a smaller model or fewer other applications open.
 
-```bash
-git clone https://github.com/off-grid-ai/browser-extension.git
-cd browser-extension
-git checkout 970fec49e2a630a3e1f419c1fc86df241891d40c
-npm install
-npm run build:chrome
-```
+Use a local model for this guide. A saved remote model setting can route a prompt to another computer or service. The extension follows the desktop configuration; its position inside Chrome does not determine where inference happens.
 
-In Chrome, open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose `dist/chrome`. Start OGAD and select a downloaded local text model. Open the extension from the toolbar. Its default desktop connection is `http://127.0.0.1:7878/v1` on the same computer.
+## Install and pair the extension
 
-For shared chats, desktop tools, or Vault, open the extension's **Settings > Desktop** and select **Pair with desktop**. Check that the six words match the dialog in OGAD, then approve there. A running gateway and an approved pairing serve different purposes.
+1. [Request extension access](https://getoffgridai.co/browser-extension/) and follow the supplied installation instructions.
+2. Keep OGAD running, then open the extension from Chrome's toolbar.
+3. In **Settings > Desktop**, choose **Pair with desktop**.
+4. Compare the six words with the desktop request. Approve the matching request in OGAD.
+5. Open a normal web page and allow the page access requested for your task.
+6. Use ordinary chat for the first question. Turn off **Agent** if it is selected and you only want a reading answer.
 
-The pinned [extension source](https://github.com/off-grid-ai/browser-extension/tree/970fec49e2a630a3e1f419c1fc86df241891d40c) includes the browser connection used here. Later source changes can alter the setup.
+Chrome, Edge, Brave, and Arc are the current browser targets. Firefox is planned for later access. A browser listed on the access form is not proof that its release is available today.
 
-## Ask a first question
+## Ask for an answer you can check
 
-1. Open the extension's Chrome side panel.
-2. Select your installed local text model from the model picker.
-3. Start a new chat and ask a simple question without page context.
-4. Wait for the streamed answer. Use **Stop** if you need to end generation.
-5. Open an ordinary article or documentation page, turn **Use page** on, and ask a question about it.
+Try this on a help page you know:
 
-Try this:
+> From this page, find the steps to export a project. Give the steps in order and identify the heading where they appear. If the page does not describe export, say so. Do not open other pages or change anything.
 
-> Read this page and list the setup requirements. Separate required items from optional ones. Keep version numbers as written. If a condition is missing, say it is not stated.
+Compare the answer with the source heading. If a prerequisite is missing, ask a follow-up: “What permission does the page say I need?” Keep the source open so you can check names such as Export, Download, or Save as.
 
-The expected result is an answer based on the readable text the extension extracted. Page extraction is not a full website crawl. It can omit content hidden behind a control or loaded later. If the answer misses a section, open that section and provide the relevant text directly.
+For a long page, ask one question at a time. A request for a complete manual can produce an answer that hides the small detail you needed. A clear question also exposes missing context: the assistant should tell you when it cannot see a section.
 
-## Use the page without making the answer vague
+## Choose the input that fits the page
 
-Give the model a specific job. “Explain this” can produce a long recap. “Which two conditions affect installation on my computer?” is easier to verify and use.
+| Page content | Useful starting input |
+|---|---|
+| Instructions and ordinary text | Page question in chat |
+| A chart or visual layout | Screenshot with a supported local vision model |
+| A form you need explained | Ask about the visible fields before filling anything |
+| Several pages that need opening | A separately scoped Agent browser task |
 
-Suppose the page describes a base package and an optional accelerator. Ask the model to keep their requirements separate. A requirement for the accelerator must not become a requirement for the base package. Open the original paragraph before changing your setup.
+A screenshot can show information absent from extracted text. It also needs a vision-capable model. Do not treat a successful text reply as proof that the model can inspect an image.
 
-For rewriting, paste only the passage you want changed. Ask for the same facts in simpler language, then check that names, dates, and exceptions remain. A clearer sentence is not useful if it changes the policy.
+## Check the privacy boundary
 
-## What stays local?
+For local text chat, the selected model runs in OGAD on your computer. The extension still needs a connection to that app. A live website still receives normal browser requests. If you add account connectors or remote models, those choices add their own network paths.
 
-The extension sends the request to the selected desktop model route. With the default loopback address and local model, inference occurs on the same computer. Chrome still contacts websites normally. A submitted web form still goes to its website.
+Only grant page access for the work you want to do. Do not include an unrelated private page just because it is open nearby. Saved conversations can retain text used in your question; closing a tab does not necessarily delete the desktop conversation.
 
-Initial app, model, and extension downloads need internet. After setup, a local chat can use material you already have without a cloud AI service. Reading a new online page still needs its normal connection. Saved browser chats also remain data on your device.
+## If the first reply fails
 
-## If the panel does not answer
+Check the desktop before changing browser settings. Confirm that the app is running, the model is loaded, and the extension has the correct desktop address. Then check pairing and page permissions.
 
-Check that OGAD is running, the gateway address is correct, and the model is active. If the model list is empty, prepare a desktop model first. If another service is using the gateway port, correct that conflict before changing the extension address.
+If chat works but a page answer is empty, try an ordinary text page. Browser settings pages, protected content, and an unloaded section may not provide readable text. If the page loads but the answer is inaccurate, narrow the question and ask for the exact supporting passage.
 
-A cut stream can leave a partial answer. Read what arrived, then retry the question when the connection is ready. Do not treat the last visible sentence as proof that the answer completed.
-
-This guide covers **OGAD beta 0.0.55-beta.114**. The [release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114) and [build record](https://github.com/off-grid-ai/OGAD/actions/runs/37334426829) identify the desktop version and its included Pro code. Setup details follow that code; they are not a device test.
-
-[Download OGAD](https://getoffgridai.co/desktop/), load the Chrome extension, and ask one question beside a page you can check.
+[Set up OGAD](https://getoffgridai.co/desktop/) and begin with one help page. The first result should be a short answer that you can verify without leaving the page.

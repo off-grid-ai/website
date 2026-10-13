@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Find Contradictions Between Meeting Notes and a Project Brief in 2026"
-description: "Compare project notes and a brief with local AI, trace differences to source passages, and prepare clear questions before work follows the wrong requirement."
+description: "Find supported contradictions between meeting notes and a project brief without treating every wording difference as a changed requirement."
 date: "2026-09-29"
 permalink: /articles/how-to-find-contradictions-between-meeting-notes-and-a-project-brief-in-2026/
 published_at: "2026-09-29T14:18:18.757Z"
@@ -11,14 +11,17 @@ devto_article: true
 devto_id: 4772057
 devto_url: "https://dev.to/alichherawalla/how-to-find-contradictions-between-meeting-notes-and-a-project-brief-in-2026-571d"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fn9yjlc6tu9vnq3vmmn9l.png"
+last_modified_at: "2026-10-13"
 ---
-The brief says one thing. Your meeting notes seem to say another. Before the team builds the wrong version, you need to know exactly where the difference is.
+Meeting notes and a project brief can disagree about a deadline, owner, or deliverable. OGAD (Off Grid AI Desktop) can compare the text with a local model and help you identify differences that need a decision.
 
-OGAD (Off Grid AI Desktop) can help you compare readable documents with a local model on your computer. Ask for differences with supporting passages, check each one, and turn unresolved conflicts into questions for the decision owner. The result is a review list you can act on, without treating AI output as an approved scope change.
+The useful result is a list of supported conflicts with source passages. The model should not silently rewrite the brief or assume that the most recent note automatically overrides it.
 
-[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
-![A recorded meeting in Off Grid AI Desktop with its on-device summary, screen frames, decisions and Whisper transcript.](https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp)
+![Off Grid AI Desktop comparing sample project documents with source cards](https://getoffgridai.co/assets/img/home/app/project-compare-light-1760.webp)
+
+---
 
 > **What would you like to do with Off Grid AI?**
 >
@@ -26,107 +29,68 @@ OGAD (Off Grid AI Desktop) can help you compare readable documents with a local 
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-This helps a small delivery team when decisions move faster than formal documents. A useful comparison can show whether a meeting clarified the brief, proposed a change, or introduced a real contradiction.
+## Choose the versions you intend to compare
 
-## What is a contradiction rather than a missing detail?
+Start with one project brief and the notes from one relevant meeting. Give each source a name and date. Identify whether the brief is approved, a draft, or unknown, and whether the meeting notes are final or still being corrected.
 
-A contradiction occurs when two statements cannot both apply under the same conditions. A missing detail is a gap. A proposed change is an option that may not yet be approved. Keep those categories separate so the review does not exaggerate differences.
+If you have several copies, choose the intended versions before asking for analysis. “Brief final” and “Brief final updated” can describe different documents without telling you which one governs the project.
 
-Suppose a project brief says the booking form must collect a phone number. A meeting note says “Let customers book with email only.” That may be a contradiction if both refer to the same booking route.
+Keep a baseline copy available. You need to know what the brief said before the meeting if you want to distinguish a new proposal from an existing requirement.
 
-But if the note concerns returning customers only, it may be an exception. You need the surrounding context before changing the form.
+## Put readable text in the local workflow
 
-| Difference type | What to establish |
-|---|---|
-| Direct conflict | Two incompatible requirements for the same case |
-| Exception | A different rule for a named condition |
-| Missing detail | One source leaves something unspecified |
-| Proposed change | A suggestion without clear approval |
-| Superseded decision | A confirmed later decision replaces an earlier one |
+Install [OGAD](https://getoffgridai.co/desktop/), download a suitable local model, and provide the relevant text in chat or through a supported document-reading workflow.
 
-A table with these categories is more useful than a general warning that the documents are inconsistent.
+If the sources are in Obsidian, the Pro integration can read local Markdown notes after you select the vault. Check that each read succeeds and that the returned text matches the intended file. A file-search result alone is not a content read.
 
-## Which versions should you compare?
+For a scanned or layout-heavy document, inspect the extracted text before comparing it. A missing table row or incorrect date in extraction can create a false contradiction. Correct the input or review that part manually.
 
-Choose the brief currently used for delivery and the notes from the relevant meeting. Record their dates and approval status. A file saved yesterday is not necessarily more authoritative than a brief approved last month.
+## Define the comparison categories
 
-Use readable TXT, Markdown, DOCX, or text PDFs. Keep copies of the original files before editing. If a PDF contains only scanned images, prepare a checked text version first.
+Ask for four categories: direct contradiction, proposed change, compatible extra detail, and missing information. These categories prevent every wording difference from becoming a project problem.
 
-For a first review, select one topic: booking fields, approval rules, delivery dates, or access requirements. A focused comparison makes it easier to inspect each source passage.
+A brief saying “deliver by Friday” and notes saying “client review on Thursday” may be compatible. A brief saying “ten seats” and a confirmed meeting decision saying “twenty seats” may represent a real change. A note saying “could we add ten more?” is still a proposal.
 
-This procedure uses the free core app on supported Mac and Windows computers. [Release 0.0.54-beta.108](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54-beta.108) also has Linux beta packages. Download the app and local text model before disconnecting from the internet.
+Use these distinctions before asking the model to prioritize issues. Otherwise, a long list of minor wording changes can hide the one decision that actually blocks work.
 
-## How do you compare two short documents?
+## Ask for a source-based comparison
 
-Attach both files to a chat and ask for a bounded comparison. Label each source clearly so the model can distinguish the approved brief from meeting notes. Read the extracted text before relying on the answer.
+Try:
 
-1. In **Models > Text**, select a downloaded local model that fits your computer.
-2. Open a new chat and select **+ > Attach files**.
-3. Attach the brief and the meeting notes.
-4. Wait for processing and open each attachment's text preview.
-5. Check that the relevant sections are present and readable.
+> Compare the project brief and meeting notes on scope, dates, owners, and acceptance criteria. For each difference, quote the relevant words from both sources and give their section or filename. Classify the difference. Do not infer approval from a suggestion or assign an owner who is not named. List unresolved questions separately. Do not edit either source.
 
-The [file-processing path](https://github.com/off-grid-ai/OGAD/blob/v0.0.54-beta.108/src/main/files.ts) extracts text for chat. It does not preserve every visual layout detail, comment, or meaning conveyed by a document's formatting.
+Review the resulting table one row at a time. Check that each quoted passage exists and that nearby text does not change its meaning.
 
-Ask:
+Ask the model to keep dates and quantities in their original form before it normalizes them. “Next Friday” needs the meeting date and time context; a model should not convert it into a calendar date without that information.
 
-> Compare the booking requirements in these two files. For each possible difference, quote a short passage from each source and classify it as direct conflict, exception, missing detail, proposed change, or unclear. Explain the condition under which the statements would conflict. Do not decide which source is authoritative.
+## Look for an actual resolution
 
-## How do you check the proposed conflicts?
+For a direct conflict, identify what evidence would resolve it: a later accepted decision, an approved revision, or confirmation from the responsible person. Search only the relevant follow-up sources instead of asking the model to choose the more plausible statement.
 
-Read both quoted passages and their surrounding sections. Confirm that they refer to the same user, stage, and condition. Small scope differences can make apparently conflicting statements compatible.
+A later timestamp can help order events, but it does not establish authority by itself. An unapproved draft saved yesterday may be less authoritative than a signed-off brief from last week.
 
-For the phone-number example, check whether one source describes new customers and the other returning customers. Look for words such as “optional,” “unless,” “initially,” and “after approval.”
+If the sources do establish a change, keep the old and new statement with the resolution reference. If they do not, phrase a clear question for the next discussion.
 
-Keep a review table outside the generated answer:
+## Turn findings into a review note
 
-- Topic under review.
-- Brief passage.
-- Meeting-note passage.
-- Your classification after checking.
-- Question or action needed.
+Ask for a short review note with the issue, effect on the work, evidence, and decision needed. For example: “Seat count differs between the brief and meeting notes; confirm the approved number before estimating the rollout.”
 
-Do not copy every suggested conflict into a client message. Remove false positives first. If the model quotes wording that is not in the source, discard that item and inspect the relevant section directly.
+Do not present the review note as a final project decision. A comparison tool can identify a problem, but the responsible people still need to resolve it.
 
-## What if the files are too long?
+If you ask for a revised brief, label it as a proposed revision. Check every changed requirement before applying it to the original document or sharing it with a client.
 
-Compare relevant sections rather than asking one model request to cover the entire archive. The model context must fit the documents, instructions, conversation, and answer. A complete attachment preview does not mean the whole text fits usefully in one prompt.
+## Fix common comparison errors
 
-You can also create a project for repeated source lookup. Open **Projects > New project**, then **Knowledge & settings > Knowledge base > Add files**. Wait for indexing and open **Chats > New chat** inside that project.
+| Problem | Next check |
+| --- | --- |
+| Too many minor differences | Restrict the comparison to decisions and requirements |
+| Quotes do not match the source | Re-read the text and inspect extraction |
+| Notes are treated as approval | Ask for the acceptance evidence |
+| Relative dates become exact dates | Supply the meeting date and time zone |
+| Missing owner becomes an invented name | Require “not specified” without evidence |
 
-Project search retrieves selected relevant passages. Use it to find the sections you need, then review those sections directly. It is not an exhaustive document-difference engine and does not prove the rest of the files agree.
+Local text and a downloaded local model can support this comparison without internet after setup. Connected cloud sources need their own network access. Check the selected model before providing private project material.
 
-For a thorough review, make a topic checklist from the brief and work through each topic. Mark what you reviewed so missing retrieval results do not become an assumed pass.
+## Resolve one important disagreement first
 
-## How do you ask the client to resolve a conflict?
-
-State both interpretations and ask which should govern the work. Keep the message neutral and specific. Include the relevant source dates so the recipient can recognise the context.
-
-For example:
-
-> The approved brief requires a phone number for booking. The workshop notes describe email-only booking. Should email-only booking apply to all customers or only returning customers? We need this to finish the required-field rules.
-
-Ask the local model to draft from your checked table:
-
-> Write a short clarification request for these confirmed differences. Name both interpretations, ask one decision per item, and state what work depends on the answer. Do not claim a change is approved.
-
-Review the draft and send it through your existing process. The app generating a question does not send it or obtain approval.
-
-## How do you keep the answer from becoming another conflict?
-
-When the decision owner responds, update the approved brief or decision record. Add the date, the chosen rule, and the condition it applies to. Tell the delivery team where the current requirement lives.
-
-If you use a project knowledge base, disable outdated document versions when they should no longer guide retrieval. Prior chats can still contain earlier discussion, so keep the current approved record explicit and check sources in later answers.
-
-| Review failure | Better next step |
-|---|---|
-| The model chooses a winner automatically | Ask for evidence and leave authority to the owner |
-| Missing detail is called a contradiction | Check whether both statements can be true |
-| A newer draft overrides an approved brief | Verify approval status, not just file date |
-| A long comparison omits a section | Use a topic checklist and smaller source sections |
-
-## Check one requirement before changing it
-
-[Download OGAD](https://getoffgridai.co/desktop/) and compare the current brief with one set of notes. Finish with a checked difference and a clear question, or evidence that the two statements can both apply.
-
-Keep the model local for processing on your computer after setup. Remote model choices and sharing files are separate data paths. The goal is a better decision record, not an automatic decision about the project's scope.
+[Open OGAD](https://getoffgridai.co/desktop/) with one brief and one set of notes. Compare the deadline, scope, or owner that matters most, verify both passages, and turn any unresolved difference into a specific decision request.

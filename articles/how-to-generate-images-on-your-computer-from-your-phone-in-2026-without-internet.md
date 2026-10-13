@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Generate Images on Your Computer From Your Phone in 2026 Without Internet"
-description: "Write an image prompt on your Android phone or iPhone and let your own computer generate it. Use OGAM and OGAD over local Wi-Fi after setup."
+title: "How to Generate AI Images on Your Computer From Your Phone in 2026 Without Internet"
+description: "Send an image prompt from Android or iPhone to your own computer over local Wi-Fi and receive the generated result without internet after setup."
 date: "2026-09-29"
 permalink: /articles/how-to-generate-images-on-your-computer-from-your-phone-in-2026-without-internet/
 published_at: "2026-09-29T08:45:14.156Z"
@@ -11,14 +11,15 @@ devto_article: true
 devto_id: 4769865
 devto_url: "https://dev.to/alichherawalla/how-to-generate-images-on-your-computer-from-your-phone-in-2026-without-internet-36gm"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F6zocogu5ka810pfy5gmt.png"
+last_modified_at: "2026-10-13"
 ---
-Your phone can be the place you create without doing all the processing. OGAM (Off Grid AI Mobile) can send an image prompt to OGAD (Off Grid AI Desktop) on your own computer, then show the result on your phone. With a downloaded image model and a working local network, generation does not need internet.
+Your phone can send an image prompt to your own computer and receive the result over local Wi-Fi. OGAM (Off Grid AI Mobile) provides the prompt and image view; OGAD (Off Grid AI Desktop) runs the downloaded image model.
 
-[Download OGAM](https://getoffgridai.co/mobile/) | [Download OGAD](https://getoffgridai.co/desktop/)
+After the apps and model are ready, this route can work without internet as long as the local network still connects the devices. You do not need to put the same large image model on the phone.
 
-<div style="width: 100%;">
-  <img width="320" alt="OGAM on iPhone turning a chat prompt into an image: the enhanced prompt and the finished lighthouse picture." src="https://getoffgridai.co/assets/img/home/mobile/imagegen-ios-1-light-640.webp" />
-</div>
+[Download OGAD](https://getoffgridai.co/desktop/) | [Get OGAM](https://getoffgridai.co/mobile/)
+
+![Off Grid AI Desktop conversation with a generated image; the paired phone can request desktop image generation](https://getoffgridai.co/assets/img/home/app/imagegen-chat-light-1760.webp)
 
 ---
 
@@ -28,97 +29,68 @@ Your phone can be the place you create without doing all the processing. OGAM (O
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-You can sketch an idea from the sofa, change a prompt while looking at a real object, or try several visual directions without returning to the computer for every request. The computer supplies the image model and its processing resources. The phone supplies the prompt and displays the result.
+## Prepare one working desktop image model
 
-Initial app and model downloads need internet. Keep both devices connected to your own local network for the steps below.
+Install OGAD on the computer and download a supported local image model. Generate one image on the desktop first. This checks the model, required files, and available memory before you add the phone connection.
 
-## Where does the image model run?
+Install OGAM on Android or iPhone. This guide uses the current [OGAM beta 114 release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1) and [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). Keep the computer awake with OGAD running.
 
-The image model runs on the computer you choose in OGAM. Your phone sends the prompt across the network and receives the generated image. You do not need to store that same image model on the phone.
+Remote image generation uses the core model-server route. It does not require Pro device sync merely to send an image request. Conversation sync and computer-task controls are separate workflows with their own requirements.
 
-This is different from moving a downloaded model between devices. You leave the model on the computer and use it remotely. It is also different from syncing an image that you already made: here, the request starts on your phone.
+## Connect over your local network
 
-Use [OGAM 0.0.111](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111) with a compatible desktop release such as [OGAD 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51). The remote image path is part of the core model-server workflow; it does not require Pro device sync.
+Put the phone and computer on a network that allows them to reach each other. A guest network may block that communication even when both devices can browse the internet.
 
-## What do you need before you start?
+In OGAM, open **Settings → Remote Servers**. Use **Scan network** with Off Grid AI Desktop selected, or choose **Add manually** if discovery does not find the computer.
 
-Install OGAM on Android or iPhone. On your computer, install OGAD and download a supported local image model. Generate one image on the computer first so you know the model is ready.
+For a manual entry, set **Server name** and **Address** using the computer's actual local address. The OGAD gateway normally uses port **7878**. An example is `http://192.168.1.50:7878`, but only use that value if it is really your computer's address.
 
-You also need:
+`localhost` on the phone points back to the phone. It does not identify your desktop. Allow local-network permission if the phone requests it, then test the connection before you try to generate an image.
 
-- A home network that lets the two devices reach each other.
-- Enough memory and storage on the computer for the chosen image model.
-- A computer that stays awake with OGAD running.
-- Space on the phone to save the returned images.
+## Select the image model supplied by the computer
 
-A model that works on the computer is the important requirement. A remote connection cannot make an unsupported desktop model work. Use a downloaded local image model on the host if you want the whole generation path to stay on your hardware.
+In the server editor, inspect **Remote media** and choose the available **Image model**. Use the model list returned by OGAD rather than inventing a model name. Save with **Add server** or **Update server**.
 
-## How do you connect the phone to the computer?
+Then open OGAM's image-model selector and choose the relevant entry under **Remote models**. Check the **Remote** label and the server name. Text-model selection and image-model selection are separate; choosing a remote chat model does not by itself select a remote image engine.
 
-Add the computer under **Settings → Remote Servers** in OGAM. Test the connection and choose an image model the computer provides. OGAD's local gateway uses port **7878**.
+If no image model appears, return to the desktop and check that its model is downloaded and available. A connected server with a text model is not automatically an image-generation server.
 
-1. Open **Gateway** in OGAD and keep the app running.
-2. Find the computer's local IP address in its network settings.
-3. On the phone, open **Settings → Remote Servers** and add a server.
-4. Enter a name such as **Home images**.
-5. Enter the address in the form `http://YOUR-COMPUTER-IP:7878`.
-6. Tap **Test connection**.
-7. Choose a downloaded model in **Image model**, then tap **Add server**.
+## Generate one image from the phone
 
-For example, `http://192.168.1.50:7878` would be correct only if `192.168.1.50` were your computer's address. Do not enter the phone's address or a public website.
+Use the chat's explicit **Image Gen** mode and enter a clear prompt:
 
-The OGAD gateway in this setup does not require an API key. Keep it on a trusted network and restrict access through the computer's firewall. Do not expose port 7878 through public router forwarding.
+> Generate an editorial illustration of a green reading lamp on a wooden desk, warm evening light, simple background, square composition, no readable text or logos.
 
-If the phone requests local network access, allow it so it can reach your computer. Guest Wi-Fi can block device-to-device connections even when both devices appear to be online.
+Keep OGAM open and the devices connected while the request runs. The computer performs the generation and returns the result. Inspect the actual image in the conversation rather than relying on a text reply that says it was made.
 
-## How do you create the first image from the phone?
+Start with one image and settings the desktop has already handled successfully. Sending the prompt from a phone does not reduce the memory required on the computer or guarantee a particular generation time.
 
-Open OGAM's model selector, find the image models, and select the one listed under your computer's name. The **Remote** label distinguishes it from a model on the phone. Wait for selection to finish, then send one simple image request.
+## Save and inspect the returned result
 
-Try a prompt with a clear subject and style:
+Open the generated result on the phone and use the available save or share controls for your intended destination. Check that the image is present and usable before you leave the network.
 
-> Generate an image of a small green reading lamp on a wooden desk, warm evening light, simple background, square composition.
+For a second version, change one element of the prompt, such as lighting or composition. A new text prompt generates a new image; it does not guarantee that every object stays identical to the previous result.
 
-For an explicit image request, use the chat's **Image Gen** control to choose image generation. This helps you get an image rather than a text answer about the subject.
+Reference-image editing depends on the selected model and endpoint. This guide establishes text-to-image generation and does not claim that every remote image model supports every edit operation.
 
-During the request, OGAM can show generation progress received from OGAD. When it finishes, the image is saved on the phone and can appear with the conversation's generated-image result. Keep the phone connected until the image arrives.
+## Test the internet-free setup correctly
 
-Start with one image. Check whether the subject, lighting, and composition match your idea. For the next prompt, change one part:
+First complete a request while your normal network works. Then test with internet access unavailable while keeping the local Wi-Fi connection active. Both apps and all required model files must already be installed.
 
-> Generate the same kind of desk scene with cool morning light and a white ceramic lamp.
+Turning off Wi-Fi entirely breaks the route between the phone and computer. A local router can still connect the devices when its internet link is down, but only if its local networking remains available.
 
-This second prompt describes a new generation. It does not promise that every object or pixel will match the previous image. Reference-image editing is a separate workflow.
+A remote connection from another location is different. If you reach the home computer through a private remote network, that route may need internet at both ends. Do not describe it as the same offline home-network setup.
 
-## Can this work when the internet is down?
+## Fix the common failures
 
-Yes, when both apps and the model are ready and the phone can still reach the computer over the local network. A router can provide local Wi-Fi even when its internet connection is unavailable.
+| Symptom | Check |
+| --- | --- |
+| Server cannot be reached | Desktop awake, app running, address, firewall, local permission |
+| No image choice appears | Desktop image model and refreshed server catalog |
+| A text answer appears | Image Gen mode and active remote image selection |
+| Generation fails | Desktop model, memory, and error result |
+| Image never reaches the phone | Network connection and request state |
 
-Keep Wi-Fi connected on both devices. Turning off all network connections would stop the phone from sending the prompt and receiving the image.
+The prompt leaves the phone and goes to the selected server. For this guide, that server is your own computer running a local image model. Choosing a public endpoint or a desktop configuration that forwards to cloud AI changes that boundary.
 
-For a useful check, complete one request with your normal connection. Then remove internet access while leaving the local network running and try another prompt. Make sure the chosen desktop model is local and fully downloaded before this check.
-
-Access from a different location is another setup. A private remote connection such as Tailscale normally needs internet at both ends. It should not be described as this internet-free home-network workflow.
-
-## Why did the image request fail?
-
-Check whether the computer can still generate an image locally. If that fails, fix the host model first. If local generation works, check the phone's server selection and network connection.
-
-| What you see | What to do |
-|---|---|
-| No remote image model | Finish downloading the model on the computer and test the server connection again. |
-| A text answer instead of an image | Select the remote image model and use the explicit Image Gen mode. |
-| Server unavailable | Wake the computer, open OGAD, and check its current IP address. |
-| A generation or memory error | Use a model and image size the computer can handle. Close other demanding work on the host. |
-| Generation starts but the result never arrives | Keep both devices connected and OGAM open while the request completes. |
-
-The host still needs enough memory for image generation. Sending the request from a phone does not remove that limit, and a larger computer does not guarantee a fixed generation time.
-
-## Where do the prompt and image go?
-
-The prompt leaves the phone and goes to the selected computer. The computer runs the downloaded model, then sends the result back to OGAM. With your own local host, there is no required cloud image-generation service in this route.
-
-If you choose a different remote server, its operator receives the request. If the home computer itself forwards work to a cloud model, that also changes where processing happens. Check the active model before sending a private idea.
-
-## Make one image with hardware you already own
-
-[Install OGAM](https://getoffgridai.co/mobile/) on your phone and [OGAD](https://getoffgridai.co/desktop/) on your computer. Prepare one local image model, connect the phone, and try the reading-lamp prompt. Once it works, you can explore your next visual idea from the phone while your computer does the generation.
+[Get OGAM](https://getoffgridai.co/mobile/) and [prepare OGAD](https://getoffgridai.co/desktop/) with one local image model. Connect the devices, make the reading-lamp image, and verify the saved result before you depend on the setup without internet.

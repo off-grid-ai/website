@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Run a Downloaded GGUF AI Model on Your Computer in 2026"
-description: "Import a downloaded GGUF text model into OGAD on Mac or Windows. Check compatibility, disk space and memory before using it locally."
+title: "How to Use AI Models Already on Your Computer in Off Grid AI in 2026 Without Making Duplicate Copies"
+description: "Add existing model folders to Off Grid AI, activate compatible files in place, and avoid unnecessary duplicate downloads."
 date: "2026-09-29"
 permalink: /articles/how-to-run-a-downloaded-gguf-ai-model-on-your-computer-in-2026/
 published_at: "2026-09-29T10:36:55.916Z"
@@ -11,14 +11,15 @@ devto_article: true
 devto_id: 4770704
 devto_url: "https://dev.to/alichherawalla/how-to-run-a-downloaded-gguf-ai-model-on-your-computer-in-2026-5dof"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fc48721vxvuzbz0zpt0aw.png"
+last_modified_at: "2026-10-13"
 ---
-You found a GGUF model you want to try. You should be able to use that file without building a separate local chat interface.
+If compatible AI models are already on your computer, you may not need another download or a second copy. OGAD (Off Grid AI Desktop) can scan additional folders and use compatible chat, image, voice, and transcription models where they already live.
 
-OGAD (Off Grid AI Desktop) can import a downloaded `.gguf` file, register it in the local model list and use a compatible text model for chat. The file is copied into the app's model storage, so allow space for that copy as well as enough RAM to run it.
+Use **Other model folders** in Storage for this job. Adding a folder does not convert every file inside it into a supported model. The files must match formats and model types the app can use.
 
-[Download OGAD for Mac or Windows](https://getoffgridai.co/desktop/)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
-![The Models screen in Off Grid AI Desktop: text models on this computer and models to download, each with its size, plus size filters and an Import .gguf button.](https://getoffgridai.co/assets/img/home/app/models-text-light-1760.webp)
+![Off Grid AI Desktop model inventory showing installed files and storage use](https://getoffgridai.co/assets/img/home/app/models-storage-light-1760.webp)
 
 ---
 
@@ -28,60 +29,67 @@ OGAD (Off Grid AI Desktop) can import a downloaded `.gguf` file, register it in 
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## Choose a compatible text model first
+## Choose scanning when the files should stay put
 
-GGUF is a file format, not a guarantee that every model inside it works with every engine. The model architecture and quantization must be supported by the bundled runtime. Start with a complete, compatible text model rather than a split download or an image-generation model that happens to use the same extension.
+A scan folder is a place the app reads for compatible existing models. It is different from **Model folder**, which controls where new model downloads go.
 
-Check the model publisher's instructions and license. Keep the model's name and source with your notes so you know what you imported. Do not rename an unrelated file to `.gguf` and expect it to become a model.
+This distinction is useful if you keep a shared collection on an external drive or already have large model files in a dedicated directory. Add that location instead of copying its contents into the app's download folder.
 
-For a first import, choose a modest model size. A successful file import does not mean its runtime memory requirements fit your computer.
+The app also has model-import workflows, but importing and scanning are not interchangeable. This guide uses scanning specifically because you want the original files to remain in their present location.
 
-## Import the file
+## Check the existing model files
 
-1. Download the complete GGUF file from its publisher.
-2. Open **Models** in OGAD.
-3. Select **Import .gguf** and choose the file.
-4. Wait for the import to finish.
-5. Find the imported text model in the model list and load it.
-6. Open **Chat** and try a short request.
+Find the directory that contains the complete model files. Check whether the model requires companion files, such as an image projector for a vision model or a pack of files for a speech engine.
 
-OGAD checks the file extension and GGUF signature before copying the file into managed model storage. Those checks catch obvious format problems; they do not validate every architecture or guarantee answer quality.
+A single model weight may be enough for one text model and insufficient for another model type. Keep related files together according to the model's supported layout. Do not rename unrelated files merely to make them resemble a recognized model.
 
-This is a core feature in the free app. Once the file and required runtime are present, local text inference can work without internet.
+If the collection is on an external drive, mount it before you open the app. Confirm that your account can read the directory. There is no need to grant write access to unrelated folders just to scan a model collection.
 
-## Check the result before a larger task
+## Add the folder in Storage
 
-Ask one question with an answer you can inspect, then try a small sample of your actual work. For example, give it three rough notes and ask for a concise update that preserves every fact.
+1. Open **Models** and then **Storage** in [OGAD](https://getoffgridai.co/desktop/).
+2. Find **Other model folders**.
+3. Choose **Add folder**.
+4. Select the directory that contains the models.
+5. Return to the relevant model list and use **Refresh** if needed.
+6. Inspect the compatible entries the app found.
 
-If the model gives unusable output, check its intended chat format and whether the architecture is supported. If it will not load, check memory first and then the file's completeness and compatibility. The extension alone cannot resolve either problem.
+You can add more than one folder. Use a small number of meaningful locations rather than selecting an entire disk and expecting every file to be useful.
 
-Vision models can need a matching projector and a supported setup. Importing one text GGUF does not automatically turn it into a model that understands images. Use the app's supported catalog route when you want a simpler first vision setup.
+The Storage view states that these files stay in their current folder. Adding the path is not a request to move the collection or change where all future downloads are saved.
 
-## Keep disk space and RAM separate
+## Activate and test one model
 
-The import copies the model into OGAD's storage. Your original download may still be present, so both copies can occupy disk space. Review your files deliberately after you confirm the import works.
+Choose **Use** for a compatible model. Start with a short request appropriate to its type. For text, ask a simple question. For vision, attach a small image and ask for a description only after the required projector is available.
 
-RAM is a separate constraint. Choose a smaller compatible quantization or reduce the working context when the current choice is too large. A 4 GB file does not imply a total running memory cost of exactly 4 GB.
+Check the selected model name before you interpret the result. If the app is still using a different local or remote model, a successful answer does not prove that the newly found files work.
 
-The controls described here are available in [OGAD 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51).
+For voice, image, or transcription models, use the relevant model settings and a small test in that feature. A text response cannot validate an image-generation pack, and a model appearing in the inventory is only the first step.
 
+## Understand what is and is not deleted
 
-## Check a model before trusting it with your work
+Removing a path from **Other model folders** removes that scan-folder reference. It does not delete the model files in that directory. This is useful when you temporarily disconnect a drive or no longer want the app to search that location.
 
-Use a short source-grounded task after the import loads. Paste three facts and ask the model to rewrite them without adding information. Include one deliberately unknown item, such as “delivery date not confirmed.” Check that the answer keeps that uncertainty.
+Externally discovered models are treated as read-only by the model deletion path. That is different from app-managed or separately imported copies, whose deletion controls can remove their files. Check the model's location and origin before using any delete action.
 
-Then try the capability that made you download this model. If you want code explanations, give it a small function you understand. If you want another language, use a short passage that you can check. One correct greeting does not establish that a model is suitable for every task.
+If you want to remove the original external files, do that deliberately through your file-management process after confirming that no other application needs them. Removing a scan reference is the appropriate action when your only goal is to stop using the folder in OGAD.
 
-Keep the publisher URL, exact filename and quantization in a note. Similar model names can refer to different sizes or files. That record helps you explain which variant worked if you later replace it or need to download it again.
+## Fix models that do not appear
 
-## Separate an import failure from a runtime failure
+| Symptom | Useful check |
+| --- | --- |
+| No entries appear | Correct directory, readable files, and supported format |
+| Text works but image input fails | Matching vision projector and selected model capability |
+| Model worked yesterday | External drive mount and unchanged path |
+| Duplicate-looking entries appear | Different quantizations, locations, or imported copies |
+| Download is still requested | Required files missing or not recognized as a complete set |
 
-If the file is rejected before copying, check that the download is complete and is actually a GGUF file. If it imports but fails when loaded, examine memory and runtime compatibility. Repeating the same import does not repair an unsupported architecture.
+A filename is not enough to prove compatibility. Different quantizations and model architectures can need different runtime support. Use the current beta release notes and the app's own errors to identify the missing requirement rather than assuming a generic extension guarantees support.
 
-If the model runs but generates unusable text, check the publisher's expected use and chat setup. If a supported catalog model works on the same short prompt, that comparison helps narrow the problem to the imported model rather than the whole application.
+## Keep storage size separate from memory needs
 
-Keep your original file until the imported copy has passed a small real test. Afterward, decide deliberately whether you need both copies. Deleting the original download does not reduce the RAM required by the running model; choosing a smaller compatible variant addresses that separate limit.
+Reusing files saves a duplicate copy on disk. It does not reduce the working memory needed to load a model. A large model can be present and correctly detected while still exceeding the available RAM for your intended context length.
 
-## Put your downloaded model to work
+Start with a model you know fits the computer. After that works, try larger choices one at a time and compare them on your actual task without claiming an unmeasured speed gain.
 
-[Download OGAD](https://getoffgridai.co/desktop/), import one compatible GGUF and test it on a short real task. Keep a useful model close to your work, with local chat in the same app.
+[Add one existing model folder in OGAD](https://getoffgridai.co/desktop/), select a compatible entry, and check a real result. You can then keep using that same collection in place instead of downloading another copy.

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Write a Weekly Work Update From Automatically Saved Mac Activity in 2026"
-description: "Draft a weekly update from saved Mac activity. Review daily journals and source context, then turn verified outcomes into a concise local AI draft."
+title: "How to Automatically Prepare a Weekly Work Report From Your Saved Activity in 2026"
+description: "Schedule a weekly work-report draft from retained activity and notes, with evidence, gaps, and a review before sharing."
 date: "2026-09-29"
 permalink: /articles/how-to-write-a-weekly-work-update-from-automatically-saved-mac-activity-in-2026/
 published_at: "2026-09-29T09:51:43.076Z"
@@ -11,14 +11,15 @@ devto_article: true
 devto_id: 4770338
 devto_url: "https://dev.to/alichherawalla/how-to-write-a-weekly-work-update-from-automatically-saved-mac-activity-in-2026-24no"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Ftfyfbtclbjubtmo96vbt.png"
+last_modified_at: "2026-10-13"
 ---
-Friday arrives, and the week's smaller wins are hard to recall.
+You do not have to rebuild your workweek from memory every Friday. OGAD (Off Grid AI Desktop) can use retained work context to prepare a report draft on a weekly schedule in God, its Pro assistant workspace.
 
-OGAD (Off Grid AI Desktop) can give you a record to work from. After you enable Pro capture on your Mac, **Day** turns saved activity into a journal and timeline. Review those records, select the verified outcomes and use local Chat to draft a weekly update.
+The automatic part starts after you enable the relevant capture and configure the routine. The draft is only as complete as the sources the app can retrieve. Review it before you share it with a manager or client.
 
-[Download OGAD for Mac](https://getoffgridai.co/desktop/)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
-![Day in Off Grid AI Desktop opened on an earlier day: the journal for that day, time spent by app and its hour-by-hour timeline.](https://getoffgridai.co/assets/img/home/app/today-yesterday-light-1760.webp)
+![Off Grid AI Desktop God settings with recurring-task controls and example routines](https://getoffgridai.co/assets/img/home/app/god-routines-light-1760.webp)
 
 ---
 
@@ -28,60 +29,62 @@ OGAD (Off Grid AI Desktop) can give you a record to work from. After you enable 
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## Start with evidence instead of a blank page
+## Decide what the report needs to show
 
-A useful work update distinguishes completed results, progress still in flight and next steps. Your captured activity can remind you of a review, a difficult discussion or a document you improved, even when it did not become a large finished deliverable that day.
+Choose a small structure that matches the reader's decision: completed work, unresolved work, blockers, and next week's priorities. Ask for source references beside important claims. A chronological list of everything you opened is usually less useful than a report tied to outcomes.
 
-The app does not know every outcome just because a related window was open. Check the finished document, sent message or other source before claiming completion. Offline conversations and work done while capture was paused need your own notes.
+For example, a project lead may need to know which client requests were completed and which decisions still need an owner. The report should separate “discussed,” “started,” and “completed.” A meeting about a deliverable is not evidence that it shipped.
 
-## Build the record during normal work
+Choose the reporting dates explicitly. “This week” can be ambiguous near midnight or when you run the task on a different day.
 
-Use OGAD Pro on Mac. Prepare local screen-analysis and text models, review **Screen Recording** and **Accessibility** permissions, then explicitly choose **Resume capture** in **Replay** or **Capture** settings. Check the visible **Capturing** status and pause it when needed.
+## Prepare a week's worth of evidence
 
-You do not need to type a diary entry for every task. The captured moments are processed into activity notes. **Day** requests a journal from those notes when it needs one, and **Refresh summary** lets you regenerate the day's draft.
+Set up [OGAD](https://getoffgridai.co/desktop/) and enable the capture features you want to use. Check the visible capture state and retention settings. Connect relevant notes or accounts only if the report needs them.
 
-This is sampled computer activity, not a complete measure of effort or a record of every conversation.
+Saved screen activity is sampled context, not a continuous video recording of every action. A disconnected account, a private window that was not captured, or deleted history can leave gaps. The report must say when the evidence does not cover a period.
 
-## Collect the useful parts of each day
+Before scheduling, ask God for a small summary of one known day. Open its cited sources. This tells you whether the data needed for the report is present before you automate the larger job.
 
-1. Open **Day** and review **Journal** for the latest workday.
-2. Compare each useful statement with **Timeline** or the actual work product.
-3. Use **Previous day** to review the other days in your update period.
-4. Copy the verified points into a short note, keeping the date and project beside each one.
-5. Add material work that the capture record could not include.
-6. Remove repeated mentions of the same task before drafting the update.
+## Write a report instruction with boundaries
 
-Keep the preparation note factual. “Reviewed the launch checklist and found two missing checks” is more useful than “Made great progress on launch readiness,” if the source supports the former.
+Use this as a starting point, then replace the project and scope:
 
-## Turn the notes into a concise update
+> Prepare my weekly report for Project Cedar. Use saved activity and connected project notes from Monday 00:00 through Friday 17:00 in my local time. Group the result into completed outcomes, work in progress, blockers, and next actions. Include a source and date for each material claim. Do not infer completion from discussion. Mark missing coverage and conflicting evidence. Draft only; do not send it.
 
-Open **Chat** with a downloaded local text model and paste the checked notes. Ask for a format that matches your audience:
+Ask for a short opening paragraph followed by a table. The table can contain outcome, evidence date, status, and next action. If the model cannot establish a status, “needs review” is a valid result.
 
-> Write a weekly work update using only these dated notes. Use three sections: Completed, In progress, Next week. Keep concrete outcomes and open questions. Do not turn reviewing or editing into completion. Do not invent metrics, deadlines or approvals. Keep uncertain status marked for me to check.
+Keep the report scoped to the intended audience. A client report should not accidentally include another client's work just because it appeared on your screen that week.
 
-This is a drafting step from material you choose. It does not automatically send the update to your team or create a weekly report from every stored record without review.
+## Schedule the Friday draft
 
-## Make the update useful to its reader
+Open God settings, expand **Scheduled tasks**, and choose **Add a scheduled task**. Enter a name such as “Friday Cedar report,” put the instruction in **What to do**, and choose the weekly day and local time under **When**.
 
-For a manager, emphasize outcomes and blockers. For a client, include the next decision they need to make. For your own journal, retain the question you want to start with next week.
+Choose **Add**, leave the routine enabled, and use **Run now** for a first check. The immediate run tests the task with the evidence currently available; it does not create future activity for the rest of the week.
 
-A compact structure could be:
+Keep the computer awake and OGAD running at the scheduled time. Local sources can be processed by a local model after setup. Live account reads still need internet, and model work can wait in the local queue.
 
-| Section | Include |
-|---|---|
-| Completed | Verified deliverables or resolved problems |
-| In progress | Current state and what remains |
-| Blocked | The specific missing decision or dependency |
-| Next week | The next concrete step you intend to take |
+## Review the draft before sharing
 
-Read the final draft once against your notes. Replace general praise with specific work. Remove any sentence that makes the week sound more complete than the evidence supports.
+Check one claim in each section against its source. For a completed outcome, look for a completion record, accepted change, delivered file, or another concrete confirmation. For a blocker, check whether a later record already resolved it.
 
-## Keep the preparation on your Mac
+Pay attention to names and dates. Two projects may use the same short label. A request made this week may refer to work completed last week. Ask the model to keep the event date separate from the date on which you read about it.
 
-After app, model and Pro setup, the captured record and a local chat model can support this workflow without a cloud AI service. You will need whatever connection your chosen communication tool requires when you decide to send the finished update.
+Edit the final report for the audience, then send it through your normal process. Creating the draft in God does not prove that an email or document was published anywhere else.
 
-The guide uses the Mac Pro Day and core Chat workflows associated with [OGAD 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51). Journal text is generated from activity-block notes, so inspect the supporting timeline when something seems wrong.
+## Fix weak reports at the source
 
-## Draft this week's update from actual work
+| Problem | Better next step |
+| --- | --- |
+| The report is generic | Name the project and ask for dated evidence |
+| Too much unrelated work | Restrict the accounts, terms, and date range |
+| Finished work appears open | Ask for later evidence that changes the status |
+| An entire day is absent | Check capture and retention coverage |
+| A claim has no source | Remove it or verify it before sharing |
 
-[Download OGAD for Mac](https://getoffgridai.co/desktop/), enable capture for the work you want recorded and review the daily journals. Bring the checked points into a local chat and write the update from evidence. Make the work visible without reconstructing the whole week from memory.
+Do not solve missing evidence by asking the model to sound more certain. Keep an explicit gap list. It tells you what to add manually and what to improve in the next week's setup.
+
+## Make the next report easier
+
+After the first report, use **Edit** and **Save** to keep the format that worked. Preserve the source requirement and the draft-only boundary. Change the reporting dates if your workweek differs from the example.
+
+[Set up one weekly report in OGAD](https://getoffgridai.co/desktop/) and compare its first draft with your own notes. Once that check is useful, the routine can prepare the same structured starting point each week.

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Connect Your Phone’s Local AI to Apps and Tools With MCP in 2026"
-description: "Connect a local phone model to an MCP server in OGAM. Start with a public repository lookup, then add only the tools your task needs."
+title: "How to Use Multiple App Accounts With Local AI on Your Phone in 2026"
+description: "Use separate named tool connections for supported app accounts on your phone, choose the enabled tools, and verify which account answered."
 date: "2026-09-29"
 permalink: /articles/how-to-connect-your-phones-local-ai-to-apps-and-tools-with-mcp-in-2026/
 published_at: "2026-09-29T10:49:41.811Z"
@@ -11,12 +11,15 @@ devto_article: true
 devto_id: 4770786
 devto_url: "https://dev.to/alichherawalla/how-to-connect-your-phones-local-ai-to-apps-and-tools-with-mcp-in-2026-4e8n"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fxcqv4fes9eyfm1dbpg9h.png"
+last_modified_at: "2026-10-13"
 ---
-A local model can explain the information you give it. To read information from another service or act through that service's tools, it needs a connection.
+A local phone model can work with more than one connected service without merging all your accounts into one identity. OGAM (Off Grid AI Mobile) Pro supports named MCP server connections, each with its own connection settings and enabled tools.
 
-OGAM (Off Grid AI Mobile) Pro supports MCP servers on Android and iPhone. Add a server, connect it, enable the tools you need, and let a compatible local model use them in chat. The model can remain on your phone while the tool request goes to the connected service.
+For multiple accounts, use separate supported connections and check the account behind each result. The provider must support the authentication you need. This is not automatic access to every app installed on the phone.
 
-[Download OGAM](https://getoffgridai.co/mobile/)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Get OGAM](https://getoffgridai.co/mobile/)
+
+![Off Grid AI Mobile on iPhone showing a sample tool result in chat; account connections are configured in Pro tools](https://getoffgridai.co/assets/img/home/mobile/tools-ios-1-light-640.webp)
 
 ---
 
@@ -26,53 +29,68 @@ OGAM (Off Grid AI Mobile) Pro supports MCP servers on Android and iPhone. Add a 
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-MCP means Model Context Protocol. It gives the app a common way to discover a server's tools and call them. It does not make a remote service offline or give the model access to every app installed on your phone.
+## Understand the two parts of the workflow
 
-## Start with a useful task that needs no account setup
+The local model runs in OGAM on Android or iPhone. A connected tool runs through an MCP server, which may call an online service. MCP is the connection protocol; it does not make the service offline or remove the provider's account restrictions.
 
-One quick-setup option in OGAM is **DeepWiki**. Its remote server provides tools for reading documentation about public GitHub repositories. The provider documents a no-authentication connection and the `read_wiki_structure` and `read_wiki_contents` tools. [DeepWiki MCP documentation](https://docs.devin.ai/work-with-devin/deepwiki-mcp)
+For example, you might connect a work project service and a personal notes service. You may also create separate manual connections for two accounts at one provider if that provider supports independent authentication sessions.
 
-That makes a small documentation lookup a useful first task. You can check whether the server connects and whether the model uses a returned result before adding an account with editing permissions.
+The important result is account separation you can verify. Two server cards with different names do not prove that their sign-in sessions belong to different accounts.
 
-For example, choose a public repository available in DeepWiki and ask:
+## Set up the first connection
 
-> Use the connected DeepWiki tool to list the documentation topics for [owner/repository]. Tell me what the tool returned, without guessing missing topics.
+Install [OGAM](https://getoffgridai.co/mobile/), activate Pro, and choose a local model with tool-calling support. Open **Settings → Pro tools** and use **Add Server**.
 
-The lookup requires internet because DeepWiki is a hosted service. Its tool receives the request. Keep private code and credentials out of this public-repository example.
+Choose a supported **Quick setup** entry, or select **Add your own from URL**. For a manual connection, use the provider's actual MCP endpoint, not its ordinary website home page. Give it a clear name such as “Work project account.”
 
-## Connect the server in OGAM
+Complete the authentication method required by that server. This can include browser sign-in, a request header, or provider-specific application details. Put credentials in the connection form rather than in a chat prompt.
 
-1. Activate Pro and select a downloaded local model that supports tool calls.
-2. Open **Settings → Pro tools**.
-3. Use the add-server action, then choose **DeepWiki** from **Quick setup**.
-4. Wait for its server card to show **Active**.
-5. Open **Edit Tools** and enable the documentation-reading tool needed for your first request.
-6. Return to chat and ask the specific repository question.
+Wait for the card to show **Active**. Then open **Edit Tools** and enable only the tools needed for the first task.
 
-The app's MCP connection and tool-selection controls are included in [OGAM 0.0.111](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.111).
+## Add a second account deliberately
 
-Look for a real tool result before trusting the answer as a repository lookup. A model can answer from general knowledge without calling the connected tool. The local model's tool-calling ability matters: some small models call tools unreliably or not at all.
+The quick-setup list marks a preset URL as already added. It is not a universal “add another account” button. If you need another supported connection to that provider, use the manual **Add your own from URL** form with a distinct name and the provider's supported authentication setup.
 
-If no call happens, confirm that the server is Active and the required tool is enabled. Then make the task narrower and explicitly name the connected service. If the model still cannot use it, try another local model with better tool support.
+During browser sign-in, check the account chooser. A browser can reuse the account you signed into previously. If both connections return the same identity, correct the authentication before you ask either one to act.
 
-## Add your own server when you have a specific job
+Some providers or server implementations do not support the independent sessions you want. Keep that limit explicit. Separate display names cannot create account isolation that the provider does not offer.
 
-The manual **Add MCP server from URL** form accepts a name, endpoint, and authentication choice. Use the MCP endpoint supplied by the service, not its ordinary home page.
+## Test both accounts with read-only questions
 
-For the example above, the provider's documented endpoint is `https://mcp.deepwiki.com/mcp`. For another service, use that provider's current setup instructions. Some servers use browser sign-in, while others require a request header. Enter those values in the connection form rather than in a chat prompt.
+For the first test, enable a narrow reading tool rather than an editing or sending tool. Ask a question whose answer you can check in the source service.
 
-After the server connects, inspect its tools with **Edit Tools**. Enable the capabilities that match the job you want to do. A server offering search and editing does not mean every request needs both.
+For example:
 
-For a private service on your own network, the phone needs a reachable server address. `localhost` on the phone refers to the phone itself, not your computer. A local network route can avoid the public internet for that connection only if the server and its task also work locally.
+> Use Work project account to list the current Cedar project items. State which connection was used and show the returned item links. Do not change anything.
 
-## Know where the work happens
+Then ask a different known question through the personal connection. Inspect the actual tool result, account context, and links. A model may answer from general knowledge without calling a tool, so a plausible reply alone is not proof that the connection worked.
 
-With a local chat model selected, the model runs on your phone. The MCP tool runs through the connected server. Tool arguments and results cross that connection.
+## Keep overlapping tools unambiguous
 
-A server may in turn use other online services or hosted AI. Selecting a local model in OGAM does not change how the server performs its work. The DeepWiki example is therefore a connected workflow, not an offline repository assistant.
+Two servers can expose tools with similar names. Use **Edit Tools** on the intended connection and inspect which capabilities are enabled. For the first multi-account checks, temporarily disable overlapping tools on the other connection.
 
-Disconnecting a server prevents normal use of that connection. Removing it disables its tools in OGAM. For an account-backed service, review the service's own access settings when you want to revoke its authorization too.
+Name the intended connection in the prompt and verify the resulting tool call. Do not rely only on the model's claim that it selected the right account. If the tool result does not establish the source, narrow the request until you can verify it.
 
-## Give local AI one useful connection
+Once the reading flow works, enable additional capabilities only when the task needs them. A service offering editing tools does not mean every search should have those tools active.
 
-[Get OGAM](https://getoffgridai.co/mobile/), connect one MCP server, and complete one small lookup with a visible tool result. Once that works, add the app or service you actually need and keep its enabled tools focused on that task.
+## Use paired desktop tools when the accounts live there
+
+If you already manage accounts in OGAD (Off Grid AI Desktop), the phone also has a **Desktop tools** section for paired computers. Enable the intended desktop's tools through that section and inspect **Edit Tools** when the connection is ready.
+
+This is a separate route from signing into a standalone MCP server directly on the phone. The desktop must be reachable and able to execute its tools. Do not assume that pairing alone copied every account credential to the phone.
+
+Use the displayed execution device and source account in your checks. A request started from the phone can still depend on the desktop and its online account connections.
+
+## Fix account and tool problems
+
+| Symptom | Next check |
+| --- | --- |
+| Both connections show the same data | Provider sign-in identity and reused browser session |
+| A card is Active but no call occurs | Enabled tools and local model tool support |
+| Wrong account answers | Named connection, overlapping tools, and actual call result |
+| A desktop tool is unavailable | Pairing, tool grant, and desktop reachability |
+| Sign-in needs extra details | Provider's supported application configuration |
+
+Disconnect or remove connections you no longer use. For account-backed services, review the provider's own access settings when you want to revoke authorization there as well.
+
+[Open Pro tools in OGAM](https://getoffgridai.co/mobile/) and verify one read from each intended account. Once those source identities are clear, use the same named connections for the next task without mixing their results.
