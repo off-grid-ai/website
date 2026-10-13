@@ -24,7 +24,7 @@ A maintenance note can answer a useful question months later: what was observed,
 >
 > Want help with this workflow, or a feature you would like us to add? Email [support@getoffgridai.co](mailto:support@getoffgridai.co) with your devices and the task you want to improve.
 >
-> [Join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ) · [Talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/)
+> [Join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) · [Talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/)
 
 ## Search for history before drawing a conclusion
 

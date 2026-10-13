@@ -89,7 +89,7 @@ We are building Off Grid toward a personal AI operating system. Your phone, your
 
 Network discovery is one piece. On-device inference, projects, RAG, tool calling, vision, voice - these are all in Off Grid today. The next steps are automatic routing based on task complexity, seamless handoff mid-conversation, and shared context across every device you own.
 
-If you want to help build this, [join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+If you want to help build this, [join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

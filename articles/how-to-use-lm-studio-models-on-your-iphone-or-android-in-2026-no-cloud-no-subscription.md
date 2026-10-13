@@ -93,7 +93,7 @@ We are building Off Grid toward something bigger than a chat app that happens to
 
 Network discovery is one piece of that. On-device models are another. Tool calling, document analysis, vision AI, voice transcription - these are all already in Off Grid today. The next step is making all of these capabilities work together seamlessly, across every device you own, without any of your data ever touching someone else's server.
 
-If that sounds like something you want to be part of, we have a community building this together. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai) - feature requests, bug reports, model recommendations, and conversations about where local AI is heading.
+If that sounds like something you want to be part of, we have a community building this together. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai) - feature requests, bug reports, model recommendations, and conversations about where local AI is heading.
 
 ## Try it
 

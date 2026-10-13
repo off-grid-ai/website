@@ -91,7 +91,7 @@ Qwen 3.5 9B on a machine with 16GB RAM gives you function calling that rivals cl
 
 Tool calling is one piece of a personal AI operating system we are building. The vision is every device you own, every model you have access to, working together as a private, intelligent system. Projects with RAG, vision, voice, network discovery - all live today. Custom tool creation, more tool types, and automatic model routing are next.
 
-[Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+[Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

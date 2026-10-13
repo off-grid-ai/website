@@ -71,7 +71,7 @@ The hardware sitting on your desk is already powerful enough. You are just not u
 
 Off Grid is being built toward a personal AI operating system. Every device you own, every model you have access to, orchestrated into a single private AI system. Network discovery, on-device inference, projects, RAG, tool calling, vision, and voice are all live today. Automatic task routing, seamless device handoff, and shared context across devices are what comes next.
 
-We are building this in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+We are building this in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

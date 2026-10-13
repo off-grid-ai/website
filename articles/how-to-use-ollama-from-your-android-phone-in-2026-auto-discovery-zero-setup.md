@@ -81,7 +81,7 @@ The cost of running private AI that rivals ChatGPT: the electricity to keep your
 
 We are building toward a personal AI operating system - all the compute you own, working together, completely private. Network discovery, on-device inference, projects, RAG, tool calling, vision, and voice are all here today. Automatic task routing, seamless device handoff, and shared context are next.
 
-Want to be part of building this? [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+Want to be part of building this? [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

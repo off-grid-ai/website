@@ -1788,7 +1788,8 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .mobile-nav .mnav a:active{background:rgb(var(--og-rgb-text)/.04)}
 .mnav-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
 .mnav-ctas a{height:48px!important;width:100%;justify-content:center}
-.mobile-nav .mobile-community{margin-top:auto;padding-top:20px}
+.mobile-nav .mobile-community{margin-top:var(--og-space-lg);flex-shrink:0;align-items:center}
+.mobile-nav .mobile-community .theme-ctl button{width:44px;height:44px}
 .mobile-nav .mnav a{align-items:flex-start!important;justify-content:flex-start!important;text-align:left;border-left:1px solid rgb(var(--og-rgb-text)/.14)}
 .mobile-nav .mnav a[aria-current=page]{border-left:2px solid var(--og-primary)}
 /* Phone menu: full screen, edge to edge. */

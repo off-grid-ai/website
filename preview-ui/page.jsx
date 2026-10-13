@@ -65,7 +65,7 @@ import { DottedMap } from '@magicui/dotted-map';
 // intact (see build.mjs). This file arranges them, supplies product content,
 // and maps page scroll to the story's chapters.
 
-export const SLACK = 'https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ';
+export const SLACK = 'https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw';
 export const DOWNLOADS = [
   { id: 'ios', small: 'Download on the', label: 'App Store', href: 'https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=download', external: true },
   { id: 'android', small: 'Get it on', label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=download', external: true },
@@ -1375,10 +1375,11 @@ export function PageShell({ children, feedback = true }) {
             <Dialog.Close asChild><Button data-site-button="secondary" variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <MobileMenu />
             <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
-            <div className="mobile-community" aria-label="Community links">
+            <div className="mobile-community" role="group" aria-label="Community links and appearance">
               <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
               <a className="icon-link" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community"><SlackLogo size={18} /></a>
+              <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
             </div>
           </Dialog.Content></Dialog.Portal>
         </Dialog.Root>

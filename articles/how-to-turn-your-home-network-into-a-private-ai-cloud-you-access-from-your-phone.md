@@ -123,7 +123,7 @@ Network discovery is one piece of something bigger. We are building Off Grid tow
 
 On-device inference, remote model discovery, tool calling, vision AI, voice transcription, document analysis - all of these are in Off Grid today. The next step is seamless handoff between devices, automatic routing based on task complexity, and shared context across everything you own.
 
-If you want to help shape what this looks like, we are building it in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai) - feature requests, model recommendations, and conversations about where personal AI is heading.
+If you want to help shape what this looks like, we are building it in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai) - feature requests, model recommendations, and conversations about where personal AI is heading.
 
 ## Try it
 

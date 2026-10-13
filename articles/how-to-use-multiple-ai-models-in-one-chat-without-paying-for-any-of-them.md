@@ -91,7 +91,7 @@ The long-term vision is a personal AI operating system where you do not have to 
 
 That is where we are heading. Today, the model switching is manual. Tomorrow, it is automatic. We are building it in the open.
 
-[Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+[Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

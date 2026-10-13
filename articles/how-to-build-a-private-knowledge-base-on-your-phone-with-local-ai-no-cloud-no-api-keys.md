@@ -79,7 +79,7 @@ No new hardware. No subscriptions. No API keys. Just your devices, your document
 
 The knowledge base is one piece of a larger vision: a personal AI operating system that runs across every device you own. Network discovery, on-device inference, tool calling, vision, and voice are all in Off Grid today. The next steps are shared project context across devices and automatic model routing based on query complexity.
 
-We are building this in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3q7kj5gr6-rVzx5gl5LKPQh4mUE2CCvA) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
+We are building this in the open. [Join the Off Grid Slack](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw) from our [GitHub](https://github.com/alichherawalla/off-grid-mobile-ai).
 
 ## Try it
 

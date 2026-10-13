@@ -69,7 +69,7 @@ Businesses with fewer than 50 people can help shape a solution for daily work. T
 - [OGAD 0.0.55-beta.114 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114)
 - [All beta releases](https://github.com/off-grid-ai/OGAD/releases?q=beta) (the website resolves the newest published beta for each platform)
 - [Desktop source and releases](https://github.com/off-grid-ai/OGAD)
-- [Slack Community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ)
+- [Slack Community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw)
 - [Docs](https://getoffgridai.co)
 - [Mobile recorder, private alpha (on-device all-day recording, transcription, and insights)](https://getoffgridai.co/mobile/recorder/)
 - Author: Mohammed Ali Chherawalla (https://dev.to/alichherawalla)

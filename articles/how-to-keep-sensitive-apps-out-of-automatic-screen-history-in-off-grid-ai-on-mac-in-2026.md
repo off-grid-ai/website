@@ -24,7 +24,7 @@ You can keep a useful work history without recording every session. OGAD (Off Gr
 >
 > Have a feature or use case you would like us to support? Tell us what you want to do and which device you use.
 >
-> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-3swt3s84k-R0CHRwISaUpExV2~3qUUdQ), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
+> Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
 The capture workflow is opt-in and part of Pro. It also has built-in exclusions for recognized sensitive surfaces. The practical first step is to know the capture state before opening something you want to keep outside that history.
 
