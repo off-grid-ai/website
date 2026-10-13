@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Turn Onboarding Documents Into a First-Week Checklist in 2026"
-description: "Turn onboarding documents into a practical first-week checklist with local AI, clear priorities, and questions for your manager."
+description: "Convert onboarding text into a sourced first-week checklist with clear prerequisites, owners, and questions where the documents are silent."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-onboarding-documents-into-a-first-week-checklist-in-2026/
 published_at: "2026-09-29T14:09:36.834Z"
@@ -11,12 +11,17 @@ devto_article: true
 devto_id: 4772013
 devto_url: "https://dev.to/alichherawalla/how-to-turn-onboarding-documents-into-a-first-week-checklist-in-2026-52o0"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fzihkox33di1tpc7d2mh9.png"
+last_modified_at: "2026-10-13"
 ---
-A folder of onboarding documents is not yet a plan for your first week. OGAD (Off Grid AI Desktop) can help turn that material into a checklist of tasks, prerequisites, and questions. Select a local model to work with internal documents on your computer without uploading them to a cloud AI service. Review the checklist with your manager before treating it as your schedule.
+A folder of onboarding documents is not yet a plan for a person's first week. OGAD (Off Grid AI Desktop) can help turn readable source material into a checklist that separates required steps, useful reading, and questions that need a manager's answer.
 
-[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
+Use a local model and supply the actual documents or relevant text. The assistant should organize what the sources say without inventing company policies, access approvals, deadlines, or completion requirements.
 
-![A project chat in Off Grid AI Desktop turning a pilot scope into a launch checklist grouped by week, citing the three documents it used.](/assets/img/home/app/project-checklist-light-1760.webp)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
+
+![Off Grid AI Desktop chat with sample source references for a work question](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
+
+---
 
 > **What would you like to do with Off Grid AI?**
 >
@@ -24,105 +29,72 @@ A folder of onboarding documents is not yet a plan for your first week. OGAD (Of
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
+## Choose the reader and the first-week outcome
 
-## Define what a useful first week looks like
+Start with one role and one location or team. A new designer, contractor, and engineering manager may need different systems even when they share a general handbook.
 
-A good checklist should help you become ready to do the work. It should show what you need to read, what you need to set up, who you need to meet, and what remains unclear.
+Define what should be possible by the end of the week. For example: “The new project coordinator can access the approved tools, find the current project brief, and join the weekly review.” Use outcomes supported by your own process rather than copying this example as policy.
 
-Suppose you are joining a small consultancy. The onboarding folder includes an employee guide, a project introduction, a security checklist, and a delivery process note. The documents describe useful tasks, but they do not put them in a practical order.
+Identify who can confirm the checklist. The model can draft it, but a manager or process owner needs to resolve missing or conflicting instructions.
 
-You want a first-week plan that reflects those sources. You do not want the model to invent a training programme or assign meetings to people who have not agreed to them.
+## Prepare a small, current source set
 
-## Choose the right source documents
+Install [OGAD](https://getoffgridai.co/desktop/) and choose a downloaded local model. Provide the relevant onboarding text through chat or a supported document-reading workflow. Label each source with its name, version, and date where known.
 
-Start with the current, approved onboarding material. Ask which files apply to your role, location, and equipment. A checklist intended for contractors may differ from one for employees.
+If your material is local Markdown in Obsidian, the Pro integration can read the selected vault. If it is in a connected Google Doc, the account workflow can retrieve a plain-text version, but that fetch needs internet.
 
-Use filenames that make the role and version clear. Include a short note from your manager if it sets priorities. Avoid importing personal information about other staff just because it is in the same folder.
+Start with the role guide, access instructions, and first-week schedule. Leave unrelated policies out of the first draft. A smaller source set is easier to check and less likely to mix instructions from another team.
 
-| Source | What to extract |
-|---|---|
-| Employee or contractor guide | Required reading and applicable rules |
-| Equipment setup note | Access requests and prerequisites |
-| Role introduction | First responsibilities |
-| Delivery process | Work steps you must understand |
-| Manager's note | Agreed priorities and first assignment |
+## Extract requirements before scheduling them
 
-Keep the original files as the authority. Your generated checklist is a working aid.
+Ask for an inventory first:
 
-## Prepare the local AI workspace
+> From these onboarding sources, list explicit required actions, optional reading, prerequisites, named owners, and stated deadlines. Include a source and section for each. Do not add standard onboarding tasks from general knowledge. Mark missing owners or dates as not specified.
 
-Install OGAD and download a local text model that fits your computer. Complete the first document import and local search setup while connected. This workflow uses core Projects and chat; it does not need activity capture.
+Check the inventory against the documents. An instruction to request access is different from an instruction to grant access. A suggested reading list is different from mandatory training.
 
-1. Select a downloaded model in **Models > Text**.
-2. Create a project through **Projects > New project**.
-3. Open **Knowledge & settings > Knowledge base > Add files**.
-4. Add readable PDF, DOCX, TXT, or Markdown sources and wait for indexing.
-5. Start **Chats > New chat** within the project.
+Keep any conflict visible. If one document says a step is due on day one and another says before the end of the week, do not let the model silently select one.
 
-If Pro's **Include captured memory** is present, turn it off for this document-only task and save. Keep the model local and avoid external tools when you want the prepared workflow to run offline.
+## Build the first-week checklist
 
-The [Projects interface](https://github.com/off-grid-ai/OGAD/blob/v0.0.51/src/renderer/src/components/ProjectsScreen.tsx) provides the source and instruction controls. A project organises context; it does not grant access to company systems.
+Once the inventory is correct, ask for a table with day or period, action, prerequisite, owner, evidence of completion, and source. Let the model propose an order while keeping source-mandated deadlines distinct from suggested scheduling.
 
-## Extract tasks before arranging the week
+A useful rule is: “Place prerequisite requests early, but label any timing you infer as a suggestion.” This helps avoid a plan that asks a new starter to use a system before the access request is complete.
 
-Ask the model for a source-backed task list:
+Keep tasks small enough to check. “Understand the project” is difficult to mark complete. “Read the current brief and list unresolved scope questions” produces a visible result, if that activity fits the role's actual instructions.
 
-> Extract onboarding tasks that apply to the role described in these documents. For each task, include the source file, stated deadline, prerequisite, and person or team to contact if given. Keep missing information marked unknown. Separate required tasks from optional reading.
+## Separate questions from actions
 
-Check the output against the documents. If a guide says “request access from your manager,” the task is to request access. It is not evidence that you already have access or that the manager will approve it by a particular date.
+Create a short “manager confirmation needed” section for missing owners, unclear access routes, conflicting dates, and requirements that may not apply to this role.
 
-For a long guide, review the relevant sections separately. Project search retrieves selected passages, so a single broad request may miss an important requirement near the end.
+Do not assign a manager's name because it appears somewhere in the handbook. Do not invent a security approval because similar companies use one. If the source is silent, keep the gap visible.
 
-## Put tasks in a sensible order
+This question list is a useful deliverable in its own right. It helps the process owner fix the onboarding material before the new starter is blocked by it.
 
-Once you have reviewed the task list, ask for a proposed sequence:
+## Review the checklist with the source owner
 
-> Arrange these checked tasks into a suggested first-week plan. Put prerequisites before dependent tasks. Preserve explicit deadlines. Mark proposed timing as suggested, and do not invent meeting times or owners. Leave room for a manager's review.
+Check the first day for impossible dependencies. Then check the rest of the week for a realistic sequence. Separate fixed meetings from flexible reading and tasks waiting on another person.
 
-The result may put an account request before tool training, and tool training before the first delivery task. That order is useful even when the exact day is still undecided.
+For each mandatory step, confirm that the source supports it and that the completion evidence makes sense. A checkbox saying “access complete” should correspond to an actual access check, not simply a request that was sent.
 
-A simple plan could use these sections:
+After review, export or copy the checklist into your normal team workflow. A draft in chat has not assigned tasks, created calendar events, or notified the new starter by itself.
 
-| Stage | Typical purpose |
-|---|---|
-| Before starting | Confirm required equipment and information |
-| First working day | Obtain access and review immediate requirements |
-| Early in the week | Learn the team's process and meet relevant people |
-| Later in the week | Attempt a small task with a reviewer |
-| End of the week | Review gaps and agree the next priorities |
+## Fix the most common draft problems
 
-These are planning categories, not a universal onboarding schedule. Your actual obligations come from the checked sources and team decisions.
+| Symptom | Better instruction |
+| --- | --- |
+| Generic HR tasks appear | Use only the supplied sources |
+| Too many tasks on day one | Separate fixed deadlines from suggested order |
+| Access-dependent work starts too early | Add prerequisites and waiting states |
+| Every row has an invented owner | Require named evidence or “not specified” |
+| Two source versions conflict | Keep a decision-needed section |
 
-## Make each checklist item usable
+If the source is a complex PDF or scan, verify that its text was read correctly. Missing tables and headings can change the meaning of an instruction. Use a checked text version for the parts that matter.
 
-“Learn the process” is difficult to finish. A more useful item states the action and expected result: “Read the delivery checklist and identify who reviews the first draft.”
+## Keep the draft current
 
-Ask for this level of detail:
+Record the source versions used for the checklist. When an onboarding document changes, re-read the affected source and revise the related rows rather than assuming an old conversation reflects the current policy.
 
-> Rewrite each task as an action I can complete. Include a clear completion check. Keep the original meaning and do not add requirements that are absent from the sources.
+Local text can be processed offline with a downloaded local model. Cloud document retrieval still needs internet, and choosing a remote model changes where the text is processed.
 
-For access tasks, the completion check might be successfully opening the required tool. For reading, it might be knowing where to find the procedure and who answers questions. Do not replace required training or formal acknowledgements with an AI summary.
-
-## Review the plan with your manager
-
-Bring a short list of unresolved points:
-
-- Which task has the highest priority?
-- What should wait until access is available?
-- Who reviews the first piece of work?
-- Which documents are required reading in full?
-- What can reasonably be completed this week?
-
-Make agreed changes in your checklist. Keep optional suggestions separate from mandatory tasks so the list remains realistic.
-
-You can ask the model to shorten the plan after review, but check that it has not removed prerequisites or deadlines.
-
-## Use the checklist in your normal tools
-
-Copy the approved list into the place where you track work. This document workflow creates text; it does not automatically schedule meetings, create accounts, or mark company training complete.
-
-Avoid putting passwords, recovery codes, or other secrets in an onboarding chat. Reference where access is managed rather than copying credentials into the plan.
-
-If a document is updated, revisit the affected checklist items. A first-week plan should not keep an obsolete instruction simply because it appeared in the first draft.
-
-[Download OGAD](https://getoffgridai.co/desktop/) and try the process with one role guide. Extract five tasks, verify them, and ask your manager which should come first. That gives the document collection a practical starting point.
+[Try one role's first-week checklist in OGAD](https://getoffgridai.co/desktop/). Verify the extracted requirements, resolve the question list with the owner, and share the checked plan through your normal process.

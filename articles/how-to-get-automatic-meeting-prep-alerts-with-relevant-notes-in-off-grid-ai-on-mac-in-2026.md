@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Get Automatic Meeting Prep Alerts With Relevant Notes in Off Grid AI on Mac in 2026"
-description: "Get a local heads-up linked to available people and open items before a meeting, with clear setup and timing limits."
+title: "How to Get Automatic Meeting Preparation From Your Calendar and Saved Work in 2026"
+description: "Prepare a sourced meeting brief automatically when a calendar meeting approaches, using connected accounts and retained work context."
 date: "2026-09-29"
 permalink: /articles/how-to-get-automatic-meeting-prep-alerts-with-relevant-notes-in-off-grid-ai-on-mac-in-2026/
 published_at: "2026-09-29T12:02:32.153Z"
@@ -11,14 +11,15 @@ devto_article: true
 devto_id: 4771264
 devto_url: "https://dev.to/alichherawalla/how-to-get-automatic-meeting-prep-alerts-with-relevant-notes-in-off-grid-ai-on-mac-in-2026-d1b"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fh5h0qrj7m9idoz7zx6l6.png"
+last_modified_at: "2026-10-13"
 ---
-A meeting reminder tells you when to join. It rarely reminds you which question was left open, what you promised last time, or which note you need before speaking.
+A calendar reminder tells you when a meeting starts. It rarely tells you what you promised last time. OGAD (Off Grid AI Desktop) can prepare a meeting brief in God from the approaching event and the saved work or connected sources you make available.
 
-OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the people and open items in its saved work history. Open the notification, review the available context, and turn it into a question or action before the call starts.
+Set up a Pro routine for **When a meeting is about to start**. The released trigger checks the next meeting as it approaches within about 15 minutes. Keep the computer awake, OGAD running, and the required account connections available.
 
-[Get OGAD for Mac](https://getoffgridai.co/desktop/)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
-![Day in Off Grid AI Desktop with meeting prep open for Northwind board prep: who Daniel Cole is, what was recently discussed and the open items.](https://getoffgridai.co/assets/img/home/app/today-prep-light-1760.webp)
+![Off Grid AI Desktop God showing a sample meeting brief with source references and pending approval cards](https://getoffgridai.co/assets/img/home/app/god-prep-light-1760.webp)
 
 ---
 
@@ -28,84 +29,67 @@ OGAD (Off Grid AI Desktop) Pro can send a meeting heads-up connected to the peop
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## Arrive with the unfinished question ready
+## What should the brief answer?
 
-Imagine an upcoming review with Maya. You previously discussed two launch dates and still have an open item to confirm which date is possible.
+Ask for the meeting purpose, the last relevant decision, open commitments, and the questions you need to resolve. Keep each claim tied to a source. A short brief is useful when it helps you decide what to bring and what to ask.
 
-A meeting heads-up can bring the matching person and open-item count to your attention. In the prep view, you review the retained discussion and check whether the date question is still unresolved.
+For a client review, separate three things: what the client requested, what your team agreed to do, and what has evidence of completion. A request in an email is not the same as an accepted commitment, and a task mentioned in notes is not necessarily finished.
 
-Your useful result might be one sentence in your own meeting notes:
+The brief should say when it cannot find previous context. A meeting title alone is not enough to invent a history with its attendees.
 
-> Can we confirm the launch date today, or is the dependency still open?
+## Connect the calendar and relevant work
 
-You now have a reason for the question and a source to check. The notification does not need to contain the whole previous discussion to help you prepare.
+Install [OGAD](https://getoffgridai.co/desktop/), open God with Pro, and select a suitable local tool-capable model. Connect the calendar account you actually use for the meeting.
 
-## What can the prep view show?
+Check the event manually first. Confirm its title, start time, and attendees. Google calendar reads in this release use the connected account's primary calendar. Do not assume that a secondary calendar is included. For Outlook, check the intended connected calendar explicitly.
 
-For a known event, OGAD uses available attendee names and names recognized in the event title to look for matching local records. It can show these sections:
+Enable the retained work context you want to use, or connect relevant notes and accounts. Capture is opt-in and cannot recover uncaptured past meetings. Live calendar and email reads need internet even when the summary model is local.
 
-| Section | What to use it for |
-|---|---|
-| Who | Review recognized people and available summaries |
-| Recently discussed | Recover context from retained observations linked to those people |
-| Open items | Find related actions that are still marked open |
+## Write a preparation prompt
 
-This is a local lookup over saved records. It is not a live search through every attendee's messages, a complete biography, or an automatically researched briefing on the meeting topic.
+Use a specific instruction in **What to do**:
 
-Names matter. An event containing an email address may not match a person stored under a different display name. An event with no useful name can have no prior context even when you know the people well. Review and correct the person records you actually use; do not invent an association to fill an empty panel.
+> Prepare a brief for the approaching meeting. Give its title, start time, and attendees from the event. Find the latest relevant notes and messages. List prior decisions, open commitments, and three questions to resolve. Include source names and dates. Distinguish requests from agreed actions. If no prior evidence is found, say so. Draft only; do not send messages or change the calendar.
 
-## Bring the event into OGAD first
+If you work with several clients, add the project name or account label. A common meeting title such as “Weekly check-in” needs more context than a unique project review.
 
-This guide uses the Mac Pro workflow verified in [OGAD 0.0.52-beta.103](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.103). The meeting must exist in OGAD's upcoming-event records before the scheduler can use it.
+Ask for a short brief rather than a complete transcript of every related source. You need a reading aid before the meeting, with links back to details when necessary.
 
-For Google Calendar, open **Integrations > Google Calendar**. Complete the Google-client setup and account authorization, then use **Sync recent**. Open **Day** and check that the expected meeting has the correct time and title.
+## Enable the meeting trigger
 
-If this is your first connection, the [calendar setup and Day guide](https://dev.to/alichherawalla/how-to-see-todays-meetings-and-to-dos-together-in-off-grid-ai-on-your-mac-in-2026-jb2) includes the OAuth client requirements and callback address. A meeting visible in your browser's calendar is not enough; check that it has reached Day.
+1. Open God settings and **Scheduled tasks**.
+2. Choose **Add a scheduled task**.
+3. Give it a name such as “Client meeting prep.”
+4. Enter the preparation prompt in **What to do**.
+5. Under **When**, select **When a meeting is about to start**.
+6. Add match text if you want to narrow the meeting titles, then choose **Add**.
 
-Calendar connection and refresh need internet. Refresh again after an important change, and compare the imported time with the original calendar before relying on an alert.
+Keep the routine enabled. The match is a text filter, not a guaranteed identity match for a client. Check which titles it selects, especially if several projects use similar words.
 
-## Build useful context during normal work
+The trigger works from the meeting information available to God. It is not a guarantee that every overlapping event across every calendar will produce a separate brief.
 
-Opt-in background capture can save and process sampled work activity while you use your Mac. It can associate observations with recognized people and extract concrete commitments into Actions. That gives meeting prep something useful to retrieve later, without requiring you to write a separate prep document for every interaction.
+## Test the content before the next meeting
 
-Prepare the local processing models and required permissions. Choose **Resume capture** in Replay or Capture settings only when you want that work retained, and check the visible **Capturing** state. Pause capture for material you do not want saved.
+Use **Run now** to test the instruction with the current available context, or ask the same preparation question for a known meeting. Inspect the sources and correct the scope before relying on an automatic run.
 
-The [automatic work-chat to-do guide](https://dev.to/alichherawalla/how-to-automatically-build-a-private-to-do-list-from-your-work-chats-in-off-grid-ai-on-mac-in-2026-178m) shows how to check a suggested task's source. Review mistaken names, completed tasks, and irrelevant suggestions before relying on them as meeting context.
+Check one prior decision and one open commitment. Look for later evidence that changes either. A note from last month may have been superseded by a message yesterday.
 
-Screen capture is sampled. It does not automatically record all audio or preserve every chat message. A separate meeting recording or supported import contributes only the material that was actually saved and processed.
+If the next meeting is too far away for the event trigger, test the prompt manually and then check the actual scheduled behavior when a suitable event approaches. A manual result alone does not demonstrate that the future trigger fired.
 
-## Check the prep view before you enable alerts
+## Handle missing or late briefs
 
-1. Open **Day** and find the upcoming event under **Today's meetings**.
-2. Select **Prep** beside the event.
-3. Read any available Who, Recently discussed, and Open items sections.
-4. Compare one important detail with its original conversation, document, or recording.
-5. Write one question or next action in the notes you will use during the call.
+| Symptom | What to inspect |
+| --- | --- |
+| No meeting detected | Calendar connection, calendar scope, and start time |
+| Wrong meeting selected | Event title and match text |
+| Brief arrives late | Computer availability and model job queue |
+| Brief lacks prior decisions | Retained notes, capture coverage, and source access |
+| Old information appears | Source dates and later updates |
 
-This first check separates two problems: whether useful context exists and whether a notification can reach you. If Prep says **No prior context found for this one yet**, enabling notifications will not create the missing history.
+Allow time for local model work. The scheduler checks periodically, and another running task can delay processing. If you need more preparation time, add a separate earlier calendar review routine instead of assuming the near-meeting trigger runs hours ahead.
 
-The prep panel displays retained summaries. Check exact quotations and commitments in the original source. A task that still says open may already have been resolved elsewhere.
+## Take the checked brief into the meeting
 
-## Turn on the automatic heads-up
+Keep the useful source links and mark unresolved points as questions. Do not treat generated certainty as a substitute for a missing record. If the assistant proposes sending a brief, review that as a separate action.
 
-Open **Settings > Capture** and enable **Proactive delivery**. Allow OGAD notifications in macOS settings, and keep the Mac awake with OGAD running before the meeting. Check Focus if notifications are hidden.
-
-The app targets roughly 20 minutes before a meeting. It checks periodically within a wider window, so this is not an exact 20-minute timer. An event imported too late can miss that window.
-
-A notification can name recognized people and show the number of open items. When matching context is absent, it can still invite you to open prep. Select the notification to open that event's context in OGAD. If the event was removed, the app can report that it no longer exists.
-
-Proactive delivery also controls the morning briefing. Turning it on does not grant capture permission, start a microphone recording, join the call, or send a message to an attendee.
-
-## If the alert is missing or incomplete
-
-| Symptom | First check |
-|---|---|
-| No alert | Confirm the event is in Day, the app is running, and notifications are allowed |
-| Alert arrives late | Check sleep, calendar import timing, and system notification suppression |
-| Prep has no useful history | Inspect attendee names and retained person records |
-| An open item is wrong | Review it in Actions and check its source before updating or dismissing it |
-| The meeting changed | Refresh the calendar and confirm the current time in the original service |
-
-Stored event context can be reviewed locally. Fresh calendar changes need internet, and remote models used to generate the underlying notes change where that processing occurs. Keep those models local when you want the work history processed on your Mac.
-
-[Try OGAD](https://getoffgridai.co/desktop/) with one familiar meeting. Check Prep first, enable the heads-up, and arrive with one supported question ready instead of reconstructing the previous conversation as the call begins.
+[Set up one meeting-preparation routine in OGAD](https://getoffgridai.co/desktop/) and check it against a meeting you know. Once its scope and sources are right, it can prepare that same structured starting point as later meetings approach.

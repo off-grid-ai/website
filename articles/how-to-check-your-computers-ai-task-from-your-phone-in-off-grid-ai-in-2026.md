@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "How to Check Your Computer’s AI Task From Your Phone in Off Grid AI in 2026"
-description: "Use the task card in a synced phone chat to inspect desktop AI activity and saved steps."
+title: "How to Watch, Guide and Stop Computer AI Tasks From Your Phone in 2026"
+description: "Use a synced task card on your phone to inspect desktop progress, send guidance, and request pause, continue, or stop with confirmation."
 date: "2026-09-29"
 permalink: /articles/how-to-check-your-computers-ai-task-from-your-phone-in-off-grid-ai-in-2026/
 published_at: "2026-09-29T10:20:52.519Z"
@@ -11,14 +11,15 @@ devto_article: true
 devto_id: 4770569
 devto_url: "https://dev.to/alichherawalla/how-to-check-your-computers-ai-task-from-your-phone-in-off-grid-ai-in-2026-59n2"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fh3t0t8ldi7schxlp0koz.png"
+last_modified_at: "2026-10-13"
 ---
-You start a computer task, then move away from the desk. OGAM (Off Grid AI Mobile) Pro can show the synced task card on your phone, including the execution device, current activity, and available saved screens. OGAD (Off Grid AI Desktop) continues to run the task on the computer.
+You can leave your desk and still check a computer AI task from your phone. OGAM (Off Grid AI Mobile) Pro can show the task's progress and available screens, send a correction to the execution computer, and request a pause or stop. OGAD (Off Grid AI Desktop) continues to do the work.
 
-[Get OGAM](https://getoffgridai.co/mobile/) | [Get OGAD](https://getoffgridai.co/desktop/)
+Use paired, reachable devices with Pro sync. A request on the phone is not complete until the desktop confirms it. The phone does not become a remote mouse for the computer.
 
-<div style="width: 100%;">
-  <img width="320" alt="OGAM on iPhone following a Web Use task running on Alex's Mac: the live view of the page, the plan and the current step." src="https://getoffgridai.co/assets/img/home/mobile/web-step-ios-light-640.webp" />
-</div>
+[Download OGAD](https://getoffgridai.co/desktop/) | [Get OGAM](https://getoffgridai.co/mobile/)
+
+![Off Grid AI Mobile on iPhone showing a saved session replay for a sample desktop web task](https://getoffgridai.co/assets/img/home/mobile/web-replay-ios-light-640.webp)
 
 ---
 
@@ -28,59 +29,62 @@ You start a computer task, then move away from the desk. OGAM (Off Grid AI Mobil
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-This is useful for checking whether a browser comparison is still running, waiting for you, or finished. A phone view does not move the job to the phone or keep a sleeping computer working.
+## Pair the workspace before starting the task
 
-## Connect the phone and computer
+On OGAD, open **Devices**. In OGAM, open **Settings → Sync** and pair the phone with the computer using the displayed QR code or pairing-code flow. Check that the same conversation appears on both devices.
 
-Use current OGAM and OGAD with Pro device sync. On the computer, open **Devices**. On the phone, open **Settings > Sync** and pair using the computer's QR code or the pairing code from device discovery. Both devices must be reachable over the selected connection.
+Pairing shares the supported workspace data, including chats and projects; it is not a one-conversation-only sharing switch. Use devices that you intend to connect to that workspace.
 
-A local network can carry the sync without internet access. The task itself may still need internet for websites. Access from outside the local network needs a working remote network route.
+This guide covers the [OGAM beta 114 release](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1) with a compatible current desktop release. Prepare app downloads, models, and Pro access before you depend on local use.
 
-Pairing shares the workspace's chats and projects; it is not a switch for sending only one chosen conversation. Use devices you intend to share that workspace with.
+## Start a task with a clear result
 
-## Review a task from the phone
+Choose a small Web Use or Computer Use task on the desktop. For example, ask it to compare two pages and return a source-linked table. Confirm that the task has started before you leave the computer.
 
-1. Start a short Computer Use or Web Use task in an OGAD chat, with **Assistant** on.
-2. Open the same synced conversation in OGAM.
-3. Find the task card and check **Runs on**. It should name the computer doing the work.
-4. Read **CURRENT ACTION** and open **Activity** for the recorded progress.
-5. Review the current screen or available saved steps in the card. After completion, read the result and check the actual output on the computer when needed.
+Open that synced conversation in OGAM. Find the task card and check **Runs on**. It should name the computer you expect to execute the task. A card from an earlier run is not evidence about the current one.
 
-The phone asks for task visual steps when the card is visible. If the card says the screen is syncing, let the devices reconnect before judging the result. “No saved session is available” means the card does not have a saved screen session to show; it does not prove no work happened.
+Keep the execution computer awake with the app running. The phone can display and control a task through the connection, but it cannot keep a sleeping computer doing work.
 
-## Choose a task you can recognize from a small screen
+## Read progress and screens together
 
-Start with a short reading or drafting task. For example, have the computer compare a few public pages and return a table with source links. You can recognize whether it is browsing the intended pages from the task card without needing to inspect every pixel remotely.
+Check **CURRENT ACTION** and the recorded **Activity**. Compare the described action with the available current screen or saved steps. Use the session replay when it is available to inspect earlier points in the run.
 
-Keep the phone on the same trusted local network for the first test. This removes uncertainty about a route between different locations. Prepare app and model downloads and Pro access before expecting the setup to work without internet. The websites in a research task still require their own connection.
+A saved frame is one captured moment. It is not continuous video of every action. If the card is waiting for the current screen, give the devices time to reconnect before treating the last visible frame as live.
 
-Before moving away, confirm that the task has actually started on the computer and that its card appears in the synced chat. Then check the phone. If the conversation itself is absent, solve chat sync first; a task-screen problem cannot explain a whole missing conversation.
+For a page comparison, check whether the task is reading the intended pages. For a file edit, use the phone to follow progress, then inspect the actual saved file before you share it. A completed status does not prove the output is correct.
 
-## Read status and evidence together
+## Send a correction while the task is active
 
-| What you see | Useful next check |
-|---|---|
-| Runs on names the intended computer | That is the host responsible for execution |
-| A current action and available saved step | Compare the described action with the visible task evidence |
-| A screen still syncing | Check that both devices remain reachable |
-| A completed result | Read the returned answer, then verify the actual file or source when needed |
+Use **GUIDE THIS TASK** to add a detail or correct the instruction. Enter a short, specific message, then choose **Send guidance**.
 
-A status label and a saved frame answer different questions. The status reports what the task service knows. The frame shows one captured point in the run. Neither proves that the final output is correct.
+For example: “Use the annual price, and include the source URL beside each number.” That changes the task's direction more clearly than “do it better.” The phone reports when the execution device accepts the guidance.
 
-For the page comparison, check whether the result includes the sources you requested. Open those sources through an appropriate device when you need to verify the facts. For a document edit, return to the computer and inspect the saved file before distributing it.
+Guidance goes to the named execution device and is not saved in synced task history. Acceptance means the message reached the task path; inspect later activity and output to see whether the requested correction was carried out. Completed tasks no longer show the guidance composer.
 
-## Keep the computer responsible for the work
+## Pause, continue, or stop with confirmation
 
-The phone is a useful review surface; the task still depends on the execution computer's app, model, and active session. If you shut that computer down or let it sleep, viewing the task from your phone does not keep it running.
+The task card shows the controls appropriate to its current state. Use **Pause** to request a pause, the available resume or **Continue** control when appropriate, and **Stop** when you want the task to end.
 
-Use the desktop controls when you need to intervene in its screen work. Do not assume that a preview on the phone is a continuous remote desktop or a separate mouse that can safely compete with the running task.
+After tapping a control, read the pending state and wait for the desktop's confirmation. The app can report a rejection or a timeout if the desktop does not confirm within 15 seconds. Do not treat “Stop requested” as proof that execution has stopped.
 
-The benefit is simpler: you can leave the desk for a short period and return to the same conversation to inspect reported progress, instead of starting another chat to ask what happened.
+If the task is waiting for a step that requires you on the computer, complete that step there and then use **Continue** on the phone. The phone preview does not take control of the Mac to perform that handoff.
 
-## What can this review tell you?
+## Handle lost connections
 
-You can inspect the reported progress and available visual evidence. Saved screens are task steps, not a continuous recording of every computer action. A completed status also does not replace checking a changed file, draft, or web result.
+| Symptom | Next check |
+| --- | --- |
+| Entire conversation is absent | Workspace pairing and chat sync |
+| Progress is stale | Execution device connection and awake state |
+| No saved session appears | Whether this run has available captured steps |
+| Control request times out | Desktop availability and actual task state |
+| Guidance is accepted but result is wrong | Subsequent activity and final output |
 
-Keep the computer awake and connected. If it goes offline, the phone may show the last known state. Do not read an old screen as live progress.
+If the computer goes offline, progress and controls resume when the connection returns. The last known card can still be useful history, but it is not confirmation of current execution.
 
-[Try OGAM with OGAD](https://getoffgridai.co/mobile/) on the same network. Start one short reading task on the computer, then open its synced chat on the phone and follow its activity.
+A local network can carry device communication without internet. A task that reads online websites still needs internet. Access from another location requires a suitable remote route and its own connectivity; it is not the same as offline use on home Wi-Fi.
+
+## Test the control path before relying on it
+
+Try one harmless reading task while you are still near the computer. Open its card on the phone, send a small correction, and test a pause or stop. Compare the phone's confirmation with the desktop state.
+
+[Connect OGAM and OGAD](https://getoffgridai.co/mobile/) and complete that small check first. You can then leave the desk with a clear way to inspect progress and request an intervention, while the execution computer remains responsible for the work.

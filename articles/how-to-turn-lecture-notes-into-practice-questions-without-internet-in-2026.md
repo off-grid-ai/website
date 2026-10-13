@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "How to Turn Lecture Notes Into Practice Questions Without Internet in 2026"
-description: "Make a checked practice question set from your own lecture notes with local AI, then use it to find what you need to revise."
+description: "Create practice questions from local lecture notes with a downloaded model, a separate answer key, and checks against the source."
 date: "2026-09-29"
 permalink: /articles/how-to-turn-lecture-notes-into-practice-questions-without-internet-in-2026/
 published_at: "2026-09-29T15:31:21.507Z"
@@ -11,14 +11,17 @@ devto_article: true
 devto_id: 4772487
 devto_url: "https://dev.to/alichherawalla/how-to-turn-lecture-notes-into-practice-questions-without-internet-in-2026-1b90"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fwhmdhpdsfbbk0mtjzmc1.png"
+last_modified_at: "2026-10-13"
 ---
-Reading the same lecture notes again can make a topic feel familiar. A blank page shows whether you can explain it. The useful next step is a set of questions that makes you retrieve the idea, apply it, and check your answer against the material you were taught.
+You can turn local lecture notes into practice questions without internet after setup. OGAD (Off Grid AI Desktop) can run a downloaded model on text you provide, then help you build questions and an answer key tied to those notes.
 
-OGAD (Off Grid AI Desktop) can help turn saved lecture notes into practice questions using a model on your computer. Download the app and model first, prepare your local files, and test the workflow offline. Once those resources are ready, you can generate and answer questions without an internet connection.
+Download the app and model first, keep the notes readable on the computer, and select the local model. Cloud-hosted notes, live searches, and remote AI endpoints have separate network requirements.
 
-[Download Off Grid AI Desktop](https://getoffgridai.co/download/) · [Desktop releases](https://github.com/off-grid-ai/OGAD/releases)
+[Download OGAD](https://getoffgridai.co/desktop/) | [Desktop beta 122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
-![A project chat in Off Grid AI Desktop answering from the project files and citing the PDF, the DOCX and the meeting it used.](https://getoffgridai.co/assets/img/home/app/projects-light-1760.webp)
+![Off Grid AI Desktop chat with source references; the same local text workflow can use lecture notes](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
+
+---
 
 > **What would you like to do with Off Grid AI?**
 >
@@ -26,84 +29,70 @@ OGAD (Off Grid AI Desktop) can help turn saved lecture notes into practice quest
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-## What do you need before studying offline?
+## Choose a small topic you can check
 
-You need a downloaded local chat model and lecture notes saved on the computer. Text and Markdown files are simple choices. Text-based PDFs and DOCX files can also supply extracted text. Scanned pages may need a separate text conversion first; a file attachment does not guarantee readable text from a scan.
+Start with one lecture or a short section of notes. Pick a topic with clear definitions, relationships, or worked steps. A smaller source makes it easier to catch incorrect questions before you build a larger study set.
 
-Use material you are allowed to use. Remove classmates' personal details from shared notes. Keep the course's learning objectives beside the notes so you can check the questions against the intended topic.
+Decide what you want to practise: recall, explanation, application, or comparison. Ten definition questions may help with terminology but will not check whether you can apply a method to a new example.
 
-This workflow uses core chat and file features. It does not need background screen recording. Choose a local model rather than a remote endpoint for the offline session. Complete any model and document-search resource downloads before disconnecting. The [desktop file processing implementation](https://github.com/off-grid-ai/OGAD/blob/v0.0.54-beta.108/src/main/files.ts) shows how attachments become content for chat.
+Use the course material as the source of truth for this exercise. The model should not silently add facts from general knowledge and then grade you on material your notes never covered.
 
-## How do you add a lecture to the chat?
+## Prepare readable notes locally
 
-Open a chat, use **+ > Attach files**, and select your notes. Wait for processing and inspect the extracted text where shown. Check a heading and an important paragraph against the original. If a formula, table, or diagram became unreadable, provide a checked text explanation before asking for questions about it.
+Install [OGAD](https://getoffgridai.co/desktop/) and download a model that fits your computer. Open a local chat and provide the relevant note text through a supported input method.
 
-For a longer course, create a project through **Projects > New project**. Give it a clear name. Open **Knowledge & settings > Knowledge base > Add files**, add the relevant notes, and wait for indexing. Start the session through **Chats > New chat** in that project.
+Plain text or Markdown makes the source boundary easy to see. If you use the Pro Obsidian integration, select the local vault and read the intended note. Check that the files are present on disk before disconnecting from the internet.
 
-Project chat retrieves relevant passages automatically. It does not read every page into every answer. Use one lecture or a small set of related files per exercise. In a reused project, avoid unrelated chats and sources that could blur the topic. The [project chat implementation](https://github.com/off-grid-ai/OGAD/blob/v0.0.54-beta.108/src/main/ipc.ts) retrieves a bounded set of passages and can include recent chats from that project.
+For scanned notes, complex equations, or diagrams, check the text representation carefully. A missing minus sign or mislabeled axis can produce a wrong question and a wrong answer key. Review those parts manually or provide a corrected text version.
 
-Before a library trip or commute, disconnect the computer and try one question. Confirm the local model and source files still work.
+## Ask for questions without the answers first
 
-## How do you ask for questions that test understanding?
+Try a prompt like:
 
-Tell the model what the lecture covers, which question types you want, and what it must do when the notes do not support an answer. Avoid starting with “Make 100 questions.” A small mixed set is easier to inspect and correct.
+> Use only these lecture notes to write eight practice questions: three recall, three explanation, and two application questions. Label each question by type and note section. Do not include the answers yet. If the notes do not support an application question, say so instead of inventing one.
 
-Suppose you are revising a lecture on database transactions. Your notes explain atomicity, isolation, and a booking example. They do not discuss every database engine. A useful first request is:
+Check that the questions are clear and answerable. A question should test one defined idea unless combining ideas is the point of the exercise.
 
-> Use only the attached transaction lecture notes. Make eight practice questions: three short recall questions, three application questions using small examples, and two questions that ask me to explain a distinction. Stay within the notes. Do not assume facts about a specific database engine. Return the questions first. Put the answer key in a separate section, with the source heading and a short supporting excerpt for each answer. Flag anything the notes do not explain clearly.
+For multiple-choice questions, ask for one best answer and plausible alternatives, then verify them carefully. Generated alternatives can be ambiguous or accidentally correct. Short-answer questions are often easier to audit for a first set.
 
-Check each source excerpt and answer before you rely on the key.
+## Build a separate answer key
 
-## Which question types should you keep?
+After checking the questions, ask for an answer key in a separate response or document. Require a short supporting passage or section reference for each answer.
 
-Keep questions that test different things. Several questions that ask for the same definition create the appearance of coverage without much extra practice.
+Use an instruction such as: “Explain why the answer follows from the notes. Mark any question whose answer is not fully supported.” This creates a second check on the question set itself.
 
-| Question type | What it helps you practise | What to check |
-| --- | --- | --- |
-| Recall | State a term or rule from memory | The expected answer is in the notes |
-| Explain | Describe why an idea works | The explanation has enough source support |
-| Apply | Use an idea in a new small example | The example has all necessary information |
-| Compare | Separate two related concepts | The distinction matches the course material |
-| Find the error | Correct a flawed explanation | There is a clear, supported error |
+Do not assume that the model's explanation validates its own answer. Compare the key with the notes before using it to score your work. If the notes are unclear, keep the question marked for review with a teacher or another authoritative course source.
 
-For the transaction lecture, “Define atomicity” is a recall question. “A booking changes two records but stops after the first update; what property is at issue?” asks you to apply the idea. Check that the scenario is unambiguous before adding it to your set.
+## Practise before asking for feedback
 
-## How do you check the answer key?
+Answer the questions without opening the key. Then provide your responses and ask the model to compare them with the checked key, one question at a time.
 
-Review the key while making the set, then move it out of sight for practice. Save the questions and the checked key as separate local documents if that helps. OGAD can draft the text; you control how you save and organise it.
+Ask it to distinguish a factual error, a missing step, and a different but valid wording. A response can express the right idea without matching the key word for word. Conversely, repeating a term does not prove that the reasoning is correct.
 
-For each question, ask:
+For a calculation or formal derivation, inspect each step yourself. Use an appropriate calculation tool when needed. Fluent feedback is not proof that arithmetic or symbolic manipulation is correct.
 
-- Does the question have enough context to answer?
-- Does the source support every required point?
-- Could another reasonable answer also be correct?
-- Has the model introduced terminology the lecture did not teach?
-- Does the answer depend on an unreadable formula or missing diagram?
+## Make the next set from your actual gaps
 
-Rewrite or remove weak questions. If the lecture notes are incomplete, mark the item for a tutor or another approved source. More confident wording will not fill that gap.
+Keep a list of concepts you missed and ask for a new question on those concepts. Change the example while preserving the principle you are practising.
 
-Avoid treating generated questions as predictions of the real exam. They are practice material based on the files you supplied.
+For instance, if you remembered a definition but could not explain its consequence, ask for an explanation question rather than another definition prompt. If a procedure broke at step three, practise that transition with a smaller example.
 
-## How do you use the questions to find weak topics?
+Do not call repeated practice a complete learning plan merely because the model generated more questions. Use your course requirements, feedback, and own performance to decide what to study next.
 
-Attempt the questions before viewing the key. Write enough of an answer to expose your reasoning. Then compare your response with the checked source, not only with the model's score.
+## Check the offline setup
 
-You can ask for targeted feedback:
+Complete one local question-generation request while your normal connection is available. Then test with internet unavailable, keeping the model and notes on the computer. Confirm that the active model is local and that no connected search or cloud-document tool is needed.
 
-> Compare my answer with the attached lecture notes and the checked answer key below. Identify correct points, missing points, and unsupported statements. Quote the relevant source passage. If the notes do not settle a point, say so. Suggest one follow-up question for the main gap.
+Basic local chat can use text you provide without the Pro note-connection workflow. Pro is needed for the separate retained-memory and connected-note features described above. Choose the simpler route if you only need to paste one lecture section.
 
-Keep a small revision log: question, missing idea, corrected explanation, and source heading. For the booking example, the gap might be confusing an incomplete transaction with two transactions interfering. The next exercise should target that distinction.
+## Fix weak practice material
 
-When you return, answer a revised example before reading your old response.
+| Problem | Useful correction |
+| --- | --- |
+| Questions include topics outside the lecture | Require only the supplied notes and source sections |
+| Answers appear with the questions | Request a separate answer-key step |
+| More than one option is correct | Rewrite or replace that multiple-choice question |
+| Feedback is vague | Compare against the checked key and identify the missing step |
+| Equations look wrong | Inspect the source text and verify the calculation |
 
-## What if the questions are repetitive or too difficult?
-
-Narrow the request. Name one source section, ask for fewer questions, and specify the level of reasoning expected. If the answers use facts outside the course, require source support and remove unsupported items.
-
-For long notes, split the work by lecture or learning objective. Maintain a manual coverage list so you can see which topics still need questions. Retrieval can help find passages; it cannot prove that the entire syllabus has been tested.
-
-If file processing fails, inspect the source text. If the chat stops working offline, check that a local model is selected and all required resources finished downloading. A remote model still needs a network connection.
-
-## Make one useful practice set today
-
-[Download Off Grid AI Desktop](https://getoffgridai.co/download/), add one lecture, and make eight questions with a source-backed answer key. Check the set, hide the answers, and attempt it. Use the first clear gap to choose your next revision task.
+[Download OGAD](https://getoffgridai.co/desktop/) and create a small set from one lecture. Check its answer key against the notes, answer the questions yourself, and use the gaps you find to choose the next practice set.
