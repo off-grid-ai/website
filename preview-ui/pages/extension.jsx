@@ -112,7 +112,7 @@ export default function ExtensionPage() {
         <h2 id="ex-final-h" className="final-h">Add Off Grid AI to your browser.</h2>
         <div className="pp-cta"><Button data-site-button="primary" asChild size="lg" className="pp-main"><a href="https://chromewebstore.google.com/detail/off-grid-ai/mohdjadebdkpineabaglhbeepcehahkd" target="_blank" rel="noopener">Add to Chrome <ArrowUpRight size={16} /></a></Button></div>
         <RequestAccess placement="final" />
-        <p className="fine"><a href="/articles/how-to-summarise-web-pages-with-local-ai-in-your-browser-in-2026/">Summarise pages</a> · <a href="/articles/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026/">Fill logins</a> · <a href="https://github.com/off-grid-ai/browser-extension" target="_blank" rel="noopener">Source on GitHub <ArrowUpRight size={12} /></a></p>
+        <p className="fine"><a href="/articles/how-to-summarise-web-pages-with-local-ai-in-your-browser-in-2026/">Summarise pages</a> · <a href="/articles/how-to-fill-website-logins-from-your-off-grid-ai-vault-in-2026/">Fill logins</a></p>
       </div>
     </section>
   </PageShell>;
