@@ -11,12 +11,15 @@ devto_article: true
 devto_id: 4771201
 devto_url: "https://dev.to/alichherawalla/how-to-delete-ai-chats-and-images-from-your-computer-in-off-grid-ai-in-2026-without-deleting-models-4cj2"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Ffao9ujis8aay11y6wedq.png"
+last_modified_at: "2026-10-13"
 ---
 You may want to clear old AI conversations and generated images without downloading your local models again.
 
 **OGAD (Off Grid AI Desktop)** separates personal data cleanup from installed models. Its **Data & privacy** panel lets you clear chats or generated images and artifacts by category, while keeping the model files you use to run AI.
 
 [Download OGAD](https://getoffgridai.co/desktop/)
+
+![An example saved conversation in Off Grid AI Desktop.](https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp)
 
 ---
 
@@ -67,6 +70,21 @@ The model files are separate from these chat and image categories. After cleanup
 A useful check is to send one short prompt in a new chat after clearing the old chats. If you kept an image model and want a fresh image library, generate one new image when you are ready. New work will create new local data.
 
 Keeping models is not the same as keeping the knowledge in a deleted conversation. The model still runs, but you must supply any removed source text again if a future task needs it.
+
+
+## Clear a browser copy without deleting the Desktop chat
+
+In the paired browser extension, open **Settings > General** and find **Browser chat cache**. Its **Clear** control removes this browser's cached copies. Your conversations remain in OGAD, and a later sync can bring them back. This is useful for clearing local browser storage; it is not a permanent deletion from the Desktop library.
+
+Deleting an individual conversation from browser history is different. The extension asks Desktop to delete the saved conversation and asks you to confirm. Read the conversation title before confirming. Renaming and searching history also use the Desktop-owned records.
+
+| What you want | Use |
+| --- | --- |
+| Remove this browser's cached copies | Browser chat cache > Clear |
+| Remove a saved conversation | Its confirmed Delete action |
+| Stop an active reply | Stop in the relevant chat |
+
+Keep OGAD reachable when changing saved history. A disconnected panel cannot prove that Desktop accepted a deletion. Clearing a cache or deleting a chat also does not erase independent exports, screenshots, or backups.
 
 ## When you want a wider reset
 

@@ -70,6 +70,16 @@ Use **Stop** when you need to cancel the run. Closing the side panel is not a re
 
 For a page that needs another login step, complete that step yourself when appropriate. Website text and instructions are source content. They do not change your original request or authorize an unrelated action.
 
+## Know which browser actions wait for Desktop approval
+
+Plain browser chat is given read-only tools. Enable **Agent** when you want the assistant to act through the supported browser-task route. This is a real tool boundary, not only a request to "please read without changing anything."
+
+In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), supported native actions started from browser chat, such as sending, creating, or deleting an item, can wait for approval in OGAD. If the panel reports **Waiting for the user's approval in Off Grid AI Desktop**, open Desktop's pending action and inspect its destination and content. Approve only the intended action, or reject it.
+
+Do not send the same request again while approval is pending. Check the action result after approval before treating the work as complete. Available native actions depend on the desktop platform and connected service.
+
+This gate does not mean every click or form interaction inside a Web Use task receives a separate approval dialog. Web Use and opening a URL use different paths. Continue to supervise browser tasks, set a clear scope, and take over for a login, verification challenge, or payment when requested.
+
 ## Check the table before you use it
 
 Open the first source link. Compare the ticket title, status, and date with the original page. An update date may describe a comment rather than a resolution. Keep that meaning in the final summary.

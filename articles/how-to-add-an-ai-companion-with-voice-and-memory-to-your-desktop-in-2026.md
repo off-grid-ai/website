@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4843089
 devto_url: "https://dev.to/alichherawalla/how-to-add-an-ai-companion-with-voice-and-memory-to-your-desktop-in-2026-55c8"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fgod-choose-light-1760.webp"
+last_modified_at: "2026-10-13"
 ---
 A desktop companion is more useful when it can answer a real question about your work. OGAD (Off Grid AI Desktop) combines a visible character, chat, voice, retained memory, and connected accounts in God, its Pro assistant workspace.
 
@@ -46,11 +47,19 @@ The visual character and written rules affect the interaction. They do not incre
 
 ## Add voice at your own pace
 
-Switch between **Chat** and **Voice** in God. Set up the required transcription and speech-output models, then allow microphone access when you want to speak.
+Switch between **Chat** and **Voice** in God. Prepare local transcription and speech-output models, then allow microphone access. Use the voice box to choose how a turn begins and ends.
 
-Start with manual voice input so you can see exactly when a request begins. Once that works, choose the voice interaction mode that fits your workflow. Speak a short question and check the transcript before relying on names, dates, or technical terms.
+| Mode | Start of a turn | End of a turn |
+| --- | --- | --- |
+| Manual | You start recording | You stop recording |
+| Auto | You start recording | A detected pause ends it |
+| Hands-free | Detected speech starts a turn while listening is active | A detected pause ends it |
 
-Wake-word listening is a separate option. It requires training and an explicit listening switch. You can use a speaking companion without enabling background wake-word detection, and you can return to typed chat whenever voice is inconvenient.
+Start with Manual and a short question. Check the recognized words and the spoken reply. Then try Auto if you want to begin each question yourself, or Hands-free for an active spoken conversation. Return to Manual if room noise or long pauses make the automatic timing unsuitable.
+
+The turn mode is shared with Chat in [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). A setting changed in one place can affect the other. The optional reply sound is also shared. It signals that a reply arrived; it does not change voice recognition or the content of the answer.
+
+Wake-word listening is a separate option with its own training and listening switch. Hands-free conversation does not by itself train or enable a custom wake word. Check the visible microphone state before expecting the assistant to hear you.
 
 ## Show the companion on the desktop
 
@@ -59,6 +68,16 @@ In **Sound and desktop**, enable **Show Ares on the desktop**, or the equivalent
 Keep the overlay where it helps rather than where it covers the work you need to read. If you only want the assistant inside its own workspace, leave the desktop option off. Appearance and reply sounds are personal choices; neither is required to read notes or answer a question.
 
 Test one small interaction after you change these settings. A visible character should not be your only sign that a request was processed. Check the conversation and the result as well.
+
+## Keep the character where it helps you
+
+In **Gods**, download the character you want and wait for its files to finish. The installed character can be used offline after setup. Use the available update or removal controls when managing downloaded characters. Removing a character is different from deleting your conversations.
+
+In **Look**, choose the equipment offered for that character. The interface states when wearing one item removes another. **Controls** selects which movement controls appear. The Fight choices let you select the offered moves for the equipment in use. These choices change the character's appearance and motion, not the model's task abilities.
+
+The **follows you** setting controls its display position. Turn it off to leave the companion on the desktop and display where you placed it. On Windows, following changes the display but keeps one virtual desktop. On Linux Wayland, it stays on the display where it started. Read the platform note shown beside the setting.
+
+**Clicks go through** lets clicks reach the app behind the character where supported. Linux does not offer that behavior in this release. The character takes clicks there; use its displayed controls to talk, turn, or move it. These platform limits are part of the [beta 122 release](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122).
 
 ## Give memory a clear boundary
 

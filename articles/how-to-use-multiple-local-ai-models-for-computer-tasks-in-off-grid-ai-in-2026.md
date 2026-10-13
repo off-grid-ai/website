@@ -11,12 +11,13 @@ devto_article: true
 devto_id: 4770741
 devto_url: "https://dev.to/alichherawalla/how-to-use-multiple-local-ai-models-for-computer-tasks-in-off-grid-ai-in-2026-37ec"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fynw2as55cvr58wvb6wcc.png"
+last_modified_at: "2026-10-13"
 ---
 A computer task can need several kinds of work: understand the request, choose the next action, find the right control, and write the final result. One model does not have to handle every part in the same way.
 
 OGAD (Off Grid AI Desktop) has a beta Computer Use workflow that can assign those roles to different models. On Mac, you can keep the selected models local and ask the app to carry out a task through the visible computer interface while you supervise it.
 
-[Get OGAD](https://getoffgridai.co/desktop/) | [Read the beta release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.52-beta.102)
+[Get OGAD](https://getoffgridai.co/desktop/) | [Read the beta release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122)
 
 
 ![Computer-use models in Off Grid AI Desktop: grounding specialists and decision models, on the device and available to download.](https://getoffgridai.co/assets/img/home/app/models-tasks-light-1760.webp)
@@ -29,7 +30,7 @@ OGAD (Off Grid AI Desktop) has a beta Computer Use workflow that can assign thos
 >
 > Write to [support@getoffgridai.co](mailto:support@getoffgridai.co), [join our Slack community](https://join.slack.com/t/off-grid-mobile/shared_invite/zt-494gbuv5c-kj9tT7U0AS8Kq8UUO63_jw), or [talk to us on Reddit](https://www.reddit.com/r/off_grid_ai/).
 
-Use 0.0.52-beta.103 for the controls in this guide. The 0.0.52 beta series introduced the combined model-role workflow. The beta also makes task tools available without a Pro entitlement. You still need compatible downloaded models and enough memory for the selected combination.
+This guide now follows [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). Its core task tools are available without a Pro entitlement. The paired browser connection and Pro services have their own access requirements. Prepare compatible downloaded models and enough memory for the selected combination.
 
 ## Give the task a clear finished result
 
@@ -59,13 +60,25 @@ Multiple models are not automatically faster or more accurate. They add their ow
 
 ## Prepare the local models and permissions
 
-Use a downloaded local Chat model. In the Computer Use model catalog, install a compatible specialist and, for the decision strategy, a Decider model offered by the catalog.
+Use a downloaded local Chat model. Open **Models > Tasks**. Install a compatible grounding specialist and, for a decision strategy, a decision model offered by the catalog.
 
-The role selectors list compatible installed choices. If a selector has no usable local model, use **Open Computer Use catalog** and complete the relevant download first. A normal chat model is not automatically a replacement for every specialist role.
+The role selectors list compatible installed choices. If a selector has no usable local model, return to **Models > Tasks** and complete the relevant download first. A normal chat model is not automatically a replacement for every specialist role.
 
 On Mac, review **Settings → Setup & health → System permissions** for Accessibility and Screen Recording. Computer Use needs the relevant permissions to inspect and operate the visible interface.
 
 Keep all selected role models local for local inference. A remote role uses its saved server connection and changes where that part of the task is processed. The app and model downloads require setup before offline use; websites involved in a task still need internet.
+
+## Check the models assigned to each task
+
+The **Tasks** tab separates grounding specialists from decision models. Its model lineup shows which models are assigned to the task roles. The reasoning model comes from **Text**. Check that each required role has a usable local model before starting a task.
+
+The released catalog includes **Kev 4B**, using the Kev 1.0 checkpoint. This is a Computer Use decision package with its own runtime and base files. It is not an ordinary chat GGUF. Let the model interface obtain the package it requires; do not substitute a similarly named text-model file. An existing compatible base can be reused, including after changing the models folder.
+
+The packaged Kev runtime has platform checks for Apple Silicon macOS, Windows, and x64 Linux. Runtime availability does not establish that every task or permission path works on every operating system. This guide's supervised document example remains a Mac workflow. Read the app's platform and download status before selecting a role.
+
+The paired browser panel also shows Desktop's task models and role controls. A change there changes the paired Desktop configuration. It does not download a second set of models into the extension. Recheck Desktop if another window changed a role while the panel was open.
+
+These controls follow the [beta 122 model catalog](https://github.com/off-grid-ai/OGAD/blob/v0.0.55-beta.122/src/main/models-manager.ts). Start with one working role combination before adding another model.
 
 ## Choose a strategy and run one task
 
@@ -76,7 +89,7 @@ Keep all selected role models local for local inference. A remote role uses its 
 5. Return to chat, enable **Assistant**, and submit the small document task.
 6. Watch the task's progress. At the end, open the saved document and check its text and location.
 
-Computer Use and Web Use have separate strategy settings. In this beta, selecting a Decider for Web Use does not make its browser loop use that model in the same way as Computer Use. Follow the Computer Use route for this guide.
+Computer Use and Web Use keep separate strategy settings. Check both after using a decision-model card: its **Use** action can assign that decision model to both roles. A role selection does not establish that both task engines use it in the same way. Use the Computer Use route for the document example, then test Web Use separately for browser work.
 
 ## Supervise the task without losing its place
 

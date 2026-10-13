@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4843083
 devto_url: "https://dev.to/alichherawalla/how-to-wake-your-local-ai-assistant-by-name-on-your-mac-in-2026-p9m"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fgod-choose-light-1760.webp"
+last_modified_at: "2026-10-13"
 ---
 You can call your local assistant by name instead of opening a chat and pressing the microphone each time. In OGAD (Off Grid AI Desktop), God supports a trained wake word on Mac. You choose the name, teach it your voice, and explicitly enable background wake-word listening.
 
@@ -83,6 +84,15 @@ You can use **Forget my voice** to remove the trained voice setup. Turn the list
 Waking God does not grant it access to an account you have not connected. A calendar request still needs the calendar connection. A request about saved work still needs the relevant retained evidence. A live web request still needs network access.
 
 The response model also matters. Select a local model if you want the request processed on your computer. A remote model configuration adds the selected remote endpoint to that interaction even though the wake detector itself is local.
+
+
+## Choose what happens after the wake word
+
+Wake-word detection and voice turns solve different parts of the interaction. The wake word gets the assistant's attention. **Manual**, **Auto**, and **Hands-free** in the voice box determine how the following spoken turn starts and ends.
+
+Use Manual when you want to control recording directly. Auto starts from your microphone action and ends on a detected pause. Hands-free starts from detected speech while listening is active and ends on a pause. Check the visible state after a wake before speaking a long request.
+
+The turn setting and optional reply sound are shared between Chat and God in [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). If the behavior changes after using ordinary Chat, check that shared setting before retraining the wake word. Retraining addresses recognition of the name; it does not fix a voice mode or missing speech model.
 
 ## Start with a short, repeatable request
 

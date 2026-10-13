@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4769804
 devto_url: "https://dev.to/alichherawalla/how-to-connect-your-phone-and-computer-for-local-ai-chat-and-file-sync-in-2026-421"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fr54ybtm9lzw98omxil42.png"
+last_modified_at: "2026-10-13"
 ---
 You start an AI conversation on your phone, then reach your computer and have to explain the same task again. OGAM (Off Grid AI Mobile) and OGAD (Off Grid AI Desktop) can keep those conversations in sync. Pair your own devices, and the chat history can follow you over your local network without a cloud sync account.
 
@@ -86,6 +87,17 @@ A successful pairing does not prove every later transfer finished. A successful 
 | Both are on Wi-Fi but cannot connect | Guest isolation, VPN routes, or firewall | Use a trusted local network and allow the app's local network access. |
 | The QR code is rejected | Code age and selected device | Reopen the code and scan the correct device. |
 | Text arrives but a file does not open | Transfer state | Keep both devices connected until the attachment finishes. |
+
+
+## What happens when all device places are occupied?
+
+The current [mobile beta](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1) and [desktop beta](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122) handle a full licensed group during a new activation or sponsored pairing. The capacity flow can replace the eligible device that has been away longest. During pairing, the device that supplies the licence remains protected from that replacement.
+
+Check the licensed-device list after adding the new device. Confirm both the new device's Pro state and the continued access of the device that sponsored it. Do not assume that the least recently used physical device is always the one selected: eligibility and the licence service's device records determine the result.
+
+If you know which device you are retiring, use its explicit **Evict device** action after transferring the data you need. Eviction frees its licensed place and ends its Sync trust. The app still needs a working connection to the licence service for licence changes. An offline device is not instantly wiped by a roster change.
+
+Complete any important chat and file transfer before retiring the old device. Licence access, trusted pairing, and copied content remain separate results to verify.
 
 ## Can you pair without internet?
 

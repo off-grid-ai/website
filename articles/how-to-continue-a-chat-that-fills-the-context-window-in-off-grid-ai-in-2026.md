@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4770663
 devto_url: "https://dev.to/alichherawalla/how-to-continue-a-chat-that-fills-the-context-window-in-off-grid-ai-in-2026-1h4p"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F68kqelk13hbwh6vm5x1x.png"
+last_modified_at: "2026-10-13"
 ---
 A long conversation can outgrow what the model can read at once.
 
@@ -40,11 +41,15 @@ Review that brief against the saved messages. The model can only summarize the c
 
 ## What does Compacted mean in OGAD?
 
-In the checked tool-enabled chat route, OGAD reduces older history when the estimated prompt approaches the context budget. It keeps recent turns and a short excerpt from selected older turns. The chat can show a **Compacted** notice when that happens.
+In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), the tool-enabled chat route can ask the active model to make a structured summary when the conversation approaches its context limit. When that summary reduces the input size, OGAD saves it with the conversation and uses it in later turns. The **Compacted** notice marks that change.
 
-This is not a complete semantic summary of every old message. Exact wording, earlier exceptions and source details can be lost from the active prompt. Do not assume that “we discussed it above” gives the model all the information it needs now.
+The summary carries the working state forward. It can include the goal, decisions, constraints, completed work, and remaining questions. Earlier messages can stay visible in the saved chat even though the next model request uses their summary. A visible message is therefore not proof that its exact wording is in the active context.
 
-Automatic compaction also cannot make a single oversized document or request fit every model. A smaller task and selected source passages may still be necessary.
+If a usable summary cannot be made, the app can fall back to shorter excerpts from older turns. Neither route guarantees that every detail survives. Keep exact quotations, numbers, and important exceptions available in their original source.
+
+The release also estimates Japanese and Chinese text more carefully when deciding when to compact. It does not give any language unlimited context. A single oversized attachment can still need a smaller task or selected passages.
+
+After a compaction notice, ask one checkable question: "What is the agreed deadline, and which source states it?" If the answer misses a condition, restate that condition before continuing. You can still use the handoff brief below when you want direct control over what the model receives.
 
 ## Continue from a checked brief
 
@@ -71,7 +76,7 @@ Instead of “finish everything we discussed,” ask for one output: revise a se
 
 Use a downloaded local model for offline replies. Project instructions and local files can supply continuing context, but they do not remove the model's context limit.
 
-The compaction behavior described here is verified in the tool-enabled path of [OGAD 0.0.51](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.51), not a claim that every inference route retains unlimited history.
+This guide follows the tool-enabled chat path in [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). Other inference routes can manage context differently. A saved summary is useful context, but it remains a model-written account that you should check.
 
 
 ## A handoff brief you can reuse

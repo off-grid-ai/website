@@ -81,6 +81,19 @@ Turning off Wi-Fi entirely breaks the route between the phone and computer. A lo
 
 A remote connection from another location is different. If you reach the home computer through a private remote network, that route may need internet at both ends. Do not describe it as the same offline home-network setup.
 
+
+## Stop a remote image job from the phone
+
+In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), canceling an image request also asks OGAD to cancel the owned Desktop job. Cancellation during prompt preparation or transfer should stop that request from saving a late image into the chat. Keep the connection available while the cancel request is sent.
+
+If the connection breaks before OGAM receives the Desktop job ID or cancellation confirmation, inspect the job on the computer. A stopped phone indicator alone cannot prove that a disconnected host stopped. Wait for the old job's result or confirmed cancellation before starting the same expensive request again.
+
+## Read the Desktop memory warning on the phone
+
+When OGAD refuses an image request because of its memory estimate, OGAM can show that Desktop warning instead of only a generic failure. The relevant memory belongs to the computer running the model. Free memory there, select a smaller compatible model, or reduce supported image settings before retrying.
+
+If the dialog offers a memory override, read it as an exception to the estimate, not as a way to add RAM. A request can still fail. First confirm one working image on Desktop, then repeat that same setup from the phone.
+
 ## Fix the common failures
 
 | Symptom | Check |

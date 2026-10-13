@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4770658
 devto_url: "https://dev.to/alichherawalla/how-to-correct-an-earlier-ai-prompt-without-restarting-the-chat-in-off-grid-ai-in-2026-jh8"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fm5m3sdiie42gris3hhze.png"
+last_modified_at: "2026-10-13"
 ---
 One wrong detail can send an entire AI conversation off course.
 
@@ -94,6 +95,15 @@ If the draft still gives a date, stop polishing its style. Correct the factual f
 Use a follow-up for a new fact that became true later: “The launch is now confirmed for Thursday.” That keeps the historical discussion visible. Use an edit when the original input was wrong and you want the continuation rebuilt from the right starting point.
 
 For two versions you want to compare, save the first version outside the section that the edit will replace. This workflow does not provide a permanent side-by-side branch. Also inspect retained attachments: changing “use the revised brief” in text does not itself upload a revised brief.
+
+
+## Make the same correction from the browser
+
+The current paired extension can apply **Edit** and **Regenerate** to the Desktop-owned conversation in [beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122). It uses the saved turn position, so a long chat's edit is tied to the intended message. Keep OGAD running and wait for the panel to confirm the result. If Desktop refuses the edit as a conflict, inspect the newer conversation before trying again.
+
+Use Edit for a wrong user prompt. Use Regenerate for another answer to the same prompt. When an answer has version arrows, select the version you want before continuing. That choice supplies the context for the next turn; it is different from preserving every later branch after an earlier prompt edit.
+
+For example, correct "Tuesday launch" to "launch date unconfirmed," submit it, and inspect the rebuilt answer. Then select the answer version that retains the uncertainty before asking for a client draft. Do not rely on changing history to undo an external action already taken.
 
 ## Fix one prompt at its source
 

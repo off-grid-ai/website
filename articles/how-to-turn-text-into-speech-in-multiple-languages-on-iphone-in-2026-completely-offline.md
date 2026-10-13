@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4769545
 devto_url: "https://dev.to/alichherawalla/how-to-turn-text-into-speech-in-multiple-languages-on-iphone-in-2026-completely-offline-5gke"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fhrjoptkg2g2pefknik67.png"
+last_modified_at: "2026-10-13"
 ---
 You can listen to AI replies in different languages on your iPhone without sending the text to a cloud speech service. OGAM (Off Grid AI Mobile) Pro generates speech on the phone. Download the local voice model and the voices you need first. Then you can play supported text with Wi-Fi and mobile data off.
 
@@ -139,6 +140,15 @@ Names, abbreviations, and mixed-language sentences can sound different from what
 With the local voice model selected, speech synthesis runs on your iPhone. A remote voice service uses a different path and can send the text to that service. Keep the selected voice local for the workflow described here.
 
 If you generate new replies, also check the chat model. Local speech playback can read text that was produced by a remote model. That does not make the earlier chat request local.
+
+
+## Restore Speak after changing or unloading a voice
+
+In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), OGAM checks the saved voice files when the reply menu opens. A voice can be downloaded without being loaded in memory. **Speak** can use the prepared voice after its runtime has been unloaded, so you should not need to download it again merely because another model was active.
+
+Open a completed assistant reply's menu. If Speak is absent, check that text-to-speech is enabled and that the selected voice files are still present. Return to **Models > Voice** or the voice settings to finish a missing download. Keep the chosen language and speaker selected, then reopen the reply menu and try a short passage.
+
+OGAM uses the saved voice choice for playback. Selecting a voice in another language does not translate the answer. If the files are present but playback fails, inspect the model error and audio output before deleting a working download. A folder-read error alone is not proof that the voice files were removed.
 
 ## iPhone text-to-speech FAQ
 

@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4769659
 devto_url: "https://dev.to/alichherawalla/how-to-talk-to-ai-hands-free-on-your-android-phone-in-2026-no-internet-required-29b4"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F8n6fkee0x0n4g1jxpb15.png"
+last_modified_at: "2026-10-13"
 ---
 You can have a spoken AI conversation on your Android phone without sending the audio to a cloud service. OGAM (Off Grid AI Mobile) Pro can listen when you speak, finish a turn after a pause, and read the answer aloud. Download the local speech, chat, and voice models first, then test with internet access off.
 
@@ -146,6 +147,20 @@ The silence detector uses the audio level to decide when a turn ends. Background
 With local transcription, chat, and speech output selected, the conversation is processed on the Android phone. The initial downloads and Pro setup are separate network steps.
 
 Remote model selections or connected tools can change the network behavior. For the offline test, use a simple conversation that does not ask for web information or external actions.
+
+
+## Recover a silent reply before restarting the whole setup
+
+The voice file and the loaded voice runtime are separate. In [mobile beta 114](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1), the app checks stored voice files when you open a completed reply's menu and can offer **Speak** after the voice runtime was unloaded. Confirm the selected language and speaker, then try Speak on a short completed answer.
+
+If Speak is absent, check the TTS setting and finish the selected voice download. If it is offered but no sound plays, check the output device and the reported model error. Reinstalling every model is not the first recovery step. Keep the prepared local speech and chat models selected for an offline conversation.
+
+
+## Restore microphone access after a refusal
+
+Android microphone denial remains known after an app restart in this release. Closing and reopening OGAM does not grant access. Open Android **Settings > Apps > Off Grid AI > Permissions > Microphone** and allow the access you intend. The exact Android settings labels can vary by phone.
+
+Return to OGAM, check that the microphone is available, and record one short sentence. Inspect its transcript before returning to Hands-free. Microphone permission controls recording; it does not repair a missing transcription model or a speaker-volume problem.
 
 ## Android hands-free FAQ
 

@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4771181
 devto_url: "https://dev.to/alichherawalla/how-to-check-what-makes-a-local-ai-reply-slow-in-off-grid-ai-on-your-computer-in-2026-5eo6"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F6ob7tjgfrggdcv8zhb9f.png"
+last_modified_at: "2026-10-13"
 ---
 A slow AI reply can mean two different things: a long wait before the first word, or a slow stream of words after the answer starts. Knowing which one you have makes the next step less random.
 
@@ -64,6 +65,15 @@ The first request can include startup work that a later request does not need. A
 If the first words take a long time to appear, compare a short fresh chat with the longer conversation. If words arrive slowly after the response starts, try a smaller local model that fits your computer's available memory. If the answer streams well but takes too long overall, ask for a shorter answer and compare output length.
 
 These are useful checks, not a diagnosis from one number. Other work on the computer, model loading, input length, and the selected runtime can affect a reply.
+
+
+## Read the same timing information in your browser
+
+In the paired extension, open **Settings > General** and turn on **Show generation details**. Finished answers can show the model, speed, and token values reported by Desktop. This control is off by default. It adds information under the answer; it does not change the model's speed.
+
+Use a complete reply for your first check. If a value is absent, leave it unrecorded. Do not infer zero time or zero tokens. Compare the same model and request in fresh conversations, and keep loading time separate from later warm requests.
+
+The browser displays the Desktop result. A slow reply can still be caused by Desktop's model load, long input, or another active task. Check the host before assuming the extension is doing the inference. The workflow uses [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122) and the current paired extension.
 
 ## Keep remote and local comparisons separate
 

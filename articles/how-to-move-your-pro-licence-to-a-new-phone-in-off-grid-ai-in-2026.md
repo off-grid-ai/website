@@ -11,12 +11,15 @@ devto_article: true
 devto_id: 4770771
 devto_url: "https://dev.to/alichherawalla/how-to-move-your-pro-licence-to-a-new-phone-in-off-grid-ai-in-2026-le6"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F5rfuo2g0tb93mix42x3m.png"
+last_modified_at: "2026-10-13"
 ---
 Changing phones should not mean guessing whether you need to buy the same app again.
 
 OGAM (Off Grid AI Mobile) lets you activate your existing Pro licence on a new phone and manage the devices using it. Start with the licence key from your purchase email. If you need to free a device seat, the Sync device list lets you remove the old device from the licensed group.
 
 [Install OGAM on your new phone](https://getoffgridai.co/mobile/)
+
+![Example OGAM device list on iPhone, showing connected and saved devices.](https://getoffgridai.co/assets/img/home/mobile/sync-ios-1-light-640.webp)
 
 ---
 
@@ -47,6 +50,16 @@ Find the old phone in the device list. Check the name carefully, open its remova
 The old phone does not have to appear as currently connected for its licensed seat to be listed. If it is offline, removal of its saved local licence is queued until it reconnects. Removing a seat is not an instant remote wipe of an offline phone.
 
 After the change succeeds, return to the new phone's activation flow if it was waiting for a free seat. If device removal reports an error, keep the old state in mind and resolve the connection or service error before assuming the seat is free.
+
+## What happens when all device places are occupied?
+
+The current [mobile beta](https://github.com/off-grid-ai/OGAM/releases/tag/v0.0.114-beta.1) and [desktop beta](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122) handle a full licensed group during a new activation or sponsored pairing. The capacity flow can replace the eligible device that has been away longest. During pairing, the device that supplies the licence remains protected from that replacement.
+
+Check the licensed-device list after adding the new device. Confirm both the new device's Pro state and the continued access of the device that sponsored it. Do not assume that the least recently used physical device is always the one selected: eligibility and the licence service's device records determine the result.
+
+If you know which device you are retiring, use its explicit **Evict device** action after transferring the data you need. Eviction frees its licensed place and ends its Sync trust. The app still needs a working connection to the licence service for licence changes. An offline device is not instantly wiped by a roster change.
+
+Complete any important chat and file transfer before retiring the old device. Licence access, trusted pairing, and copied content remain separate results to verify.
 
 ## Access and data are two different moves
 

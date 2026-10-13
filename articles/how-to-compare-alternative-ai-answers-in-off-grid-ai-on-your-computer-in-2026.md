@@ -11,6 +11,7 @@ devto_article: true
 devto_id: 4771171
 devto_url: "https://dev.to/alichherawalla/how-to-compare-alternative-ai-answers-in-off-grid-ai-on-your-computer-in-2026-lf6"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fj0sj8fe76kfhx20yudtf.png"
+last_modified_at: "2026-10-13"
 ---
 The first AI answer is not always the one you want to use. You may like its facts but want a clearer explanation, a stronger opening, or a different order.
 
@@ -67,6 +68,17 @@ For an explanation, look for a clear distinction and a useful example. For a dra
 Check facts against your source even when a new version sounds more confident. Regeneration produces another model answer; it is not independent fact checking.
 
 If every version misses the same point, change the prompt. Tell the model what is missing, who the reader is, and what form you need. A more precise request usually gives you a better basis for comparison than repeatedly asking an unclear question.
+
+
+## Continue from the version you choose
+
+In [desktop beta 122](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122), the selected answer version supplies the answer shown in chat and the saved context used for the next turn. Select the version first, read it, then ask the follow-up. You do not need to copy the chosen text into a fresh conversation just to continue from it.
+
+Try two versions of a client update. Select the one that keeps the unresolved approval explicit, then ask: "Turn this version into a four-item review checklist." Check that the checklist follows the version you selected. Version controls also keep the available reasoning and generation details with the relevant answer instead of showing another version's details.
+
+The paired browser panel offers **Regenerate**, version arrows, and continued conversation from the selected Desktop reply. Use **Edit** on the earlier user message when the premise needs correction. Wait for the active run to finish before using actions that are disabled during generation.
+
+A failed replacement should not be treated as a successful new answer. Return to a saved version, inspect the error, and retry only after fixing the cause. These controls do not promise a permanent tree of every later conversation path. Save useful later text before editing or regenerating an earlier turn.
 
 ## Why might two versions look similar?
 
