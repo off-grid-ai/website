@@ -4,10 +4,10 @@ react: extension
 title: Browser extension
 parent: Desktop
 permalink: /browser-extension/
-description: The Off Grid AI browser extension runs tasks in your own signed-in browser, with your desktop's local models, tools and Vault. Pages stay on your computer. Request early access.
+description: The Off Grid AI browser extension runs tasks in your own signed-in browser, with your desktop's local models, tools and Vault. Pages stay on your computer. Add to Chrome or join the waitlist for other browsers.
 faq:
   - q: "What do I need?"
-    a: "Off Grid AI Desktop running with a model, and Chrome, Edge, Brave or Arc. Firefox comes later."
+    a: "Off Grid AI Desktop running with a model, and Chrome. Join the waitlist for Edge, Brave, Arc or Firefox."
   - q: "Why my own browser?"
     a: "The sites you use already know you there. Tasks run with the sessions you have, so you do not sign in again somewhere else."
   - q: "Will it type my passwords or pay for things?"
@@ -15,5 +15,5 @@ faq:
   - q: "Is it free?"
     a: "Chat and connectors are free. The Vault, your desktop tools and tasks need Off Grid AI Pro."
   - q: "When do I get access?"
-    a: "We are letting people in a few at a time. You will get an email when yours is ready."
+    a: "You can install the Chrome extension now from the Chrome Web Store. For Edge, Brave, Arc or Firefox, join the waitlist. We will email you when access is ready for your browser."
 ---
