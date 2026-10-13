@@ -11,16 +11,16 @@ description: Off Grid AI Desktop releases for macOS, Windows, and Linux. Updates
 
 Every release, newest first.
 
-Stable: **0.0.54**. Beta: **0.0.55-beta.114**. Choose your platform:
+Stable: **0.0.54**. Beta: **0.0.55-beta.122**. Choose your platform:
 
 - <span class="platform-list" role="img" aria-label="macOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></span> **Stable** - Apple Silicon. [Download](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/OffGrid-0.0.54.dmg).
-- <span class="platform-list" role="img" aria-label="macOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></span> **Beta** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/OffGrid-0.0.55-beta.114.dmg" data-beta-download="dmg" aria-label="Download for macOS beta" title="Download for macOS beta">Download</a>. Expect rough edges.
+- <span class="platform-list" role="img" aria-label="macOS"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#macos"></use></svg></span> **Beta** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.122/OffGrid-0.0.55-beta.122.dmg" data-beta-download="dmg" aria-label="Download for macOS beta" title="Download for macOS beta">Download</a>. Expect rough edges.
 - <span class="platform-list" role="img" aria-label="Windows"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></span> **Stable · x64** - [Download](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54-setup.exe) or [read its release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54).
-- <span class="platform-list" role="img" aria-label="Windows"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></span> **Beta · x64** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai-0.0.55-beta.114-setup.exe" data-beta-download="exe" aria-label="Download for Windows beta" title="Download for Windows beta">Download</a>. Expect rough edges.
+- <span class="platform-list" role="img" aria-label="Windows"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#windows"></use></svg></span> **Beta · x64** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.122/off-grid-ai-0.0.55-beta.122-setup.exe" data-beta-download="exe" aria-label="Download for Windows beta" title="Download for Windows beta">Download</a>. Expect rough edges.
 - <span class="platform-list" role="img" aria-label="Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span> **Stable · x64** - [Download AppImage](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai-0.0.54.AppImage) or [download deb](https://github.com/off-grid-ai/OGAD/releases/download/v0.0.54/off-grid-ai_0.0.54_amd64.deb).
-- <span class="platform-list" role="img" aria-label="Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span> **Beta · x64** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai-0.0.55-beta.114.AppImage" data-beta-download="AppImage" aria-label="Download for Linux beta (AppImage)" title="Download for Linux beta (AppImage)">AppImage</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.114/off-grid-ai_0.0.55-beta.114_amd64.deb" data-beta-download="deb" aria-label="Download for Linux beta (deb)" title="Download for Linux beta (deb)">deb</a>.
+- <span class="platform-list" role="img" aria-label="Linux"><svg class="platform-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><use href="{{ '/assets/platform-icons.svg' | relative_url }}#linux"></use></svg></span> **Beta · x64** - <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.122/off-grid-ai-0.0.55-beta.122.AppImage" data-beta-download="AppImage" aria-label="Download for Linux beta (AppImage)" title="Download for Linux beta (AppImage)">AppImage</a> or <a href="https://github.com/off-grid-ai/OGAD/releases/download/v0.0.55-beta.122/off-grid-ai_0.0.55-beta.122_amd64.deb" data-beta-download="deb" aria-label="Download for Linux beta (deb)" title="Download for Linux beta (deb)">deb</a>.
 
-Beta links update to newer published builds. [Read the 0.0.55-beta.114 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.114).
+Beta links update to newer published builds. [Read the 0.0.55-beta.122 release notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122).
 
 <p class="ea-pricing-note">Current stable: <a href="https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.54" target="_blank" rel="noopener">OGAD 0.0.54 on GitHub</a>. <a href="https://github.com/off-grid-ai/OGAD/releases" target="_blank" rel="noopener">Full release and preview history</a>.</p>
 
@@ -36,6 +36,15 @@ Local models for writing, images, and voice. Supervised tasks in your apps and b
 - **Your model library** - a catalog of local models with sizes, plus Hugging Face search.
 - **Approved tasks** - supervised Computer Use and Web Use. Pause, stop, or take over.
 - **Task continuity** - confirmed outcomes help longer tasks continue.
+
+### 0.0.55-beta.122 - preview - October 13, 2026
+
+- **Ares and routines** - use hands-free voice and manage scheduled tasks in God settings with Pro.
+- **Browser tasks** - confirm actions on Desktop before browser chat sends or changes anything. Stop and retry follow the task's own browser tab.
+- **Chats** - recover stuck replies, keep queued messages, and send or delete a queued message.
+- **Models and settings** - keep your saved settings during upgrades and retain linked models when moving model files.
+
+[Full preview notes](https://github.com/off-grid-ai/OGAD/releases/tag/v0.0.55-beta.122).
 
 ### 0.0.55-beta.114 - preview - October 5, 2026
 

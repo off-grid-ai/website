@@ -47,6 +47,7 @@
 
 /* Release tracks and Pro */
 .dn-tracks,.dn-pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.dn-tracks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .dn-track.scene-card{width:auto;height:100%}
 .dn-track .scene-card-in{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:28px;height:100%}
 .dn-track-ic{display:grid;place-items:center;width:44px;height:44px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-primary)}
