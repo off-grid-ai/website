@@ -8,11 +8,11 @@
 .ideas .ideas-head>p{font-size:clamp(14px,1.3vw,17px);max-width:640px}
 .ideas-platforms{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--og-text-muted)}
 .ideas-platform-icons{display:inline-flex;gap:6px}
-.ideas-pf{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-text-secondary);background:rgb(var(--og-rgb-background)/.6)}
+.ideas-pf{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-text-secondary);background-color:rgb(var(--og-rgb-background)/.6)}
 .ideas .ideas-hero .ideas-points{margin-top:48px}
 
 /* Chapter index */
-.ideas-nav{position:sticky;top:68px;z-index:40;background:rgb(var(--og-rgb-background)/.94);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);border-block:1px solid var(--line)}
+.ideas-nav{position:sticky;top:var(--og-header-h);z-index:40;background:rgb(var(--og-rgb-background)/.94);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);border-block:1px solid var(--line)}
 .ideas-nav-row{width:var(--col,min(1320px,calc(100% - 48px)));margin-inline:auto;display:flex;gap:2px;padding-block:8px;overflow-x:auto;scrollbar-width:none}
 .ideas-nav-row::-webkit-scrollbar{display:none}
 .ideas-nav-link{display:inline-flex!important;align-items:baseline;gap:8px;white-space:nowrap;border-radius:8px;transition:color .2s}
@@ -21,10 +21,11 @@
 .ideas-nav-link[data-checked=true] .ideas-nav-n{color:var(--og-primary)}
 
 /* Chapters */
-.ideas-ch{padding-block:clamp(96px,10vw,144px);border-bottom:1px solid var(--line);scroll-margin-top:120px}
-.ideas-ch:nth-of-type(even){background:var(--band)}
+.ideas-ch{padding-block:clamp(96px,10vw,144px);scroll-margin-top:120px}
+/* Chapters are long copy on the shared solid surface (og-solid); every other one a band tone. */
+.ideas-ch.og-solid:nth-of-type(even)::before{background-color:var(--band)}
 .ideas-ch-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
-.ideas-ch-head{position:sticky;top:150px;display:flex;flex-direction:column;gap:14px}
+.ideas-ch-head{position:sticky;top:calc(var(--og-header-h) + 82px);display:flex;flex-direction:column;gap:14px}
 .ideas-ch-n{font-size:12px;color:var(--og-primary);letter-spacing:.1em}
 .ideas-ch-head h2{font-weight:300;font-size:clamp(26px,3.2vw,44px);line-height:1.1;letter-spacing:-.045em;text-wrap:balance}
 .ideas-pull{font-size:clamp(19px,1.9vw,26px);line-height:1.4;letter-spacing:-.025em;color:var(--og-text);border-left:2px solid var(--og-primary);padding-left:20px;margin-bottom:28px;text-wrap:pretty}
@@ -36,7 +37,9 @@
 .ideas-ch .ideas-points{margin-block:8px}
 .ideas-shot{margin-top:8px}
 
-/* Point cards */
+/* Point cards: glass scene cards (SceneCard) that fill their grid cell */
+.ideas-point.scene-card{width:auto;height:100%}
+.ideas-point .scene-card-in{padding:0;height:100%}
 .ideas-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ideas-gap)}
 .ideas-points-4{grid-template-columns:repeat(2,minmax(0,1fr))}
 .ideas-ch-body .ideas-points-3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -59,10 +62,8 @@
 .ideas-stat-l{font-size:12px;color:var(--og-text-muted)}
 .ideas-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
 .ideas-ctas a{display:inline-flex;align-items:center;gap:8px}
-.ideas .ideas-cta-primary,.ideas .ideas-cta-primary>a{background:var(--og-primary)!important;color:#03140c!important;border:0!important}
 
 @media (max-width:1000px){
-  .ideas-nav{top:68px}
   .ideas-ch-grid{grid-template-columns:1fr;gap:24px}
   .ideas-ch-head{position:static}
   .ideas-ch-body .ideas-points-3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -76,7 +77,6 @@
   .ideas-platforms{margin-top:20px;gap:10px}
   .ideas-pf{width:30px;height:30px}
   .ideas .ideas-hero .ideas-points{margin-top:28px}
-  .ideas-nav{top:60px}
   .ideas-nav-row{width:calc(100% - 16px);padding-block:6px}
   .ideas-nav-link{padding:8px 10px!important;font-size:12px!important}
   .ideas-ch{padding-block:56px;scroll-margin-top:110px}
@@ -144,3 +144,6 @@
   .ideas-ch-head h2,.dp .dp-head h2{font-size:22px!important;line-height:1.22!important;letter-spacing:-.015em!important}
   .ideas .ideas-head>p{font-size:14px;line-height:1.65}
 }
+
+/* Mono only for small labels and numbers; reading text, headings and controls stay in Geist sans. */
+.ideas-ch-n,.ideas-nav-n,.ideas-platforms>span:first-child,.ideas-stat-l{font-family:var(--og-font-mono)}

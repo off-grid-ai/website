@@ -4,8 +4,7 @@ import Button from '@smoothui/smooth-button';
 import { MagnifyingGlass, ArrowRight, Eye, Brain, CheckCircle, X } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
-import { MagicCard } from '@magicui/magic-card';
-import { PageShell, Kicker, Title, Lede, SectionBg } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { IdeasHero, Platforms, Points, Statement } from './_ideas.jsx';
 
 // The Ethos hub: search, topic filter, device and sort, exactly as assets/js/article-hub.js
@@ -133,9 +132,10 @@ function EthosHub({ pages, sections }) {
 
     <motion.div layout="position" className="ethos-results" id="article-results">
       <AnimatePresence initial={false} mode="popLayout">
-        {shown.map(({ page }, i) => <motion.div key={page.url} layout initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: .98 }} transition={{ duration: .25 }}>
+        {/* Motion keeps the reflow and the exit; the conductor brings each new card in (SceneCard's data-og-reveal), in sequence. */}
+        {shown.map(({ page }, i) => <motion.div key={page.url} layout exit={{ opacity: 0, scale: .98 }} transition={{ duration: .25 }}>
           <a className="ethos-card article-result" href={page.url} data-topic={page.topic} data-platform={page.platform} onClick={() => onResult(page, i + 1)}>
-            <MagicCard className="feat ethos-mc" gradientSize={260} gradientColor="rgba(16, 185, 129, 0.08)" gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)">
+            <SceneCard className="ethos-mc">
               <div className="ethos-card-in">
                 <span className="eyebrow">{page.topic} · {page.platform}</span>
                 <Heading as="h3">{page.title}</Heading>
@@ -143,7 +143,7 @@ function EthosHub({ pages, sections }) {
                 <Text as="p" className="ethos-card-desc">{page.description}</Text>
                 <span className="ex-link">Read the {page.title.toLowerCase()} <ArrowRight size={15} /></span>
               </div>
-            </MagicCard>
+            </SceneCard>
           </a>
         </motion.div>)}
       </AnimatePresence>

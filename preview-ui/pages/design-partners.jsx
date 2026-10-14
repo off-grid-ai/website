@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { Heading, Text } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowDown, EnvelopeSimple, Wrench, Infinity as InfinityIcon, Sparkle, Storefront, ChatCircleText, Flask, Check, UsersThree, Handshake } from '@phosphor-icons/react';
-import { MagicCard } from '@magicui/magic-card';
-import { BorderBeam } from '@magicui/border-beam';
-import { NumberTicker } from '@magicui/number-ticker';
-import { BlurFade } from '@magicui/blur-fade';
-import { PageShell, Kicker, Title, Lede, SectionBg, MobileRail, SceneCard } from '../shared.jsx';
-import { Points } from './_ideas.jsx';
+import { PageShell, Kicker, Title, Lede, MobileRail, SceneCard } from '../shared.jsx';
+import { Points, pulseFrom } from './_ideas.jsx';
 
 // Conversion page for small businesses. The email link keeps its analytics attributes exactly.
 const MAILTO = 'mailto:design.partners@getoffgridai.co?subject=Off%20Grid%20AI%20design%20partnership';
@@ -19,15 +16,27 @@ const STEPS = [
   ['04', 'You test it in your daily work.', 'Tell me what works and what needs to change.'],
 ];
 
+// The library's ListGroup of ListRows: one surface, rows divided by hairlines. ListRow takes no extra
+// attributes, so its rows are marked living after each render; the group arrives once on scroll.
+function Steps({ label, className = '', children }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => { ref.current?.querySelectorAll(':scope > [data-slot=list-row]:not([data-og-living])').forEach((row) => row.setAttribute('data-og-living', '')); });
+  return <ListGroup ref={ref} label={label} className={className} data-og-reveal="">{children}</ListGroup>;
+}
+
+// A glass scene card on the alive layer: the conductor lights it, waves it and brings it in.
 function Card({ children, className = '' }) {
-  return <MagicCard className={`feat dp-card ${className}`} gradientSize={260} gradientColor="rgba(16, 185, 129, 0.08)" gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)"><div className="feat-in">{children}</div></MagicCard>;
+  return <SceneCard className={`dp-card ${className}`}><div className="feat-in">{children}</div></SceneCard>;
 }
 
 export default function DesignPartnersPage() {
   // Arriving on this page is the offer view (the hello bar and the cards that link here only count clicks).
   useEffect(() => { window.OffGridAnalytics?.capture('design_partner_offer_viewed', { placement: 'page', referrer: document.referrer || null }); }, []);
+  // The offer lands once on arrival: the $0 pulses the field, as if it had just been set.
+  const now = useRef(null);
+  useEffect(() => { const t = setTimeout(() => pulseFrom(now.current, 'change', .6), 900); return () => clearTimeout(t); }, []);
   return <PageShell><div className="ideas dp">
-    <section className="has-bg ideas-hero dp-hero" aria-labelledby="build-a-solution-for-your-daily-work-pay-0"><SectionBg />
+    <section className="has-bg ideas-hero dp-hero" aria-labelledby="build-a-solution-for-your-daily-work-pay-0">
       <div className="section-shell dp-hero-grid">
         <div className="sec-head ideas-head">
           <Kicker>DESIGN PARTNERS · TEAMS UNDER 50</Kicker>
@@ -38,21 +47,21 @@ export default function DesignPartnersPage() {
             <Button data-site-button="secondary" asChild size="lg" variant="outline" className="ideas-cta"><a href="#what-you-get">What you get</a></Button>
           </div>
         </div>
-        <SceneCard className="dp-price" busy>
+        <SceneCard className="dp-price">
           <div className="dp-price-in">
             <div className="dp-price-row"><span className="eyebrow">Problems like this usually cost</span><span className="dp-was">$99–$999 <small>/ month</small></span></div>
-            <div className="dp-price-row dp-price-now"><span className="eyebrow">As a design partner</span><span className="dp-now">$0</span></div>
+            <div className="dp-price-row dp-price-now"><span className="eyebrow">As a design partner</span><span className="dp-now" ref={now}>$0</span></div>
             <ul className="dp-price-list">{['Free setup and implementation', 'Free lifetime product access', 'Free lifetime Pro, if it fits'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           </div>
         </SceneCard>
       </div>
     </section>
 
-    <section id="small-business-design-partners" className="chapter dp-sec" aria-labelledby="dp-how-h"><div className="section-shell">
+    <section id="small-business-design-partners" className="chapter dp-sec og-solid" aria-labelledby="dp-how-h"><div className="section-shell">
       <div className="sec-head ideas-head ideas-stack dp-head"><Kicker>HOW IT WORKS</Kicker><Title id="dp-how-h" lead="You show me the work." dim="We build the fix together." /><Lede>Ideally, I work directly with an owner or someone who can choose and test a solution.</Lede></div>
-      <div className="dp-steps">
-        {STEPS.map(([n, t, d], i) => <BlurFade key={n} blur="0px" inView inViewMargin="-40px" delay={i * .08} className="dp-step"><span className="dp-step-n">{n}</span><Heading as="h3">{t}</Heading><Text as="p">{d}</Text></BlurFade>)}
-      </div>
+      <Steps label="How it works" className="og-rows dp-steps">
+        {STEPS.map(([n, t, d]) => <ListRow key={n} className="og-row" leading={<span className="og-row-n">{n}</span>} title={t} description={d} />)}
+      </Steps>
     </div></section>
 
     <section id="what-you-get" className="chapter dp-sec dp-band" aria-labelledby="dp-get-h"><div className="section-shell">

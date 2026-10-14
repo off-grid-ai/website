@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { ArrowRight, ArrowUpRight, ArrowDown, EnvelopeSimple, RocketLaunch, Sparkle, Laptop, DeviceMobile, LinkSimple } from '@phosphor-icons/react';
 import { Confetti } from '@magicui/confetti';
 import { Badge } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, PlatformIcon, Shot, DOWNLOADS, useNarrow } from '../shared.jsx';
+import { orchestra } from '@offgrid-ui/alive';
+import { PageShell, Kicker, Title, Lede, SceneCard, MobileRail, PlatformIcon, Shot, DOWNLOADS, useNarrow } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { purchaseScript } from './_thank-you-purchase.js';
 
@@ -16,6 +18,13 @@ const SUPPORT = 'support@getoffgridai.co';
 
 // Requirements as on /download/; links come from the shared DOWNLOADS (same URLs as /download/).
 const REQ = { ios: ['iPhone', 'iOS 17+ · iPhone 12+'], android: ['Android', 'Android 10+ · 4GB RAM+'], macos: ['macOS', 'Apple Silicon'], windows: ['Windows', 'x64'], linux: ['Linux', 'Ubuntu 24.04+ · x64'] };
+
+// Things this page does on its own (the burst, the key arriving, finding your device) pulse the
+// page's one field, as if the visitor had acted. Nothing pulses for reduced motion.
+const calm = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pulseFrom = (el, kind, strength) => { if (el && !calm()) orchestra.pulseFrom(el, kind, strength); };
+// The key card lands a moment after the burst: one pulse from it, no busy state (nothing is working).
+const ARRIVE_MS = 1600;
 
 function detect() {
   const ua = navigator.userAgent || ''; const p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
@@ -31,7 +40,11 @@ function Celebrate() {
   const ref = useRef(null);
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = setTimeout(() => ref.current?.fire({ particleCount: 110, spread: 90, startVelocity: 38, ticks: 220, gravity: .9, scalar: .9, origin: { x: .5, y: .32 }, colors: ['#34D399', '#10B981', '#6EE7B7', '#A7F3D0'] }), 350);
+    const t = setTimeout(() => {
+      ref.current?.fire({ particleCount: 110, spread: 90, startVelocity: 38, ticks: 220, gravity: .9, scalar: .9, origin: { x: .5, y: .32 }, colors: ['#34D399', '#10B981', '#6EE7B7', '#A7F3D0'] });
+      // The burst is a press from the page itself: one ring through the field from where it fires.
+      orchestra.pulse(innerWidth * .5, innerHeight * .32, 'press', 1);
+    }, 350);
     return () => clearTimeout(t);
   }, []);
   return <Confetti ref={ref} manualstart className="ty-confetti" aria-hidden="true" />;
@@ -41,13 +54,17 @@ function Hero({ devices }) {
   // RevenueCat's redemption link, validated by the purchase script (RevenueCat hosts only).
   const [redeem, setRedeem] = useState('');
   useEffect(() => { if (typeof window.OG_REDEEM_URL === 'string') setRedeem(window.OG_REDEEM_URL); }, []);
-  return <section className="ty ty-hero has-bg" aria-labelledby="ty-h"><SectionBg />
+  const mail = useRef(null); const slot = useRef(null);
+  useEffect(() => { const t = setTimeout(() => pulseFrom(mail.current, 'change', .7), ARRIVE_MS); return () => clearTimeout(t); }, []);
+  // The redemption link appears once the purchase script validates it: it pulses as it lands.
+  useEffect(() => { if (redeem) pulseFrom(slot.current, 'change', .5); }, [redeem]);
+  return <section className="ty ty-hero has-bg" aria-labelledby="ty-h">
     <Celebrate />
     <div className="section-shell ty-hero-in">
       <Kicker>PAYMENT COMPLETE</Kicker>
       <Title as="h1" id="ty-h" className="ty-h1" lead="You're in." dim="Your key is on its way." />
       <Lede className="ty-lede">{`Your Off Grid AI Pro license key is landing in the inbox you paid with, usually inside a minute. One key covers up to ${devices} devices you already own.`}</Lede>
-      <SceneCard busy className="ty-mail">
+      <SceneCard className="ty-mail" innerRef={mail}>
         <div className="ty-mail-head"><span className="ty-mail-ic"><EnvelopeSimple size={20} /></span><span className="ty-mail-live"><span className="pulse" />Arriving now</span></div>
         <dl className="ty-mail-rows">
           <div><dt>From</dt><dd>{KEY_FROM}</dd></div>
@@ -55,7 +72,7 @@ function Hero({ devices }) {
         </dl>
         <p className="ty-mail-note"><b>Check spam first.</b> Found it there? Mark it Not spam (Gmail) or Not junk (Apple Mail, Outlook) so updates reach your inbox.</p>
       </SceneCard>
-      {redeem && <p className="ea-status ty-redeem" id="redeemSlot"><LinkSimple size={15} aria-hidden="true" /><a href={redeem} rel="noopener">Attach this purchase to your Off Grid AI account</a></p>}
+      {redeem && <p className="ea-status ty-redeem" id="redeemSlot" ref={slot} data-og-surface="glow" data-og-reveal=""><LinkSimple size={15} aria-hidden="true" /><a href={redeem} rel="noopener">Attach this purchase to your Off Grid AI account</a></p>}
       <div className="ty-cta">
         <Button data-site-button="primary" asChild size="lg" className="ty-main btn"><a href="#apps">Get the apps <ArrowDown size={16} /></a></Button>
         <a className="ty-quiet" href="#what-to-do-next">What happens next</a>
@@ -71,17 +88,22 @@ const STEPS = (devices) => [
   ['Turn on capture when you are ready.', 'It stays off until you switch it on, per device, and shows a recording indicator the whole time it runs.'],
 ];
 
+// The library's ListGroup of ListRows: one surface, rows divided by hairlines. ListRow takes no extra
+// attributes, so its rows are marked living after each render; the group arrives once on scroll.
+function Steps({ label, className = '', children }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => { ref.current?.querySelectorAll(':scope > [data-slot=list-row]:not([data-og-living])').forEach((row) => row.setAttribute('data-og-living', '')); });
+  return <ListGroup ref={ref} label={label} className={className} data-og-reveal="">{children}</ListGroup>;
+}
+
 function Next({ devices }) {
-  return <section className="ty ty-sec ty-next" aria-labelledby="what-to-do-next">
+  return <section className="ty ty-sec ty-next og-solid" aria-labelledby="what-to-do-next">
     <div className="section-shell">
       <div className="sec-head"><Kicker>WHAT TO DO NEXT</Kicker><Title id="what-to-do-next" lead="Four steps." dim="No account, no sign-in." /></div>
       <div className="ty-next-grid">
-        <ol className="ty-steps">
-          {STEPS(devices).map(([t, d], k) => <li key={t}>
-            <span className="ty-step-n" aria-hidden="true">{k + 1}</span>
-            <span className="ty-step-tx"><b>{t}</b><span>{d}</span></span>
-          </li>)}
-        </ol>
+        <Steps label="Four steps" className="og-rows ty-steps">
+          {STEPS(devices).map(([t, d], k) => <ListRow key={t} className="og-row" leading={<span className="og-row-n" aria-hidden="true">{k + 1}</span>} title={t} description={d} />)}
+        </Steps>
         <figure className="ty-shot">
           <SceneCard className="ty-shot-card"><div className="ty-frame"><Shot name="god" alt="Off Grid AI God: Ares briefs you on your day, with approvals waiting. Part of Pro." /></div></SceneCard>
           <figcaption>What your key unlocks: God briefs you on your day and lines up work for your yes.</figcaption>
@@ -93,7 +115,10 @@ function Next({ devices }) {
 
 function AppCard({ d, mine }) {
   const [name, req] = REQ[d.id];
-  return <SceneCard busy={mine} className={`ty-app${mine ? ' ty-mine' : ''}`}>
+  // Finding this device is the page acting on its own: its card pulses once when it is recognised.
+  const card = useRef(null);
+  useEffect(() => { if (!mine) return; const t = setTimeout(() => { const r = card.current?.getBoundingClientRect(); if (r && r.width && r.top < innerHeight && r.bottom > 0) pulseFrom(card.current, 'change', .55); }, 400); return () => clearTimeout(t); }, [mine]);
+  return <SceneCard className={`ty-app${mine ? ' ty-mine' : ''}`} innerRef={card}>
     <div className="ty-app-head">
       <span className="ty-app-ic"><PlatformIcon id={d.id} size={22} /></span>
       <span className="ty-app-name"><b>{name}</b><small>{req}</small></span>
@@ -110,7 +135,7 @@ function Apps() {
   const [dev, setDev] = useState(null);
   useEffect(() => { setDev(detect()); }, []);
   const start = Math.max(0, DOWNLOADS.findIndex(d => d.id === dev));
-  return <section id="apps" className="ty ty-sec ty-apps has-bg" aria-labelledby="ty-apps-h"><SectionBg />
+  return <section id="apps" className="ty ty-sec ty-apps has-bg" aria-labelledby="ty-apps-h">
     <div className="section-shell">
       <div className="sec-head"><Kicker>YOUR APPS</Kicker><Title id="ty-apps-h" lead="Every device you own." dim="One key for all of them." /></div>
       <MobileRail key={narrow ? `rail-${dev}` : 'grid'} start={start} className="ty-app-grid">
