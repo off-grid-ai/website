@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { ListRow } from '@offgrid-ui/list-row';
 import { ArrowRight, ArrowUpRight, DeviceMobile, Laptop, ArrowsClockwise, MagnifyingGlass, ChatsCircle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, PlatformIcon, Shot, SLACK } from '../shared.jsx';
-import { Explorer, Framed, Seq, Fit, Loop, ChatScene } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, MobileRail, PlatformIcon, Shot, SLACK } from '../shared.jsx';
+import { Explorer, Framed, Seq, Fit, Loop, ChatScene, LiveList } from './_product.jsx';
 import { installClickTracking } from './_track.js';
 
 // /quick-start/ — download to first answer in four steps, each with the real screen.
@@ -14,16 +15,14 @@ const INSTALL = [
   ['android', 'Android', 'Android 10+, 4GB RAM+', 'Google Play', 'https://play.google.com/store/apps/details?id=ai.offgridmobile'],
 ];
 
+// The platforms as the library's ListGroup of ListRows (LiveList marks each row a living surface).
 function InstallScene() {
-  return <div className="pp-scene"><SceneCard className="qs-install">
-    <ul className="qs-plat">
-      {INSTALL.map(([id, name, req, label, href]) => <li key={id}>
-        <span className="qs-plat-ic"><PlatformIcon id={id} size={18} /></span>
-        <span className="qs-plat-tx"><b>{name}</b><small>{req}</small></span>
-        <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{label}{href.startsWith('http') ? <ArrowUpRight size={13} /> : <ArrowRight size={13} />}</a>
-      </li>)}
-    </ul>
-  </SceneCard></div>;
+  return <div className="pp-scene"><LiveList className="qs-install qs-plat">
+    {INSTALL.map(([id, name, req, label, href]) => <ListRow key={id}
+      leading={<span className="qs-plat-ic"><PlatformIcon id={id} size={18} /></span>}
+      title={name} description={req}
+      trailing={<Button asChild data-site-button="secondary" variant="outline" size="sm"><a className="qs-get" href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{label}{href.startsWith('http') ? <ArrowUpRight size={13} /> : <ArrowRight size={13} />}</a></Button>} />)}
+  </LiveList></div>;
 }
 
 const shot = (name, alt) => () => <Framed><Shot name={name} alt={alt} /></Framed>;
@@ -53,7 +52,7 @@ const NEXT = [
 export default function QuickStartPage() {
   useEffect(() => installClickTracking(), []);
   return <PageShell>
-    <section className="pp qs-hero has-bg" aria-labelledby="quick-start"><SectionBg />
+    <section className="pp qs-hero has-bg" aria-labelledby="quick-start">
       <div className="section-shell qs-hero-in">
         <Kicker>QUICK START</Kicker>
         <Title as="h1" id="quick-start" className="pp-h1" lead="From download" dim="to first answer." />
@@ -76,11 +75,12 @@ export default function QuickStartPage() {
       <div className="section-shell">
         <div className="sec-head"><Kicker>NEXT</Kicker><Title id="find-your-next-task" lead="Find your next task." /></div>
         <MobileRail className="qs-next-grid">
-          {NEXT.map(([I, label, href]) => <a key={href} className="qs-next-a" href={href}><SceneCard className="qs-next-card">
+          {/* The card is the surface and the link fills it: a link as the surface would lose the card's entrance and ease-back. */}
+          {NEXT.map(([I, label, href]) => <SceneCard key={href} className="qs-next-card"><a className="qs-next-a" href={href}>
             <span className="qs-next-ic"><I size={20} /></span><b>{label}</b><ArrowRight size={16} className="qs-go" />
-          </SceneCard></a>)}
+          </a></SceneCard>)}
         </MobileRail>
-        <p className="qs-help"><a href="/guides/">All guides <ArrowRight size={13} /></a><span>·</span><span>Need help?</span> <a href={SLACK} target="_blank" rel="noopener"><ChatsCircle size={14} /> Join the community</a></p>
+        <p className="qs-help" data-og-reveal=""><a href="/guides/">All guides <ArrowRight size={13} /></a><span>·</span><span>Need help?</span> <a href={SLACK} target="_blank" rel="noopener"><ChatsCircle size={14} /> Join the community</a></p>
       </div>
     </section>
   </PageShell>;

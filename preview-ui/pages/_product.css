@@ -17,40 +17,47 @@
 .pp-h1{font-weight:300!important;font-size:clamp(34px,3.5vw,52px)!important;line-height:1.04!important;letter-spacing:-.055em!important;margin:0}
 .pp-lede{font-size:15px;line-height:1.7;color:var(--og-text-secondary);margin:0;max-width:520px}
 .pp-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
-.pp-main{height:48px!important;padding-inline:22px!important;font-size:14px!important;gap:10px!important;background:var(--og-primary)!important;color:#03140c!important;border:0!important;border-radius:8px!important}
-.light .pp-main{background:var(--og-primary)!important;color:#fff!important}
+/* Colour, edge, radius, halo and press come from the shared site button and the library (page.css, alive.css). */
+.pp-main{height:44px!important;padding-inline:20px!important;font-size:14px!important;gap:10px!important}
 .pp-main-note{font-size:11.5px;color:var(--og-text-muted)}
 .pp-alts{display:flex;flex-wrap:wrap;gap:8px}
-.pp-alt{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 12px;border:1px solid var(--line-2);border-radius:8px;font-size:12.5px;color:var(--og-text-secondary);background:rgb(var(--og-rgb-background)/.6);transition:border-color .2s,color .2s}
-.pp-alt:hover{border-color:rgb(var(--og-rgb-primary)/.6);color:var(--og-text)}
+.pp-alt{display:inline-flex;align-items:center;gap:7px;padding:0 12px;font-size:12.5px}
 .pp-proof{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--og-text-muted)}
 .pp-proof b{font-weight:400;color:var(--og-text)}
 
 /* App window */
 .pp-app{min-width:0}
-.pp-win{border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);overflow:hidden;cursor:grab;touch-action:pan-y}
-.pp-win:active{cursor:grabbing}
-.light .pp-win{background:#fff;box-shadow:0 24px 60px -36px rgb(0 0 0/.25)}
+/* The hero window: a SceneCard (glass, light, entrance from the kit) inside a drag wrapper; the kit's CmdBar on top
+   with the badge beside it; the screens in ShotSeq's MacBook frame. */
+.pp-win-drag{cursor:grab;touch-action:pan-y}
+.pp-win-drag:active{cursor:grabbing}
+.pp-win.scene-card{width:auto}
+.pp-win .scene-card-in{padding:0;overflow:hidden;border-radius:inherit}
+.pp-cmdrow{display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.pp-cmdrow>.tour-cmd{flex:1;min-width:0;border-bottom:0}
+.pp-cmdrow>.pp-badge{padding-right:14px}
 .pp-bar{display:flex;align-items:center;gap:14px;height:40px;padding:0 14px;border-bottom:1px solid var(--line);font-size:12.5px}
 .pp-dots{display:flex;gap:6px;flex-shrink:0}.pp-dots i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
 .pp-cmd{display:flex;gap:8px;align-items:center;min-width:0;flex:1;white-space:nowrap;overflow:hidden}
 .pp-cmd .cmd-caret{color:var(--og-primary)}
 .pp-cmd>span:last-child{font-size:inherit!important;line-height:inherit!important;letter-spacing:0!important;font-weight:400!important}
 .pp-badge{display:inline-flex;gap:6px;align-items:center;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--og-text-muted);flex-shrink:0}.pp-badge svg{color:var(--og-primary)}
-.pp-view{position:relative;aspect-ratio:1760/964}
+.pp-view{position:relative;aspect-ratio:650/400}
 .pp .wt-shot{inset:10px!important;display:grid!important;place-items:center!important;border:0!important;background:transparent!important;overflow:hidden!important;container-type:normal!important}
 .pp .wt-shot-in{position:absolute;inset:0;display:grid!important;place-items:center!important}
 .pp .wt-shot .shot{position:static!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;animation:none!important;border:1px solid var(--line-2)!important;border-radius:6px!important}
 .pp-tabs{margin-top:10px;display:flex;justify-content:center;flex-wrap:wrap;gap:2px}
 .pp-tab-hover{border-radius:8px;background:var(--og-surface-light)}
-.light .pp-tab-hover{background:#f0f0f0}
-.pp-tab{all:unset;cursor:pointer;position:relative;font-size:12.5px;padding:9px 14px;color:var(--og-text-muted);border-radius:8px;overflow:hidden;transition:color .2s}
+.pp-tab{all:unset;cursor:pointer;position:relative;font-size:12.5px;padding:7px 14px;color:var(--og-text-muted);border-radius:8px;overflow:hidden}
 .pp-tab[aria-pressed=true],.pp-tab:hover{color:var(--og-text)}
 .pp-tab:focus-visible{outline:2px solid var(--og-primary)}
 .pp-tab-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--og-primary);transform-origin:0 50%}
 
-/* Explorer stage */
+/* Explorer stage: a SceneCard; the click target inside fills it. */
 .pp-stage{min-height:520px}
+.pp-stage.scene-card{width:auto;border:0}
+.pp-stage .scene-card-in{padding:0;height:100%;position:relative}
+.pp-stage-in{position:absolute;inset:0}
 .pp-stage .pillar-visual{overflow:hidden}
 .pp-framed{max-height:100%;display:grid;place-items:center;border:0!important;background:transparent!important}
 .pp-framed .shot{max-width:100%;max-height:100%;width:auto!important;height:auto!important;border:1px solid var(--line-2);border-radius:6px}
@@ -62,12 +69,13 @@
 .pp-note{font-size:12px;color:var(--og-text-muted);margin:0;text-align:center}
 
 /* Phone cards (swipe rows) */
-.pp-card{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);overflow:hidden;height:100%}
-.light .pp-card{background:#fff}
-.pp-card-vis{position:relative;display:grid;place-items:center;padding:10px;border-bottom:1px solid var(--line);background:var(--og-background);min-height:0}
+/* Phone cards are SceneCards: glass, light, rings, entrance and ease-back come from the kit. */
+.pp-card.scene-card{width:auto;height:100%}
+.pp-card .scene-card-in{display:flex;flex-direction:column;padding:0;height:100%;overflow:hidden;border-radius:inherit}
+.pp-card-vis{position:relative;display:grid;place-items:center;padding:10px;border-bottom:1px solid var(--line);min-height:0}
 .pp-card-vis .pillar-shot,.pp-card-vis .pp-framed{width:100%}
 .pp-card-vis .pp-framed .shot{width:100%!important;height:auto!important}
-.pp-card-vis .pp-seq{min-height:0;aspect-ratio:1512/977;height:auto}
+.pp-card-vis .pp-seq{min-height:0;aspect-ratio:650/400;height:auto}
 .pp-card-vis .pp-scene{height:auto}
 .pp-card-vis .pp-scene-card .scene-card-in{padding:12px 14px;font-size:12.5px}
 .pp-card-tx{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px}
@@ -82,14 +90,16 @@
 .pp-dl-center .dl{flex:0 1 220px}
 .pp-beta{display:flex;flex-direction:column;gap:12px;margin-top:28px}
 .pp-dl-final{width:min(860px,100%);margin-top:12px}
-.dl-main{border-color:rgb(var(--og-rgb-primary)/.55)!important}
+.dl-main{border-color:rgb(var(--og-rgb-primary)/.55)!important;box-shadow:0 0 28px -10px rgb(var(--og-rgb-primary)/.45)}
 
 /* Trust */
 .pp-trust-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .pp-trust-side{display:flex;flex-direction:column;gap:18px}
 .pp-after{margin-top:16px}
-.pp-checks{display:grid;gap:12px;margin:0;padding:0;list-style:none;font-size:14px;color:var(--og-text-secondary)}
-.pp-checks li{display:flex;gap:12px;align-items:flex-start}.pp-checks svg{color:var(--og-primary);flex-shrink:0;margin-top:4px}
+/* The trust list: the library's ListGroup. Facts wrap instead of truncating. */
+.pp-checks{max-width:640px}
+.pp-checks [data-slot=list-row] .truncate{white-space:normal;overflow:visible;text-overflow:clip}
+.pp-check-ic{color:var(--og-primary)}
 
 /* API */
 .pp-api-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
@@ -99,7 +109,7 @@
 
 /* Agent */
 .pp-agent-tabs{justify-content:flex-start;margin:0 0 18px}
-.pp-agent-frame{position:relative;aspect-ratio:1760/993;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:var(--og-surface)}
+.pp-agent-frame{position:relative;aspect-ratio:1760/993;border-radius:var(--og-card-radius);overflow:hidden;background-color:var(--og-glass);box-shadow:var(--og-glass-edge),var(--og-glass-shadow)}
 .pp-agent-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
 /* Plans */
@@ -109,11 +119,7 @@
 .pp-offer{font-size:12.5px;line-height:1.65;color:var(--og-text-secondary);margin:0}
 .pp-offer strong{font-weight:400;color:var(--og-text)}
 .pp-plan-ctas{display:flex;flex-wrap:wrap;gap:8px}
-.pp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border-radius:8px;border:1px solid var(--line-2);font-size:13px;color:var(--og-text);background:var(--og-background);transition:border-color .2s,transform .2s}
-.pp-btn:hover{border-color:rgb(var(--og-rgb-primary)/.6);transform:translateY(-1px)}
-.pp-btn-primary{background:var(--og-primary);border-color:var(--og-primary);color:#03140c}
-.light .pp .pp-btn-primary{color:#fff!important}
-.light .pp .plan-hero a.pp-btn:not(.pp-btn-primary){color:var(--og-text)!important}
+.pp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;font-size:13px}
 
 /* FAQ */
 .pp-faq{border-top:1px solid var(--line);max-width:900px}
@@ -136,8 +142,8 @@
 /* Live scenes (phone screens and cards) */
 .pp-phone{position:relative;width:100%;aspect-ratio:433/882}
 .pp-phone>div:last-child{position:absolute!important;inset:0;pointer-events:none}
-.pp-screen{position:absolute;left:4.907%;top:2.182%;width:89.954%;height:95.635%;border-radius:14.31%/6.61%;overflow:hidden;background:#0b0b0b;color:#f5f5f5;container-type:size;display:flex;flex-direction:column}
-.light .pp-screen{background:#fafafa;color:#0a0a0a}
+.pp-screen{position:absolute;left:4.907%;top:2.182%;width:89.954%;height:95.635%;border-radius:14.31%/6.61%;overflow:hidden;background-color:#0b0b0b;color:#f5f5f5;container-type:size;display:flex;flex-direction:column}
+.light .pp-screen{background-color:#fafafa;color:#0a0a0a}
 .pp-status{display:flex;justify-content:space-between;align-items:center;padding:5.2cqw 9cqw 0;font-size:3.6cqw;height:12cqw;flex-shrink:0;opacity:.8}
 .pp-status span{display:inline-flex;gap:4px;align-items:center}
 .pp-screen-in{position:relative;flex:1;min-height:0;padding:5cqw 6cqw;overflow:hidden;font-size:clamp(10px,4.4cqw,13px)}
@@ -157,7 +163,7 @@
 .ms-prompt{display:flex;gap:6px;font-size:.95em;padding:8px 10px;border:1px solid rgb(128 128 128/.25);border-radius:8px;min-height:3.4em}
 .ms-prompt .cmd-caret{color:var(--og-primary)}
 .ms-prompt>span:last-child{font-size:inherit!important;line-height:inherit!important;letter-spacing:0!important;font-weight:400!important}
-.ms-canvas{position:relative;width:100%;aspect-ratio:1;max-height:100%;border-radius:8px;overflow:hidden;background:rgb(128 128 128/.12);flex-shrink:1;min-height:0}
+.ms-canvas{position:relative;width:100%;aspect-ratio:1;max-height:100%;border-radius:8px;overflow:hidden;background-color:rgb(128 128 128/.12);flex-shrink:1;min-height:0}
 .ms-canvas img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ms-canvas-tag{position:absolute;left:8px;bottom:12px;font-size:.8em;color:var(--og-text-secondary)}
 .ms-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgb(128 128 128/.2)}.ms-progress b{display:block;height:100%;background:var(--og-primary);transform-origin:0 50%}
@@ -235,8 +241,8 @@
 
 /* Artifact scene */
 .ds-art{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ds-code{margin:0;padding:12px;border-radius:8px;background:var(--og-surface);border:1px solid var(--line);font-size:11.5px;line-height:1.5;color:var(--og-text-secondary);overflow:hidden;white-space:pre}
-.ds-preview{display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:8px;border:1px solid var(--og-primary);background:var(--og-background)}
+.ds-code{margin:0;padding:12px;border-radius:8px;background-color:var(--og-surface);border:1px solid var(--line);font-size:11.5px;line-height:1.5;color:var(--og-text-secondary);overflow:hidden;white-space:pre}
+.ds-preview{display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:8px;border:1px solid var(--og-primary);background-color:var(--og-background)}
 .ds-preview small{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-primary)}
 .ds-table{display:grid;gap:0;font-size:13px;color:var(--og-text)}
 .ds-table>div{display:grid;grid-template-columns:1.3fr .8fr 1fr;gap:12px;padding:8px 2px;border-bottom:1px solid var(--line)}
@@ -244,8 +250,7 @@
 
 /* FAQ on solid surfaces */
 .pp-faq{border-top:0!important;display:grid;gap:8px}
-.pp-faq-item{border:1px solid var(--line)!important;border-radius:8px;background:var(--og-surface);overflow:hidden}
-.light .pp-faq-item{background:#fff}
+.pp-faq-item{border:1px solid var(--line)!important;border-radius:var(--og-card-radius);background-color:var(--og-surface);overflow:hidden}
 .pp-faq-q{padding:16px 18px!important}
 .pp-faq-a>div{padding:0 18px!important}
 .pp-faq-a[data-state=open]>div{padding-bottom:16px!important}
@@ -255,7 +260,7 @@
 .ds-search{display:flex;flex-direction:column;gap:10px;height:100%}
 .ds-search-box{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--og-primary);border-radius:8px;color:var(--og-primary)}
 .ds-search-q{font-size:15px!important;line-height:1.4!important;letter-spacing:0!important;font-weight:400!important;color:var(--og-text)}
-.ds-hit{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);font-size:13.5px;color:var(--og-text)}
+.ds-hit{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line-2);border-radius:8px;background-color:var(--og-surface);font-size:13.5px;color:var(--og-text)}
 .ds-hit small{display:block;font-size:11px;color:var(--og-text-muted)}
 .pp-fit-in .ms-canvas{flex:1 1 auto;min-height:262px}
 
@@ -281,10 +286,8 @@
 .pp-agent-frame .pp-wipe img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .pp-auto{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:12px 16px 0;font-size:11.5px;color:var(--og-text-muted)}
 .pp-auto-c{justify-content:center;margin:12px 0 0}
-.pp-auto-btn{height:32px!important;font-size:11.5px!important;gap:6px!important;border-radius:8px!important;cursor:pointer}
-.pp-auto-btn:hover{border-color:rgb(var(--og-rgb-primary)/.6)!important}
-.pp-card-scene{width:100%;height:100%;border:1px solid var(--line);border-radius:8px;background:var(--og-background);padding:12px;box-sizing:border-box;overflow:hidden;font-size:11.5px}
-.light .pp-card-scene{background:#fff}
+.pp-auto-btn{height:32px!important;min-height:32px!important;padding-inline:12px!important;font-size:11.5px!important;gap:6px!important;border-radius:999px!important;cursor:pointer}
+.pp-card-scene{width:100%;height:100%;border:1px solid var(--line);border-radius:8px;background-color:var(--og-background);padding:12px;box-sizing:border-box;overflow:hidden;font-size:11.5px}
 .pp-card-scene .ms{gap:8px}
 .pp-card-scene .ms-canvas{flex:1;aspect-ratio:auto;min-height:0}
 .pp-card-scene .ds-code{font-size:9.5px;padding:8px}
@@ -293,7 +296,7 @@
 .pp-card-scene .ds-search-box{padding:8px 10px}
 @media (max-width:1000px){
   .pp-stage{min-height:0!important;height:clamp(360px,58vw,540px)}
-  .mp-explorer .pp-stage{height:600px}
+  .mp-explorer .pp-stage.pillar-stage{height:min(600px,var(--pp-fit))}
   .pp-stage .pillar-visual{min-height:0!important}
 }
 @media (max-width:860px){
@@ -304,9 +307,7 @@
   .pp-auto span{display:none}
 }
 .pp-fit-in{position:relative}
-.pp-web-stage{height:min(560px,62vw);border:1px solid var(--line);border-radius:8px;background:var(--og-surface);padding:16px}
-.light .pp-web-stage{background:#fff}
-@media (max-width:860px){.pp-web-stage{height:auto;aspect-ratio:420/520;padding:8px}}
+
 .pp-screen-flat .ms-photo{aspect-ratio:16/6}
 
 .pp-screen-flat .ms-field{padding:5px 8px}
@@ -332,3 +333,40 @@
 }
 /* Phones: centred heroes keep the title to two short lines. */
 @media(max-width:520px){.pp-hero-stack .pp-h1{font-size:32px!important}}
+
+@media (max-width:860px){.pp-auto-btn{height:40px!important;min-height:40px!important}}
+
+/* ── Fit: every stage, chrome included, fits the viewport below the sticky header with room above and below ── */
+/* Set on every product section class and on the Explorer itself, so pages built on .pp-sec (Pro) get it too. */
+:is(.pp,.pp-sec,.pp-explorer,.pp-app){--pp-fit:max(320px,calc(100svh - var(--og-header-h,69px) - 80px))}
+/* Hero app window: bar (41px) + a view at the capture's shape. */
+.pp-hero-stack .pp-app{width:min(1120px,100%,calc((var(--pp-fit) - 41px) * 650 / 400))}
+/* Explorer stages never grow past the viewport. */
+.pp-stage.pillar-stage{min-height:min(520px,var(--pp-fit));max-height:var(--pp-fit)}
+@media (max-width:1000px){.pp-stage.pillar-stage{height:min(clamp(360px,58vw,540px),var(--pp-fit))}}
+/* Every product screen sits in ShotSeq's MacBook frame (Eldora MacbookPro), on every width: the same framed
+   composition the full-screen view shows. The kit shows the frame on phones only; these lines turn it on above 860px
+   too, with the kit's own geometry (screen 77.1% x 81%, the capture's 1.55:1 shape, so the screen is never cropped). */
+@media (min-width:861px){
+  .pp .shot-mac-wrap{position:absolute;inset:0;display:grid;place-items:center;container-type:size}
+  .pp .shot-mac-box{position:relative;display:block;width:min(100cqw,calc(100cqh * 650 / 400));aspect-ratio:650/400}
+  .pp .shot-mac-frame{display:block;position:absolute;inset:0;width:100%;height:100%;color:var(--og-background)}
+  .pp .wt-shot:has(.shot-mac-wrap){border:0!important;overflow:visible!important}
+  .pp .shot-mac-screen{display:block;position:absolute;left:11.465%;top:5.33%;width:77.111%;height:80.963%}
+}
+/* Whole screens at their own shape. The shared tour fills .wt-shot edge to edge (cover, from the top left), which is
+   exact only when the box is the capture's shape (1512x977). So every product stage gives the screen that box:
+   the hero window's view is that shape, edge to edge, and an explorer stage centres a box of that shape in
+   whatever room it has. Contain (not cover) keeps an off-ratio capture whole instead of trimming its right edge. */
+@media (min-width:861px){
+  .pp .pp-win .pp-view .wt-shot{inset:0!important}
+  .pp-stage .pillar-visual{container-type:size}
+  .pp-stage .pillar-visual>.pp-seq{width:min(100cqw,calc(100cqh * 650 / 400));height:auto;min-height:0;aspect-ratio:650/400}
+  .pp .pp-win .wt-shot .shot-mac-screen .shot,.pp .pp-stage .wt-shot .shot-mac-screen .shot,.pp .pp-web-tour .wt-shot .shot-mac-screen .shot,.pp .dn-frame .wt-shot .shot-mac-screen .shot{object-fit:contain!important;object-position:center!important}
+}
+/* The active item's line, shown only where the tab row hides it (one column, 861-1000px). */
+.pp-active-line{display:none}
+@media (min-width:861px) and (max-width:1000px){
+  .pp-active-line{display:block;margin:8px 4px 0;font-size:13px;line-height:1.6;color:var(--og-text-secondary)}
+  .qs-explorer .pp-active-line{display:none}
+}

@@ -1,15 +1,18 @@
 import React, { useRef, useState } from 'react';
-import { TextField } from '@radix-ui/themes';
+import { TextField, SegmentedControl } from '@radix-ui/themes';
 import { EnvelopeSimple, ChatCircle, Key, Robot, ArrowUpRight, PlugsConnected, LinkSimple, Waveform, Check, X } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SectionBg, SceneCard, BrowserScene, MobileRail, useZoomOwner, useZoomRegister } from '../shared.jsx';
-import { Faq, Fit } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, BrowserScene, MobileRail, useZoomOwner, useZoomRegister } from '../shared.jsx';
+import { Faq, Fit, livePulse, useLiveRegion } from './_product.jsx';
 
 // Other browsers remain in early access: people ask to join, and the request is recorded in PostHog,
 // the same way the newsletter signs people up (identify + one capture with the details).
 const BROWSERS = ['Edge', 'Brave', 'Arc', 'Firefox'];
 function RequestAccess({ placement }) {
   const [email, setEmail] = useState(''); const [browser, setBrowser] = useState(BROWSERS[0]); const [status, setStatus] = useState(['', '']);
+  // Picking a browser is a change of value: the field answers from the control, like a native one would.
+  const seg = useRef(null);
+  const pick = (b) => { if (!b) return; setBrowser(b); livePulse(seg.current, 'change', .4); };
   const submit = (e) => {
     e.preventDefault();
     const value = email.trim();
@@ -22,8 +25,10 @@ function RequestAccess({ placement }) {
   };
   return <form className="ex-form" onSubmit={submit} noValidate aria-label="Join the waitlist for other browsers">
     <p className="ex-fine">Other browsers: join the waitlist.</p>
-    <div className="ex-browsers" role="radiogroup" aria-label="Your browser">
-      {BROWSERS.map(b => <button type="button" key={b} role="radio" aria-checked={browser === b} className={`ex-chip${browser === b ? ' is-on' : ''}`} onClick={() => setBrowser(b)}>{b}</button>)}
+    <div className="ex-browsers" ref={seg}>
+      <SegmentedControl.Root className="ex-seg" size="2" radius="full" value={browser} aria-label="Your browser" onValueChange={pick}>
+        {BROWSERS.map(b => <SegmentedControl.Item key={b} value={b}>{b}</SegmentedControl.Item>)}
+      </SegmentedControl.Root>
     </div>
     <div className="ex-row">
       <TextField.Root className="ex-input" type="email" name="email" required size="3" placeholder="your@email.com" autoComplete="email" aria-label="Email address" aria-invalid={status[1] === 'error'} value={email} onChange={(e) => { setEmail(e.target.value); if (status[0]) setStatus(['', '']); }}>
@@ -39,6 +44,8 @@ function RequestAccess({ placement }) {
 function HeroScene() {
   const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Your Vault in the sign-in field', line: 'A saved login filled from your Off Grid AI Vault, in your own browser.', progress: null, goTo: () => {} });
   const box = useRef(null);
+  // The browser demo plays itself (typing, the Vault filling the field): the field answers it.
+  useLiveRegion(box);
   useZoomRegister(zoom, [['__scene', 'A saved login filled from your Off Grid AI Vault, in your own browser.', 6000, () => <BrowserScene />]], () => !!box.current?.getClientRects().length, true);
   return <div className="ex-visual" ref={box}>
     <button type="button" className="ex-open" aria-label="Open the browser demo full screen" onClick={() => zoom.open()}>
@@ -73,7 +80,7 @@ const FAQ = [
 
 export default function ExtensionPage() {
   return <PageShell>
-    <section className="pp ex-hero has-bg" aria-labelledby="ex-h1"><SectionBg />
+    <section className="pp ex-hero has-bg" aria-labelledby="ex-h1">
       <div className="section-shell ex-hero-grid">
         <div className="ex-copy">
           <Kicker>BROWSER EXTENSION · AVAILABLE FOR CHROME</Kicker>
@@ -91,8 +98,8 @@ export default function ExtensionPage() {
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHERE THE WORK HAPPENS</Kicker><Title id="ex-why-h" lead="Your browser." dim="Not a remote one." /></div>
         <MobileRail className="ex-vs" start={1} labels={['Remote browser', 'Off Grid AI']}>
-          <div className="ex-vs-col" role="rowgroup"><span className="ex-vs-h" role="columnheader">Agent in a remote browser</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div>
-          <div className="ex-vs-col is-us" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI in your browser</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div>
+          <SceneCard className="ex-vs-col"><div className="ex-vs-in" role="rowgroup"><span className="ex-vs-h" role="columnheader">Agent in a remote browser</span>{WHY.map(([a]) => <span key={a} className="ex-vs-row" role="cell"><X size={14} />{a}</span>)}</div></SceneCard>
+          <SceneCard className="ex-vs-col is-us"><div className="ex-vs-in" role="rowgroup"><span className="ex-vs-h" role="columnheader">Off Grid AI in your browser</span>{WHY.map(([, b]) => <span key={b} className="ex-vs-row" role="cell"><Check size={14} />{b}</span>)}</div></SceneCard>
         </MobileRail>
       </div>
     </section>
@@ -100,13 +107,13 @@ export default function ExtensionPage() {
     <section className="chapter pp ex-does" aria-labelledby="ex-does-h">
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHAT IT DOES</Kicker><Title id="ex-does-h" lead="What it does." dim="All through your desktop." /></div>
-        <MobileRail className="ex-list">{DOES.map(([Icon, t, l]) => <div className="ex-card" key={t}><span className="ex-ic"><Icon size={20} /></span><b>{t}</b><span>{l}</span></div>)}</MobileRail>
+        <MobileRail className="ex-list">{DOES.map(([Icon, t, l]) => <SceneCard className="ex-card" key={t}><span className="ex-ic"><Icon size={20} /></span><b>{t}</b><span>{l}</span></SceneCard>)}</MobileRail>
       </div>
     </section>
 
     <Faq items={FAQ} />
 
-    <section id="waitlist" className="pp pp-final has-bg" aria-labelledby="ex-final-h"><SectionBg />
+    <section id="waitlist" className="pp pp-final has-bg" aria-labelledby="ex-final-h">
       <div className="section-shell final-in">
         <Kicker>AVAILABLE FOR CHROME</Kicker>
         <h2 id="ex-final-h" className="final-h">Add Off Grid AI to your browser.</h2>

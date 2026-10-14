@@ -1,4 +1,6 @@
 @import "../../../preview-ui/pages/_product.css";
+/* The library's ListRow is styled with Tailwind classes: generate them (path from the build cache). */
+@source '../../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
 
 /* Mobile page: the phone is the stage. */
 .mp-hero-grid{grid-template-columns:1fr minmax(280px,380px);gap:64px}
@@ -6,20 +8,20 @@
 .mp-hero-phone .pp-phone{width:min(330px,100%)}
 .mp-hero-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
 .mp-stores .dl{flex:1 1 170px}
-.pp-offline-note{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.6;color:var(--og-text-secondary);margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:rgb(var(--og-rgb-surface)/.6)}
+.pp-offline-note{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.6;color:var(--og-text-secondary);margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background-color:rgb(var(--og-rgb-surface)/.6)}
 .pp-offline-note svg{color:var(--og-primary);flex-shrink:0;margin-top:3px}
-.mp-explorer .pp-stage{min-height:620px}
-.mp-stage-phone{height:100%;max-height:580px;aspect-ratio:433/882;display:grid}
+.mp-explorer .pp-stage.pillar-stage{min-height:min(620px,var(--pp-fit))}
+.mp-stage-phone{height:100%;max-height:min(580px,calc(var(--pp-fit) - 90px));aspect-ratio:433/882;display:grid}
 .mp-stage-phone .pp-phone{height:100%;width:auto}
-.mp-explorer-pro .pp-stage{min-height:600px}
+.mp-explorer-pro .pp-stage.pillar-stage{min-height:min(600px,var(--pp-fit))}
 @media (max-width:1000px){
   .mp-hero-grid{grid-template-columns:1fr 280px!important;gap:32px}
   .mp-hero-phone .pp-phone{width:min(280px,78vw)}
-  .mp-explorer .pp-stage .pillar-visual{min-height:560px}
-  .mp-stage-phone{height:540px}
+  .mp-explorer .pp-stage .pillar-visual{min-height:0}
+  .mp-stage-phone{height:min(540px,calc(var(--pp-fit) - 90px))}
 }
 @media (max-width:860px){.mp-hero-phone .pp-phone{width:min(260px,70vw)}}
-.pp-screen-shot{background:#000}
+.pp-screen-shot{background-color:#000}
 .pp-mshot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top;background:#fff}
 .pp-mshot.is-dark{background:#000}
 .mp-card-phone{height:100%;aspect-ratio:433/882;display:grid}
@@ -28,10 +30,14 @@
 .only-dark{display:contents}.light .only-dark{display:none}
 .only-light{display:none}.light .only-light{display:contents}
 @media (max-width:860px){.mp-hero-grid{grid-template-columns:1fr!important}}
-.mp-pro-label{margin:0 0 16px;font-family:var(--og-font-mono);font-size:14px;color:var(--og-text-secondary);text-align:left}
+.mp-pro-label{margin:0 0 16px;font-size:14px;color:var(--og-text-secondary);text-align:left}
 .mp-pro-desk{margin-top:48px}
 /* Hero store buttons: compact, one row. */
 .mp-stores{gap:8px}
 .mp-stores .dl{min-height:44px!important;padding:6px 14px!important;gap:10px}
 .mp-stores .dl small{font-size:10px;line-height:1.1}
 .mp-stores .dl b,.mp-stores .dl strong{font-size:14px;line-height:1.2}
+/* The hero phone (below its command chip) fits the viewport. */
+.mp-hero-phone .pp-phone{width:min(330px,100%,calc((var(--pp-fit) - 50px) * 433 / 882))}
+@media (max-width:1000px){.mp-hero-phone .pp-phone{width:min(280px,78vw,calc((var(--pp-fit) - 50px) * 433 / 882))}}
+@media (max-width:860px){.mp-hero-phone .pp-phone{width:min(260px,70vw,calc((var(--pp-fit) - 50px) * 433 / 882))}}

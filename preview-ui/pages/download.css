@@ -1,4 +1,6 @@
 @import "../../../preview-ui/pages/_product.css";
+/* The library's ListRow is styled with Tailwind classes: generate them (path from the build cache). */
+@source '../../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
 
 /* /download/ — scoped under .dn-* (on .pp sections). Solid surfaces after the hero. */
 .dn-anchor{display:block;position:relative;top:-90px;height:0;visibility:hidden}
@@ -12,14 +14,14 @@
 .dn-other{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--og-text-secondary);min-height:32px}
 .pp a.dn-other{text-decoration:none!important}
 .dn-other:hover{color:var(--og-text)}
-.dn-hero-shot.scene-card{width:100%}
+.dn-hero-shot.scene-card{width:min(100%,calc((var(--pp-fit) - 61px) * 650 / 400));justify-self:center}
 .dn-hero-shot .scene-card-in{padding:10px}
-.dn-frame{position:relative;aspect-ratio:1512/977;border-radius:6px;overflow:hidden}
+.dn-frame{position:relative;aspect-ratio:650/400;border-radius:6px;overflow:hidden}
 .dn-frame .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .dn-frame .shot-light{display:none}.light .dn-frame .shot-light{display:block}.light .dn-frame .shot-dark{display:none}
 
 /* Sections */
-.dn-sec{padding-block:clamp(72px,9vw,128px);background:var(--og-background)}
+.dn-sec{padding-block:clamp(72px,9vw,128px)}
 .dn-sec+.dn-sec{border-top:1px solid var(--line)}
 .dn-plat{position:relative}
 
@@ -28,16 +30,16 @@
 .dn-card.scene-card{width:auto;height:100%}
 .dn-card .scene-card-in{display:flex;flex-direction:column;gap:18px;padding:22px;height:100%}
 .dn-card-head{display:flex;align-items:center;gap:14px;min-width:0}
-.dn-ic{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:8px;border:1px solid var(--line-2);background:var(--og-surface-light);color:var(--og-text)}
-.light .dn-ic{background:#f4f4f4}
+.dn-ic{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:8px;border:1px solid var(--line-2);background-color:var(--og-surface-light);color:var(--og-text)}
 .dn-mine .dn-ic{color:var(--og-primary);border-color:rgb(var(--og-rgb-primary)/.5)}
 .dn-name{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .dn-name b{font-weight:400;font-size:16px}
 .dn-name small{font-size:11.5px;color:var(--og-text-muted)}
 .dn-badge{flex-shrink:0;font-size:10.5px!important}
-.dn-dl.dl{justify-content:space-between;min-height:56px;backdrop-filter:none;background:var(--og-surface)}
-.light .dn-dl.dl{background:#fafafa}
+.dn-dl.dl{justify-content:space-between;min-height:56px;backdrop-filter:none;background-color:var(--og-surface)}
 .dn-mine .dn-dl.dl{border-color:rgb(var(--og-rgb-primary)/.55)}
+/* This device: an emerald edge and halo, never a busy beam (busy means working). */
+.dn-mine.scene-card{box-shadow:inset 0 0 0 1px rgb(var(--og-rgb-primary)/.55),var(--og-glass-shadow),0 0 80px -40px rgb(var(--og-rgb-primary)/.6)}
 .dn-dl svg{color:var(--og-text-muted);flex-shrink:0}
 .dn-dl:hover svg{color:var(--og-primary)}
 .dn-more{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--og-text-muted);min-height:18px;margin-top:auto}
@@ -54,9 +56,11 @@
 .dn-track-t{font-weight:400!important;font-size:20px!important;line-height:1.3!important;letter-spacing:-.02em!important;margin:0!important}
 .dn-track p{margin:0;font-size:14px;line-height:1.7;color:var(--og-text-secondary);max-width:520px}
 .dn-track .pp-fine{font-size:12px;margin-top:auto}
-.dn-vers{list-style:none;margin:0;padding:0;width:100%;border-top:1px solid var(--line)}
-.dn-vers li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}
-.dn-vers li span{color:var(--og-text-muted)}
+/* Versions: the library's ListGroup, flattened to hairline rows because it sits inside a card. */
+.dn-vers[data-slot=list-group]{width:100%;border:0;border-block:1px solid var(--line);border-radius:0;background-color:transparent}
+.dn-vers [data-slot=list-row]{padding-inline:0}
+.dn-vers [data-slot=list-row] .text-sm{color:var(--og-text-muted)}
+.dn-vers [data-slot=list-row-trailing]{font-size:13px}
 .dn-beta-row{display:flex;flex-wrap:wrap;gap:8px}
 .pp a.pp-alt{text-decoration:none!important}
 .dn-new{display:flex;flex-direction:column;gap:10px;width:100%;padding-top:14px;border-top:1px solid var(--line)}

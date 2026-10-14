@@ -1,7 +1,13 @@
 @import "../../../preview-ui/pages/_product.css";
+/* The library's ListRow is styled with Tailwind classes: generate them (path from the build cache). */
+@source '../../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
 /* Web Use as a tour window: bar on top, the sequence fills the rest at the capture's shape. */
-.pp-web-tour{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);overflow:hidden}
-.pp-web-tour .pp-web-view{position:relative;aspect-ratio:1512/977}
+.pp-web-tour.scene-card{width:auto}
+.pp-web-tour .scene-card-in{display:flex;flex-direction:column;padding:0;overflow:hidden;border-radius:inherit}
+.pp-web-tour .pp-web-view{position:relative;aspect-ratio:650/400}
 .pp-web-tour .pp-web-view .pp-seq{position:absolute;inset:0;min-height:0}
-.pp-web-stage.pp-web-tour{height:auto!important;padding:0!important;aspect-ratio:auto!important}
-@media(max-width:860px){.pp-web-tour .pp-web-view{aspect-ratio:1512/1100}}
+.pp-web-tour .pp-web-view .wt-shot{inset:0!important}
+/* The window fits the viewport: bar (41px) + the MacBook view. */
+.pp-web-tour.scene-card{width:min(100%,calc((var(--pp-fit) - 41px) * 650 / 400));margin-inline:auto}
+/* The terminal's wrapper only carries the live region and the entrance. */
+.pp-term-wrap{min-width:0}
