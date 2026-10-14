@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { TextField, Select, SegmentedControl, Badge } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
@@ -6,12 +6,19 @@ import {
   MagnifyingGlass, X, ArrowRight, RocketLaunch, Cpu, Microphone, ImageSquare, FileText, PencilLine, Briefcase,
   ArrowsClockwise, ShieldCheck, Wrench, SunHorizon, BookOpen, Clock,
 } from '@phosphor-icons/react';
-import { PageShell, Kicker, Title, Lede, SectionBg, SceneCard, MobileRail } from '../shared.jsx';
+import { orchestra } from '@offgrid-ui/alive';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
+import { PageShell, Kicker, Title, Lede, MobileRail, SceneCard } from '../shared.jsx';
 
-// The learning hubs (/guides/, /articles/, /writing/). Browsing: a featured row, then one section per
-// topic (a few cards and "See all"; phones swipe each topic as a MobileRail). Searching or filtering:
-// one ranked, paged result grid. Same filtering and the same analytics events and properties as the
-// old assets/js/article-hub.js (resource_* events; the query text is never sent).
+// The learning hubs (/guides/, /articles/, /writing/). Browsing: a featured row of cards, then one
+// section per topic (a few rows and "See all"). Searching or filtering: one ranked, paged list.
+// Same filtering and the same analytics events and properties as the old assets/js/article-hub.js
+// (resource_* events; the query text is never sent).
+//
+// Alive layer (@offgrid-ui/alive): every list is the library's ListGroup of ListRows, one solid
+// hairline-divided surface. Rows are marked data-og-living so the conductor lights them from the
+// pointer, sends press waves through them and eases their siblings back while one is hovered. Featured cards are the kit's SceneCard. Filtering
+// settles the status line; changes that leave it unchanged pulse the list.
 const ALL = 'all';
 export const TOPIC_ICONS = {
   'Getting started': RocketLaunch, 'Models & performance': Cpu, 'Voice & audio': Microphone, 'Images & vision': ImageSquare,
@@ -20,11 +27,15 @@ export const TOPIC_ICONS = {
 };
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fmt = (d) => { const [y, m, day] = (d || '').slice(0, 10).split('-'); return y && m && day ? `${day} ${MONTHS[+m - 1]} ${y}` : ''; };
+const Meta = ({ item }) => <>
+  {item.date ? <time dateTime={item.date.slice(0, 10)}>{fmt(item.date)}</time> : null}
+  {item.minutes ? <span><Clock size={12} />{item.minutes} min read</span> : null}
+</>;
 
-// One card: Magic UI MagicCard (via the kit's SceneCard) with the topic icon, platform chip and reading time.
+// A featured card: rich content (topic, platform, excerpt) on the kit's SceneCard.
 export function HubCard({ item, featured, position }) {
   const Icon = TOPIC_ICONS[item.topic] || BookOpen;
-  return <SceneCard className={`hub-mc${featured ? ' hub-mc-feat' : ''}`}>
+  return <SceneCard className={`hub-feat${featured ? ' hub-feat-lead' : ''}`}>
     <a className="hub-card" href={item.url} data-topic={item.topic} data-platform={item.platform} data-position={position}>
       <span className="hub-card-top">
         <span className="hub-card-topic"><Icon size={featured ? 20 : 16} weight="duotone" />{item.topic || 'Off Grid AI'}</span>
@@ -32,13 +43,30 @@ export function HubCard({ item, featured, position }) {
       </span>
       <span className="hub-card-title">{item.title}</span>
       <span className="hub-card-desc">{item.description}</span>
-      <span className="hub-card-foot">
-        {item.date ? <time dateTime={item.date.slice(0, 10)}>{fmt(item.date)}</time> : null}
-        {item.minutes ? <span><Clock size={12} />{item.minutes} min read</span> : null}
-        <ArrowRight size={14} className="hub-card-go" />
-      </span>
+      <span className="hub-card-foot"><Meta item={item} /><ArrowRight size={14} className="hub-card-go" /></span>
     </a>
   </SceneCard>;
+}
+
+// One row: the library's ListRow. The title is the row's link (stretched over the row in _hub.css)
+// and carries the analytics data the click handler reads.
+export function HubRow({ item, position, showTopic }) {
+  const Icon = TOPIC_ICONS[item.topic] || BookOpen;
+  return <ListRow className="hub-row"
+    leading={<Icon size={16} weight="duotone" className="hub-row-ic" />}
+    title={<a className="hub-card" href={item.url} data-topic={item.topic} data-platform={item.platform} data-position={position}>{item.title}</a>}
+    badges={<Badge className="hub-chip" variant="outline" color="gray">{item.platform}</Badge>}
+    description={item.description}
+    meta={<span className="hub-row-meta">{showTopic && <span className="hub-row-topic">{item.topic || 'Off Grid AI'}</span>}<Meta item={item} /></span>}
+    trailing={<ArrowRight size={14} className="hub-card-go" aria-hidden="true" />} />;
+}
+
+// The library's ListGroup, with its rows marked as living surfaces after each render (ListRow takes
+// no extra attributes). og-solid keeps the text off the living field.
+function HubList({ className = '', children, ...props }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => { ref.current?.querySelectorAll(':scope > [data-slot=list-row]:not([data-og-living])').forEach((row) => row.setAttribute('data-og-living', '')); });
+  return <ListGroup ref={ref} className={`hub-list og-solid ${className}`} {...props}>{children}</ListGroup>;
 }
 
 export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitle, searchLabel, placeholder, sortDefault = 'Newest', pageSize = 24, featured = [], perTopic = 3, intro, outro }) {
@@ -49,6 +77,7 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
   const [sort, setSort] = useState('newest');
   const [visible, setVisible] = useState(pageSize);
   const state = useRef({}); const lastSearch = useRef(''); const timer = useRef(0); const inputRef = useRef(null); const resultsRef = useRef(null);
+  const topicsRef = useRef(null); const statusRef = useRef(null); const answered = useRef(null);
 
   const q = query.trim().toLocaleLowerCase();
   const browsing = !q && !topic && device === ALL && sort === 'newest';
@@ -98,15 +127,28 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
     setQuery(''); setDevice(ALL); setSort('newest'); setTopic(''); setVisible(pageSize);
     if (inputRef.current) inputRef.current.focus();
   };
-  const title = q ? (topic ? `Search results in ${topic}` : 'Search results') : (topic || defaultTitle);
   const topicInfo = topics.find(t => t.name === topic);
+  const status = (matches.length ? `Showing ${shown} of ${matches.length} ${noun}` : `0 ${noun}`) + (topicInfo && !q ? ` · ${topicInfo.description}` : '');
+  // The list answers every topic, device and sort change once. The conductor already settles the
+  // status line (a flash and a pulse) when its text changes; when it does not (a sort, or the status
+  // line has just mounted on the way in or out of browsing), pulse from the head of the results here
+  // instead (a long list's centre is off screen, so the wave would reach nothing).
+  useEffect(() => {
+    const now = { sig: `${topic}|${device}|${sort}`, status, node: statusRef.current };
+    const was = answered.current; answered.current = now;
+    if (!was || was.sig === now.sig) return;
+    if (now.node === was.node && now.status !== was.status) return;
+    const from = statusRef.current?.closest('.hub-toolbar') || topicsRef.current;
+    if (from) orchestra.pulseFrom(from, 'change', 0.55);
+  });
+  const title = q ? (topic ? `Search results in ${topic}` : 'Search results') : (topic || defaultTitle);
   const onResultClick = (e) => {
     const link = e.target.closest && e.target.closest('a.hub-card'); if (!link) return;
     reportSearch();
     track('resource_result_clicked', { destination: new URL(link.href, window.location.href).pathname, result_topic: link.dataset.topic, result_device: link.dataset.platform, position: Number(link.dataset.position) || 0 });
   };
 
-  // Browsing layout: featured row, then a few cards per topic.
+  // Browsing layout: featured cards, then a few rows per topic.
   const feat = useMemo(() => {
     const picked = featured.map(u => items.find(i => i.url === u)).filter(Boolean);
     const starter = items.find(i => i.topic === 'Getting started' && !picked.includes(i));
@@ -118,7 +160,7 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
   let pos = 0;
 
   return <PageShell>
-    <section className="chapter has-bg hub-hero" aria-labelledby="hub-h"><SectionBg />
+    <section className="chapter hub-hero" aria-labelledby="hub-h">
       <div className="section-shell">
         <div className="sec-head"><Kicker>{kicker}</Kicker><Title as="h1" id="hub-h" lead={lead} dim={dim} /><Lede>{lede}</Lede></div>
         {intro}
@@ -135,7 +177,7 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
           </TextField.Root>
           <div className="hub-controls">
             <Select.Root value={device} onValueChange={(v) => { setDevice(v); setVisible(pageSize); pending.current = ['resource_device_selected']; }}>
-              <Select.Trigger className="hub-select" aria-label="Device" />
+              <Select.Trigger className="hub-select" aria-label="Device" data-slot="select-trigger" data-variant="outline" />
               <Select.Content position="popper" className="hub-select-menu">
                 <Select.Item value={ALL}>All devices</Select.Item>
                 {platforms.map(p => <Select.Item key={p} value={p}>{p}</Select.Item>)}
@@ -149,11 +191,11 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
         </div>
       </div>
       <div className="section-shell" ref={resultsRef}>
-        <div className="hub-topics" role="group" aria-label="Filter by topic">
+        <div className="hub-topics" role="group" aria-label="Filter by topic" ref={topicsRef}>
           <AnimatedBackground defaultValue={topic} onValueChange={(id) => pickTopic(id)} className="hub-topic-bg" transition={{ type: 'spring', bounce: .15, duration: .35 }}>
             {[{ name: '', label: 'All topics', count: items.length }, ...topics].map(t => {
               const Icon = t.name ? (TOPIC_ICONS[t.name] || BookOpen) : null;
-              return <button key={t.name || 'all'} data-id={t.name} type="button" className="hub-topic" aria-pressed={topic === t.name} title={t.description || undefined}>
+              return <button key={t.name || 'all'} data-id={t.name} type="button" data-slot="button" data-variant="ghost" className="hub-topic" aria-pressed={topic === t.name} title={t.description || undefined}>
                 {Icon && <Icon size={15} weight="duotone" className="hub-topic-ic" />}<span className="hub-topic-name">{t.label || t.name}</span><span className="hub-topic-count">{t.count}</span>
               </button>;
             })}
@@ -162,35 +204,36 @@ export function Hub({ hub, kicker, lead, dim, lede, placement, noun, defaultTitl
 
         {browsing ? <div className="hub-browse" onClick={onResultClick}>
           <h2 id="hub-results-h" className="sr-only">{defaultTitle}</h2>
-          <p className="sr-only" role="status" aria-live="polite">{`${items.length} ${noun}`}</p>
+          <p className="sr-only" role="status" aria-live="polite" ref={statusRef}>{`${items.length} ${noun}`}</p>
           <div className="hub-group hub-featured">
             <div className="hub-group-head"><Kicker>FEATURED</Kicker></div>
             <MobileRail className="hub-feat-grid">{feat.map((item, i) => <HubCard key={item.url} item={item} featured={i === 0} position={++pos} />)}</MobileRail>
           </div>
-          {groups.map(g => {
-            const Icon = TOPIC_ICONS[g.name] || BookOpen;
-            const list = g.items.filter(i => !feat.includes(i)).slice(0, perTopic);
-            return <section key={g.name} className="hub-group" aria-labelledby={`hub-g-${slug(g.name)}`}>
-              <div className="hub-group-head">
-                <span className="hub-group-ic"><Icon size={18} weight="duotone" /></span>
-                <div className="hub-group-tx"><h3 id={`hub-g-${slug(g.name)}`}>{g.name}</h3>{g.description && <p>{g.description}</p>}</div>
-                {g.items.length > list.length && <Button data-site-button="secondary" variant="ghost" size="sm" className="hub-seeall" onClick={(e) => { e.stopPropagation(); pickTopic(g.name, true); }}>See all {g.items.length}<ArrowRight size={14} /></Button>}
-              </div>
-              <MobileRail className="hub-grid">{list.map(item => <HubCard key={item.url} item={item} position={++pos} />)}</MobileRail>
-            </section>;
-          })}
+          <div className="hub-sections">
+            {groups.map(g => {
+              const Icon = TOPIC_ICONS[g.name] || BookOpen;
+              const list = g.items.filter(i => !feat.includes(i)).slice(0, perTopic);
+              return <section key={g.name} className="hub-group" aria-labelledby={`hub-g-${slug(g.name)}`} data-og-reveal="">
+                <div className="hub-group-head">
+                  <span className="hub-group-ic"><Icon size={18} weight="duotone" /></span>
+                  <div className="hub-group-tx"><h3 id={`hub-g-${slug(g.name)}`}>{g.name}</h3>{g.description && <p>{g.description}</p>}</div>
+                  {g.items.length > list.length && <Button data-site-button="secondary" variant="ghost" size="sm" className="hub-seeall" onClick={(e) => { e.stopPropagation(); pickTopic(g.name, true); }}>See all {g.items.length}<ArrowRight size={14} /></Button>}
+                </div>
+                <HubList aria-labelledby={`hub-g-${slug(g.name)}`}>{list.map(item => <HubRow key={item.url} item={item} position={++pos} />)}</HubList>
+              </section>;
+            })}
+          </div>
         </div> : <>
           <div className="hub-toolbar">
             <div className="hub-toolbar-title">
               <h2 id="hub-results-h">{title}</h2>
-              <p role="status" aria-live="polite">{matches.length ? `Showing ${shown} of ${matches.length} ${noun}` : `0 ${noun}`}{topicInfo && !q ? ` · ${topicInfo.description}` : ''}</p>
+              <p role="status" aria-live="polite" ref={statusRef}>{status}</p>
             </div>
             <Button data-site-button="secondary" variant="outline" size="sm" className="hub-clear" onClick={clear}><X size={14} />Clear filters</Button>
           </div>
-          <div className="hub-grid hub-results" onClick={onResultClick}>
-            {matches.slice(0, visible).map((item, i) => <HubCard key={item.url} item={item} position={i + 1} />)}
-          </div>
-          {!matches.length && <p className="hub-empty">No {noun} match. Try another term or clear the filters.</p>}
+          {matches.length ? <HubList className="hub-results" aria-labelledby="hub-results-h" onClick={onResultClick}>
+            {matches.slice(0, visible).map((item, i) => <HubRow key={item.url} item={item} position={i + 1} showTopic={!topic} />)}
+          </HubList> : <p className="hub-empty">No {noun} match. Try another term or clear the filters.</p>}
           {matches.length > visible && <div className="hub-more"><Button data-site-button="secondary" variant="outline" className="hub-more-btn" onClick={() => { reportSearch(); setVisible(v => v + pageSize); pending.current = ['resource_more_clicked']; }}>Show more {noun}<ArrowRight size={16} /></Button></div>}
         </>}
         {outro}
