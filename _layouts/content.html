@@ -153,6 +153,7 @@
   </script>
   {% endif %}
   {% capture og_v %}{% include content/chrome-version.html %}{% endcapture %}{% assign og_v = og_v | strip %}
+  <link rel="preload" href="{{ '/assets/preview/fonts/geist-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   {% include content/chrome-hints.html %}
   <link rel="stylesheet" href="{{ '/assets/preview/tokens.css' | relative_url }}?v={{ og_v }}">
   <link rel="stylesheet" href="{{ '/assets/preview/content/chrome.css' | relative_url }}?v={{ og_v }}">
@@ -182,7 +183,7 @@
 {%- assign words = content | number_of_words -%}{%- assign minutes = words | divided_by: 220 | at_least: 1 -%}
 <body class="og-doc-body">
   {% include announcement-bar.html %}
-  <div id="og-content-root">{% include content/chrome-0.html %}<div class="{{ doc_class }}{% if has_toc %} has-toc{% endif %}" data-page-title="{{ page.title | escape }}">
+  <div id="og-content-root">{% include content/chrome-0.html %}<div class="{{ doc_class }} og-solid{% if has_toc %} has-toc{% endif %}" data-page-title="{{ page.title | escape }}">
     <nav class="doc-crumbs" aria-label="Breadcrumb" data-pagefind-ignore><a href="{{ '/' | relative_url }}">Off Grid AI</a>{% if crumb_title %}<span class="sep" aria-hidden="true">/</span>{% if crumb_url %}<a href="{{ crumb_url | relative_url }}">{{ crumb_title }}</a>{% else %}<span>{{ crumb_title }}</span>{% endif %}{% endif %}<span class="sep" aria-hidden="true">/</span><span class="here" aria-current="page">{{ page.title }}</span></nav>
     <header class="doc-head" data-pagefind-ignore>
       <p class="doc-meta">{% if doc_kind != '' %}<span class="doc-kind">{{ doc_kind }}</span>{% endif %}{% if page.article_topic %}<span>{{ page.article_topic }}</span>{% endif %}{% if page.article_platform %}<span>{{ page.article_platform }}</span>{% endif %}{% if page.published_at %}<span><time datetime="{{ page.published_at | date: '%Y-%m-%d' }}">{{ page.published_at | date: "%d %b %Y" }}</time></span>{% endif %}{% unless doc_class contains 'doc-legal' or doc_class contains 'doc-release' %}<span>{{ minutes }} min read</span>{% endunless %}</p>
