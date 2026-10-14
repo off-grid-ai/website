@@ -1,39 +1,25 @@
 @import "./_product.css";
-/* Feature pages: hero copy, then the tour window at the capture's shape. */
+/* Tailwind scans the library's ListRow for its classes (path from this file). */
+@source '../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
+/* Feature pages: hero copy and calls to action, then the shared explorer. */
 .ft-hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding-top:24px;padding-bottom:36px}
 .ft-lede{max-width:640px;margin:0 auto}
 .ft-ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .ft-ctas a{height:46px!important;padding:0 22px!important}
-.ft-tour{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:8px;background:var(--og-surface);overflow:hidden;max-width:1080px;margin:0 auto}
-.light .ft-tour{background:#fff;box-shadow:0 24px 60px -36px rgb(0 0 0/.25)}
-.ft-view{position:relative;aspect-ratio:1512/977}
-.ft-view .pp-seq{position:absolute;inset:0;min-height:0}
-@media(max-width:860px){.ft-view{aspect-ratio:1512/1100}}
-/* How it works: three numbered steps. */
-.ft-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.ft-steps li{border:1px solid var(--line-2);border-radius:8px;padding:22px;background:var(--og-surface)}
-.light .ft-steps li{background:#fff}
-.ft-n{font-family:var(--og-font-mono);font-size:12px;color:var(--og-primary);letter-spacing:.08em}
-.ft-steps h3{margin:10px 0 8px;font-size:18px;letter-spacing:-.01em}
-.ft-steps p{margin:0;color:var(--og-text-muted);line-height:1.6;font-size:14.5px}
-@media(max-width:860px){.ft-steps{grid-template-columns:1fr}}
-.ft-checks{max-width:720px}
-/* Related guides and other features. */
-.ft-articles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.ft-articles a{display:flex;justify-content:space-between;align-items:center;gap:14px;height:100%;padding:16px 18px;border:1px solid var(--line-2);border-radius:8px;color:var(--og-text);line-height:1.45;font-size:14.5px}
-.ft-articles a:hover{border-color:var(--og-primary)}
-.ft-articles svg{flex:none;color:var(--og-text-muted)}
-.ft-others{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.ft-others a{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1px solid var(--line-2);border-radius:8px;color:var(--og-text)}
-.ft-others a:hover{border-color:var(--og-primary)}
-.ft-others small{color:var(--og-text-muted);font-size:12.5px}
-@media(max-width:860px){.ft-articles{grid-template-columns:1fr}}
+/* Guides and other features: the library's ListGroup and ListRow on .og-solid (as on the hubs). Rows are
+   living (data-og-living): light, press waves and sibling ease-back come from the library, so no transition
+   here. Only layout: the title link covers its row and titles wrap rather than truncate. */
+.ft-list{max-width:860px;--og-solid-radius:var(--og-card-radius);--og-solid-edge:none}
+.ft-list>.ft-row{outline:none}
+.ft-row .ft-row-link{color:inherit;text-decoration:none!important}
+.ft-row .ft-row-link::after{content:"";position:absolute;inset:0}
+.ft-row .truncate:has(>.ft-row-link){white-space:normal}
+.ft-row-go{color:var(--og-text-muted)}
+.ft-row:hover .ft-row-go,.ft-row:focus-within .ft-row-go{color:var(--og-primary)}
 /* Phones: the hero and closing section stay to a few short lines; guide links read lighter. */
 @media(max-width:520px){
   .ft-hero .pp-h1{font-size:30px!important}
   .ft-hero-in{gap:12px;padding-top:12px;padding-bottom:24px}
   .ft-ctas a{height:42px!important;padding:0 18px!important}
   .pp-final .final-h{font-size:30px!important}
-  .ft-articles a{padding:12px 14px;font-size:13px}
-  .ft-others a{padding:12px 14px}
 }
