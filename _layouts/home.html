@@ -161,6 +161,7 @@
   }
   </script>
   {% endif %}
+  <link rel="preload" href="{{ '/assets/preview/fonts/geist-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   {% include home-hints.html %}
   {% include home-critical.html %}
   <link data-home-styles rel="stylesheet" media="print" onload="this.media='all'" href="{{ '/assets/preview/page.css' | relative_url }}?v={% include home-version.html %}">
