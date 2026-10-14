@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
 import { Badge } from '@radix-ui/themes';
@@ -6,8 +6,8 @@ import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
-import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
+import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene, livePulse, useLiveRegion, Checks } from './_product.jsx';
 
 const V = '0.0.54';
 const BETA = '0.0.55-beta.114';
@@ -29,7 +29,10 @@ const CHAPTERS = [
 
 function OsPick({ os }) {
   const main = DL[os]; const rest = Object.values(DL).filter(d => d.id !== os);
-  return <div className="pp-cta">
+  // The page recognising the visitor's computer answers through the field, from the button it changed.
+  const box = useRef(null); const first = useRef(true);
+  useEffect(() => { if (first.current) { first.current = false; return; } livePulse(box.current?.querySelector('.pp-main'), 'change', .55); }, [os]);
+  return <div className="pp-cta" ref={box}>
     <Button data-site-button="primary" asChild size="lg" className="pp-main"><a href={main.href} aria-label={main.aria} title={main.aria}><PlatformIcon id={main.id} size={18} /> Download for {main.label}</a></Button>
     <span className="pp-main-note">Free · {V} · {main.note}</span>
     <div className="pp-alts">
@@ -52,7 +55,7 @@ function FreeDownload() {
 
 function Hero() {
   const os = useOs();
-  return <section className="pp pp-hero has-bg" aria-labelledby="pp-h1"><SectionBg />
+  return <section className="pp pp-hero has-bg" aria-labelledby="pp-h1">
     <div className="section-shell pp-hero-stack">
       <div className="pp-hero-copy">
         <span className="pp-plat"><Kicker>OFF GRID AI DESKTOP</Kicker><span className="pp-plat-ic" role="img" aria-label="macOS, Windows, Linux"><PlatformIcon id="macos" size={15} /><PlatformIcon id="windows" size={15} /><PlatformIcon id="linux" size={15} /></span></span>
@@ -96,14 +99,17 @@ const WEB_SHOTS = [['web-tasks', 'Off Grid AI Task history with a finished Web u
 const web = () => <Seq shots={WEB_SHOTS} />;
 function WebTour() {
   const { ctx: zoom, viewer } = useZoomOwner({ index: 0, count: 1, title: 'Tasks', line: 'Computer Use and Web Use, step by step. You take over for passwords.', progress: null, goTo: () => {} });
-  return <div className="pp-web-stage pp-web-tour"><CmdScope chapter="web" cmd="calculate Team pricing for 40 people">{(text, seq) => <>
+  // Upstream pieces: a SceneCard surface, the kit's CmdBar, and ShotSeq's MacBook frame. CmdBar and ShotSeq pulse on their own.
+  // (Magic UI Safari was tried as the frame: its screen is 1200x700, 1.71:1, against these 1.55:1 desktop-app captures,
+  // so it either crops ~10% or letterboxes, and it wraps an app window in browser chrome.)
+  return <><SceneCard className="pp-web-tour"><CmdScope chapter="web" cmd="calculate Team pricing for 40 people">{(text, seq) => <>
     <CmdBar text={text} seq={seq} />
     <div className="pp-web-view"><ZoomCtx.Provider value={zoom}>{web(false)}</ZoomCtx.Provider></div>
-  </>}</CmdScope>{viewer}</div>;
+  </>}</CmdScope></SceneCard>{viewer}</>;
 }
 
 function ComputerUse() {
-  return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use"><SectionBg />
+  return <section className="chapter pp pp-agent has-bg" aria-labelledby="computer-use">
     <div className="section-shell">
       <div className="sec-head"><Kicker>PRO · TASKS</Kicker><h2 id="computer-use" className="pp-h2"><span className="t-line">Tasks: Computer Use and Web Use.</span></h2><Lede>It works in your browser. You approve, pause or take over.</Lede></div>
       {/* The same tour window as everywhere else: typed command per screen, camera roll, full-screen on click. */}
@@ -113,6 +119,8 @@ function ComputerUse() {
 }
 
 function Api() {
+  // The terminal runs a script: busy while it types, and the field answers each line.
+  const term = useRef(null); useLiveRegion(term);
   return <section id="one-local-endpoint-that-speaks-openai-sec" className="chapter pp pp-api" aria-labelledby="one-local-endpoint-that-speaks-openai">
     <div className="section-shell">
       <div className="sec-head"><Kicker>LOCAL API</Kicker>
@@ -120,7 +128,7 @@ function Api() {
         <Lede>{'Point any OpenAI client at http://127.0.0.1:7878/v1. No key.'}</Lede>
       </div>
       <div className="pp-api-grid">
-      <Terminal className="pp-term" startOnView>
+      <div className="pp-term-wrap" ref={term} data-og-reveal=""><Terminal className="pp-term" startOnView>
         <TermTyping>$ python hello.py</TermTyping>
         <AnimatedSpan className="t-dim">from openai import OpenAI</AnimatedSpan>
         <AnimatedSpan className="t-dim">{'client = OpenAI(base_url="http://127.0.0.1:7878/v1", api_key="not-needed")'}</AnimatedSpan>
@@ -130,8 +138,8 @@ function Api() {
         <AnimatedSpan className="t-dim">{').choices[0].message.content)'}</AnimatedSpan>
         <AnimatedSpan className="t-ok">✓ Answered by a model on this machine · no API key</AnimatedSpan>
         <TermTyping>Hello. How can I help?</TermTyping>
-      </Terminal>
-      <div className="pp-api-side">
+      </Terminal></div>
+      <div className="pp-api-side" data-og-reveal="">
         <p className="pp-lede-p">Run it headless with <code>--server-only</code>.</p>
       </div>
       </div>
@@ -160,12 +168,12 @@ export default function DesktopPage({ data }) {
       </div>
     </section>
 
-    <section className="chapter pp pp-trust" aria-labelledby="why-you-can-trust-it">
+    <section className="chapter pp pp-trust og-solid" aria-labelledby="why-you-can-trust-it">
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHY YOU CAN TRUST IT</Kicker><h2 id="why-you-can-trust-it" className="pp-h2"><span className="t-line">Why you can trust it.</span><span className="t-line t-dim">Read the code.</span></h2></div>
         <div className="pp-trust-body">
-          <ul className="pp-checks">{['Local models process your prompts on your computer.', 'Your database is encrypted at rest.', 'Connected tools and remote models use the connections you choose.', 'The code is open source.'].map(x => <li key={x}><CheckCircle size={16} weight="fill" />{x}</li>)}</ul>
-          <div className="pp-trust-side"><Dl {...GITHUB} className="dl-main" /></div>
+          <Checks items={['Local models process your prompts on your computer.', 'Your database is encrypted at rest.', 'Connected tools and remote models use the connections you choose.', 'The code is open source.']} />
+          <div className="pp-trust-side" data-og-reveal=""><Dl {...GITHUB} className="dl-main" /></div>
         </div>
       </div>
     </section>
@@ -189,12 +197,12 @@ export default function DesktopPage({ data }) {
 
     <Faq items={FAQ(p)} />
 
-    <section id="download" className="pp pp-final has-bg" aria-labelledby="pp-final-h"><SectionBg />
+    <section id="download" className="pp pp-final has-bg" aria-labelledby="pp-final-h">
       <div className="section-shell final-in">
         <Kicker>OFF GRID AI DESKTOP</Kicker>
         <h2 id="pp-final-h" className="final-h">Your computer. Your AI.</h2>
         <p className="final-lede">Free. macOS, Windows and Linux.</p>
-        <div className="pp-dl-row pp-dl-final">{Object.values(DL).map(d => <Dl key={d.id} {...d} />)}<Dl {...GITHUB} /></div>
+        <div className="pp-dl-row pp-dl-final" data-og-reveal="">{Object.values(DL).map(d => <Dl key={d.id} {...d} />)}<Dl {...GITHUB} /></div>
         <p className="pp-fine">Stable {V}. Betas and notes on <a href="/desktop/releases/">releases</a>.</p>
         <p className="fine"><a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/mobile/">Off Grid AI on your phone</a></p>
       </div>

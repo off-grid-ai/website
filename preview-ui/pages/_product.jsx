@@ -1,7 +1,7 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useIsPresent, useInView, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { CaretDown, Check, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
+import { CaretDown, Check, CheckCircle, GithubLogo, Play, Pause, LockKey, X, WifiSlash, ChatCircle, FilePdf, Microphone } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
 import { TypingAnimation } from '@magicui/typing-animation';
 import { NumberTicker } from '@magicui/number-ticker';
@@ -12,9 +12,57 @@ import AIResponse from '@smoothui/ai-response';
 import AIReasoning from '@smoothui/ai-reasoning';
 import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
-import { PlayCtx, Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction } from '../shared.jsx';
+import { orchestra } from '@offgrid-ui/alive';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
+import { PlayCtx, Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction, useRailPulse, useTypePulse } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
+
+/* ── Alive: the page acting on its own answers through the one conductor, as if the visitor did it ── */
+const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const onScreen = (r) => r.width > 0 && r.height > 0 && r.bottom > 0 && r.right > 0 && r.top < innerHeight && r.left < innerWidth;
+// One pulse from an element, only when it is on screen and motion is allowed.
+export function livePulse(el, kind = 'change', strength = .5) {
+  if (!el || typeof window === 'undefined' || reducedMotion() || !onScreen(el.getBoundingClientRect())) return;
+  orchestra.pulseFrom(el, kind, strength);
+}
+// A scripted region (a command typing, a reply streaming, screens advancing, a terminal running).
+// While it changes it is busy (aria-busy, the page-wide busy signal) and the field answers each burst
+// from where the change happened; once it goes quiet the result settles with one change pulse.
+// The element must not also receive aria-busy from React.
+export function useLiveRegion(ref, { kind = 'type', strength = .25, every = 140, quiet = 650, settle = .45 } = {}, deps = []) {
+  useEffect(() => {
+    const el = ref.current; if (!el || typeof MutationObserver === 'undefined') return;
+    let last = 0; let timer; let busy = false; let at = null;
+    const done = () => {
+      timer = undefined;
+      if (busy) { busy = false; el.removeAttribute('aria-busy'); }
+      const box = el.getBoundingClientRect();
+      if (at && !reducedMotion() && onScreen(box)) orchestra.pulse(box.left + at.x, box.top + at.y, 'change', settle);
+      at = null;
+    };
+    const mo = new MutationObserver((records) => {
+      if (reducedMotion()) return;
+      const box = el.getBoundingClientRect(); if (!onScreen(box)) return;
+      // Where it changed: typed text at its caret (the right edge), a new screen at its centre.
+      let p = null;
+      for (let k = records.length - 1; k >= 0 && !p; k--) {
+        const rec = records[k]; const added = [...rec.addedNodes].find(n => n.nodeType === 1);
+        const node = added || (rec.target.nodeType === 1 ? rec.target : rec.target.parentElement);
+        const r = node && node.getBoundingClientRect ? node.getBoundingClientRect() : null;
+        if (r && onScreen(r)) p = rec.type === 'characterData' ? { x: Math.min(r.right, box.right) - 4, y: r.top + r.height / 2 } : { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      }
+      p = p || { x: box.left + box.width / 2, y: box.top + box.height / 2 };
+      at = { x: p.x - box.left, y: p.y - box.top };
+      if (!busy) { busy = true; el.setAttribute('aria-busy', 'true'); }
+      const now = performance.now();
+      if (now - last > every) { last = now; orchestra.pulse(p.x, p.y, kind, strength); }
+      clearTimeout(timer); timer = setTimeout(done, quiet);
+    });
+    mo.observe(el, { childList: true, characterData: true, subtree: true });
+    return () => { mo.disconnect(); clearTimeout(timer); el.removeAttribute('aria-busy'); };
+  }, deps);
+}
 
 // The beta links resolve to the newest GitHub prerelease at runtime, as on the old page (same logic as
 // /assets/js/beta-download.js). The GitHub API is rate limited: one request per session, result (or failure)
@@ -128,6 +176,9 @@ export function AppWindow({ chapters, label }) {
   const C = chapters[i];
   const dwell = C.dwell || C.shots.reduce((a, s) => a + screenTime(s), 0) + 200;
   const prog = useAutoProgress(i, dwell, hold || manual || reduce || !inView, () => setI(v => (v + 1) % chapters.length));
+  // The window is a rail: dragging it pulses the field, and every chapter change (autoplay, tab, drag) lands as one
+  // change pulse (kit useRailPulse). The command (CmdBar) and the screens (ShotSeq) pulse on their own.
+  const win = useRef(null); const rail = useRailPulse(win, i);
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: chapters.length, title: C.label, line: C.cmd, progress: reduce ? null : prog, goTo: setI });
   // The window's command follows the screen on show.
   const [scr, setScr] = useState(null); const iNow = useRef(i); iNow.current = i;
@@ -137,15 +188,14 @@ export function AppWindow({ chapters, label }) {
   const cmd = cmdFor(C.id, scr && scr.i === i && C.shots.some(x => x[0] === scr.name) ? scr.name : null, C.cmd);
   const go = (n) => { setManual(true); setI((n + chapters.length) % chapters.length); };
   return <PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className="pp-app" ref={box}>
-    <motion.div className="pp-win" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
+    {/* Upstream pieces: a SceneCard surface, the kit's CmdBar, and ShotSeq's MacBook frame (the same composition
+        the full-screen view shows). The drag wrapper is layout only. */}
+    <motion.div className="pp-win-drag" ref={win} drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={.18} {...rail}
       onDragEnd={(_, info) => { if (info.offset.x < -60) go(i + 1); else if (info.offset.x > 60) go(i - 1); }}>
-      <div className="pp-bar">
-        <span className="pp-dots"><i /><i /><i /></span>
-        <span className="pp-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{cmd}</TypingAnimation></span>
-        <SceneRoll seq={seq && C.shots.some(x => x[0] === seq.shots[0][0]) ? seq : null} />
-        <span className="pp-badge"><LockKey size={11} /> On this device</span>
-      </div>
-      <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><ShotSeq key={C.id} shots={C.shots} /></SeqCtrlCtx.Provider></ScreenCtx.Provider></ZoomCtx.Provider></div>
+      <SceneCard className="pp-win">
+        <div className="pp-cmdrow"><CmdBar text={cmd} seq={seq && C.shots.some(x => x[0] === seq.shots[0][0]) ? seq : null} /><span className="pp-badge"><LockKey size={11} /> On this device</span></div>
+        <div className="pp-view"><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><ShotSeq key={C.id} shots={C.shots} push={false} /></SeqCtrlCtx.Provider></ScreenCtx.Provider></ZoomCtx.Provider></div>
+      </SceneCard>
     </motion.div>
     <div className="pp-tabs" role="group" aria-label={label}>
       <AnimatedBackground defaultValue={C.id} onValueChange={(id) => { const n = chapters.findIndex(c => c.id === id); if (n >= 0 && n !== i) go(n); }} className="pp-tab-hover">
@@ -176,20 +226,19 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
     observer.observe(stage.current);
     return () => observer.disconnect();
   }, [narrow]);
-  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce || !inView, () => setI(v => (v + 1) % items.length));
+  const auto = useRef(false); const list = useRef(null);
+  const prog = useAutoProgress(i, featureMs, hold || narrow || manual || reduce || !inView, () => { auto.current = true; setI(v => (v + 1) % items.length); });
+  useEffect(() => { if (!auto.current) return; auto.current = false; livePulse(list.current?.querySelector('[aria-pressed="true"]'), 'change', .5); }, [i]);
   const { ctx: zoom, viewer } = useZoomOwner({ index: i, count: items.length, title: items[i].title, line: items[i].line, progress: reduce ? null : prog, goTo: setI });
   // Features without screenshots open full screen too: a live copy of their scene.
   const item = items[i];
   useZoomRegister(narrow ? null : zoom, [['__scene', item.line || item.title, ms, () => (typeof item.visual === 'function' ? item.visual(false) : null)]], () => !!stage.current?.getClientRects().length, true);
   if (narrow) return <MobileRail className={`pp-rail ${className}`}>
-    {items.map(it => <article className="pp-card" key={it.id}>
-      <div className="pp-card-vis">{typeof it.visual === 'function' ? it.visual(true) : null}</div>
-      <div className="pp-card-tx"><b>{it.title}</b><span>{it.line}</span>{it.note && <small>{it.note}</small>}</div>
-    </article>)}
+    {items.map(it => <LiveCard key={it.id} it={it} />)}
   </MobileRail>;
   const P = items[i];
   return <ScreenCountCtx.Provider value={onCount}><PickCtx.Provider value={(k, shots) => prog.seekTo(pickFraction(shots, k))}><div className={`pillar-grid pp-explorer ${className}`}>
-    <div className="pillar-list" role="group" aria-label={label}>
+    <div className="pillar-list" role="group" aria-label={label} ref={list} data-og-reveal="">
       <AnimatedBackground defaultValue={P.id} onValueChange={(id) => { const n = items.findIndex(p => p.id === id); if (n >= 0) { setManual(true); setI(n); } }} className="pillar-hover">
         {items.map((p, n) => <button type="button"  data-id={p.id} key={p.id} aria-pressed={n === i} className="pillar-tab">
           <span className="pillar-num">{String(n + 1).padStart(2, '0')}</span>
@@ -197,18 +246,30 @@ export function Explorer({ items, label, ms = 4500, className = '' }) {
           {n === i && !reduce && <><i className="pillar-track" aria-hidden="true" /><motion.i className="pillar-bar" style={{ scaleX: prog }} /></>}
         </button>)}
       </AnimatedBackground>
+      {/* One column (861-1000px): the tabs become a row and hide their lines, so the active line shows here.
+          aria-hidden: screen readers already get every line from the list below. */}
+      <motion.p key={`line-${P.id}`} className="pp-active-line" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{P.line}</motion.p>
       {!reduce && <AutoCtl manual={manual} onToggle={() => setManual(m => !m)} hint="Select a feature to stop autoplay." />}
     </div>
-    <div className="pillar-stage pp-stage is-zoomable" ref={stage} onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label, [role="button"], .scene-roll, .tour-cmd')) zoom.open(); }}>
+    {/* The stage is a SceneCard (upstream surface); the click target inside is layout only. */}
+    <SceneCard className="pillar-stage pp-stage is-zoomable" innerRef={stage}><div className="pp-stage-in" onClick={(e) => { if (!e.target.closest('button, a, input, textarea, label, [role="button"], .scene-roll, .tour-cmd')) zoom.open(); }}>
       <Wipe id={P.id} className="pillar-view"><CmdScope chapter={P.id} cmd={P.cmd || P.title}>{(text, seq) => <>
         <CmdBar text={text} seq={seq} />
         <div className="pillar-visual"><ZoomCtx.Provider value={zoom}>{typeof P.visual === 'function' ? P.visual(false) : null}</ZoomCtx.Provider></div>
         {P.note && <p className="pp-note">{P.note}</p>}
       </>}</CmdScope></Wipe>
-    </div>
+    </div></SceneCard>
     <div className="sr-only">{items.map(p => <p key={p.id}>{p.title}: {p.line}{p.note ? <> {p.note}</> : null}</p>)}</div>
     {viewer}
   </div></PickCtx.Provider></ScreenCountCtx.Provider>;
+}
+
+// One feature as a phone card (a SceneCard). Its screens and scenes pulse on their own; the rail pulses on swipe (MobileRail).
+function LiveCard({ it }) {
+  return <SceneCard className="pp-card">
+    <div className="pp-card-vis">{typeof it.visual === 'function' ? it.visual(true) : null}</div>
+    <div className="pp-card-tx"><b>{it.title}</b><span>{it.line}</span>{it.note && <small>{it.note}</small>}</div>
+  </SceneCard>;
 }
 
 // A fixed design canvas scaled to fill its box (CSS zoom, like the home walkthrough's --fit),
@@ -223,9 +284,27 @@ export function Fit({ w = 560, h = 420, max = 1.6, children }) {
   return <div className="pp-fit" ref={ref} style={{ '--ar': `${w}/${h}` }}><div className="pp-fit-in" style={{ width: w, height: h, zoom: z }}>{children}</div></div>;
 }
 
-// A real screen, framed. Always shown whole.
-export function Framed({ children }) { return <div className="pillar-shot pp-framed">{children}</div>; }
-export function Seq({ shots }) { return <div className="pp-seq"><ShotSeq shots={shots} /></div>; }
+// A real screen, framed. Always shown whole: a single <Shot> plays as a one-screen ShotSeq, so it gets the same
+// MacBook frame (and the same full-screen composition) as every sequence. Anything else keeps the plain frame.
+export function Framed({ children }) {
+  const p = React.isValidElement(children) ? children.props : null;
+  if (p && p.name) return <Seq shots={[[p.name, p.alt, 3400]]} />;
+  return <div className="pillar-shot pp-framed">{children}</div>;
+}
+// push={false}: product stages keep every screen whole (no generic camera push); detail zooms still play.
+export function Seq({ shots }) { return <div className="pp-seq"><ShotSeq shots={shots} push={false} /></div>; }
+
+// A hairline list: the library's ListGroup of ListRows. Rows are marked living surfaces after each render
+// (ListRow takes no extra attributes), as on the hubs. `living={false}` for lists inside a card.
+export function LiveList({ className = '', living = true, children, ...props }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => { if (living) ref.current?.querySelectorAll(':scope > [data-slot=list-row]:not([data-og-living])').forEach((row) => row.setAttribute('data-og-living', '')); });
+  return <ListGroup ref={ref} className={className} data-og-reveal="" {...props}>{children}</ListGroup>;
+}
+// The trust list: one checked row per fact.
+export function Checks({ items }) {
+  return <LiveList className="pp-checks">{items.map(x => <ListRow key={x} leading={<CheckCircle size={16} weight="fill" className="pp-check-ic" />} title={x} />)}</LiveList>;
+}
 
 // Free vs Pro, side by side (a swipe row on phones).
 export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lead = 'Free to run.', dim = 'Pro when you want more.' }) {
@@ -236,7 +315,7 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
         <SceneCard className="plan-card"><div className="plan"><Kicker>FREE</Kicker><div className="price"><span className="amt">$0</span><small>forever</small></div>
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
-        <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>PRO</Kicker><div className="price"><span className="amt">${pricing.lifetime}</span><small>once, yours forever</small></div>
+        <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO</Kicker><div className="price"><span className="amt">${pricing.lifetime}</span><small>once, yours forever</small></div>
           <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. The lifetime price rises as we grow.</p>
           <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
@@ -248,11 +327,11 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
 
 // FAQ: Radix Accordion. Answers are nodes so links survive.
 export function Faq({ items }) {
-  return <section className="chapter pp pp-faq-sec" aria-labelledby="questions">
+  return <section className="chapter pp pp-faq-sec og-solid" aria-labelledby="questions">
     <div className="section-shell">
       <div className="sec-head"><Kicker>QUESTIONS</Kicker><h2 id="questions" className="pp-h2"><span className="t-line">Questions.</span><span className="t-line t-dim">Short answers.</span></h2></div>
       <Accordion.Root type="single" collapsible defaultValue="q0" className="pp-faq">
-        {items.map(([q, a], n) => <Accordion.Item key={q} value={`q${n}`} className="pp-faq-item">
+        {items.map(([q, a], n) => <Accordion.Item key={q} value={`q${n}`} className="pp-faq-item" data-og-reveal="">
           <Accordion.Header asChild><h3><Accordion.Trigger className="pp-faq-q">{q}<CaretDown size={14} aria-hidden="true" /></Accordion.Trigger></h3></Accordion.Header>
           <Accordion.Content className="pp-faq-a" forceMount><div>{a}</div></Accordion.Content>
         </Accordion.Item>)}
@@ -262,6 +341,8 @@ export function Faq({ items }) {
 }
 
 /* ───────── Live scenes, composed with SmoothUI AI components. Used on phone screens and in cards. ───────── */
+// Every scene is a live region: busy while its reply streams or its prompt types, then it settles with one pulse.
+function useScene() { const ref = useRef(null); useLiveRegion(ref); return ref; }
 
 export function Phone({ children, time = '09:41', status }) {
   return <div className="pp-phone">
@@ -281,6 +362,8 @@ export function PhoneShots({ shots, ms = 3600, controls }) {
   const running = shots.length > 1 && !reduce && ((!manual && inView) || open) && present;
   useEffect(() => { if (!running) return; const t = setTimeout(() => { setI(v => (v + 1) % shots.length); setN(v => v + 1); }, screenTime([`mobile/${shots[i][0]}`, '', shots[i][2]], ms)); return () => clearTimeout(t); }, [i, running]);
   const step = useSeqStep(shots.length, i, setI, setN, null);
+  // Each new screen lands as one change pulse, like the kit's ShotSeq.
+  useEffect(() => { if (n && present && !reduce) livePulse(box.current, 'change', .4); }, [n]);
   useZoomRegister(zc, shots.map(([x, a, t]) => [`mobile/${x}`, a, t]), () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
   // Only the copy on screen reports (the other theme's twin is hidden).
@@ -311,7 +394,8 @@ export function SceneHead({ title, badge }) {
 
 export function ChatScene({ q, a, model, citations, file }) {
   const [text, streaming] = useStream(a, { start: 900 });
-  return <div className="ms">
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Chat" badge={model} />
     {file && <span className="ms-file"><FilePdf size={12} /> {file}</span>}
     <AIMessage from="user">{q}</AIMessage>
@@ -326,7 +410,8 @@ export function ImageScene({ runs, label }) {
     return () => ts.forEach(clearTimeout);
   }, [run]);
   const [f, model, prompt] = runs[run];
-  return <div className="ms">
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Create image" badge={label || model} />
     <div className="ms-prompt"><span className="cmd-caret">›</span><TypingAnimation key={run} as="span" duration={24} startOnView={false} showCursor={phase === 0}>{prompt}</TypingAnimation></div>
     <div className="ms-canvas">
@@ -342,7 +427,8 @@ export function ImageScene({ runs, label }) {
 
 export function VisionScene() {
   const [text, streaming] = useStream('A golden retriever, sitting on the grass in an autumn park. Fallen leaves, warm afternoon light.', { start: 1400 });
-  return <div className="ms">
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Vision" badge="Gemma 4 · on device" />
     <img className="ms-photo" src="/assets/img/home/gen-dreamshaper.webp" alt="A golden retriever in an autumn park." width="512" height="512" loading="lazy" />
     <AIMessage from="user">What is in this photo?</AIMessage>
@@ -353,7 +439,8 @@ export function VisionScene() {
 export function VoiceScene({ title = 'Voice', badge = 'Whisper · on device', text = 'Move the pilot to the fourteenth and tell Sam.', speaking }) {
   const [k, setK] = useState(0);
   useEffect(() => { const t = setInterval(() => setK(v => v + 1), 5200); return () => clearInterval(t); }, []);
-  return <div className="ms ms-voice">
+  const live = useScene();
+  return <div className="ms ms-voice" ref={live}>
     <SceneHead title={title} badge={badge} />
     <div className="ms-wave" aria-hidden="true">{Array.from({ length: 22 }, (_, n) => <motion.i key={n} animate={{ scaleY: [.25, .5 + ((n * 37) % 50) / 100, .25] }} transition={{ duration: .9 + (n % 5) * .15, repeat: Infinity, ease: 'easeInOut', delay: (n % 7) * .08 }} />)}</div>
     <span className="ms-mic">{speaking ? <ChatCircle size={18} /> : <Microphone size={18} />}</span>
@@ -363,7 +450,8 @@ export function VoiceScene({ title = 'Voice', badge = 'Whisper · on device', te
 
 export function OfflineScene({ where = 'this device' }) {
   const [text, streaming] = useStream(`Still answering. The model runs on ${where}, so it works on a plane, in a basement, anywhere.`, { start: 1300 });
-  return <div className="ms">
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Chat" badge={<><WifiSlash size={10} /> No internet</>} />
     <motion.span className="ms-offline" initial={{ opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .5 }}><WifiSlash size={26} /><small>Wi-Fi off</small></motion.span>
     <AIMessage from="user">Do you still work offline?</AIMessage>
@@ -375,7 +463,8 @@ export function ToolsScene() {
   const [done, setDone] = useState(false);
   useEffect(() => { const t = setTimeout(() => setDone(true), 1600); return () => clearTimeout(t); }, []);
   const [text, streaming] = useStream('18% of 2,450 is 441. Your notes say the pilot budget is 2,450, so 441 is the contingency.', { start: 1800 });
-  return <div className="ms">
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Chat" badge="Tools on" />
     <div className="ms-tools">{['Web search', 'Calculator', 'Document lookup'].map(t => <span key={t} className="chip">{t}</span>)}</div>
     <AIMessage from="user">What is 18% of the pilot budget?</AIMessage>
@@ -385,12 +474,13 @@ export function ToolsScene() {
 }
 
 export function ApprovalScene({ draft, to, question }) {
-  const [k, setK] = useState(0); const [auto, setAuto] = useState(undefined);
-  useEffect(() => { setAuto(undefined); const t = setTimeout(() => setAuto('send'), 3600); const r = setTimeout(() => setK(v => v + 1), 8200); return () => { clearTimeout(t); clearTimeout(r); }; }, [k]);
-  return <div className="ms">
+  const [k, setK] = useState(0); const [auto, setAuto] = useState(undefined); const appr = useRef(null);
+  useEffect(() => { setAuto(undefined); const t = setTimeout(() => { setAuto('send'); livePulse(appr.current, 'press', .6); }, 3600); const r = setTimeout(() => setK(v => v + 1), 8200); return () => { clearTimeout(t); clearTimeout(r); }; }, [k]);
+  const live = useScene();
+  return <div className="ms" ref={live}>
     <SceneHead title="Draft" badge={`To ${to}`} />
     <p className="ms-draft"><TypingAnimation key={k} as="span" duration={14} startOnView={false} showCursor={false}>{draft}</TypingAnimation></p>
-    <div className="ms-approval">
+    <div className="ms-approval" ref={appr}>
       <AIApproval key={`${k}-${auto || 'open'}`} resolvedId={auto} question={question}
         options={[{ id: 'send', label: 'Approve and send', detail: 'Nothing goes without your yes' }, { id: 'later', label: 'Not now', detail: 'Keep as a draft' }]} />
     </div>

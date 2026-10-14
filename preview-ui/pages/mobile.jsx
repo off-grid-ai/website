@@ -3,8 +3,8 @@ import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
+import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Checks } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -74,6 +74,7 @@ const HERO_DARK = [
   ['models-ios-2-dark', 'Kokoro, the voice model that speaks on your phone.', 3800],
 ];
 function HeroPhone() {
+  // CmdBar (kit) and PhoneShots pulse on their own.
   return <div className="mp-hero-phone">{[["only-dark", HERO_DARK], ["only-light", HERO_LIGHT]].map(([cls, list]) => <div key={cls} className={cls}><CmdScope chapter="mobile-hero" cmd="choose models for my phone">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-chip" /><PhoneShots shots={list} controls /></>}</CmdScope></div>)}</div>;
 }
 
@@ -87,7 +88,7 @@ const FAQ = (p) => [
 export default function MobilePage({ data }) {
   const { pricing: p } = usePricing(data.pricing);
   return <PageShell>
-    <section className="pp pp-hero mp-hero has-bg" aria-labelledby="pp-h1"><SectionBg />
+    <section className="pp pp-hero mp-hero has-bg" aria-labelledby="pp-h1">
       <div className="section-shell pp-hero-grid mp-hero-grid">
         <div className="pp-hero-copy">
           <Kicker>OFF GRID AI MOBILE</Kicker>
@@ -110,19 +111,19 @@ export default function MobilePage({ data }) {
     <section className="chapter pp pp-pro" aria-labelledby="keep-your-assistant-close">
       <div className="section-shell">
         <div className="sec-head"><Kicker>OFF GRID AI PRO</Kicker><h2 id="keep-your-assistant-close" className="pp-h2"><span className="t-line">Everything in Pro.</span><span className="t-line t-dim">Phone and computer, one license.</span></h2></div>
-        <p className="mp-pro-label">One Pro covers up to {p.devices} devices. On your phone:</p>
+        <p className="mp-pro-label" data-og-reveal="">One Pro covers up to {p.devices} devices. On your phone:</p>
         <Explorer items={PRO} label="Pro on your phone" className="mp-explorer mp-explorer-pro" />
-        <p className="mp-pro-label mp-pro-desk">And on your <a href="/desktop/">computer</a>:</p>
+        <p className="mp-pro-label mp-pro-desk" data-og-reveal="">And on your <a href="/desktop/">computer</a>:</p>
         <Explorer items={PRO_DESKTOP} label="Pro on your computer" />
       </div>
     </section>
 
-    <section className="chapter pp pp-trust" aria-labelledby="why-you-can-trust-it">
+    <section className="chapter pp pp-trust og-solid" aria-labelledby="why-you-can-trust-it">
       <div className="section-shell">
         <div className="sec-head"><Kicker>WHY YOU CAN TRUST IT</Kicker><h2 id="why-you-can-trust-it" className="pp-h2"><span className="t-line">Why you can trust it.</span><span className="t-line t-dim">Read the code.</span></h2></div>
         <div className="pp-trust-body">
-          <ul className="pp-checks">{['Local models process your prompts on your phone.', 'Connected tools, remote models, and Sync use the connections you choose.', 'The code is open source.'].map(x => <li key={x}><CheckCircle size={16} weight="fill" />{x}</li>)}</ul>
-          <div className="pp-trust-side"><Dl {...GITHUB} className="dl-main" /></div>
+          <Checks items={['Local models process your prompts on your phone.', 'Connected tools, remote models, and Sync use the connections you choose.', 'The code is open source.']} />
+          <div className="pp-trust-side" data-og-reveal=""><Dl {...GITHUB} className="dl-main" /></div>
         </div>
       </div>
     </section>
@@ -134,12 +135,12 @@ export default function MobilePage({ data }) {
 
     <Faq items={FAQ(p)} />
 
-    <section id="download" className="pp pp-final has-bg" aria-labelledby="pp-final-h"><SectionBg />
+    <section id="download" className="pp pp-final has-bg" aria-labelledby="pp-final-h">
       <div className="section-shell final-in">
         <Kicker>OFF GRID AI MOBILE</Kicker>
         <h2 id="pp-final-h" className="final-h">Your phone. Your AI.</h2>
         <p className="final-lede">Free. iPhone 12+ on iOS 17, and Android 10+ with 4GB of RAM.</p>
-        <div className="pp-dl-row pp-dl-final"><Dl {...IOS} /><Dl {...ANDROID} /><Dl {...GITHUB} /></div>
+        <div className="pp-dl-row pp-dl-final" data-og-reveal=""><Dl {...IOS} /><Dl {...ANDROID} /><Dl {...GITHUB} /></div>
         <p className="fine"><a href="/mobile/releases/">Mobile releases</a> · <a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/desktop/">Off Grid AI on your computer</a></p>
       </div>
     </section>

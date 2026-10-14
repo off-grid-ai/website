@@ -3,8 +3,9 @@ import { usePricing } from '../pricing.js';
 import { Badge } from '@radix-ui/themes';
 import { ArrowRight, ArrowUpRight, ArrowDown, PuzzlePiece, ArrowsClockwise, CursorClick, ShieldCheck, Flask, GithubLogo } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg, MobileRail, PlatformIcon, Shot, ShotSeq, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
-import { Proof } from './_product.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, MobileRail, PlatformIcon, Shot, ShotSeq, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
+import { Proof, livePulse, LiveList } from './_product.jsx';
+import { ListRow } from '@offgrid-ui/list-row';
 import { installClickTracking } from './_track.js';
 
 // /download/ — the visitor's platform first, every other platform right below, then release
@@ -48,12 +49,13 @@ function detect() {
 // The newest OGAD beta from GitHub replaces the pinned beta links (same logic as the old beta-download.js).
 // It asks GitHub once the beta links come into view (or get focus), so most visits never spend the API quota.
 function useLatestBeta(ref) {
-  const [beta, setBeta] = useState({ links: BETA, tag: BETA_V });
+  const [beta, setBeta] = useState({ links: BETA, tag: BETA_V, loading: false });
   useEffect(() => {
     const el = ref.current; if (!el) return;
     let done = false;
     const load = () => {
       if (done) return; done = true; io.disconnect();
+      setBeta(b => ({ ...b, loading: true }));
       const suffixes = { dmg: '.dmg', exe: '-setup.exe', AppImage: '.AppImage', deb: '_amd64.deb' };
       fetch('https://api.github.com/repos/off-grid-ai/OGAD/releases?per_page=100', { headers: { Accept: 'application/vnd.github+json' } })
         .then(r => { if (!r.ok) throw new Error('GitHub releases unavailable'); return r.json(); })
@@ -65,9 +67,10 @@ function useLatestBeta(ref) {
             betas.some(r => { asset = r.assets.find(a => a.name.endsWith(suffix) && a.state === 'uploaded'); rel = r; return Boolean(asset); });
             if (asset) { links[k] = asset.browser_download_url; if (k === 'dmg') tag = rel.tag_name.replace(/^v/, ''); }
           });
-          setBeta(b => ({ links, tag: tag || b.tag }));
+          setBeta(b => ({ links, tag: tag || b.tag, loading: false }));
+          livePulse(el, 'change', .45);
         })
-        .catch(() => { /* The links keep their pinned beta download. */ });
+        .catch(() => { /* The links keep their pinned beta download. */ setBeta(b => ({ ...b, loading: false })); });
     };
     const io = new IntersectionObserver((es) => { if (es.some(e => e.isIntersecting)) load(); }, { rootMargin: '200px' });
     io.observe(el); el.addEventListener('focusin', load);
@@ -82,20 +85,23 @@ const Icon = ({ id, size }) => id === 'extension' ? <PuzzlePiece size={size} /> 
 function Hero({ dev }) {
   const P = BY_ID[dev];
   const desktop = ['macos', 'windows', 'linux'].includes(dev);
-  return <section className="pp dn-hero has-bg" aria-labelledby="dn-h"><SectionBg />
+  // Recognising the visitor's device answers through the field from the button it changed.
+  const cta = useRef(null); const first = useRef(true);
+  useEffect(() => { if (first.current) { first.current = false; return; } livePulse(cta.current?.querySelector('.pp-main'), 'change', .55); }, [dev]);
+  return <section className="pp dn-hero has-bg" aria-labelledby="dn-h">
     <div className="section-shell dn-hero-grid">
       <div className="dn-hero-copy">
         <Kicker>DOWNLOAD OFF GRID AI</Kicker>
         <Title as="h1" id="dn-h" className="pp-h1 dn-h1" lead="Your personal AI." dim="On your devices." />
         <Lede className="pp-lede">{'Free to start. No account. Runs offline.'}</Lede>
-        <div className="pp-cta">
+        <div className="pp-cta" ref={cta}>
           <Button data-site-button="primary" asChild size="lg" className="pp-main"><a href={P.main.href} aria-label={P.main.aria} title={P.main.aria} {...ext(P.main.external)}><Icon id={dev} size={18} />{P.cta}</a></Button>
           <span className="pp-main-note">{desktop ? `Free · ${OGAD_V} · ${P.req}` : `Free · ${P.req}`}</span>
           <a className="dn-other" href="#all-platforms">Other platforms <ArrowDown size={13} /></a>
         </div>
         <Proof />
       </div>
-      <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq shots={[
+      <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq push={false} shots={[
             ['god', 'Off Grid AI God: the 8:50 AM briefing, with three approvals waiting.', 3400],
             ['chat', 'Off Grid AI Chat: what you promised Sam, answered with sources.', 3400],
             ['meetings', 'Off Grid AI Meetings: an Acme Corp call, summarized on device, with what was on screen.', 3400],
@@ -107,7 +113,7 @@ function Hero({ dev }) {
 }
 
 function PlatformCard({ p, mine }) {
-  return <SceneCard busy={mine} className={`dn-card${mine ? ' dn-mine' : ''}`}>
+  return <SceneCard className={`dn-card${mine ? ' dn-mine' : ''}`}>
     <div className="dn-card-head">
       <span className="dn-ic"><Icon id={p.id} size={24} /></span>
       <span className="dn-name"><b>{p.name}</b><small>{p.req}</small></span>
@@ -152,16 +158,16 @@ function Tracks() {
           <span className="dn-track-ic"><ShieldCheck size={22} /></span>
           <b className="dn-track-t">Stable</b>
           <p>Start here. Store downloads on your phone, release packages on your computer.</p>
-          <ul className="dn-vers">
-            <li><span>Desktop</span><a href={OGAD_REL} target="_blank" rel="noopener">OGAD {OGAD_V} release</a></li>
-            <li><span>Mobile</span><a href={OGAM_REL} target="_blank" rel="noopener">OGAM {OGAM_V} release</a></li>
-          </ul>
+          <LiveList className="dn-vers" living={false}>
+            <ListRow title="Desktop" trailing={<a href={OGAD_REL} target="_blank" rel="noopener">OGAD {OGAD_V} release</a>} />
+            <ListRow title="Mobile" trailing={<a href={OGAM_REL} target="_blank" rel="noopener">OGAM {OGAM_V} release</a>} />
+          </LiveList>
         </SceneCard>
         <SceneCard className="dn-track">
           <span className="dn-track-ic"><Flask size={22} /></span>
           <b className="dn-track-t">Desktop beta</b>
           <p>New features first. Expect rough edges.</p>
-          <div className="dn-beta-row" ref={betaRef} aria-label={`Desktop beta ${beta.tag}`}>
+          <div className="dn-beta-row" ref={betaRef} aria-label={`Desktop beta ${beta.tag}`} aria-busy={beta.loading ? 'true' : undefined}>
             {BETAS.map(([k, id, l, a]) => <Button asChild data-site-button="secondary" variant="outline" key={k}><a className="pp-alt" href={beta.links[k]} data-beta-download={k} aria-label={a} title={a}><PlatformIcon id={id} size={14} />{l}</a></Button>)}
           </div>
           <div id="new-in-desktop-preview" className="dn-new">
@@ -210,7 +216,7 @@ function Pro({ pricing }) {
           <p className="pp-fine"><a href="/desktop/#computer-use">Desktop features and platform limits</a></p>
         </SceneCard>
       </MobileRail>
-      <p className="dn-upsell">Pro adds memory, Sync and approved actions. <b>${pricing.lifetime} once</b> or ${pricing.monthly}/month. <a href="/pro/#buy" data-cta>Get Pro <ArrowRight size={14} /></a></p>
+      <p className="dn-upsell" data-og-reveal="">Pro adds memory, Sync and approved actions. <b>${pricing.lifetime} once</b> or ${pricing.monthly}/month. <a href="/pro/#buy" data-cta>Get Pro <ArrowRight size={14} /></a></p>
     </div>
   </section>;
 }
