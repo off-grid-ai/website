@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Heading, Text, TextField } from '@radix-ui/themes';
+import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
-import { BlurFade } from '@magicui/blur-fade';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, SectionBg } from '../shared.jsx';
+import { orchestra } from '@offgrid-ui/alive';
+import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
@@ -21,9 +21,9 @@ function Proof() {
 }
 
 function Hero({ pricing }) {
-  return <section className="has-bg pp-sec pp-hero" data-section="Hero" aria-labelledby="pp-h"><SectionBg />
+  return <section className="has-bg pp-sec pp-hero" data-section="Hero" aria-labelledby="pp-h">
     <div className="section-shell pp-hero-in">
-      <span className="pp-live"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></span>
+      <Badge className="pp-live" size="2" variant="surface" color="gray" radius="full"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></Badge>
       <Title as="h1" id="pp-h" className="pp-h1" lead="It remembers your work." dim="You approve." />
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
@@ -39,6 +39,10 @@ function Hero({ pricing }) {
 
 function Ladder({ pricing, count, failed, tier }) {
   const tiers = pricing.tiers; const n = tiers.length;
+  const rail = useRef(null);
+  // The live count fills the track on its own; when it lands, the field answers from the current tier
+  // (strong enough that the ring reaches the checkout card beside it).
+  const landed = () => { const at = rail.current?.querySelector('.pp-tier.cur .pp-tier-price'); if (at) orchestra.pulseFrom(at, 'change', 0.8); };
   const cur = tier ?? 0;
   const start = cur > 0 ? tiers[cur - 1].until : 0; const end = tiers[cur].until;
   const frac = count != null && end > start ? Math.min(1, Math.max(0, (count - start) / (end - start))) : 0;
@@ -51,10 +55,11 @@ function Ladder({ pricing, count, failed, tier }) {
       {count == null ? <span className="pp-muted">{failed ? 'Customer count unavailable.' : 'Loading customer count...'}</span>
         : <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>}
     </p>
-    <div className="pp-tiers" style={{ '--n': n }}>
-      <div className="pp-track" aria-hidden="true"><i /><motion.b initial={{ scaleX: 0 }} animate={{ scaleX: fill }} transition={{ duration: 1.2, ease: [.2, .8, .2, 1] }} /></div>
+    <div className="pp-tiers" ref={rail} style={{ '--n': n }}>
+      {/* Radix Themes Progress: how far the count has climbed through the tiers. Hidden from assistive tech: the count line above says it. */}
+      <Progress className="pp-progress" variant="soft" value={Math.round(fill * 100)} max={100} aria-hidden="true"
+        onTransitionEnd={(e) => { if (e.propertyName === 'transform' && count != null) landed(); }} />
       {tiers.map((t, i) => <div key={t.label} className={`pp-tier ${count != null && i < cur ? 'past' : ''} ${count != null && i === cur ? 'cur' : ''}`}>
-        <span className="pp-dot" />
         <span className="pp-tier-price">${t.lifetime}<small> once</small></span>
         <span className="pp-tier-label">{t.label}</span>
       </div>)}
@@ -134,8 +139,16 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
     }
     setStatus({ kind: 'success', url });
     window.open(url, '_blank');
+    // The success line holds a link, so the conductor does not settle it: the form ripples instead.
+    if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
   };
   const off = email.trim() === '' || count === null || failed;
+  // The buy buttons wake when they become usable: the field answers from the primary one.
+  const wasOff = useRef(off);
+  useEffect(() => {
+    if (wasOff.current && !off) { const b = form.current?.querySelector('.pp-buy'); if (b) orchestra.pulseFrom(b, 'change', 0.45); }
+    wasOff.current = off;
+  }, [off]);
   // A visitor who chose monthly on another page lands with monthly as the main action.
   const [plan, setPlan] = useState('lifetime');
   useEffect(() => { if (new URLSearchParams(location.search).get('plan') === 'monthly') setPlan('monthly'); }, []);
@@ -168,11 +181,12 @@ const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p
 function Buy({ pricing, checkout, count, failed, tier }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head pp-head-c"><Kicker>GET PRO</Kicker>
+      <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
         <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Own it now,</span><span className="t-line t-dim">before the price <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>climbs</Highlighter>.</span></Heading>
-      </BlurFade>
+      </div>
       <div className="pp-buy-grid">
-        <SceneCard className="plan-card plan-card-hero pp-checkout" busy>
+        {/* Busy only while the live price loads; when it lands the card settles once. */}
+        <SceneCard className="plan-card plan-card-hero pp-checkout" busy={count == null && !failed}>
           <div className="plan plan-hero">
             <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
             <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div></div>
@@ -180,7 +194,7 @@ function Buy({ pricing, checkout, count, failed, tier }) {
             <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
           </div>
         </SceneCard>
-        <div className="pp-buy-side" id="do-the-math">
+        <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
           <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
         </div>
       </div>
@@ -198,12 +212,12 @@ const FAQ = (p) => [
   ['Can I use a promo code?', 'Yes. Enter it on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {
-  return <section id="faq" className="pp-sec pp-faq-sec" aria-labelledby="faq-h">
+  return <section id="faq" className="pp-sec pp-faq-sec og-solid" aria-labelledby="faq-h">
     <div className="section-shell pp-faq-grid">
-      <div className="pp-head"><Kicker>QUESTIONS</Kicker><Heading as="h2" id="faq-h" className="pp-h2"><span className="t-line">Before you buy.</span></Heading></div>
+      <div className="pp-head" data-og-reveal=""><Kicker>QUESTIONS</Kicker><Heading as="h2" id="faq-h" className="pp-h2"><span className="t-line">Before you buy.</span></Heading></div>
       <div>
         <Accordion.Root type="single" collapsible className="pp-faq">
-          {FAQ(pricing).map(([q, a]) => <Accordion.Item key={q} value={q} className="pp-faq-item">
+          {FAQ(pricing).map(([q, a]) => <Accordion.Item key={q} value={q} className="pp-faq-item" data-og-reveal="">
             <Accordion.Header asChild><h3><Accordion.Trigger className="pp-faq-q">{q}<Plus size={16} aria-hidden="true" /></Accordion.Trigger></h3></Accordion.Header>
             <Accordion.Content className="pp-faq-a"><p>{a}</p></Accordion.Content>
           </Accordion.Item>)}
@@ -285,9 +299,9 @@ const SYNC = [
 function Sync({ again }) {
   return <section id="sync" className="pp-sec pp-sync" data-section="Sync is live across your devices" aria-labelledby="sync-h">
     <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head"><Kicker>PRO SYNC</Kicker>
-        <Title id="sync-h" className="pp-h2" lead="Sync is live." dim="Across every device you own." /></BlurFade>
-      <ul className="pp-points">{SYNC.map(([Icon, t]) => <li key={t}><span className="pp-ic"><Icon size={18} /></span>{t}</li>)}</ul>
+      <div className="pp-head"><Kicker>PRO SYNC</Kicker>
+        <Title id="sync-h" className="pp-h2" lead="Sync is live." dim="Across every device you own." /></div>
+      <ul className="pp-points">{SYNC.map(([Icon, t]) => <li key={t} data-og-reveal=""><span className="pp-ic"><Icon size={18} /></span>{t}</li>)}</ul>
       <a className="pp-link" href="/download/" data-cta="">Get the apps <ArrowRight size={15} /></a>
       {again}
     </div>
@@ -297,7 +311,7 @@ function Sync({ again }) {
 /* ───────── Private: one statement ───────── */
 
 function Private() {
-  return <section id="private-by-architecture-not-by-policy" className="has-bg pp-sec pp-private" aria-labelledby="priv-h"><SectionBg />
+  return <section id="private-by-architecture-not-by-policy" className="has-bg pp-sec pp-private" aria-labelledby="priv-h">
     <div className="section-shell pp-private-in">
       <Kicker>PRIVATE</Kicker>
       <Title id="priv-h" className="pp-h2" lead="Private by architecture." dim="Not by policy." />
@@ -317,16 +331,16 @@ const STEPS = [
 function Checkout4() {
   return <section id="how-checkout-works" className="pp-sec pp-steps-sec" data-section="How checkout works" aria-labelledby="checkout-h">
     <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="pp-head"><Kicker>HOW CHECKOUT WORKS</Kicker>
-        <Title id="checkout-h" className="pp-h2" lead="Four steps." dim="About a minute." /></BlurFade>
-      <ol className="pp-steps">{STEPS.map(([t, d], k) => <li key={t}><span className="pp-step-n">{k + 1}</span><b>{t}</b><small>{d}</small></li>)}</ol>
+      <div className="pp-head"><Kicker>HOW CHECKOUT WORKS</Kicker>
+        <Title id="checkout-h" className="pp-h2" lead="Four steps." dim="About a minute." /></div>
+      <div className="pp-steps">{STEPS.map(([t, d], k) => <SceneCard key={t} className="pp-step"><span className="pp-step-n">{k + 1}</span><b>{t}</b><small>{d}</small></SceneCard>)}</div>
     </div>
   </section>;
 }
 
 function Final({ pricing }) {
-  return <section className="has-bg final pp-final" data-section="Get Pro" aria-labelledby="pp-final-h"><SectionBg />
-    <div className="section-shell final-in">
+  return <section className="has-bg final pp-final" data-section="Get Pro" aria-labelledby="pp-final-h">
+    <div className="section-shell final-in" data-og-reveal="">
       <Kicker>OFF GRID AI PRO</Kicker>
       <Heading as="h2" id="pp-final-h" className="pp-final-h">Yours. Forever.</Heading>
       <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"

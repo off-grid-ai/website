@@ -1,4 +1,6 @@
 @import "../../../preview-ui/pages/_product.css";
+/* Paths resolve from the build cache (node_modules/.cache/offgrid-preview), like the line above. */
+@import '../../../node_modules/@radix-ui/themes/src/components/progress.css';
 /* /pro/ — calm: one idea per section, scoped to pp-* classes. */
 
 /* Real app screens, always shown whole (never cropped or panned) */
@@ -16,25 +18,28 @@
 /* Hero: centred copy, the product large below */
 .pp-hero{padding-block:clamp(56px,7vw,96px) clamp(72px,8vw,120px)!important}
 .pp-hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
-.pp-live{display:inline-flex;align-items:center;gap:10px;font-size:12px;border:1px solid var(--line-2);border-radius:8px;padding:6px 12px 6px 10px;background:rgb(var(--og-rgb-surface)/.7);color:var(--og-text-secondary)}
+/* The "Live now" pill is a Radix Themes Badge; only the gap between the dot and the text is set here. */
+.pp-live{gap:10px}
 .pp-h1 .t-line{text-wrap:balance}
 .pp-h1{font-weight:300!important;font-size:clamp(34px,4.6vw,64px)!important;line-height:1.05!important;letter-spacing:-.05em}
 .pp-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .pp-shimmer{width:auto!important;padding:0 22px!important;white-space:nowrap}
-.pp-ghost{height:46px!important;padding:0 18px!important;border-radius:8px!important;font-family:var(--og-font-mono)!important}
+.pp-ghost{height:46px!important;padding:0 18px!important;border-radius:8px!important}
 .pp-hero-card{width:100%!important;margin-top:clamp(24px,4vw,48px)}
 .pp-hero-card .scene-card-in,.pp-cap-card .scene-card-in{padding:8px}
 
-/* Buy: the card and the ladder, nothing else */
+/* Buy: the card and the ladder, nothing else.
+   Surfaces here set background-color, never the background shorthand: the alive layer paints the
+   pointer's light and the click ring as background-image on every living surface. */
 .pp-buy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
 .pp-checkout{width:100%!important}
 .pp-checkout .plan{gap:18px!important;padding:32px!important}
 .pp-form{display:flex;flex-direction:column;gap:10px}
 .pp-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted)}
-.pp-input{display:flex;align-items:center;height:46px;border:1px solid var(--line-2);border-radius:8px;background:var(--og-background);transition:border-color .2s}
-.light .pp-input{background:#fff}
+.pp-input{display:flex;align-items:center;height:46px;border:1px solid var(--line-2);border-radius:8px;background-color:var(--og-background)}
+.light .pp-input{background-color:#fff}
 .pp-input:focus-within{border-color:var(--og-primary)}
-.pp-input .rt-TextFieldInput{order:2;flex:1;min-width:0;height:100%;padding:0 14px 0 6px;background:transparent;border:0;outline:0;color:var(--og-text);font-family:var(--og-font-mono);font-size:14px}
+.pp-input .rt-TextFieldInput{order:2;flex:1;min-width:0;height:100%;padding:0 14px 0 6px;background:transparent;border:0;outline:0;color:var(--og-text);font-size:14px}
 .pp-input .rt-TextFieldInput::placeholder{color:var(--og-text-muted)}
 .pp-input .rt-TextFieldSlot{order:1;display:grid;place-items:center;padding-left:14px;color:var(--og-text-muted)}
 .pp-input.ea-input-error{border-color:var(--og-error)}
@@ -50,14 +55,11 @@
 .pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
 .pp-count b{font-weight:400;color:var(--og-primary)}
 .pp-muted{color:var(--og-text-muted)}
-.pp-tiers{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);margin-top:28px}
-.pp-track{position:absolute;top:5px;left:calc(50% / var(--n));right:calc(50% / var(--n));height:2px}
-.pp-track i{position:absolute;inset:0;background:var(--line-2);border-radius:2px}
-.pp-track b{position:absolute;inset:0;background:var(--og-primary);border-radius:2px;transform-origin:0 50%}
+/* The ladder: a Radix Themes Progress from the first tier's centre to the last, the tiers below it. */
+.pp-tiers{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);margin-top:28px;padding-top:22px}
+.pp-progress.rt-ProgressRoot{--progress-height:2px;position:absolute;top:0;left:calc(50% / var(--n));right:calc(50% / var(--n));background-color:var(--line-2)}
+.pp-progress .rt-ProgressIndicator{background-color:var(--og-primary);transition:transform 1.2s var(--og-ease-out,cubic-bezier(.2,.8,.2,1))}
 .pp-tier{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
-.pp-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--line-2);background:var(--og-background);z-index:1}
-.pp-tier.past .pp-dot{background:var(--og-primary);border-color:var(--og-primary)}
-.pp-tier.cur .pp-dot{border-color:var(--og-primary);box-shadow:0 0 0 4px rgb(var(--og-rgb-primary)/.18)}
 .pp-tier-price{font-size:clamp(24px,2.6vw,34px);font-weight:300;letter-spacing:-.04em;line-height:1}
 .pp-tier-price small{font-size:10px;letter-spacing:0;color:var(--og-text-muted)}
 .pp-tier.past .pp-tier-price{color:var(--og-text-muted);text-decoration:line-through}
@@ -102,13 +104,13 @@
 .pp-private-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
 
 /* How checkout works */
-.pp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s}
-.pp-steps li{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid var(--line);border-radius:8px;background:var(--og-surface)}
-.light .pp-steps li{background:#fff}
+.pp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pp-step.scene-card{width:100%}
+.pp-step .scene-card-in{display:flex;flex-direction:column;gap:8px;padding:22px;height:100%}
 .pp-steps b{font-weight:400;font-size:15px}
 .pp-steps small{font-size:12.5px;color:var(--og-text-muted)}
-.pp-step-n{display:grid;place-items:center;width:26px;height:26px;margin-bottom:10px;border-radius:6px;background:var(--og-primary);color:#03140c;font-size:12px}
-.light .pp-step-n{color:#fff}
+/* Step numbers: a plain mono label, no box. */
+.pp-step-n{margin-bottom:6px;font-family:var(--og-font-mono);font-size:12px;letter-spacing:.08em;color:var(--og-primary)}
 
 /* Final */
 .pp-final{padding-block:clamp(96px,10vw,152px)!important}
@@ -132,6 +134,8 @@
 .pp-proof b{font-weight:400;color:var(--og-text)}
 .pp-buy-side .pp-proof{justify-content:flex-start;padding-top:24px;border-top:1px solid var(--line)}
 .pp-head-c{align-items:center;text-align:center}
+/* The Highlighter's underline is positioned against its nearest positioned box; keep that box the heading block. */
+.pp-head{position:relative}
 .pp-plan-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .pp-get{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;font-size:13px;color:var(--og-text-secondary);flex:none!important}
 .pp-get li{display:flex;gap:8px;align-items:flex-start}
@@ -142,11 +146,11 @@
 .pp-faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:start}
 .pp-faq-grid .pp-head{margin-bottom:0}
 .pp-faq{display:flex;flex-direction:column;gap:8px}
-.pp-faq-item{background:var(--og-surface);border-radius:8px;transition:background .2s}
-.light .pp-faq-item{background:#f4f4f4}
-.pp-faq-item:hover,.pp-faq-item[data-state=open]{background:var(--og-surface-light)}
+.pp-faq-item{background-color:var(--og-surface);border-radius:8px}
+.light .pp-faq-item{background-color:#f4f4f4}
+.pp-faq-item:hover,.pp-faq-item[data-state=open]{background-color:var(--og-surface-light)}
 .pp-faq-item h3{margin:0;font:inherit}
-.pp-faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;min-height:52px;cursor:pointer;font-family:var(--og-font-mono);font-size:14px;color:var(--og-text);border-radius:8px}
+.pp-faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;min-height:52px;cursor:pointer;font-size:14.5px;color:var(--og-text);border-radius:8px}
 .pp-faq-q:focus-visible{outline:2px solid var(--og-primary);outline-offset:2px}
 .pp-faq-q svg{flex-shrink:0;color:var(--og-primary);transition:transform .25s}
 .pp-faq-q[data-state=open] svg{transform:rotate(45deg)}
@@ -201,7 +205,7 @@
   .pp-points .pp-ic{flex-shrink:0}
   .pp-link{margin-top:20px}
   .pp-steps{grid-template-columns:1fr 1fr;gap:8px}
-  .pp-steps li{padding:14px}
+  .pp-step .scene-card-in{padding:14px}
   .pp-step-n{margin-bottom:4px}
   .pp-final-links{flex-direction:column;align-items:center;gap:12px}
 }
@@ -220,8 +224,7 @@
   .pp-hero .pp-cta{width:auto;display:flex!important;flex-direction:column;align-items:center}
   .pp-hero .pp-shimmer{width:auto!important;padding:0 26px!important}
 }
-/* Price ladder: the current tier's dot pulses. */
-.pp-tier.cur .pp-dot{position:relative}
-.pp-tier.cur .pp-dot::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--og-primary);animation:tier-pulse 1.8s cubic-bezier(.2,.8,.2,1) infinite}
-@keyframes tier-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
-@media (prefers-reduced-motion:reduce){.pp-tier.cur .pp-dot::after{animation:none;opacity:0}}
+
+/* The shared explorer sizes its stage from --pp-fit, which _product.css sets on .pp. Pro's sections are .pp-sec,
+   so the stage collapsed to 0 on one-column widths: give What Pro is the same fit. */
+.pp-what{--pp-fit:max(320px,calc(100svh - var(--og-header-h,69px) - 80px))}
