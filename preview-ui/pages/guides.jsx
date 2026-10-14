@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card } from '@radix-ui/themes';
 import { ArrowRight } from '@phosphor-icons/react';
-import { MobileRail, PlatformIcon, Kicker, useNarrow } from '../shared.jsx';
+import { MobileRail, PlatformIcon, Kicker, SceneCard, useNarrow } from '../shared.jsx';
 import { Hub } from './_hub.jsx';
 
 // /guides/ — setup paths per platform, then every guide and article with search and filters.
@@ -12,12 +11,13 @@ const SETUP = [
   ['mobile', 'ios', 'iOS', '/guides/ios-setup/'],
   ['mobile', 'android', 'Android', '/guides/android-setup/'],
 ];
+// A setup path on the kit's SceneCard (pointer light, press waves, entrance, siblings easing back).
 function SetupCard({ id, label, href }) {
-  return <Card asChild className="setup-card"><a href={href}>
+  return <SceneCard className="setup-card"><a className="setup-link" href={href}>
     <span className="setup-ic"><PlatformIcon id={id} size={20} /></span>
     <span className="setup-tx"><span className="setup-t">{label} setup</span><span className="setup-d">Install and run your first local model.</span></span>
     <ArrowRight size={16} className="setup-go" />
-  </a></Card>;
+  </a></SceneCard>;
 }
 function Setup() {
   const narrow = useNarrow();
@@ -29,9 +29,9 @@ function Setup() {
     </div>
     {narrow ? <div className="setup-group"><span id="desktop" /><span id="mobile" /><MobileRail>{SETUP.map(card)}</MobileRail></div> : <div className="setup-groups">
       <div className="setup-group" id="desktop"><p className="setup-label">On your computer</p>
-        <MobileRail className="setup-row">{SETUP.filter(s => s[0] === 'desktop').map(([, id, label, href]) => <SetupCard key={id} id={id} label={label} href={href} />)}</MobileRail></div>
+        <MobileRail className="setup-row">{SETUP.filter(s => s[0] === 'desktop').map(card)}</MobileRail></div>
       <div className="setup-group" id="mobile"><p className="setup-label">On your phone</p>
-        <MobileRail className="setup-row">{SETUP.filter(s => s[0] === 'mobile').map(([, id, label, href]) => <SetupCard key={id} id={id} label={label} href={href} />)}</MobileRail></div>
+        <MobileRail className="setup-row">{SETUP.filter(s => s[0] === 'mobile').map(card)}</MobileRail></div>
     </div>}
   </div>;
 }
