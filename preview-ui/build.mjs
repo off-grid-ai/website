@@ -3,7 +3,7 @@ import { build, transform } from 'esbuild';
 import postcss from 'postcss';
 import Beasties from 'beasties';
 import { createRequire } from 'node:module';
-import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rename, rm } from 'node:fs/promises';
 import { existsSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -35,6 +35,10 @@ for (const component of ['theme-toggle', 'ai-approval', 'ai-message', 'ai-respon
     `packages/smoothui/components/${component}/index.tsx`, `${component}.tsx`
   );
 }
+// The site's button joins SmoothUI's button to the alive layer (preview-ui/button.jsx). Pages and
+// SmoothUI components import it under the usual names; the wrapper imports the upstream file.
+aliases['@smoothui-upstream/smooth-button'] = aliases['@smoothui/smooth-button'];
+aliases['@smoothui/smooth-button'] = resolve('preview-ui/button.jsx');
 aliases['@repo/smoothui/components/smooth-button'] = aliases['@smoothui/smooth-button'];
 aliases['@repo/shadcn-ui/lib/utils'] = await upstream(
   'educlopez/smoothui', smoothCommit, 'packages/shadcn-ui/lib/utils.ts', 'utils.ts'
@@ -78,13 +82,62 @@ aliases['@eldoraui/macbook-pro'] = await upstream('karthikmudunuri/eldoraui', el
 await writeFile(resolve(output, 'eldoraui-license.txt'), await readFile(await upstream(
   'karthikmudunuri/eldoraui', eldoraCommit, 'LICENSE.md', 'eldoraui-license.txt'
 )));
-// Shared library package, pinned to commit dd1e6a3. Bundled for builds without private-repo credentials.
-const presetInputArchive = resolve('preview-ui/vendor/component-library-dd1e6a3.tgz');
-if (createHash('sha256').update(await readFile(presetInputArchive)).digest('hex') !== '8c2df01288fca6ab9088bb3b4988e691b9fc7c793363a5a4c72611ff9e789bc2') throw new Error('Shared preset input package changed');
-const presetInputPackage = resolve(cache, 'component-library-dd1e6a3');
-await mkdir(presetInputPackage, { recursive: true });
-execFileSync('tar', ['-xzf', presetInputArchive, '-C', presetInputPackage, '--strip-components=1']);
+// Shared library (wednesday-solutions/component-library-animations), vendored as trimmed tarballs
+// for builds without private-repo credentials. The content hash is the source lock. Each commit is
+// extracted once into its own directory: a temp directory renamed into place, so parallel PAGE=
+// builds never see (or write) a half-extracted package.
+async function vendoredLibrary(commit, sha256) {
+  const archive = resolve(`preview-ui/vendor/component-library-${commit}.tgz`);
+  if (createHash('sha256').update(await readFile(archive)).digest('hex') !== sha256) throw new Error(`Vendored component library ${commit} changed`);
+  const target = resolve(cache, `component-library-${commit}`);
+  if (existsSync(resolve(target, '.extracted'))) return target;
+  const tmp = `${target}.tmp-${process.pid}`;
+  await rm(tmp, { recursive: true, force: true });
+  await mkdir(tmp, { recursive: true });
+  execFileSync('tar', ['-xzf', archive, '-C', tmp, '--strip-components=1']);
+  await writeFile(resolve(tmp, '.extracted'), sha256);
+  try { await rename(tmp, target); }
+  catch (error) {
+    // Another build won the race (or an old, unmarked extraction is in the way).
+    await rm(tmp, { recursive: true, force: true });
+    if (!existsSync(resolve(target, '.extracted'))) {
+      const stale = `${target}.stale-${process.pid}`;
+      await rename(target, stale).catch(() => {}); await rm(stale, { recursive: true, force: true });
+      return vendoredLibrary(commit, sha256);
+    }
+  }
+  return target;
+}
+// dd1e6a3: the preset vanish input used by the home hero.
+const presetInputPackage = await vendoredLibrary('dd1e6a3', '8c2df01288fca6ab9088bb3b4988e691b9fc7c793363a5a4c72611ff9e789bc2');
 aliases['@offgrid-ui/placeholders-and-vanish-input'] = resolve(presetInputPackage, 'src/components/placeholders-and-vanish-input.tsx');
+// 48e4937 (PR #3): the alive layer. The conductor (AliveProvider, orchestra) and the living
+// field come from here; its stylesheets (alive.css, alive-semantic.css) are imported by page.css.
+const aliveLibrary = await vendoredLibrary('48e4937', 'e30a75068e4f5d88e9cb3654c350140d079134a45e60f2423ec5aacfc7a7cecc');
+aliases['@offgrid-ui/alive'] = resolve(aliveLibrary, 'src/sourced/alive/index.tsx');
+aliases['@offgrid-ui/list-row'] = resolve(aliveLibrary, 'src/sourced/alive/list-row.tsx');
+// ElevenLabs UI waveform as the library vendors it (home explore: the Recorder card's live visual).
+aliases['@offgrid-ui/waveform'] = resolve(aliveLibrary, 'src/sourced/elevenlabs/waveform.tsx');
+// Geist and Geist Mono (pinned @fontsource-variable packages): the files are served from
+// /assets/preview/fonts, and page.css imports the generated @font-face rules.
+{
+  const fontsOut = resolve(output, 'fonts');
+  await mkdir(fontsOut, { recursive: true });
+  let faces = '';
+  for (const pkg of ['geist', 'geist-mono']) {
+    const dir = resolve(`node_modules/@fontsource-variable/${pkg}`);
+    // Upright faces only; the site sets no italic Geist.
+    const css = await readFile(resolve(dir, 'index.css'), 'utf8');
+    faces += css.replace(/url\(\.\/files\/([^)]+)\)/g, (_, file) => `url(/assets/preview/fonts/${file})`) + '\n';
+    for (const file of readdirSync(resolve(dir, 'files')).filter(f => f.endsWith('-wght-normal.woff2'))) {
+      const to = resolve(fontsOut, file);
+      if (!existsSync(to)) { await writeFile(`${to}.tmp-${process.pid}`, await readFile(resolve(dir, 'files', file))); await rename(`${to}.tmp-${process.pid}`, to); }
+    }
+    await writeFile(resolve(fontsOut, `${pkg}-license.txt`), await readFile(resolve(dir, 'LICENSE')));
+  }
+  const facesFile = resolve(cache, 'fonts.css');
+  if (!existsSync(facesFile) || (await readFile(facesFile, 'utf8')) !== faces) { await writeFile(`${facesFile}.tmp-${process.pid}`, faces); await rename(`${facesFile}.tmp-${process.pid}`, facesFile); }
+}
 await writeFile(resolve(output, 'magicui-license.txt'), await readFile(await upstream(
   'magicuidesign/magicui', magicCommit, 'LICENSE.md', 'magicui-license.txt'
 )));
@@ -105,11 +158,13 @@ const common = {
   logLevel: 'info',
 };
 const buildHome = !process.env.PAGE || process.env.PAGE === 'home';
+// Write next to the target, then rename: Jekyll (and its livereload) never serves a half-written file.
+const writeAtomic = async (file, content) => { const tmp = `${file}.tmp-${process.pid}`; await writeFile(tmp, content); await rename(tmp, file); };
 const pricing = parse(await readFile('_data/pricing.yml', 'utf8'));
 const { renderToString } = await import('react-dom/server');
 const { createElement } = await import('react');
 if (buildHome) {
-await build({ ...common, entryPoints: ['preview-ui/client.jsx'], outfile: 'assets/preview/page.js', minify: !process.env.PREVIEW_DEV, ...(process.env.PREVIEW_DEV ? { define: { 'process.env.NODE_ENV': '"development"' } } : {}), target: ['es2020'], legalComments: 'eof' });
+await build({ ...common, entryPoints: ['preview-ui/client.jsx'], outfile: resolve(cache, 'out-home.js'), minify: !process.env.PREVIEW_DEV, ...(process.env.PREVIEW_DEV ? { define: { 'process.env.NODE_ENV': '"development"' } } : {}), target: ['es2020'], legalComments: 'eof' });
 await build({ ...common, entryPoints: ['preview-ui/page.jsx'], outfile: resolve(cache, 'page-server.mjs'), platform: 'node', format: 'esm', packages: 'external' });
 
 const { default: PreviewPage, WALK_ICONS } = await import(pathToFileURL(resolve(cache, 'page-server.mjs')));
@@ -130,9 +185,8 @@ const { default: PreviewPage, WALK_ICONS } = await import(pathToFileURL(resolve(
 // the hydrated tree matches the server markup exactly.
 const rendered = renderToString(createElement(PreviewPage, { pricing }));
 const hints = rendered.match(/^(?:<link [^>]*\/>)*/)[0];
-await writeFile('_includes/home-hints.html', hints.replace(/\/>/g, '>\n'));
-await writeFile('_includes/home-content.html', rendered.slice(hints.length));
-execFileSync(resolve('node_modules/.bin/tailwindcss'), ['-i', 'preview-ui/page.css', '-o', 'assets/preview/page.css'], { stdio: 'inherit' });
+// Every home output is built in the cache and renamed into place once final (see writeAtomic).
+execFileSync(resolve('node_modules/.bin/tailwindcss'), ['-i', 'preview-ui/page.css', '-o', resolve(cache, 'out-home.css')], { stdio: 'inherit' });
 // Compile the original Radix breakpoint syntax with its own build plugin.
 const require = createRequire(import.meta.url);
 const websiteRoot = process.cwd();
@@ -143,22 +197,31 @@ try {
 } finally {
   process.chdir(websiteRoot);
 }
-const compiledCss = await postcss([radixBreakpoints()]).process(await readFile(resolve(output, 'page.css'), 'utf8'), { from: undefined });
+const compiledCss = await postcss([radixBreakpoints()]).process(await readFile(resolve(cache, 'out-home.css'), 'utf8'), { from: undefined });
 const compactCss = await transform(compiledCss.css, { loader: 'css', minify: true, target: 'es2020' });
-await writeFile(resolve(output, 'page.css'), compactCss.code);
+await writeFile(resolve(cache, 'out-home.min.css'), compactCss.code);
 // Inline the first screen's styles. Keep the complete stylesheet for all later
 // scenes, dialogs, and sections; extraction never removes source rules.
-const critical = new Beasties({ path: websiteRoot, preload: false, pruneSource: false, logLevel: 'warn',
+const critical = new Beasties({ path: websiteRoot, preload: false, pruneSource: false, logLevel: 'warn', inlineFonts: true,
   allowRules: [/^:root/, /^html/, /^body/, /^\.dark/, /^\.light/] });
 const announcement = await readFile('_includes/announcement-bar.html', 'utf8');
 const firstScreen = rendered.slice(hints.length).split('<section class="models-band"')[0];
-const criticalHtml = await critical.process(`<html data-theme="dark" class="dark"><head><link rel="stylesheet" href="assets/preview/page.css"></head><body>${announcement}${firstScreen}</body></html>`);
+const criticalHtml = await critical.process(`<html data-theme="dark" class="dark"><head><link rel="stylesheet" href="node_modules/.cache/offgrid-preview/out-home.min.css"></head><body>${announcement}${firstScreen}</body></html>`);
 const criticalTokens = await transform(await readFile(resolve(output, 'tokens.css'), 'utf8'), { loader: 'css', minify: true });
-await writeFile('_includes/home-critical.html', `<style>${criticalTokens.code}</style>\n` + [...criticalHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => `<style>${m[1]}</style>`).join('\n'));
+// The hero paints in Geist from the first frame: the @font-face rules ship with the critical CSS
+// (the families are reached through var(--og-font-sans), which the critical pass cannot follow).
+const criticalFonts = await transform(await readFile(resolve(cache, 'fonts.css'), 'utf8'), { loader: 'css', minify: true });
+const criticalOut = (`<style>${criticalTokens.code}${criticalFonts.code}</style>\n` + [...criticalHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => `<style>${m[1]}</style>`).join('\n'));
 
 // Cache-bust by content, not build time: the page changes whenever the bundle does.
-const assetHash = createHash('sha256').update(await readFile('assets/preview/page.js')).update(await readFile(resolve(output, 'page.css'))).digest('hex').slice(0, 12);
-await writeFile('_includes/home-version.html', assetHash);
+const homeJs = await readFile(resolve(cache, 'out-home.js'));
+const assetHash = createHash('sha256').update(homeJs).update(compactCss.code).digest('hex').slice(0, 12);
+await writeAtomic('assets/preview/page.js', homeJs);
+await writeAtomic(resolve(output, 'page.css'), compactCss.code);
+await writeAtomic('_includes/home-hints.html', hints.replace(/\/>/g, '>\n'));
+await writeAtomic('_includes/home-content.html', rendered.slice(hints.length));
+await writeAtomic('_includes/home-critical.html', criticalOut);
+await writeAtomic('_includes/home-version.html', assetHash);
 console.log('Home page assets and Jekyll content are ready.');
 }
 
@@ -170,8 +233,6 @@ const radixPlugin = () => {
   const require = createRequire(import.meta.url); const root = process.cwd();
   try { process.chdir(resolve('node_modules/@radix-ui/themes')); return require(resolve('postcss-breakpoints.cjs')); } finally { process.chdir(root); }
 };
-// Write next to the target, then rename: Jekyll never serves a half-written file.
-const writeAtomic = async (file, content) => { const tmp = `${file}.tmp-${process.pid}`; await writeFile(tmp, content); await rename(tmp, file); };
 if (existsSync(pagesDir)) {
   const slugs = readdirSync(pagesDir).filter(f => f.endsWith('.jsx') && !f.startsWith('_')).map(f => f.slice(0, -4))
     .filter(slug => !process.env.PAGE || process.env.PAGE === slug);
