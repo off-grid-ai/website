@@ -1,3 +1,4 @@
+@source '../../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
 /* /thank-you/ — calm confirmation. Scoped under .ty-* (on .ty sections). */
 
 .ty a:not(.dl):not(.ty-main):not(.ty-on-a){text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;transition:text-decoration-color .2s,color .2s}
@@ -18,15 +19,15 @@
 .ty-mail .scene-card-in{display:flex;flex-direction:column;gap:16px;padding:22px 24px}
 .ty-mail-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .ty-mail-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-primary)}
-.ty-mail-live{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted)}
+.ty-mail-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--og-font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted)}
 .ty-mail-rows{display:grid;gap:0;margin:0;border-top:1px solid var(--line)}
 .ty-mail-rows>div{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
-.ty-mail-rows dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted);padding-top:2px}
+.ty-mail-rows dt{font-family:var(--og-font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--og-text-muted);padding-top:2px}
 .ty-mail-rows dd{margin:0;font-size:14px;color:var(--og-text);overflow-wrap:anywhere}
 .ty-mail-note{margin:0;font-size:12.5px;line-height:1.65;color:var(--og-text-secondary)}
 .ty-mail-note b{font-weight:400;color:var(--og-text)}
 
-.ty-redeem{display:inline-flex;align-items:center;gap:8px;margin:0;padding:10px 14px;border:1px solid rgb(var(--og-rgb-primary)/.45);border-radius:8px;background:rgb(var(--og-rgb-primary)/.06);font-size:13px;color:var(--og-primary)}
+.ty-redeem{display:inline-flex;align-items:center;gap:8px;margin:0;padding:10px 14px;border:1px solid rgb(var(--og-rgb-primary)/.45);border-radius:8px;background-color:rgb(var(--og-rgb-primary)/.06);font-size:13px;color:var(--og-primary)}
 .ty .ty-redeem a{color:var(--og-text)}
 
 .ty-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;margin-top:4px}
@@ -34,15 +35,8 @@
 .light .ty-main{color:#fff!important}
 .ty .ty-quiet{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--og-text-secondary)}
 
-/* What to do next */
-.ty-next{background:var(--og-background)}
+/* What to do next: a hairline list on the shared solid surface (.og-solid) */
 .ty-next-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:clamp(28px,4vw,64px);align-items:center}
-.ty-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
-.ty-steps li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
-.ty-step-n{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;border:1px solid var(--line-2);font-size:13px;color:var(--og-primary)}
-.ty-step-tx{display:flex;flex-direction:column;gap:6px;min-width:0}
-.ty-step-tx b{display:block;font-weight:400;font-size:15px;line-height:1.4;color:var(--og-text)}
-.ty-step-tx>span{font-size:13px;line-height:1.7;color:var(--og-text-secondary);overflow-wrap:anywhere}
 .ty-shot{margin:0;display:flex;flex-direction:column;gap:14px;min-width:0}
 .ty-shot-card.scene-card{width:100%}
 .ty-shot-card .scene-card-in{padding:8px}
@@ -61,7 +55,7 @@
 .ty-mine .ty-app-ic{color:var(--og-primary);border-color:rgb(var(--og-rgb-primary)/.5)}
 .ty-app-name{display:flex;flex-direction:column;gap:2px;line-height:1.4}
 .ty-app-name b{font-weight:400;font-size:15px}
-.ty-app-name small{font-size:11.5px;color:var(--og-text-muted)}
+.ty-app-name small{font-family:var(--og-font-mono);font-size:11px;color:var(--og-text-muted)}
 .ty-badge{align-self:flex-start;font-family:var(--og-font-mono)!important;font-size:10.5px!important}
 .ty-badge-gap{height:20px}
 .ty-dl.dl{margin-top:auto;justify-content:space-between;min-height:52px;padding:10px 14px}
@@ -70,12 +64,10 @@
 .ty-fine{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:28px 0 0;font-size:12.5px;color:var(--og-text-muted)}
 .ty .ty-fine a{color:var(--og-text-secondary)}
 
-/* From here */
-.ty-on{background:var(--og-background)}
+/* From here: glass cards on the living field */
 .ty-on-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .ty a.ty-on-a{display:block;height:100%;color:inherit;text-decoration:none}
-.ty-on-card.scene-card{width:auto;height:100%;transition:transform .2s}
-.ty-on-a:hover .ty-on-card{transform:translateY(-2px)}
+.ty-on-card.scene-card{width:auto;height:100%}
 .ty-on-a:focus-visible{outline:2px solid var(--og-primary);outline-offset:3px;border-radius:8px}
 .ty-on-card .scene-card-in{display:flex;flex-direction:column;gap:18px;height:100%;min-height:172px;padding:22px}
 .ty-on-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;border:1px solid var(--line-2);color:var(--og-primary)}
@@ -105,9 +97,6 @@
   .ty-cta{flex-direction:column;gap:4px;width:100%}
   .ty-cta .ty-main{width:100%}
   .ty-next-grid{grid-template-columns:1fr;gap:28px}
-  .ty-steps li{grid-template-columns:32px minmax(0,1fr);gap:14px;padding:16px 0}
-  .ty-step-tx b{font-size:14px}
-  .ty-step-tx>span{font-size:12.5px;line-height:1.65}
   .ty-app .scene-card-in{flex-direction:column}
   .ty-app-head{flex-direction:row;align-items:center}
   .ty-on-card .scene-card-in{flex-direction:row;align-items:center;min-height:0;gap:14px;padding:18px}
@@ -122,3 +111,15 @@
   .ty-mail .scene-card-in{gap:12px;padding:16px 20px}
   .ty-mail-rows>div{padding:8px 0}
 }
+
+/* Step lists: the library's ListGroup of ListRows (classes compiled from list-row.tsx via @source).
+   Copy wraps instead of truncating; the index or icon leads in mono/emerald. No transitions here:
+   the rows are living surfaces and the library owns their motion. */
+.og-rows{max-width:880px}
+.og-rows>.og-row{outline:none}
+.og-row .truncate{white-space:normal;overflow:visible;text-overflow:clip}
+.og-row [data-slot=list-row-description]{white-space:normal;overflow:visible;margin-top:4px;font-size:13px;line-height:1.65;color:var(--og-text-secondary)}
+.og-row>div:first-child{align-items:flex-start;padding-block:14px;gap:14px}
+.og-row .text-sm{font-size:15px;line-height:1.45}
+.og-row-n{min-width:22px;padding-top:2px;font-family:var(--og-font-mono);font-size:11px;letter-spacing:.08em;color:var(--og-primary)}
+.og-row-ic{margin-top:2px;color:var(--og-primary)}

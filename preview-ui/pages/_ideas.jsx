@@ -3,14 +3,21 @@ import { Heading, Text } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
-import { MagicCard } from '@magicui/magic-card';
-import { BlurFade } from '@magicui/blur-fade';
 import { TextAnimate } from '@magicui/text-animate';
 import { NumberTicker } from '@magicui/number-ticker';
-import { Kicker, Title, Lede, Reveal, SectionBg, MobileRail, PlatformIcon } from '../shared.jsx';
+import { orchestra } from '@offgrid-ui/alive';
+import { Kicker, Title, Lede, Reveal, MobileRail, PlatformIcon, SceneCard } from '../shared.jsx';
 
 // Shared composition for the ideas pages (ethos, mission, vision, design partners).
-// Every visual element is an upstream component; this file only arranges them.
+// Every visual element is an upstream component; this file only arranges them. The page's one
+// conductor (orchestra) owns light, waves and entrances: blocks opt in with data-og-reveal, and
+// whatever the page does on its own (the chapter index advancing, the numbers counting) pulses the field.
+
+// A pulse from the page itself, as if the visitor had acted. Skipped for reduced motion.
+export function pulseFrom(el, kind, strength) {
+  if (!el || typeof window === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  orchestra.pulseFrom(el, kind, strength);
+}
 
 export const PLATFORMS = [['android', 'Android'], ['ios', 'iOS'], ['macos', 'macOS'], ['windows', 'Windows'], ['linux', 'Linux']];
 export const GITHUB = 'https://github.com/off-grid-ai/off-grid-ai-mobile?utm_source=offgrid-docs&utm_medium=website&utm_campaign=';
@@ -18,14 +25,14 @@ export const GITHUB = 'https://github.com/off-grid-ai/off-grid-ai-mobile?utm_sou
 export function Platforms({ label = 'Available on' }) {
   return <div className="ideas-platforms"><span>{label}</span>
     <span className="ideas-platform-icons" role="img" aria-label={PLATFORMS.map(p => p[1]).join(', ')}>
-      {PLATFORMS.map(([id, name]) => <span key={id} className="ideas-pf" title={name}><PlatformIcon id={id} size={18} /></span>)}
+      {PLATFORMS.map(([id, name]) => <span key={id} className="ideas-pf" title={name} data-og-surface="glow" data-og-reveal=""><PlatformIcon id={id} size={18} /></span>)}
     </span>
   </div>;
 }
 
 // Page opener: kicker, two-tone headline, one-line lede, then whatever the page adds.
 export function IdeasHero({ kicker, id, lead, dim, lede, children }) {
-  return <section className="has-bg ideas-hero" aria-labelledby={id}><SectionBg />
+  return <section className="has-bg ideas-hero" aria-labelledby={id}>
     <div className="section-shell">
       <div className="sec-head ideas-head"><Kicker>{kicker}</Kicker><Title as="h1" id={id} lead={lead} dim={dim} />{lede && <Lede>{lede}</Lede>}</div>
       {children}
@@ -44,11 +51,15 @@ export function ChapterNav({ items, label = 'Chapters' }) {
     items.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
     return () => io.disconnect();
   }, []);
+  const first = useRef(true);
   useEffect(() => {
     const row = rowRef.current; if (!row) return;
     const link = row.querySelector(`[data-id="${active}"]`); if (!link) return;
     const left = link.offsetLeft - (row.clientWidth - link.offsetWidth) / 2;
     row.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+    // The index advances on its own as you read: the field answers as if you had pressed it.
+    if (first.current) { first.current = false; return; }
+    pulseFrom(link, 'change', .4);
   }, [active]);
   return <nav className="ideas-nav" aria-label={label}><div className="ideas-nav-row" ref={rowRef}>
     <AnimatedBackground defaultValue={active} className="seg-hover" transition={{ type: 'spring', bounce: .15, duration: .4 }}>
@@ -58,8 +69,12 @@ export function ChapterNav({ items, label = 'Chapters' }) {
 }
 
 // One chapter: the claim on the left, the argument on the right. The id keeps old deep links working.
+// Long copy sits on a solid surface (og-solid); the field shows only around it. Each paragraph
+// arrives once, in order, as it scrolls into view.
 export function Chapter({ id, n, kicker, title, pull, children, wide }) {
-  return <section id={id} className={`ideas-ch${wide ? ' ideas-ch-wide' : ''}`} aria-labelledby={`${id}-h`}>
+  const lines = React.Children.map(children, (c) => (React.isValidElement(c) && typeof c.type === 'string')
+    ? React.cloneElement(c, { 'data-og-reveal': '' }) : c);
+  return <section id={id} className={`ideas-ch og-solid${wide ? ' ideas-ch-wide' : ''}`} aria-labelledby={`${id}-h`}>
     <div className="section-shell ideas-ch-grid">
       <div className="ideas-ch-head">
         <div className="ideas-ch-meta"><span className="ideas-ch-n">{n}</span><Kicker>{kicker}</Kicker></div>
@@ -67,31 +82,45 @@ export function Chapter({ id, n, kicker, title, pull, children, wide }) {
       </div>
       <div className="ideas-ch-body">
         {pull && <TextAnimate as="p" by="word" animation="blurInUp" duration={.7} once startOnView className="ideas-pull">{pull}</TextAnimate>}
-        <BlurFade blur="0px" inView inViewMargin="-60px" className="ideas-prose">{children}</BlurFade>
+        <div className="ideas-prose">{lines}</div>
       </div>
     </div>
   </section>;
 }
 
-// Short points as Magic UI cards; a swipe row on phones.
+// Short points as glass scene cards on the alive layer (lit, waved and revealed by the conductor);
+// a swipe row on phones.
 export function Points({ items, className = '', featured }) {
   return <MobileRail className={`ideas-points ideas-points-${items.length}${featured ? ' ideas-points-feat' : ''} ${className}`}>
-    {items.map(([Icon, title, text]) => <MagicCard key={title} className="feat ideas-point" gradientColor="rgba(16, 185, 129, 0.08)" gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)">
+    {items.map(([Icon, title, text]) => <SceneCard key={title} className="ideas-point">
       <div className="feat-in">{Icon && <Icon size={22} />}<Heading as="h3">{title}</Heading>{text && <Text as="p">{text}</Text>}</div>
-    </MagicCard>)}
+    </SceneCard>)}
   </MobileRail>;
 }
 
 // One sentence, revealed word by word as it scrolls into view (shared Reveal: Magic UI TextAnimate).
 export function Statement({ children, label }) {
-  return <section className="has-bg manifesto ideas-statement" aria-label={label}><SectionBg /><Reveal>{children}</Reveal></section>;
+  return <section className="has-bg manifesto ideas-statement" aria-label={label}><Reveal>{children}</Reveal></section>;
 }
 
 export const PROOF = [[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community members']];
+// The numbers count up on their own when they come into view; each one pulses the field as it starts.
 export function Proof() {
-  return <div className="ideas-proof">{PROOF.map(([v, l]) => <div key={l} className="ideas-stat"><span className="ideas-stat-n"><NumberTicker value={v} />+</span><span className="ideas-stat-l">{l}</span></div>)}</div>;
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const timers = [];
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      el.querySelectorAll('.ideas-stat').forEach((s, i) => timers.push(setTimeout(() => pulseFrom(s, 'change', .45), 120 + i * 140)));
+    });
+    io.observe(el);
+    return () => { io.disconnect(); timers.forEach(clearTimeout); };
+  }, []);
+  return <div className="ideas-proof" ref={ref}>{PROOF.map(([v, l]) => <div key={l} className="ideas-stat" data-og-reveal="" data-og-living=""><span className="ideas-stat-n"><NumberTicker value={v} />+</span><span className="ideas-stat-l">{l}</span></div>)}</div>;
 }
 
 export function Cta({ href, children, primary, ...rest }) {
-  return <Button data-site-button="primary" asChild size="lg" variant={primary ? undefined : 'outline'} className={primary ? 'ideas-cta-primary' : 'ideas-cta'}><a href={href} {...rest}>{children}<ArrowUpRight size={16} /></a></Button>;
+  return <Button data-site-button={primary ? 'primary' : 'secondary'} asChild size="lg" variant={primary ? undefined : 'outline'} className={primary ? 'ideas-cta-primary' : 'ideas-cta'}><a href={href} {...rest}>{children}<ArrowUpRight size={16} /></a></Button>;
 }

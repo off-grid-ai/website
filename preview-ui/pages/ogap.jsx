@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { usePricing } from '../pricing.js';
 import { Badge, Card, Heading, Text, TextField } from '@radix-ui/themes';
 import * as Accordion from '@radix-ui/react-accordion';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, ArrowDown, ArrowUpRight, Check, Fan, BatteryCharging, FrameCorners, Lightning, Ruler, Plus, WifiHigh, Plug } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { MagicCard } from '@magicui/magic-card';
-import { BlurFade } from '@magicui/blur-fade';
-import { NumberTicker } from '@magicui/number-ticker';
-import { Ripple } from '@magicui/ripple';
-import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, SectionBg, MobileRail, useNarrow } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, Reveal, SceneCard, MobileRail, useNarrow } from '../shared.jsx';
 
 const IMG = '/assets/img/ogap/website-v2/';
 
@@ -28,7 +25,7 @@ function Hero({ ogap }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 40]);
-  return <section className="has-bg og-hero" aria-labelledby="ogap-h" ref={ref}><SectionBg />
+  return <section className="has-bg og-hero" aria-labelledby="ogap-h" ref={ref}>
     <div className="section-shell og-hero-grid">
       <div className="og-hero-copy">
         <Kicker>OGAP · OFF GRID AI POWER</Kicker>
@@ -41,7 +38,7 @@ function Hero({ ogap }) {
         </div>
       </div>
       <figure className="og-hero-fig">
-        <SceneCard busy className="og-hero-card">
+        <SceneCard className="og-hero-card">
           <motion.div className="og-hero-img" style={{ scale, y }}>
             <OgapImg name="hero-ecosystem" eager alt="The OGAP adjustable frame, cooling module, battery, rails, bumpers, and built-in connector shown without a phone." />
           </motion.div>
@@ -59,10 +56,11 @@ const KIT = [
   [Lightning, 'Tuned for this workload', 'Built for hours of transcribing and generating.'],
   [Ruler, 'Three sizes', 'S, M and L. Tell us the phone you carry at checkout and we ship the size that fits.'],
 ];
+// Each kit item is a glass scene card: beside the image on wide screens, a swipe row on phones.
 function KitCard({ Icon, title, text }) {
-  return <MagicCard className="feat og-feat" gradientColor="rgba(16, 185, 129, 0.08)" gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)">
+  return <SceneCard className="og-feat">
     <div className="feat-in"><Icon size={22} /><Heading as="h3">{title}</Heading><Text as="p">{text}</Text></div>
-  </MagicCard>;
+  </SceneCard>;
 }
 
 const POWER = [
@@ -73,7 +71,6 @@ function PowerCard({ p }) {
   return <SceneCard className="og-power">
     <div className={`og-power-vis og-power-${p.id}`}>
       <OgapImg name={p.id} big={false} w={1448} h={1086} sizes="(max-width: 860px) 90vw, 560px" alt={p.alt} />
-      {p.id === 'wireless' && <Ripple mainCircleSize={70} numCircles={4} mainCircleOpacity={.2} className="og-ripple" />}
     </div>
     <div className="og-power-copy">
       <Kicker>{p.label.toUpperCase()}</Kicker>
@@ -82,6 +79,14 @@ function PowerCard({ p }) {
       <div className="og-flow" aria-label={`${p.flow[0]} to ${p.flow[1]}`}><span>{p.flow[0]}</span><ArrowRight size={13} aria-hidden="true" /><span>{p.flow[1]}</span></div>
     </div>
   </SceneCard>;
+}
+
+// The library's ListGroup of ListRows: one surface, rows divided by hairlines. ListRow takes no extra
+// attributes, so its rows are marked living after each render; the group arrives once on scroll.
+function Steps({ label, className = '', children }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => { ref.current?.querySelectorAll(':scope > [data-slot=list-row]:not([data-og-living])').forEach((row) => row.setAttribute('data-og-living', '')); });
+  return <ListGroup ref={ref} label={label} className={className} data-og-reveal="">{children}</ListGroup>;
 }
 
 const STATUS = [
@@ -127,10 +132,11 @@ function Preorder({ ogap }) {
     setBusy(true);
     window.location.href = url;
   };
-  return <section id="reserve" className="has-bg chapter og-reserve" aria-labelledby="pre-order" data-analytics-view="ogap_preorder_viewed" data-analytics-placement="ogap_reserve"><SectionBg />
+  return <section id="reserve" className="has-bg chapter og-reserve" aria-labelledby="pre-order" data-analytics-view="ogap_preorder_viewed" data-analytics-placement="ogap_reserve">
     <div className="section-shell">
-      <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>PRE-ORDER</Kicker><Title id="pre-order" lead="Hold the price now." dim="Shipping included, anywhere." /></BlurFade>
-      <SceneCard busy className="og-buy">
+      <div className="sec-head" data-og-reveal=""><Kicker>PRE-ORDER</Kicker><Title id="pre-order" lead="Hold the price now." dim="Shipping included, anywhere." /></div>
+      {/* Busy only while checkout is opening; the status line below settles when a message lands. */}
+      <SceneCard busy={busy} className="og-buy">
         <div className="og-buy-grid">
           <div className="og-buy-price">
             <div className="price"><span className="amt">${ogap.price}</span><small>shipped worldwide</small></div>
@@ -162,8 +168,8 @@ const LIMIT = 'A phone running AI all day runs hot and runs out. Software can on
 // The honest limit: a scroll-driven reveal on wide screens, a short statement on phones (less scrolling).
 function Limit() {
   const narrow = useNarrow();
-  if (narrow) return <section className="has-bg og-limit" aria-label="The honest limit of on-device AI"><SectionBg /><div className="section-shell"><Kicker>THE HONEST LIMIT</Kicker><Title lead={LIMIT} className="og-limit-h" /></div></section>;
-  return <section className="has-bg manifesto" aria-label="The honest limit of on-device AI"><SectionBg /><Reveal>{LIMIT}</Reveal></section>;
+  if (narrow) return <section className="has-bg og-limit" aria-label="The honest limit of on-device AI"><div className="section-shell"><Kicker>THE HONEST LIMIT</Kicker><Title lead={LIMIT} className="og-limit-h" /></div></section>;
+  return <section className="has-bg manifesto" aria-label="The honest limit of on-device AI"><Reveal>{LIMIT}</Reveal></section>;
 }
 
 export default function OgapPage({ data }) {
@@ -175,9 +181,9 @@ export default function OgapPage({ data }) {
 
     <Limit />
 
-    <section id="what-it-is" className="has-bg chapter" aria-labelledby="what-is-in-it"><SectionBg />
+    <section id="what-it-is" className="has-bg chapter" aria-labelledby="what-is-in-it">
       <div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHAT IS IN IT</Kicker><Title id="what-is-in-it" lead="One kit around the phone you own." dim="No new case. No dock. No loose battery pack." /></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>WHAT IS IN IT</Kicker><Title id="what-is-in-it" lead="One kit around the phone you own." dim="No new case. No dock. No loose battery pack." /></div>
         <div className="og-kit">
           <figure className="og-kit-fig">
             <SceneCard className="og-kit-card"><OgapImg name="fit" alt="OGAP fitted around a bare phone, with adjustable width arms and height rails leaving the camera and side buttons clear." /></SceneCard>
@@ -188,16 +194,16 @@ export default function OgapPage({ data }) {
       </div>
     </section>
 
-    <section id="power-two-ways" className="has-bg chapter" aria-labelledby="power-h"><SectionBg />
+    <section id="power-two-ways" className="has-bg chapter" aria-labelledby="power-h">
       <div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>POWER, TWO WAYS</Kicker><Title id="power-h" lead="Same frame." dim="You choose how it powers the phone." /></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>POWER, TWO WAYS</Kicker><Title id="power-h" lead="Same frame." dim="You choose how it powers the phone." /></div>
         <MobileRail className="og-power-grid">{POWER.map(p => <PowerCard key={p.id} p={p} />)}</MobileRail>
       </div>
     </section>
 
     <section id="why-hardware-and-why-us" className="chapter og-why og-solid" aria-labelledby="why-h">
       <div className="section-shell og-why-grid">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHY HARDWARE, AND WHY US</Kicker><Title id="why-h" lead="We put the load there." dim="So we carry the fix." /></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>WHY HARDWARE, AND WHY US</Kicker><Title id="why-h" lead="We put the load there." dim="So we carry the fix." /></div>
         <div className="og-why-copy">
           <Text as="p">Run <a href="/mobile/">Off Grid AI</a> all day, with <a href="/mobile/recorder/">the recorder</a> on, and battery and heat are the first limits you hit.</Text>
           <Text as="p">Nothing else changes: nothing leaves your device, and the software works with or without OGAP.</Text>
@@ -207,10 +213,10 @@ export default function OgapPage({ data }) {
 
     <section id="where-it-is-right-now" className="chapter og-solid" aria-labelledby="now-h">
       <div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE IT IS RIGHT NOW</Kicker><Title id="now-h" lead="A prototype, not a product yet." dim="No numbers until we measure them." /></BlurFade>
-        <ol className="og-steps">{STATUS.map(([t, d, live], i) => <li key={t} className={`og-step ${live ? 'og-step-live' : ''}`}>
-          <BlurFade inView delay={i * .12} blur="0px" className="og-step-in"><span className="og-step-n">{String(i + 1).padStart(2, '0')} · {live ? 'NOW' : 'NEXT'}</span><Heading as="h3">{t}</Heading><Text as="p">{d}</Text></BlurFade>
-        </li>)}</ol>
+        <div className="sec-head" data-og-reveal=""><Kicker>WHERE IT IS RIGHT NOW</Kicker><Title id="now-h" lead="A prototype, not a product yet." dim="No numbers until we measure them." /></div>
+        {/* Live steps are the list's selected rows: the library's emerald wash marks what is happening now. */}
+        <Steps label="Where it is right now" className="og-rows og-steps">{STATUS.map(([t, d, live], i) => <ListRow key={t} className="og-row" selected={live}
+          leading={<span className="og-row-n">{String(i + 1).padStart(2, '0')}</span>} title={t} description={d} meta={live ? 'NOW' : 'NEXT'} />)}</Steps>
       </div>
     </section>
 
@@ -218,7 +224,7 @@ export default function OgapPage({ data }) {
 
     <section id="questions" className="chapter og-solid" aria-labelledby="faq-h">
       <div className="section-shell og-faq-grid">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>QUESTIONS</Kicker><Title id="faq-h" lead="Before you pre‑order." /></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>QUESTIONS</Kicker><Title id="faq-h" lead="Before you pre‑order." /></div>
         <Accordion.Root type="single" collapsible className="og-faq">
           {faq.map(([q, a]) => <Accordion.Item key={q} value={q} className="og-faq-item">
             <Accordion.Header asChild><h3><Accordion.Trigger className="og-faq-q">{q}<Plus size={16} aria-hidden="true" /></Accordion.Trigger></h3></Accordion.Header>
@@ -228,13 +234,13 @@ export default function OgapPage({ data }) {
       </div>
     </section>
 
-    <section className="has-bg chapter sec-explore" aria-labelledby="next-h"><SectionBg />
+    <section className="has-bg chapter sec-explore" aria-labelledby="next-h">
       <div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>KEEP GOING</Kicker><Title id="next-h" lead="The software it is built for." /></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>KEEP GOING</Kicker><Title id="next-h" lead="The software it is built for." /></div>
         <MobileRail className="explore">
-          <Card asChild className="ex" size="3"><a href="/mobile/recorder/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_recorder"><Badge variant="outline">Private alpha · Cohort full</Badge><Heading as="h3">The recorder this is built for.</Heading><Text as="p">Your whole day, caught and transcribed on your phone. The workload that makes a phone hot.</Text><span className="ex-link">See Recorder <ArrowRight size={15} /></span></a></Card>
-          <Card asChild className="ex" size="3"><a href="/mobile/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_mobile"><Badge variant="outline">Free · Open source</Badge><Heading as="h3">Get the free app.</Heading><Text as="p">Chat, vision, image, voice and documents on your phone. No account. Works in airplane mode.</Text><span className="ex-link">Explore Mobile <ArrowRight size={15} /></span></a></Card>
-          <Card asChild className="ex" size="3"><a href="/pro/#buy" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_pro"><Badge variant="outline">{`$${pricing.lifetime} once · $${pricing.monthly}/month`}</Badge><Heading as="h3">Get Off Grid AI Pro.</Heading><Text as="p">Sees your day, remembers it, gets ahead of you. On your own hardware.</Text><span className="ex-link">Get Pro <ArrowUpRight size={15} /></span></a></Card>
+          <Card asChild className="ex" size="3" data-og-reveal=""><a href="/mobile/recorder/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_recorder"><Badge variant="outline">Private alpha · Cohort full</Badge><Heading as="h3">The recorder this is built for.</Heading><Text as="p">Your whole day, caught and transcribed on your phone. The workload that makes a phone hot.</Text><span className="ex-link">See Recorder <ArrowRight size={15} /></span></a></Card>
+          <Card asChild className="ex" size="3" data-og-reveal=""><a href="/mobile/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_mobile"><Badge variant="outline">Free · Open source</Badge><Heading as="h3">Get the free app.</Heading><Text as="p">Chat, vision, image, voice and documents on your phone. No account. Works in airplane mode.</Text><span className="ex-link">Explore Mobile <ArrowRight size={15} /></span></a></Card>
+          <Card asChild className="ex" size="3" data-og-reveal=""><a href="/pro/#buy" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_pro"><Badge variant="outline">{`$${pricing.lifetime} once · $${pricing.monthly}/month`}</Badge><Heading as="h3">Get Off Grid AI Pro.</Heading><Text as="p">Sees your day, remembers it, gets ahead of you. On your own hardware.</Text><span className="ex-link">Get Pro <ArrowUpRight size={15} /></span></a></Card>
         </MobileRail>
       </div>
     </section>
