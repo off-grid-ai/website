@@ -153,6 +153,7 @@
   </script>
   {% endif %}
   {% capture og_page %}pages/{{ page.react }}{% endcapture %}{% capture og_v %}{% include {{ og_page }}-version.html %}{% endcapture %}
+  <link rel="preload" href="{{ '/assets/preview/fonts/geist-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   {% include {{ og_page }}-hints.html %}
   <link rel="stylesheet" href="{{ '/assets/preview/tokens.css' | relative_url }}?v={{ og_v | strip }}">
   <link rel="stylesheet" href="{{ '/assets/preview/pages/' | append: page.react | append: '.css' | relative_url }}?v={{ og_v | strip }}">

@@ -1,6 +1,6 @@
 import React, { Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
-import { createPortal } from 'react-dom';
+import { createPortal, flushSync } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
@@ -8,7 +8,7 @@ import {
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
   Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
-import { motion, MotionConfig, AnimatePresence, useIsPresent, useInView, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, animate } from 'motion/react';
+import { motion, MotionConfig, AnimatePresence, useIsPresent, useInView, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, useVelocity, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
 import { Carousel, CarouselContent, CarouselItem, CarouselIndicator } from '@motion-primitives/carousel';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -28,11 +28,9 @@ import { BentoGrid, BentoCard } from '@magicui/bento-grid';
 import { AnimatedBeam } from '@magicui/animated-beam';
 import { NumberTicker } from '@magicui/number-ticker';
 import { Marquee } from '@magicui/marquee';
-import { MagicCard } from '@magicui/magic-card';
+import { AliveProvider, LivingField, orchestra } from '@offgrid-ui/alive';
 import { Iphone } from '@magicui/iphone';
 import { MacbookPro } from '@eldoraui/macbook-pro';
-import { AnimatedGridPattern } from '@magicui/animated-grid-pattern';
-import { Particles } from '@magicui/particles';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import { Ripple } from '@magicui/ripple';
 import { AnimatedList } from '@magicui/animated-list';
@@ -40,8 +38,6 @@ import { ScrollProgress } from '@magicui/scroll-progress';
 import { ScrollVelocityContainer, ScrollVelocityRow } from '@magicui/scroll-based-velocity';
 import { BlurFade } from '@magicui/blur-fade';
 import { TypingAnimation } from '@magicui/typing-animation';
-import { InteractiveGridPattern } from '@magicui/interactive-grid-pattern';
-import AISuggestions from '@smoothui/ai-suggestions';
 import { WordRotate } from '@magicui/word-rotate';
 import { Dock, DockIcon } from '@magicui/dock';
 import { FEATURES } from './pages/_features.mjs';
@@ -60,6 +56,8 @@ import { ShineBorder } from '@magicui/shine-border';
 import { DotPattern } from '@magicui/dot-pattern';
 import { OrbitingCircles } from '@magicui/orbiting-circles';
 import { DottedMap } from '@magicui/dotted-map';
+import { ListGroup, ListRow } from '@offgrid-ui/list-row';
+import { ScrollingWaveform } from '@offgrid-ui/waveform';
 
 // Composition only. Every visual element is an upstream component imported
 // intact (see build.mjs). This file arranges them, supplies product content,
@@ -84,9 +82,9 @@ export const MODELS = [
 const KIND_ICON = { Text: ChatCircle, Vision: ImageSquare, 'Computer use': Laptop, Speech: Microphone, Voice: Microphone, Image: ImageSquare };
 function ModelChip({ name, kind, maker }) {
   const Icon = KIND_ICON[kind];
-  return <span className="mq-model">{maker
+  return <Badge variant="outline" radius="full" className="mq-model">{maker
     ? <span className="mq-logo" style={{ '--logo': `url(/assets/img/logos/${maker}.svg)` }} role="img" aria-label={maker} />
-    : <span className="mq-logo mq-kind" aria-hidden="true"><Icon size={16} /></span>}<b>{name}</b><small>{kind}</small></span>;
+    : <span className="mq-logo mq-kind" aria-hidden="true"><Icon size={16} /></span>}<b>{name}</b><small>{kind}</small></Badge>;
 }
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
 // Header: where people want to go from any page. Home-only anchors live in the phone menu.
@@ -110,7 +108,7 @@ function MobileMenu() {
     return <div key={group} className={`mnav-group${on ? ' is-open' : ''}`}>
       <button type="button" className="mnav-head" aria-expanded={on} aria-controls={id} onClick={() => setOpen(on ? -1 : g)}><span>{group}</span><CaretDown size={16} className="mnav-caret" /></button>
       <AnimatePresence initial={false}>{on && <motion.ul id={id} className="mnav-list" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .28, ease: [.2, .8, .2, 1] }}>
-        {links.map(([l, href, note]) => <li key={href}><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
+        {links.map(([l, href, note]) => <li key={href} data-slot="dropdown-menu-item"><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
       </motion.ul>}</AnimatePresence>
     </div>;
   })}</nav>;
@@ -135,8 +133,8 @@ export function ShotView({ open, onOpenChange, alt, ratio, children, onPrev, onN
   const nav = !!(onPrev || onNext);
   return <Dialog.Root open={open} onOpenChange={onOpenChange}>
     <Dialog.Portal>
-      <Dialog.Overlay className="screenshot-overlay" />
-      <Dialog.Content className={`screenshot-view${caption ? ' has-caption' : ''}`} aria-describedby={undefined}
+      <Dialog.Overlay className="screenshot-overlay" data-slot="dialog-overlay" />
+      <Dialog.Content data-slot="dialog-content" data-og-alive="" className={`screenshot-view${caption ? ' has-caption' : ''}`} aria-describedby={undefined}
         onKeyDown={nav ? (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); onNext?.(); } else if (e.key === 'ArrowLeft') { e.preventDefault(); onPrev?.(); } } : undefined}>
         <Dialog.Title className="sr-only">{alt}</Dialog.Title>
         <div className="screenshot-stage" style={{ '--ar': ratio }}>{children}</div>
@@ -250,15 +248,23 @@ export function Logo({ size = 28, className = '' }) {
   </span>;
 }
 
-// Every scene card: Magic UI MagicCard (border spotlight follows the pointer) with a Magic UI
-// BorderBeam running while the card is working (thinking, streaming, downloading, filling).
-export function SceneCard({ busy, className = '', children, innerRef }) {
-  return <div className={`scene-card ${className}`} ref={innerRef}>
-    <MagicCard className="scene-mc" gradientSize={240} gradientColor="rgba(52, 211, 153, 0.10)" gradientOpacity={1} gradientFrom="var(--og-primary)" gradientTo="var(--og-primary-dark)">
-      <div className="scene-card-in">{children}</div>
-    </MagicCard>
+// Every scene card: a glass surface on the alive layer. The conductor lights it from the pointer,
+// sends click rings through it and brings it in the first time it is seen (data-og-surface="glow"
+// with data-og-reveal). `busy` means the card is working right now (thinking, streaming,
+// downloading): it sets aria-busy, which drives the page-wide busy signal, and runs a Magic UI
+// BorderBeam on this card. Never set busy for emphasis; style the card with a class instead.
+// When the work finishes the card settles: the conductor only flashes short status lines, so the card
+// sends its own soft 'change' pulse through the field and its neighbours.
+// Extra props pass through to the card element (role, aria-*, data-* such as data-og-depth, id, style);
+// `as` renders it as an li or article so a list of cards keeps its semantics and stays siblings.
+export function SceneCard({ busy, className = '', children, innerRef, as: Tag = 'div', ...rest }) {
+  const own = useRef(null); const was = useRef(!!busy);
+  useEffect(() => { if (was.current && !busy) livePulse(own.current, 'change', .5); was.current = !!busy; }, [busy]);
+  const setRef = useCallback((el) => { own.current = el; if (typeof innerRef === 'function') innerRef(el); else if (innerRef) innerRef.current = el; }, [innerRef]);
+  return <Tag {...rest} className={`scene-card ${className}`} ref={setRef} data-og-surface="glow" data-og-reveal="" aria-busy={busy ? 'true' : rest['aria-busy']}>
+    <div className="scene-mc"><div className="scene-card-in">{children}</div></div>
     {busy && <BorderBeam size={110} duration={3.2} colorFrom="#34D399" colorTo="#6EE7B7" borderWidth={1.5} />}
-  </div>;
+  </Tag>;
 }
 
 // Steps a scripted scene forward once: returns how many of the given delays (ms) have elapsed.
@@ -268,14 +274,37 @@ export function useSteps(times) {
   return s;
 }
 
-// Section backdrop: grid cells answer the cursor when the section is visible.
-export function SectionBg() {
-  const ref = useRef(null);
-  const visible = useInView(ref, { margin: '200px' });
-  return <div className="sec-bg" ref={ref} aria-hidden="true">
-    {visible && <InteractiveGridPattern width={56} height={56} squares={[40, 30]} className="igrid" squaresClassName="igrid-sq" />}
-  </div>;
+// ── Pulses: how proactive events answer through the field ──
+// A pulse from an element, only when it is on screen and motion is allowed (the conductor draws rings
+// for anything, so off-screen or reduced-motion pulses are dropped here).
+const reducedNow = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+export function livePulse(el, kind = 'change', strength = .5) {
+  if (!el || reducedNow()) return;
+  const r = el.getBoundingClientRect(); if (!r.width || r.bottom < 0 || r.top > innerHeight) return;
+  orchestra.pulseFrom(el, kind, strength);
 }
+// The field mounts after hydration (PageShell's Field); pulses sent before it listens are lost.
+// onFieldReady runs a callback once it does (at once if it already has) and returns a cancel.
+let fieldIsReady = false; const fieldWaiters = new Set();
+export function onFieldReady(cb) {
+  if (fieldIsReady) { cb(); return () => {}; }
+  fieldWaiters.add(cb); return () => fieldWaiters.delete(cb);
+}
+// A section's arrival: the first time the element is well inside the viewport, once its cards have
+// started their entrance, a pulse goes out from it.
+export function useArrivalPulse(ref, { kind = 'change', strength = .6, delay = 420, amount = .35 } = {}) {
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    let t; const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return; io.disconnect();
+      t = setTimeout(() => onFieldReady(() => livePulse(ref.current, kind, strength)), delay);
+    }, { threshold: amount });
+    io.observe(el); return () => { io.disconnect(); clearTimeout(t); };
+  }, []);
+}
+
+// Retired: the page's one background is the living field (PageShell). Kept so pages still compile.
+export function SectionBg() { return null; }
 
 const BeamLayer = createContext(null);
 // AnimatedBeam measures screen pixels; inside a scaled canvas it would draw at the wrong scale.
@@ -299,8 +328,8 @@ export function Kicker({ children }) {
 }
 export function Title({ id, lead, dim, as = 'h2', className }) {
   return <Heading as={as} id={id} className={className}>
-    <TextAnimate as="span" by="word" animation="slideUp" initial={as === 'h1' ? 'show' : 'hidden'} once startOnView className="t-line">{lead}</TextAnimate>
-    {dim && <TextAnimate as="span" by="word" animation="slideUp" initial={as === 'h1' ? 'show' : 'hidden'} once startOnView delay={.2} className="t-line t-dim">{dim}</TextAnimate>}
+    <TextAnimate as="span" by="word" animation="blurInUp" duration={.5} initial={as === 'h1' ? 'show' : 'hidden'} once startOnView className="t-line">{lead}</TextAnimate>
+    {dim && <TextAnimate as="span" by="word" animation="blurInUp" duration={.5} initial={as === 'h1' ? 'show' : 'hidden'} once startOnView delay={.18} className="t-line t-dim">{dim}</TextAnimate>}
   </Heading>;
 }
 // A one-sentence statement: Magic UI TextReveal lights each word as the reader scrolls through it.
@@ -309,7 +338,7 @@ export function Reveal({ children }) {
   return <><p className="sr-only">{children}</p><div aria-hidden="true"><TextReveal className="reveal">{children}</TextReveal></div></>;
 }
 export function Lede({ children, className }) {
-  return <TextAnimate as="p" by="word" animation="fadeIn" duration={.6} once startOnView className={className}>{children}</TextAnimate>;
+  return <TextAnimate as="p" by="line" animation="blurInUp" duration={.6} delay={.35} once startOnView className={className}>{children}</TextAnimate>;
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
@@ -444,7 +473,19 @@ const SYNCED = [
 export function BrowserScene() {
   const s = useSteps([500, 1300, 2700, 3700, 4500]);
   const filled = s >= 2;
-  return <div className="scene scene-browser">
+  // Each scripted step answers through the field: the panel docks, the login fills (keystroke pulses
+  // as the fields type themselves), the sign-in lands, the note settles.
+  const box = useRef(null); const email = useRef(null); const pass = useRef(null);
+  useEffect(() => {
+    const q = (sel) => box.current?.querySelector(sel);
+    if (s === 1) livePulse(q('.br-side'), 'change', .4);
+    if (s === 2) livePulse(q('.br-fill'), 'change', .45);
+    if (s === 4) livePulse(q('.br-done') || q('.br-page'), 'change', .6);
+    if (s === 5) livePulse(q('.br-side'), 'change', .35);
+  }, [s]);
+  useTypePulse(email, s === 2 ? 'sam@acme.example' : '', { delay: 0, perChar: 30 });
+  useTypePulse(pass, s === 3 ? '••••••••••••' : '', { delay: 0, perChar: 40 });
+  return <div className="scene scene-browser" ref={box}>
     <div className="br-frame">
       <Safari url="partners.acme.example/sign-in" />
       <div className="br-screen">
@@ -453,8 +494,8 @@ export function BrowserScene() {
           <AnimatePresence mode="wait" initial={false}>
             {s < 4 ? <motion.div key="form" className="br-form" exit={{ opacity: 0, y: -8 }} transition={{ duration: .25 }}>
               <b className="br-h">Sign in</b>
-              <label>Email<span className={`br-field ${s === 2 || s === 3 ? 'on' : ''}`}>{filled ? <TypingAnimation as="span" duration={30} startOnView={false} showCursor={false}>sam@acme.example</TypingAnimation> : <i>you@company.com</i>}</span></label>
-              <label>Password<span className={`br-field ${s === 3 ? 'on' : ''}`}>{s >= 3 ? <TypingAnimation as="span" duration={40} startOnView={false} showCursor={false}>••••••••••••</TypingAnimation> : <i>Password</i>}</span></label>
+              <label>Email<span ref={email} className={`br-field ${s === 2 || s === 3 ? 'on' : ''}`}>{filled ? <TypingAnimation as="span" duration={30} startOnView={false} showCursor={false}>sam@acme.example</TypingAnimation> : <i>you@company.com</i>}</span></label>
+              <label>Password<span ref={pass} className={`br-field ${s === 3 ? 'on' : ''}`}>{s >= 3 ? <TypingAnimation as="span" duration={40} startOnView={false} showCursor={false}>••••••••••••</TypingAnimation> : <i>Password</i>}</span></label>
               <span className={`br-submit ${s >= 3 ? 'ready' : ''}`}>Sign in</span>
             </motion.div>
             : <motion.div key="done" className="br-done" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3 }}>
@@ -663,7 +704,7 @@ const SCREEN_CMDS = {
   'mobile/project-ios-2': 'ask the Acme project on my phone',
   'replay': 'replay what I worked on',
   'entities': 'who is Sam Okafor?', 'search': 'search everything for acme pilot', 'chat': 'what did I promise Sam?',
-  'reflect': 'where did my time go?', 'approval': 'draft the reply to Sam', 'actions': 'what do I owe people?', 'integrations': 'connect my work tools',
+  'reflect': 'where did my time go?', 'actions': 'what do I owe people?', 'integrations': 'connect my work tools',
   'web-plan': 'calculate Team pricing for 40 people', 'web-takeover': 'take over for sign-in', 'web-done': 'show me what you found',
   'web-step': 'read the Team plan price', 'web-compare': 'put it in a table', 'web-tasks': 'show my web tasks', 'mobile/web-step-ios': 'watch it from my phone', 'mobile/web-compare-ios': 'put it in a table', 'mobile/web-replay-ios': 'replay the errand',
   'meetings': 'summarize the Acme pilot kickoff', 'mobile/voice-ios-2': 'talk to my AI', 'mobile/vision-ios-2': "what's the total on this receipt?",
@@ -742,8 +783,26 @@ export function SceneRoll({ seq, className = '' }) {
   </Dock>;
 }
 // A tour's command line: window dots and the typed command for the screen on show.
+// While a command types itself out, each keystroke sends a small 'type' pulse from the caret, the same
+// signal real typing sends (only on screen, never with reduced motion). Timing matches the
+// TypingAnimation below: 150ms delay, 38ms per character.
+export function useTypePulse(ref, text, { delay = 150, perChar = 38 } = {}) {
+  const reduce = useContext(PlayCtx).reducedMotion;
+  useEffect(() => {
+    const el = ref.current; if (!el || !text || reduce) return;
+    const r0 = el.getBoundingClientRect(); if (!r0.width || r0.bottom < 0 || r0.top > innerHeight) return;
+    const ts = []; const start = setTimeout(() => {
+      for (let k = 2; k <= text.length; k += 2) ts.push(setTimeout(() => {
+        const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+        orchestra.pulse(Math.min(r.right - 6, r.left + 18 + k * 7), r.top + r.height / 2, 'type', .3);
+      }, k * perChar));
+    }, delay);
+    return () => { clearTimeout(start); ts.forEach(clearTimeout); };
+  }, [text, reduce]);
+}
 export function CmdBar({ text, seq, className = '' }) {
-  return <div className={`tour-cmd ${className}`}><span className="tour-cmd-dots" aria-hidden="true"><i /><i /><i /></span><span className="tour-cmd-text" aria-hidden="true"><span className="cmd-caret">›</span><TypingAnimation key={text} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{text}</TypingAnimation></span><SceneRoll seq={seq} /></div>;
+  const line = useRef(null); useTypePulse(line, text);
+  return <div className={`tour-cmd ${className}`}><span className="tour-cmd-dots" aria-hidden="true"><i /><i /><i /></span><span className="tour-cmd-text" aria-hidden="true" ref={line}><span className="cmd-caret">›</span><TypingAnimation key={text} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{text}</TypingAnimation></span><SceneRoll seq={seq} /></div>;
 }
 // Collects screen reports for one feature (mount one per feature so reports never leak between them).
 export function CmdScope({ chapter, cmd, children }) {
@@ -819,7 +878,10 @@ const ZOOM = {
 };
 // Every screen gets a camera move: detail screens zoom to their subject, other desktop screens push in gently
 // toward the content, and phone or paired compositions push in slightly as a whole.
-const zoomFor = (name, comp, phone) => ZOOM[name] || (phone ? [.5, .3, 1.14] : comp ? [.5, .5, 1.06] : [.6, .4, 1.16]);
+// Desktop screens without a detail zoom never push in (that cropped UI text at the edges): they settle
+// from 96.5% to full size instead. push={false} (Zoomed, ShotSeq) turns the generic moves off and keeps
+// only the detail zooms above.
+const zoomFor = (name, comp, phone, push = true) => ZOOM[name] || (!push ? [.5, .5, 1] : phone ? [.5, .3, 1.14] : comp ? [.5, .5, 1.06] : [.5, .45, 1]);
 const isMacPair = (name) => !!SHOT_PAIRS[name] && !SHOT_PAIRS[name][0].startsWith('mobile/');
 const holdFor = (name) => (isMacPair(name) ? 2200 : ZOOM[name] ? 700 : 200);
 // Time on one screen: a short read, plus room for its camera move. Everything that times a sequence uses this.
@@ -834,12 +896,12 @@ const PAIR_PATH = {
     transition: { delay: .2, duration: 2.3, times: [0, .3, .45, .8, 1], ease: [.45, 0, .25, 1] } },
   leave: { scale: 1, x: '0%', y: '0%', transition: { duration: .7, ease: [.45, 0, .55, 1] } },
 };
-export function Zoomed({ name, comp, phone, children }) {
-  const reduce = useContext(PlayCtx).reducedMotion; const z = zoomFor(name, comp, phone);
+export function Zoomed({ name, comp, phone, push = true, children }) {
+  const reduce = useContext(PlayCtx).reducedMotion; const z = zoomFor(name, comp, phone, push);
   if (reduce) return children;
-  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ first: { scale: 1 }, enter: { scale: 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
+  return <div className="shot-zoom"><motion.div className="shot-zoom-in" style={{ transformOrigin: `${z[0] * 100}% ${z[1] * 100}%` }} variants={{ first: { scale: 1 }, enter: { scale: z[2] === 1 && push ? .965 : 1 }, show: { scale: z[2], transition: { delay: .35, duration: 1.4, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>{children}</motion.div></div>;
 }
-export function ShotSeq({ shots, ms = 3200, hold }) {
+export function ShotSeq({ shots, ms = 3200, hold, push = true }) {
   const zc = useContext(ZoomCtx); const theme = useContext(ThemeCtx);
   const [open, setOpen] = useState(false);
   const [i, setI] = useState(0);
@@ -872,6 +934,8 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
   useZoomRegister(zc, shots, () => !!box.current?.getClientRects().length);
   const onScreen = useContext(ScreenCtx); const ctrl = useContext(SeqCtrlCtx);
   useEffect(() => { if (!present) return; onScreen?.(shots[i][0]); ctrl?.({ shots, i, go: (k) => { setI(k); setN(v => v + 1); } }); }, [i, n, present]);
+  // Each new screen sends a soft pulse through the field and the cards around it.
+  useEffect(() => { if (n && present && inView && !reduce && box.current) orchestra.pulseFrom(box.current, 'change', .4); }, [n]);
   const [name, alt] = shots[i];
   const pair = SHOT_PAIRS[name];
   // Any tap on the screen area opens full screen (on phones the device frame covers most of it).
@@ -880,10 +944,10 @@ export function ShotSeq({ shots, ms = 3200, hold }) {
       {running && <Preload names={[shots[(i + 1) % shots.length][0]]} />}
       <AnimatePresence>
         <motion.div key={`${name}-${n}`} className="wt-shot-fade" variants={reduce ? undefined : DISSOLVE_V} initial={reduce ? false : n === 0 ? 'first' : 'enter'} animate={reduce ? { opacity: 1 } : 'show'} exit={reduce ? { opacity: 0, transition: { duration: 0 } } : 'leave'}>
-        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { first: { scale: 1 }, enter: { scale: 1 }, show: { scale: zoomFor(name, true)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
+        <motion.div style={{ '--fx': FOCUS[name] ?? .5 }} className={`wt-shot-in${name.startsWith('mobile/') ? ' wt-shot-mobile' : ''}${pair ? ' wt-shot-pair' : ''}${pair?.[0].startsWith('mobile/') ? ' wt-shot-pair-phones' : ''}`} variants={reduce || !(!!pair || name.startsWith('mobile/')) ? undefined : isMacPair(name) ? PAIR_PATH : { first: { scale: 1 }, enter: { scale: 1 }, show: { scale: zoomFor(name, true, false, push)[2], transition: { delay: .35, duration: 1.6, ease: [.45, 0, .25, 1] } }, leave: { scale: 1, transition: { duration: .7, ease: [.45, 0, .55, 1] } } }}>
           {pair ? <ShotPair pair={pair} name={name} alt={alt} /> : name.startsWith('mobile/') ? <div className="shot-solo-phone"><Device name={name} theme={theme} alt={alt} /></div>
             // Phones see the whole desktop screen inside a MacBook frame; wider screens keep the screenshot filling the window.
-            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name}><Shot name={name} alt={alt} lazy={!inView} /></Zoomed></div></div></div>}
+            : <div className="shot-mac-wrap"><div className="shot-mac-box"><MacbookPro className="shot-mac-frame" aria-hidden="true" /><div className="shot-mac-screen"><Zoomed name={name} push={push}><Shot name={name} alt={alt} lazy={!inView} /></Zoomed></div></div></div>}
         </motion.div>
         </motion.div>
       </AnimatePresence>
@@ -912,23 +976,108 @@ const WALK = [
   { id: 'models', cmd: 'choose models for my devices', title: 'Your models. Every kind.', line: 'Download once. It works with the Wi-Fi off.', chips: ['Text', 'Vision', 'Image', 'Speech', 'Computer use'], loop: 0, View: shotView(['mobile/models-ios-1', 'Off Grid AI on iPhone: the model library.', 4200], ['models-fit', 'Off Grid AI Models: text models marked by how well they fit this Mac.', 3400], ['models-storage', 'Off Grid AI Models: storage used by each downloaded model.', 3400], ['models-voice-list', 'Off Grid AI Models: Kokoro voices on your computer, such as Heart, River and Sarah.', 3200], ['models-vision', 'Off Grid AI Models: vision models available to download.', 2800], ['models-image', 'Off Grid AI Models: image models available to download.', 2800], ['models-transcription', 'Off Grid AI Models: transcription models available to download.', 2800], ['models-computer-use', 'Off Grid AI Models: computer use models available to download.', 2800]) },
   { id: 'api', cmd: 'curl localhost:7878/v1/chat/completions', title: 'Your other apps can use it too.', line: 'An OpenAI-compatible API on your own machine.', chips: ['OpenAI-compatible', 'Headless', 'No API key'], loop: 0, View: shotView(['gateway', 'Off Grid AI Gateway: the local base URL, a curl example, and endpoints for chat, images, speech, embeddings and models.', 4000], ['api-activity', 'Off Grid AI AI activity: every model call, slowest first, with request and response.', 3400]) },
 ];
+// The hero's example questions: each opens a chapter of the tour (`to`). Ids are unique keys.
 const PROMPTS = [
-  { id: 'ask', label: 'What did I promise Sam?' }, { id: 'act', label: 'Draft the reply' }, { id: 'phone', label: 'Send it to my phone' },
-  { id: 'vault', label: 'Fill my login' }, { id: 'meetings', label: 'Summarize my meeting' }, { id: 'ask', label: 'Ask my documents' },
+  { id: 'p-sam', to: 'ask', label: 'What did I promise Sam?' }, { id: 'p-reply', to: 'act', label: 'Draft the reply' }, { id: 'p-phone', to: 'phone', label: 'Send it to my phone' },
+  { id: 'p-login', to: 'vault', label: 'Fill my login' }, { id: 'p-meeting', to: 'meetings', label: 'Summarize my meeting' }, { id: 'p-docs', to: 'ask', label: 'Ask my documents' },
 ];
 const INTENTS = [[/document|pdf|rag|project|notes|cite|citation|source|knowledge/i, 'ask'], [/connector|integration|mcp|tool|notion|gmail|linear|jira|calendar/i, 'act'], [/api|curl|openai|endpoint|gateway/i, 'api'], [/image|picture|draw|photo/i, 'images'], [/clipboard|copied|paste/i, 'clipboard'], [/brief|ares|god|chief/i, 'god'], [/who is|people|crm|contact/i, 'people'], [/week|time|hours|reflect/i, 'reflect'],[/promise|agree|what did|ask|recall|remember/i, 'ask'], [/draft|reply|email|send.*sam|approve/i, 'act'], [/phone|sync|mobile/i, 'phone'],
   [/login|password|fill|browser|chrome|firefox/i, 'vault'], [/meeting|summar|call|record/i, 'meetings'], [/vault|secret|key/i, 'vault'], [/model|offline|qwen|gemma/i, 'models'], [/web|search|compare|browse/i, 'web'], [/today|day|journal/i, 'today']];
+// The example a piece of text means: a prefix of a question first, then any question containing it.
+const matchPrompt = (text) => {
+  const t = text.trim().toLowerCase(); if (!t) return -1;
+  const i = PROMPTS.findIndex(p => p.label.toLowerCase().startsWith(t));
+  return i >= 0 ? i : PROMPTS.findIndex(p => p.label.toLowerCase().includes(t));
+};
+const intentOf = (text) => { const i = matchPrompt(text); if (i >= 0) return PROMPTS[i].to; const hit = INTENTS.find(([re]) => re.test(text)); return hit ? hit[1] : 'ask'; };
 
-// Preset prompts keep the animated hero interaction without accepting free text.
-const BAR_PROMPTS = PROMPTS.map(prompt => prompt.label);
-function CommandBar({ onRun }) {
+// The hero prompt and its chips are one instrument with one source of truth (k): the vanish input types
+// PROMPTS[k] on its own, and the chip for the question in the input carries the light (Motion Primitives
+// AnimatedBackground, the upstream gliding highlight, controlled by the input). Clicking into the field
+// lets the visitor type; the light then follows the best match. Enter on an empty field opens the
+// question shown; clicking a chip shows its question and opens its chapter.
+function HeroPrompt({ onRun, active }) {
   const reduce = useContext(PlayCtx).reducedMotion;
-  return <div className="cmd-vanish" aria-label="Off Grid AI demo">
-    <PresetVanishInput placeholders={BAR_PROMPTS} presetMode reducedMotion={reduce}
-      label="Open the example shown" submitLabel="Open example chapter"
-      onVanishComplete={(text) => onRun((PROMPTS.find(prompt => prompt.label === text) || PROMPTS[0]).id)} />
-    <p className="cmd-note">Press Enter, or pick one below.</p>
-  </div>;
+  const [k, setK] = useState(0); const [typing, setTyping] = useState(false); const [q, setQ] = useState('');
+  const field = useRef(null); const row = useRef(null); const touching = useRef(0);
+  // The light arrives after hydration and after the chips cascade in (server paint: no lit chip). With
+  // reduced motion it is there at once. The first arrival blooms (library og-alive-bloom); then it glides.
+  const [lightOn, setLightOn] = useState(false); const [arriving, setArriving] = useState(false);
+  useEffect(() => {
+    if (reduce) { setLightOn(true); return; }
+    const a = setTimeout(() => { setArriving(true); setLightOn(true); }, 650 + PROMPTS.length * 45);
+    const b = setTimeout(() => setArriving(false), 650 + PROMPTS.length * 45 + 720);
+    return () => { clearTimeout(a); clearTimeout(b); };
+  }, [reduce]);
+  const lit = !lightOn ? -1 : typing && q.trim() ? matchPrompt(q) : k;
+  // The cycle follows the input itself: once it has typed this question out and deleted it again, the
+  // next one starts. Each new pair of characters it types sends a keystroke pulse from the caret.
+  useEffect(() => {
+    if (!active || typing || reduce) return;
+    // It moves on when the text goes from something to nothing (deleted), or if the field has sat empty
+    // for 1.5s (it finished while the hero was away).
+    let prev = ''; let pulsed = 0; let emptySince = performance.now();
+    const t = setInterval(() => {
+      const el = field.current?.querySelector('input'); if (!el) return;
+      const v = el.value; const now = performance.now();
+      if (v.length > prev.length && v.length >= pulsed + 2) {
+        pulsed = v.length; const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < innerHeight) orchestra.pulse(Math.min(r.right - 60, r.left + 18 + v.length * 7.4), r.top + r.height / 2, 'type', .3);
+      }
+      if (v.length < prev.length) pulsed = 0;
+      if (v) emptySince = now;
+      const done = (prev && !v) || (!v && now - emptySince > 1500);
+      prev = v;
+      if (done) { clearInterval(t); setK(n => (n + 1) % PROMPTS.length); }
+    }, 90);
+    return () => clearInterval(t);
+  }, [k, active, typing, reduce]);
+  // The light's handoff answers through the field; on phones the lit chip glides into view.
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    const r = row.current; const chip = lit >= 0 ? r?.querySelectorAll('.hero-chip')[lit] : null;
+    if (!chip || !active) return;
+    livePulse(chip, 'change', .35);
+    if (r.scrollWidth > r.clientWidth + 2 && performance.now() - touching.current > 1500) {
+      const rr = r.getBoundingClientRect(); const cr = chip.getBoundingClientRect();
+      if (rr.bottom > 0 && rr.top < innerHeight) r.scrollTo({ left: r.scrollLeft + (cr.left - rr.left) - (r.clientWidth - cr.width) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+  }, [lit]);
+  const startTyping = () => { flushSync(() => setTyping(true)); field.current?.querySelector('input')?.focus(); };
+  const stopTyping = () => { setTyping(false); setQ(''); };
+  const one = useMemo(() => [PROMPTS[k].label], [k]);
+  const pick = (i) => { stopTyping(); setK(i); onRun(PROMPTS[i].to); };
+  return <>
+    <div className="cmd-vanish" aria-label="Off Grid AI demo">
+      <div className="cmd-field" data-slot="input-control" ref={field}
+        onPointerDownCapture={(e) => { if (typing || e.button !== 0 || e.target.closest('button')) return; e.preventDefault(); startTyping(); }}
+        onFocusCapture={(e) => { if (typing || e.target.tagName !== 'INPUT') return; e.stopPropagation(); startTyping(); }}
+        onBlurCapture={(e) => { if (!typing || q.trim() || field.current?.contains(e.relatedTarget)) return; stopTyping(); }}
+        onSubmitCapture={() => livePulse(field.current, 'change', .9)}>
+        <PresetVanishInput key={typing ? 'type' : 'preset'} placeholders={one} presetMode={!typing} reducedMotion={reduce}
+          label={typing ? 'Ask the demo a question' : 'Open the example shown'} submitLabel="Open example chapter"
+          onChange={(e) => setQ(e.target.value)}
+          onSubmit={() => { if (typing && !q.trim()) pick(k); }}
+          onVanishComplete={(text) => { stopTyping(); onRun(intentOf(text)); }} />
+      </div>
+      <p className="cmd-note">Press Enter, or pick one below.</p>
+    </div>
+    {/* The chips cascade in centre-out (the AISuggestions timing). Each chip is a slot (motion span) for
+        AnimatedBackground: the highlight sits in the slot behind the site ghost button, and the button's
+        own click runs the prompt (the slot's click only moves the highlight). */}
+    <motion.div layoutScroll className="cmd-chips" ref={row} onPointerDown={() => { touching.current = performance.now() + 1e6; }} onPointerUp={() => { touching.current = performance.now(); }} onPointerCancel={() => { touching.current = performance.now(); }}>
+      <div className={`chips-row${arriving ? ' is-arriving' : ''}`} role="group" aria-label="Example questions">
+        <AnimatedBackground className="chip-lit" defaultValue={lit >= 0 ? PROMPTS[lit].id : null} transition={reduce ? { duration: 0 } : { type: 'spring', bounce: .12, duration: .55 }}>
+          {PROMPTS.map((p, i) => <motion.span key={p.id} data-id={p.id} className="chip-slot"
+            initial={reduce ? false : { opacity: 0, scale: .94, y: 6 }} animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: 'spring', bounce: .1, duration: .25, delay: .25 + Math.abs(i - (PROMPTS.length - 1) / 2) * .045 }}>
+            <button type="button" data-slot="button" data-variant="ghost" className="hero-chip" aria-current={i === lit ? 'true' : undefined} onClick={() => pick(i)}>{p.label}</button>
+          </motion.span>)}
+        </AnimatedBackground>
+      </div>
+    </motion.div>
+  </>;
 }
 
 const HERO = .07;
@@ -936,6 +1085,30 @@ const STAGE = .5;
 const ROT_WORDS = ['memory.', 'meetings.', 'devices.', 'browser.', 'secrets.'];
 export const WALK_LABELS = { today: 'Today', god: 'God', capture: 'Capture', remember: 'Memory', people: 'People', reflect: 'Reflect', ask: 'Ask', act: 'Act', web: 'Web', meetings: 'Meetings', phone: 'Phone', voice: 'Voice', vision: 'Vision', browser: 'Browser', vault: 'Vault', clipboard: 'Clipboard', images: 'Images', models: 'Models', api: 'API' };
 export const WALK_ICONS = { god: Sparkle, people: UsersThree, clipboard: ClipboardText, images: ImageSquare, reflect: ChartBar, today: CalendarBlank, capture: Files, remember: ClockCounterClockwise, ask: ChatCircle, act: CheckCircle, web: Globe, meetings: VideoCamera, phone: DeviceMobile, voice: Microphone, vision: ImageSquare, browser: PuzzlePiece, vault: LockKey, models: Cpu, api: TerminalWindow };
+
+// The rotating word's slot follows the word on screen: it measures the upstream WordRotate and eases
+// its width (library timing), so the line stays centred for every word and "Your" glides along.
+// The server renders it at the first word's natural width, so first paint does not move.
+function RotSlot({ children, first, live }) {
+  const inner = useRef(null); const [w, setW] = useState(null);
+  // The server paints the first word as plain text (WordRotate starts hidden), so the line reads
+  // "Your memory." before hydration; the upstream rotation takes over once mounted.
+  const [mounted, setMounted] = useState(false); useEffect(() => setMounted(true), []);
+  // Each new word lands with a small keystroke pulse from the word, while the hero is on show.
+  const liveRef = useRef(live); liveRef.current = live; const last = useRef(0);
+  useEffect(() => {
+    const el = inner.current; if (!el) return;
+    const ro = new ResizeObserver(() => {
+      setW(el.getBoundingClientRect().width);
+      const now = performance.now(); if (!liveRef.current || now - last.current < 900) return;
+      last.current = now; livePulse(el, 'type', .45);
+    }); ro.observe(el);
+    return () => ro.disconnect();
+  }, [mounted]);
+  return <motion.span className="rot-slot" initial={false} animate={w == null ? undefined : { width: w }} transition={{ duration: .48, ease: [.16, 1, .3, 1] }}>
+    <span className="rot-measure" ref={inner}>{mounted ? children : <span className="rot">{first}</span>}</span>
+  </motion.span>;
+}
 
 function Walkthrough({ reduce, theme }) {
   const ref = useRef(null);
@@ -950,8 +1123,6 @@ function Walkthrough({ reduce, theme }) {
   const STEP = 360 / N; const idxOf = (r) => ((Math.round(-r / STEP) % N) + N) % N;
   const wheelBox = useRef(null); const [wz, setWz] = useState(.6); const [wheelR, setWheelR] = useState(360); const tabsRef = useRef(null); const tap = useRef(null); const [miss, setMiss] = useState(''); const [inView, setInView] = useState(false); const [hoverI, setHoverI] = useState(-1); const lock = useRef(0); const [manual, setManual] = useState(false); const copyRef = useRef(null); const [copyH, setCopyH] = useState(260);
   const [geo, setGeo] = useState({ d: 380, s: .62, mobile: false, ready: false, columns: 40, rows: 24 });
-  // Keep every visible hover cell, but omit cells beyond the clipped viewport.
-  const grid = useMemo(() => <InteractiveGridPattern width={48} height={48} squares={[geo.columns, geo.rows]} className="igrid" squaresClassName="igrid-sq" />, [geo.columns, geo.rows]);
   const view = useRef(null); const heroRef = useRef(null); const beamLayer = useRef(null); const [fit, setFit] = useState(1);
   useEffect(() => {
     const el = view.current; if (!el) return;
@@ -988,6 +1159,15 @@ function Walkthrough({ reduce, theme }) {
   const copyFade = useTransform(dock, [.55, 1], [0, 1]);
   // The wheel turns to a chapter; whatever sits at the top plays in the window.
   const pend = useRef(null);
+  // While the wheel turns (autoplay, keys, buttons, the intro), light trails along its rim where the
+  // chapters pass the top, the same 'drag' signal a hand on the wheel sends.
+  const rimAt = useRef(0);
+  const rimPulse = useCallback(() => {
+    const now = performance.now(); if (now - rimAt.current < 70) return; rimAt.current = now;
+    const w = wheelBox.current?.querySelector('.og-wheel'); if (!w || reduce) return;
+    const r = w.getBoundingClientRect(); if (!r.width || r.bottom < 0 || r.top > innerHeight) return;
+    orchestra.pulse(r.left + r.width / 2, r.top + Math.min(40, r.height * .08), 'drag', .35);
+  }, [reduce]);
   const spinTo = useCallback((i, instant) => {
     const cur = rotRef.current; const d = ((((-i * STEP) - cur) % 360) + 540) % 360 - 180; const target = cur + d;
     spin.current?.stop(); clearTimeout(settle.current);
@@ -996,13 +1176,14 @@ function Walkthrough({ reduce, theme }) {
     // mounts the next chapter's screens mid-spin and freezes the animation. Hold off the wheel's own rotation
     // reports while it turns, or they cancel the spin (keys, buttons, autoplay).
     pend.current = i; lock.current = performance.now() + 760;
-    spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); }, onComplete: () => { pend.current = null; setCh(i); } });
-  }, [STEP, reduce]);
+    spin.current = animate(cur, target, { duration: .7, ease: [.65, 0, .35, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); rimPulse(); }, onComplete: () => { pend.current = null; setCh(i); } });
+  }, [STEP, reduce, rimPulse]);
   // Keep the selected chapter tab in view on phones.
   useEffect(() => { const row = tabsRef.current; const t = row?.querySelector('[aria-pressed="true"]'); if (!t || !row.offsetParent) return; row.scrollTo({ left: t.offsetLeft - (row.clientWidth - t.offsetWidth) / 2, behavior: 'smooth' }); }, [ch]);
   useEffect(() => { const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting)); if (ref.current) io.observe(ref.current); return () => io.disconnect(); }, []);
   // Selecting a chapter starts its own cycle; only the Pause control stops autoplay.
-  const onWheel = (r) => { if (performance.now() < lock.current) return; setManual(false); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
+  const touch = useRef(null);
+  const onWheel = (r) => { if (performance.now() < lock.current) return; if (touch.current) { const now = performance.now(); if (now - rimAt.current > 70) { rimAt.current = now; if (!reduce) orchestra.pulse(touch.current.x, touch.current.y, 'drag', .35); } } setManual(false); spin.current?.stop(); rotRef.current = r; setRot(r); clearTimeout(settle.current); settle.current = setTimeout(() => setCh(idxOf(rotRef.current)), 160); };
   const dockTop = () => { const el = ref.current; if (!el) return null; return el.getBoundingClientRect().top + scrollY + (el.offsetHeight - innerHeight) * Math.min(1, STAGE * 1.1); };
   const go = useCallback((i) => {
     const n = (i + N) % N;
@@ -1039,7 +1220,7 @@ function Walkthrough({ reduce, theme }) {
     const target = rotRef.current; const from = target + 100;
     spin.current?.stop(); lock.current = performance.now() + 1700;
     rotRef.current = from; setRot(from);
-    spin.current = animate(from, target, { duration: 1.3, ease: [.16, 1, .3, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); } });
+    spin.current = animate(from, target, { duration: 1.3, ease: [.16, 1, .3, 1], onUpdate: (v) => { rotRef.current = v; setRot(v); rimPulse(); } });
   }, [docked, inView, reduce]);
   // Left/right move between chapters while the tour is on screen, without first focusing the wheel.
   useEffect(() => {
@@ -1076,42 +1257,67 @@ function Walkthrough({ reduce, theme }) {
   // Only a screen from this chapter's own list counts (an outgoing chapter can still tick while it fades out).
   const mine = scr && scr.ch === ch && WALK[ch].View.shots?.some(x => x[0] === scr.name);
   const cmd = cmdFor(WALK[ch].id, mine ? scr.name : null, WALK[ch].cmd);
+  const cmdLine = useRef(null); useTypePulse(cmdLine, docked ? cmd : C.cmd);
   const [seq, setSeq] = useState(null); const seqMine = seq && WALK[ch].View.shots?.some(x => x[0] === seq.shots[0][0]) ? seq : null;
   const { ctx: zoom, viewer: zoomViewer } = useZoomOwner({ index: ch, count: N, title: WALK[ch].title, line: WALK[ch].line, progress: reduce ? null : chapterProgress, goTo: (k) => goRef.current(k) });
   // Wheel rotation and screen reports do not change the hero or its effects.
   // Keep the same elements so their own animation state can run independently.
-  const background = useMemo(() => <div className="walk-alive" aria-hidden="true">
-        <AnimatedGridPattern width={48} height={48} numSquares={36} maxOpacity={.22} duration={3.2} repeatDelay={.6} className="alive-grid" />
-        <Particles className="alive-particles" quantity={90} staticity={40} ease={60} size={.5} color={theme === 'light' ? '#059669' : '#34D399'} />
-      </div>, [theme]);
   const hero = useMemo(() => <motion.div ref={heroRef} inert={docked} className={`walk-hero ${docked ? 'off' : ''}`} style={{ opacity: heroFade, y: heroLift }}><Suspense>
         <a className="hero-pill" href="#how"><span className="pulse" /><AnimatedShinyText shimmerWidth={140}>Open source · Five platforms</AnimatedShinyText><ArrowRight size={13} /></a>
         <h1 id="hero-title" className="hero-title">
           <span>Your AI.</span>
           <span className="sr-only">Your memory, meetings, devices, browser and secrets.</span>
         </h1>
-        <div className="hero-title rot-line" aria-hidden="true" style={{ '--rot-ch': Math.max(...ROT_WORDS.map(w => w.length)) }}><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <WordRotate words={ROT_WORDS} duration={2200} className="rot" />}</div>
-        <CommandBar onRun={(id) => { setManual(false); goId(id); }} />
-        <AISuggestions className="cmd-chips" suggestions={PROMPTS} onSelect={(sug) => { setManual(false); goId(sug.id); }} />
+        <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <RotSlot first={ROT_WORDS[0]} live={!docked}><WordRotate words={ROT_WORDS} duration={2200} className="rot" /></RotSlot>}</div>
+        <HeroPrompt active={!docked && inView} onRun={(id) => { setManual(false); goId(id); }} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
-      </Suspense></motion.div>, [docked, reduce, goId, heroFade, heroLift]);
+      </Suspense></motion.div>, [docked, inView, reduce, goId, heroFade, heroLift]);
+  // Proactive events answer through the field.
+  // Load: once the field is up, the hero wakes in sequence: the title, the rotating line, the prompt, the chips.
+  useEffect(() => {
+    const ts = []; const cancel = onFieldReady(() => {
+      if (scrollY > innerHeight * .4) return;
+      [['.hero-title', 'change', .9, 380], ['.rot-line', 'type', .55, 620], ['.cmd-field', 'change', .45, 860], ['.chips-row', 'type', .4, 1080]]
+        .forEach(([sel, kind, strength, at]) => ts.push(setTimeout(() => livePulse(heroRef.current?.querySelector(sel), kind, strength), at)));
+    });
+    return () => { cancel(); ts.forEach(clearTimeout); };
+  }, []);
+  // Docking: the window settling into place sends a wave; leaving it a softer one.
+  const winRef = useRef(null); const wasDocked = useRef(docked);
+  useEffect(() => {
+    if (wasDocked.current === docked) return; wasDocked.current = docked;
+    livePulse(winRef.current, 'change', docked ? .8 : .35);
+  }, [docked]);
+  // A new chapter: the wheel lands (a pulse from the chapter at its top), then the window answers.
+  const lastCh = useRef(ch);
+  useEffect(() => {
+    if (lastCh.current === ch) return; lastCh.current = ch;
+    if (!docked) return;
+    livePulse(wheelBox.current?.querySelector('.og-wheel > button[aria-current="true"]'), 'change', .55);
+    const t = setTimeout(() => livePulse(winRef.current, 'change', .45), 160);
+    return () => clearTimeout(t);
+  }, [ch]);
+  // A finger dragging the window trails light (the conductor does this itself for a mouse).
+  const dragAt = useRef(0);
+  const onWinDrag = (e, info) => {
+    if (e.pointerType !== 'touch' || reduce) return; const now = performance.now(); if (now - dragAt.current < 70) return;
+    dragAt.current = now; orchestra.pulse(info.point.x - scrollX, info.point.y - scrollY, 'drag', .35);
+  };
   const scene = useMemo(() => C.View.fill ? <C.View /> : <div className="wt-canvas"><C.View /></div>, [C]);
   return <section id="how" className="walk" ref={ref}  aria-labelledby="hero-title">
     <div className="walk-pin" style={{ '--copyH': `${copyH}px` }}>
       {hero}
-      <div className="walk-igrid"><Suspense>{grid}</Suspense></div>
-      {/* The hero breathes: grid cells light up on their own and particles drift and answer the cursor. */}
-      {!reduce && inView && !docked && background}
 
       <motion.div ref={copyRef} inert={!docked} className={`walk-copy ${docked ? '' : 'off'}`} style={{ opacity: copyFade }}>
         <Kicker>ONE DAY WITH ALEX</Kicker>
         <div className={`wheel-wrap${wz < .5 ? ' wheel-tight' : ''}`} ref={wheelBox} style={{ '--wz': wz, '--wd': `${wheelR * 2 + 80}px` }} onMouseLeave={() => setHoverI(-1)}
           // The wheel captures the pointer for dragging, so its circles never receive a click. A press and release on the same circle without moving opens that chapter.
-          onPointerDownCapture={(e) => { const b = e.target.closest?.('.og-wheel > button'); tap.current = b ? { b, x: e.clientX, y: e.clientY } : null; }}
-          onPointerUpCapture={(e) => { const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(false); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
+          onPointerDownCapture={(e) => { touch.current = e.pointerType === 'touch' ? { x: e.clientX, y: e.clientY } : null; const b = e.target.closest?.('.og-wheel > button'); tap.current = b ? { b, x: e.clientX, y: e.clientY } : null; }}
+          onPointerMoveCapture={(e) => { if (touch.current) touch.current = { x: e.clientX, y: e.clientY }; }} onPointerCancelCapture={() => { touch.current = null; }}
+          onPointerUpCapture={(e) => { touch.current = null; const t = tap.current; tap.current = null; if (!t || Math.hypot(e.clientX - t.x, e.clientY - t.y) > 6) return; const i = [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(t.b); if (i >= 0) { setManual(false); setHoverI(-1); lock.current = performance.now() + 700; setTimeout(() => spinTo(i), 0); } }}
           onFocus={(e) => { const b = e.target.closest?.('.og-wheel > button'); if (b) setHoverI([...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b)); }} onBlur={() => setHoverI(-1)}
           onPointerMove={(e) => { if (e.buttons) return; const b = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.og-wheel > button'); const i = b ? [...wheelBox.current.querySelectorAll('.og-wheel > button')].indexOf(b) : -1; setHoverI(v => (v === i ? v : i)); }}>
           <OrbitalImageWheel className="og-wheel" radius={wheelR} snap rotation={rot} onRotationChange={onWheel} activeId={WALK[ch].id}
@@ -1145,17 +1351,16 @@ function Walkthrough({ reduce, theme }) {
         </div>
       </motion.div>
 
-      <motion.div className={`wt-window ${geo.ready ? 'is-ready' : ''}`} style={{ scale, y }} drag={docked ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={.18}
+      <motion.div ref={winRef} className={`wt-window ${geo.ready ? 'is-ready' : ''}`} style={{ scale, y }} drag={docked ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={.18} onDrag={onWinDrag}
         onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 60) setManual(false); if (info.offset.x < -60) go(ch + 1); else if (info.offset.x > 60) go(ch - 1); }}>
         <Suspense><div className="wt-bar">
           <span className="dots"><i /><i /><i /></span>
-          <span className="wt-cmd"><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
+          <span className="wt-cmd" ref={cmdLine}><span className="cmd-caret">›</span><TypingAnimation key={`${C.id}-${cmd}`} as="span" duration={38} delay={150} startOnView={false} showCursor blinkCursor>{docked ? cmd : C.cmd}</TypingAnimation></span>
           {seqMine ? <PickCtx.Provider value={onPick}><SceneRoll seq={seq} /></PickCtx.Provider> : null}
           <span className="wt-badge"><LockKey size={11} /> On this device</span>
         </div></Suspense>
         <PlayCtx.Provider value={play}><ZoomCtx.Provider value={zoom}><ScreenCtx.Provider value={onScreen}><SeqCtrlCtx.Provider value={setSeq}><BeamLayer.Provider value={beamLayer}>
         <div className="wt-view" ref={view} style={{ '--fit': fit }}>
-          {!C.View.fill && <DotPattern width={18} height={18} cr={1} className="wt-dots" />}
           <AnimatePresence initial={false}>
             <motion.div key={`${C.id}-${cycle}`} className="wt-scene" initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .4 }}>
               <Suspense>{scene}</Suspense>
@@ -1175,14 +1380,22 @@ function Walkthrough({ reduce, theme }) {
 
 const SAMPLE_PROMPTS = ['Summarize my blood test', 'Review this NDA for me', 'Compare two salary offers', 'Reply to my landlord'];
 function PrivLane({ local, prompt, n, active = true }) {
+  // Sending is work: while the log fills (AnimatedList, one row every 450ms) the lane is busy, then it
+  // settles (SceneCard sends the settle pulse). Only while the section is on screen.
+  const [sending, setSending] = useState(false); const firstSend = useRef(true);
+  useEffect(() => {
+    if (firstSend.current) { firstSend.current = false; return; }
+    if (!active) return;
+    setSending(true); const t = setTimeout(() => setSending(false), 450 * 4 + 350 + (local ? 250 : 0));
+    return () => clearTimeout(t);
+  }, [n]);
   const box = useRef(null); const a = useRef(null); const b = useRef(null); const c = useRef(null); const d = useRef(null);
   const nodes = local ? [[ChatCircle, 'Your prompt', a], [Cpu, 'Your chip', b], [CheckCircle, 'Your answer', c]] : [[ChatCircle, 'Your prompt', a], [Globe, 'The internet', b], [HardDrives, 'Their servers', c]];
   const log = local ? [['PROCESSED', 'on your own devices'], ['STORED', 'on your own devices'], ['THIRD PARTIES', 'none receive it'], ['ANSWER', 'stays with you']]
     : [['SENT', "to the provider's servers"], ['LOGGED', `"${prompt}"`], ['STORED', 'per their retention policy'], ['TRAINING', 'depends on the provider']];
-  return <SceneCard className={`plane ${local ? 'plane-local' : ''}`} busy={local}>
+  return <SceneCard className={`plane ${local ? 'plane-local' : ''}`} busy={sending && active}>
     <div className="plane-head"><Kicker>{local ? 'OFF GRID AI' : 'CLOUD AI SERVICE'}</Kicker><span className="plane-count">{local ? 'Stays on your devices' : 'Leaves your device'}</span></div>
     {local ? <div className="lane-viz lane-local">
-      {active && <DotPattern width={10} height={10} cr={.8} className="local-dots" />}
       <span className="map-tag"><LockKey size={12} /> Your prompt never leaves your devices</span>
       {/* A closed network: your phone and laptop ask, your chip answers, your disk keeps it. No path leads outside. */}
       <div className="dev-net" ref={box}>
@@ -1201,9 +1414,12 @@ function PrivLane({ local, prompt, n, active = true }) {
         markers={[{ lat: 19.07, lng: 72.87, size: .9 }, { lat: 39.04, lng: -77.49, size: .7, pulse: true }, { lat: 45.6, lng: -121.18, size: .7, pulse: true }, { lat: 53.35, lng: -6.26, size: .7, pulse: true }, { lat: 1.35, lng: 103.82, size: .7, pulse: true }]} className="map-svg" />}
       <span className="map-tag"><Globe size={12} /> Your prompt, copied to their data centers</span>
     </div>}
-    <AnimatedList key={n} delay={450} className="plog">
-      {log.map(([k, v]) => <div className="plog-row" key={k}><b>{k}</b><span>{v}</span>{local ? <Check size={13} /> : <X size={13} />}</div>)}
-    </AnimatedList>
+    {/* One hairline list (library ListGroup and ListRow); AnimatedList brings each row in. */}
+    <ListGroup className="plog" density="compact" label={local ? 'What happens on your devices' : 'What happens in the cloud'}>
+      <AnimatedList key={n} delay={450} className="plog-in">
+        {log.map(([k, v]) => <ListRow key={k} className="plog-row" title={<b>{k}</b>} description={v} trailing={local ? <Check size={13} /> : <X size={13} />} />)}
+      </AnimatedList>
+    </ListGroup>
   </SceneCard>;
 }
 
@@ -1212,14 +1428,29 @@ export function useNarrow(px = 860) {
   useEffect(() => { const m = matchMedia(`(max-width: ${px}px)`); const f = () => setN(m.matches); f(); m.addEventListener('change', f); return () => m.removeEventListener('change', f); }, [px]);
   return n;
 }
+// A rail or carousel joins the conductor: dragging it trails light through the field ('drag'),
+// and landing on a new card sends a pulse through the cards around it ('change').
+export function useRailPulse(ref, index) {
+  const first = useRef(true);
+  useEffect(() => { if (first.current) { first.current = false; return; } if (ref.current) orchestra.pulseFrom(ref.current, 'change', .6); }, [index]);
+  return useMemo(() => {
+    let down = false; let last = 0;
+    return {
+      onPointerDown: () => { down = true; },
+      onPointerMove: (e) => { if (!down) return; const now = performance.now(); if (now - last < 60) return; last = now; orchestra.pulse(e.clientX, e.clientY, 'drag', .35); },
+      onPointerUp: () => { down = false; }, onPointerCancel: () => { down = false; },
+    };
+  }, []);
+}
 // Phones get a swipeable row (Motion Primitives Carousel) with named tabs and previous/next;
 // wider screens keep the grid.
 export function MobileRail({ className, start = 0, labels, children }) {
   const narrow = useNarrow();
   const items = React.Children.toArray(children);
   const [i, setI] = useState(start);
+  const rail = useRef(null); const drag = useRailPulse(rail, i);
   if (!narrow) return <div className={className}>{items}</div>;
-  return <div className="og-rail">
+  return <div className="og-rail" ref={rail} {...drag}>
     {labels && <div className="rail-tabs" role="group" aria-label="Choose a card"><AnimatedBackground className="rail-tab-hl" defaultValue={String(i)} onValueChange={(v) => v != null && setI(Number(v))}>
       {labels.map((l, k) => <button type="button" key={l} data-id={String(k)} aria-pressed={k === i} className="rail-tab">{l}</button>)}
     </AnimatedBackground></div>}
@@ -1242,14 +1473,14 @@ function PrivacySection() {
   const auto = useCycle(seen && !held ? 7000 : 0);
   useEffect(() => { if (auto) { setPrompt(SAMPLE_PROMPTS[auto % SAMPLE_PROMPTS.length]); setN(v => v + 1); } }, [auto]);
   useEffect(() => { const root = box.current?.querySelector('.priv-input'); root?.querySelector('input')?.setAttribute('aria-label', 'Type a private question for the illustration'); root?.querySelector('button')?.setAttribute('aria-label', 'Show where it goes'); }, []);
-  const send = (e) => { e.preventDefault(); if (!draft.trim()) return; setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); setHeld(true); };
+  const send = (e) => { e.preventDefault(); if (!draft.trim()) return; livePulse(box.current?.querySelector('.priv-input'), 'change', .9); setPrompt(draft.trim().slice(0, 64)); setN(v => v + 1); setHeld(true); };
   // Typing edits the draft only; the diagrams change after submit or a sample advances.
   const lanes = useMemo(() => <MobileRail className="planes" labels={['Cloud AI', 'Off Grid AI']} start={1}>
       <PrivLane prompt={prompt} n={n} active={seen} />
       <PrivLane local prompt={prompt} n={n} active={seen} />
     </MobileRail>, [prompt, n, seen]);
   return <section id="private" className="chapter" aria-labelledby="priv-heading" ref={box}><div className="section-shell">
-    <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></BlurFade>
+    <div className="sec-head" data-og-reveal=""><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></div>
     <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
     {lanes}
   </div></section>;
@@ -1324,6 +1555,36 @@ export function DocEnd() {
   </section>;
 }
 
+// ── The alive layer (@offgrid-ui/alive: the component library's conductor and living field) ──
+// Surfaces already on screen when the conductor starts were painted by the server: mark them seen
+// so they do not blink out and arrive a second time. Everything below the fold still arrives on scroll.
+// Matches the conductor's reveal targets (orchestra.ts REVEAL_SELECTOR + SEMANTIC_SURFACE_SELECTOR).
+const REVEAL_TARGETS = "[data-og-reveal],[data-slot=card],[data-slot=frame],[data-slot=alert],[data-slot=empty],[data-og-alive] :is(div,section,article,aside,li,form,fieldset)[class*='rounded'][class*='border']:not([data-slot])";
+function AlreadySeen() {
+  useEffect(() => {
+    const bottom = innerHeight;
+    document.querySelectorAll(REVEAL_TARGETS).forEach((el) => { const r = el.getBoundingClientRect(); if (r.width && r.bottom > 0 && r.top < bottom) el.setAttribute('data-og-seen', ''); });
+  }, []);
+  return null;
+}
+// The one background: the library's living field, fixed behind the page. It mounts once the page is
+// idle after hydration, so it costs nothing on first paint. Phones get a wider lattice (fewer dots).
+function Field() {
+  const [spacing, setSpacing] = useState(0);
+  useEffect(() => {
+    const go = () => setSpacing(matchMedia('(max-width: 860px)').matches ? 34 : 26);
+    if ('requestIdleCallback' in window) { const id = requestIdleCallback(go, { timeout: 1200 }); return () => cancelIdleCallback(id); }
+    const id = setTimeout(go, 300); return () => clearTimeout(id);
+  }, []);
+  // The field subscribes to the conductor in its own effect, which runs before this one.
+  useEffect(() => {
+    if (!spacing) return;
+    const t = setTimeout(() => { fieldIsReady = true; const ws = [...fieldWaiters]; fieldWaiters.clear(); ws.forEach(f => f()); }, 0);
+    return () => clearTimeout(t);
+  }, [spacing]);
+  return spacing ? <LivingField className="og-field" spacing={spacing} /> : null;
+}
+
 export function PageShell({ children, feedback = true }) {
   const [theme, setTheme] = useState('dark');
   const play = useContext(PlayCtx); const preferredMotion = useReducedMotion();
@@ -1350,35 +1611,37 @@ export function PageShell({ children, feedback = true }) {
   };
   const changeTheme = (next) => { apply(next); setTheme(next); try { localStorage.setItem('theme', next); } catch (_) {} };
 
-  return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={pagePlay}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" className="offgrid-page">
+  return <MotionConfig reducedMotion="user"><PlayCtx.Provider value={pagePlay}><Theme appearance="inherit" accentColor="green" grayColor="gray" radius="small" hasBackground={false} className="offgrid-page" data-og-alive=""><AliveProvider>
+    <AlreadySeen />
+    <Field />
     <a className="skip-link" href="#main">Skip to content</a>
     <ScrollProgress className="h-0.5 z-[100] from-(--og-primary-dark) via-(--og-primary) to-(--og-primary-light)" />
     <Suspense><header className="site-header"><div className="header-inner">
       <a className="wordmark" href="/" aria-label="Off Grid AI home"><Logo size={30} /><span>Off Grid AI</span></a>
       <NavigationMenu className="desktop-nav" aria-label="Main navigation" viewport={false}>
         <NavigationMenuList>
-          {HEADER_MENUS.map(([label, links]) => <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger">{label}</NavigationMenuTrigger>
-            <NavigationMenuContent className="learn-menu">{links.map(([l, href, note]) => <NavigationMenuLink asChild key={href}><a href={href}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}</NavigationMenuContent>
+          {HEADER_MENUS.map(([label, links]) => <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger" data-slot="button" data-variant="ghost">{label}</NavigationMenuTrigger>
+            <NavigationMenuContent className="learn-menu" data-slot="dropdown-menu-content">{links.map(([l, href, note]) => <NavigationMenuLink asChild key={href} data-slot="dropdown-menu-item"><a href={href}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}</NavigationMenuContent>
           </NavigationMenuItem>)}
         </NavigationMenuList>
       </NavigationMenu>
       <div className="header-actions">
-        <a className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
-        <a className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
-        <a className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
         <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
         <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
-          <Dialog.Portal><Dialog.Overlay className="nav-overlay" /><Dialog.Content className="mobile-nav">
+          <Dialog.Portal><Dialog.Overlay className="nav-overlay" data-slot="dialog-overlay" /><Dialog.Content className="mobile-nav" data-slot="dialog-content" data-og-alive="">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button data-site-button="secondary" variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <MobileMenu />
             <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" role="group" aria-label="Community links and appearance">
-              <a className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
-              <a className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
-              <a className="icon-link" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community"><SlackLogo size={18} /></a>
+              <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
+              <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
+              <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community"><SlackLogo size={18} /></a>
               <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
             </div>
           </Dialog.Content></Dialog.Portal>
@@ -1389,14 +1652,14 @@ export function PageShell({ children, feedback = true }) {
     <main id="main" tabIndex={-1}><ThemeCtx.Provider value={theme}>{children}</ThemeCtx.Provider></main>
 
     {feedback && <Suspense><div className="section-shell page-feedback"><DocEnd /></div></Suspense>}
-    <Suspense><footer className="site-footer"><div className="section-shell">
+    <Suspense><footer className="site-footer og-solid"><div className="section-shell">
       <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
       <div className="footer-links">
-        {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
+        {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
       <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer></Suspense>
-  </Theme></PlayCtx.Provider></MotionConfig>;
+  </AliveProvider></Theme></PlayCtx.Provider></MotionConfig>;
 }
 
 export default function PreviewPage({ pricing: initialPricing }) {
@@ -1404,12 +1667,76 @@ export default function PreviewPage({ pricing: initialPricing }) {
   useSectionHash(['private', 'pricing', 'download']);
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
+// The models band answers its own speed: while the page scrolls fast, light runs along the band in the
+// direction and at the pace of the rows (the field's 'drag' trail).
+function useBandPulse(ref, on) {
+  const { scrollY } = useScroll(); const velocity = useVelocity(scrollY); const st = useRef({ x: 0, at: 0 });
+  useMotionValueEvent(velocity, 'change', (vel) => {
+    const el = ref.current; if (!on || !el) return;
+    const now = performance.now(); if (now - st.current.at < 70) return;
+    if (Math.abs(vel) < 250) return;
+    const r = el.getBoundingClientRect(); if (!r.width || r.bottom < 0 || r.top > innerHeight) return;
+    const dt = st.current.at ? Math.min(.2, (now - st.current.at) / 1000) : .07; st.current.at = now;
+    st.current.x = (((st.current.x + vel * dt * 1.4) % r.width) + r.width) % r.width;
+    orchestra.pulse(r.left + st.current.x, r.top + r.height / 2, 'drag', .4);
+  });
+}
+// The manifesto lights word by word as you scroll (Magic UI TextReveal). Each word that lights sends a
+// keystroke pulse from where it sits; the whole sentence lit sends one wave.
+function useRevealPulses(ref) {
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    let lit = null; let raf = 0; let t = 0; let whole = false;
+    const check = () => {
+      raf = 0; const words = [...el.querySelectorAll('.reveal .relative > span:not(.absolute)')]; if (!words.length) return;
+      const now = words.map(w => parseFloat(getComputedStyle(w).opacity) > .6);
+      if (lit) now.forEach((on, i) => { if (on && !lit[i]) livePulse(words[i], 'type', .4); });
+      const all = now.every(Boolean);
+      if (lit && all && !whole) livePulse(el.querySelector('.reveal'), 'change', .8);
+      whole = all; lit = now;
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(check); clearTimeout(t); t = setTimeout(check, 140); };
+    check(); addEventListener('scroll', onScroll, { passive: true });
+    return () => { removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); clearTimeout(t); };
+  }, []);
+}
+
+// Explore visuals: live, upstream, and brighter while their card is lit (page.css).
+function PartnerOrbit() {
+  const box = useRef(null); const on = useInView(box, { margin: '120px' });
+  return <div className="xp-visual xp-orbit" ref={box} aria-hidden="true">
+    <span className="xp-hub"><Logo size={40} /></span>
+    {on && <OrbitingCircles radius={64} iconSize={30} duration={24}>{[UsersThree, ChatsCircle, Laptop, DeviceMobile].map((I, k) => <I key={k} size={20} />)}</OrbitingCircles>}
+    {on && <OrbitingCircles radius={112} iconSize={26} duration={36} reverse>{[EnvelopeSimple, CalendarBlank, FilePdf].map((I, k) => <I key={k} size={18} />)}</OrbitingCircles>}
+  </div>;
+}
+function RecorderWave() {
+  const box = useRef(null); const on = useInView(box, { margin: '120px' }); const reduce = useContext(PlayCtx).reducedMotion;
+  const [hot, setHot] = useState(false);
+  // The card's hover reaches the wave: it runs faster while the card is lit.
+  useEffect(() => {
+    const card = box.current?.closest('.xp-card'); if (!card) return;
+    const enter = () => setHot(true); const leave = () => setHot(false);
+    card.addEventListener('pointerenter', enter); card.addEventListener('pointerleave', leave);
+    return () => { card.removeEventListener('pointerenter', enter); card.removeEventListener('pointerleave', leave); };
+  }, []);
+  return <div className="xp-visual xp-wave" ref={box} aria-hidden="true">
+    {on && !reduce ? <ScrollingWaveform className="xp-wave-bars" height="46%" barWidth={3} barGap={3} barRadius={2} speed={hot ? 90 : 36} fadeEdges fadeWidth={48} />
+      : <span className="xp-wave-still"><Microphone size={40} weight="thin" /></span>}
+  </div>;
+}
+
 // Independent boundaries let React yield between sections during hydration.
 // All content is still rendered into the initial HTML.
 function HomeSections({ pricing }) {
   const modelsRef = useRef(null);
   const modelsVisible = useInView(modelsRef, { margin: '200px' });
   const theme = useContext(ThemeCtx); const reduce = useContext(PlayCtx).reducedMotion;
+  useBandPulse(modelsRef, modelsVisible && !reduce);
+  const manifestoRef = useRef(null); useRevealPulses(manifestoRef);
+  const heroPlan = useRef(null); useArrivalPulse(heroPlan, { strength: .7, delay: 520 });
+  const exploreRef = useRef(null); useArrivalPulse(exploreRef, { strength: .55, delay: 480, amount: .25 });
+  const dlRef = useRef(null); useArrivalPulse(dlRef, { strength: .7, delay: 360 });
   // Pricing and model-row visibility do not change the tour. Keep its subtree
   // stable during those updates; its own controls and clocks still update normally.
   const walkthrough = useMemo(() => <Walkthrough reduce={reduce} theme={theme} />, [reduce, theme]);
@@ -1422,16 +1749,16 @@ function HomeSections({ pricing }) {
         </ScrollVelocityContainer> : <div className="models-vel">{[MODELS.slice(0, 6), MODELS.slice(6)].map((row, i) => <div key={i} className="w-full overflow-hidden whitespace-nowrap"><div className="inline-flex items-center">{row.map(([n, k, m]) => <ModelChip key={n} name={n} kind={k} maker={m} />)}</div></div>)}</div>}
       </Suspense></section>
       <Suspense><PrivacySection /></Suspense>
-      <Suspense><section className="manifesto" aria-label="Why local"><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section></Suspense>
+      <Suspense><section className="manifesto" aria-label="Why local" ref={manifestoRef}><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section></Suspense>
 
-      {/* Pricing: Radix cards, Magic UI border beam on the recommended plan. */}
+      {/* Pricing: SceneCards; the recommended plan answers when the section arrives. */}
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></BlurFade>
+        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></div>
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
-          <SceneCard className="plan-card plan-card-hero" busy><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
+          <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="primary" variant="solid" className="pro-shimmer" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</Button>
             <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
@@ -1442,28 +1769,28 @@ function HomeSections({ pricing }) {
         <Text as="p" className="fine"><a href="/pro/">Full terms</a></Text>
       </div></section></Suspense>
 
-      {/* Explore: SmoothUI tilt cards over Radix cards. */}
-      <Suspense><section className="chapter sec-explore" aria-labelledby="explore-heading"><div className="section-shell">
-        <BlurFade blur="0px" inView inViewMargin="-80px" className="sec-head"><Kicker>WHAT COMES NEXT</Kicker><Title id="explore-heading" lead="Where it goes from here." /></BlurFade>
+      {/* Explore: SceneCards, each with a full-bleed live visual on top, then the title, the line and the link. */}
+      <Suspense><section className="chapter sec-explore" aria-labelledby="explore-heading" ref={exploreRef}><div className="section-shell">
+        <div className="sec-head" data-og-reveal=""><Kicker>WHAT COMES NEXT</Kicker><Title id="explore-heading" lead="Where it goes from here." /></div>
         <MobileRail className="explore" labels={['Partners', 'Hardware', 'Recorder']}>
-          <Card asChild className="ex" size="3"><a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="home_card">
-            <Badge variant="outline">Teams under 50 people</Badge><div className="ex-mark">[ your team ]<br /><span>+ Off Grid AI</span></div><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></a></Card>
-          <Card asChild className="ex" size="3"><a href="/ogap/">
-            <Badge variant="outline">Hardware · Prototype</Badge><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-1200.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-1200.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy"  aria-hidden="true" /><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></a></Card>
-          <Card asChild className="ex" size="3"><a href="/mobile/recorder/">
-            <Badge variant="outline">Private alpha · Cohort full</Badge><div className="ex-mark ex-ic"><Microphone size={56} weight="thin" /></div><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></a></Card>
+          <SceneCard className="xp-card"><a className="xp-link" href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="home_card">
+            <PartnerOrbit /><div className="xp-body"><span className="xp-tag">Teams under 50 people</span><Heading as="h3">Build it with us. Pay $0.</Heading><Text as="p">Teams under 50.</Text><span className="ex-link">See the design partner offer <ArrowRight size={15} /></span></div></a></SceneCard>
+          <SceneCard className="xp-card"><a className="xp-link" href="/ogap/">
+            <div className="xp-visual xp-photo"><img className="theme-dark" src="/assets/img/ogap/website-v2/hero-ecosystem-dark-1200.webp" alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy" /><img className="theme-light" src="/assets/img/ogap/website-v2/hero-ecosystem-light-1200.webp" alt="" data-alt="OGAP frame with cooling module and battery for an existing phone." width="1200" height="800" loading="lazy" aria-hidden="true" /></div>
+            <div className="xp-body"><span className="xp-tag">Hardware · Prototype</span><Heading as="h3">More from your phone.</Heading><Text as="p">Cooling and power for bigger models.</Text><span className="ex-link">See the hardware <ArrowRight size={15} /></span></div></a></SceneCard>
+          <SceneCard className="xp-card"><a className="xp-link" href="/mobile/recorder/">
+            <RecorderWave /><div className="xp-body"><span className="xp-tag">Private alpha · Cohort full</span><Heading as="h3">Keep the conversation.</Heading><Text as="p">Meetings, recorded on your phone.</Text><span className="ex-link">See Recorder status <ArrowRight size={15} /></span></div></a></SceneCard>
         </MobileRail>
         <nav className="learn" aria-label="Learn more"><AnimatedBackground enableHover className="learn-hover">{[['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/'], ['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']].map(([l, h]) => <a key={h} data-id={h} href={h}>{l}<ArrowUpRight size={13} /></a>)}</AnimatedBackground></nav>
       </div></section></Suspense>
 
-      {/* Closing: Magic UI ripple. */}
-      <Suspense><section id="download" className="has-bg final" aria-labelledby="final-heading"><SectionBg />
-        
+      {/* Closing: the download grid (site buttons) answers when it arrives. */}
+      <Suspense><section id="download" className="final" aria-labelledby="final-heading">
         <div className="section-shell final-in">
           <Kicker>YOUR INTELLIGENCE. WITH YOU.</Kicker>
           <Heading as="h2" id="final-heading" className="final-h"><TextAnimate as="span" by="word" animation="slideUp" once startOnView duration={.8}>Here. It's yours.</TextAnimate></Heading>
           <Text as="p" className="final-lede">Free. Five platforms. Chrome and Firefox.</Text>
-          <div className="dl-grid">{DOWNLOADS.map(d => <a className="dl" key={d.id} href={d.href} {...(d.external ? { target: '_blank', rel: 'noopener' } : {})}><PlatformIcon id={d.id} size={22} /><span><small>{d.small}</small>{d.label}</span></a>)}</div>
+          <div className="dl-grid" ref={dlRef}>{DOWNLOADS.map(d => <Button key={d.id} data-site-button="secondary" asChild variant="outline" className="dl"><a href={d.href} {...(d.external ? { target: '_blank', rel: 'noopener' } : {})}><PlatformIcon id={d.id} size={22} /><span><small>{d.small}</small>{d.label}</span></a></Button>)}</div>
           <Text as="p" className="fine"><a href="/quick-start/">Quick start</a> · <a href="/guides/which-model/">Which model should I use?</a> · <a href="/download/">All downloads and betas</a></Text>
         </div>
       </section></Suspense>
