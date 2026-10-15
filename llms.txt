@@ -47,6 +47,10 @@ Cloud AI providers have routine access to every query sent to their models. Off 
 
 Businesses with fewer than 50 people can help shape a solution for daily work. The offer includes free setup and lifetime access to products based on their input. Ideas that fit Off Grid AI can also qualify for free lifetime Pro. Partners provide time and feedback. Details: https://getoffgridai.co/design-partners/
 
+## Off Grid AI Cloud
+
+Hosted inference for open models across text, vision, speech, voice, embeddings, image and video, alongside on-device Off Grid AI. Early access: the first cohort is being onboarded now. Request access with the models you want to run, your monthly spend and your minimum commitment: https://getoffgridai.co/cloud/
+
 ## Links
 
 - [Android beta enrollment](https://play.google.com/apps/testing/ai.offgridmobile)

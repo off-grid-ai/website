@@ -95,6 +95,7 @@ const HEADER_MENUS = [
   ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Browser extension', '/browser-extension/', 'Early access: your AI in every tab'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
   ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
   ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
+  ['Cloud', [['Early access', '/cloud/', 'Open models, served for you']]],
   ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
   ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
 ];
@@ -345,6 +346,7 @@ export const FOOTER = [
   ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Browser extension', '/browser-extension/'], ['Releases', '/desktop/releases/']]],
   ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
   ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
+  ['CLOUD', [['Early access', '/cloud/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
@@ -1753,7 +1755,9 @@ function HomeSections({ pricing }) {
 
       {/* Pricing: SceneCards; the recommended plan answers when the section arrives. */}
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
-        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></div>
+        {/* rough-notation draws into the word's parent: the positioned wrapper keeps the line under the
+            word after the section's reveal transform ends. */}
+        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro forever, or go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>monthly</Highlighter></span>.</span></Heading></div>
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
