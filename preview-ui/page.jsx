@@ -1755,7 +1755,9 @@ function HomeSections({ pricing }) {
 
       {/* Pricing: SceneCards; the recommended plan answers when the section arrives. */}
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
-        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>forever</Highlighter>, or go monthly.</span></Heading></div>
+        {/* rough-notation draws into the word's parent: the positioned wrapper keeps the line under the
+            word after the section's reveal transform ends. */}
+        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro forever, or go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>monthly</Highlighter></span>.</span></Heading></div>
         <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
