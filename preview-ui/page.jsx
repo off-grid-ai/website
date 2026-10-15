@@ -349,7 +349,7 @@ export const FOOTER = [
   ['CLOUD', [['Early access', '/cloud/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
-  ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
+  ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Hugging Face', 'https://huggingface.co/offgrid-ai'], ['X', 'https://x.com/getoffgridai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
 ];
 
 /* ───────────────────────── Story chapters ───────────────────────── */
