@@ -148,6 +148,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .nav-hover{border-radius:8px;background-color:var(--og-surface-light)}
 .header-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
 .icon-link{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;color:var(--og-text-secondary)}.icon-link:hover{color:var(--og-text);background-color:var(--og-surface-light)}
+.huggingface-icon{display:block;width:20px;height:20px;background-color:currentColor;mask:url("/assets/img/huggingface.svg?v=2") center/contain no-repeat;-webkit-mask:url("/assets/img/huggingface.svg?v=2") center/contain no-repeat}
 .header-download{height:36px!important;font-size:13px!important;background-color:var(--og-primary)!important;color:#03140c!important;border:0!important}
 .menu-trigger{display:none!important}
 .nav-overlay{position:fixed;inset:0;z-index:200;background-color:var(--og-overlay)}
