@@ -1,0 +1,51 @@
+@import "../../../preview-ui/pages/_ideas.css";
+@source '../../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
+@import '../../../node_modules/@radix-ui/themes/src/components/checkbox-cards.css';
+@import '../../../node_modules/@radix-ui/themes/src/components/radio-cards.css';
+/* Off Grid AI Cloud: one hero, the request form beside the headline (below it on phones). */
+.cl .cl-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:center}
+.cl .cl-hero h1{font-size:clamp(34px,4.4vw,60px)}
+.cl-jump{display:none;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:var(--og-primary)}
+.cl-request{scroll-margin-top:calc(var(--og-header-h) + 16px)}
+.cl-card.scene-card{width:100%}
+.cl-form{display:flex;flex-direction:column;gap:20px;padding:clamp(20px,2.4vw,32px)}
+.cl-form fieldset{display:flex;flex-direction:column;gap:10px;min-width:0;border:0;padding:0;margin:0}
+.cl-form .cl-group{gap:20px}
+.cl-form legend{display:block;padding:0;margin-bottom:10px}
+.cl-hint{margin-top:-6px;font-size:12px;color:var(--og-text-muted)}
+/* Radix checkbox and radio cards, laid out as wrapping chips. The checkbox stays in place (it holds
+   focus and the checked state) but is invisible: the whole chip shows the state instead. */
+.cl .cl-pick{display:flex;flex-wrap:wrap;gap:8px}
+.cl-pick .rt-BaseCard{position:relative;width:auto;min-height:32px;--base-card-padding-top:6px;--base-card-padding-bottom:6px;--base-card-padding-left:14px;--base-card-padding-right:14px;--base-card-border-radius:999px;font-size:13px;color:var(--og-text-secondary)}
+.cl-pick .rt-BaseCheckboxRoot{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0}
+.cl-pick .rt-BaseCard:is([data-state=checked],:has([data-state=checked])){color:var(--og-text);background-color:color-mix(in srgb,var(--og-primary) 12%,transparent);outline:1px solid var(--og-primary);outline-offset:-1px}
+.cl-send{display:flex;gap:10px}
+.cl-email{flex:1;min-width:0}
+.cl .cl-submit{flex-shrink:0}
+.cl-status{margin-top:-8px;font-size:13px;color:var(--og-text-muted)}
+.cl-status:empty{margin-top:-20px}
+.cl-status.error{color:var(--og-error)}
+.cl-status.success{color:var(--og-primary)}
+.cl-sec{padding-block:clamp(96px,10vw,144px)}
+.cl-ethos{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:start}
+.cl .cl-head{margin-bottom:0}
+.cl .cl-head h2{font-weight:300;font-size:clamp(28px,3.6vw,50px);line-height:1.08;letter-spacing:-.05em}
+@media (max-width:1000px){.cl .cl-grid,.cl-ethos{grid-template-columns:1fr}.cl-request{max-width:620px}}
+@media (max-width:700px){
+  .cl .cl-hero h1{font-size:clamp(30px,8.6vw,40px)}
+  .cl-jump{display:inline-flex}
+  .cl-send{flex-direction:column}
+  .cl .cl-submit{width:100%}
+  .cl-sec{padding-block:56px}
+  .cl .cl-head{margin-bottom:24px}
+}
+
+/* Rows: the library's ListGroup of ListRows (classes compiled from list-row.tsx via @source).
+   Copy wraps instead of truncating; the icon leads in emerald. The library owns their motion. */
+.og-rows{max-width:880px}
+.og-rows>.og-row{outline:none}
+.og-row .truncate{white-space:normal;overflow:visible;text-overflow:clip}
+.og-row [data-slot=list-row-description]{white-space:normal;overflow:visible;margin-top:4px;font-size:13px;line-height:1.65;color:var(--og-text-secondary)}
+.og-row>div:first-child{align-items:flex-start;padding-block:14px;gap:14px}
+.og-row .text-sm{font-size:15px;line-height:1.45}
+.og-row-ic{margin-top:2px;color:var(--og-primary)}
