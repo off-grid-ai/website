@@ -95,6 +95,7 @@ const HEADER_MENUS = [
   ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Browser extension', '/browser-extension/', 'Early access: your AI in every tab'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
   ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
   ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
+  ['Cloud', [['Early access', '/cloud/', 'Open models, served for you']]],
   ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
   ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
 ];
@@ -345,6 +346,7 @@ export const FOOTER = [
   ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Browser extension', '/browser-extension/'], ['Releases', '/desktop/releases/']]],
   ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
   ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
+  ['CLOUD', [['Early access', '/cloud/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
