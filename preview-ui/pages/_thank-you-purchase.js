@@ -80,6 +80,43 @@ export function purchaseScript(pricing, p) {
     // somehow not having run.
     var search = typeof window.OG_QUERY === 'string' ? window.OG_QUERY : location.search;
 
+    // Stripe return values are read from the server, never from a price cookie.
+    var stripeSession = param(search, 'session_id');
+    if (stripeSession) {
+      window.OG_STRIPE_PAYMENT = { state: 'pending' };
+      var attempts = 0;
+      function publishPayment(value) {
+        window.OG_STRIPE_PAYMENT = value;
+        window.dispatchEvent(new Event('offgrid-payment-status'));
+      }
+      function verifyStripe() {
+        fetch(${J(pricing.stripe_endpoint)} + '/status?session_id=' + encodeURIComponent(stripeSession))
+          .then(function (response) { if (!response.ok) throw new Error('Payment status unavailable'); return response.json(); })
+          .then(function (receipt) {
+            if (!receipt.confirmed) {
+              if (++attempts < 10) { setTimeout(verifyStripe, 3000); return; }
+              publishPayment({ state: 'pending' }); return;
+            }
+            publishPayment({ state: 'paid' });
+            var key = 'og_stripe_purchase_' + receipt.transaction_id;
+            try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch (err) {}
+            if (ENABLED && typeof gtag === 'function') {
+              try { gtag('event', 'conversion', { send_to: SEND_TO, value: receipt.value, currency: receipt.currency, transaction_id: receipt.transaction_id }); } catch (err) {}
+            }
+            // Meta Purchase is sent once by the signed webhook. Do not duplicate it here.
+            var tries = 0;
+            var report = setInterval(function () {
+              if (typeof posthog !== 'undefined') {
+                try { posthog.capture('pro_purchase_completed', { plan: receipt.plan, value: receipt.value, currency: receipt.currency, provider: 'stripe', transaction_id: receipt.transaction_id }); } catch (err) {}
+                clearInterval(report);
+              } else if (++tries > 100) clearInterval(report);
+            }, 100);
+          }).catch(function () { publishPayment({ state: 'unavailable' }); });
+      }
+      verifyStripe();
+      return;
+    }
+
     // The redirect chooses the plan. Use the recorded checkout price when its
     // plan matches, so a new-cohort purchase is not reported at an old price.
     var picked = window.CheckoutPlan ? CheckoutPlan.read() : null;

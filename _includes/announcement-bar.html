@@ -1,8 +1,12 @@
-<aside class="announcement-bar" aria-label="Design partner offer" data-pagefind-ignore>
+{% assign offer = site.data.pricing.lifetime_offer %}
+{% if offer.enabled %}
+{% assign offer_price = offer.original_price | minus: offer.amount_off | round: 2 %}
+<aside class="announcement-bar" aria-label="Limited-time lifetime offer" data-pagefind-ignore>
   <div class="announcement-bar-inner">
-    <span class="announcement-bar-tag">Design partners</span>
-    <span class="announcement-bar-text">Fewer than 50 people on your team? Get free setup and lifetime access to products based on your input.</span>
-    <span class="announcement-bar-short" aria-hidden="true">Free setup for teams under 50</span>
-    <a class="announcement-bar-cta" href="{{ '/design-partners/' | relative_url }}" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="announcement_bar">See the offer -&gt;</a>
+    <span class="announcement-bar-tag" data-slot="badge">Limited-time offer <span class="announcement-offer-percent">· Save ${{ offer.amount_off }}</span></span>
+    <span class="announcement-bar-text">Off Grid AI Pro for life. <span class="sr-only">Was </span><s>${{ offer.original_price }}</s> <strong>${{ offer_price }}</strong> once. Discount applied at checkout.</span>
+    <span class="announcement-bar-short" aria-hidden="true">Lifetime <s>${{ offer.original_price }}</s> <strong>${{ offer_price }}</strong></span>
+    <a class="announcement-bar-cta" href="{{ '/pro' | relative_url }}#buy" data-analytics-event="lifetime_offer_clicked" data-analytics-placement="announcement_bar">Get lifetime access -&gt;</a>
   </div>
 </aside>
+{% endif %}

@@ -1,3 +1,4 @@
+import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
@@ -25,6 +26,7 @@ function Hero({ pricing }) {
     <div className="section-shell pp-hero-in">
       <Badge className="pp-live" size="2" variant="surface" color="gray" radius="full"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></Badge>
       <Title as="h1" id="pp-h" className="pp-h1" lead="It remembers your work." dim="You approve." />
+      {pricing.lifetime_offer?.enabled && <LifetimePrice pricing={pricing} />}
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
@@ -50,6 +52,18 @@ function Ladder({ pricing, count, failed, tier }) {
   const monthly = cur === n - 1 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month.`
     : cur === n - 2 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}.`
     : `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}, then $${tiers[n - 1].monthly}.`;
+  if (pricing.checkout_provider === 'stripe' && !pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
+    <Kicker>PRO LIFETIME</Kicker><Heading as="h3">One payment. Every Pro feature.</Heading>
+    <p>Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>
+    <p>Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
+  </div>;
+  if (pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
+    <Kicker>THE LIFETIME OFFER</Kicker>
+    <Heading as="h3">One payment. Every Pro feature.</Heading>
+    <p>Lifetime access is ${pricing.lifetime} instead of ${pricing.lifetime_offer.original_price} for a limited time. The ${pricing.lifetime_offer.amount_off.toFixed(2)} discount is already applied at checkout.</p>
+    <p>No code to enter. No subscription. One key for up to {pricing.devices} devices.</p>
+    <p className="pp-monthly">Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
+  </div>;
   return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
     <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
       {count == null ? <span className="pp-muted">{failed ? 'Customer count unavailable.' : 'Loading customer count...'}</span>
@@ -87,13 +101,17 @@ function useScript(src) {
   }, [src]);
 }
 
-function Checkout({ pricing, checkout, count, failed, tier }) {
+function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
+  const stripe = pricing.checkout_provider === 'stripe';
+  const [busy, setBusy] = useState(false);
+  const submitting = useRef(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
-  const LINKS = tier === 1 ? checkout.nextLinks : checkout.links;
+  const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
+    ...(pricing.lifetime_offer?.enabled ? { lifetime: checkout.nextLinks.lifetime } : {}) };
   const PLAN_VALUES = { monthly: Number(pricing.monthly), lifetime: Number(pricing.lifetime) };
   const ADS_ENABLED = checkout.adsLabel !== '';
   const ADS_SEND_TO = `${checkout.adsId}/${checkout.adsLabel}`;
@@ -117,7 +135,32 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
     if (status && status.kind === 'error') setStatus(null);
     if (v.trim() !== '') reportOnce('pro_email_entered');
   };
-  const buy = (plan) => {
+  const buy = async (plan) => {
+    if (stripe) {
+      if (submitting.current || !ready || failed) return;
+      const value = (input.current ? input.current.value : email).trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || value.length > 254) {
+        setStatus({ kind: 'error', text: 'Enter a valid email address.' }); input.current?.focus(); return;
+      }
+      submitting.current = true; setBusy(true); setStatus(null);
+      try {
+        const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan, email: value, checkout_id: crypto.randomUUID() }),
+          signal: AbortSignal.timeout(20000),
+        });
+        if (!response.ok) throw new Error('Checkout unavailable');
+        const session = await response.json();
+        const target = new URL(session.url);
+        if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
+        try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
+        window.location.assign(target.href);
+      } catch {
+        setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
+        submitting.current = false; setBusy(false);
+      }
+      return;
+    }
     const RevenueCatLink = window.RevenueCatLink; if (!RevenueCatLink) return;
     const value = (input.current ? input.current.value : email).trim();
     if (!RevenueCatLink.isValidEmail(value)) { setStatus({ kind: 'error', text: 'Enter a valid email address.' }); input.current && input.current.focus(); return; }
@@ -142,7 +185,7 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
     // The success line holds a link, so the conductor does not settle it: the form ripples instead.
     if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
   };
-  const off = email.trim() === '' || count === null || failed;
+  const off = email.trim() === '' || (stripe ? !ready : count === null) || failed || busy;
   // The buy buttons wake when they become usable: the field answers from the primary one.
   const wasOff = useRef(off);
   useEffect(() => {
@@ -164,11 +207,11 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
     <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
     <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
-      {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : count === null ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
+      {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
     <ul className="pp-trust">
       <li><Key size={13} />Your key arrives by email. Enter it in the app.</li>
-      <li><LockKey size={13} />Secure checkout by RevenueCat. Promo codes go in there.</li>
+      <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
       <li><ShieldCheck size={13} />Your devices, models and data never touch the purchase.</li>
     </ul>
     <p className="pp-fine"><a href="/terms/">Terms</a></p>
@@ -178,20 +221,20 @@ function Checkout({ pricing, checkout, count, failed, tier }) {
 
 const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p.devices} devices, desktop and mobile`, 'Every update'];
 
-function Buy({ pricing, checkout, count, failed, tier }) {
+function Buy({ pricing, checkout, count, failed, tier, ready }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
-        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Own it now,</span><span className="t-line t-dim">before the price <Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>climbs</Highlighter>.</span></Heading>
+        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Own Pro for life.</span><span className="t-line t-dim">{pricing.lifetime_offer?.enabled ? 'Pay less for a limited time.' : 'One payment. Yours forever.'}</span></Heading>
       </div>
       <div className="pp-buy-grid">
         {/* Busy only while the live price loads; when it lands the card settles once. */}
-        <SceneCard className="plan-card plan-card-hero pp-checkout" busy={count == null && !failed}>
+        <SceneCard className="plan-card plan-card-hero pp-checkout" busy={!ready && !failed}>
           <div className="plan plan-hero">
             <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
-            <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div></div>
+            <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} /></div>
             <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
+            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
           </div>
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
@@ -203,13 +246,13 @@ function Buy({ pricing, checkout, count, failed, tier }) {
 }
 
 const FAQ = (p) => [
-  ['Does the price go up?', `Yes, as more people join. Lifetime steps from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. Monthly from $${p.tiers[0].monthly} to $${p.tiers[1].monthly}, then $${p.top_monthly}. You keep the price you buy at.`],
+  [p.lifetime_offer?.enabled ? 'How does the lifetime offer work?' : 'Does the price go up?', p.lifetime_offer?.enabled ? `Pay $${p.lifetime} once instead of $${p.lifetime_offer.original_price}. The $${p.lifetime_offer.amount_off.toFixed(2)} discount is applied automatically at checkout. The offer is available for a limited time. Your lifetime access does not expire when the offer ends.` : `Yes, as more people join. Lifetime steps from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. Monthly from $${p.tiers[0].monthly} to $${p.tiers[1].monthly}, then $${p.top_monthly}. You keep the price you buy at.`],
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
-  ['Can I use a promo code?', 'Yes. Enter it on the checkout page before you pay.'],
+  ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {
   return <section id="faq" className="pp-sec pp-faq-sec og-solid" aria-labelledby="faq-h">
@@ -251,7 +294,7 @@ function StickyBuy({ pricing }) {
     return () => { io1.disconnect(); io2.disconnect(); document.documentElement.classList.remove('pp-bar-on'); };
   }, []);
   return <AnimatePresence>{show && <motion.div className="pp-bar" initial={{ y: '110%' }} animate={{ y: 0 }} exit={{ y: '110%' }} transition={{ type: 'spring', stiffness: 380, damping: 36 }}>
-    <span className="pp-bar-tx"><b>Pro · ${pricing.lifetime} once</b><small>or ${pricing.monthly}/month</small></span>
+    <span className="pp-bar-tx"><LifetimePrice pricing={pricing} compact /></span>
     <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-bar-btn"
       onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Sticky bar')}>Own Pro · ${pricing.lifetime}</Button>
   </motion.div>}</AnimatePresence>;
@@ -323,8 +366,8 @@ function Private() {
 /* ───────── How checkout works ───────── */
 
 const STEPS = [
-  ['Enter your email', 'Opens RevenueCat checkout.'],
-  ['Pay', 'Promo codes go in here.'],
+  ['Enter your email', 'Opens secure checkout.'],
+  ['Pay', 'Review your total and pay.'],
   ['Get your key', 'By email.'],
   ['Unlock Pro', 'Desktop and mobile.'],
 ];
@@ -382,11 +425,11 @@ export default function ProPage({ data }) {
   // /pro/#buy lands on the form once the page has laid out.
   useEffect(() => { if (location.hash === '#buy') { const t = setTimeout(() => document.getElementById('buy')?.scrollIntoView(), 60); return () => clearTimeout(t); } }, []);
   const { checkout } = data;
-  const { pricing, count, failed, tier } = usePricing(data.pricing);
+  const { pricing, count, failed, tier, ready } = usePricing(data.pricing);
   return <PageShell>
     <Hero pricing={pricing} />
     <WhatPro again={<Again pricing={pricing} section="What Pro is" />} />
-    <Buy pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} />
+    <Buy pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
     <Faq pricing={pricing} />
     <Sync again={<Again pricing={pricing} section="Sync is live across your devices" />} />
     <Private />

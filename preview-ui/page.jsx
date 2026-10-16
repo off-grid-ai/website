@@ -1,3 +1,4 @@
+import { LifetimePrice } from './lifetime-price.jsx';
 import React, { Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
 import { createPortal, flushSync } from 'react-dom';
@@ -1766,10 +1767,10 @@ function HomeSections({ pricing }) {
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
-          <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><div className="price"><span className="amt">${pricing.lifetime}</span><small>once</small></div>
+          <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} />
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="primary" variant="solid" className="pro-shimmer" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</Button>
-            <Text as="p" className="small">Price rises as we grow.</Text></div></SceneCard>
+            <Text as="p" className="small">{pricing.lifetime_offer?.enabled ? "Discount applied automatically at checkout." : "Price rises as we grow."}</Text></div></SceneCard>
           <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
             <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>

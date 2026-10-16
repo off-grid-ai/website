@@ -1,3 +1,4 @@
+import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { usePricing } from '../pricing.js';
@@ -240,7 +241,7 @@ export default function OgapPage({ data }) {
         <MobileRail className="explore">
           <Card asChild className="ex" size="3" data-og-reveal=""><a href="/mobile/recorder/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_recorder"><Badge variant="outline">Private alpha · Cohort full</Badge><Heading as="h3">The recorder this is built for.</Heading><Text as="p">Your whole day, caught and transcribed on your phone. The workload that makes a phone hot.</Text><span className="ex-link">See Recorder <ArrowRight size={15} /></span></a></Card>
           <Card asChild className="ex" size="3" data-og-reveal=""><a href="/mobile/" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_mobile"><Badge variant="outline">Free · Open source</Badge><Heading as="h3">Get the free app.</Heading><Text as="p">Chat, vision, image, voice and documents on your phone. No account. Works in airplane mode.</Text><span className="ex-link">Explore Mobile <ArrowRight size={15} /></span></a></Card>
-          <Card asChild className="ex" size="3" data-og-reveal=""><a href="/pro/#buy" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_pro"><Badge variant="outline">{`$${pricing.lifetime} once · $${pricing.monthly}/month`}</Badge><Heading as="h3">Get Off Grid AI Pro.</Heading><Text as="p">Sees your day, remembers it, gets ahead of you. On your own hardware.</Text><span className="ex-link">Get Pro <ArrowUpRight size={15} /></span></a></Card>
+          <Card asChild className="ex" size="3" data-og-reveal=""><a href="/pro/#buy" data-analytics-event="ogap_related_clicked" data-analytics-placement="ogap_pro"><LifetimePrice pricing={pricing} compact /><Heading as="h3">Get Off Grid AI Pro.</Heading><Text as="p">Sees your day, remembers it, gets ahead of you. On your own hardware.</Text><span className="ex-link">Get Pro <ArrowUpRight size={15} /></span></a></Card>
         </MobileRail>
       </div>
     </section>

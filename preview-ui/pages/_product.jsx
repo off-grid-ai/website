@@ -1,3 +1,4 @@
+import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useIsPresent, useInView, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
@@ -315,9 +316,9 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
         <SceneCard className="plan-card"><div className="plan"><Kicker>FREE</Kicker><div className="price"><span className="amt">$0</span><small>forever</small></div>
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
-        <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO</Kicker><div className="price"><span className="amt">${pricing.lifetime}</span><small>once, yours forever</small></div>
+        <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO</Kicker><LifetimePrice pricing={pricing} />
           <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-          <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. The lifetime price rises as we grow.</p>
+          <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. {pricing.lifetime_offer?.enabled ? "Lifetime discount applied automatically at checkout." : "The lifetime price rises as we grow."}</p>
           <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>
       </MobileRail>
