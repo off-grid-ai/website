@@ -13,7 +13,7 @@ import { purchaseScript } from './_thank-you-purchase.js';
 // on its way), what to do next, your apps, where to go from here. Purchase reporting is the old page's
 // script, run at the same point in the page (see _thank-you-purchase.js).
 const KEY_FROM = 'keys@offgridmobileai.co';
-const KEY_SUBJECT = 'Your Off Grid Pro license key';
+const KEY_SUBJECT = 'Your Off Grid AI Pro license key';
 const SUPPORT = 'support@getoffgridai.co';
 
 // Requirements as on /download/; links come from the shared DOWNLOADS (same URLs as /download/).
@@ -51,6 +51,16 @@ function Celebrate() {
 }
 
 function Hero({ devices }) {
+  const [payment, setPayment] = useState('pending');
+  useEffect(() => {
+    const update = () => {
+      const query = window.OG_QUERY || location.search;
+      setPayment(window.OG_STRIPE_PAYMENT?.state || (query.includes('app_user_id=') ? 'paid' : 'pending'));
+    };
+    update(); window.addEventListener('offgrid-payment-status', update);
+    return () => window.removeEventListener('offgrid-payment-status', update);
+  }, []);
+  const paid = payment === 'paid';
   // RevenueCat's redemption link, validated by the purchase script (RevenueCat hosts only).
   const [redeem, setRedeem] = useState('');
   useEffect(() => { if (typeof window.OG_REDEEM_URL === 'string') setRedeem(window.OG_REDEEM_URL); }, []);
@@ -59,13 +69,13 @@ function Hero({ devices }) {
   // The redemption link appears once the purchase script validates it: it pulses as it lands.
   useEffect(() => { if (redeem) pulseFrom(slot.current, 'change', .5); }, [redeem]);
   return <section className="ty ty-hero has-bg" aria-labelledby="ty-h">
-    <Celebrate />
+    {paid && <Celebrate />}
     <div className="section-shell ty-hero-in">
-      <Kicker>PAYMENT COMPLETE</Kicker>
-      <Title as="h1" id="ty-h" className="ty-h1" lead="You're in." dim="Your key is on its way." />
-      <Lede className="ty-lede">{`Your Off Grid AI Pro license key is landing in the inbox you paid with, usually inside a minute. One key covers up to ${devices} devices you already own.`}</Lede>
+      <Kicker>{paid ? 'PAYMENT COMPLETE' : 'PAYMENT STATUS'}</Kicker>
+      <Title as="h1" id="ty-h" className="ty-h1" lead={paid ? "You're in." : 'Check your payment.'} dim={paid ? 'Your key is on its way.' : 'Your key follows payment confirmation.'} />
+      <Lede className="ty-lede">{paid ? `We will email your Pro license key, usually within a minute. One key covers up to ${devices} devices.` : 'We have not confirmed your payment yet. Check your checkout tab and email. If you paid but have no key after five minutes, contact support.'}</Lede>
       <SceneCard className="ty-mail" innerRef={mail}>
-        <div className="ty-mail-head"><span className="ty-mail-ic"><EnvelopeSimple size={20} /></span><span className="ty-mail-live"><span className="pulse" />Arriving now</span></div>
+        <div className="ty-mail-head"><span className="ty-mail-ic"><EnvelopeSimple size={20} /></span><span className="ty-mail-live"><span className="pulse" />{paid ? 'Check your inbox' : 'Waiting for confirmation'}</span></div>
         <dl className="ty-mail-rows">
           <div><dt>From</dt><dd>{KEY_FROM}</dd></div>
           <div><dt>Subject</dt><dd>{KEY_SUBJECT}</dd></div>

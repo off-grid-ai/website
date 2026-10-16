@@ -25,7 +25,7 @@
     // the original query for the page's own scripts, then scrub it before any
     // vendor snippet below runs. Ad click ids (gclid, fbclid) are kept.
     (function () {
-      var SENSITIVE = /^(app_user_id|redeem_url|email)$/;
+      var SENSITIVE = /^(app_user_id|redeem_url|email|session_id)$/;
       window.OG_QUERY = location.search;
       var raw = location.search;
       if (raw.charAt(0) === '?') raw = raw.slice(1);

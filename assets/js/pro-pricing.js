@@ -2,7 +2,22 @@
 // The final ladder tier has no purchase links yet; checkout has two cohorts.
 const counts = new Map();
 
+export function lifetimePrice(pricing) {
+  const offer = pricing.lifetime_offer;
+  return offer?.enabled
+    ? Math.round((offer.original_price - offer.amount_off) * 100) / 100
+    : pricing.lifetime;
+}
+
 export function loadPricing(pricing) {
+  if (pricing.checkout_provider === 'stripe') {
+    return fetch(`${pricing.stripe_endpoint}/pricing`, { signal: AbortSignal.timeout(8000) })
+      .then(response => response.ok ? response.json() : Promise.reject(new Error('Pricing unavailable')))
+      .then(current => {
+        if (!Number.isFinite(current.lifetime) || !Number.isFinite(current.monthly) || current.lifetime <= 0 || current.monthly <= 0) throw new Error('Invalid pricing');
+        return { count: null, tier: null, pricing: { ...pricing, ...current } };
+      });
+  }
   const endpoint = pricing.count_endpoint;
   if (!endpoint) return Promise.reject(new Error('Customer count endpoint missing'));
   if (!counts.has(endpoint)) {
@@ -27,7 +42,7 @@ export function loadPricing(pricing) {
     return {
       count,
       tier,
-      pricing: { ...pricing, lifetime: pricing.tiers[tier].lifetime, monthly: pricing.tiers[tier].monthly },
+      pricing: { ...pricing, lifetime: lifetimePrice({ ...pricing, lifetime: pricing.tiers[tier].lifetime }), monthly: pricing.tiers[tier].monthly },
     };
   });
 }

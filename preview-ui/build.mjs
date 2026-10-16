@@ -116,6 +116,7 @@ aliases['@offgrid-ui/placeholders-and-vanish-input'] = resolve(presetInputPackag
 const aliveLibrary = await vendoredLibrary('48e4937', 'e30a75068e4f5d88e9cb3654c350140d079134a45e60f2423ec5aacfc7a7cecc');
 aliases['@offgrid-ui/alive'] = resolve(aliveLibrary, 'src/sourced/alive/index.tsx');
 aliases['@offgrid-ui/list-row'] = resolve(aliveLibrary, 'src/sourced/alive/list-row.tsx');
+aliases['@offgrid-ui/badge'] = resolve(aliveLibrary, 'src/sourced/smoothui/packages/shadcn-ui/components/ui/badge.tsx');
 // ElevenLabs UI waveform as the library vendors it (home explore: the Recorder card's live visual).
 aliases['@offgrid-ui/waveform'] = resolve(aliveLibrary, 'src/sourced/elevenlabs/waveform.tsx');
 // Geist and Geist Mono (pinned @fontsource-variable packages): the files are served from

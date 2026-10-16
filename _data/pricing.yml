@@ -23,8 +23,15 @@ top_lifetime: 149    # USD - final lifetime price
 devices: 5
 count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 
+# Stripe automatically applies the fixed USD 69.01 coupon to the $119 price.
+# Publish this offer only with the Stripe checkout switch. No end date is set.
+lifetime_offer:
+  enabled: true
+  original_price: 119
+  amount_off: 69.01
+
 # The ladder, low → high. `until` = cumulative customer count at which this
-# lifetime tier closes (0 = final, no cap).
+# lifetime tier closes (0 = final, no cap). These are regular prices, before offers.
 tiers:
   - lifetime: 69
     monthly: 4.99
@@ -38,3 +45,8 @@ tiers:
     monthly: 9.99
     label: "after that"
     until: 0
+
+# Switch only after Stripe prices, secrets, webhook, and billing portal are ready.
+# Stripe prices and the deployed Worker were verified on 2026-10-16.
+checkout_provider: stripe
+stripe_endpoint: "https://license.getoffgridai.co/stripe"

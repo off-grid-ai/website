@@ -28,6 +28,7 @@
 @import '../node_modules/@radix-ui/themes/utilities.css';
 @import 'tailwindcss' source(none);
 @source './page.jsx';
+@source './lifetime-price.jsx';
 @source '../node_modules/.cache/offgrid-preview';
 /* Generated bundles contain class strings from every page. Scan source only. */
 @source not '../node_modules/.cache/offgrid-preview/*.mjs';
@@ -38,6 +39,7 @@
 @source not '../node_modules/.cache/offgrid-preview/component-library-48e4937';
 /* Library components the site renders directly: their Tailwind classes are compiled for every page. */
 @source '../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
+@source '../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/smoothui/packages/shadcn-ui/components/ui/badge.tsx';
 @source '../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/elevenlabs/waveform.tsx';
 
 @theme inline {
@@ -2101,3 +2103,23 @@ li.scene-card{list-style:none}
   .wt-window .wt-bar{flex-wrap:wrap;height:auto;row-gap:4px;padding:8px 14px}
   .wt-window .wt-bar .scene-roll{order:3;flex:1 1 100%;justify-content:center!important;margin:0!important;padding:2px 0!important}
 }
+
+/* Lifetime promotion: library Badge, shared price typography and alive card surfaces. */
+.lifetime-offer{display:inline-flex;flex-direction:column;align-items:flex-start;gap:var(--og-space-md);max-width:100%;line-height:1.35}
+.lifetime-offer-badge[data-slot=badge]{color:var(--og-primary);background:rgb(var(--og-rgb-primary)/.08);border-color:rgb(var(--og-rgb-primary)/.28);font-family:var(--og-font-mono);font-size:var(--og-type-label-size);font-weight:400;letter-spacing:.04em;padding:var(--og-space-xs) var(--og-space-sm);gap:var(--og-space-sm)}
+.lifetime-offer-prices{display:flex;align-items:baseline;flex-wrap:wrap;gap:var(--og-space-md);font-variant-numeric:tabular-nums}
+.lifetime-offer-prices s{font-size:1.35rem;color:var(--og-text-secondary);text-decoration-thickness:1px;letter-spacing:-.03em}
+.lifetime-offer-prices strong{font-size:clamp(40px,4vw,56px);font-weight:300;letter-spacing:-.06em;line-height:1;color:var(--og-text)}
+.lifetime-offer-prices small,.lifetime-offer-detail{font-size:var(--og-type-body-size);color:var(--og-text-secondary);font-weight:400}
+.lifetime-offer-compact{display:inline-flex;vertical-align:middle;gap:var(--og-space-xs)}
+.lifetime-offer-compact .lifetime-offer-prices{gap:var(--og-space-sm)}
+.lifetime-offer-compact .lifetime-offer-prices strong{font-size:1.15em;letter-spacing:-.03em;font-weight:500}
+.lifetime-offer-compact .lifetime-offer-prices s,.lifetime-offer-compact .lifetime-offer-prices small{font-size:.85em}
+.pp-hero-in>.lifetime-offer{align-items:center;margin-top:var(--og-space-sm)}
+.pp-plan-row:has(.lifetime-offer){align-items:flex-start;flex-direction:column;gap:var(--og-space-lg)}
+.pp-offer-explainer{display:flex;flex-direction:column;gap:var(--og-space-lg);padding:var(--og-space-xl);border-left:1px solid rgb(var(--og-rgb-primary)/.28)}
+.pp-offer-explainer p{color:var(--og-text-secondary);margin:0}
+.announcement-bar s{color:var(--og-text-secondary);margin-right:var(--og-space-xs)}
+.announcement-bar strong{color:var(--og-text);font-weight:500}
+.announcement-bar-tag[data-slot=badge]{border:1px solid rgb(var(--og-rgb-primary)/.25);border-radius:var(--og-radius-md);padding:var(--og-space-xs) var(--og-space-sm);background:rgb(var(--og-rgb-primary)/.06)}
+@media(max-width:700px){.announcement-offer-percent{display:none}.announcement-bar-tag[data-slot=badge]{font-size:8px;letter-spacing:.05em;padding:var(--og-space-xs)}.pp-offer-explainer{padding:var(--og-space-lg)}}

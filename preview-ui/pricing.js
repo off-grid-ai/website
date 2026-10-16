@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadPricing } from '../assets/js/pro-pricing.js';
+import { loadPricing, lifetimePrice } from '../assets/js/pro-pricing.js';
 
 // React adapter for the same helper used by the Liquid layouts.
 export function usePricing(initialPricing) {
@@ -13,9 +13,10 @@ export function usePricing(initialPricing) {
     return () => { active = false; };
   }, [initialPricing]);
   return {
-    pricing: result?.pricing ?? { ...initialPricing, lifetime: '...', monthly: '...' },
+    pricing: result?.pricing ?? { ...initialPricing, lifetime: lifetimePrice({ ...initialPricing, lifetime: '...' }), monthly: '...' },
     count: result?.count ?? null,
     tier: result?.tier ?? null,
     failed,
+    ready: result !== null,
   };
 }

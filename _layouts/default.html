@@ -17,7 +17,7 @@
     // the original query for the page's own scripts, then scrub it before any
     // vendor snippet below runs. Ad click ids (gclid, fbclid) are kept.
     (function () {
-      var SENSITIVE = /^(app_user_id|redeem_url|email)$/;
+      var SENSITIVE = /^(app_user_id|redeem_url|email|session_id)$/;
       window.OG_QUERY = location.search;
       var raw = location.search;
       if (raw.charAt(0) === '?') raw = raw.slice(1);
@@ -333,7 +333,7 @@
       <div class="essay-early-access" data-pagefind-ignore>
         <div class="essay-ea-text">
           <strong>Run the personal AI OS now.</strong>
-          Off Grid AI Pro is live - <span data-pro-price="lifetime">...</span>, yours forever, climbing as we grow.
+          Off Grid AI Pro is live - {% if site.data.pricing.lifetime_offer.enabled %}<span class="sr-only">Regular price </span><s>${{ site.data.pricing.lifetime_offer.original_price }}</s> {% endif %}<span data-pro-price="lifetime">...</span>, yours forever.{% if site.data.pricing.lifetime_offer.enabled %} Limited-time offer. Discount applied automatically.{% endif %}
         </div>
         <a href="{{ '/pro' | relative_url }}#buy" class="essay-ea-btn">Get Off Grid AI Pro</a>
       </div>
