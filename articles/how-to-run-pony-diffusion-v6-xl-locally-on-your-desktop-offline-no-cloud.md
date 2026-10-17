@@ -26,7 +26,7 @@ It uses tag-based prompting rather than long descriptive sentences. You feed it 
 
 We publish it in GGUF for `stable-diffusion.cpp`:
 
-**[Pony Diffusion V6 XL on Hugging Face →](https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF)**
+**[Pony Diffusion V6 XL on Hugging Face →](https://huggingface.co/off-grid-ai/pony-diffusion-v6-xl-GGUF)**
 
 The GGUF build quantizes the weights to fit consumer hardware. One file, point the app at it, generate. No Python, no diffusers install.
 
@@ -84,7 +84,7 @@ Your prompt never leaves your machine. The image is computed locally and saved t
 
 1. Download or clone Off Grid AI Desktop from [the GitHub repo](https://github.com/off-grid-ai/desktop).
 2. Install and launch it (Windows and macOS builds available).
-3. Open the model browser and download Pony Diffusion V6 XL, or grab it from [Hugging Face](https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF).
+3. Open the model browser and download Pony Diffusion V6 XL, or grab it from [Hugging Face](https://huggingface.co/off-grid-ai/pony-diffusion-v6-xl-GGUF).
 4. Open the image tab, select Pony Diffusion V6 XL, and write a tag-based prompt.
 5. Generate. Watch the preview, save the variations you like from the gallery.
 

@@ -84,7 +84,7 @@ Off Grid AI Desktop runs the model on your machine. No account, no telemetry, no
 
 1. Download or clone Off Grid AI Desktop from the repo: https://github.com/off-grid-ai/desktop
 2. Install and launch it on your Mac or PC.
-3. Open the Models browser and find the RealVisXL v5.0 GGUF build: https://huggingface.co/offgrid-ai/realvisxl-v5.0-GGUF
+3. Open the Models browser and find the RealVisXL v5.0 GGUF build: https://huggingface.co/off-grid-ai/realvisxl-v5.0-GGUF
 4. Download it with the built-in download manager and set it as your image model.
 5. Open the image studio, write a descriptive prompt with a strong negative prompt, and generate.
 
