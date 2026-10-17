@@ -81,7 +81,7 @@ Off Grid AI Desktop runs the model on your machine. There is no account and no t
 
 1. Go to the repo and download or clone Off Grid AI Desktop: https://github.com/off-grid-ai/desktop
 2. Install and launch it on your Mac or PC.
-3. Open the Models browser and find the Animagine XL 4.0 GGUF build: https://huggingface.co/offgrid-ai/animagine-xl-4.0-GGUF
+3. Open the Models browser and find the Animagine XL 4.0 GGUF build: https://huggingface.co/off-grid-ai/animagine-xl-4.0-GGUF
 4. Download it with the built-in download manager and select it as your image model.
 5. Open the image studio, type a tag prompt, and generate.
 

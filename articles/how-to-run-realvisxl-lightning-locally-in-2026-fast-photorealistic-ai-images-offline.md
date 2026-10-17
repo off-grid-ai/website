@@ -29,7 +29,7 @@ RealVisXL v5.0 is a photorealistic SDXL checkpoint. The Lightning variant is dis
 
 You keep the photorealism RealVisXL is known for, and you get it fast. We publish it in GGUF for `stable-diffusion.cpp`:
 
-**[RealVisXL v5.0 Lightning on Hugging Face →](https://huggingface.co/offgrid-ai/realvisxl-v5.0-lightning-GGUF)**
+**[RealVisXL v5.0 Lightning on Hugging Face →](https://huggingface.co/off-grid-ai/realvisxl-v5.0-lightning-GGUF)**
 
 The GGUF build quantizes the weights so they fit on a consumer card. Download one file, point the app at it, generate. No Python, no diffusers, no toolkit install.
 
@@ -87,7 +87,7 @@ Your prompt never leaves the machine. The image is computed locally and written 
 
 1. Download or clone Off Grid AI Desktop from [the GitHub repo](https://github.com/off-grid-ai/desktop).
 2. Install and launch it (Windows and macOS builds available).
-3. Open the model browser and download RealVisXL v5.0 Lightning, or grab it from [Hugging Face](https://huggingface.co/offgrid-ai/realvisxl-v5.0-lightning-GGUF).
+3. Open the model browser and download RealVisXL v5.0 Lightning, or grab it from [Hugging Face](https://huggingface.co/off-grid-ai/realvisxl-v5.0-lightning-GGUF).
 4. Open the image tab, select RealVisXL Lightning, and set a low step count (try 6) with low CFG.
 5. Type a prompt and generate. Iterate fast, save the keepers.
 

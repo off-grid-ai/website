@@ -46,7 +46,7 @@ You get a private illustration studio. Type tags, watch the image build, save th
 
 The model browser pulls the GGUF build straight from Hugging Face and manages the download for you.
 
-**Model page: [offgrid-ai/illustrious-xl-v2.0-GGUF](https://huggingface.co/offgrid-ai/illustrious-xl-v2.0-GGUF)**
+**Model page: [off-grid-ai/illustrious-xl-v2.0-GGUF](https://huggingface.co/off-grid-ai/illustrious-xl-v2.0-GGUF)**
 
 ![The Models screen in Off Grid AI Desktop, listing image generation models you can download.](/assets/img/home/app/models-image-dark-1760.webp)
 

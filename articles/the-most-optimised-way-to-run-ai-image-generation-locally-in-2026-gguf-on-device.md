@@ -53,13 +53,13 @@ Off Grid AI Desktop ships a curated catalog of GGUF checkpoints in its model bro
 
 | Model | Best for | Speed | Link |
 |---|---|---|---|
-| Juggernaut XL v9 | Photoreal, general purpose | Standard steps | [HF](https://huggingface.co/offgrid-ai/juggernaut-xl-v9-GGUF) |
-| RealVisXL v5.0 | Photoreal, realistic detail | Standard steps | [HF](https://huggingface.co/offgrid-ai/realvisxl-v5.0-GGUF) |
-| RealVisXL v5.0 Lightning | Photoreal, fast | Few-step (Lightning) | [HF](https://huggingface.co/offgrid-ai/realvisxl-v5.0-lightning-GGUF) |
-| DreamShaper XL v2 Turbo | Versatile art and concepts | Fast (Turbo) | [HF](https://huggingface.co/offgrid-ai/dreamshaper-xl-v2-turbo-GGUF) |
-| Pony Diffusion V6 XL | Character and stylized art | Standard, tag-based | [HF](https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF) |
-| Animagine XL 4.0 | Anime | Standard, tag-based | [HF](https://huggingface.co/offgrid-ai/animagine-xl-4.0-GGUF) |
-| Illustrious XL v2.0 | Anime and illustration | Standard, tag-based | [HF](https://huggingface.co/offgrid-ai/illustrious-xl-v2.0-GGUF) |
+| Juggernaut XL v9 | Photoreal, general purpose | Standard steps | [HF](https://huggingface.co/off-grid-ai/juggernaut-xl-v9-GGUF) |
+| RealVisXL v5.0 | Photoreal, realistic detail | Standard steps | [HF](https://huggingface.co/off-grid-ai/realvisxl-v5.0-GGUF) |
+| RealVisXL v5.0 Lightning | Photoreal, fast | Few-step (Lightning) | [HF](https://huggingface.co/off-grid-ai/realvisxl-v5.0-lightning-GGUF) |
+| DreamShaper XL v2 Turbo | Versatile art and concepts | Fast (Turbo) | [HF](https://huggingface.co/off-grid-ai/dreamshaper-xl-v2-turbo-GGUF) |
+| Pony Diffusion V6 XL | Character and stylized art | Standard, tag-based | [HF](https://huggingface.co/off-grid-ai/pony-diffusion-v6-xl-GGUF) |
+| Animagine XL 4.0 | Anime | Standard, tag-based | [HF](https://huggingface.co/off-grid-ai/animagine-xl-4.0-GGUF) |
+| Illustrious XL v2.0 | Anime and illustration | Standard, tag-based | [HF](https://huggingface.co/off-grid-ai/illustrious-xl-v2.0-GGUF) |
 
 ### Choosing between them
 

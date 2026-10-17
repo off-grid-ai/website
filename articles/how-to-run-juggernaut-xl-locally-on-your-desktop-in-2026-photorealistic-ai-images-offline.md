@@ -29,7 +29,7 @@ Juggernaut XL v9 is a photorealistic SDXL checkpoint from RunDiffusion. It is tu
 
 We publish it quantized to GGUF so it runs on `stable-diffusion.cpp`. The model page is here:
 
-**[Juggernaut XL v9 on Hugging Face →](https://huggingface.co/offgrid-ai/juggernaut-xl-v9-GGUF)**
+**[Juggernaut XL v9 on Hugging Face →](https://huggingface.co/off-grid-ai/juggernaut-xl-v9-GGUF)**
 
 A GGUF build means the weights are packed down to fit consumer RAM and VRAM. You download one file, point the app at it, and generate. No Python environment, no CUDA toolkit install, no diffusers dependency hell.
 
@@ -87,7 +87,7 @@ Your prompt never leaves your machine. The image is computed locally and saved t
 
 1. Download or clone Off Grid AI Desktop from [the GitHub repo](https://github.com/off-grid-ai/desktop).
 2. Install and launch it (macOS and Windows builds available).
-3. Open the model browser and download the Juggernaut XL v9 GGUF, or grab it from [Hugging Face](https://huggingface.co/offgrid-ai/juggernaut-xl-v9-GGUF) directly.
+3. Open the model browser and download the Juggernaut XL v9 GGUF, or grab it from [Hugging Face](https://huggingface.co/off-grid-ai/juggernaut-xl-v9-GGUF) directly.
 4. Open the image tab, select Juggernaut XL as your model, and type a prompt.
 5. Generate. Watch the live preview, save the keepers from the gallery.
 
