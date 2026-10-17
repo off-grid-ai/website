@@ -350,7 +350,7 @@ export const FOOTER = [
   ['CLOUD', [['Early access', '/cloud/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
-  ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Hugging Face', 'https://huggingface.co/offgrid-ai'], ['X', 'https://x.com/getoffgridai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
+  ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Hugging Face', 'https://huggingface.co/off-grid-ai/'], ['X', 'https://x.com/getoffgridai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
 ];
 
 /* ───────────────────────── Story chapters ───────────────────────── */
@@ -1630,7 +1630,7 @@ export function PageShell({ children, feedback = true }) {
       </NavigationMenu>
       <div className="header-actions">
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
-        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://huggingface.co/offgrid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://x.com/getoffgridai" target="_blank" rel="noopener" aria-label="Off Grid AI on X" title="X"><XLogo size={18} /></a>
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
@@ -1645,7 +1645,7 @@ export function PageShell({ children, feedback = true }) {
             <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" role="group" aria-label="Community links and appearance">
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
-              <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://huggingface.co/offgrid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
+              <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://x.com/getoffgridai" target="_blank" rel="noopener" aria-label="Off Grid AI on X" title="X"><XLogo size={18} /></a>
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit"><RedditLogo size={18} /></a>
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community"><SlackLogo size={18} /></a>
