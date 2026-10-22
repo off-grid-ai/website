@@ -8,7 +8,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 // /affiliates/ — creators and influencers apply to the affiliate program. Recorded the same way as the
 // investors page: identify the email in PostHog, then capture one event with the answers.
 const CHANNELS = ['YouTube', 'X', 'Instagram', 'TikTok', 'LinkedIn', 'Newsletter', 'Blog', 'Podcast', 'Community'];
-const AUDIENCE = [['<1k', 'Under 1k'], ['1k-10k', '1k to 10k'], ['10k-100k', '10k to 100k'], ['100k-1m', '100k to 1M'], ['1m+', '1M+']];
+const AUDIENCE = [['5k-10k', '5k to 10k'], ['10k-100k', '10k to 100k'], ['100k-1m', '100k to 1M'], ['1m+', '1M+']];
 const WHY = [
   [AirplaneTilt, 'A demo that lands.', 'Turn on airplane mode and keep chatting. Your audience sees the privacy instead of taking your word for it.'],
   [DownloadSimple, 'Free to start.', 'No account and no card. Viewers can try it minutes after your video ends.'],
@@ -63,7 +63,7 @@ function ApplyForm() {
   return <SceneCard className="af-card" busy={busy}><form className="af-form" onSubmit={submit} noValidate>
     <fieldset disabled={done || busy} className="af-group">
       <Choices legend="Where do you publish?" Group={CheckboxCards} value={channels} onChange={setChannels} items={CHANNELS.map(c => [c, c])} />
-      <Choices legend="Audience size" Group={RadioCards} value={audience} onChange={setAudience} items={AUDIENCE} />
+      <Choices legend="Audience size (from 5k)" Group={RadioCards} value={audience} onChange={setAudience} items={AUDIENCE} />
       <fieldset>
         <legend className="eyebrow">About you</legend>
         <div className="af-pair">
@@ -97,7 +97,7 @@ export default function AffiliatesPage() {
         <div className="sec-head ideas-head">
           <Kicker>AFFILIATES · CREATORS AND INFLUENCERS</Kicker>
           <Title as="h1" id="af-h" lead="Show your audience AI that works in airplane mode." dim="Earn when they go Pro." />
-          <Lede>Off Grid AI runs on the phone and laptop they already own. If you make videos, posts or newsletters about AI, privacy or productivity, apply to join.</Lede>
+          <Lede>Off Grid AI runs on the phone and laptop they already own. If you make videos, posts or newsletters about AI, privacy or productivity and reach 5,000+ people, apply to join.</Lede>
           <a className="af-jump" href="#af-apply">Apply to join <ArrowDown size={14} /></a>
         </div>
         <div id="af-apply" className="af-apply" data-analytics-view="affiliate_form_viewed" data-analytics-placement="affiliates_page"><ApplyForm /></div>
