@@ -1510,12 +1510,15 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .desktop-nav .learn-menu a{align-items:flex-start;justify-content:center;white-space:nowrap}
 .desktop-nav a:focus-visible,.desktop-nav .learn-trigger:focus-visible,.icon-link:focus-visible{outline:2px solid var(--og-border-focus)!important;outline-offset:-2px}
 .header-actions .icon-link,.mobile-community .icon-link{width:44px;height:44px}
+/* On desktop the header icons sit together as one row: narrower boxes, same 44px height, no gap. */
+.header-icons{display:flex;align-items:center}
+@media(min-width:900px){.header-actions .icon-link{width:30px}}
 .mobile-community{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 @media(min-width:861px) and (max-width:1120px){.header-inner{gap:12px}.desktop-nav a,.desktop-nav .learn-trigger{padding-inline:8px}.header-actions{gap:0}}
 /* Keep the added profile links clear of the navigation on smaller screens. */
 /* The four community icons need room; below 1100px they live in the phone menu and footer, GitHub stays. */
 @media(max-width:1099px){.header-actions .icon-link.header-social{display:none!important}}
-@media(max-width:899px){.desktop-nav,.header-actions .hide-sm{display:none!important}.menu-trigger{display:inline-flex!important;margin-left:8px}}
+@media(max-width:899px){.desktop-nav,.header-actions .hide-sm,.header-icons{display:none!important}.menu-trigger{display:inline-flex!important;margin-left:8px}}
 @media(prefers-reduced-motion:reduce){.learn-trigger svg,.learn-menu{animation:none!important;transition:none!important}}
 /* Desktop and phone together: the MacBook fills the window, the phone overlaps its lower right */
 .wt-shot-in.wt-shot-pair:not(.wt-shot-pair-phones){display:block!important}
