@@ -8,7 +8,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 // /investors/ — angels and community-round investors register interest. Recorded the same way as the
 // cloud early-access request: identify the email in PostHog, then capture one event with the answers.
 const ROUTES = [['angel', 'Angel'], ['community', 'Community round']];
-const AMOUNTS = [['5k-10k', '$5k to $10k'],['10k-50k', '$10k to $50k'], ['50k-250k', '$50k to $250k'], ['250k+', '$250k+']];
+const AMOUNTS = [['10k-50k', '$10k to $50k'], ['50k-250k', '$50k to $250k'], ['250k+', '$250k+']];
 const BUILT = [
   [Devices, 'Five platforms, live today.', 'Mac, Windows, Linux, iPhone and Android, plus a Chrome extension.'],
   [Receipt, 'Revenue from day one.', 'Pro sells monthly and lifetime. Boost, hosted inference for teams, is onboarding its first cohort.'],
@@ -63,7 +63,7 @@ function InterestForm() {
   return <SceneCard className="iv-card" busy={busy}><form className="iv-form" onSubmit={submit} noValidate>
     <fieldset disabled={done || busy} className="iv-group">
       <Choices legend="How would you invest?" value={route} onChange={setRoute} items={ROUTES} />
-      <Choices legend="Roughly how much (USD, from $5k)" value={amount} onChange={setAmount} items={AMOUNTS} />
+      <Choices legend="Roughly how much (USD, from $10k)" value={amount} onChange={setAmount} items={AMOUNTS} />
       <fieldset>
         <legend className="eyebrow">About you</legend>
         <div className="iv-pair">
@@ -98,7 +98,7 @@ export default function InvestorsPage() {
         <div className="sec-head ideas-head">
           <Kicker>INVESTORS · ANGEL AND COMMUNITY ROUNDS OPEN</Kicker>
           <Title as="h1" id="iv-h" lead="Own part of Off Grid AI." dim="The round is open." />
-          <Lede>Personal AI that runs on the phone and laptop you already own. 250,000+ downloads across five platforms, and earning from Pro. Angels and community investors can join from $5k.</Lede>
+          <Lede>Personal AI that runs on the phone and laptop you already own. 250,000+ downloads across five platforms, and earning from Pro. Angels and community investors can join from $10k.</Lede>
           <a className="iv-jump" href="#iv-register">Register interest <ArrowDown size={14} /></a>
         </div>
         <div id="iv-register" className="iv-register" data-analytics-view="investor_form_viewed" data-analytics-placement="investors_page"><InterestForm /></div>
