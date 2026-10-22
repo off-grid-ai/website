@@ -1646,6 +1646,10 @@ export function PageShell({ children, feedback = true }) {
       </NavigationMenu>
       <div className="header-actions">
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href="https://x.com/getoffgridai" target="_blank" rel="noopener" aria-label="Off Grid AI on X" title="X"><XLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
+        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
         <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
