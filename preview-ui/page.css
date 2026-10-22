@@ -1513,6 +1513,8 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .mobile-community{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 @media(min-width:861px) and (max-width:1120px){.header-inner{gap:12px}.desktop-nav a,.desktop-nav .learn-trigger{padding-inline:8px}.header-actions{gap:0}}
 /* Keep the added profile links clear of the navigation on smaller screens. */
+/* The four community icons need room; below 1100px they live in the phone menu and footer, GitHub stays. */
+@media(max-width:1099px){.header-actions .icon-link.header-social{display:none!important}}
 @media(max-width:899px){.desktop-nav,.header-actions .hide-sm{display:none!important}.menu-trigger{display:inline-flex!important;margin-left:8px}}
 @media(prefers-reduced-motion:reduce){.learn-trigger svg,.learn-menu{animation:none!important;transition:none!important}}
 /* Desktop and phone together: the MacBook fills the window, the phone overlaps its lower right */
