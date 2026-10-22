@@ -2,19 +2,21 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
-import { ArrowDown, ArrowRight, Check, EnvelopeSimple, Cube, GithubLogo, ShieldCheck, DeviceMobile, Stack } from '@phosphor-icons/react';
+import { ArrowDown, ArrowRight, Check, EnvelopeSimple, Cube, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 
-// /cloud/ — early access to Off Grid AI Cloud (hosted inference). The request is recorded the same
-// way as the newsletter: identify the email in PostHog, then capture one event with the answers.
+// /boost/ — early access to Off Grid AI Boost (hosted inference, formerly Cloud at /cloud/). The request is
+// recorded the same way as the newsletter: identify the email in PostHog, then capture one event with the
+// answers. The event keeps its Cloud-era name so requests before and after the rename stay in one series.
 const KINDS = ['Text and vision', 'Speech to text', 'Text to speech', 'Voice', 'Embeddings', 'Reranking', 'Image', 'Video', 'Decision models', 'Grounding specialists'];
 const SPEND = [['200-500', '$200 to $500'], ['500-2k', '$500 to $2k'], ['2k-10k', '$2k to $10k'], ['10k-50k', '$10k to $50k'], ['50k+', '$50k+']];
 const COMMIT = [['monthly', 'Month to month'], ['3m', '3 months'], ['6m', '6 months'], ['12m', '1 year'], ['24m+', '2 years or more']];
 const ETHOS = [
-  [GithubLogo, 'The code will be open source.', 'Read exactly how your requests are handled. Run it on your own hardware if you prefer.'],
-  [ShieldCheck, 'Privacy first.', 'Built on the same ethos as the Off Grid AI apps.'],
-  [DeviceMobile, 'Works with your device.', 'Same open models on device or in the cloud. You choose where each runs.'],
+  [ShieldCheck, 'Never stored or trained on.', 'We don\'t keep your prompts or train on them, so your customers\' data stays yours.'],
+  [GithubLogo, 'No lock-in.', 'The serving code will be open source. Move to your own hardware whenever you want.'],
   [Stack, 'Every modality.', 'Text, vision, speech, voice, embeddings, image, video, decision models and grounding specialists.'],
+  [Timer, 'No idle GPUs on your bill.', 'Billed per millisecond of compute, from $200 a month.'],
+  [DeviceMobile, 'On device or served.', 'The same open models run in the Off Grid AI apps. Choose where each one runs.'],
 ];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -82,23 +84,23 @@ function RequestForm() {
   </form></SceneCard>;
 }
 
-export default function CloudPage() {
+export default function BoostPage() {
   return <PageShell feedback={false}><div className="ideas cl">
     <section className="has-bg ideas-hero cl-hero" aria-labelledby="cl-h">
       <div className="section-shell cl-grid">
         <div className="sec-head ideas-head">
-          <Kicker>OFF GRID AI CLOUD · FIRST COHORT</Kicker>
-          <Title as="h1" id="cl-h" lead="Open models, served for you." dim="No GPUs to manage." />
-          <Lede>Run inference in our cloud when you need scale, or private access to frontier models. We're onboarding our first cohort now.</Lede>
+          <Kicker>OFF GRID AI BOOST · FIRST COHORT</Kicker>
+          <Title as="h1" id="cl-h" lead="Open models in production." dim="Without running a single GPU." />
+          <Lede>Text, vision, speech, embeddings, image and video, billed by the millisecond. We never store or train on your prompts, and the serving code will be open source, so you can leave any time.</Lede>
           <a className="cl-jump" href="#cl-request">Request access <ArrowDown size={14} /></a>
         </div>
-        <div id="cl-request" className="cl-request"><RequestForm /></div>
+        <div id="cl-request" className="cl-request" data-analytics-view="boost_form_viewed" data-analytics-placement="boost_page"><RequestForm /></div>
       </div>
     </section>
 
     <section className="chapter cl-sec og-solid" aria-labelledby="cl-ethos-h"><div className="section-shell cl-ethos">
-      <div className="sec-head ideas-head cl-head"><Kicker>TRUE TO THE ETHOS</Kicker><Title id="cl-ethos-h" lead="Open source." dim="Privacy first." /></div>
-      <Rows label="Off Grid AI Cloud principles">
+      <div className="sec-head ideas-head cl-head"><Kicker>WHAT YOU GET</Kicker><Title id="cl-ethos-h" lead="Private by default." dim="No lock-in." /></div>
+      <Rows label="What Off Grid AI Boost gives you">
         {ETHOS.map(([Icon, t, d]) => <ListRow key={t} className="og-row" leading={<Icon size={18} className="og-row-ic" />} title={t} description={d} />)}
       </Rows>
     </div></section>

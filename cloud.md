@@ -1,9 +1,18 @@
 ---
-layout: react
-react: cloud
-title: Cloud
-nav_order: 6.6
-nav_group: Products
 permalink: /cloud/
-description: Run inference in Off Grid AI Cloud when you need scale, or private access to frontier models. We are onboarding our first cohort.
+sitemap: false
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to Off Grid AI Boost…</title>
+  <link rel="canonical" href="{{ '/boost/' | absolute_url }}">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={{ '/boost/' | relative_url }}">
+  <script>location.replace({{ '/boost/' | relative_url | jsonify }} + location.search + location.hash);</script>
+</head>
+<body>
+  <p>Off Grid AI Cloud is now <a href="{{ '/boost/' | relative_url }}">Off Grid AI Boost</a>.</p>
+</body>
+</html>
