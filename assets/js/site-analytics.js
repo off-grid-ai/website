@@ -1,4 +1,4 @@
-// Named events for the resource hub and design partner funnel.
+// Named events: header, phone-menu and footer navigation, the resource hub, and the partner and early-access funnels.
 (function () {
   function capture(name, properties) {
     try {
@@ -13,7 +13,7 @@
   document.addEventListener('click', function (event) {
     var link = event.target.closest('a[data-analytics-event]');
     if (!link) return;
-    capture(link.dataset.analyticsEvent, { placement: link.dataset.analyticsPlacement });
+    capture(link.dataset.analyticsEvent, { placement: link.dataset.analyticsPlacement, href: link.getAttribute('href') });
   });
 
   if (typeof IntersectionObserver !== 'function') return;

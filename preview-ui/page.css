@@ -1297,13 +1297,10 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
    their animation still works. Children: accessible copy, word, space, word, space... */
 .whitespace-pre-wrap>.sr-only~span.whitespace-pre:nth-child(odd){display:inline!important;white-space:normal!important}
 /* Header actions: Get Pro (secondary) + Download (primary) */
-.header-pro{height:36px!important;font-size:13px!important;border-color:var(--line-2)!important;color:var(--og-text)!important;background-color:transparent!important}
-.header-pro:hover{border-color:var(--og-primary)!important}
-@media (max-width:1000px){.header-pro{display:none!important}}
 /* Full header down to 900px (the founder reviews at ~1000px) */
 @media (min-width:901px) and (max-width:1000px){
   .desktop-nav{display:flex!important}.desktop-nav a{padding:8px 10px}
-  .hide-sm{display:inline-flex!important}.header-pro{display:inline-flex!important}
+  .hide-sm{display:inline-flex!important}
   .menu-trigger{display:none!important}
   .header-inner{gap:14px}
 }
@@ -1509,14 +1506,14 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .desktop-nav [data-slot=navigation-menu-list]{margin:0;padding:0;gap:0}
 .desktop-nav a,.desktop-nav .learn-trigger{font:inherit;font-size:13px;font-weight:400;min-height:44px;display:flex;align-items:center;padding:8px 12px;color:var(--og-text-secondary);background-color:transparent;border:0;box-shadow:none}
 .desktop-nav a:hover,.desktop-nav a:focus-visible,.desktop-nav .learn-trigger:hover,.desktop-nav .learn-trigger[data-state=open]{background-color:var(--og-surface-light);color:var(--og-text)}
-.desktop-nav .learn-menu{position:absolute;top:100%;left:0;width:212px;margin-top:8px;padding:4px;background-color:color-mix(in oklab,var(--og-background) 82%,transparent);border:1px solid var(--line-2);border-radius:var(--og-card-radius)}
+.desktop-nav .learn-menu{position:absolute;top:100%;left:0;width:212px;margin-top:8px;padding:4px;background-color:color-mix(in oklab,var(--og-background) 96%,transparent);border:1px solid var(--line-2);border-radius:var(--og-card-radius)}
 .desktop-nav .learn-menu a{align-items:flex-start;justify-content:center;white-space:nowrap}
 .desktop-nav a:focus-visible,.desktop-nav .learn-trigger:focus-visible,.icon-link:focus-visible{outline:2px solid var(--og-border-focus)!important;outline-offset:-2px}
 .header-actions .icon-link,.mobile-community .icon-link{width:44px;height:44px}
 .mobile-community{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 @media(min-width:861px) and (max-width:1120px){.header-inner{gap:12px}.desktop-nav a,.desktop-nav .learn-trigger{padding-inline:8px}.header-actions{gap:0}}
 /* Keep the added profile links clear of the navigation on smaller screens. */
-@media(max-width:1279px){.desktop-nav,.header-actions .hide-sm{display:none!important}.menu-trigger{display:inline-flex!important}}
+@media(max-width:899px){.desktop-nav,.header-actions .hide-sm{display:none!important}.menu-trigger{display:inline-flex!important;margin-left:8px}}
 @media(prefers-reduced-motion:reduce){.learn-trigger svg,.learn-menu{animation:none!important;transition:none!important}}
 /* Desktop and phone together: the MacBook fills the window, the phone overlaps its lower right */
 .wt-shot-in.wt-shot-pair:not(.wt-shot-pair-phones){display:block!important}
@@ -1540,11 +1537,18 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 /* Header IA: every top item is a menu trigger with the same box, so labels share one baseline. */
 .desktop-nav [data-slot=navigation-menu-item]{display:flex;align-items:center}
 .desktop-nav .learn-trigger{height:44px;min-height:44px;line-height:1;gap:4px;margin:0;border-radius:6px}
+.desktop-nav [data-slot=navigation-menu-item]>a{flex-direction:row;justify-content:center;line-height:1;border-radius:6px}
 .desktop-nav .learn-trigger svg{width:12px;height:12px;margin:0;top:0}
 .desktop-nav .learn-menu{width:272px}
 .desktop-nav .learn-menu a{flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:44px;padding:8px 12px;border-radius:6px;white-space:normal}
 .desktop-nav .learn-menu a span{color:var(--og-text);font-size:13px}
 .desktop-nav .learn-menu a small{color:var(--og-text-tertiary,var(--og-text-secondary));font-size:11.5px;line-height:1.35}
+/* A sectioned dropdown (Resources) lays its sections side by side under small headings, anchored to the
+   right edge of its item so it never runs off the page. */
+.desktop-nav .learn-menu-cols{display:grid;grid-auto-flow:column;grid-auto-columns:200px;gap:4px;width:auto;left:auto;right:0}
+.desktop-nav .learn-menu-sec{display:flex;flex-direction:column;min-width:0}
+.desktop-nav .learn-menu-h,.mobile-nav .mnav-h{display:block;padding:10px 12px 4px;font-size:10.5px;color:var(--og-text-muted)}
+.mobile-nav .mnav-h{padding:14px 4px 2px 21px;list-style:none}
 .footer-links{grid-template-columns:repeat(7,1fr)!important}
 @media(max-width:1100px){.footer-links{grid-template-columns:repeat(4,1fr)!important}}
 @media(max-width:700px){.footer-links{grid-template-columns:1fr 1fr!important}}
@@ -1852,7 +1856,10 @@ button.shot-pair-item:focus-visible{outline:2px solid var(--og-border-focus);out
 .mobile-nav .mobile-community{margin-top:var(--og-space-lg);flex-shrink:0;align-items:center}
 .mobile-nav .mobile-community .theme-ctl button{width:44px;height:44px}
 .mobile-nav .mnav a{align-items:flex-start!important;justify-content:flex-start!important;text-align:left;border-left:1px solid rgb(var(--og-rgb-text)/.14)}
+/* A top-level link in the phone menu reads as a group heading, without the caret. */
+.mobile-nav .mnav a.mnav-link{flex-direction:row;align-items:center!important;min-height:56px;padding:0 4px;margin-left:0;border-left:0;font:400 19px/1.2 var(--og-font-sans);letter-spacing:-.02em}
 .mobile-nav .mnav a[aria-current=page]{border-left:2px solid var(--og-primary)}
+.mobile-nav .mnav a.mnav-link[aria-current=page]{border-left:0;color:var(--og-primary)}
 /* Phone menu: full screen, edge to edge. */
 .mobile-nav{inset:0!important;width:100%;height:100dvh;border:0!important;border-radius:0!important;padding:20px 24px calc(24px + env(safe-area-inset-bottom))!important}
 .mobile-nav .nav-close{top:12px!important;right:12px!important}

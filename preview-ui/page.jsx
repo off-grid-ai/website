@@ -1,5 +1,5 @@
 import { LifetimePrice } from './lifetime-price.jsx';
-import React, { Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { Fragment, Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
 import { createPortal, flushSync } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
@@ -90,27 +90,40 @@ function ModelChip({ name, kind, maker }) {
 export const GENERATED = [['dreamshaper', 'DreamShaper XL'], ['juggernaut', 'Juggernaut XL'], ['realvis', 'RealVisXL'], ['illustrious', 'Illustrious XL'], ['realvis-lightning', 'RealVisXL Lightning']];
 // Header: where people want to go from any page. Home-only anchors live in the phone menu.
 export const NAV = [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Pro', '/pro/'], ['Pricing', '/#pricing'], ['Guides', '/guides/']];
-// Each product owns its pages (overview, releases, extras); Learn and Company hold the rest.
+// Every page has one home: the apps under Products, what they do under Features, the two paid products
+// as plain links, reading under Resources, and the ways to work with us under Partners.
 const HEADER_MENUS = [
+  ['Products', [['Desktop', '/desktop/', 'Mac, Windows, Linux'], ['Mobile', '/mobile/', 'iPhone and Android'], ['Browser extension', '/browser-extension/', 'Your AI in every tab'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone']]],
   ['Features', FEATURES.map(f => [f.name, `/features/${f.slug}/`, f.note])],
-  ['Desktop', [['Overview', '/desktop/', 'Mac, Windows, Linux'], ['Browser extension', '/browser-extension/', 'Early access: your AI in every tab'], ['Releases', '/desktop/releases/', 'What changed in each version']]],
-  ['Mobile', [['Overview', '/mobile/', 'iPhone and Android'], ['Recorder', '/mobile/recorder/', 'Meetings, recorded on your phone'], ['Hardware', '/ogap/', 'Cooling and power for your phone'], ['Releases', '/mobile/releases/', 'What changed in each version']]],
-  ['Pro', [['Overview', '/pro/', 'Memory, meetings, sync, God'], ['Pricing', '/pro/#buy', 'Plans and checkout'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
-  ['Cloud', [['Early access', '/cloud/', 'Open models, served for you']]],
-  ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
-  ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
+  ['Pro', '/pro/'],
+  ['Boost', '/boost/'],
+  ['Resources', [
+    ['Learn', [['Quick start', '/quick-start/', 'Set up in minutes'], ['Guides', '/guides/', 'Step by step'], ['Articles', '/articles/', 'Local AI, explained'], ['Writing', '/writing/', 'Essays from the team']]],
+    ['Releases', [['Desktop', '/desktop/releases/', 'What changed in each version'], ['Mobile', '/mobile/releases/', 'What changed in each version']]],
+    ['Company', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/']]],
+  ]],
+  ['Partners', [['Investors', '/investors/', 'Angel and community rounds open'], ['Affiliates', '/affiliates/', 'Creators earn when their audience goes Pro'], ['Design partners', '/design-partners/', 'Teams under 50 build it with us']]],
 ];
+// A group is a dropdown of pages; an entry whose second value is a path is a plain top-level link.
+// A dropdown is a list of pages, or a list of [heading, pages] sections shown side by side.
+const isLink = (links) => typeof links === 'string';
+const sectionsOf = (links) => Array.isArray(links[0][1]) ? links : [[null, links]];
+const pagesOf = (links) => sectionsOf(links).flatMap(([, pages]) => pages);
 // Phone menu: the same groups as the header dropdowns. Each group opens to its pages; the current page's group starts open.
-const groupOf = (path) => HEADER_MENUS.findIndex(([, links]) => links.some(([, href]) => href.split('#')[0] !== '/' && path.startsWith(href.split('#')[0])));
+const groupOf = (path) => HEADER_MENUS.findIndex(([, links]) => !isLink(links) && pagesOf(links).some(([, href]) => href.split('#')[0] !== '/' && path.startsWith(href.split('#')[0])));
 function MobileMenu() {
   const [open, setOpen] = useState(-1); const [path, setPath] = useState('');
   useEffect(() => { setPath(location.pathname); setOpen(groupOf(location.pathname)); }, []);
   return <nav aria-label="Mobile navigation" className="mnav">{HEADER_MENUS.map(([group, links], g) => {
+    if (isLink(links)) return <div key={group} className="mnav-group"><Dialog.Close asChild><a href={links} className="mnav-head mnav-link" aria-current={path === links ? 'page' : undefined} data-analytics-event="nav_click" data-analytics-placement={`mobile_menu:${group}`}><span>{group}</span></a></Dialog.Close></div>;
     const on = open === g; const id = `mnav-${group.toLowerCase()}`;
     return <div key={group} className={`mnav-group${on ? ' is-open' : ''}`}>
       <button type="button" className="mnav-head" aria-expanded={on} aria-controls={id} onClick={() => setOpen(on ? -1 : g)}><span>{group}</span><CaretDown size={16} className="mnav-caret" /></button>
       <AnimatePresence initial={false}>{on && <motion.ul id={id} className="mnav-list" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .28, ease: [.2, .8, .2, 1] }}>
-        {links.map(([l, href, note]) => <li key={href} data-slot="dropdown-menu-item"><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
+        {sectionsOf(links).map(([heading, pages]) => <Fragment key={heading || group}>
+          {heading && <li className="mnav-h eyebrow" aria-hidden="true">{heading}</li>}
+          {pages.map(([l, href, note]) => <li key={href} data-slot="dropdown-menu-item"><Dialog.Close asChild><a href={href} aria-current={path === href ? 'page' : undefined} data-analytics-event="nav_click" data-analytics-placement={`mobile_menu:${group}`}><span>{l}</span>{note && <small>{note}</small>}</a></Dialog.Close></li>)}
+        </Fragment>)}
       </motion.ul>}</AnimatePresence>
     </div>;
   })}</nav>;
@@ -344,12 +357,12 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['DESKTOP', [['Overview', '/desktop/'], ['Download', '/download/'], ['Browser extension', '/browser-extension/'], ['Releases', '/desktop/releases/']]],
-  ['MOBILE', [['Overview', '/mobile/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Releases', '/mobile/releases/']]],
-  ['PRO', [['Overview', '/pro/'], ['Pricing', '/pro/#buy'], ['Design partners', '/design-partners/']]],
-  ['CLOUD', [['Early access', '/cloud/']]],
+  ['PRODUCTS', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Browser extension', '/browser-extension/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Download', '/download/']]],
+  ['PRO AND BOOST', [['Pro', '/pro/'], ['Pricing', '/pro/#buy'], ['Boost', '/boost/']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
+  ['RELEASES', [['Desktop', '/desktop/releases/'], ['Mobile', '/mobile/releases/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
+  ['PARTNERS', [['Investors', '/investors/'], ['Affiliates', '/affiliates/'], ['Design partners', '/design-partners/']]],
   ['CONNECT', [['GitHub', 'https://github.com/off-grid-ai'], ['Hugging Face', 'https://huggingface.co/off-grid-ai/'], ['X', 'https://x.com/getoffgridai'], ['Slack community', SLACK], ['Reddit', 'https://www.reddit.com/r/off_grid_ai/'], ['Support', 'mailto:support@getoffgridai.co']]],
 ];
 
@@ -1274,7 +1287,7 @@ function Walkthrough({ reduce, theme }) {
         <div className="hero-title rot-line" aria-hidden="true"><span className="dim">Your</span>{reduce ? <span className="rot">{ROT_WORDS[0]}</span> : <RotSlot first={ROT_WORDS[0]} live={!docked}><WordRotate words={ROT_WORDS} duration={2200} className="rot" /></RotSlot>}</div>
         <HeroPrompt active={!docked && inView} onRun={(id) => { setManual(false); goId(id); }} />
         <div className="hero-proof">
-          {[[250000, 'downloads'], [3400, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
+          {[[250000, 'downloads'], [3300, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
       </Suspense></motion.div>, [docked, inView, reduce, goId, heroFade, heroLift]);
@@ -1623,19 +1636,17 @@ export function PageShell({ children, feedback = true }) {
       <a className="wordmark" href="/" aria-label="Off Grid AI home"><Logo size={30} /><span>Off Grid AI</span></a>
       <NavigationMenu className="desktop-nav" aria-label="Main navigation" viewport={false}>
         <NavigationMenuList>
-          {HEADER_MENUS.map(([label, links]) => <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger" data-slot="button" data-variant="ghost">{label}</NavigationMenuTrigger>
-            <NavigationMenuContent className="learn-menu" data-slot="dropdown-menu-content">{links.map(([l, href, note]) => <NavigationMenuLink asChild key={href} data-slot="dropdown-menu-item"><a href={href}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}</NavigationMenuContent>
+          {HEADER_MENUS.map(([label, links]) => isLink(links) ? <NavigationMenuItem key={label}><NavigationMenuLink asChild><a href={links} data-analytics-event="nav_click" data-analytics-placement={`header:${label}`}>{label}</a></NavigationMenuLink></NavigationMenuItem> : <NavigationMenuItem key={label}><NavigationMenuTrigger className="learn-trigger" data-slot="button" data-variant="ghost">{label}</NavigationMenuTrigger>
+            <NavigationMenuContent className={`learn-menu${sectionsOf(links).length > 1 ? ' learn-menu-cols' : ''}`} data-slot="dropdown-menu-content">{sectionsOf(links).map(([heading, pages]) => <div key={heading || label} className="learn-menu-sec">
+              {heading && <span className="learn-menu-h eyebrow">{heading}</span>}
+              {pages.map(([l, href, note]) => <NavigationMenuLink asChild key={href} data-slot="dropdown-menu-item"><a href={href} data-analytics-event="nav_click" data-analytics-placement={`header:${label}`}><span>{l}</span>{note && <small>{note}</small>}</a></NavigationMenuLink>)}
+            </div>)}</NavigationMenuContent>
           </NavigationMenuItem>)}
         </NavigationMenuList>
       </NavigationMenu>
       <div className="header-actions">
         <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub" title="GitHub"><GithubLogo size={18} /></a>
-        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>
-        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://x.com/getoffgridai" target="_blank" rel="noopener" aria-label="Off Grid AI on X" title="X"><XLogo size={18} /></a>
-        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href="https://www.reddit.com/r/off_grid_ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Reddit" title="Reddit"><RedditLogo size={18} /></a>
-        <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
-        <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
         <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" data-slot="dialog-overlay" /><Dialog.Content className="mobile-nav" data-slot="dialog-content" data-og-alive="">
@@ -1662,7 +1673,7 @@ export function PageShell({ children, feedback = true }) {
     <Suspense><footer className="site-footer og-solid"><div className="section-shell">
       <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
       <div className="footer-links">
-        {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
+        {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" data-analytics-event="nav_click" data-analytics-placement={`footer:${head}`} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
       <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer></Suspense>
