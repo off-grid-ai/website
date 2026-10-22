@@ -1512,7 +1512,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .header-actions .icon-link,.mobile-community .icon-link{width:44px;height:44px}
 /* On desktop the header icons sit together as one row: narrower boxes, same 44px height, no gap. */
 .header-icons{display:flex;align-items:center}
-@media(min-width:900px){.header-actions .icon-link{width:30px}}
+@media(min-width:900px){.header-actions .icon-link{width:37.5px}}
 .mobile-community{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 @media(min-width:861px) and (max-width:1120px){.header-inner{gap:12px}.desktop-nav a,.desktop-nav .learn-trigger{padding-inline:8px}.header-actions{gap:0}}
 /* Keep the added profile links clear of the navigation on smaller screens. */
