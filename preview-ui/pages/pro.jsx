@@ -12,7 +12,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
-import { PRO_MONTHLY, BOOST_TOPUP, MONTHLY_FROM, monthlyLabel } from '../pro-plans.js';
+import { PRO_MONTHLY, BOOST_TOPUP, MONTHLY_FROM, BOOST_LAUNCH, BANK_MONTHS, PRO_ONLY_MONTHLY, monthlyLabel } from '../pro-plans.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -196,22 +196,22 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
   </section>;
 }
 
-// Pro monthly: every Pro feature plus Boost minutes each month, for models a device can't run. It has no
-// checkout yet, so it leads to the waitlist on /boost/.
+// Pro monthly at the founding price: Pro starts today, Boost minutes bank from the first month and open at
+// launch. It has no checkout yet (Stripe prices come first), so for now it leads to the list on /boost/.
 function Monthly() {
   const [pick, setPick] = useState(PRO_MONTHLY[0].id);
   return <SceneCard className="plan-card plan-card-hero pp-monthly-card">
     <div className="plan plan-hero">
-      <div className="pp-plan-top"><Kicker>RECOMMENDED · MONTHLY</Kicker></div>
+      <div className="pp-plan-top"><Kicker>{`FOUNDING PRICE · BOOST FROM ${BOOST_LAUNCH.toUpperCase()}`}</Kicker></div>
       <div className="pp-plan-row"><Heading as="h3">Pro monthly</Heading><span className="pp-from">from <b>${MONTHLY_FROM}</b>/month</span></div>
-      <ul className="pp-get">{['Every Pro feature', 'Boost minutes every month', 'Models too big for your device', 'Billed by the millisecond', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+      <ul className="pp-get">{['Every Pro feature, starting today', `Boost minutes from ${BOOST_LAUNCH}`, `Minutes bank from your first month, up to ${BANK_MONTHS} months' worth`, 'Founding price, locked while you stay', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
       <div className="pp-sizes" role="radiogroup" aria-label="Boost minutes each month">
         {PRO_MONTHLY.map(p => <button key={p.id} type="button" role="radio" aria-checked={pick === p.id} className="pp-size" onClick={() => setPick(p.id)}>
           <span className="pp-size-min">{p.minutes.toLocaleString('en-US')} min</span><span className="pp-size-price">${p.price}/mo</span></button>)}
       </div>
-      <p className="pp-monthly">Need more in a month? Top up from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes.</p>
+      <p className="pp-monthly">If Boost isn't live by the end of {BOOST_LAUNCH}, we refund what you paid above ${PRO_ONLY_MONTHLY} for every month after. Top-ups from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes.</p>
       <Button asChild data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-buy">
-        <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Join the Pro monthly waitlist</a></Button>
+        <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Lock in the founding price</a></Button>
     </div>
   </SceneCard>;
 }
@@ -223,7 +223,8 @@ const FAQ = (p) => [
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
-  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps. Pro monthly includes ${PRO_MONTHLY.map(x => x.minutes.toLocaleString('en-US')).join(', ')} minutes a month depending on the plan, billed by the millisecond of model time. It's opt-in for each model, and your prompts are never stored or trained on. Pro monthly is opening soon: join the waitlist.`],
+  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps. Pro monthly includes ${PRO_MONTHLY.map(x => x.minutes.toLocaleString('en-US')).join(', ')} minutes a month depending on the plan, billed by the millisecond of model time. It's opt-in for each model, and your prompts are never stored or trained on.`],
+  ['What if I join before Boost launches?', `Pro starts the day you pay. Boost goes live in ${BOOST_LAUNCH}; every month you pay before then banks that month's minutes, up to ${BANK_MONTHS} months' worth, ready on launch day. Your founding price stays locked as long as you stay subscribed. If Boost isn't live by the end of ${BOOST_LAUNCH}, we refund what you paid above $${PRO_ONLY_MONTHLY} for every month after.`],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
 ];

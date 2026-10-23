@@ -4,7 +4,7 @@ import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowDown, ArrowRight, Check, EnvelopeSimple, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
-import { PRO_MONTHLY, BOOST_TOPUP, monthlyLabel } from '../pro-plans.js';
+import { PRO_MONTHLY, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, monthlyLabel } from '../pro-plans.js';
 
 // /boost/: the waitlist for Off Grid AI Boost, hosted open models for people whose phone or computer can't run
 // a model, or runs it too slowly. The request is recorded the same way as the newsletter: identify the email
@@ -87,10 +87,10 @@ export default function BoostPage() {
     <section className="has-bg ideas-hero cl-hero" aria-labelledby="cl-h">
       <div className="section-shell cl-grid">
         <div className="sec-head ideas-head">
-          <Kicker>BOOST · PART OF PRO MONTHLY</Kicker>
+          <Kicker>{`BOOST · LIVE ${BOOST_LAUNCH.toUpperCase()}`}</Kicker>
           <Title as="h1" id="cl-h" lead="Bigger models when you need them." dim="Without a bigger computer." />
-          <Lede>Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. Pro monthly comes with Boost minutes every month. We never store or train on your prompts.</Lede>
-          <a className="cl-jump" href="#cl-request">Join the waitlist <ArrowDown size={14} /></a>
+          <Lede>{`Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. Boost goes live in ${BOOST_LAUNCH} as part of Pro monthly. Subscribe now at the founding price and your minutes bank from your first month, up to ${BANK_MONTHS} months' worth. We never store or train on your prompts.`}</Lede>
+          <a className="cl-jump" href="/pro/#buy">Lock in the founding price <ArrowRight size={14} /></a>
         </div>
         <div id="cl-request" className="cl-request" data-analytics-view="boost_form_viewed" data-analytics-placement="boost_page"><RequestForm /></div>
       </div>
