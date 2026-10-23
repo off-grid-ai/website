@@ -49,7 +49,7 @@ Businesses with fewer than 50 people can help shape a solution for daily work. T
 
 ## Off Grid AI Boost
 
-Boost runs bigger open models for you when your phone or computer can't run them, or runs them too slowly: the largest chat models, newer image models and faster voice, inside the Off Grid AI apps. It's opt-in for each model, and prompts are never stored or trained on. Planned as a monthly plan with Pro included, from $19.99 a month. Join the waitlist: https://getoffgridai.co/boost/
+Boost runs bigger open models for you when your phone or computer can't run them, or runs them too slowly: the largest chat models, newer image models and faster voice, inside the Off Grid AI apps. It's opt-in for each model, and prompts are never stored or trained on. Planned as monthly Boost minutes with Pro included: $9.99 for 1 hour, $19.99 for 3 hours, $49.99 for 9 hours. Join the waitlist: https://getoffgridai.co/boost/
 
 ## Links
 
