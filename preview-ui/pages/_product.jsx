@@ -307,7 +307,7 @@ export function Checks({ items }) {
   return <LiveList className="pp-checks">{items.map(x => <ListRow key={x} leading={<CheckCircle size={16} weight="fill" className="pp-check-ic" />} title={x} />)}</LiveList>;
 }
 
-// Free vs Pro, side by side (a swipe row on phones). Pro includes Boost minutes, paid monthly or yearly.
+// Free vs Pro, side by side (a swipe row on phones). Pro is monthly or yearly.
 export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lead = 'Free to run.', dim = 'Pro when you want more.', start = 0 }) {
   return <section id={id} className="chapter pp pp-plans-sec" aria-labelledby={`${id}-h`}>
     <div className="section-shell">
@@ -317,8 +317,8 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
         <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO · FOUNDING PRICE</Kicker><div className="price"><span className="amt">${MONTHLY_FROM}</span><small>/month</small></div>
-          <ul>{[...pro, `${PRO_SIZES[0].minutes} to ${PRO_SIZES[PRO_SIZES.length - 1].minutes.toLocaleString('en-US')} Boost minutes a month`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-          <p className="pp-offer">Or ${YEARLY_FROM} a year, two months free. Pro starts today; Boost, for models too big for your device, goes live in {BOOST_LAUNCH}, and your minutes bank until then.</p>
+          <ul>{[...pro, `Plus Boost minutes from ${BOOST_LAUNCH}`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+          <p className="pp-offer">Or ${YEARLY_FROM} a year, two months free. Cancel any time.</p>
           <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="plans_card">Get Pro</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>
       </MobileRail>
