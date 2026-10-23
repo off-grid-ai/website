@@ -132,6 +132,7 @@ export default function MobilePage({ data }) {
     <FreeVsPro pricing={p} start={1}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
       pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Tasks, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
+      boost={['Everything in Pro', 'Models too big for your phone', 'Newer image models than your phone can run', 'Faster answers when your phone is slow', 'Opt-in for each model, prompts never stored']}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

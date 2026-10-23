@@ -114,6 +114,7 @@
 
 /* Plans */
 .pp-plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.pp-plans-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pp-plans .plan-card{width:auto}
 .pp-plans .plan{padding:8px 4px;gap:16px;height:100%}
 .pp-offer{font-size:12.5px;line-height:1.65;color:var(--og-text-secondary);margin:0}
