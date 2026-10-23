@@ -1,4 +1,3 @@
-import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useIsPresent, useInView, useMotionValue, animate } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
@@ -15,6 +14,7 @@ import AIApproval from '@smoothui/ai-approval';
 import Button from '@smoothui/smooth-button';
 import { orchestra } from '@offgrid-ui/alive';
 import { ListGroup, ListRow } from '@offgrid-ui/list-row';
+import { PRO_SIZES, MONTHLY_FROM, YEARLY_FROM, BOOST_LAUNCH } from '../pro-plans.js';
 import { PlayCtx, Kicker, Title, Lede, SceneCard, MobileRail, useNarrow, Shot, ShotSeq, PlatformIcon, ZoomCtx, SeqZoom, useSeqStep, SeqOpenCtx, useZoomOwner, useZoomRegister, ScreenCtx, cmdFor, CmdBar, CmdScope, DISSOLVE, DISSOLVE_V, SceneRoll, SeqCtrlCtx, Zoomed, screenTime, SCREEN_MS, ScreenCountCtx, PickCtx, pickFraction, useRailPulse, useTypePulse } from '../shared.jsx';
 
 // Shared composition for the product pages (/desktop/, /mobile/). Not a page itself (leading underscore).
@@ -307,7 +307,7 @@ export function Checks({ items }) {
   return <LiveList className="pp-checks">{items.map(x => <ListRow key={x} leading={<CheckCircle size={16} weight="fill" className="pp-check-ic" />} title={x} />)}</LiveList>;
 }
 
-// Free vs Pro, side by side (a swipe row on phones).
+// Free vs Pro, side by side (a swipe row on phones). Pro is monthly or yearly.
 export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lead = 'Free to run.', dim = 'Pro when you want more.', start = 0 }) {
   return <section id={id} className="chapter pp pp-plans-sec" aria-labelledby={`${id}-h`}>
     <div className="section-shell">
@@ -316,10 +316,10 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
         <SceneCard className="plan-card"><div className="plan"><Kicker>FREE</Kicker><div className="price"><span className="amt">$0</span><small>forever</small></div>
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
-        <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO</Kicker><LifetimePrice pricing={pricing} />
-          <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-          <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. {pricing.lifetime_offer?.enabled ? "Lifetime discount applied automatically at checkout." : "The lifetime price rises as we grow."}</p>
-          <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="plans_card">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
+        <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO · FOUNDING PRICE</Kicker><div className="price"><span className="amt">${MONTHLY_FROM}</span><small>/month</small></div>
+          <ul>{[...pro, `Plus Boost minutes from ${BOOST_LAUNCH}`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+          <p className="pp-offer">Or ${YEARLY_FROM} a year, two months free. Cancel any time.</p>
+          <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="plans_card">Get Pro</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>
       </MobileRail>
     </div>

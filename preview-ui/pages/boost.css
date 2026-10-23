@@ -49,3 +49,12 @@
 .og-row>div:first-child{align-items:flex-start;padding-block:14px;gap:14px}
 .og-row .text-sm{font-size:15px;line-height:1.45}
 .og-row-ic{margin-top:2px;color:var(--og-primary)}
+
+/* Boost comes with Pro: the three sizes beside their prices, then one way to buy on /pro. */
+.cl-plans{display:flex;flex-direction:column;gap:16px;padding:28px}
+.cl-plan-list{display:grid;gap:10px}
+.cl-plan-list li{display:grid;grid-template-columns:auto 1fr auto auto;align-items:baseline;gap:8px 10px;font-size:14px}
+.cl-plan-list b{font-weight:500}
+.cl-plan-list small{font-size:12px;color:var(--og-text-muted)}
+.cl-plans .cl-hint{margin-top:0}
+.cl-plans .cl-submit{width:100%}

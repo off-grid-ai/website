@@ -1,4 +1,4 @@
-import { LifetimePrice } from './lifetime-price.jsx';
+import { PRO_SIZES, MONTHLY_FROM, YEARLY_FROM, BOOST_LAUNCH } from './pro-plans.js';
 import React, { Fragment, Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
 import { createPortal, flushSync } from 'react-dom';
@@ -130,7 +130,7 @@ function MobileMenu() {
 }
 
 // Real app screens, captured from the seeded desktop build in both themes.
-export const SHOT_V = '20261008k';
+export const SHOT_V = '20261023a';
 // A screenshot inside its device frame: the MacBook for desktop captures, the iPhone for phone captures.
 export function Device({ name, theme, alt, full = false }) {
   const mobile = name.startsWith('mobile/'); const n = name.replace(/^mobile\//, '');
@@ -1779,18 +1779,17 @@ function HomeSections({ pricing }) {
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
         {/* rough-notation draws into the word's parent: the positioned wrapper keeps the line under the
             word after the section's reveal transform ends. */}
-        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro forever, or go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>monthly</Highlighter></span>.</span></Heading></div>
-        <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
+        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>Pro</Highlighter></span> when you want more.</span></Heading></div>
+        <MobileRail className="plans" start={1} labels={['Free', 'Monthly', 'Yearly']}>
           <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
             <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
-          <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} />
-            <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Button data-site-button="primary" variant="solid" className="pro-shimmer" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</Button>
-            <Text as="p" className="small">{pricing.lifetime_offer?.enabled ? "Discount applied automatically at checkout." : "Price rises as we grow."}</Text></div></SceneCard>
-          <SceneCard className="plan-card"><div className="plan"><Kicker>FLEXIBLE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${pricing.monthly}</span><small>/ month</small></div>
-            <ul>{['Every Pro feature', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/?plan=monthly#buy">Start Pro monthly</a></Button></div></SceneCard>
+          <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>FOUNDING PRICE</Kicker><Heading as="h3">Pro monthly</Heading><div className="price"><span className="amt">${MONTHLY_FROM}</span><small>/ month</small></div>
+            <ul>{['Memory and actions you approve', 'God, Sync, Vault and Clipboard', 'Phone and computer, 5 devices', `Plus Boost minutes from ${BOOST_LAUNCH}`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+            <Button data-site-button="primary" asChild variant="solid" size="lg" className="pro-shimmer plan-btn"><a href="/pro/#buy">Get Pro</a></Button></div></SceneCard>
+          <SceneCard className="plan-card"><div className="plan"><Kicker>TWO MONTHS FREE</Kicker><Heading as="h3">Pro yearly</Heading><div className="price"><span className="amt">${YEARLY_FROM}</span><small>/ year</small></div>
+            <ul>{['Everything in Pro monthly', `$${(YEARLY_FROM / 12).toFixed(2)} a month, billed yearly`, 'Price locked while you stay'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+            <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/pro/#buy">Get Pro yearly</a></Button></div></SceneCard>
         </MobileRail>
         <Text as="p" className="fine"><a href="/pro/">Full terms</a></Text>
       </div></section></Suspense>

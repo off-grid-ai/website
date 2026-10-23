@@ -28,7 +28,7 @@ test('pricing follows the count boundary and rejects unavailable or invalid coun
     assert.equal(result.pricing.lifetime, lifetime);
     assert.equal(result.pricing.monthly, monthly);
     assert.equal(result.tier, tier);
-    const offerResult = await loadPricing({ ...legacyPricing, count_endpoint: `${endpoint}/${count}` });
+    const offerResult = await loadPricing({ ...legacyPricing, lifetime_offer: { ...pricing.lifetime_offer, enabled: true }, count_endpoint: `${endpoint}/${count}` });
     assert.equal(offerResult.pricing.lifetime, 79.99);
     assert.equal(offerResult.pricing.monthly, monthly);
     assert.equal(offerResult.tier, tier);
@@ -38,7 +38,7 @@ test('pricing follows the count boundary and rejects unavailable or invalid coun
 });
 
 test('the lifetime offer is available before the count loads and can be disabled', () => {
-  assert.equal(lifetimePrice({ ...pricing, lifetime: '...' }), 79.99);
+  assert.equal(lifetimePrice({ ...pricing, lifetime: '...', lifetime_offer: { ...pricing.lifetime_offer, enabled: true } }), 79.99);
   assert.equal(lifetimePrice({ lifetime: 119 }), 119);
   assert.equal(lifetimePrice({ ...pricing, lifetime: 119, lifetime_offer: { ...pricing.lifetime_offer, enabled: false } }), 119);
 });

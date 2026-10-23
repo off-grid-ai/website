@@ -52,6 +52,40 @@
 .pp-pay-status a{text-decoration:underline;text-underline-offset:3px}
 .pp-fine{font-size:11.5px;line-height:1.6;color:var(--og-text-muted)}
 .pp-buy-side{display:flex;flex-direction:column;gap:36px}
+.pp-from{font-size:14px;color:var(--og-text-secondary)}.pp-from b{font-size:28px;font-weight:500;color:var(--og-text)}
+.pp-sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pp-size{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line-2);border-radius:10px;background:transparent;color:var(--og-text);text-align:left;cursor:pointer;font:inherit}
+.pp-size[aria-checked=true]{border-color:var(--og-primary);box-shadow:0 0 0 1px var(--og-primary)}
+.pp-size-min{font-size:14px;font-weight:500}.pp-size-price{font-size:12px;color:var(--og-text-muted)}
+.pp-buy-grid{align-items:stretch}
+/* Get Pro: a Monthly/Yearly toggle over three sizes, with what every plan includes listed once below. */
+.pp-toggle{display:flex;width:max-content;margin:0 auto 28px;padding:4px;gap:4px;border:1px solid var(--line-2);border-radius:999px}
+.pp-toggle button{padding:8px 18px;border:0;border-radius:999px;background:transparent;color:var(--og-text-secondary);font:inherit;font-size:14px;cursor:pointer}
+.pp-toggle button[aria-checked=true]{background:var(--og-primary);color:#fff}
+.pp-toggle-save{font-size:12px;opacity:.8;margin-left:4px}
+.pp-plans-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:center;max-width:1080px;margin:0 auto}
+.pp-plan{width:100%!important}
+.pp-plan-in{display:flex;flex-direction:column;gap:0!important;padding:28px!important;height:100%}
+.pp-plan-rec{transform:scale(1.03);z-index:1}
+.pp-plan-rec .pp-plan-in{padding:34px 28px!important}
+.pp-plan-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pp-plan-name{font-size:20px!important;font-weight:500!important;letter-spacing:-.01em}
+.pp-plan-badge{font-family:var(--og-font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgb(var(--og-rgb-primary)/.14);color:var(--og-primary)}
+.pp-plan-for{margin-top:6px;font-size:14px;color:var(--og-text-secondary);min-height:2.6em}
+.pp-plan-price{display:flex;align-items:baseline;gap:6px;margin-top:22px}
+.pp-plan-amt{font-size:44px;line-height:1;font-weight:500;letter-spacing:-.03em;color:var(--og-text)}
+.pp-plan-per{font-size:14px;color:var(--og-text-muted)}
+.pp-plan-bill{margin-top:8px;font-size:13px;color:var(--og-text-muted);min-height:1.5em}
+.pp-plan-bill b{font-weight:500;color:var(--og-primary)}
+.pp-plan .pp-buy{margin-top:22px!important;width:100%!important}
+.pp-plan-min{margin-top:24px;padding:14px 16px;border-radius:10px;background:rgb(var(--og-rgb-primary)/.06);border:1px solid rgb(var(--og-rgb-primary)/.18);font-size:14px;color:var(--og-text-secondary)}
+.pp-plan-min b{font-weight:500;color:var(--og-text)}
+.pp-plan-min small{display:block;margin-top:4px;font-size:12px;color:var(--og-text-muted)}
+.pp-plan-list{display:grid;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--og-text-secondary)}
+.pp-plan-list li{display:flex;gap:10px;align-items:flex-start}
+.pp-plan-list svg{flex:none;margin-top:3px;color:var(--og-primary)}
+.pp-plans-fine{margin-top:28px;text-align:center;font-size:13px;color:var(--og-text-muted)}.pp-plans-fine a{color:inherit;text-decoration:underline}
+@media (max-width:860px){.pp-plans-grid{grid-template-columns:1fr;gap:16px}.pp-plan-rec{transform:none;order:-1}.pp-plan-in,.pp-plan-rec .pp-plan-in{padding:22px!important}.pp-plan-for{min-height:0}}
 .pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
 .pp-count b{font-weight:400;color:var(--og-primary)}
 .pp-muted{color:var(--og-text-muted)}
@@ -228,3 +262,24 @@
 /* The shared explorer sizes its stage from --pp-fit, which _product.css sets on .pp. Pro's sections are .pp-sec,
    so the stage collapsed to 0 on one-column widths: give What Pro is the same fit. */
 .pp-what{--pp-fit:max(320px,calc(100svh - var(--og-header-h,69px) - 80px))}
+
+/* Pricing: Free and Pro side by side under one toggle. Pro is raised; Free is quieter. */
+.pp-tiers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;max-width:880px;margin:0 auto;align-items:stretch}
+.pp-tier{width:100%!important}
+.pp-tier .scene-mc{width:100%;flex:1}
+.pp-tier-in{display:flex;flex-direction:column;align-items:stretch!important;text-align:left!important;gap:0!important;padding:32px!important;height:100%}
+.pp-tier-in .pp-plan-price{justify-content:flex-start}
+.pp-tier-pro{transform:translateY(-8px)}
+.pp-tier .pp-plan-for{min-height:0;margin-top:6px}
+.pp-tier .pp-plan-price{margin-top:24px}
+.pp-tier .pp-plan-amt{font-size:48px}
+.pp-tier .pp-plan-bill s{margin-right:4px;opacity:.7}
+.pp-tier .pp-buy{margin-top:22px!important;width:100%!important}
+.pp-tier-note{margin-top:10px;font-size:12px;color:var(--og-text-muted);text-align:center}
+.pp-tier-plus{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;font-weight:500;color:var(--og-text)}
+.pp-tier-list{display:grid;gap:10px;margin-top:14px;font-size:14px;color:var(--og-text-secondary)}
+.pp-tier:not(.pp-tier-pro) .pp-tier-list{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.pp-tier-list li{display:flex;gap:10px;align-items:flex-start}
+.pp-tier-list svg{flex:none;margin-top:3px;color:var(--og-primary)}
+.pp-plans-fine a{color:inherit;text-decoration:underline}
+@media (max-width:860px){.pp-tiers{grid-template-columns:1fr;gap:16px}.pp-tier-pro{transform:none;order:-1}.pp-tier-in{padding:24px!important}}

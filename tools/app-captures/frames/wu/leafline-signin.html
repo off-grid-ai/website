@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Leafline</title>
+<style>
+  :root{--bg:#eef2fb;--card:#ffffff;--ink:#141a2b;--muted:#5f6880;--line:#dbe1ee;--accent:#3f63c9;--accent-ink:#ffffff;--field:#f8f9fd}
+  @media (prefers-color-scheme: dark){:root{--bg:#0f1320;--card:#171c2c;--ink:#eef1f8;--muted:#9aa3ba;--line:#2a3147;--accent:#6f8ff0;--accent-ink:#0f1320;--field:#121727}}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  body{display:flex;flex-direction:column;min-height:100vh}
+  header{display:flex;align-items:center;gap:10px;padding:20px 36px;font-weight:700;font-size:17px;letter-spacing:-.01em}
+  .logo{width:28px;height:28px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink)}
+  .logo svg{width:16px;height:16px}
+  main{flex:1;display:grid;place-items:center;padding:10px 20px 50px}
+  .card{width:400px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 32px 26px;box-shadow:0 18px 50px -24px rgba(20,30,60,.25)}
+  h1{font-size:22px;letter-spacing:-.02em;margin:0 0 4px}
+  p.sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+  label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+  .field{margin-bottom:16px}
+  input{width:100%;font:inherit;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--ink);outline:none}
+  input:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)}
+  .row{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin:-4px 0 18px;color:var(--muted)}
+  .row a{color:var(--accent);text-decoration:none;font-weight:600}
+  button{width:100%;font:inherit;font-weight:600;padding:11px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+  .or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:16px 0}
+  .or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+  .ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .foot{text-align:center;font-size:13px;color:var(--muted);margin-top:18px}
+  .foot a{color:var(--accent);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<header><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c9 0 14-6 14-14C10 5 5 10 5 19z"/><path d="M5 19l7-7"/></svg></div>Leafline</header>
+<main>
+  <form class="card" onsubmit="return false">
+    <h1>Sign in to Leafline</h1>
+    <p class="sub">Sign in to see Team and Business pricing for your workspace.</p>
+    <div class="field"><label for="email">Work email</label><input id="email" type="email" name="email" autocomplete="username" placeholder="you@company.com"></div>
+    <div class="field"><label for="password">Password</label><input id="password" type="password" name="password" autocomplete="current-password" placeholder="••••••••••"></div>
+    <div class="row"><span>Keep me signed in</span><a href="#">Forgot password?</a></div>
+    <button type="submit">Sign in</button>
+    <div class="or">or</div>
+    <button type="button" class="ghost">Continue with single sign-on</button>
+    <div class="foot">New to Leafline? <a href="#">Start a free trial</a></div>
+  </form>
+</main>
+</body>
+</html>
