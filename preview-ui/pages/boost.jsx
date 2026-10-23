@@ -10,12 +10,12 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 // in PostHog, then capture one event with the answers.
 const USES = ['Chat with bigger models', 'Image generation', 'Voice and speech', 'Video', 'Documents and research'];
 const DEVICES = [['phone', 'My phone'], ['computer', 'My computer'], ['both', 'Both']];
-const PLANS = [['9.99', '$9.99 · 1 hour'], ['19.99', '$19.99 · 3 hours'], ['49.99', '$49.99 · 9 hours'], ['unsure', 'Not sure yet']];
+const PLANS = [['9.99', '$9.99 · 2.5 hours'], ['19.99', '$19.99 · 7.5 hours'], ['49.99', '$49.99 · 22.5 hours'], ['unsure', 'Not sure yet']];
 const ETHOS = [
   [ShieldCheck, 'Never stored or trained on.', 'Your prompts are answered and gone. We don\'t keep them or learn from them.'],
   [DeviceMobile, 'You choose what runs where.', 'Each model runs on your device or on Boost. Nothing leaves your device unless you pick Boost for it.'],
   [Stack, 'Models your device can\'t run.', 'The largest open chat models, newer image models and faster voice, on any phone or laptop.'],
-  [Timer, 'Pay for minutes, nothing else.', 'Boost minutes from $9.99 a month, with Pro included. When your minutes run out, you\'re back on your own device, or add more at $1 for 5 minutes.'],
+  [Timer, 'Pay for time, nothing else.', 'From $4 an hour: $9.99 a month for 2.5 hours, with Pro included. When your hours run out, you\'re back on your own device, or add more at $4 an hour.'],
   [GithubLogo, 'No lock-in.', 'The serving code will be open source, so you can run it on your own hardware.'],
 ];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -64,7 +64,7 @@ function RequestForm() {
     <fieldset disabled={done || busy} className="cl-group">
       <Choices legend="What would you use Boost for?" Group={CheckboxCards} value={uses} onChange={setUses} items={USES.map(u => [u, u])} />
       <Choices legend="Where do you use Off Grid AI?" Group={RadioCards} value={device} onChange={setDevice} items={DEVICES} />
-      <Choices legend="Which plan would you pick?" hint="Monthly Boost minutes, with Pro included. Optional." Group={RadioCards} value={plan} onChange={setPlan} items={PLANS} />
+      <Choices legend="Which plan would you pick?" hint="Boost hours each month, with Pro included. Optional." Group={RadioCards} value={plan} onChange={setPlan} items={PLANS} />
       <fieldset>
         <legend className="eyebrow">Email</legend>
         <div className="cl-send">
