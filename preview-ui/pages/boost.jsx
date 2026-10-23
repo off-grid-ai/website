@@ -1,35 +1,20 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { ListGroup, ListRow } from '@offgrid-ui/list-row';
-import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
+import { Heading } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
-import { ArrowDown, ArrowRight, Check, EnvelopeSimple, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
+import { ArrowRight, Check, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
-import { PRO_MONTHLY, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, monthlyLabel } from '../pro-plans.js';
+import { PRO_SIZES, MONTHLY_FROM, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, minutesText } from '../pro-plans.js';
 
-// /boost/: the waitlist for Off Grid AI Boost, hosted open models for people whose phone or computer can't run
-// a model, or runs it too slowly. The request is recorded the same way as the newsletter: identify the email
-// in PostHog, then capture one event with the answers.
-const USES = ['Chat with bigger models', 'Image generation', 'Voice and speech', 'Video', 'Documents and research'];
-const DEVICES = [['phone', 'My phone'], ['computer', 'My computer'], ['both', 'Both']];
-const PLANS = [...PRO_MONTHLY.map(p => [p.id, monthlyLabel(p)]), ['unsure', 'Not sure yet']];
+// /boost/: Off Grid AI Boost, hosted open models for people whose phone or computer can't run a model, or runs
+// it too slowly. Boost comes with Pro (monthly or yearly); this page explains it and sends people to /pro to buy.
 const ETHOS = [
   [ShieldCheck, 'Never stored or trained on.', 'Your prompts are answered and gone. We don\'t keep them or learn from them.'],
   [DeviceMobile, 'You choose what runs where.', 'Each model runs on your device or on Boost. Nothing leaves your device unless you pick Boost for it.'],
   [Stack, 'Models your device can\'t run.', 'The largest open chat models, newer image models and faster voice, on any phone or laptop.'],
-  [Timer, 'Part of Pro monthly.', `Pro monthly includes Boost minutes, from $${PRO_MONTHLY[0].price} for ${PRO_MONTHLY[0].minutes} a month, billed by the millisecond. Top up from $${BOOST_TOPUP.from} for ${BOOST_TOPUP.minutes} minutes, or carry on on your own device.`],
+  [Timer, 'Included in Pro.', `Pro includes Boost minutes, from $${MONTHLY_FROM} a month for ${PRO_SIZES[0].minutes}, billed by the millisecond. Top up from $${BOOST_TOPUP.from} for ${BOOST_TOPUP.minutes} minutes, or carry on on your own device.`],
   [GithubLogo, 'No lock-in.', 'The serving code will be open source, so you can run it on your own hardware.'],
 ];
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function Choices({ legend, hint, Group, value, onChange, items }) {
-  return <fieldset>
-    <legend className="eyebrow">{legend}</legend>
-    {hint && <Text as="p" className="cl-hint">{hint}</Text>}
-    <Group.Root size="1" value={value} onValueChange={onChange} className="cl-pick">
-      {items.map(([v, l]) => <Group.Item key={v} value={v}>{l}</Group.Item>)}
-    </Group.Root>
-  </fieldset>;
-}
 
 // The library's ListGroup of ListRows: one surface, rows divided by hairlines. ListRow takes no extra
 // attributes, so its rows are marked living after each render; the group arrives once on scroll.
@@ -39,47 +24,14 @@ function Rows({ label, children }) {
   return <ListGroup ref={ref} label={label} className="og-rows" data-og-reveal="">{children}</ListGroup>;
 }
 
-function RequestForm() {
-  const [uses, setUses] = useState([]);
-  const [device, setDevice] = useState('');
-  const [plan, setPlan] = useState('');
-  // /pro links here with the size already chosen (?plan=pro-300); read it after the page hydrates.
-  useEffect(() => { const q = new URLSearchParams(location.search).get('plan'); if (PRO_MONTHLY.some(p => p.id === q)) setPlan(q); }, []);
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState(['', '']);
-  const [busy, setBusy] = useState(false);
-  const done = status[1] === 'success';
-  const submit = (e) => {
-    e.preventDefault();
-    const value = email.trim();
-    if (!uses.length) return setStatus(['Pick at least one thing you\'d use Boost for.', 'error']);
-    if (!device) return setStatus(['Choose where you use Off Grid AI.', 'error']);
-    if (!EMAIL.test(value)) return setStatus(['Enter a valid email address.', 'error']);
-    if (typeof posthog !== 'undefined') {
-      posthog.identify(value, { email: value });
-      posthog.capture('boost_waitlist_joined', { email: value, uses, device, plan: plan || null, source: window.location.pathname });
-    }
-    // A brief busy state, then the card settles with one pulse as the request lands.
-    setBusy(true); setStatus(['', '']);
-    setTimeout(() => { setBusy(false); setStatus(['You\'re on the list. We\'ll email you when Boost opens.', 'success']); }, 700);
-  };
-  return <SceneCard className="cl-card" busy={busy}><form className="cl-form" onSubmit={submit} noValidate>
-    <fieldset disabled={done || busy} className="cl-group">
-      <Choices legend="What would you use Boost for?" Group={CheckboxCards} value={uses} onChange={setUses} items={USES.map(u => [u, u])} />
-      <Choices legend="Where do you use Off Grid AI?" Group={RadioCards} value={device} onChange={setDevice} items={DEVICES} />
-      <Choices legend="Which Pro monthly plan would you pick?" hint="Every Pro feature, plus Boost minutes each month. Optional." Group={RadioCards} value={plan} onChange={setPlan} items={PLANS} />
-      <fieldset>
-        <legend className="eyebrow">Email</legend>
-        <div className="cl-send">
-          <TextField.Root size="3" type="email" name="email" required autoComplete="email" placeholder="your@email.com" aria-label="Email address" aria-invalid={status[1] === 'error' && !EMAIL.test(email.trim())} value={email} onChange={(e) => setEmail(e.target.value)} className="cl-email">
-            <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
-          </TextField.Root>
-          <Button data-site-button="primary" type="submit" size="lg" className="cl-submit">{done ? <><Check size={16} /> On the list</> : <>Join the waitlist <ArrowRight size={16} /></>}</Button>
-        </div>
-      </fieldset>
-    </fieldset>
-    <Text as="p" className={`cl-status ${status[1]}`} aria-live="polite">{status[0]}</Text>
-  </form></SceneCard>;
+// The three Pro sizes, so the minutes have a price beside them; buying happens on /pro.
+function Plans() {
+  return <SceneCard className="cl-card"><div className="cl-plans">
+    <Kicker>BOOST COMES WITH PRO</Kicker>
+    <ul className="cl-plan-list">{PRO_SIZES.map(size => <li key={size.minutes}><Check size={14} /><span>{minutesText(size)}</span><b>${size.monthly}/mo</b><small>or ${size.yearly}/yr</small></li>)}</ul>
+    <p className="cl-hint">Every Pro feature starts the day you pay. Boost goes live in {BOOST_LAUNCH}; the minutes you pay for before then bank, up to {BANK_MONTHS} months' worth.</p>
+    <Button asChild data-site-button="primary" variant="solid" size="lg" className="pro-shimmer cl-submit"><a href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="boost_page">Get Pro <ArrowRight size={16} /></a></Button>
+  </div></SceneCard>;
 }
 
 export default function BoostPage() {
@@ -89,10 +41,9 @@ export default function BoostPage() {
         <div className="sec-head ideas-head">
           <Kicker>{`BOOST · LIVE ${BOOST_LAUNCH.toUpperCase()}`}</Kicker>
           <Title as="h1" id="cl-h" lead="Bigger models when you need them." dim="Without a bigger computer." />
-          <Lede>{`Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. Boost goes live in ${BOOST_LAUNCH} as part of Pro monthly. Subscribe now at the founding price and your minutes bank from your first month, up to ${BANK_MONTHS} months' worth. We never store or train on your prompts.`}</Lede>
-          <a className="cl-jump" href="/pro/#buy">Lock in the founding price <ArrowRight size={14} /></a>
+          <Lede>{`Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. Boost comes with Pro and goes live in ${BOOST_LAUNCH}. We never store or train on your prompts.`}</Lede>
         </div>
-        <div id="cl-request" className="cl-request" data-analytics-view="boost_form_viewed" data-analytics-placement="boost_page"><RequestForm /></div>
+        <div className="cl-request" data-analytics-view="boost_plans_viewed" data-analytics-placement="boost_page"><Plans /></div>
       </div>
     </section>
 

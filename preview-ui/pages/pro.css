@@ -58,6 +58,20 @@
 .pp-size[aria-checked=true]{border-color:var(--og-primary);box-shadow:0 0 0 1px var(--og-primary)}
 .pp-size-min{font-size:14px;font-weight:500}.pp-size-price{font-size:12px;color:var(--og-text-muted)}
 .pp-buy-grid{align-items:stretch}
+/* Get Pro: a Monthly/Yearly toggle over three sizes, with what every plan includes listed once below. */
+.pp-toggle{display:flex;width:max-content;margin:0 auto 28px;padding:4px;gap:4px;border:1px solid var(--line-2);border-radius:999px}
+.pp-toggle button{padding:8px 18px;border:0;border-radius:999px;background:transparent;color:var(--og-text-secondary);font:inherit;font-size:14px;cursor:pointer}
+.pp-toggle button[aria-checked=true]{background:var(--og-primary);color:#fff}
+.pp-toggle-save{font-size:12px;opacity:.8;margin-left:4px}
+.pp-plans-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pp-plan{width:100%!important}
+.pp-plan .plan{gap:14px!important;padding:28px!important;height:100%}
+.pp-plan-min{font-size:16px!important;font-weight:500!important}
+.pp-plan-note{font-size:13px;color:var(--og-text-muted);margin-top:-6px}
+.pp-plan .pp-buy{margin-top:auto}
+.pp-every{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;margin:28px auto 0;max-width:900px;font-size:14px;color:var(--og-text-secondary)}
+.pp-every li{display:flex;gap:8px;align-items:center}
+@media (max-width:860px){.pp-plans-grid{grid-template-columns:1fr;gap:14px}.pp-plan .plan{padding:20px!important}.pp-every{justify-content:flex-start;flex-direction:column;gap:8px}}
 .pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
 .pp-count b{font-weight:400;color:var(--og-primary)}
 .pp-muted{color:var(--og-text-muted)}

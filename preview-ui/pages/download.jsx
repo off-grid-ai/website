@@ -1,5 +1,4 @@
-import { LifetimePrice } from '../lifetime-price.jsx';
-import { MONTHLY_FROM, BOOST_LAUNCH } from '../pro-plans.js';
+import { MONTHLY_FROM, YEARLY_FROM, BOOST_LAUNCH } from '../pro-plans.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { usePricing } from '../pricing.js';
 import { Badge } from '@radix-ui/themes';
@@ -218,7 +217,7 @@ function Pro({ pricing }) {
           <p className="pp-fine"><a href="/desktop/#computer-use">Desktop features and platform limits</a></p>
         </SceneCard>
       </MobileRail>
-      <p className="dn-upsell" data-og-reveal="">Pro adds memory, Sync, approved actions and Boost minutes for bigger models (from {BOOST_LAUNCH}). From ${MONTHLY_FROM}/month, or <LifetimePrice pricing={pricing} compact /> without minutes. <a href="/pro/#buy" data-cta>Get Pro <ArrowRight size={14} /></a></p>
+      <p className="dn-upsell" data-og-reveal="">Pro adds memory, Sync, approved actions and Boost minutes for bigger models (from {BOOST_LAUNCH}). From ${MONTHLY_FROM}/month, or ${YEARLY_FROM}/year. <a href="/pro/#buy" data-cta>Get Pro <ArrowRight size={14} /></a></p>
     </div>
   </section>;
 }

@@ -1,18 +1,15 @@
-import { LifetimePrice } from '../lifetime-price.jsx';
-import React, { useEffect, useRef, useState } from 'react';
-import { Heading, Text, TextField, Badge } from '@radix-ui/themes';
+import React, { useEffect, useState } from 'react';
+import { Heading, Badge } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
-import { Highlighter } from '@magicui/highlighter';
+import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, Plus, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
-import { orchestra } from '@offgrid-ui/alive';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
-import { PRO_MONTHLY, BOOST_TOPUP, MONTHLY_FROM, BOOST_LAUNCH, BANK_MONTHS, PRO_ONLY_MONTHLY, monthlyLabel } from '../pro-plans.js';
+import { PRO_SIZES, planId, minutesText, MONTHLY_FROM, YEARLY_FROM, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, PRO_ONLY_MONTHLY } from '../pro-plans.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -22,41 +19,22 @@ function Proof() {
   return <p className="pp-proof"><span><b>250,000+</b> downloads</span><span><b>3,400+</b> GitHub stars</span><span><b>600+</b> community</span></p>;
 }
 
-function Hero({ pricing }) {
+function Hero() {
   return <section className="has-bg pp-sec pp-hero" data-section="Hero" aria-labelledby="pp-h">
     <div className="section-shell pp-hero-in">
       <Badge className="pp-live" size="2" variant="surface" color="gray" radius="full"><span className="pulse" /><AnimatedShinyText shimmerWidth={120}>Off Grid AI Pro · Live now</AnimatedShinyText></Badge>
       <Title as="h1" id="pp-h" className="pp-h1" lead="It remembers your work." dim="You approve." />
-      {pricing.lifetime_offer?.enabled && <LifetimePrice pricing={pricing} />}
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
-          onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
-        <a className="pp-quiet" href="#buy" data-cta="">or Pro monthly with Boost minutes, from ${MONTHLY_FROM}</a>
+          onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Get Pro from ${MONTHLY_FROM}/month</Button>
+        <a className="pp-quiet" href="#buy" data-cta="">Boost included from {BOOST_LAUNCH}, at a founding price</a>
       </div>
       <Proof />
     </div>
   </section>;
 }
 
-/* ───────── Price ladder (live tier from the customer count) ───────── */
-
-/* ───────── Checkout: same behaviour as the old /pro/ script ───────── */
-
-// Stable id per buyer+plan so a double-click reports ONE Google Ads conversion. Hashed: the raw email never goes to Google.
-function dedupeId(plan, email) {
-  let h = 5381;
-  for (let i = 0; i < email.length; i++) h = ((h << 5) + h + email.charCodeAt(i)) | 0;
-  return plan + '-' + (h >>> 0).toString(36);
-}
-
-// The checkout helpers stay plain browser scripts (they are shared with /thank-you/ and unit tests):
-// load them as globals, exactly as pro.md did with <script src>.
-function useScript(src) {
-  useEffect(() => {
-    if (document.querySelector(`script[src="${src}"]`)) return;
-    const s = document.createElement('script'); s.src = src; document.body.appendChild(s);
-  }, [src]);
-}
+/* ───────── Get Pro: three sizes, monthly or yearly ───────── */
 
 // Opens Stripe Checkout for a plan. The worker picks the price; the page only names the plan.
 async function openStripeCheckout(endpoint, plan) {
@@ -73,177 +51,62 @@ async function openStripeCheckout(endpoint, plan) {
   window.location.assign(target.href);
 }
 
-function Checkout({ pricing, checkout, count, failed, tier, ready }) {
-  useScript('/assets/js/revenuecat-link.js');
-  useScript('/assets/js/checkout-plan.js');
-  const stripe = pricing.checkout_provider === 'stripe';
-  const [busy, setBusy] = useState(false);
-  const submitting = useRef(false);
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState(null);
-  const form = useRef(null); const input = useRef(null); const fired = useRef({});
-  const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
-    ...(pricing.lifetime_offer?.enabled ? { lifetime: checkout.nextLinks.lifetime } : {}) };
-  const PLAN_VALUES = { monthly: Number(pricing.monthly), lifetime: Number(pricing.lifetime) };
-  const ADS_ENABLED = checkout.adsLabel !== '';
-  const ADS_SEND_TO = `${checkout.adsId}/${checkout.adsLabel}`;
-  const reportOnce = (name) => {
-    if (fired.current[name] || typeof window.posthog === 'undefined') return;
-    fired.current[name] = true;
-    try { window.posthog.capture(name, { source: window.location.pathname }); } catch (err) { console.warn('PostHog tracking failed:', err); }
-  };
-  useEffect(() => {
-    // The browser may autofill or restore the field without an input event.
-    if (input.current && input.current.value !== email) setEmail(input.current.value);
-    if (typeof IntersectionObserver !== 'function' || !form.current) return;
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { reportOnce('pro_buy_form_viewed'); io.disconnect(); }
-    }, { threshold: 0.4 });
-    io.observe(form.current);
-    return () => io.disconnect();
-  }, []);
-  const onInput = (e) => {
-    const v = e.target.value; setEmail(v);
-    if (status && status.kind === 'error') setStatus(null);
-  };
+const EVERY_PLAN = (p) => ['Every Pro feature, starting today', `${p.devices} devices, desktop and mobile`, `Boost from ${BOOST_LAUNCH}; minutes bank until then`, 'Founding price, locked while you stay', 'Cancel any time'];
+
+function Buy({ pricing, failed, ready }) {
+  const [yearly, setYearly] = useState(false);
+  const [busy, setBusy] = useState(null);
+  const [error, setError] = useState(false);
+  const sold = new Set((pricing.pro_plans ?? []).map(p => p.plan));
   const buy = async (plan) => {
-    if (stripe) {
-      // Stripe Checkout asks for the email the key is sent to, so this page does not.
-      if (submitting.current || !ready || failed) return;
-      submitting.current = true; setBusy(true); setStatus(null);
-      try {
-        await openStripeCheckout(pricing.stripe_endpoint, plan);
-      } catch {
-        setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
-        submitting.current = false; setBusy(false);
-      }
-      return;
-    }
-    const RevenueCatLink = window.RevenueCatLink; if (!RevenueCatLink) return;
-    const value = (input.current ? input.current.value : email).trim();
-    if (!RevenueCatLink.isValidEmail(value)) { setStatus({ kind: 'error', text: 'Enter a valid email address.' }); input.current && input.current.focus(); return; }
-    if (count === null || failed) return;
-    const url = RevenueCatLink.buildPurchaseUrl(LINKS?.[plan], value);
-    if (!url) { setStatus({ kind: 'error', text: 'Checkout is not available right now. Please try again later.' }); return; }
-    if (typeof window.posthog !== 'undefined') {
-      // Never let an analytics failure stop the purchase. Identify on the email: it is the RevenueCat app user id.
-      try {
-        window.posthog.identify(value, { email: value });
-        window.posthog.capture('pro_checkout_started', { email: value, plan, source: window.location.pathname });
-      } catch (err) { console.warn('PostHog tracking failed:', err); }
-    }
-    // Hand the plan to /thank-you/: RevenueCat's redirect carries only the app user id.
-    if (window.CheckoutPlan) window.CheckoutPlan.remember(plan, PLAN_VALUES[plan]);
-    if (ADS_ENABLED && typeof window.gtag === 'function') {
-      try { window.gtag('event', 'conversion', { send_to: ADS_SEND_TO, value: PLAN_VALUES[plan], currency: 'USD', transaction_id: dedupeId(plan, value) }); }
-      catch (err) { console.warn('Google Ads conversion failed:', err); }
-    }
-    setStatus({ kind: 'success', url });
-    window.open(url, '_blank');
-    // The success line holds a link, so the conductor does not settle it: the form ripples instead.
-    if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
+    if (busy) return;
+    setBusy(plan); setError(false);
+    try { await openStripeCheckout(pricing.stripe_endpoint, plan); } catch { setError(true); setBusy(null); }
   };
-  const off = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed || busy;
-  // The buy buttons wake when they become usable: the field answers from the primary one.
-  const wasOff = useRef(off);
-  useEffect(() => {
-    if (wasOff.current && !off) { const b = form.current?.querySelector('.pp-buy'); if (b) orchestra.pulseFrom(b, 'change', 0.45); }
-    wasOff.current = off;
-  }, [off]);
-  // A visitor who chose monthly on another page lands with monthly as the main action.
-  // Pro monthly (with Boost minutes) is sold from its own card; this form sells lifetime.
-  const primary = ['lifetime', `Own Pro forever for $${pricing.lifetime}`];
-  const err = status && status.kind === 'error';
-  return <form id="payForm" ref={form} className="pp-form" noValidate onSubmit={(e) => { e.preventDefault(); buy(primary[0]); }}>
-    {!stripe && <>
-      <label className="pp-label" htmlFor="payEmail">Email for your license key</label>
-      <TextField.Root ref={input} id="payEmail" type="email" size="3" placeholder="your@email.com" autoComplete="email" required
-        aria-invalid={err ? 'true' : 'false'} aria-describedby="payStatus" className={`pp-input ${err ? 'ea-input-error' : ''}`} value={email} onChange={onInput}>
-        <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
-      </TextField.Root>
-    </>}
-    <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
-    <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
-      {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
-    </p>
-    <ul className="pp-trust">
-      <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
-      <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
-      <li><ShieldCheck size={13} />Your devices, models and data never touch the purchase.</li>
-    </ul>
-    <p className="pp-fine"><a href="/terms/">Terms</a></p>
-  </form>;
-}
-
-
-const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p.devices} devices, desktop and mobile`, 'Every update'];
-
-function Buy({ pricing, checkout, count, failed, tier, ready }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
-        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Get Pro.</span><span className="t-line t-dim">Monthly with Boost, or once for life.</span></Heading>
+        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Get Pro.</span><span className="t-line t-dim">Boost included. Monthly or yearly.</span></Heading>
       </div>
-      <div className="pp-buy-grid">
-        <Monthly pricing={pricing} ready={ready} failed={failed} />
-        {/* Busy only while the live price loads; when it lands the card settles once. */}
-        <SceneCard className="plan-card pp-checkout" busy={!ready && !failed}>
-          <div className="plan">
-            <div className="pp-plan-top"><Kicker>ONE PAYMENT</Kicker></div>
-            <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} /></div>
-            <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <p className="pp-monthly">Pro on your own devices. No Boost minutes included; add them any time from ${BOOST_TOPUP.from}.</p>
-            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
-          </div>
-        </SceneCard>
+      <div className="pp-toggle" role="radiogroup" aria-label="Billing">
+        <button type="button" role="radio" aria-checked={!yearly} onClick={() => setYearly(false)}>Monthly</button>
+        <button type="button" role="radio" aria-checked={yearly} onClick={() => setYearly(true)}>Yearly <span className="pp-toggle-save">2 months free</span></button>
       </div>
+      <div className="pp-plans-grid">
+        {PRO_SIZES.map((size, k) => {
+          const plan = planId(size, yearly);
+          const ok = ready && !failed && sold.has(plan);
+          return <SceneCard key={size.minutes} className={`plan-card pp-plan${k === 0 ? ' plan-card-hero' : ''}`} busy={!ready && !failed}>
+            <div className={`plan${k === 0 ? ' plan-hero' : ''}`}>
+              <Heading as="h3" className="pp-plan-min">{minutesText(size)}</Heading>
+              <div className="price"><span className="amt">${yearly ? size.yearly : size.monthly}</span><small>{yearly ? '/ year' : '/ month'}</small></div>
+              <p className="pp-plan-note">{yearly ? `$${(size.yearly / 12).toFixed(2)} a month, billed yearly` : `or $${size.yearly} a year`}</p>
+              <Button data-site-button="primary" variant={k === 0 ? 'solid' : 'outline'} type="button" disabled={!ok || busy !== null} onClick={() => buy(plan)}
+                className={`pp-buy${k === 0 ? ' pro-shimmer pp-shimmer' : ''}`} data-analytics-event="pro_cta_click" data-analytics-placement={`pro_plan_${plan}`}>
+                {busy === plan ? 'Opening secure checkout...' : 'Get Pro'}</Button>
+            </div>
+          </SceneCard>;
+        })}
+      </div>
+      <ul className="pp-every" aria-label="Every plan includes">{EVERY_PLAN(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+      <p className={`ea-status pp-pay-status ${error ? 'ea-status-error' : ''}`} aria-live="polite">
+        {error ? 'Checkout is unavailable. Please try again.' : failed ? 'Pricing unavailable. Reload this page to try again.' : !ready ? 'Loading current pricing...' : null}</p>
     </div>
   </section>;
 }
 
-// Pro monthly at the founding price: Pro starts today, Boost minutes bank from the first month and open at
-// launch. It checks out once the pricing service offers the plan; until then it leads to the list on /boost/.
-function Monthly({ pricing, ready, failed }) {
-  const [pick, setPick] = useState(PRO_MONTHLY[0].id);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(false);
-  const sold = pricing.checkout_provider === 'stripe' && ready && !failed && (pricing.pro_monthly ?? []).some(p => p.plan === pick);
-  const buy = async () => {
-    if (busy) return;
-    setBusy(true); setError(false);
-    try { await openStripeCheckout(pricing.stripe_endpoint, pick); } catch { setError(true); setBusy(false); }
-  };
-  return <SceneCard className="plan-card plan-card-hero pp-monthly-card">
-    <div className="plan plan-hero">
-      <div className="pp-plan-top"><Kicker>{`FOUNDING PRICE · BOOST FROM ${BOOST_LAUNCH.toUpperCase()}`}</Kicker></div>
-      <div className="pp-plan-row"><Heading as="h3">Pro monthly</Heading><span className="pp-from">from <b>${MONTHLY_FROM}</b>/month</span></div>
-      <ul className="pp-get">{['Every Pro feature, starting today', `Boost minutes from ${BOOST_LAUNCH}`, `Minutes bank from your first month, up to ${BANK_MONTHS} months' worth`, 'Founding price, locked while you stay', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-      <div className="pp-sizes" role="radiogroup" aria-label="Boost minutes each month">
-        {PRO_MONTHLY.map(p => <button key={p.id} type="button" role="radio" aria-checked={pick === p.id} className="pp-size" onClick={() => setPick(p.id)}>
-          <span className="pp-size-min">{p.minutes.toLocaleString('en-US')} min</span><span className="pp-size-price">${p.price}/mo</span></button>)}
-      </div>
-      <p className="pp-monthly">If Boost isn't live by the end of {BOOST_LAUNCH}, we refund what you paid above ${PRO_ONLY_MONTHLY} for every month after. Top-ups from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes.</p>
-      {sold
-        ? <Button data-site-button="primary" variant="solid" type="button" disabled={busy} onClick={buy} className="pro-shimmer pp-shimmer pp-buy"
-            data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">{busy ? 'Opening secure checkout...' : 'Lock in the founding price'}</Button>
-        : <Button asChild data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-buy">
-            <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Lock in the founding price</a></Button>}
-      {error && <p className="ea-status ea-status-error" aria-live="polite">Checkout is unavailable. Please try again.</p>}
-    </div>
-  </SceneCard>;
-}
-
 const FAQ = (p) => [
-  [p.lifetime_offer?.enabled ? 'How does the lifetime offer work?' : 'Does the price go up?', p.lifetime_offer?.enabled ? `Pay $${p.lifetime} once instead of $${p.lifetime_offer.original_price}. The $${p.lifetime_offer.amount_off.toFixed(2)} discount is applied automatically at checkout. The offer is available for a limited time. Your lifetime access does not expire when the offer ends.` : `Lifetime rises as more people join: from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. You keep the price you buy at. Pro monthly is $${PRO_MONTHLY.map(x => x.price).join(', $')} a month, depending on your Boost minutes.`],
-  ['Monthly or lifetime?', `Pro monthly includes Boost minutes every month, for models your device can't run. Pro lifetime is every Pro feature on your own devices, paid once, with no Boost minutes; you can add minutes any time from $${BOOST_TOPUP.from}.`],
+  ['Monthly or yearly?', `Same plan, two ways to pay. Yearly costs ten months, so two months are free. You can switch between them, or change size, any time from the link in your key email.`],
+  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps: a minute is one minute of one GPU working for you, billed by the millisecond. Pick 300, 900 or 2,100 minutes a month. It's opt-in for each model, and your prompts are never stored or trained on. Need more in a month? Top up from $${BOOST_TOPUP.from} for ${BOOST_TOPUP.minutes} minutes.`],
+  ['What if I join before Boost launches?', `Every Pro feature starts the day you pay. Boost goes live in ${BOOST_LAUNCH}; the minutes you pay for before then bank, up to ${BANK_MONTHS} months' worth, ready on launch day. If Boost isn't live by the end of ${BOOST_LAUNCH}, we refund what you paid above $${PRO_ONLY_MONTHLY} a month for every month after.`],
+  ['Does the price go up?', 'Not for you. The founding price stays locked as long as you stay subscribed.'],
+  ['I bought Pro lifetime. What now?', `Nothing changes: you keep every Pro feature for life. Boost minutes come with the monthly and yearly plans, or as top-ups from $${BOOST_TOPUP.from}.`],
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
-  ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
-  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
-  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps. Pro monthly includes ${PRO_MONTHLY.map(x => x.minutes.toLocaleString('en-US')).join(', ')} minutes a month depending on the plan, billed by the millisecond of model time. It's opt-in for each model, and your prompts are never stored or trained on.`],
-  ['What if I join before Boost launches?', `Pro starts the day you pay. Boost goes live in ${BOOST_LAUNCH}; every month you pay before then banks that month's minutes, up to ${BANK_MONTHS} months' worth, ready on launch day. Your founding price stays locked as long as you stay subscribed. If Boost isn't live by the end of ${BOOST_LAUNCH}, we refund what you paid above $${PRO_ONLY_MONTHLY} for every month after.`],
+  ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools, connected services and Boost need a connection.'],
+  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God, Sync and Boost.'],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
-  ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
+  ['Do I need a promo code?', 'No. If you have one, enter it on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {
   return <section id="faq" className="pp-sec pp-faq-sec og-solid" aria-labelledby="faq-h">
@@ -263,13 +126,13 @@ function Faq({ pricing }) {
 }
 
 // The primary CTA, repeated after each major section.
-function Again({ pricing, section }) {
+function Again({ section }) {
   return <div className="pp-again"><Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
-    onClick={(e) => toBuy(e.currentTarget.textContent.trim(), section)}>Own Pro for ${pricing.lifetime}</Button></div>;
+    onClick={(e) => toBuy(e.currentTarget.textContent.trim(), section)}>Get Pro from ${MONTHLY_FROM}/month</Button></div>;
 }
 
 // Phones: a bottom bar once the hero is gone, hidden while the buy block is on screen.
-function StickyBuy({ pricing }) {
+function StickyBuy() {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const hero = document.querySelector('.pp-hero'); const buy = document.getElementById('buy');
@@ -285,9 +148,9 @@ function StickyBuy({ pricing }) {
     return () => { io1.disconnect(); io2.disconnect(); document.documentElement.classList.remove('pp-bar-on'); };
   }, []);
   return <AnimatePresence>{show && <motion.div className="pp-bar" initial={{ y: '110%' }} animate={{ y: 0 }} exit={{ y: '110%' }} transition={{ type: 'spring', stiffness: 380, damping: 36 }}>
-    <span className="pp-bar-tx"><LifetimePrice pricing={pricing} compact /></span>
+    <span className="pp-bar-tx">Pro with Boost · from <b>${MONTHLY_FROM}</b>/mo</span>
     <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-bar-btn"
-      onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Sticky bar')}>Own Pro · ${pricing.lifetime}</Button>
+      onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Sticky bar')}>Get Pro</Button>
   </motion.div>}</AnimatePresence>;
 }
 
@@ -372,13 +235,13 @@ function Checkout4() {
   </section>;
 }
 
-function Final({ pricing }) {
+function Final() {
   return <section className="has-bg final pp-final" data-section="Get Pro" aria-labelledby="pp-final-h">
     <div className="section-shell final-in" data-og-reveal="">
       <Kicker>OFF GRID AI PRO</Kicker>
-      <Heading as="h2" id="pp-final-h" className="pp-final-h">Yours. Forever.</Heading>
+      <Heading as="h2" id="pp-final-h" className="pp-final-h">Your AI, with room to grow.</Heading>
       <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
-        onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Own Pro for ${pricing.lifetime}</Button>
+        onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Get Pro from ${MONTHLY_FROM}/month</Button>
       <p className="pp-final-links">
         <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_card">Small team? Get Pro free <ArrowRight size={13} /></a>
         <a href="/vision/" data-cta="">Read the vision <ArrowUpRight size={13} /></a>
@@ -415,17 +278,16 @@ export default function ProPage({ data }) {
   useProCtaTracking();
   // /pro/#buy lands on the form once the page has laid out.
   useEffect(() => { if (location.hash === '#buy') { const t = setTimeout(() => document.getElementById('buy')?.scrollIntoView(), 60); return () => clearTimeout(t); } }, []);
-  const { checkout } = data;
-  const { pricing, count, failed, tier, ready } = usePricing(data.pricing);
+  const { pricing, failed, ready } = usePricing(data.pricing);
   return <PageShell>
-    <Hero pricing={pricing} />
-    <WhatPro again={<Again pricing={pricing} section="What Pro is" />} />
-    <Buy pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
+    <Hero />
+    <WhatPro again={<Again section="What Pro is" />} />
+    <Buy pricing={pricing} failed={failed} ready={ready} />
     <Faq pricing={pricing} />
-    <Sync again={<Again pricing={pricing} section="Sync is live across your devices" />} />
+    <Sync again={<Again section="Sync is live across your devices" />} />
     <Private />
     <Checkout4 />
-    <Final pricing={pricing} />
-    <StickyBuy pricing={pricing} />
+    <Final />
+    <StickyBuy />
   </PageShell>;
 }
