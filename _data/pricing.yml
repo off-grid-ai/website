@@ -23,10 +23,10 @@ top_lifetime: 149    # USD - final lifetime price
 devices: 5
 count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 
-# Stripe automatically applies the fixed USD 39.01 coupon to the $119 price ($79.99).
-# Publish this offer only with the Stripe checkout switch. No end date is set.
+# Lifetime is no longer sold on the site (Pro with Boost replaces it); existing lifetime owners keep Pro.
+# The worker can still sell it at $79.99 ($39.01 coupon off $119) if this is switched back on.
 lifetime_offer:
-  enabled: true
+  enabled: false
   original_price: 119
   amount_off: 39.01
 
@@ -50,3 +50,10 @@ tiers:
 # Stripe prices and the deployed Worker were verified on 2026-10-16.
 checkout_provider: stripe
 stripe_endpoint: "https://license.getoffgridai.co/stripe"
+
+# Pro with Boost: three sizes, monthly or yearly (two months free). Founding price until Boost goes live.
+# The sizes, prices and plan ids also live in preview-ui/pro-plans.js and license-worker src/boost.ts.
+pro_boost:
+  from_monthly: 19.99
+  from_yearly: 199
+  boost_launch: "January 2027"
