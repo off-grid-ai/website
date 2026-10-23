@@ -356,7 +356,7 @@ function Private() {
     <div className="section-shell pp-private-in">
       <Kicker>PRIVATE</Kicker>
       <Title id="priv-h" className="pp-h2" lead="Private by architecture." dim="Not by policy." />
-      <Lede className="pp-lede">{`Local models. Memory on your devices. Connections you choose.`}</Lede>
+      <Lede className="pp-lede">{`Local models. Memory on your devices. Connections you choose. No telemetry unless you opt in.`}</Lede>
     </div>
   </section>;
 }

@@ -81,7 +81,7 @@ function HeroPhone() {
 const FAQ = (p) => [
   ['Is it really free?', 'Yes. Chat, images, vision and documents are free. Pro adds memory, voice mode, approvals and Sync.'],
   ['Which phones?', 'iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.'],
-  ['Does it phone home?', 'No. Local models run on your phone. Pro activates with a key.'],
+  ['Does it phone home?', 'Only if you turn on anonymous usage data and crash reports. They are off by default, and your chats never leave your device.'],
   ['What models can I run?', 'Qwen, Gemma, Llama, Phi and other GGUF models that fit your memory.'],
 ];
 

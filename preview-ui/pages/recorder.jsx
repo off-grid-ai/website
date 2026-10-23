@@ -129,7 +129,7 @@ export default function RecorderPage() {
 
     <section id="the-part-no-one-else-will-give-you" className="chapter rc-field" aria-labelledby="local-h">
       <div className="section-shell">
-        <div className="sec-head" data-og-reveal=""><Kicker>THE PART NO ONE ELSE WILL GIVE YOU</Kicker><Title id="local-h" lead="Nothing leaves your phone." dim="Not to us. Not to anyone." /><Lede>Not a policy. How it is built. Airplane mode for a day and all of it still works.</Lede></div>
+        <div className="sec-head" data-og-reveal=""><Kicker>THE PART NO ONE ELSE WILL GIVE YOU</Kicker><Title id="local-h" lead="Your recordings never leave your phone." dim="Not to us. Not to anyone." /><Lede>Not a policy. How it is built. Airplane mode for a day and all of it still works.</Lede></div>
         <MobileRail className="rc-local">{LOCAL.map(([Icon, t, d]) => <SceneCard key={t} className="rc-local-card"><div className="rc-local-in"><Icon size={22} /><Heading as="h3">{t}</Heading><Text as="p">{d}</Text><span className="rc-zero">0 bytes sent</span></div></SceneCard>)}</MobileRail>
       </div>
     </section>

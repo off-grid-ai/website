@@ -151,7 +151,7 @@ const FAQ = (p) => [
   ['Is it really free?', 'Yes. Chat, images, voice and documents are free. Pro adds memory and actions.'],
   ['Which Macs?', 'macOS on Apple Silicon, M1 and later. Signed and notarized.'],
   ['What about Windows and Linux?', <>Both have stable and beta builds. See <a href="/desktop/releases/">releases</a>.</>],
-  ['Does it phone home?', 'No. No account, no API key, no cloud inference.'],
+  ['Does it phone home?', 'Only if you turn on anonymous usage data and crash reports. They are off by default, and your chats never leave your device.'],
   ['What models can I run?', 'Qwen, Gemma, Llama, Mistral, and compatible GGUF models that fit your memory.'],
 ];
 
