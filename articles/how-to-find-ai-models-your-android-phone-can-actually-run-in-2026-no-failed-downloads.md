@@ -8,6 +8,8 @@ published_at: "2026-10-23T15:50:27.000Z"
 article_topic: "Models & performance"
 article_platform: "Android"
 devto_article: true
+devto_id: 4906259
+devto_url: "https://dev.to/alichherawalla/how-to-find-ai-models-your-android-phone-can-actually-run-in-2026-no-failed-downloads-529a"
 ---
 You search Hugging Face for a model, wait for a 5 GB download on your Android phone, and then it will not load: too big for your RAM, or a format the app cannot run yet. Off Grid AI Mobile (OGAM) now filters that out before you tap download. Its model search lists only models your phone can load, shows one result per model instead of dozens of copies, and marks the files that only just fit.
 
