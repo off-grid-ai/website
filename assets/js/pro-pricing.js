@@ -9,13 +9,19 @@ export function lifetimePrice(pricing) {
     : pricing.lifetime;
 }
 
+// A local preview (127.0.0.1 or localhost) talks to the license worker running locally in Stripe test mode
+// (`npx wrangler dev --port 8799` in license-worker); the live worker only answers the live site.
+const LOCAL_STRIPE_ENDPOINT = 'http://127.0.0.1:8799/stripe';
+const isLocal = () => typeof location !== 'undefined' && /^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+
 export function loadPricing(pricing) {
   if (pricing.checkout_provider === 'stripe') {
-    return fetch(`${pricing.stripe_endpoint}/pricing`, { signal: AbortSignal.timeout(8000) })
+    const endpoint = isLocal() ? LOCAL_STRIPE_ENDPOINT : pricing.stripe_endpoint;
+    return fetch(`${endpoint}/pricing`, { signal: AbortSignal.timeout(8000) })
       .then(response => response.ok ? response.json() : Promise.reject(new Error('Pricing unavailable')))
       .then(current => {
         if (!Number.isFinite(current.lifetime) || !Number.isFinite(current.monthly) || current.lifetime <= 0 || current.monthly <= 0) throw new Error('Invalid pricing');
-        return { count: null, tier: null, pricing: { ...pricing, ...current } };
+        return { count: null, tier: null, pricing: { ...pricing, ...current, stripe_endpoint: endpoint } };
       });
   }
   const endpoint = pricing.count_endpoint;
