@@ -133,20 +133,16 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const onInput = (e) => {
     const v = e.target.value; setEmail(v);
     if (status && status.kind === 'error') setStatus(null);
-    if (v.trim() !== '') reportOnce('pro_email_entered');
   };
   const buy = async (plan) => {
     if (stripe) {
+      // Stripe Checkout asks for the email the key is sent to, so this page does not.
       if (submitting.current || !ready || failed) return;
-      const value = (input.current ? input.current.value : email).trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || value.length > 254) {
-        setStatus({ kind: 'error', text: 'Enter a valid email address.' }); input.current?.focus(); return;
-      }
       submitting.current = true; setBusy(true); setStatus(null);
       try {
         const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan, email: value, checkout_id: crypto.randomUUID() }),
+          body: JSON.stringify({ plan, checkout_id: crypto.randomUUID() }),
           signal: AbortSignal.timeout(20000),
         });
         if (!response.ok) throw new Error('Checkout unavailable');
@@ -185,7 +181,7 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     // The success line holds a link, so the conductor does not settle it: the form ripples instead.
     if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
   };
-  const off = email.trim() === '' || (stripe ? !ready : count === null) || failed || busy;
+  const off = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed || busy;
   // The buy buttons wake when they become usable: the field answers from the primary one.
   const wasOff = useRef(off);
   useEffect(() => {
@@ -199,18 +195,20 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const secondary = plan === 'monthly' ? ['lifetime', `Or own it forever for $${pricing.lifetime}`] : ['monthly', `Or $${pricing.monthly}/month`];
   const err = status && status.kind === 'error';
   return <form id="payForm" ref={form} className="pp-form" noValidate onSubmit={(e) => { e.preventDefault(); buy(primary[0]); }}>
-    <label className="pp-label" htmlFor="payEmail">Email for your license key</label>
-    <TextField.Root ref={input} id="payEmail" type="email" size="3" placeholder="your@email.com" autoComplete="email" required
-      aria-invalid={err ? 'true' : 'false'} aria-describedby="payStatus" className={`pp-input ${err ? 'ea-input-error' : ''}`} value={email} onChange={onInput}>
-      <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
-    </TextField.Root>
+    {!stripe && <>
+      <label className="pp-label" htmlFor="payEmail">Email for your license key</label>
+      <TextField.Root ref={input} id="payEmail" type="email" size="3" placeholder="your@email.com" autoComplete="email" required
+        aria-invalid={err ? 'true' : 'false'} aria-describedby="payStatus" className={`pp-input ${err ? 'ea-input-error' : ''}`} value={email} onChange={onInput}>
+        <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
+      </TextField.Root>
+    </>}
     <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
     <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
     <ul className="pp-trust">
-      <li><Key size={13} />Your key arrives by email. Enter it in the app.</li>
+      <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
       <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
       <li><ShieldCheck size={13} />Your devices, models and data never touch the purchase.</li>
     </ul>
@@ -366,8 +364,8 @@ function Private() {
 /* ───────── How checkout works ───────── */
 
 const STEPS = [
-  ['Enter your email', 'Opens secure checkout.'],
-  ['Pay', 'Review your total and pay.'],
+  ['Choose a plan', 'Opens secure checkout.'],
+  ['Pay', 'Enter your email and pay.'],
   ['Get your key', 'By email.'],
   ['Unlock Pro', 'Desktop and mobile.'],
 ];
