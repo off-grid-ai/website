@@ -10,7 +10,7 @@ faq:
   - q: What does the recorder do?
     a: You leave it running and your phone captures your day, transcribes it on-device, then a local model pulls out the summary, the key points and the follow-ups. Recordings land against your calendar, index into a searchable knowledge base, and you can open a chat scoped to any one of them and ask.
   - q: Does any audio leave my phone?
-    a: No. Voice detection, transcription and the insights all run on the device. There is no server in the loop and no account holding your day - turn on airplane mode and it still works.
+    a: No. Voice detection, transcription and the insights all run on the device. There is no server in the loop and no account holding your day - turn on airplane mode and it still works. Anonymous usage data and crash reports are off until you turn them on, and they never include your audio or transcripts.
   - q: Does it record everything, all the time?
     a: It listens continuously but only keeps speech. An on-device voice-activity model gates the mic frame by frame, so silence is dropped before anything is written or transcribed. You can compress a recording after it is analysed, or strip it back to speech only and still restore the full timeline later.
   - q: Can I join the private alpha?

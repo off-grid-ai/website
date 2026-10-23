@@ -15,6 +15,7 @@ The free core provides local AI chat, image generation, and document tools. Off 
 - Generate images with Stable Diffusion without a cloud GPU
 - Connect to remote Ollama or LM Studio servers over a local network or VPN
 - Works in airplane mode, on restricted networks, in any country
+- No telemetry unless you opt in: anonymous usage data and crash reports are off by default and never include chats or files
 - Runs on phones and computers: stable builds for iOS, Android, macOS, Windows, and Linux; optional desktop beta packages
 
 ## Who it's for
@@ -27,7 +28,7 @@ The free core provides local AI chat, image generation, and document tools. Off 
 
 ## Why it matters
 
-Cloud AI providers have routine access to every query sent to their models. Off Grid AI eliminates that by keeping inference entirely on the user's device. Local models run in device memory on phones and computers. Local inference does not send prompts to a cloud AI provider. Connected tools, remote models, and device Sync have their own network behavior.
+Cloud AI providers have routine access to every query sent to their models. Off Grid AI eliminates that by keeping inference entirely on the user's device. Local models run in device memory on phones and computers. Local inference does not send prompts to a cloud AI provider. Connected tools, remote models, and device Sync have their own network behavior. Your chats and files never leave your device. Anonymous usage data and crash reports are off until you turn them on, and the list of what they collect is public.
 
 ## Technical details
 
