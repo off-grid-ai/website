@@ -93,7 +93,7 @@ This isn't a demo or a proof of concept. Off Grid runs six AI capabilities on yo
 
 Most people self-censor with cloud AI without realizing it. You hesitate before typing a health question. You rephrase a personal problem to be vague. You don't upload the actual document because it has client names in it.
 
-When nothing leaves your phone, that hesitation disappears.
+When your chats never leave your phone, that hesitation disappears.
 
 **Health questions.** "What does this symptom mean?" "Is this medication interaction safe?" "What are early signs of [condition]?" On cloud AI, these questions are now part of your permanent profile on someone's server. Locally, they exist only on your phone.
 
