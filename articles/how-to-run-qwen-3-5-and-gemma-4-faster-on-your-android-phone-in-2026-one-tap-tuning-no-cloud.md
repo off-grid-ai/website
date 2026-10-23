@@ -8,6 +8,9 @@ published_at: "2026-10-23T09:52:29.000Z"
 article_topic: "Models & performance"
 article_platform: "Android"
 devto_article: true
+devto_id: 4904429
+devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-35-and-gemma-4-faster-on-your-android-phone-in-2026-one-tap-tuning-no-cloud-1ja"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fmobile%2Fsettings-1-light-640.webp"
 ---
 You have Qwen 3.5 or Gemma 4 running on your Android phone and you want replies to come faster. You do not want to guess whether the CPU, the GPU or the NPU is quicker on your chip, or how many threads to set. Off Grid AI Mobile (OGAM) now does that for you. Tap **Use fastest settings**, and the app runs the model you use on each part of your phone that can run it, measures how fast each one writes, and keeps the winner. The test takes 30 seconds or less, and everything runs on the phone.
 
