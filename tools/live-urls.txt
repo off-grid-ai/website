@@ -2,7 +2,6 @@
 /articles/
 /articles/a-local-code-sandbox-run-ai-generated-code-safely-on-device-no-cloud/
 /articles/a-local-offline-alternative-to-chatgpt-for-your-desktop-in-2026/
-/articles/ai-in-your-mobile-app-without-internet-what-is-possible-what-is-not-and-what-it-costs-in-2026/
 /articles/can-a-gaming-pc-run-your-everyday-ai-tasks-locally-in-2026/
 /articles/can-local-ai-help-with-work-without-access-to-your-email-or-accounts-in-2026/
 /articles/can-local-ai-search-the-web-what-works-online-and-offline-in-2026/
