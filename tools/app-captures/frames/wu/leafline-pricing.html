@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233f63c9%22/%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20transform%3D%22translate%284%204%29%22%3E%3Cpath%20d%3D%22M5%2019c9%200%2014-6%2014-14C10%205%205%2010%205%2019z%22/%3E%3Cpath%20d%3D%22M5%2019l7-7%22/%3E%3C/g%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing · Leafline</title>
+<style>
+  :root{--bg:#f5f7fc;--card:#ffffff;--ink:#141a2b;--muted:#5f6880;--line:#dbe1ee;--accent:#3f63c9;--accent-ink:#ffffff;--soft:#e8eefc}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 56px;border-bottom:1px solid var(--line);background:var(--card)}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .logo{width:32px;height:32px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink)}
+  .logo svg{width:18px;height:18px}
+  nav{display:flex;gap:30px;font-size:15px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none}
+  nav a[aria-current]{color:var(--ink);font-weight:600}
+  .right{display:flex;gap:14px;align-items:center}
+  .right a{font-size:15px;text-decoration:none;color:var(--ink);font-weight:600}
+  .btn{display:inline-block;font:inherit;font-size:15px;font-weight:600;padding:10px 18px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink)!important;text-decoration:none}
+  main{max-width:1180px;margin:0 auto;padding:46px 56px 40px}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h1{font-size:40px;line-height:1.15;letter-spacing:-.025em;margin:0 0 10px}
+  p.sub{color:var(--muted);margin:0 0 26px;font-size:18px}
+  .toggle{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px;margin-bottom:28px}
+  .toggle button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--muted);padding:8px 18px;border-radius:999px}
+  .toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .plan.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 20px 40px -28px rgba(40,70,160,.45)}
+  .name{font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+  .pill{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--soft);color:var(--accent);padding:4px 9px;border-radius:999px}
+  .price{font-size:40px;font-weight:700;letter-spacing:-.03em;margin:12px 0 0}
+  .price small{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
+  .per{font-size:14px;color:var(--muted);margin-bottom:16px}
+  ul{list-style:none;margin:0;padding:0;font-size:15px}
+  li{padding:8px 0;border-top:1px solid var(--line)}
+  .plan .cta{margin-top:18px;display:block;text-align:center;font-weight:600;padding:11px;border-radius:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none}
+  .hl .cta{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .note{margin-top:26px;font-size:14px;color:var(--muted);display:flex;gap:26px}
+  .note span:before{content:"✓";color:var(--accent);font-weight:700;margin-right:8px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c9 0 14-6 14-14C10 5 5 10 5 19z"/><path d="M5 19l7-7"/></svg></span>Leafline</a>
+  <nav aria-label="Main"><a href="/product">Product</a><a href="/templates">Templates</a><a href="/pricing" aria-current="page">Pricing</a><a href="/customers">Customers</a></nav>
+  <div class="right"><a href="https://app.leafline.example/signin">Sign in</a><a class="btn" href="https://app.leafline.example/demo">Request a demo</a></div>
+</header>
+<main>
+  <p class="eyebrow">Pricing</p>
+  <h1>Notes your whole team can work offline in</h1>
+  <p class="sub">Shared workspaces, offline editing and encrypted sync. Prices in USD.</p>
+  <div class="toggle" role="group" aria-label="Billing period"><button aria-pressed="true">Monthly</button><button aria-pressed="false">Yearly · 2 months free</button></div>
+  <section class="plans">
+    <article class="plan"><div class="name">Personal</div><div class="price">$5<small> /month</small></div><div class="per">For one person</div>
+      <ul><li>Unlimited notes</li><li>Offline editing</li><li>Sync across devices</li></ul><a class="cta" href="#">Start free trial</a></article>
+    <article class="plan hl"><div class="name">Team <span class="pill">Most popular</span></div><div class="price">$10<small> per user / month</small></div><div class="per">For teams up to 50 people</div>
+      <ul><li>Shared workspaces</li><li>Comments and mentions</li><li>Admin controls</li></ul><a class="cta" href="https://app.leafline.example/demo">Request a demo</a></article>
+    <article class="plan"><div class="name">Business</div><div class="price">$16<small> per user / month</small></div><div class="per">For larger organisations</div>
+      <ul><li>Everything in Team</li><li>Single sign-on</li><li>Audit log and retention</li></ul><a class="cta" href="#">Talk to sales</a></article>
+  </section>
+  <div class="note"><span>14-day free trial</span><span>End-to-end encrypted sync</span><span>Cancel any time</span></div>
+</main>
+</body>
+</html>

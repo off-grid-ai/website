@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;background:#fff;color:#1f1f1f}
+.win{position:absolute;inset:0;display:grid;grid-template-columns:200px 360px 1fr;grid-template-rows:48px 1fr}
+.bar{grid-column:1/4;display:flex;align-items:center;padding:0 16px;background:#f6f6f6;border-bottom:1px solid #e2e2e2;font-size:13px;color:#7a7a7a}
+.bar i{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:7px}
+.search{margin-left:180px;width:420px;height:28px;border-radius:7px;background:#e9e9eb;display:flex;align-items:center;padding:0 10px;color:#9a9a9f}
+.fold{background:#f6f6f6;border-right:1px solid #e2e2e2;padding:14px 10px;font-size:13px}
+.fold div{padding:6px 10px;border-radius:6px;display:flex;justify-content:space-between;color:#3c3c43}.fold .on{background:#dfe6f3;color:#1a3d7c;font-weight:600}
+.fold small{color:#8a8a8e}
+.list{border-right:1px solid #e2e2e2;overflow:hidden}
+.it{padding:12px 16px;border-bottom:1px solid #efefef;font-size:13px}.it b{display:flex;justify-content:space-between;font-weight:600}.it b small{color:#8a8a8e;font-weight:400}
+.it p{margin:3px 0 0;color:#6b6b70;line-height:1.4}.it .s{color:#1f1f1f;margin-top:2px}
+.it.on{background:#e5edfb}
+.read{padding:26px 36px;overflow:hidden}
+h1{font-size:21px;margin:0 0 18px;font-weight:600}
+.msg{border-bottom:1px solid #eee;padding-bottom:18px;margin-bottom:18px}
+.from{display:flex;gap:12px;align-items:center;margin-bottom:12px}.av{width:36px;height:36px;border-radius:50%;background:#2e7d5b;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px}
+.from b{font-size:14px}.from span{display:block;font-size:12px;color:#7a7a7f}.from time{margin-left:auto;font-size:12px;color:#7a7a7f}
+.body{font-size:14px;line-height:1.65;color:#2b2b2e}.body p{margin:0 0 10px}
+.att{display:inline-flex;align-items:center;gap:10px;border:1px solid #e1e1e4;border-radius:8px;padding:8px 12px;font-size:13px;margin-top:4px}.att i{width:26px;height:32px;background:#d93a30;border-radius:3px;color:#fff;font-style:normal;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.q{color:#7a7a7f;border-left:3px solid #e1e1e4;padding-left:12px}
+</style></head><body><div class="win">
+<div class="bar"><span><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><div class="search">⌕&nbsp; Search mail</div></div>
+<div class="fold"><div class="on">Inbox <small>12</small></div><div>Starred</div><div>Sent</div><div>Drafts <small>1</small></div><div>Acme Corp</div><div>Northwind</div></div>
+<div class="list">
+<div class="it on"><b>Sam Okafor <small>10:41</small></b><p class="s">Re: Acme Corp pilot timeline</p><p>Thanks, 14 November works for us. Can Tom send the gateway policy…</p></div>
+<div class="it"><b>Daniel Cole <small>09:58</small></b><p class="s">Q3 board update</p><p>Could you include the on-device metrics before Friday…</p></div>
+<div class="it"><b>Priya Nair <small>09:20</small></b><p class="s">Rollout plan v3</p><p>Attached the updated plan with the 40-seat stage…</p></div>
+<div class="it"><b>Maya Chen <small>Yesterday</small></b><p class="s">Day view handoff</p><p>Final specs are in the design file, ready for review…</p></div>
+<div class="it"><b>Tom Reyes <small>Yesterday</small></b><p class="s">Gateway policy draft</p><p>Only wiki and ticket search in stage 2…</p></div>
+</div>
+<div class="read">
+<h1>Re: Acme Corp pilot timeline</h1>
+<div class="msg"><div class="from"><span class="av">SO</span><div><b>Sam Okafor</b><span>to me, Priya</span></div><time>10:41</time></div>
+<div class="body"><p>Hi Alex,</p><p>Thanks for the updated plan. 14 November works for us, and we'll have the 10 product-team laptops ready on day one.</p><p>Two things before we start: can Tom send over the gateway policy, and can we agree the success metric on the kickoff call? Tuesday at 10:00 is fine on our side.</p><p>Best,<br>Sam</p></div>
+<span class="att"><i>PDF</i>Acme_rollout_v3.pdf · 248 KB</span></div>
+<div class="body q"><p>On Wed, Alex wrote: Sharing v3 of the rollout plan. The pilot now starts on 14 November with 40 seats…</p></div>
+</div>
+</div></body></html>

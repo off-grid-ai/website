@@ -1,0 +1,6 @@
+node_modules
+out/
+dbg/
+cmd/
+test-results/
+.vault-test-password

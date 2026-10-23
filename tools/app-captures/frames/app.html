@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+body{background:var(--bg);color:var(--fg)}
+.bar{height:44px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--mut);background:var(--chrome)}
+.bar i{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:7px}.bar b{margin-left:18px;color:var(--fg);font-weight:600}
+.w{display:grid;grid-template-columns:230px 1fr;height:calc(100% - 44px)}
+.side{background:var(--side);border-right:1px solid var(--line);padding:16px 12px;font-size:13px;color:var(--mut)}.side div{padding:7px 10px;border-radius:6px}.side .on{background:var(--acc);color:#fff;font-weight:600}
+.main{padding:34px 48px;overflow:hidden}h1{margin:0 0 6px;font-size:26px}.sub{color:var(--mut);font-size:14px;margin-bottom:26px}
+.row{display:flex;gap:14px;margin-bottom:18px;font-size:15px;line-height:1.55}.av{flex:none;width:36px;height:36px;border-radius:8px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px}
+.row b{display:block;font-size:14px}.row span{color:var(--mut);font-size:12px;margin-left:6px;font-weight:400}
+.ph{height:10px;border-radius:5px;background:var(--line);margin:10px 0}
+</style></head><body><div class="bar"><span><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><b id="app"></b></div>
+<div class="w"><div class="side" id="side"></div><div class="main"><h1 id="t"></h1><div class="sub" id="s"></div><div id="rows"></div>
+<div class="ph" style="width:70%"></div><div class="ph" style="width:55%"></div><div class="ph" style="width:62%"></div></div></div>
+<script>
+const p=new URLSearchParams(location.search);const T={
+Slack:['#fff','#1d1c1d','#616061','#e8e8e8','#3f0e40','#f8f8f8','#1164a3',['# acme-pilot','# gateway','# product','# general','Direct messages']],
+Notion:['#fff','#37352f','#9b9a97','#ededec','#f7f6f3','#fbfbfa','#2e7d5b',['Northwind board prep','Q3 update','Acme Corp pilot','Hiring','Roadmap']],
+Figma:['#2c2c2c','#f2f2f2','#a0a0a0','#3a3a3a','#1e1e1e','#252525','#0d99ff',['Pilot onboarding deck','Welcome screen','Day view v3','Components']],
+Numbers:['#fff','#1f1f1f','#7a7a7f','#e5e5ea','#f2f2f7','#f6f6f6','#2e7d5b',['Hours saved','Baseline (Oct)','Week 6 review']],
+'Google Meet':['#202124','#e8eaed','#9aa0a6','#3c4043','#202124','#202124','#1a73e8',['Design review, Day view','Maya Chen','Tom Reyes']],
+'Code Editor':['#1e1e1e','#d4d4d4','#8a8a8a','#333','#252526','#252526','#2e7d5b',['gateway/','  stream.ts','  retry.ts','  images.ts','README.md']],
+'Google Docs':['#fff','#202124','#5f6368','#e0e0e0','#f1f3f4','#f8f9fa','#1a73e8',['Acme rollout plan v3','Acme rollout plan v2','Security notes']],
+Linear:['#18191b','#e6e6e6','#8a8f98','#2a2b2e','#111213','#141516','#5e6ad2',['Inbox','My issues','Pilots','Gateway v1']],
+Gmail:['#fff','#202124','#5f6368','#e0e0e0','#f6f8fc','#f6f8fc','#c5221f',['Inbox','Starred','Sent','Drafts']],
+Mail:['#fff','#1f1f1f','#7a7a7a','#e2e2e2','#f6f6f6','#f6f6f6','#2e7d5b',['Inbox','Sent','Acme Corp','Northwind']],
+Zoom:['#1c1c1e','#f2f2f7','#aeaeb2','#2c2c2e','#1c1c1e','#232325','#0a84ff',['Meeting','Participants','Chat']],
+Preview:['#e9e9e9','#1f1f1f','#7a7a7a','#d0d0d0','#f2f2f2','#efefef','#2e7d5b',['Page 1','Page 2','Page 3']]};
+const a=p.get('app');const c=T[a]||T.Notion;const r=document.documentElement.style;
+['--bg','--fg','--mut','--line','--chrome','--side','--acc'].forEach((k,i)=>r.setProperty(k,c[i]));
+document.getElementById('app').textContent=a;document.getElementById('t').textContent=p.get('title');document.getElementById('s').textContent=p.get('sub')||'';
+document.getElementById('side').innerHTML=c[7].map((x,i)=>`<div class="${i==(+p.get('on')||0)?'on':''}">${x}</div>`).join('');
+const who=(p.get('who')||'').split('|');document.getElementById('rows').innerHTML=(p.get('lines')||'').split('|').filter(Boolean).map((l,i)=>`<div class="row"><div class="av">${(who[i]||'A').split(' ').map(x=>x[0]).join('')}</div><div><b>${who[i]||'Alex'}<span>${p.get('time')||''}</span></b>${l}</div></div>`).join('');
+</script></body></html>

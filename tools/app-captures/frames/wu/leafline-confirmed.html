@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%233f63c9%22/%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20transform%3D%22translate%284%204%29%22%3E%3Cpath%20d%3D%22M5%2019c9%200%2014-6%2014-14C10%205%205%2010%205%2019z%22/%3E%3Cpath%20d%3D%22M5%2019l7-7%22/%3E%3C/g%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo requested · Leafline</title>
+<style>
+  :root{--bg:#f5f7fc;--card:#ffffff;--ink:#141a2b;--muted:#5f6880;--line:#dbe1ee;--accent:#3f63c9;--accent-ink:#ffffff;--soft:#e8eefc;--ok:#2f7d6b}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  header{display:flex;align-items:center;justify-content:space-between;padding:16px 56px;border-bottom:1px solid var(--line);background:var(--card)}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo{width:32px;height:32px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink)}
+  .logo svg{width:18px;height:18px}
+  nav{display:flex;gap:26px;font-size:15px;color:var(--muted);align-items:center}
+  .who{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600}
+  .avatar{width:32px;height:32px;border-radius:50%;background:#2f7d6b;color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700}
+  main{max-width:760px;margin:0 auto;padding:56px 40px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:40px 44px}
+  .check{width:56px;height:56px;border-radius:50%;background:#e3f3ee;display:grid;place-items:center;margin-bottom:18px}
+  h1{font-size:32px;letter-spacing:-.025em;margin:0 0 8px}
+  p.sub{color:var(--muted);margin:0 0 26px;font-size:17px}
+  dl{display:grid;grid-template-columns:170px 1fr;margin:0;border-top:1px solid var(--line)}
+  dt,dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+  dt{color:var(--muted)}
+  dd{font-weight:600}
+  .next{margin-top:22px;font-size:15px;color:var(--muted)}
+  .next a{color:var(--accent);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c9 0 14-6 14-14C10 5 5 10 5 19z"/><path d="M5 19l7-7"/></svg></div>Leafline</div>
+  <nav><span>Workspace</span><span>Templates</span><span>Billing</span><span class="who"><span class="avatar">A</span>Alex</span></nav>
+</header>
+<main>
+  <section class="card">
+    <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2f7d6b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Demo requested</h1>
+    <p class="sub">Thanks, Alex. A Leafline specialist will send a calendar invite to alex@offgrid.example.</p>
+    <dl>
+      <dt>When</dt><dd>Tuesday 13 October, 11:00</dd>
+      <dt>Company</dt><dd>Off Grid AI</dd>
+      <dt>Team size</dt><dd>11–50 people</dd>
+      <dt>Focus</dt><dd>Shared workspaces, admin controls, Team vs Business</dd>
+    </dl>
+    <p class="next">Need a different time? <a href="/demo">Change your request</a></p>
+  </section>
+</main>
+</body>
+</html>

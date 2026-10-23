@@ -198,7 +198,7 @@ export const FEATURES = [
       { id: 'images', title: 'Image generation', cmd: 'make an image', line: 'Open image models on your own machine. No credits and no queue.', shots: [
         ['mobile/seq-images-2', 'Off Grid AI on iPhone: the prompt enhanced, the image generating.'],
         ['mobile/imagegen-ios-1', 'Off Grid AI on iPhone: a lighthouse image and its enhanced prompt.'],
-        ['imagegen-chat', 'Off Grid AI Chat: the alpine lake prompt and its generated image.'],
+        ['imagegen-chat', 'Off Grid AI Chat: the cabin-at-dawn prompt and its generated image.'],
         ['models-image', 'Off Grid AI Models: image models on this computer.']] },
       { id: 'transcription', title: 'Transcription', cmd: 'translate this for Sam’s team', line: 'Whisper on your computer, in the language spoken. Translate the result in chat.', shots: [
         ['models-transcription', 'Off Grid AI Models: transcription models available to download.'],

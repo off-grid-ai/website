@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;background:#16171b;color:#e6e6e9}
+.win{position:absolute;inset:0;display:grid;grid-template-columns:232px 1fr 300px;grid-template-rows:44px 1fr}
+.bar{grid-column:1/4;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid #26272d;background:#1b1c21;font-size:13px;color:#8c8d96}
+.bar i{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:7px}
+.crumb{margin-left:24px}.crumb b{color:#e6e6e9;font-weight:500}
+.nav{background:#1b1c21;border-right:1px solid #26272d;padding:14px 10px;font-size:13px;color:#a4a5ad}
+.ws{display:flex;align-items:center;gap:8px;color:#e6e6e9;font-weight:600;margin:0 6px 16px}.ws span{width:20px;height:20px;border-radius:5px;background:#2f8f6b;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+.nav div{padding:6px 8px;border-radius:6px}.nav .on{background:#26272e;color:#fff}.nav .h{font-size:11px;color:#6e6f78;margin-top:14px}
+.main{padding:28px 40px;overflow:hidden}
+.id{font-size:12px;color:#8c8d96;margin-bottom:8px}
+h1{font-size:24px;font-weight:600;margin:0 0 16px;letter-spacing:-.01em}
+.desc{font-size:14px;line-height:1.65;color:#c9cad1;max-width:640px}
+.desc ul{padding-left:0;list-style:none;margin:10px 0}.desc li{display:flex;gap:10px;align-items:flex-start;margin:6px 0}
+.cb{width:15px;height:15px;border:1.5px solid #5b5c66;border-radius:4px;margin-top:3px;flex:none}.cb.done{background:#5e6ad2;border-color:#5e6ad2}
+.act{margin-top:28px;border-top:1px solid #26272d;padding-top:18px;font-size:13px}
+.ev{display:flex;gap:10px;margin:12px 0;color:#9d9ea7}.av{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff}
+.cm{background:#1d1e23;border:1px solid #2a2b31;border-radius:8px;padding:12px 14px;color:#d4d5db;line-height:1.55;margin-top:6px}
+.props{border-left:1px solid #26272d;padding:24px 20px;font-size:13px}
+.row{display:grid;grid-template-columns:96px 1fr;padding:8px 0;color:#8c8d96}.row b{color:#e1e2e7;font-weight:500}
+.pill{display:inline-block;border:1px solid #34353d;border-radius:12px;padding:1px 9px;font-size:12px;color:#d6d7dd}
+.st{display:inline-flex;align-items:center;gap:6px}.st i{width:11px;height:11px;border-radius:50%;border:2px solid #f2c94c;border-right-color:transparent;display:inline-block}
+</style></head><body><div class="win">
+<div class="bar"><span><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><span class="crumb">Pilots › Acme Corp › <b>PIL-42</b></span></div>
+<div class="nav"><div class="ws"><span>OG</span>Off Grid AI</div><div>Inbox</div><div>My issues</div><div class="h">Teams</div><div class="on">Pilots</div><div style="padding-left:22px">Acme Corp</div><div style="padding-left:22px">Northwind</div><div>Gateway</div><div>Desktop</div></div>
+<div class="main">
+<div class="id">PIL-42</div>
+<h1>Acme Corp pilot review</h1>
+<div class="desc">Final review before the 14 Nov start. Sam needs the rollout plan, the gateway policy and the success metric signed off.
+<ul>
+<li><span class="cb done"></span>Rollout plan v3 shared with Sam (Acme_rollout_v3.pdf)</li>
+<li><span class="cb done"></span>Stage 1: 10 laptops in the product team</li>
+<li><span class="cb"></span>Tom confirms the gateway policy for internal tools</li>
+<li><span class="cb"></span>Agree the success metric with Sam: hours saved per week</li>
+<li><span class="cb"></span>Book the Tuesday 10:00 kickoff</li>
+</ul></div>
+<div class="act">
+<div class="ev"><span class="av" style="background:#c0617a">PN</span><span>Priya Nair moved from Todo to In Progress · 2h ago</span></div>
+<div class="ev"><span class="av" style="background:#3d7bd9">TR</span><div style="flex:1"><span>Tom Reyes commented · 48m ago</span><div class="cm">Gateway policy draft is ready. Only the wiki and ticket search are allowed in stage 2; everything else stays off until week 5.</div></div></div>
+</div></div>
+<div class="props">
+<div class="row"><span>Status</span><b class="st"><i></i>In Progress</b></div>
+<div class="row"><span>Priority</span><b>High</b></div>
+<div class="row"><span>Assignee</span><b>Priya Nair</b></div>
+<div class="row"><span>Labels</span><span><span class="pill">Acme Corp</span> <span class="pill">Pilot</span></span></div>
+<div class="row"><span>Due</span><b>13 Nov</b></div>
+<div class="row"><span>Project</span><b>Acme Corp pilot</b></div>
+</div>
+</div></body></html>
