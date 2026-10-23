@@ -9,7 +9,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
-import { PRO_SIZES, planId, minutesText, MONTHLY_FROM, YEARLY_FROM, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, PRO_ONLY_MONTHLY } from '../pro-plans.js';
+import { PRO_SIZES, planId, yearlySaving, MONTHLY_FROM, BOOST_TOPUP, BOOST_LAUNCH, BANK_MONTHS, PRO_ONLY_MONTHLY } from '../pro-plans.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -27,7 +27,7 @@ function Hero() {
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Get Pro from ${MONTHLY_FROM}/month</Button>
-        <a className="pp-quiet" href="#buy" data-cta="">Boost included from {BOOST_LAUNCH}, at a founding price</a>
+        <a className="pp-quiet" href="#buy" data-cta="">or ${PRO_SIZES[0].yearly} a year, 2 months free</a>
       </div>
       <Proof />
     </div>
@@ -51,61 +51,76 @@ async function openStripeCheckout(endpoint, plan) {
   window.location.assign(target.href);
 }
 
-const EVERY_PLAN = (p) => ['Every Pro feature, starting today', `${p.devices} devices, desktop and mobile`, `Boost from ${BOOST_LAUNCH}; minutes bank until then`, 'Founding price, locked while you stay', 'Cancel any time'];
+// Free and Pro side by side. One Monthly/Yearly toggle above both (yearly first); on yearly the big number is still
+// per month, with the yearly total underneath. Pro builds on Free, and Boost is one line after the core features.
+const FREE_FEATURES = ['Local models for chat, files and voice', 'Image generation and vision', 'Projects with cited answers', 'Offline, no account', 'Phone and computer'];
+const PRO_FEATURES = (p) => ['Memory and search across your work', 'Actions you approve: Gmail, Linear, Jira, Notion', 'God: your daily brief and routines', 'Sync between phone and computer', 'Vault and Clipboard', `${PRO_SIZES[0].minutes} Boost minutes a month, from ${BOOST_LAUNCH}`, `Up to ${p.devices} devices`];
 
 function Buy({ pricing, failed, ready }) {
-  const [yearly, setYearly] = useState(false);
-  const [busy, setBusy] = useState(null);
+  const [yearly, setYearly] = useState(true);
+  const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
-  const sold = new Set((pricing.pro_plans ?? []).map(p => p.plan));
-  const buy = async (plan) => {
+  const size = PRO_SIZES[0];
+  const plan = planId(size, yearly);
+  const ok = ready && !failed && (pricing.pro_plans ?? []).some(p => p.plan === plan);
+  const buy = async () => {
     if (busy) return;
-    setBusy(plan); setError(false);
-    try { await openStripeCheckout(pricing.stripe_endpoint, plan); } catch { setError(true); setBusy(null); }
+    setBusy(true); setError(false);
+    try { await openStripeCheckout(pricing.stripe_endpoint, plan); } catch { setError(true); setBusy(false); }
   };
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
-      <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
-        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Get Pro.</span><span className="t-line t-dim">Boost included. Monthly or yearly.</span></Heading>
+      <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>PRICING</Kicker>
+        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Free to run.</span><span className="t-line t-dim">Pro when you want more.</span></Heading>
       </div>
       <div className="pp-toggle" role="radiogroup" aria-label="Billing">
         <button type="button" role="radio" aria-checked={!yearly} onClick={() => setYearly(false)}>Monthly</button>
         <button type="button" role="radio" aria-checked={yearly} onClick={() => setYearly(true)}>Yearly <span className="pp-toggle-save">2 months free</span></button>
       </div>
-      <div className="pp-plans-grid">
-        {PRO_SIZES.map((size, k) => {
-          const plan = planId(size, yearly);
-          const ok = ready && !failed && sold.has(plan);
-          return <SceneCard key={size.minutes} className={`plan-card pp-plan${k === 0 ? ' plan-card-hero' : ''}`} busy={!ready && !failed}>
-            <div className={`plan${k === 0 ? ' plan-hero' : ''}`}>
-              <Heading as="h3" className="pp-plan-min">{minutesText(size)}</Heading>
-              <div className="price"><span className="amt">${yearly ? size.yearly : size.monthly}</span><small>{yearly ? '/ year' : '/ month'}</small></div>
-              <p className="pp-plan-note">{yearly ? `$${(size.yearly / 12).toFixed(2)} a month, billed yearly` : `or $${size.yearly} a year`}</p>
-              <Button data-site-button="primary" variant={k === 0 ? 'solid' : 'outline'} type="button" disabled={!ok || busy !== null} onClick={() => buy(plan)}
-                className={`pp-buy${k === 0 ? ' pro-shimmer pp-shimmer' : ''}`} data-analytics-event="pro_cta_click" data-analytics-placement={`pro_plan_${plan}`}>
-                {busy === plan ? 'Opening secure checkout...' : 'Get Pro'}</Button>
-            </div>
-          </SceneCard>;
-        })}
+      <div className="pp-tiers">
+        <SceneCard className="plan-card pp-tier">
+          <div className="plan pp-tier-in">
+            <Heading as="h3" className="pp-plan-name">Free</Heading>
+            <p className="pp-plan-for">Local AI on your own devices.</p>
+            <div className="pp-plan-price"><span className="pp-plan-amt">$0</span><span className="pp-plan-per">forever</span></div>
+            <p className="pp-plan-bill">No account needed</p>
+            <Button asChild data-site-button="secondary" variant="outline" className="pp-buy plan-btn"><a href="/download/" data-analytics-event="download_click" data-analytics-placement="pro_pricing_free">Download free</a></Button>
+            <p className="pp-tier-note">Open source. Prompts stay on your device.</p>
+            <ul className="pp-tier-list">{FREE_FEATURES.map(x => <li key={x}><Check size={14} weight="bold" />{x}</li>)}</ul>
+          </div>
+        </SceneCard>
+        <SceneCard className="plan-card plan-card-hero pp-tier pp-tier-pro" busy={!ready && !failed}>
+          <div className="plan plan-hero pp-tier-in">
+            <div className="pp-plan-head"><Heading as="h3" className="pp-plan-name">Pro</Heading><span className="pp-plan-badge">Founding price</span></div>
+            <p className="pp-plan-for">It remembers your work, and acts when you approve.</p>
+            <div className="pp-plan-price"><span className="pp-plan-amt">${yearly ? (size.yearly / 12).toFixed(2) : size.monthly}</span><span className="pp-plan-per">/ month</span></div>
+            <p className="pp-plan-bill">{yearly ? <><s>${(size.monthly * 12).toFixed(2)}</s> ${size.yearly} billed yearly</> : <>Billed monthly · or ${size.yearly}/year, 2 months free</>}</p>
+            <Button data-site-button="primary" variant="solid" type="button" disabled={!ok || busy} onClick={buy}
+              className="pp-buy plan-btn pro-shimmer pp-shimmer" data-analytics-event="pro_cta_click" data-analytics-placement={`pro_plan_${plan}`}>
+              {busy ? 'Opening secure checkout...' : 'Get Pro'}</Button>
+            <p className="pp-tier-note">Cancel any time. Price locked while you stay.</p>
+            <p className="pp-tier-plus">Everything in Free, plus:</p>
+            <ul className="pp-tier-list">{PRO_FEATURES(pricing).map(x => <li key={x}><Check size={14} weight="bold" />{x}</li>)}</ul>
+          </div>
+        </SceneCard>
       </div>
-      <ul className="pp-every" aria-label="Every plan includes">{EVERY_PLAN(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
       <p className={`ea-status pp-pay-status ${error ? 'ea-status-error' : ''}`} aria-live="polite">
         {error ? 'Checkout is unavailable. Please try again.' : failed ? 'Pricing unavailable. Reload this page to try again.' : !ready ? 'Loading current pricing...' : null}</p>
+      <p className="pp-plans-fine">250,000+ downloads · 3,400+ GitHub stars · Prices in USD; tax may apply. Boost goes live in {BOOST_LAUNCH}; <a href="#faq">how Boost minutes work</a>.</p>
     </div>
   </section>;
 }
 
 const FAQ = (p) => [
-  ['Monthly or yearly?', `Same plan, two ways to pay. Yearly costs ten months, so two months are free. You can switch between them, or change size, any time from the link in your key email.`],
-  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps: a minute is one minute of one GPU working for you, billed by the millisecond. Pick 300, 900 or 2,100 minutes a month. It's opt-in for each model, and your prompts are never stored or trained on. Need more in a month? Top up from $${BOOST_TOPUP.from} for ${BOOST_TOPUP.minutes} minutes.`],
-  ['What if I join before Boost launches?', `Every Pro feature starts the day you pay. Boost goes live in ${BOOST_LAUNCH}; the minutes you pay for before then bank, up to ${BANK_MONTHS} months' worth, ready on launch day. If Boost isn't live by the end of ${BOOST_LAUNCH}, we refund what you paid above $${PRO_ONLY_MONTHLY} a month for every month after.`],
-  ['Does the price go up?', 'Not for you. The founding price stays locked as long as you stay subscribed.'],
-  ['I bought Pro lifetime. What now?', `Nothing changes: you keep every Pro feature for life. Boost minutes come with the monthly and yearly plans, or as top-ups from $${BOOST_TOPUP.from}.`],
+  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God, Sync, Vault and Clipboard.'],
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
-  ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools, connected services and Boost need a connection.'],
-  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God, Sync and Boost.'],
+  ['Monthly or yearly?', 'Same plan, two ways to pay. Yearly costs ten months, so two months are free. Switch, change plan or cancel any time from the link in your key email.'],
+  ['Does the price go up?', 'Not for you. The founding price stays locked as long as you stay subscribed.'],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
+  ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools, connected services and Boost need a connection.'],
+  ['What is Boost?', `From ${BOOST_LAUNCH}, Boost runs models too big for your device (text, reasoning, vision, image, video, voice and more) inside the same apps, only when you choose. A Boost minute is one minute of one GPU working for you, billed by the millisecond. Pro includes ${PRO_SIZES[0].minutes} a month, with top-ups from $${BOOST_TOPUP.from} if you need more; the minutes you pay for before launch bank, up to ${BANK_MONTHS} months' worth. It's opt-in for each model, and your prompts are never stored or trained on. If Boost isn't live by the end of ${BOOST_LAUNCH}, we refund what you paid above $${PRO_ONLY_MONTHLY} a month for every month after.`],
+  ['I bought Pro lifetime. What now?', `Nothing changes: you keep every Pro feature for life. Boost minutes come with Pro monthly and yearly, or as top-ups from $${BOOST_TOPUP.from}.`],
   ['Do I need a promo code?', 'No. If you have one, enter it on the checkout page before you pay.'],
 ];
 function Faq({ pricing }) {
