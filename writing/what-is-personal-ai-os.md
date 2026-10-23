@@ -34,7 +34,7 @@ A Personal AI OS is an intelligence layer that:
 - Can act on your behalf across apps and devices
 - Operates offline by default, with no data sent to external servers
 - Persists context between sessions, building a working model of your life and work
-- Is open and auditable - no black-box telemetry, no hidden data collection
+- Is open and auditable - no telemetry unless you opt in, and a public list of what that covers
 
 That's the category. Everything else currently called AI (cloud assistants, chatbots, autonomous agents) is something different.
 
@@ -60,7 +60,7 @@ These are the properties that define a true Personal AI OS. They are structural 
 
 **1. Runs on-device.** Inference happens on your hardware: CPU, GPU, or NPU. No query is sent to a remote model. No response comes back from a server.
 
-**2. Never phones home.** No telemetry. No usage logs. No data collection of any kind. What happens on your device stays on your device.
+**2. Never phones home unless you opt in.** Your chats and files never leave your device. Anonymous usage data and crash reports are off until you turn them on, and the list of what they include is public.
 
 **3. Persistent context.** The AI maintains a working model of your life across sessions. It knows your calendar, your recent messages, your open tasks, your work patterns. Context is the primitive, not queries.
 
