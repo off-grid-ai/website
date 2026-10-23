@@ -56,7 +56,7 @@ The pattern across privacy regulations globally is consistent.
 
 Each regulation defines compliance obligations triggered by third-party collection and processing of personal data. Each regulation creates overhead: consent management, data subject rights, breach notification, cross-border transfer mechanisms. Each regulation creates legal risk for products that fail to comply.
 
-On-device AI is not exempt from regulation. But the architecture dramatically reduces the surface area that regulations are targeting. The obligations that require the most compliance investment (cross-border transfers, third-party processing agreements, large-scale personal data handling) mostly don't apply to a system that processes data locally and sends nothing to external servers.
+On-device AI is not exempt from regulation. But the architecture dramatically reduces the surface area that regulations are targeting. The obligations that require the most compliance investment (cross-border transfers, third-party processing agreements, large-scale personal data handling) mostly don't apply to a system that processes data locally and sends no personal data to external servers.
 
 Every new privacy regulation is a tailwind for on-device AI. Not because the regulatory environment is hostile to cloud AI specifically, but because the on-device architecture is inherently aligned with what regulators are trying to achieve.
 

@@ -81,7 +81,7 @@ A Personal AI OS shares surface similarities with all three - it responds to que
 
 **What it can do:** Everything the assistant and chatbot categories can do, plus context-aware actions that require knowing you: triaging your inbox in your priority system, preparing you for a meeting based on the history you have with that person, noticing that you're overcommitted next week before you've noticed it yourself.
 
-**The privacy model:** On-device. Nothing leaves your hardware. The context that makes it useful - the data that would be most valuable to an external party - never becomes available to one.
+**The privacy model:** On-device. Your context never leaves your hardware. The context that makes it useful - the data that would be most valuable to an external party - never becomes available to one.
 
 ---
 

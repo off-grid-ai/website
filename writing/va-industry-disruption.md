@@ -50,7 +50,7 @@ A Personal AI OS changes the information asymmetry completely.
 
 It has access to your full context: your messages, your calendar, your files, your communication history, your work patterns, your health data, your location patterns. Not as a snapshot you've deliberately shared, but as a live, continuously updated picture of your life.
 
-And it has that context without you handing it to another person. The data stays on your device. The processing happens on your hardware. Nothing leaves.
+And it has that context without you handing it to another person. The data stays on your device. The processing happens on your hardware. Your context never leaves.
 
 This is the dimension the human model structurally cannot match. No human VA can have your full context without you giving it to them. An on-device AI has your full context precisely because it never leaves your hands.
 
