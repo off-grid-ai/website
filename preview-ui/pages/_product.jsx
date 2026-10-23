@@ -308,18 +308,18 @@ export function Checks({ items }) {
 }
 
 // Free vs Pro, side by side (a swipe row on phones).
-export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lead = 'Free to run.', dim = 'Pro when you want more.' }) {
+export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lead = 'Free to run.', dim = 'Pro when you want more.', start = 0 }) {
   return <section id={id} className="chapter pp pp-plans-sec" aria-labelledby={`${id}-h`}>
     <div className="section-shell">
       <div className="sec-head"><Kicker>FREE OR PRO</Kicker><Title id={`${id}-h`} lead={lead} dim={dim} /></div>
-      <MobileRail className="pp-plans" start={0}>
+      <MobileRail className="pp-plans" start={start}>
         <SceneCard className="plan-card"><div className="plan"><Kicker>FREE</Kicker><div className="price"><span className="amt">$0</span><small>forever</small></div>
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
         <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO</Kicker><LifetimePrice pricing={pricing} />
           <ul>{pro.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           <p className="pp-offer">Or ${pricing.monthly}/month. Up to {pricing.devices} devices. {pricing.lifetime_offer?.enabled ? "Lifetime discount applied automatically at checkout." : "The lifetime price rises as we grow."}</p>
-          <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
+          <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="plans_card">Own Pro forever · ${pricing.lifetime}</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>
       </MobileRail>
     </div>

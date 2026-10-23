@@ -128,7 +128,8 @@ export default function MobilePage({ data }) {
       </div>
     </section>
 
-    <FreeVsPro pricing={p}
+    {/* Phones open the plans on Pro: the hero already offers the free download. */}
+    <FreeVsPro pricing={p} start={1}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
       pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Tasks, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
