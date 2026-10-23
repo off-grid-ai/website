@@ -3,12 +3,12 @@ layout: content
 title: Privacy Policy
 nav_order: 11
 nav_group: Learn
-description: How Off Grid AI handles data. Off Grid AI is local-first by architecture - your captured data stays on your devices.
+description: How Off Grid AI handles data. Your chats and files never leave your device. Anonymous usage data and crash reports are off until you turn them on.
 ---
 
 # Privacy Policy
 
-**Last updated: 27 June 2026**
+**Last updated: 23 October 2026**
 
 This Policy applies to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of this Policy in effect at the time of that use.
 
@@ -33,9 +33,10 @@ Because the content lives on your devices, **you are the controller of that data
 While the Service is local-first, limited information may be processed in the following situations:
 
 - **Account, license, and payment data.** If you purchase a paid plan, our payment and licensing providers process your email, license key, and transaction details to deliver and manage your purchase. We do not store full card numbers.
-- **Website and basic product analytics.** Our website and apps may use privacy-conscious analytics to understand aggregate usage (e.g., page views, feature usage counts). Where this is used, it is intended to be aggregated and not to identify you personally.
+- **Website analytics.** Our website uses privacy-conscious analytics to understand aggregate usage (e.g., page views). It is intended to be aggregated and not to identify you personally.
+- **Optional product analytics and crash reports.** The OGAM and OGAD apps send anonymous usage data and crash reports only if you turn them on. They are off by default. Section 4 explains exactly what this covers.
 - **Communications.** If you email us, join our community, or subscribe to updates, we process the contact details and content you provide.
-- **Diagnostics you choose to send.** If you opt in to share logs or a bug report, that information is processed only to investigate the issue.
+- **Problem reports you choose to send.** "Report a problem" in the apps opens your own email app with a debug log attached. You see the log before you send it, and we receive only what you choose to email. The debug log does not contain your chats. We use it only to investigate the issue.
 
 We do not sell your personal information, and we do not use your captured content to train models.
 
@@ -43,58 +44,102 @@ We do not sell your personal information, and we do not use your captured conten
 
 ## 3. Information we do NOT collect
 
-In ordinary use of the local applications, we do not collect your screen captures, audio, transcripts, memory, clipboard contents, files, messages, or the data from any third-party services you connect. That data remains on your devices.
+Your chats and files never leave your device. In ordinary use of the local applications, we do not collect:
+
+- your prompts, the model's replies, or your messages;
+- your screen captures, audio, transcripts, memory, or clipboard contents;
+- your files, file names, or document names;
+- your search terms;
+- your IP address (it is not stored, including when optional analytics is on);
+- your device's hardware identifiers;
+- the data from any third-party services you connect.
+
+That data remains on your devices. This is true whether or not you turn on optional analytics.
 
 ---
 
-## 4. Third-party services
+## 4. Optional product analytics and crash reports
+
+**Off by default.** The OGAM and OGAD apps can send anonymous usage data and crash reports to help us fix what breaks. This is a separate opt-in in the app. Until you turn it on, the apps send nothing to our analytics provider. You can turn it off at any time in Settings. Turning it on or off on one device does not change your other devices.
+
+**Who processes it.** We use PostHog Cloud EU (PostHog Inc., with data stored in Frankfurt, Germany) as our processor for this data.
+
+**What we collect when it is on:**
+
+- basic app context: platform (for example iOS, Android, macOS, Windows, Linux), app version, release channel, whether you have Pro, device class (phone, tablet, desktop), total RAM rounded to whole gigabytes, operating system version, and app language;
+- which screens you open and how long the app takes to start;
+- model events: which public model you download or load (or "custom" for a model you imported), its size range, download speed, load time, and the engine and processor type used;
+- generation performance: speed, time to first word, a rough context size range, battery level rounded to 10%, whether you are charging, and whether a reply finished, was stopped, or failed;
+- counts of actions, such as starting a chat, sending a message (with only whether it had an image or document), adding a document (file type and size range only), and which features you use;
+- the steps of setup flows, such as onboarding or connecting a device, so we can see where people get stuck;
+- crash reports: the error type, the code file name, line and function. We remove file paths and any quoted text before the report is sent.
+
+**What we never collect, even when it is on:** your prompts, replies, transcripts, or tool results; file names, document names, paths, URLs, or addresses; search terms; names of models, repositories, or connectors you added yourself; your email, account, or license key; your device hardware identifiers.
+
+**Anonymous ID.** The app creates a random anonymous ID for each install. It is never linked to an account, a license, or an email address. When you turn analytics off, the ID is reset and any data still waiting to be sent is dropped.
+
+**IP addresses.** Our analytics provider is set to discard your IP address. It is not stored, and we do not use it to work out your location.
+
+**Legal basis.** We process this data on the basis of your consent. You give it when you turn analytics on, and you can withdraw it at any time in Settings.
+
+**Retention.** We keep this data for 12 months, then it is deleted.
+
+**Your rights for this data.** Because this data is not linked to you, we cannot find the events of one person, so we cannot give you a copy of them or delete them on request. Turning analytics off stops all future collection from that device.
+
+**App stores.** Google Play and the Apple App Store may collect crash data from our apps under your own device settings. They do this under their own privacy policies, and that is separate from our opt-in.
+
+The full list of events we collect is public in our source code.
+
+---
+
+## 5. Third-party services
 
 When you choose to connect a third-party service (for example a calendar, email, or model provider) or install the Service through an app store or payment processor, those parties process information under their own privacy policies. We are not responsible for the practices of third-party services. Connecting them is your choice and your responsibility.
 
 ---
 
-## 5. How we use the limited information we process
+## 6. How we use the limited information we process
 
 Where we process the information described above, we use it to: provide and maintain the Service; process payments and manage licenses; respond to your requests; understand aggregate usage to improve the Service; ensure security and prevent abuse; and comply with legal obligations.
 
 ---
 
-## 6. Data retention
+## 7. Data retention
 
-We retain the limited information we process only as long as needed for the purposes above or as required by law. Content stored locally on your devices is retained according to your own settings, and you can delete it at any time by removing it from your devices.
+We retain the limited information we process only as long as needed for the purposes above or as required by law. Optional product analytics and crash reports are kept for 12 months (see section 4). Content stored locally on your devices is retained according to your own settings, and you can delete it at any time by removing it from your devices.
 
 ---
 
-## 7. Security
+## 8. Security
 
 We take reasonable measures to protect the limited information we process. However, no method of storage or transmission is completely secure, and we cannot guarantee absolute security. Because most data stays on your devices, the security of that data depends primarily on you keeping your devices and backups secure.
 
 ---
 
-## 8. Children
+## 9. Children
 
 The Service is not directed to children under 13 (or the minimum age of digital consent in your jurisdiction), and we do not knowingly collect personal information from them.
 
 ---
 
-## 9. Your rights
+## 10. Your rights
 
-Depending on where you live, you may have rights to access, correct, delete, or restrict processing of personal information we hold about you, or to object to or port it. Because most content stays on your devices, you can exercise much of this directly by managing or deleting data locally. For the limited information we process, contact us at the address below and we will respond as required by applicable law.
-
----
-
-## 10. International users
-
-The limited information we process may be handled in countries other than your own. By using the Service, you consent to such processing in accordance with this Policy.
+Depending on where you live, you may have rights to access, correct, delete, or restrict processing of personal information we hold about you, or to object to or port it. Because most content stays on your devices, you can exercise much of this directly by managing or deleting data locally. For the limited information we process, contact us at the address below and we will respond as required by applicable law. Optional analytics data is anonymous and cannot be traced to you; section 4 explains how to stop it.
 
 ---
 
-## 11. Changes to this Policy
+## 11. International users
+
+Optional product analytics and crash reports are stored in the European Union (Frankfurt, Germany). Other limited information we process may be handled in countries other than your own. By using the Service, you consent to such processing in accordance with this Policy.
+
+---
+
+## 12. Changes to this Policy
 
 We may update this Policy at any time by posting the revised version. Changes are effective when posted. Your continued use of the Service after changes are posted means you accept the updated Policy.
 
 ---
 
-## 12. Contact
+## 13. Contact
 
 Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@getoffgridai.co**.
