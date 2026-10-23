@@ -18,7 +18,7 @@ Off Grid AI Desktop lets you save that prompt once as a skill, then run it with 
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API keys, no telemetry.
+Free, open-source, runs offline. No account, no API keys, no telemetry unless you opt in.
 
 ## What a skill is
 
@@ -114,7 +114,7 @@ For triggered skills, scope the action prompt tightly. A skill that runs on its 
 
 Cloud automation platforms hold your triggers, your prompts, and the data they touch on their servers. Every run is logged somewhere you do not control.
 
-Off Grid AI Desktop holds all of it on your machine. The skill files are local. The model is local. The triggers run local. The app is open source, so you can read exactly what it does. No account, no telemetry.
+Off Grid AI Desktop holds all of it on your machine. The skill files are local. The model is local. The triggers run local. The app is open source, so you can read exactly what it does. No account, no telemetry unless you opt in.
 
 ## Getting started
 
@@ -149,7 +149,7 @@ A daily schedule at a local time, a keyword in a newly captured observation, or 
 Yes. A triggered skill can use your MCP connector tools while it runs its action prompt.
 
 ### Q: Is my data private?
-Yes. Skill files, the model, and triggers all stay on your machine. There is no telemetry and the source is open.
+Yes. Skill files, the model, and triggers all stay on your machine. There is no telemetry unless you opt in, and the source is open.
 
 Save your prompts as skills and let your local AI run them for you.
 

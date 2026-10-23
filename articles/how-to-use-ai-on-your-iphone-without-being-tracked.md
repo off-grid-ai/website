@@ -16,7 +16,7 @@ You probably assume your iPhone keeps things private. Apple markets privacy as a
 
 Every prompt you type. Every personal question you ask. Every document you upload. It all gets logged, stored, and in many cases used to train the next version of the model. Apple's privacy architecture can't protect you from data you voluntarily hand to a third party.
 
-There's a way to use AI on your iPhone where nothing ever leaves. No servers, no accounts, no tracking. Everything runs on your phone's own processor.
+There's a way to use AI on your iPhone where your chats never leave your phone. No servers, no accounts, no tracking. Everything runs on your phone's own processor.
 
 ## What Cloud AI Services Actually Do With Your iPhone Data
 
@@ -40,9 +40,9 @@ Here's what that actually means in practice:
 
 **No account.** No Apple ID sign-in, no email, no phone number. Open the app and use it.
 
-**No network requests.** After the initial model download, Off Grid contacts no server. Ever. Verify it yourself in airplane mode.
+**No network requests for your chats.** After the initial model download, chatting with a local model contacts no server. Verify it yourself in airplane mode.
 
-**No analytics or telemetry.** No crash reporting, no usage tracking, no behavioral data collection. The App Store privacy label says it plainly: the developer does not collect any data from this app.
+**No telemetry unless you opt in.** Anonymous usage data and crash reports are off until you turn them on in Settings. Even when they are on, they never include your prompts, replies, or file names, and the data is not linked to you. The App Store privacy label says it plainly: "Data Not Linked to You." The full list of what is collected is public in the source code.
 
 **No cloud backup of conversations.** Your chats live in the app's local storage on your device. Not in iCloud. Not on a sync server. On your phone.
 

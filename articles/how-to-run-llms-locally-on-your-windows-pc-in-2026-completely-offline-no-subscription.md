@@ -83,7 +83,7 @@ A few settings move the needle on Windows.
 
 A cloud chatbot sends every prompt to a remote data center where it is logged and may feed the next training run. With Off Grid AI Desktop, your prompt goes from your keyboard to a process on your own PC and straight back.
 
-No account. No telemetry. No API key. The app is open source, so you can read the full source on GitHub and confirm nothing phones home. Disconnect the network and it keeps running.
+No account. No telemetry unless you opt in. No API key. The app is open source, so you can read the full source on GitHub and confirm your prompts never leave. Disconnect the network and it keeps running.
 
 ## Getting Started
 
@@ -130,7 +130,7 @@ Any compatible GGUF model, such as Gemma or Qwen. You browse and download them i
 
 ### Q: Is my data private?
 
-Your prompts never leave the PC. No account, no telemetry, and the source is public so you can check for yourself.
+Your prompts never leave the PC. No account, no telemetry unless you opt in, and the source is public so you can check for yourself.
 
 Run a real model on your own Windows PC today, with nothing leaving your drive.
 

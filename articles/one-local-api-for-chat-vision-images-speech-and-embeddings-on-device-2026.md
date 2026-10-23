@@ -170,7 +170,7 @@ curl "http://127.0.0.1:7878/v1/images/generations?async=true" \
 
 ## Privacy: stronger than a hosted API
 
-A hosted multimodal API sees every prompt, every image, every audio file you send. It logs requests. It needs an account and a key tied to your identity. Off Grid AI Desktop binds to `127.0.0.1`, so the server answers only your own machine. There is no telemetry. There is no account. The code is open, so you can read exactly what it does. Your screenshots, recordings, and documents stay where they are.
+A hosted multimodal API sees every prompt, every image, every audio file you send. It logs requests. It needs an account and a key tied to your identity. Off Grid AI Desktop binds to `127.0.0.1`, so the server answers only your own machine. There is no telemetry unless you opt in. There is no account. The code is open, so you can read exactly what it does. Your screenshots, recordings, and documents stay where they are.
 
 ## Getting started
 

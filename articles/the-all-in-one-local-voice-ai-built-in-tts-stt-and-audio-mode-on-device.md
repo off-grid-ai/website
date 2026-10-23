@@ -18,7 +18,7 @@ Off Grid AI Desktop is a free, open-source app that runs both directions of voic
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API keys, no telemetry.
+Free, open-source, runs offline. No account, no API keys, no telemetry unless you opt in.
 
 
 ![Voice in Off Grid AI Desktop: hold a key to dictate, and each note is transcribed on your machine with its to-dos pulled out.](/assets/img/home/app/voice-dark-1760.webp)
@@ -101,7 +101,7 @@ For voice mode, shorter answers feel snappier. If replies drag, lower the chat m
 
 Cloud voice assistants send your microphone audio to a server. Cloud TTS sends your text to a server and meters it. You get a bill and a log of everything you said and everything you had read back.
 
-Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is open source, so you can read the source and confirm it. No account, no telemetry, no audio leaving the device.
+Off Grid AI Desktop sends none of it. Whisper transcribes on your machine. Kokoro synthesizes on your machine. The app is open source, so you can read the source and confirm it. No account, no telemetry unless you opt in, no audio leaving the device.
 
 ## Getting started
 
@@ -136,7 +136,7 @@ Whisper transcribes dozens of languages. Kokoro is multilingual for output. You 
 Yes. Apple Silicon uses Metal. Windows uses CUDA or Vulkan, with a CPU fallback.
 
 ### Q: Is my voice data private?
-Yes. Your microphone audio and your text never leave the machine. There is no telemetry and the source is open for inspection.
+Yes. Your microphone audio and your text never leave the machine. There is no telemetry unless you opt in, and the source is open for inspection.
 
 Talk to your AI and hear it answer, all on your own hardware.
 

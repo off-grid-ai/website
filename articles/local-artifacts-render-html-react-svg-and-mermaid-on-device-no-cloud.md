@@ -18,7 +18,7 @@ Off Grid AI Desktop has a canvas that renders the model's output live on your ma
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API keys, no telemetry.
+Free, open-source, runs offline. No account, no API keys, no telemetry unless you opt in.
 
 
 ![The artifact canvas beside chat in Off Grid AI Desktop, here showing a Mermaid flowchart of the Acme rollout, with Preview, Code and Download controls.](/assets/img/home/app/artifacts-dark-1760.webp)
@@ -106,7 +106,7 @@ For React, ask for a single self-contained component. Fewer moving parts means f
 
 Cloud artifact features send your prompt to a server, render in their environment, and keep a copy. Your dashboards, your diagrams, your half-formed ideas all pass through infrastructure you do not control.
 
-Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtimes are bundled, not fetched. The sandbox has no network out. The app is open source, so you can read the source and confirm all of it. No account, no telemetry.
+Off Grid AI Desktop keeps it on your machine. The model runs locally. The runtimes are bundled, not fetched. The sandbox has no network out. The app is open source, so you can read the source and confirm all of it. No account, no telemetry unless you opt in.
 
 ## Getting started
 
@@ -141,7 +141,7 @@ HTML, SVG, Mermaid diagrams, and React (JSX) components. Dashboards, charts, dia
 Yes. Each artifact has a download, so you get a real file to use elsewhere.
 
 ### Q: Is my data private?
-Yes. The model runs locally, the runtimes are bundled, and the sandbox has no network out. There is no telemetry and the source is open.
+Yes. The model runs locally, the runtimes are bundled, and the sandbox has no network out. There is no telemetry unless you opt in, and the source is open.
 
 Ask for a chart, a diagram, or a mini-app and watch it render on your own machine.
 

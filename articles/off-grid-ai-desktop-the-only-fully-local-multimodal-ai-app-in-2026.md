@@ -16,7 +16,7 @@ The laptop you already own can run a language model, generate an image, transcri
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account, no telemetry unless you opt in.
 
 
 ![The Models screen in Off Grid AI Desktop, with tabs for text, image, voice and transcription models.](/assets/img/home/app/models-text-dark-1760.webp)
@@ -93,7 +93,7 @@ curl http://127.0.0.1:7878/v1/chat/completions \
 
 Cloud apps treat privacy as a policy you have to trust. Here it is structural.
 
-There is no account, so there is no profile to leak. There is no telemetry, so nothing phones home. There are no API keys, because there is no third party to authenticate with. Screen capture is opt-in per device with a visible indicator, and you stop it whenever you want. The source is open, so anyone can read exactly what the app does with your data, which is nothing.
+There is no account, so there is no profile to leak. There is no telemetry unless you opt in, and your chats never leave the machine. There are no API keys, because there is no third party to authenticate with. Screen capture is opt-in per device with a visible indicator, and you stop it whenever you want. The source is open, so anyone can read exactly what the app does with your data, which is nothing.
 
 ## Getting started
 
@@ -118,7 +118,7 @@ Yes. The app is free and open-source. There is no account and no paywall on the 
 Yes. Once a model is downloaded, chat, image generation, voice, and document RAG all run with the network off.
 
 ### Q: What about my data?
-It stays on your machine. No telemetry, no account, no API keys. Screen capture is opt-in with a visible indicator.
+It stays on your machine. No telemetry unless you opt in, no account, no API keys. Screen capture is opt-in with a visible indicator.
 
 ### Q: Mac or Windows?
 Both. Macs use Metal and unified memory. Windows uses CUDA or Vulkan, with a CPU fallback.

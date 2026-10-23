@@ -91,7 +91,7 @@ Trim the context window to the task. A long context slows every token and eats R
 
 A cloud chat service logs your prompts and may use them to train future models. Code you paste, documents you summarize, all of it lands on a server.
 
-Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is open, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
+Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry unless you opt in, no API key. The code is open, so you can read it and verify your chats stay put. Disconnect from the internet and Qwen keeps answering.
 
 ## Getting Started
 

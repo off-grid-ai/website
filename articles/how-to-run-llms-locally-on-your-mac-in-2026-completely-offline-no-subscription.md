@@ -81,7 +81,7 @@ A few practical settings make a real difference.
 
 When you type into a cloud chatbot, your prompt travels to a data center, gets logged, and may train the next model. With Off Grid AI Desktop, the prompt goes from your keyboard to a process on your own Mac and back.
 
-No account. No telemetry. No API key. The app is open source, so you can read every line of the source on GitHub and confirm there is no phone-home. Pull the network cable and it keeps working.
+No account. No telemetry unless you opt in. No API key. The app is open source, so you can read every line of the source on GitHub and confirm your prompts never leave. Pull the network cable and it keeps working.
 
 ## Getting Started
 
@@ -128,7 +128,7 @@ Only while a model is generating, and only as much as you let it. Pick a smaller
 
 ### Q: Is my data private?
 
-Your prompts never leave the machine. No account, no telemetry, and the source is public so you can verify it.
+Your prompts never leave the machine. No account, no telemetry unless you opt in, and the source is public so you can verify it.
 
 Run a real model on your own Mac today, with nothing leaving your drive.
 

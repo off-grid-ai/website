@@ -16,7 +16,7 @@ OpenAI's Whisper model runs accurate speech-to-text on a laptop GPU, and the C++
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API key, no telemetry.
+Free, open-source, runs offline. No account, no API key, no telemetry unless you opt in.
 
 
 ![A meeting transcript in Off Grid AI Desktop, made on device with Whisper Large v3 Turbo, below the call's decisions.](/assets/img/home/app/meetings-transcript-light-1760.webp)
@@ -64,7 +64,7 @@ Pick the model to match the job. A smaller Whisper model is fine for a quick int
 
 A cloud notetaker uploads your full meeting audio and video to a server you do not control. The recording, the transcript, and the summary all live there. Off Grid AI Desktop keeps every part of that on your machine, because there is no server in the path.
 
-It is open source, so the code is auditable. There is no account and no telemetry. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
+It is open source, so the code is auditable. There is no account and no telemetry unless you opt in. The recorder requires an explicit start and stop, and a visible recording indicator stays on the whole time, so nothing records silently in the background.
 
 ## Getting Started
 

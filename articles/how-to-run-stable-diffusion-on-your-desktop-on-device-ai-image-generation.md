@@ -94,7 +94,7 @@ Start with a style preset, then refine the prompt. The presets do the heavy lift
 
 Cloud image generators keep your prompts, often watermark your output, and may use what you make to train future models. Some restrict what you can create.
 
-Off Grid AI Desktop runs the model on your machine. No account, no credits, no telemetry. The images and the prompts never leave your disk. The code is open, so you can read it and confirm nothing is uploaded. Generate offline with the network cable pulled.
+Off Grid AI Desktop runs the model on your machine. No account, no credits, no telemetry unless you opt in. The images and the prompts never leave your disk. The code is open, so you can read it and confirm nothing is uploaded. Generate offline with the network cable pulled.
 
 ## Getting Started
 
@@ -135,7 +135,7 @@ The Stable Diffusion family: SDXL, SDXL-Lightning, SD 1.5 and 2.1, plus Z-Image-
 Both. Mac uses Metal on Apple Silicon. Windows uses CUDA or Vulkan, with a CPU fallback.
 
 ### Q: Are my prompts and images private?
-Yes. Everything stays on your machine. No account, no telemetry, open code.
+Yes. Everything stays on your machine. No account, no telemetry unless you opt in, open code.
 
 Generate images on your own hardware, with no cloud and no credits.
 

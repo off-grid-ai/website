@@ -97,7 +97,7 @@ You see the enhanced prompt before generation starts. Cloud image generators do 
 
 Every image you generate on cloud services is stored on their servers. Your prompts are logged. Depending on the service, your generated images and the prompts that created them may be used to train future models.
 
-With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. The App Store privacy label says it directly: the developer does not collect any data from this app.
+With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. The App Store privacy label says it directly: "Data Not Linked to You." Anonymous usage data and crash reports are off until you turn them on, and they never include your prompts or images.
 
 Open source. Verify it yourself.
 

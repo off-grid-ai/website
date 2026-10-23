@@ -16,7 +16,7 @@ A mid-range gaming GPU from 2023 ships with 12GB of VRAM and enough tensor cores
 
 **[GitHub →](https://github.com/off-grid-ai/OGAD)** Free, open source, runs offline.
 
-It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-diffusion.cpp`, `whisper.cpp`, and an open-weight text-to-speech model. Nothing routes through a server we own. No account. No telemetry.
+It is Electron and React on the outside. Inside it bundles `llama.cpp`, `stable-diffusion.cpp`, `whisper.cpp`, and an open-weight text-to-speech model. Nothing routes through a server we own. No account. No telemetry unless you opt in.
 
 
 ![Off Grid AI Desktop chat running Qwen 3.5 9B locally and answering with sources cited.](/assets/img/home/app/chat-dark-1760.webp)
@@ -87,7 +87,7 @@ For images, start with a few-step model. SDXL-Lightning and Z-Image-Turbo give y
 
 A cloud AI service sees every prompt, every image you generate, and every document you upload. It keeps logs. It trains on some of it. It requires an account tied to your identity.
 
-Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry. The code is open, so you can read exactly what it does. Unplug your network and it keeps working.
+Off Grid AI Desktop sends none of that anywhere. Inference happens on your CPU and GPU. There is no account and no telemetry unless you opt in. The code is open, so you can read exactly what it does. Unplug your network and it keeps working.
 
 ## Getting Started
 
@@ -123,6 +123,6 @@ No. NVIDIA cards use CUDA and are fastest. AMD and Intel GPUs use Vulkan. A mode
 Any compatible GGUF for chat (Gemma, Qwen, and more) and SDXL, SDXL-Lightning, SD 1.5, SD 2.1, or Z-Image-Turbo for images. Browse and download them from inside the app.
 
 ### Q: Is my data private?
-Yes. Nothing leaves your PC. No telemetry, no account, and the source is open for you to verify.
+Yes. Your prompts never leave your PC. No telemetry unless you opt in, no account, and the source is open for you to verify.
 
 Run AI on hardware you already own. **[github.com/off-grid-ai/OGAD](https://github.com/off-grid-ai/OGAD)**

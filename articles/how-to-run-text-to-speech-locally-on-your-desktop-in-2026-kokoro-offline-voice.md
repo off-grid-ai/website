@@ -102,7 +102,7 @@ If a name or acronym is pronounced oddly, edit the text slightly before speaking
 
 A cloud TTS API receives every string you want spoken. It can log that text, tie it to your account, and bill you for it. You are trusting a vendor with the exact words you are reading.
 
-Off Grid AI Desktop sends nothing, because there is no server. The app is open source, so you can verify that synthesis happens on your machine and the audio is played, not uploaded. No telemetry, no account, no usage meter. Disconnect from the internet and the voice still speaks.
+Off Grid AI Desktop sends none of your audio anywhere, because there is no server. The app is open source, so you can verify that synthesis happens on your machine and the audio is played, not uploaded. No telemetry unless you opt in, no account, no usage meter. Disconnect from the internet and the voice still speaks.
 
 ## Getting Started
 

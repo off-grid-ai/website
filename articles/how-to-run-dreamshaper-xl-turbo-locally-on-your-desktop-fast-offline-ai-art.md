@@ -73,7 +73,7 @@ Quantization is what brings the model down to size. The GGUF build trims the wei
 
 A hosted art tool sees every prompt and stores every image. It logs your activity and frequently trains on what you upload. You accept terms you skimmed.
 
-Off Grid AI Desktop runs the model on your machine. No account, no telemetry, nothing transmitted. Your prompts and images stay on the device. The app is open source, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
+Off Grid AI Desktop runs the model on your machine. No account, no telemetry unless you opt in, no prompts transmitted. Your prompts and images stay on the device. The app is open source, so you can read the source and confirm what it does. This is a property of how it is built, not a checkbox.
 
 ## Getting Started
 
@@ -113,7 +113,7 @@ Both. Macs use Metal. Windows uses CUDA or Vulkan, with a CPU fallback.
 
 ### Q: Is my data private?
 
-Yes. Everything runs locally. No account, no telemetry, no prompts sent to a server.
+Yes. Everything runs locally. No account, no telemetry unless you opt in, no prompts sent to a server.
 
 Run DreamShaper XL Turbo on your own hardware, offline, today.
 

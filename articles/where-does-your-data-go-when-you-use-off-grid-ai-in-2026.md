@@ -81,9 +81,9 @@ Also distinguish live sync from backups. An operating-system backup, exported fi
 
 ## Does Off Grid receive any information at all?
 
-The privacy policy describes ordinary captured content as local to your devices. It also identifies separate situations such as payment and license processing, communications, optional diagnostics and basic analytics. Optional third-party services operate under their own policies. [Off Grid AI privacy policy](https://getoffgridai.co/privacy/).
+The privacy policy describes ordinary captured content as local to your devices. It also identifies separate situations such as payment and license processing, communications, problem reports you choose to send, and anonymous usage data and crash reports. The apps send those only if you turn them on, they are off by default, and they never include your chats or files. Optional third-party services operate under their own policies. [Off Grid AI privacy policy](https://getoffgridai.co/privacy/).
 
-For that reason, “all use of the app produces zero network traffic” is too broad. It would also hide the choices you can control. Distinguish the content of a local AI task from installing software, purchasing a license or sending a support request.
+For that reason, "all use of the app produces zero network traffic" is too broad. It would also hide the choices you can control. Distinguish the content of a local AI task from installing software, purchasing a license or sending a support request.
 
 If you send logs or screenshots to support, inspect what you attach. Describe the issue with a small sample where possible. The same care applies to Slack and Reddit: those are communication services, not extensions of your private local database.
 

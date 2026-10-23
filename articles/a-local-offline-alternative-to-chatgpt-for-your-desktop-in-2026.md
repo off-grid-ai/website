@@ -83,7 +83,7 @@ Trim the context window for short chats. Long context reserves memory you may no
 
 A cloud chatbot sends your prompts, uploads, and voice to a remote server under a policy you cannot inspect, behind a login.
 
-Off Grid AI Desktop sends nothing. No account, no subscription, no telemetry, no API key. Your chats, images, voice, and documents stay on your disk. The code is open for anyone to read. Disconnect from the network and it still works.
+Off Grid AI Desktop sends none of your chats anywhere. No account, no subscription, no telemetry unless you opt in, no API key. Your chats, images, voice, and documents stay on your disk. The code is open for anyone to read. Disconnect from the network and it still works.
 
 ## Getting Started
 
@@ -120,7 +120,7 @@ Open-weight GGUF models like Gemma and Qwen for chat, and SDXL, SD 1.5/2.1, and 
 8GB on a Mac or 16GB on a PC runs a small model. 16GB or more is better for larger models and images.
 
 ### Q: Is my data private?
-Yes. No account, no telemetry, no servers. Everything stays on your machine.
+Yes. No account, no telemetry unless you opt in, no servers. Everything stays on your machine.
 
 A private, offline alternative to ChatGPT: chat, images, voice, and documents, all on your own desktop.
 

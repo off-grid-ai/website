@@ -100,7 +100,7 @@ Trim the context window when a chat is short. Long context reserves memory wheth
 
 A cloud tool sends your prompts, uploads, and voice to a remote server under a policy you cannot audit.
 
-Off Grid AI Desktop sends nothing. No account, no telemetry, no API key. Your chats, images, documents, and any captured memory stay on your disk. The source is open to inspection. Disconnect from the network and it keeps running.
+Off Grid AI Desktop sends none of your chats anywhere. No account, no telemetry unless you opt in, no API key. Your chats, images, documents, and any captured memory stay on your disk. The source is open to inspection. Disconnect from the network and it keeps running.
 
 ## Getting Started
 
@@ -135,7 +135,7 @@ Yes. Both run open-weight GGUF models. Use the in-app browser to find and downlo
 Yes, both. Macs use Metal, Windows uses CUDA or Vulkan with CPU fallback.
 
 ### Q: Is my data private?
-Yes. No account, no telemetry, no servers. Your data, including any captured memory, stays on your machine.
+Yes. No account, no telemetry unless you opt in, no servers. Your data, including any captured memory, stays on your machine.
 
 Get LM Studio's local chat plus image gen, voice, RAG, and on-device memory, all open source.
 
