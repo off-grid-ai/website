@@ -1,6 +1,6 @@
 import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useEffect, useRef, useState } from 'react';
-import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
+import { Heading, Text, TextField, Badge } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
@@ -12,7 +12,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
-import { BOOST_PLANS, BOOST_TOPUP, boostLabel } from '../boost-plans.js';
+import { PRO_MONTHLY, BOOST_TOPUP, MONTHLY_FROM, monthlyLabel } from '../pro-plans.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -31,7 +31,7 @@ function Hero({ pricing }) {
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
-        <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
+        <a className="pp-quiet" href="#buy" data-cta="">or Pro monthly with Boost minutes, from ${MONTHLY_FROM}</a>
       </div>
       <Proof />
     </div>
@@ -39,50 +39,6 @@ function Hero({ pricing }) {
 }
 
 /* ───────── Price ladder (live tier from the customer count) ───────── */
-
-function Ladder({ pricing, count, failed, tier }) {
-  const tiers = pricing.tiers; const n = tiers.length;
-  const rail = useRef(null);
-  // The live count fills the track on its own; when it lands, the field answers from the current tier
-  // (strong enough that the ring reaches the checkout card beside it).
-  const landed = () => { const at = rail.current?.querySelector('.pp-tier.cur .pp-tier-price'); if (at) orchestra.pulseFrom(at, 'change', 0.8); };
-  const cur = tier ?? 0;
-  const start = cur > 0 ? tiers[cur - 1].until : 0; const end = tiers[cur].until;
-  const frac = count != null && end > start ? Math.min(1, Math.max(0, (count - start) / (end - start))) : 0;
-  const fill = count == null ? 0 : (cur + frac) / (n - 1);
-  const monthly = cur === n - 1 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month.`
-    : cur === n - 2 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}.`
-    : `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}, then $${tiers[n - 1].monthly}.`;
-  if (pricing.checkout_provider === 'stripe' && !pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
-    <Kicker>PRO LIFETIME</Kicker><Heading as="h3">One payment. Every Pro feature.</Heading>
-    <p>Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>
-    <p>Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
-  </div>;
-  if (pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
-    <Kicker>THE LIFETIME OFFER</Kicker>
-    <Heading as="h3">One payment. Every Pro feature.</Heading>
-    <p>Lifetime access is ${pricing.lifetime} instead of ${pricing.lifetime_offer.original_price} for a limited time. The ${pricing.lifetime_offer.amount_off.toFixed(2)} discount is already applied at checkout.</p>
-    <p>No code to enter. No subscription. One key for up to {pricing.devices} devices.</p>
-    <p className="pp-monthly">Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
-  </div>;
-  return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
-    <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
-      {count == null ? <span className="pp-muted">{failed ? 'Customer count unavailable.' : 'Loading customer count...'}</span>
-        : <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>}
-    </p>
-    <div className="pp-tiers" ref={rail} style={{ '--n': n }}>
-      {/* Radix Themes Progress: how far the count has climbed through the tiers. Hidden from assistive tech: the count line above says it. */}
-      <Progress className="pp-progress" variant="soft" value={Math.round(fill * 100)} max={100} aria-hidden="true"
-        onTransitionEnd={(e) => { if (e.propertyName === 'transform' && count != null) landed(); }} />
-      {tiers.map((t, i) => <div key={t.label} className={`pp-tier ${count != null && i < cur ? 'past' : ''} ${count != null && i === cur ? 'cur' : ''}`}>
-        <span className="pp-tier-price">${t.lifetime}<small> once</small></span>
-        <span className="pp-tier-label">{t.label}</span>
-      </div>)}
-    </div>
-    {count != null && tiers[cur].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[cur].until - count).toLocaleString()}</b> spots left at ${tiers[cur].lifetime} for life before the price jumps to ${tiers[cur + 1].lifetime}.</p>}
-    <p className="pp-monthly" id="og-monthly">{count == null ? `Prefer a subscription? Pay $${pricing.monthly}/month before it rises to $7.99, then $${pricing.top_monthly}.` : monthly}</p>
-  </div>;
-}
 
 /* ───────── Checkout: same behaviour as the old /pro/ script ───────── */
 
@@ -190,10 +146,8 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     wasOff.current = off;
   }, [off]);
   // A visitor who chose monthly on another page lands with monthly as the main action.
-  const [plan, setPlan] = useState('lifetime');
-  useEffect(() => { if (new URLSearchParams(location.search).get('plan') === 'monthly') setPlan('monthly'); }, []);
-  const primary = plan === 'monthly' ? ['monthly', `Start Pro for $${pricing.monthly}/month`] : ['lifetime', `Own Pro forever for $${pricing.lifetime}`];
-  const secondary = plan === 'monthly' ? ['lifetime', `Or own it forever for $${pricing.lifetime}`] : ['monthly', `Or $${pricing.monthly}/month`];
+  // Pro monthly (with Boost minutes) is sold from its own card; this form sells lifetime.
+  const primary = ['lifetime', `Own Pro forever for $${pricing.lifetime}`];
   const err = status && status.kind === 'error';
   return <form id="payForm" ref={form} className="pp-form" noValidate onSubmit={(e) => { e.preventDefault(); buy(primary[0]); }}>
     {!stripe && <>
@@ -204,7 +158,6 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
       </TextField.Root>
     </>}
     <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
-    <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
@@ -223,49 +176,54 @@ const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p
 function Buy({ pricing, checkout, count, failed, tier, ready }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
-      <Boost placement="pro_boost_card_top" className="pp-boost-top" />
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
-        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Own Pro for life.</span><span className="t-line t-dim">{pricing.lifetime_offer?.enabled ? 'Pay less for a limited time.' : 'One payment. Yours forever.'}</span></Heading>
+        <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Get Pro.</span><span className="t-line t-dim">Monthly with Boost, or once for life.</span></Heading>
       </div>
       <div className="pp-buy-grid">
+        <Monthly />
         {/* Busy only while the live price loads; when it lands the card settles once. */}
-        <SceneCard className="plan-card plan-card-hero pp-checkout" busy={!ready && !failed}>
-          <div className="plan plan-hero">
-            <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
+        <SceneCard className="plan-card pp-checkout" busy={!ready && !failed}>
+          <div className="plan">
+            <div className="pp-plan-top"><Kicker>ONE PAYMENT</Kicker></div>
             <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} /></div>
             <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+            <p className="pp-monthly">Pro on your own devices. No Boost minutes included; add them any time from ${BOOST_TOPUP.from}.</p>
             <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
           </div>
         </SceneCard>
-        <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
-          <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
-          <Boost placement="pro_boost_card" className="pp-boost-side" />
-        </div>
       </div>
     </div>
   </section>;
 }
 
-// Pro + Boost: the monthly way to Pro with hosted minutes for models a device can't run. It has no checkout yet,
-// so it leads to the Boost waitlist. Phones show it above "Get Pro"; wider screens beside the lifetime offer.
-function Boost({ placement, className = '' }) {
-  return <div className={`pp-ladder pp-offer-explainer pp-boost ${className}`}>
-    <Kicker>PRO + BOOST · MONTHLY</Kicker>
-    <Heading as="h3">Bigger models when you need them.</Heading>
-    <p>Pro, plus Boost minutes for models your phone or computer can't run, or runs too slowly. Billed by the millisecond, only while a model works for you.</p>
-    <ul className="pp-boost-plans">{BOOST_PLANS.map(p => <li key={p.id}>{boostLabel(p)}</li>)}</ul>
-    <p className="pp-monthly">Top up from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes. Already own Pro? Boost adds the minutes.</p>
-    <a className="pp-boost-cta" href="/boost/#cl-request" data-analytics-event="pro_cta_click" data-analytics-placement={placement}>Join the Boost waitlist <ArrowRight size={15} /></a>
-  </div>;
+// Pro monthly: every Pro feature plus Boost minutes each month, for models a device can't run. It has no
+// checkout yet, so it leads to the waitlist on /boost/.
+function Monthly() {
+  const [pick, setPick] = useState(PRO_MONTHLY[0].id);
+  return <SceneCard className="plan-card plan-card-hero pp-monthly-card">
+    <div className="plan plan-hero">
+      <div className="pp-plan-top"><Kicker>RECOMMENDED · MONTHLY</Kicker></div>
+      <div className="pp-plan-row"><Heading as="h3">Pro monthly</Heading><span className="pp-from">from <b>${MONTHLY_FROM}</b>/month</span></div>
+      <ul className="pp-get">{['Every Pro feature', 'Boost minutes every month', 'Models too big for your device', 'Billed by the millisecond', 'Cancel any time'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+      <div className="pp-sizes" role="radiogroup" aria-label="Boost minutes each month">
+        {PRO_MONTHLY.map(p => <button key={p.id} type="button" role="radio" aria-checked={pick === p.id} className="pp-size" onClick={() => setPick(p.id)}>
+          <span className="pp-size-min">{p.minutes.toLocaleString('en-US')} min</span><span className="pp-size-price">${p.price}/mo</span></button>)}
+      </div>
+      <p className="pp-monthly">Need more in a month? Top up from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes.</p>
+      <Button asChild data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-buy">
+        <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Join the Pro monthly waitlist</a></Button>
+    </div>
+  </SceneCard>;
 }
 
 const FAQ = (p) => [
-  [p.lifetime_offer?.enabled ? 'How does the lifetime offer work?' : 'Does the price go up?', p.lifetime_offer?.enabled ? `Pay $${p.lifetime} once instead of $${p.lifetime_offer.original_price}. The $${p.lifetime_offer.amount_off.toFixed(2)} discount is applied automatically at checkout. The offer is available for a limited time. Your lifetime access does not expire when the offer ends.` : `Yes, as more people join. Lifetime steps from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. Monthly from $${p.tiers[0].monthly} to $${p.tiers[1].monthly}, then $${p.top_monthly}. You keep the price you buy at.`],
+  [p.lifetime_offer?.enabled ? 'How does the lifetime offer work?' : 'Does the price go up?', p.lifetime_offer?.enabled ? `Pay $${p.lifetime} once instead of $${p.lifetime_offer.original_price}. The $${p.lifetime_offer.amount_off.toFixed(2)} discount is applied automatically at checkout. The offer is available for a limited time. Your lifetime access does not expire when the offer ends.` : `Lifetime rises as more people join: from $${p.tiers[0].lifetime} to $${p.tiers[1].lifetime}, then $${p.top_lifetime}. You keep the price you buy at. Pro monthly is $${PRO_MONTHLY.map(x => x.price).join(', $')} a month, depending on your Boost minutes.`],
+  ['Monthly or lifetime?', `Pro monthly includes Boost minutes every month, for models your device can't run. Pro lifetime is every Pro feature on your own devices, paid once, with no Boost minutes; you can add minutes any time from $${BOOST_TOPUP.from}.`],
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
-  ['What is Boost?', 'Boost runs bigger open models for you when your device can\'t, inside the same apps. It\'s a monthly plan with Pro included, billed by the millisecond of model time, from $19.99 for 300 minutes. It\'s opt-in for each model, and your prompts are never stored or trained on. Boost is opening soon: join the waitlist on the Boost page.'],
+  ['What are Boost minutes?', `Boost runs bigger open models for you when your device can't, inside the same apps. Pro monthly includes ${PRO_MONTHLY.map(x => x.minutes.toLocaleString('en-US')).join(', ')} minutes a month depending on the plan, billed by the millisecond of model time. It's opt-in for each model, and your prompts are never stored or trained on. Pro monthly is opening soon: join the waitlist.`],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
 ];

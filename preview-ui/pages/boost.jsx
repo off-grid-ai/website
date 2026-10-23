@@ -4,19 +4,19 @@ import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowDown, ArrowRight, Check, EnvelopeSimple, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
-import { BOOST_PLANS, boostLabel } from '../boost-plans.js';
+import { PRO_MONTHLY, BOOST_TOPUP, monthlyLabel } from '../pro-plans.js';
 
 // /boost/: the waitlist for Off Grid AI Boost, hosted open models for people whose phone or computer can't run
 // a model, or runs it too slowly. The request is recorded the same way as the newsletter: identify the email
 // in PostHog, then capture one event with the answers.
 const USES = ['Chat with bigger models', 'Image generation', 'Voice and speech', 'Video', 'Documents and research'];
 const DEVICES = [['phone', 'My phone'], ['computer', 'My computer'], ['both', 'Both']];
-const PLANS = [...BOOST_PLANS.map(p => [p.id, boostLabel(p)]), ['unsure', 'Not sure yet']];
+const PLANS = [...PRO_MONTHLY.map(p => [p.id, monthlyLabel(p)]), ['unsure', 'Not sure yet']];
 const ETHOS = [
   [ShieldCheck, 'Never stored or trained on.', 'Your prompts are answered and gone. We don\'t keep them or learn from them.'],
   [DeviceMobile, 'You choose what runs where.', 'Each model runs on your device or on Boost. Nothing leaves your device unless you pick Boost for it.'],
   [Stack, 'Models your device can\'t run.', 'The largest open chat models, newer image models and faster voice, on any phone or laptop.'],
-  [Timer, 'Billed by the millisecond.', 'You pay only while a model is working for you. $19.99 a month gets you 300 minutes, with Pro included. Top up from $10 for 150 minutes, or carry on on your own device.'],
+  [Timer, 'Part of Pro monthly.', `Pro monthly includes Boost minutes, from $${PRO_MONTHLY[0].price} for ${PRO_MONTHLY[0].minutes} a month, billed by the millisecond. Top up from $${BOOST_TOPUP.from} for ${BOOST_TOPUP.minutes} minutes, or carry on on your own device.`],
   [GithubLogo, 'No lock-in.', 'The serving code will be open source, so you can run it on your own hardware.'],
 ];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,7 +42,8 @@ function Rows({ label, children }) {
 function RequestForm() {
   const [uses, setUses] = useState([]);
   const [device, setDevice] = useState('');
-  const [plan, setPlan] = useState('');
+  // /pro links here with the size already chosen (?plan=pro-300).
+  const [plan, setPlan] = useState(() => { const q = typeof location === 'undefined' ? '' : new URLSearchParams(location.search).get('plan'); return PRO_MONTHLY.some(p => p.id === q) ? q : ''; });
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(['', '']);
   const [busy, setBusy] = useState(false);
@@ -65,7 +66,7 @@ function RequestForm() {
     <fieldset disabled={done || busy} className="cl-group">
       <Choices legend="What would you use Boost for?" Group={CheckboxCards} value={uses} onChange={setUses} items={USES.map(u => [u, u])} />
       <Choices legend="Where do you use Off Grid AI?" Group={RadioCards} value={device} onChange={setDevice} items={DEVICES} />
-      <Choices legend="Which plan would you pick?" hint="Boost minutes each month, billed by the millisecond, with Pro included. Optional." Group={RadioCards} value={plan} onChange={setPlan} items={PLANS} />
+      <Choices legend="Which Pro monthly plan would you pick?" hint="Every Pro feature, plus Boost minutes each month. Optional." Group={RadioCards} value={plan} onChange={setPlan} items={PLANS} />
       <fieldset>
         <legend className="eyebrow">Email</legend>
         <div className="cl-send">
@@ -85,9 +86,9 @@ export default function BoostPage() {
     <section className="has-bg ideas-hero cl-hero" aria-labelledby="cl-h">
       <div className="section-shell cl-grid">
         <div className="sec-head ideas-head">
-          <Kicker>OFF GRID AI BOOST · EARLY ACCESS</Kicker>
+          <Kicker>BOOST · PART OF PRO MONTHLY</Kicker>
           <Title as="h1" id="cl-h" lead="Bigger models when you need them." dim="Without a bigger computer." />
-          <Lede>Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. We never store or train on your prompts.</Lede>
+          <Lede>Some models are too big or too slow for your phone or laptop. Boost runs them for you, inside the Off Grid AI apps you already use, and only when you choose. Pro monthly comes with Boost minutes every month. We never store or train on your prompts.</Lede>
           <a className="cl-jump" href="#cl-request">Join the waitlist <ArrowDown size={14} /></a>
         </div>
         <div id="cl-request" className="cl-request" data-analytics-view="boost_form_viewed" data-analytics-placement="boost_page"><RequestForm /></div>

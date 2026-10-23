@@ -193,7 +193,6 @@ export default function DesktopPage({ data }) {
     <FreeVsPro pricing={p}
       free={['Chat with local text and vision models', 'Image generation on your GPU', 'Voice: Whisper and Kokoro', 'Projects with cited answers', 'Artifacts and MCP connectors', 'Offline, no account']}
       pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Actions and tasks, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
-      boost={['Everything in Pro', 'Models too big for your computer', 'Newer image and video models', 'Faster answers when your computer is slow', 'Opt-in for each model, prompts never stored']}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

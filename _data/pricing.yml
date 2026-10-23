@@ -26,7 +26,7 @@ count_endpoint: "https://count.getoffgridai.co?metric=customers-new-all-time-v3"
 # Stripe automatically applies the fixed USD 69.01 coupon to the $119 price.
 # Publish this offer only with the Stripe checkout switch. No end date is set.
 lifetime_offer:
-  enabled: true
+  enabled: false
   original_price: 119
   amount_off: 69.01
 
