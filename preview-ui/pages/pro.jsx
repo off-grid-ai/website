@@ -58,6 +58,21 @@ function useScript(src) {
   }, [src]);
 }
 
+// Opens Stripe Checkout for a plan. The worker picks the price; the page only names the plan.
+async function openStripeCheckout(endpoint, plan) {
+  const response = await fetch(`${endpoint}/checkout`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ plan, checkout_id: crypto.randomUUID() }),
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!response.ok) throw new Error('Checkout unavailable');
+  const session = await response.json();
+  const target = new URL(session.url);
+  if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
+  try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
+  window.location.assign(target.href);
+}
+
 function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
@@ -97,17 +112,7 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
       if (submitting.current || !ready || failed) return;
       submitting.current = true; setBusy(true); setStatus(null);
       try {
-        const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan, checkout_id: crypto.randomUUID() }),
-          signal: AbortSignal.timeout(20000),
-        });
-        if (!response.ok) throw new Error('Checkout unavailable');
-        const session = await response.json();
-        const target = new URL(session.url);
-        if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
-        try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
-        window.location.assign(target.href);
+        await openStripeCheckout(pricing.stripe_endpoint, plan);
       } catch {
         setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
         submitting.current = false; setBusy(false);
@@ -180,7 +185,7 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
         <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Get Pro.</span><span className="t-line t-dim">Monthly with Boost, or once for life.</span></Heading>
       </div>
       <div className="pp-buy-grid">
-        <Monthly />
+        <Monthly pricing={pricing} ready={ready} failed={failed} />
         {/* Busy only while the live price loads; when it lands the card settles once. */}
         <SceneCard className="plan-card pp-checkout" busy={!ready && !failed}>
           <div className="plan">
@@ -197,9 +202,17 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
 }
 
 // Pro monthly at the founding price: Pro starts today, Boost minutes bank from the first month and open at
-// launch. It has no checkout yet (Stripe prices come first), so for now it leads to the list on /boost/.
-function Monthly() {
+// launch. It checks out once the pricing service offers the plan; until then it leads to the list on /boost/.
+function Monthly({ pricing, ready, failed }) {
   const [pick, setPick] = useState(PRO_MONTHLY[0].id);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState(false);
+  const sold = pricing.checkout_provider === 'stripe' && ready && !failed && (pricing.pro_monthly ?? []).some(p => p.plan === pick);
+  const buy = async () => {
+    if (busy) return;
+    setBusy(true); setError(false);
+    try { await openStripeCheckout(pricing.stripe_endpoint, pick); } catch { setError(true); setBusy(false); }
+  };
   return <SceneCard className="plan-card plan-card-hero pp-monthly-card">
     <div className="plan plan-hero">
       <div className="pp-plan-top"><Kicker>{`FOUNDING PRICE · BOOST FROM ${BOOST_LAUNCH.toUpperCase()}`}</Kicker></div>
@@ -210,8 +223,12 @@ function Monthly() {
           <span className="pp-size-min">{p.minutes.toLocaleString('en-US')} min</span><span className="pp-size-price">${p.price}/mo</span></button>)}
       </div>
       <p className="pp-monthly">If Boost isn't live by the end of {BOOST_LAUNCH}, we refund what you paid above ${PRO_ONLY_MONTHLY} for every month after. Top-ups from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes.</p>
-      <Button asChild data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-buy">
-        <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Lock in the founding price</a></Button>
+      {sold
+        ? <Button data-site-button="primary" variant="solid" type="button" disabled={busy} onClick={buy} className="pro-shimmer pp-shimmer pp-buy"
+            data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">{busy ? 'Opening secure checkout...' : 'Lock in the founding price'}</Button>
+        : <Button asChild data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer pp-buy">
+            <a href={`/boost/?plan=${pick}#cl-request`} data-analytics-event="pro_cta_click" data-analytics-placement="pro_monthly_card">Lock in the founding price</a></Button>}
+      {error && <p className="ea-status ea-status-error" aria-live="polite">Checkout is unavailable. Please try again.</p>}
     </div>
   </SceneCard>;
 }
