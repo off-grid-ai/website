@@ -12,6 +12,7 @@ import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
+import { BOOST_PLANS, BOOST_TOPUP, boostLabel } from '../boost-plans.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
 
@@ -237,10 +238,24 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
           <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
+          <Boost />
         </div>
       </div>
     </div>
   </section>;
+}
+
+// Pro + Boost: the monthly way to Pro with hosted minutes for models a device can't run. It has no checkout yet,
+// so it leads to the Boost waitlist.
+function Boost() {
+  return <div className="pp-ladder pp-offer-explainer pp-boost" id="boost">
+    <Kicker>PRO + BOOST · MONTHLY</Kicker>
+    <Heading as="h3">Bigger models when you need them.</Heading>
+    <p>Pro, plus Boost minutes for models your phone or computer can't run, or runs too slowly. Billed by the millisecond, only while a model works for you.</p>
+    <ul className="pp-boost-plans">{BOOST_PLANS.map(p => <li key={p.id}>{boostLabel(p)}</li>)}</ul>
+    <p className="pp-monthly">Top up from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes. Already own Pro? Boost adds the minutes.</p>
+    <a className="pp-boost-cta" href="/boost/#cl-request" data-analytics-event="pro_cta_click" data-analytics-placement="pro_boost_card">Join the Boost waitlist <ArrowRight size={15} /></a>
+  </div>;
 }
 
 const FAQ = (p) => [
@@ -249,6 +264,7 @@ const FAQ = (p) => [
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
   ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
+  ['What is Boost?', 'Boost runs bigger open models for you when your device can\'t, inside the same apps. It\'s a monthly plan with Pro included, billed by the millisecond of model time, from $19.99 for 300 minutes. It\'s opt-in for each model, and your prompts are never stored or trained on. Boost is opening soon: join the waitlist on the Boost page.'],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
 ];

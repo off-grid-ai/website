@@ -52,6 +52,9 @@
 .pp-pay-status a{text-decoration:underline;text-underline-offset:3px}
 .pp-fine{font-size:11.5px;line-height:1.6;color:var(--og-text-muted)}
 .pp-buy-side{display:flex;flex-direction:column;gap:36px}
+.pp-boost-plans{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pp-boost-plans li{padding:6px 12px;border:1px solid var(--line-2);border-radius:999px;font-size:13px;color:var(--og-text)}
+.pp-boost-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--og-primary)}
 .pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
 .pp-count b{font-weight:400;color:var(--og-primary)}
 .pp-muted{color:var(--og-text-muted)}

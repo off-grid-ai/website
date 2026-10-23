@@ -4,13 +4,14 @@ import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
 import { ArrowDown, ArrowRight, Check, EnvelopeSimple, GithubLogo, ShieldCheck, DeviceMobile, Stack, Timer } from '@phosphor-icons/react';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
+import { BOOST_PLANS, boostLabel } from '../boost-plans.js';
 
 // /boost/: the waitlist for Off Grid AI Boost, hosted open models for people whose phone or computer can't run
 // a model, or runs it too slowly. The request is recorded the same way as the newsletter: identify the email
 // in PostHog, then capture one event with the answers.
 const USES = ['Chat with bigger models', 'Image generation', 'Voice and speech', 'Video', 'Documents and research'];
 const DEVICES = [['phone', 'My phone'], ['computer', 'My computer'], ['both', 'Both']];
-const PLANS = [['19.99', '$19.99 · 300 minutes'], ['49.99', '$49.99 · 900 minutes'], ['99.99', '$99.99 · 2,100 minutes'], ['unsure', 'Not sure yet']];
+const PLANS = [...BOOST_PLANS.map(p => [p.id, boostLabel(p)]), ['unsure', 'Not sure yet']];
 const ETHOS = [
   [ShieldCheck, 'Never stored or trained on.', 'Your prompts are answered and gone. We don\'t keep them or learn from them.'],
   [DeviceMobile, 'You choose what runs where.', 'Each model runs on your device or on Boost. Nothing leaves your device unless you pick Boost for it.'],
