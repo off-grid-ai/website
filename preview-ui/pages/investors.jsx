@@ -11,7 +11,7 @@ const ROUTES = [['angel', 'Angel'], ['community', 'Community round']];
 const AMOUNTS = [['10k-50k', '$10k to $50k'], ['50k-250k', '$50k to $250k'], ['250k+', '$250k+']];
 const BUILT = [
   [Devices, 'Five platforms, live today.', 'Mac, Windows, Linux, iPhone and Android, plus a Chrome extension.'],
-  [Receipt, 'Revenue from day one.', 'Pro sells monthly and lifetime. Boost, hosted inference for teams, is onboarding its first cohort.'],
+  [Receipt, 'Revenue from day one.', 'Pro sells monthly and lifetime. Boost, bigger models hosted for Pro users, has a waitlist open.'],
   [Cpu, 'Almost nothing to serve.', 'The models run on each user\'s own phone or laptop, so a new user adds no server bill.'],
   [GithubLogo, '250,000+ downloads.', 'And 3,300+ GitHub stars. Open source, so anyone can check that their data never leaves the device.'],
 ];

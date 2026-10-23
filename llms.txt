@@ -49,7 +49,7 @@ Businesses with fewer than 50 people can help shape a solution for daily work. T
 
 ## Off Grid AI Boost
 
-Hosted inference for open models across text, vision, speech, voice, embeddings, image and video, alongside on-device Off Grid AI. Prompts are never stored or trained on. Early access: the first cohort is being onboarded now. Request access with the models you want to run, your monthly spend and your minimum commitment: https://getoffgridai.co/boost/
+Boost runs bigger open models for you when your phone or computer can't run them, or runs them too slowly: the largest chat models, newer image models and faster voice, inside the Off Grid AI apps. It's opt-in for each model, and prompts are never stored or trained on. Planned as a monthly plan with Pro included, from $19.99 a month. Join the waitlist: https://getoffgridai.co/boost/
 
 ## Links
 
