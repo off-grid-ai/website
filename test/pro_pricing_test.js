@@ -29,7 +29,7 @@ test('pricing follows the count boundary and rejects unavailable or invalid coun
     assert.equal(result.pricing.monthly, monthly);
     assert.equal(result.tier, tier);
     const offerResult = await loadPricing({ ...legacyPricing, count_endpoint: `${endpoint}/${count}` });
-    assert.equal(offerResult.pricing.lifetime, 49.99);
+    assert.equal(offerResult.pricing.lifetime, 79.99);
     assert.equal(offerResult.pricing.monthly, monthly);
     assert.equal(offerResult.tier, tier);
   }
@@ -38,7 +38,7 @@ test('pricing follows the count boundary and rejects unavailable or invalid coun
 });
 
 test('the lifetime offer is available before the count loads and can be disabled', () => {
-  assert.equal(lifetimePrice({ ...pricing, lifetime: '...' }), 49.99);
+  assert.equal(lifetimePrice({ ...pricing, lifetime: '...' }), 79.99);
   assert.equal(lifetimePrice({ lifetime: 119 }), 119);
   assert.equal(lifetimePrice({ ...pricing, lifetime: 119, lifetime_offer: { ...pricing.lifetime_offer, enabled: false } }), 119);
 });
@@ -62,14 +62,14 @@ test('Stripe pricing works without a RevenueCat count and fails closed', async t
   const server = createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
     if (req.url !== '/stripe/pricing') { res.writeHead(503); res.end('{}'); return; }
-    res.end(JSON.stringify({ lifetime: 49.99, monthly: 7.99, lifetime_offer: { enabled: true, original_price: 119, amount_off: 69.01 } }));
+    res.end(JSON.stringify({ lifetime: 79.99, monthly: 7.99, lifetime_offer: { enabled: true, original_price: 119, amount_off: 39.01 } }));
   });
   server.listen(0, '127.0.0.1');
   await once(server, 'listening');
   t.after(() => new Promise(resolve => server.close(resolve)));
   const endpoint = `http://127.0.0.1:${server.address().port}`;
   const result = await loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/stripe`, count_endpoint: `${endpoint}/unavailable` });
-  assert.equal(result.pricing.lifetime, 49.99);
+  assert.equal(result.pricing.lifetime, 79.99);
   assert.equal(result.pricing.monthly, 7.99);
   assert.equal(result.count, null);
   await assert.rejects(loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/unavailable` }));
