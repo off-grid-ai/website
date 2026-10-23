@@ -8,6 +8,8 @@ published_at: "2026-10-23T12:51:06.000Z"
 article_topic: "Models & performance"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4905377
+devto_url: "https://dev.to/alichherawalla/how-to-compare-local-ai-models-side-by-side-on-your-mac-in-2026-one-question-up-to-six-models-2adb"
 ---
 You have a few local models on your Mac and you want to know which one writes the better answer for your work. Copying the same prompt into one chat after another is slow, and by the third model you have lost track of what the first one said. Off Grid AI Desktop now splits its chat into two to six panes. Each pane can run on its own model, and one question goes to all of them at once, so the answers arrive next to each other in one window.
 
