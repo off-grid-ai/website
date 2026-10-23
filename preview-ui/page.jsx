@@ -1653,6 +1653,7 @@ export function PageShell({ children, feedback = true }) {
           <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         </span>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
+        <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
         <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" data-slot="dialog-overlay" /><Dialog.Content className="mobile-nav" data-slot="dialog-content" data-og-alive="">
