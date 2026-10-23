@@ -223,6 +223,7 @@ const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p
 function Buy({ pricing, checkout, count, failed, tier, ready }) {
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
+      <Boost placement="pro_boost_card_top" className="pp-boost-top" />
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
         <Heading as="h2" id="buy-h" className="pp-h2"><span className="t-line">Own Pro for life.</span><span className="t-line t-dim">{pricing.lifetime_offer?.enabled ? 'Pay less for a limited time.' : 'One payment. Yours forever.'}</span></Heading>
       </div>
@@ -238,7 +239,7 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
           <Ladder pricing={pricing} count={count} failed={failed} tier={tier} />
-          <Boost />
+          <Boost placement="pro_boost_card" className="pp-boost-side" />
         </div>
       </div>
     </div>
@@ -246,15 +247,15 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
 }
 
 // Pro + Boost: the monthly way to Pro with hosted minutes for models a device can't run. It has no checkout yet,
-// so it leads to the Boost waitlist.
-function Boost() {
-  return <div className="pp-ladder pp-offer-explainer pp-boost" id="boost">
+// so it leads to the Boost waitlist. Phones show it above "Get Pro"; wider screens beside the lifetime offer.
+function Boost({ placement, className = '' }) {
+  return <div className={`pp-ladder pp-offer-explainer pp-boost ${className}`}>
     <Kicker>PRO + BOOST · MONTHLY</Kicker>
     <Heading as="h3">Bigger models when you need them.</Heading>
     <p>Pro, plus Boost minutes for models your phone or computer can't run, or runs too slowly. Billed by the millisecond, only while a model works for you.</p>
     <ul className="pp-boost-plans">{BOOST_PLANS.map(p => <li key={p.id}>{boostLabel(p)}</li>)}</ul>
     <p className="pp-monthly">Top up from ${BOOST_TOPUP.from} for {BOOST_TOPUP.minutes} minutes. Already own Pro? Boost adds the minutes.</p>
-    <a className="pp-boost-cta" href="/boost/#cl-request" data-analytics-event="pro_cta_click" data-analytics-placement="pro_boost_card">Join the Boost waitlist <ArrowRight size={15} /></a>
+    <a className="pp-boost-cta" href="/boost/#cl-request" data-analytics-event="pro_cta_click" data-analytics-placement={placement}>Join the Boost waitlist <ArrowRight size={15} /></a>
   </div>;
 }
 
