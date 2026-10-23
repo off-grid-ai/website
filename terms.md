@@ -8,7 +8,7 @@ description: The terms that govern your use of Off Grid AI software, apps, and s
 
 # Terms of Service
 
-**Last updated: 27 June 2026**
+**Last updated: 23 October 2026**
 
 These Terms apply to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of these Terms in effect at the time of that use.
 
@@ -28,7 +28,9 @@ Use of the Service is itself your agreement to these Terms, whether or not you c
 
 ## 2. The Service
 
-Off Grid AI provides local-first software that runs on your own devices. Where the Service processes data, it is designed to do so on your devices. Features, availability, and behavior may change, be added, or be removed at any time without notice. We do not guarantee that any particular feature will be available, continue to be offered, or function in any particular way.
+Off Grid AI provides local-first software that runs on your own devices. Where the Service processes data, it is designed to do so on your devices. Features, availability, and behavior may change, be added, or be removed at any time without notice. We do not guarantee that any particular feature will be available, continue to be offered, or function in any particular way. Optional diagnostics and anonymous usage analytics, which are off unless you turn them on, are covered by our [Privacy Policy](/privacy/).
+
+**Feedback.** If you send us feedback, a suggestion, or a bug report, we may use it to improve the Service without any obligation to you.
 
 The Service is provided as a tool. It is not a substitute for professional advice (legal, medical, financial, or otherwise), and you are solely responsible for any decisions you make using it.
 
