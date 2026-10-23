@@ -319,7 +319,7 @@ export function FreeVsPro({ pricing, free, pro, freeCta, id = 'free-vs-pro', lea
           <ul>{free.map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           {freeCta}</div></SceneCard>
         <SceneCard className="plan-card plan-card-hero"><div className="plan plan-hero"><Kicker>PRO · BOOST INCLUDED</Kicker><div className="price"><span className="amt">${MONTHLY_FROM}</span><small>/month</small></div>
-          <ul>{[...pro, `${PRO_MONTHLY.map(x => x.minutes.toLocaleString('en-US')).join(', ')} Boost minutes a month`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
+          <ul>{[...pro, `${PRO_MONTHLY[0].minutes} to ${PRO_MONTHLY[PRO_MONTHLY.length - 1].minutes.toLocaleString('en-US')} Boost minutes a month`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
           <p className="pp-offer">Boost runs models too big for your device, billed by the millisecond. Or own Pro for ${pricing.lifetime} once, on your own devices, without Boost minutes.</p>
           <div className="pp-plan-ctas"><Button asChild data-site-button="primary" variant="solid"><a className="pp-btn pp-btn-primary" href="/pro/#buy" data-analytics-event="pro_cta_click" data-analytics-placement="plans_card">Get Pro</a></Button><Button asChild data-site-button="secondary" variant="outline"><a className="pp-btn" href="/pro/">See everything Pro does</a></Button></div>
         </div></SceneCard>

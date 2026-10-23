@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ListGroup, ListRow } from '@offgrid-ui/list-row';
 import { CheckboxCards, RadioCards, Text, TextField } from '@radix-ui/themes';
 import Button from '@smoothui/smooth-button';
@@ -42,8 +42,9 @@ function Rows({ label, children }) {
 function RequestForm() {
   const [uses, setUses] = useState([]);
   const [device, setDevice] = useState('');
-  // /pro links here with the size already chosen (?plan=pro-300).
-  const [plan, setPlan] = useState(() => { const q = typeof location === 'undefined' ? '' : new URLSearchParams(location.search).get('plan'); return PRO_MONTHLY.some(p => p.id === q) ? q : ''; });
+  const [plan, setPlan] = useState('');
+  // /pro links here with the size already chosen (?plan=pro-300); read it after the page hydrates.
+  useEffect(() => { const q = new URLSearchParams(location.search).get('plan'); if (PRO_MONTHLY.some(p => p.id === q)) setPlan(q); }, []);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(['', '']);
   const [busy, setBusy] = useState(false);
