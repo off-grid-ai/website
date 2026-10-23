@@ -92,7 +92,7 @@ These ranges assume a vendor who has shipped on-device AI in production. A vendo
 
 ## The Off Grid reference point
 
-Wednesday's Off Grid app ships all six capability categories simultaneously on iOS and Android. Text generation (3B and 7B), voice transcription, image classification, object detection, document Q&A, and image generation — all running on-device, offline, with no telemetry unless you opt in.
+Wednesday's Off Grid app ships all six capability categories simultaneously on iOS and Android. Text generation (3B and 7B), voice transcription, image classification, object detection, document Q&A, and image generation, all running on-device, offline, with no telemetry unless you opt in.
 
 50,000+ users have downloaded Off Grid. The GitHub page is public and has 1,700+ stars. The implementation handles Metal abort() on 4GB iPhones, chipset-specific QNN variants on Android, and background generation state across all capabilities.
 

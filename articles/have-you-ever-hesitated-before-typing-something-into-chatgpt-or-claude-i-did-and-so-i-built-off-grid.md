@@ -12,7 +12,7 @@ devto_id: 3270154
 devto_url: "https://dev.to/alichherawalla/from-personal-frustration-to-1-on-hacker-news-how-i-built-off-grid-and-hit-425-stars-4989"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Feymc8deyq4u042n49dup.png"
 ---
-The full story of building Off Grid — a FOSS app that runs AI entirely on your phone, offline, with your chats never leaving your device. Privacy isn't a feature. It's the whole point.
+The full story of building Off Grid: a FOSS app that runs AI entirely on your phone, offline, with your chats never leaving your device. Privacy isn't a feature. It's the whole point.
 
 I want to start with a confession.
 
