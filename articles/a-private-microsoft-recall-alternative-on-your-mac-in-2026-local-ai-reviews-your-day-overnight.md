@@ -8,6 +8,9 @@ published_at: "2026-10-24T20:11:03Z"
 article_topic: "Privacy & control"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4912444
+devto_url: "https://dev.to/alichherawalla/a-private-microsoft-recall-alternative-on-your-mac-in-2026-local-ai-reviews-your-day-overnight-1n14"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fday-light-960.webp"
 ---
 You want a searchable memory of your workday on your Mac, the kind of thing Microsoft Recall does on Windows. But you do not want your screen sent to a cloud service, and you do not want a model reading screenshots while you are trying to work. Off Grid AI Desktop Pro saves your screen as you work and leaves the heavy part, the AI analysis, for the night. By default it runs from 3:00 to 8:00, it can wake your Mac to do it, and the model runs on the Mac itself. In the morning your **Day** view has the journal, timeline and to-dos from yesterday.
 
