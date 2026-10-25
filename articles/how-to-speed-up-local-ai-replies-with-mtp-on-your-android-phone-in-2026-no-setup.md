@@ -8,6 +8,9 @@ published_at: "2026-10-25T12:52:03Z"
 article_topic: "Models & performance"
 article_platform: "Android"
 devto_article: true
+devto_id: 4915348
+devto_url: "https://dev.to/alichherawalla/how-to-speed-up-local-ai-replies-with-mtp-on-your-android-phone-in-2026-no-setup-486b"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fmobile%2Fsettings-1-light-640.webp"
 ---
 You run a local model on your Android phone and the reply crawls out word by word. You would like the same answer sooner, without swapping to a smaller model and without reading about draft models. Off Grid AI Mobile (OGAM) now supports MTP, multi-token prediction. A model built for it guesses several words ahead, checks them in one pass, and keeps the ones it would have written anyway. You turn it on with one switch. If the model needs an extra file for it, the app downloads that file for you.
 
