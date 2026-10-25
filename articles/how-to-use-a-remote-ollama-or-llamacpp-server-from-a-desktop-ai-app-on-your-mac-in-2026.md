@@ -8,6 +8,8 @@ published_at: "2026-10-25T02:15:57Z"
 article_topic: "Models & performance"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4913173
+devto_url: "https://dev.to/alichherawalla/how-to-use-a-remote-ollama-or-llamacpp-server-from-a-desktop-ai-app-on-your-mac-in-2026-n6l"
 ---
 Your MacBook Air has 16 GB of memory. The PC under your desk, or the Mac Studio in the office, has a big GPU and already runs Ollama or `llama-server` with a 30B model loaded. You want to chat with that model from your Mac, in a proper app with chat history, documents and thinking controls, without copying a 20 GB file to a laptop that cannot run it. Off Grid AI Desktop connects your Mac to that server. Its models show up next to your local ones, and the chat tells you which server answers and what it is waiting for.
 
