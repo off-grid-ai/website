@@ -8,6 +8,8 @@ published_at: "2026-10-25T09:30:00Z"
 article_topic: "Documents & research"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4915058
+devto_url: "https://dev.to/alichherawalla/how-to-ask-questions-about-a-500-page-pdf-on-your-mac-in-2026-page-citations-no-cloud-4opc"
 ---
 You have a 500-page contract, annual report or textbook as a PDF on your Mac. You want to ask "what does it say about termination?" and get an answer you can check, not a guess. Off Grid AI Desktop reads the whole file on your Mac, answers from it, and puts a small page chip such as **p. 212** next to each claim. Click the chip and the PDF opens at that page. The file never leaves your Mac, and there is no page limit and no file size cap.
 
