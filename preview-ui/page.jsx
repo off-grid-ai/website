@@ -1,13 +1,14 @@
 import { LifetimePrice } from './lifetime-price.jsx';
 import React, { Fragment, Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
+import { REVIEWS, HERO_REVIEWS, IOS_URL, PLAY_URL, EFF_URL, PRODUCT_HUNT_URL, PH_LAUNCH, productHuntBadge } from './reviews.js';
 import { createPortal, flushSync } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
   ThumbsUp, ThumbsDown, CaretDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, XLogo, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
-  Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
+  Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, GooglePlayLogo, Star, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
 import { motion, MotionConfig, AnimatePresence, useIsPresent, useInView, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, useVelocity, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
@@ -1213,6 +1214,8 @@ function Walkthrough({ reduce, theme }) {
   // The URL tracks the chapter, so every step is a shareable link (#ask, #browser, ...).
   useEffect(() => {
     if (!linkDone.current) return;
+    // Off screen, the tour leaves the URL to the section that is (#reviews, #pricing).
+    const box = ref.current?.getBoundingClientRect(); if (box && (box.bottom <= 0 || box.top >= innerHeight)) return;
     const id = docked ? WALK[ch].id : null;
     const want = id ? `#${id}` : '';
     if (location.hash === want || (!id && !WALK.some(w => `#${w.id}` === location.hash))) return;
@@ -1288,8 +1291,10 @@ function Walkthrough({ reduce, theme }) {
         <HeroPrompt active={!docked && inView} onRun={(id) => { setManual(false); goId(id); }} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3300, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
+          <a className="hero-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="hero:eff"><b>Named by the EFF</b><ArrowUpRight size={12} /></a>
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
+        <HeroReviews reduce={reduce} />
       </Suspense></motion.div>, [docked, inView, reduce, goId, heroFade, heroLift]);
   // Proactive events answer through the field.
   // Load: once the field is up, the hero wakes in sequence: the title, the rotating line, the prompt, the chips.
@@ -1481,6 +1486,90 @@ export function MobileRail({ className, start = 0, labels, children }) {
     </Carousel>
   </div>;
 }
+/* ───────────────────────── Reviews ───────────────────────── */
+
+const REVIEW_SOURCE = {
+  ios: { label: 'App Store', Icon: AppleLogo, href: IOS_URL },
+  android: { label: 'Google Play', Icon: GooglePlayLogo, href: PLAY_URL },
+  reddit: { label: 'Reddit', Icon: RedditLogo },
+  github: { label: 'GitHub', Icon: GithubLogo },
+  slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
+  email: { label: 'Email to the team', Icon: EnvelopeSimple },
+};
+// 'pre' until the launch day, 'live' on it, 'post' after. The server renders 'pre'; the visitor's clock decides.
+function useLaunchPhase() {
+  const [phase, setPhase] = useState('pre');
+  useEffect(() => { const now = Date.now(); setPhase(now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post'); }, []);
+  return phase;
+}
+const PH_MARK = <svg className="ph-mark" width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#FF6154" /><path fill="#fff" d="M22.7 20H17v-6h5.7a3 3 0 0 1 0 6Zm0-10H13v20h4v-6h5.7a7 7 0 0 0 0-14Z" /></svg>;
+// Before launch: a pill that sends people to follow the launch (they get the reminder to upvote).
+// On and after launch day: Product Hunt's own badge with the live count.
+export function ProductHuntBadge({ placement }) {
+  const phase = useLaunchPhase();
+  if (phase === 'pre') return <a className="ph-pill" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={`${placement}:pre`}>
+    {PH_MARK}<span>Launching on Product Hunt <b>{PH_LAUNCH.label}</b></span><span className="ph-pill-cta">Notify me <ArrowUpRight size={13} /></span>
+  </a>;
+  return <a className="ph-badge" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={`${placement}:${phase}`}>
+    <img className="theme-dark" src={productHuntBadge('dark')} alt={phase === 'live' ? 'Upvote Off Grid AI on Product Hunt' : 'Off Grid AI on Product Hunt'} width="250" height="54" loading="lazy" />
+    <img className="theme-light" src={productHuntBadge('light')} alt="" aria-hidden="true" width="250" height="54" loading="lazy" />
+  </a>;
+}
+function ReviewCard({ r }) {
+  const src = REVIEW_SOURCE[r.source]; const store = r.source === 'ios' || r.source === 'android';
+  // Magic UI's ReviewCard (marquee-3d demo): a plain figure, no reveal, so tilted cards always paint.
+  return <figure className="rv-card">
+    {store && <div className="rv-stars" role="img" aria-label="5 out of 5 stars">{[0, 1, 2, 3, 4].map(k => <Star key={k} size={14} weight="fill" />)}</div>}
+    {r.title && <strong className="rv-title">{r.title}</strong>}
+    <blockquote className="rv-text">{r.text}</blockquote>
+    <figcaption className="rv-by"><src.Icon size={16} weight="fill" aria-hidden="true" /><span><b>{r.by || r.role || src.label}</b>{(r.by || r.role) && <small>{r.by ? r.role || src.label : src.label}</small>}</span></figcaption>
+  </figure>;
+}
+// The first screen's proof: the Product Hunt pill or badge, then one quote at a time (stars on store reviews), swapping
+// with a soft blur. It pauses under the pointer; reduced motion keeps the first quote still.
+function HeroReviews({ reduce }) {
+  const [k, setK] = useState(0); const [hold, setHold] = useState(false);
+  useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % HERO_REVIEWS.length), 4200); return () => clearInterval(t); }, [reduce, hold]);
+  const r = HERO_REVIEWS[k]; const src = REVIEW_SOURCE[r.source];
+  return <div className="hero-social">
+    <ProductHuntBadge placement="hero" />
+    <ul className="sr-only">{HERO_REVIEWS.map((x, i) => <li key={i}>{x.text} {x.by || x.role}, {REVIEW_SOURCE[x.source].label}.</li>)}</ul>
+    <a className="hr-quote" href="#reviews" aria-label="Read the reviews" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)} data-analytics-event="nav_click" data-analytics-placement="hero:reviews">
+      <span className="hr-slot" aria-hidden="true"><AnimatePresence mode="wait" initial={false}>
+        <motion.span key={k} className="hr-line" initial={{ opacity: 0, y: 6, filter: 'blur(6px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -6, filter: 'blur(6px)' }} transition={{ duration: .45, ease: [.2, .8, .2, 1] }}>
+          {(r.source === 'ios' || r.source === 'android') && <span className="hr-stars">{[0, 1, 2, 3, 4].map(i => <Star key={i} size={13} weight="fill" />)}</span>}
+          <q>{r.text}</q><span className="hr-by"><src.Icon size={12} weight="fill" />{r.by || r.role}</span>
+        </motion.span>
+      </AnimatePresence></span>
+      <span className="hr-more">All reviews <ArrowDown size={12} /></span>
+    </a>
+  </div>;
+}
+// Store reviews, Slack and email in one wall: Magic UI's 3D marquee composition (four vertical
+// Marquees tilted in perspective, faded at every edge). Each lane pauses under the pointer.
+// Reduced motion gets a flat, still grid.
+const TILT = 'translateX(-60px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)';
+function ReviewWall() {
+  const narrow = useNarrow(); const reduce = useContext(PlayCtx).reducedMotion;
+  const cols = narrow ? 3 : 4;
+  const lanes = Array.from({ length: cols }, (_, c) => REVIEWS.filter((_, k) => k % cols === c));
+  return <section id="reviews" className="chapter sec-reviews" aria-labelledby="reviews-heading"><div className="section-shell">
+    <div className="sec-head" data-og-reveal=""><Kicker>REVIEWS</Kicker><Title id="reviews-heading" lead="Their words." dim="Not ours." /></div>
+    <div className="rv-proof">
+      <a className="rv-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="reviews:eff"><EffCite /></a>
+      <ProductHuntBadge placement="reviews" />
+    </div>
+    <ul className="sr-only">{REVIEWS.map((r, k) => <li key={k}>{r.title ? `${r.title}. ` : ''}{r.text} {[r.by, r.role, REVIEW_SOURCE[r.source].label].filter(Boolean).join(', ')}.</li>)}</ul>
+    {reduce ? <div className="rv-still" aria-hidden="true">{REVIEWS.slice(0, 9).map((r, k) => <ReviewCard key={k} r={r} />)}</div>
+      : <div className="rv-stage" aria-hidden="true"><div className="rv-tilt" style={{ transform: TILT }}>{lanes.map((lane, c) =>
+        <Marquee key={c} vertical reverse={c % 2 === 1} pauseOnHover className="rv-lane" style={{ '--duration': `${40 + c * 8}s` }}>{lane.map((r, k) => <ReviewCard key={k} r={r} />)}</Marquee>)}</div></div>}
+  </div></section>;
+}
+// The EFF's guide to opting out of Big Tech AI names Off Grid AI Desktop as an example of software that
+// "runs locally, but doesn’t require you to find and choose a model yourself". The quote stays word for word.
+export function EffCite() {
+  return <span className="eff-cite"><span className="eff-q">“…runs locally, but doesn’t require you to find and choose a model yourself.”</span><span className="eff-src">Electronic Frontier Foundation, naming Off Grid AI Desktop <ArrowUpRight size={13} /></span></span>;
+}
 function PrivacySection() {
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');
   // Samples rotate only while the section is on screen and until the visitor submits their own prompt.
@@ -1505,6 +1594,18 @@ function PrivacySection() {
 /* ───────────────────────── Page ───────────────────────── */
 
 function useSectionHash(ids) {
+  // A link straight to a section (/#reviews, /#pricing) lands there once the sections above it have
+  // grown: the browser's own jump happens while the tour above is still sizing itself.
+  useEffect(() => {
+    const id = location.hash.slice(1); if (!ids.includes(id)) return;
+    try { history.scrollRestoration = 'manual'; } catch (_) {}
+    const land = () => document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    const timers = [0, 400, 1200].map(ms => setTimeout(land, ms));
+    addEventListener('load', land, { once: true });
+    const stop = () => timers.forEach(clearTimeout);
+    addEventListener('wheel', stop, { once: true, passive: true }); addEventListener('touchstart', stop, { once: true, passive: true });
+    return () => { stop(); removeEventListener('load', land); removeEventListener('wheel', stop); removeEventListener('touchstart', stop); };
+  }, []);
   useEffect(() => {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting && location.hash !== `#${e.target.id}`) history.replaceState(null, '', `#${e.target.id}`); });
@@ -1678,7 +1779,7 @@ export function PageShell({ children, feedback = true }) {
 
     {feedback && <Suspense><div className="section-shell page-feedback"><DocEnd /></div></Suspense>}
     <Suspense><footer className="site-footer og-solid"><div className="section-shell">
-      <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
+      <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><div className="footer-tag"><Text as="p">Your personal AI.<br />On hardware you already own.</Text><ProductHuntBadge placement="footer" /></div></div>
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" data-analytics-event="nav_click" data-analytics-placement={`footer:${head}`} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
@@ -1689,7 +1790,7 @@ export function PageShell({ children, feedback = true }) {
 
 export default function PreviewPage({ pricing: initialPricing }) {
   const { pricing } = usePricing(initialPricing);
-  useSectionHash(['private', 'pricing', 'download']);
+  useSectionHash(['private', 'reviews', 'pricing', 'download']);
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
 // The models band answers its own speed: while the page scrolls fast, light runs along the band in the
@@ -1775,6 +1876,8 @@ function HomeSections({ pricing }) {
       </Suspense></section>
       <Suspense><PrivacySection /></Suspense>
       <Suspense><section className="manifesto" aria-label="Why local" ref={manifestoRef}><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section></Suspense>
+
+      <Suspense><ReviewWall /></Suspense>
 
       {/* Pricing: SceneCards; the recommended plan answers when the section arrives. */}
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">

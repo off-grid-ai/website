@@ -1,7 +1,24 @@
+{% assign ph = site.data.launch.producthunt %}
 {% assign offer = site.data.pricing.lifetime_offer %}
+{% if ph.enabled %}
+<aside class="announcement-bar" aria-label="Product Hunt launch" data-pagefind-ignore data-ph-bar data-start="{{ ph.start }}" data-end="{{ ph.end }}">
+  <div class="announcement-bar-inner" data-ph-phase="pre">
+    <span class="announcement-bar-tag" data-slot="badge">Product Hunt · {{ ph.day }}</span>
+    <span class="announcement-bar-text">Off Grid AI launches on Product Hunt on {{ ph.day }}. Get a reminder to upvote.</span>
+    <span class="announcement-bar-short" aria-hidden="true">Launching {{ ph.day }}</span>
+    <a class="announcement-bar-cta" href="{{ ph.url }}" target="_blank" rel="noopener" data-analytics-event="producthunt_click" data-analytics-placement="announcement_bar:pre">Notify me -&gt;</a>
+  </div>
+  <div class="announcement-bar-inner" data-ph-phase="live" hidden>
+    <span class="announcement-bar-tag" data-slot="badge">Live on Product Hunt</span>
+    <span class="announcement-bar-text">Off Grid AI is live on Product Hunt today. Your upvote helps people find private AI.</span>
+    <span class="announcement-bar-short" aria-hidden="true">Live today</span>
+    <a class="announcement-bar-cta" href="{{ ph.url }}" target="_blank" rel="noopener" data-analytics-event="producthunt_click" data-analytics-placement="announcement_bar:live">Upvote -&gt;</a>
+  </div>
+</aside>
+{% endif %}
 {% if offer.enabled %}
 {% assign offer_price = offer.original_price | minus: offer.amount_off | round: 2 %}
-<aside class="announcement-bar" aria-label="Limited-time lifetime offer" data-pagefind-ignore>
+<aside class="announcement-bar" aria-label="Limited-time lifetime offer" data-pagefind-ignore data-offer-bar{% if ph.enabled %} hidden{% endif %}>
   <div class="announcement-bar-inner">
     <span class="announcement-bar-tag" data-slot="badge">Limited-time offer <span class="announcement-offer-percent">· Save ${{ offer.amount_off }}</span></span>
     <span class="announcement-bar-text">Off Grid AI Pro for life. <span class="sr-only">Was </span><s>${{ offer.original_price }}</s> <strong>${{ offer_price }}</strong> once. Discount applied at checkout.</span>
@@ -9,4 +26,17 @@
     <a class="announcement-bar-cta" href="{{ '/pro' | relative_url }}#buy" data-analytics-event="lifetime_offer_clicked" data-analytics-placement="announcement_bar">Get lifetime access -&gt;</a>
   </div>
 </aside>
+{% endif %}
+{% if ph.enabled %}
+<style>[data-ph-bar][hidden],[data-ph-phase][hidden],[data-offer-bar][hidden]{display:none!important}</style>
+<script>
+  // Pick the launch message by the visitor's clock: before launch day, on it, or after (the offer returns).
+  (function () {
+    var bar = document.querySelector('[data-ph-bar]'), offer = document.querySelector('[data-offer-bar]'), now = Date.now();
+    if (!bar) return;
+    var phase = now < Date.parse(bar.dataset.start) ? 'pre' : now < Date.parse(bar.dataset.end) ? 'live' : 'post';
+    if (phase === 'post') { bar.hidden = true; if (offer) offer.hidden = false; return; }
+    bar.querySelectorAll('[data-ph-phase]').forEach(function (el) { el.hidden = el.getAttribute('data-ph-phase') !== phase; });
+  })();
+</script>
 {% endif %}
