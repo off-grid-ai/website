@@ -8,6 +8,8 @@ published_at: "2026-10-26T18:50:43Z"
 article_topic: "Models & performance"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4923746
+devto_url: "https://dev.to/alichherawalla/how-to-compare-local-ai-models-side-by-side-on-windows-in-2026-one-question-up-to-six-models-4b76"
 ---
 You have Ollama or LM Studio on your Windows PC, a few models pulled, and one question: which of them writes the best answer for your work? Pasting the same prompt into one chat after another is slow, and by the third model you have forgotten the first answer. Off Grid AI Desktop splits its chat into two to six panes. Each pane can run on its own model, and one question goes to all of them at once, so the answers arrive next to each other in one window.
 
