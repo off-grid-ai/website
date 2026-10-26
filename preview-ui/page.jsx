@@ -1214,6 +1214,8 @@ function Walkthrough({ reduce, theme }) {
   // The URL tracks the chapter, so every step is a shareable link (#ask, #browser, ...).
   useEffect(() => {
     if (!linkDone.current) return;
+    // Off screen, the tour leaves the URL to the section that is (#reviews, #pricing).
+    const box = ref.current?.getBoundingClientRect(); if (box && (box.bottom <= 0 || box.top >= innerHeight)) return;
     const id = docked ? WALK[ch].id : null;
     const want = id ? `#${id}` : '';
     if (location.hash === want || (!id && !WALK.some(w => `#${w.id}` === location.hash))) return;
@@ -1526,9 +1528,10 @@ function ReviewWall() {
         <Marquee key={c} vertical reverse={c % 2 === 1} pauseOnHover className="rv-lane" style={{ '--duration': `${40 + c * 8}s` }}>{lane.map((r, k) => <ReviewCard key={k} r={r} />)}</Marquee>)}</div></div>}
   </div></section>;
 }
-// The EFF's guide to opting out of Big Tech AI names Off Grid AI Desktop. The quote stays word for word.
+// The EFF's guide to opting out of Big Tech AI names Off Grid AI Desktop as an example of software that
+// "runs locally, but doesn’t require you to find and choose a model yourself". The quote stays word for word.
 export function EffCite() {
-  return <span className="eff-cite"><span className="eff-q">“…the chat and image tool Off Grid AI Desktop.”</span><span className="eff-src">Electronic Frontier Foundation, opt-out guide <ArrowUpRight size={13} /></span></span>;
+  return <span className="eff-cite"><span className="eff-q">“…runs locally, but doesn’t require you to find and choose a model yourself.”</span><span className="eff-src">Electronic Frontier Foundation, naming Off Grid AI Desktop <ArrowUpRight size={13} /></span></span>;
 }
 function PrivacySection() {
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');
@@ -1554,6 +1557,18 @@ function PrivacySection() {
 /* ───────────────────────── Page ───────────────────────── */
 
 function useSectionHash(ids) {
+  // A link straight to a section (/#reviews, /#pricing) lands there once the sections above it have
+  // grown: the browser's own jump happens while the tour above is still sizing itself.
+  useEffect(() => {
+    const id = location.hash.slice(1); if (!ids.includes(id)) return;
+    try { history.scrollRestoration = 'manual'; } catch (_) {}
+    const land = () => document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    const timers = [0, 400, 1200].map(ms => setTimeout(land, ms));
+    addEventListener('load', land, { once: true });
+    const stop = () => timers.forEach(clearTimeout);
+    addEventListener('wheel', stop, { once: true, passive: true }); addEventListener('touchstart', stop, { once: true, passive: true });
+    return () => { stop(); removeEventListener('load', land); removeEventListener('wheel', stop); removeEventListener('touchstart', stop); };
+  }, []);
   useEffect(() => {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting && location.hash !== `#${e.target.id}`) history.replaceState(null, '', `#${e.target.id}`); });
@@ -1738,7 +1753,7 @@ export function PageShell({ children, feedback = true }) {
 
 export default function PreviewPage({ pricing: initialPricing }) {
   const { pricing } = usePricing(initialPricing);
-  useSectionHash(['private', 'pricing', 'download']);
+  useSectionHash(['private', 'reviews', 'pricing', 'download']);
   return <PageShell><HomeSections pricing={pricing} /></PageShell>;
 }
 // The models band answers its own speed: while the page scrolls fast, light runs along the band in the

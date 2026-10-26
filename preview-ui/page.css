@@ -67,15 +67,15 @@
   --font-mono: var(--og-font-mono);
 }
 
-/* Orbit reads the per-item --duration, so its value must be inlined into the utility: a :root
-   variable holding var(--duration) is invalid at :root and the orbit would never move. */
+/* Orbit and Marquee read the per-element --duration, so their values must be inlined into the
+   utility: a :root variable holding var(--duration) is invalid at :root and nothing would move. */
 @theme inline {
   --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 /* Keyframes the Magic UI components expect (from their registry install notes). */
 @theme {
-  --animate-marquee: marquee var(--duration) infinite linear;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --animate-shiny-text: shiny-text 8s infinite;
   --animate-shine: shine var(--duration) infinite linear;
   --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * .2s) infinite;
@@ -2181,3 +2181,4 @@ li.scene-card{list-style:none}
 .ethos-eff{display:block;margin-top:28px}
 .pp-trust-side .rv-eff{display:block;margin-bottom:8px}
 .rv-eff,.rv-eff *{text-decoration:none!important}
+.eff-cite{max-width:600px}
