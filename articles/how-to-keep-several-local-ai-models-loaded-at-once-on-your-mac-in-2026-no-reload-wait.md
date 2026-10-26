@@ -8,6 +8,8 @@ published_at: "2026-10-26T00:26:34Z"
 article_topic: "Models & performance"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4918493
+devto_url: "https://dev.to/alichherawalla/how-to-keep-several-local-ai-models-loaded-at-once-on-your-mac-in-2026-no-reload-wait-4ko6"
 ---
 You use a small model for quick completions in your editor and a bigger one for chat, and every time a tool asks for the other model your Mac unloads one, loads the next, and you wait. Off Grid AI Desktop can keep several chat models in memory at the same time on your Mac. A request that names one of them goes straight to it, already loaded, and nothing gets swapped out. Before you save, a memory bar shows whether your set fits.
 
