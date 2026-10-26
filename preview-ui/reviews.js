@@ -1,7 +1,6 @@
-// The review wall on the homepage. Every quote is verbatim (cuts marked …, one bracketed gloss), checked
-// against its source: 5-star App Store and Google Play reviews (Argus: facts.json stores), public Reddit
-// and GitHub posts, and praise sent to us by email or in the Slack community. Public posts show the
-// author's public handle; email and Slack quotes carry no name, only what the person told us they do.
+// The review wall on the homepage. Every quote is verbatim (cuts marked …, one bracketed gloss).
+// Public reviews (App Store, Google Play, Reddit, GitHub) show the author's public handle; quotes
+// that were not posted publicly carry no name, only what the person said they do.
 export const IOS_URL = 'https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882';
 export const PLAY_URL = 'https://play.google.com/store/apps/details?id=ai.offgridmobile';
 export const PRODUCT_HUNT_URL = 'https://www.producthunt.com/products/off-grid-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-off-grid-ai';
