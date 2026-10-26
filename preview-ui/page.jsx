@@ -1,13 +1,14 @@
 import { LifetimePrice } from './lifetime-price.jsx';
 import React, { Fragment, Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
+import { REVIEWS, IOS_URL, PLAY_URL, EFF_URL, PRODUCT_HUNT_URL, productHuntBadge } from './reviews.js';
 import { createPortal, flushSync } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
   ThumbsUp, ThumbsDown, CaretDown, ArrowUpRight, ArrowRight, ArrowDown, ArrowLeft, Check, List, X, XLogo, GithubLogo, RedditLogo, SlackLogo, EnvelopeSimple, FilePdf, ChatsCircle,
   VideoCamera, Globe, NotePencil, LockKey, Cpu, HardDrives, ChatCircle, Microphone, ImageSquare, WifiSlash, Files,
-  Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
+  Laptop, DeviceMobile, PuzzlePiece, CalendarBlank, TerminalWindow, MagnifyingGlass, UsersThree, ClockCounterClockwise, Clock, CheckCircle, ShieldCheck, Network, Sparkle, ClipboardText, ChartBar, AppleLogo, AndroidLogo, GooglePlayLogo, Star, WifiHigh, House, Play, Pause, WindowsLogo, LinuxLogo, GoogleChromeLogo,
 } from '@phosphor-icons/react';
 import { motion, MotionConfig, AnimatePresence, useIsPresent, useInView, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useMotionValue, useVelocity, animate } from 'motion/react';
 import OrbitalImageWheel from '@smoothui/orbital-image-wheel';
@@ -1481,6 +1482,47 @@ export function MobileRail({ className, start = 0, labels, children }) {
     </Carousel>
   </div>;
 }
+/* ───────────────────────── Reviews ───────────────────────── */
+
+const REVIEW_SOURCE = {
+  ios: { label: 'App Store', Icon: AppleLogo, href: IOS_URL },
+  android: { label: 'Google Play', Icon: GooglePlayLogo, href: PLAY_URL },
+  slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
+  email: { label: 'Email to the team', Icon: EnvelopeSimple },
+};
+export function ProductHuntBadge({ placement }) {
+  return <a className="ph-badge" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={placement}>
+    <img className="theme-dark" src={productHuntBadge('dark')} alt="Off Grid AI on Product Hunt" width="250" height="54" loading="lazy" />
+    <img className="theme-light" src={productHuntBadge('light')} alt="" aria-hidden="true" width="250" height="54" loading="lazy" />
+  </a>;
+}
+function ReviewCard({ r }) {
+  const src = REVIEW_SOURCE[r.source]; const store = r.source === 'ios' || r.source === 'android';
+  return <SceneCard as="figure" className="rv-card">
+    {store && <div className="rv-stars" role="img" aria-label="5 out of 5 stars">{[0, 1, 2, 3, 4].map(k => <Star key={k} size={14} weight="fill" />)}</div>}
+    {r.title && <strong className="rv-title">{r.title}</strong>}
+    <blockquote className="rv-text">{r.text}</blockquote>
+    <figcaption className="rv-by"><src.Icon size={16} weight="fill" aria-hidden="true" /><span><b>{r.by || r.role || src.label}</b>{(r.by || r.role) && <small>{r.by ? r.role || src.label : src.label}</small>}</span></figcaption>
+  </SceneCard>;
+}
+// Store reviews, Slack and email in one wall. Wide screens get three columns drifting at different
+// speeds; phones get two rows. Both pause under the pointer. Reduced motion gets a still grid.
+function ReviewWall() {
+  const narrow = useNarrow(); const reduce = useContext(PlayCtx).reducedMotion;
+  const cols = narrow ? 2 : 3;
+  const lanes = Array.from({ length: cols }, (_, c) => REVIEWS.filter((_, k) => k % cols === c));
+  return <section id="reviews" className="chapter sec-reviews" aria-labelledby="reviews-heading"><div className="section-shell">
+    <div className="sec-head" data-og-reveal=""><Kicker>REVIEWS</Kicker><Title id="reviews-heading" lead="Their words." dim="Not ours." /></div>
+    <div className="rv-proof">
+      <a className="rv-stat" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="reviews:eff"><b>Named by the EFF</b><span>in its guide to local AI</span></a>
+      <ProductHuntBadge placement="reviews" />
+    </div>
+    <ul className="sr-only">{REVIEWS.map((r, k) => <li key={k}>{r.title ? `${r.title}. ` : ''}{r.text} {[r.by, r.role, REVIEW_SOURCE[r.source].label].filter(Boolean).join(', ')}.</li>)}</ul>
+    {reduce ? <div className="rv-still" aria-hidden="true">{REVIEWS.slice(0, 9).map((r, k) => <ReviewCard key={k} r={r} />)}</div>
+      : <div className={`rv-wall ${narrow ? 'rv-rows' : 'rv-cols'}`} aria-hidden="true">{lanes.map((lane, c) =>
+        <Marquee key={c} vertical={!narrow} reverse={c % 2 === 1} pauseOnHover repeat={2} className="rv-lane" style={{ '--duration': `${(narrow ? 70 : 55) + c * 12}s` }}>{lane.map((r, k) => <ReviewCard key={k} r={r} />)}</Marquee>)}</div>}
+  </div></section>;
+}
 function PrivacySection() {
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');
   // Samples rotate only while the section is on screen and until the visitor submits their own prompt.
@@ -1678,7 +1720,7 @@ export function PageShell({ children, feedback = true }) {
 
     {feedback && <Suspense><div className="section-shell page-feedback"><DocEnd /></div></Suspense>}
     <Suspense><footer className="site-footer og-solid"><div className="section-shell">
-      <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><Text as="p">Your personal AI.<br />On hardware you already own.</Text></div>
+      <div className="footer-top"><a className="wordmark" href="/"><Logo size={30} /><span>Off Grid AI</span></a><div className="footer-tag"><Text as="p">Your personal AI.<br />On hardware you already own.</Text><ProductHuntBadge placement="footer" /></div></div>
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" data-analytics-event="nav_click" data-analytics-placement={`footer:${head}`} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
@@ -1775,6 +1817,8 @@ function HomeSections({ pricing }) {
       </Suspense></section>
       <Suspense><PrivacySection /></Suspense>
       <Suspense><section className="manifesto" aria-label="Why local" ref={manifestoRef}><Reveal>Cloud AI keeps your data on their computer. Off Grid AI keeps it on yours.</Reveal></section></Suspense>
+
+      <Suspense><ReviewWall /></Suspense>
 
       {/* Pricing: SceneCards; the recommended plan answers when the section arrives. */}
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
