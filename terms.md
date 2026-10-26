@@ -8,7 +8,7 @@ description: The terms that govern your use of Off Grid AI software, apps, and s
 
 # Terms of Service
 
-**Last updated: 23 October 2026**
+**Last updated: 26 October 2026**
 
 These Terms apply to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of these Terms in effect at the time of that use.
 
@@ -57,8 +57,12 @@ You agree not to:
 - use the Service to violate any law or the rights of any third party;
 - reverse engineer paid or proprietary components except to the extent that restriction is prohibited by applicable law or expressly permitted by the open-source license;
 - resell, sublicense, or commercially redistribute the Service except as permitted by its license;
-- circumvent device limits, license enforcement, or paid-feature gating; or
-- use the Service to build a competing product using our proprietary code in violation of its license.
+- circumvent device limits, license enforcement, or paid-feature gating;
+- use the Service to build a competing product using our proprietary code in violation of its license;
+- use Video Studio to show a real person who has not agreed to it, to show a minor, or to impersonate or deceive anyone; or
+- remove or change the AI-generated label (content credentials or metadata) on a film so that people think it is real.
+
+You are responsible for the films you make and share, and for having the consent of every real person who appears in them.
 
 We may suspend or terminate access to paid or hosted features if you materially breach these Terms.
 

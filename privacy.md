@@ -8,7 +8,7 @@ description: How Off Grid AI handles data. Your chats and files never leave your
 
 # Privacy Policy
 
-**Last updated: 23 October 2026**
+**Last updated: 26 October 2026**
 
 This Policy applies to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of this Policy in effect at the time of that use.
 
@@ -92,54 +92,72 @@ The full list of events we collect is public in our source code.
 
 ---
 
-## 5. Third-party services
+## 5. Video Studio (Off Grid AI Pro)
+
+Video Studio makes short films from your prompts and photos. It runs on your phone, on your computer, or on your phone using your own computer for the heavy work. The film is made on your devices.
+
+**Character photos.** A saved character is a name and 1 to 4 photos. These photos never leave your devices. They move only between your own devices, through encrypted sync, when you turn sync on. We do not receive them.
+
+**Prompts and films.** Your video prompts, storyboards, narration, captions and films stay on your devices, the same as your chats and files (see section 3).
+
+**Safety check.** Before a film is made, a small check runs on your device. It blocks content that shows a minor, and content that puts a real person in a film without their consent. The check runs locally. Its result is not logged, and it is not sent to us or to anyone else.
+
+**AI-generated label.** Every film you export carries a label that says it was made with AI. The label is a C2PA content credential and matching file metadata. We add it so that people who watch your film can tell it is AI-generated, as the EU AI Act (Article 50) requires.
+
+**After Pro ends.** If your Pro plan ends, the films you made stay on your devices and you can still watch and share them. You cannot make new films without Pro.
+
+**Optional analytics.** If you turned on optional analytics (section 4), we count that a video was made, the model and engine used, how long it took, and whether it finished. We never receive your prompt, your photos, or the film.
+
+---
+
+## 6. Third-party services
 
 When you choose to connect a third-party service (for example a calendar, email, or model provider) or install the Service through an app store or payment processor, those parties process information under their own privacy policies. We are not responsible for the practices of third-party services. Connecting them is your choice and your responsibility.
 
 ---
 
-## 6. How we use the limited information we process
+## 7. How we use the limited information we process
 
 Where we process the information described above, we use it to: provide and maintain the Service; process payments and manage licenses; respond to your requests; understand aggregate usage to improve the Service; ensure security and prevent abuse; and comply with legal obligations.
 
 ---
 
-## 7. Data retention
+## 8. Data retention
 
 We retain the limited information we process only as long as needed for the purposes above or as required by law. Optional product analytics and crash reports are kept for 12 months (see section 4). Content stored locally on your devices is retained according to your own settings, and you can delete it at any time by removing it from your devices.
 
 ---
 
-## 8. Security
+## 9. Security
 
 We take reasonable measures to protect the limited information we process. However, no method of storage or transmission is completely secure, and we cannot guarantee absolute security. Because most data stays on your devices, the security of that data depends primarily on you keeping your devices and backups secure.
 
 ---
 
-## 9. Children
+## 10. Children
 
 The Service is not directed to children under 13 (or the minimum age of digital consent in your jurisdiction), and we do not knowingly collect personal information from them.
 
 ---
 
-## 10. Your rights
+## 11. Your rights
 
 Depending on where you live, you may have rights to access, correct, delete, or restrict processing of personal information we hold about you, or to object to or port it. Because most content stays on your devices, you can exercise much of this directly by managing or deleting data locally. For the limited information we process, contact us at the address below and we will respond as required by applicable law. Optional analytics data is anonymous and cannot be traced to you; section 4 explains how to stop it.
 
 ---
 
-## 11. International users
+## 12. International users
 
 Optional product analytics and crash reports are stored in the European Union (Frankfurt, Germany). Other limited information we process may be handled in countries other than your own. By using the Service, you consent to such processing in accordance with this Policy.
 
 ---
 
-## 12. Changes to this Policy
+## 13. Changes to this Policy
 
 We may update this Policy at any time by posting the revised version. Changes are effective when posted. Your continued use of the Service after changes are posted means you accept the updated Policy.
 
 ---
 
-## 13. Contact
+## 14. Contact
 
 Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@getoffgridai.co**.
