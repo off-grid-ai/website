@@ -1489,6 +1489,8 @@ export function MobileRail({ className, start = 0, labels, children }) {
 const REVIEW_SOURCE = {
   ios: { label: 'App Store', Icon: AppleLogo, href: IOS_URL },
   android: { label: 'Google Play', Icon: GooglePlayLogo, href: PLAY_URL },
+  reddit: { label: 'Reddit', Icon: RedditLogo },
+  github: { label: 'GitHub', Icon: GithubLogo },
   slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
   email: { label: 'Email to the team', Icon: EnvelopeSimple },
 };
