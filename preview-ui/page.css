@@ -2182,3 +2182,29 @@ li.scene-card{list-style:none}
 .pp-trust-side .rv-eff{display:block;margin-bottom:8px}
 .rv-eff,.rv-eff *{text-decoration:none!important}
 .eff-cite{max-width:600px}
+
+/* Hero proof: the EFF line in the strip, then the Product Hunt pill and one rotating quote. */
+.hero-eff{display:inline-flex;align-items:center;gap:4px;color:var(--og-text-muted)}
+.hero-eff b{font-weight:400;color:var(--og-text)}
+.hero-eff:hover b{text-decoration:underline;text-underline-offset:3px}
+.hero-social{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px;width:100%}
+.ph-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 6px 6px 8px;border-radius:999px;border:1px solid rgb(255 97 84/.35);background:rgb(255 97 84/.07);font-size:13px;color:var(--og-text-secondary);transition:border-color .2s,background .2s}
+.ph-pill b{font-weight:500;color:var(--og-text)}
+.ph-pill:hover{border-color:rgb(255 97 84/.6);background:rgb(255 97 84/.12)}
+.ph-pill-cta{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;background:#FF6154;color:#fff;font-weight:500}
+.hero-social .ph-badge img{width:190px}
+.hr-quote{display:flex;align-items:center;justify-content:center;gap:12px;line-height:1.4;max-width:min(860px,100%);min-height:28px;font-size:14px;color:var(--og-text-secondary)}
+.hr-stars{display:inline-flex;gap:1px;align-self:center;color:rgb(var(--og-rgb-primary));flex:none}
+.hr-slot{display:inline-grid;min-width:0}
+.hr-line{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.hr-line q{color:var(--og-text);quotes:"\201C" "\201D"}
+.hr-by{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--og-text-muted)}
+.hr-more{display:inline-flex;align-items:center;gap:4px;flex:none;font-size:12px;color:var(--og-text-muted);border-left:1px solid var(--line);padding-left:12px}
+.hr-quote:hover .hr-more{color:var(--og-text)}
+.footer-tag .ph-pill{font-size:12px}
+@media (max-width:700px){
+  .hero-social{gap:12px;margin-top:18px}
+  .ph-pill{font-size:12px;gap:8px}
+  .hr-quote{flex-direction:column;gap:6px;font-size:13px;padding-inline:8px;min-height:84px;justify-content:flex-start}
+  .hr-more{border:0;padding:0}
+}

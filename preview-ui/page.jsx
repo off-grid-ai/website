@@ -1,7 +1,7 @@
 import { LifetimePrice } from './lifetime-price.jsx';
 import React, { Fragment, Suspense, startTransition, useMemo, createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { usePricing } from './pricing.js';
-import { REVIEWS, IOS_URL, PLAY_URL, EFF_URL, PRODUCT_HUNT_URL, productHuntBadge } from './reviews.js';
+import { REVIEWS, HERO_REVIEWS, IOS_URL, PLAY_URL, EFF_URL, PRODUCT_HUNT_URL, PH_LAUNCH, productHuntBadge } from './reviews.js';
 import { createPortal, flushSync } from 'react-dom';
 import { Theme, Card, Badge, Box, Flex, Text, Heading, Link, TextArea, TextField } from '@radix-ui/themes';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -1291,8 +1291,10 @@ function Walkthrough({ reduce, theme }) {
         <HeroPrompt active={!docked && inView} onRun={(id) => { setManual(false); goId(id); }} />
         <div className="hero-proof">
           {[[250000, 'downloads'], [3300, 'GitHub stars'], [600, 'community']].map(([v, l]) => <span key={l}><b><NumberTicker value={v} />+</b> {l}</span>)}
+          <a className="hero-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="hero:eff"><b>Named by the EFF</b><ArrowUpRight size={12} /></a>
           <span className="hero-plat">{DOWNLOADS.map(d => <PlatformIcon key={d.id} id={d.id} size={14} />)}<PuzzlePiece size={14} aria-label="Browser extension" /></span>
         </div>
+        <HeroReviews reduce={reduce} />
       </Suspense></motion.div>, [docked, inView, reduce, goId, heroFade, heroLift]);
   // Proactive events answer through the field.
   // Load: once the field is up, the hero wakes in sequence: the title, the rotating line, the prompt, the chips.
@@ -1494,9 +1496,22 @@ const REVIEW_SOURCE = {
   slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
   email: { label: 'Email to the team', Icon: EnvelopeSimple },
 };
+// 'pre' until the launch day, 'live' on it, 'post' after. The server renders 'pre'; the visitor's clock decides.
+function useLaunchPhase() {
+  const [phase, setPhase] = useState('pre');
+  useEffect(() => { const now = Date.now(); setPhase(now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post'); }, []);
+  return phase;
+}
+const PH_MARK = <svg className="ph-mark" width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#FF6154" /><path fill="#fff" d="M22.7 20H17v-6h5.7a3 3 0 0 1 0 6Zm0-10H13v20h4v-6h5.7a7 7 0 0 0 0-14Z" /></svg>;
+// Before launch: a pill that sends people to follow the launch (they get the reminder to upvote).
+// On and after launch day: Product Hunt's own badge with the live count.
 export function ProductHuntBadge({ placement }) {
-  return <a className="ph-badge" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={placement}>
-    <img className="theme-dark" src={productHuntBadge('dark')} alt="Off Grid AI on Product Hunt" width="250" height="54" loading="lazy" />
+  const phase = useLaunchPhase();
+  if (phase === 'pre') return <a className="ph-pill" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={`${placement}:pre`}>
+    {PH_MARK}<span>Launching on Product Hunt <b>{PH_LAUNCH.label}</b></span><span className="ph-pill-cta">Notify me <ArrowUpRight size={13} /></span>
+  </a>;
+  return <a className="ph-badge" href={PRODUCT_HUNT_URL} target="_blank" rel="noopener noreferrer" data-analytics-event="producthunt_click" data-analytics-placement={`${placement}:${phase}`}>
+    <img className="theme-dark" src={productHuntBadge('dark')} alt={phase === 'live' ? 'Upvote Off Grid AI on Product Hunt' : 'Off Grid AI on Product Hunt'} width="250" height="54" loading="lazy" />
     <img className="theme-light" src={productHuntBadge('light')} alt="" aria-hidden="true" width="250" height="54" loading="lazy" />
   </a>;
 }
@@ -1509,6 +1524,26 @@ function ReviewCard({ r }) {
     <blockquote className="rv-text">{r.text}</blockquote>
     <figcaption className="rv-by"><src.Icon size={16} weight="fill" aria-hidden="true" /><span><b>{r.by || r.role || src.label}</b>{(r.by || r.role) && <small>{r.by ? r.role || src.label : src.label}</small>}</span></figcaption>
   </figure>;
+}
+// The first screen's proof: the Product Hunt pill or badge, then one quote at a time (stars on store reviews), swapping
+// with a soft blur. It pauses under the pointer; reduced motion keeps the first quote still.
+function HeroReviews({ reduce }) {
+  const [k, setK] = useState(0); const [hold, setHold] = useState(false);
+  useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % HERO_REVIEWS.length), 4200); return () => clearInterval(t); }, [reduce, hold]);
+  const r = HERO_REVIEWS[k]; const src = REVIEW_SOURCE[r.source];
+  return <div className="hero-social">
+    <ProductHuntBadge placement="hero" />
+    <ul className="sr-only">{HERO_REVIEWS.map((x, i) => <li key={i}>{x.text} {x.by || x.role}, {REVIEW_SOURCE[x.source].label}.</li>)}</ul>
+    <a className="hr-quote" href="#reviews" aria-label="Read the reviews" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)} data-analytics-event="nav_click" data-analytics-placement="hero:reviews">
+      <span className="hr-slot" aria-hidden="true"><AnimatePresence mode="wait" initial={false}>
+        <motion.span key={k} className="hr-line" initial={{ opacity: 0, y: 6, filter: 'blur(6px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -6, filter: 'blur(6px)' }} transition={{ duration: .45, ease: [.2, .8, .2, 1] }}>
+          {(r.source === 'ios' || r.source === 'android') && <span className="hr-stars">{[0, 1, 2, 3, 4].map(i => <Star key={i} size={13} weight="fill" />)}</span>}
+          <q>{r.text}</q><span className="hr-by"><src.Icon size={12} weight="fill" />{r.by || r.role}</span>
+        </motion.span>
+      </AnimatePresence></span>
+      <span className="hr-more">All reviews <ArrowDown size={12} /></span>
+    </a>
+  </div>;
 }
 // Store reviews, Slack and email in one wall: Magic UI's 3D marquee composition (four vertical
 // Marquees tilted in perspective, faded at every edge). Each lane pauses under the pointer.

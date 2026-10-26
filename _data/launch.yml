@@ -1,0 +1,9 @@
+# Product Hunt launch. Launch day runs 00:01 to 24:00 Pacific; the visitor's clock picks the message,
+# so the bar changes on its own: before (get notified), on the day (upvote), after (back to the offer).
+# Set `enabled: false` to drop the launch messages entirely.
+producthunt:
+  enabled: true
+  url: https://www.producthunt.com/products/off-grid-ai?utm_source=getoffgridai&utm_medium=announcement_bar&utm_campaign=launch
+  start: "2026-11-03T08:01:00Z"
+  end: "2026-11-04T08:00:00Z"
+  day: Nov 3

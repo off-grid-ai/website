@@ -4,6 +4,9 @@
 export const IOS_URL = 'https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882';
 export const PLAY_URL = 'https://play.google.com/store/apps/details?id=ai.offgridmobile';
 export const PRODUCT_HUNT_URL = 'https://www.producthunt.com/products/off-grid-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-off-grid-ai';
+// Product Hunt counts a launch day from 00:01 to 24:00 Pacific. Before it, people can only ask to be
+// notified; on it, they can upvote; after it, the badge shows the result.
+export const PH_LAUNCH = { start: Date.parse('2026-11-03T08:01:00Z'), end: Date.parse('2026-11-04T08:00:00Z'), label: 'Nov 3' };
 export const productHuntBadge = (theme) => `https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1293302&theme=${theme}`;
 
 // Checkable claims only: each links to where a visitor can see it for themselves.
@@ -32,4 +35,16 @@ export const REVIEWS = [
   { source: 'slack', text: 'Off grid has become my go to for sure. … The knowledge base is amazing and a personal favorite.' },
   { source: 'ios', by: 'ucguy4u', title: 'Clean Local AI. Works Well', text: 'Local AI works fast and feels private because processing stays on device.' },
   { source: 'ios', by: 'Johnnypotato', title: 'Great app!', text: 'This is the one! I deleted the others! Hands down!' },
+];
+
+// The short row under the hero: one line each, cut from the quotes above (same sources, still verbatim).
+export const HERO_REVIEWS = [
+  { source: 'ios', by: 'coreclears', text: '…the greatest local AI app ive ever used BY FAR.' },
+  { source: 'email', role: 'Pro customer', text: 'Off Grid was the only one that worked reliably.' },
+  { source: 'github', by: 'hardbrocklife', text: 'Everything just worked.' },
+  { source: 'ios', by: 'Keslok', text: 'Insanely good App for it to be completely free' },
+  { source: 'reddit', by: 'Top-Preference-1355', text: 'I was just about to go buy a Mac for JUST this' },
+  { source: 'email', role: 'Android user', text: '…it is the best tool I have found for on-device AI.' },
+  { source: 'ios', by: 'Johnnypotato', text: 'This is the one! I deleted the others!' },
+  { source: 'ios', by: 'Admiral Tolwyn', text: 'The source code is a gold mine as well.' },
 ];
