@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
 import { motion, AnimatePresence } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
+import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile, FilmStrip } from '@phosphor-icons/react';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
 import { orchestra } from '@offgrid-ui/alive';
 import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
 import { installClickTracking } from './_track.js';
-import { Explorer, Seq } from './_product.jsx';
+import { Explorer, Seq, Fit, Loop, VideoScene } from './_product.jsx';
 import { usePricing } from '../pricing.js';
 
 const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
@@ -248,7 +248,7 @@ const FAQ = (p) => [
   ['How many devices?', `One key covers up to ${p.devices} devices.`],
   ['Desktop and mobile?', 'Yes. One key unlocks Pro on both. Features differ by platform.'],
   ['Does it work offline?', 'Local models run on your hardware. Once a model is downloaded, local chat works offline. Web tools and connected services need a connection.'],
-  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God and Sync.'],
+  ['What does Free include?', 'Local models for chat, files, voice and images. Offline. No account. Pro adds memory, actions you approve, God, Sync and Video Studio.'],
   ['What happens after I pay?', 'We email your key. Enter it in the app and Pro starts right away.'],
   ['Do I need a promo code?', p.lifetime_offer?.enabled ? 'No. The lifetime discount is applied automatically when you open checkout from this website.' : 'You can enter a promo code on the checkout page before you pay.'],
 ];
@@ -309,6 +309,8 @@ const CAPS = [
     shots: [['act-todos', 'Off Grid AI Actions: to-dos with owners, due dates and where they came from.'], ['act-draft', 'Off Grid AI Chat: the reply to Sam drafted from the kickoff, with sources.'], ['act-approvals', 'Off Grid AI Actions: pending approvals, each showing where it came from.'], ['act-history', 'Off Grid AI Actions: history, the reply to Sam sent and a promo email rejected.']] },
   { id: 'god', cmd: 'brief me, Ares', anchors: ['it-gets-ahead-of-you'], Icon: Sparkle, tab: 'God', title: 'God, your chief of staff.', line: 'It briefs you, runs your routines and lines up work for your yes.',
     shots: [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with last-time notes and cited sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, the approvals and what Priya and Tom owe you.'], ['god-voice', 'Off Grid AI God in voice mode: the morning briefing as voice notes.'], ['god-routines', 'Off Grid AI God settings: scheduled tasks such as the weekday morning briefing, meeting prep and an approvals digest.'], ['god-rules', 'Off Grid AI God settings: the rules Ares always follows, like never sending anything to Acme without asking.'], ['god-choose', 'Off Grid AI God settings: Ares is your god; Athena is a download away.']] },
+  { id: 'video', cmd: 'make a film about a lost dog', anchors: ['video-studio'], Icon: FilmStrip, tab: 'Video', title: 'Your story, as a film.', line: 'One sentence becomes a storyboard, then a film with your character in every shot. On your phone or your computer. Every film carries an AI label.',
+    scene: () => <Fit><SceneCard className="pp-scene-card"><Loop><VideoScene where="your phone or computer" /></Loop></SceneCard></Fit> },
   { id: 'reflect', cmd: 'where did my time go?', anchors: ['it-reflects'], Icon: ChartBar, tab: 'Reflect', title: 'Where your day went.', line: 'Time by project, app and person. No timers.',
     shots: [['reflect', 'Off Grid AI Reflect: time by app, people and focus.']] },
   { id: 'vault', cmd: 'unlock my vault', anchors: [], Icon: LockKey, tab: 'Vault', title: 'Your secrets stay yours.', line: 'Passwords, keys, notes and files, encrypted. Unlocked only by you.',
@@ -319,7 +321,7 @@ const CAPS = [
 
 function WhatPro({ again }) {
   // The shared feature explorer: features listed on the side, the screens playing beside them.
-  const items = CAPS.map(c => ({ id: c.id, cmd: c.cmd, title: c.tab, line: c.line, visual: () => <Seq shots={c.shots} /> }));
+  const items = CAPS.map(c => ({ id: c.id, cmd: c.cmd, title: c.tab, line: c.line, visual: c.scene || (() => <Seq shots={c.shots} />) }));
   return <section id="what-pro-is" className="pp-sec pp-what" data-section="What Pro is" aria-labelledby="what-h">
     {CAPS.flatMap(c => c.anchors).map(a => <span key={a} id={a} className="pp-anchor" aria-hidden="true" />)}
     <div className="section-shell">

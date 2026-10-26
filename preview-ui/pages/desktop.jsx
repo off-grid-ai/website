@@ -7,7 +7,7 @@ import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
 import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
-import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene, livePulse, useLiveRegion, Checks } from './_product.jsx';
+import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene, VideoScene, livePulse, useLiveRegion, Checks } from './_product.jsx';
 
 const V = '0.0.54';
 const BETA = '0.0.55-beta.114';
@@ -91,6 +91,7 @@ const PRO = [
   { id: 'meetings', cmd: 'summarize the Acme pilot kickoff', title: 'Meetings', line: 'Zoom, Meet and Teams, transcribed on this computer.', visual: () => <Seq shots={[['meetings', 'Off Grid AI Meetings: the Acme pilot kickoff summary, screens shared and decisions.', 3400], ['meetings-transcript', 'Off Grid AI Meetings: the transcript, transcribed on this Mac.', 3400], ['meetings-followups', 'Off Grid AI Actions: follow-ups from the kickoff, landed as to-dos.', 3400]]} /> },
   { id: 'dictation', cmd: 'dictate a note', title: 'Dictation', line: 'Hold a key and speak. It types for you.', visual: () => <Seq shots={[['voice-library', 'Off Grid AI Voice: dictations with the people, projects and to-dos pulled out.', 3400], ['voice-clean', 'Off Grid AI Voice: the same take with filler words, before cleanup.', 3400], ['voice-settings', 'Off Grid AI Voice settings: mode, shortcut, paste at cursor and the Whisper engine.', 3400]]} /> },
   { id: 'clipboard', cmd: 'search what I copied for acme', title: 'Clipboard', line: 'Everything you copied, searchable.', visual: () => <Seq shots={[['clipboard-all', 'Off Grid AI Clipboard: everything copied today, images, files, links and text.', 3400], ['clipboard-pdf', 'Off Grid AI Clipboard: the rollout plan PDF, previewed as text.', 3400], ['clipboard-quick', 'Off Grid AI Clipboard: quick open over any app, searching for Sam.', 3400]]} /> },
+  { id: 'video', cmd: 'make a film about a lost dog', title: 'Video Studio', line: 'One sentence becomes a storyboard, then a film. Made on this computer.', visual: card(<VideoScene where="this computer" />) },
   { id: 'search', cmd: 'search everything for acme pilot', title: 'One search', line: 'Screens, meetings, chats and people in one search.', visual: () => <Seq shots={[['search', 'Off Grid AI Search: acme pilot across chats, meetings, screens and people.', 3400], ['ask-filter', 'Off Grid AI Search: results narrowed to meetings and mail, newest first.', 3400]]} /> },
 ];
 
@@ -152,6 +153,7 @@ const FAQ = (p) => [
   ['Which Macs?', 'macOS on Apple Silicon, M1 and later. Signed and notarized.'],
   ['What about Windows and Linux?', <>Both have stable and beta builds. See <a href="/desktop/releases/">releases</a>.</>],
   ['Does it phone home?', 'Only if you turn on anonymous usage data and crash reports. They are off by default, and your chats never leave your device.'],
+  ['Does video need the internet?', 'Only to download the video model once. Then Video Studio makes films on your computer, offline. Your character photos never leave your devices.'],
   ['What models can I run?', 'Qwen, Gemma, Llama, Mistral, and compatible GGUF models that fit your memory.'],
 ];
 
@@ -192,7 +194,7 @@ export default function DesktopPage({ data }) {
 
     <FreeVsPro pricing={p}
       free={['Chat with local text and vision models', 'Image generation on your GPU', 'Voice: Whisper and Kokoro', 'Projects with cited answers', 'Artifacts and MCP connectors', 'Offline, no account']}
-      pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Actions and tasks, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
+      pro={['God, your chief of staff', 'Capture, Replay and searchable memory', 'Day, People and Reflect', 'Meetings, dictation and clipboard', 'Video Studio, with an AI label on every film', 'Actions and tasks, with your approval', `Vault, and Sync across up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />
