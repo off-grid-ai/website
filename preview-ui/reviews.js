@@ -6,7 +6,8 @@ export const PLAY_URL = 'https://play.google.com/store/apps/details?id=ai.offgri
 export const PRODUCT_HUNT_URL = 'https://www.producthunt.com/products/off-grid-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-off-grid-ai';
 // Product Hunt counts a launch day from 00:01 to 24:00 Pacific. Before it, people can only ask to be
 // notified; on it, they can upvote; after it, the badge shows the result.
-export const PH_LAUNCH = { start: Date.parse('2026-11-03T08:01:00Z'), end: Date.parse('2026-11-04T08:00:00Z'), label: 'Nov 3' };
+// Keep in step with _data/launch.yml, which drives the announcement bar.
+export const PH_LAUNCH = { start: Date.parse('2026-10-27T07:01:00Z'), end: Date.parse('2026-10-28T07:00:00Z'), label: 'Oct 27' };
 export const productHuntBadge = (theme) => `https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1293302&theme=${theme}`;
 
 // Checkable claims only: each links to where a visitor can see it for themselves.
