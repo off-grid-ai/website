@@ -4,7 +4,8 @@ import Button from '@smoothui/smooth-button';
 import { MagnifyingGlass, ArrowRight, Eye, Brain, CheckCircle, X } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { AnimatedBackground } from '@motion-primitives/animated-background';
-import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, EffCite } from '../shared.jsx';
+import { EFF_URL } from '../reviews.js';
 import { IdeasHero, Platforms, Points, Statement } from './_ideas.jsx';
 
 // The Ethos hub: search, topic filter, device and sort, exactly as assets/js/article-hub.js
@@ -163,6 +164,7 @@ export default function EthosPage({ data }) {
         [Eye, 'Context you choose.', ''],
         [CheckCircle, 'Action with your approval.', ''],
       ]} />
+      <a className="rv-eff ethos-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="ethos:hero"><EffCite /></a>
     </IdeasHero>
 
     <section className="ideas-hub-sec" aria-labelledby="ethos-read-h"><div className="section-shell">

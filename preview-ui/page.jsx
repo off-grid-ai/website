@@ -1498,30 +1498,37 @@ export function ProductHuntBadge({ placement }) {
 }
 function ReviewCard({ r }) {
   const src = REVIEW_SOURCE[r.source]; const store = r.source === 'ios' || r.source === 'android';
-  return <SceneCard as="figure" className="rv-card">
+  // Magic UI's ReviewCard (marquee-3d demo): a plain figure, no reveal, so tilted cards always paint.
+  return <figure className="rv-card">
     {store && <div className="rv-stars" role="img" aria-label="5 out of 5 stars">{[0, 1, 2, 3, 4].map(k => <Star key={k} size={14} weight="fill" />)}</div>}
     {r.title && <strong className="rv-title">{r.title}</strong>}
     <blockquote className="rv-text">{r.text}</blockquote>
     <figcaption className="rv-by"><src.Icon size={16} weight="fill" aria-hidden="true" /><span><b>{r.by || r.role || src.label}</b>{(r.by || r.role) && <small>{r.by ? r.role || src.label : src.label}</small>}</span></figcaption>
-  </SceneCard>;
+  </figure>;
 }
-// Store reviews, Slack and email in one wall. Wide screens get three columns drifting at different
-// speeds; phones get two rows. Both pause under the pointer. Reduced motion gets a still grid.
+// Store reviews, Slack and email in one wall: Magic UI's 3D marquee composition (four vertical
+// Marquees tilted in perspective, faded at every edge). Each lane pauses under the pointer.
+// Reduced motion gets a flat, still grid.
+const TILT = 'translateX(-60px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)';
 function ReviewWall() {
   const narrow = useNarrow(); const reduce = useContext(PlayCtx).reducedMotion;
-  const cols = narrow ? 2 : 3;
+  const cols = narrow ? 3 : 4;
   const lanes = Array.from({ length: cols }, (_, c) => REVIEWS.filter((_, k) => k % cols === c));
   return <section id="reviews" className="chapter sec-reviews" aria-labelledby="reviews-heading"><div className="section-shell">
     <div className="sec-head" data-og-reveal=""><Kicker>REVIEWS</Kicker><Title id="reviews-heading" lead="Their words." dim="Not ours." /></div>
     <div className="rv-proof">
-      <a className="rv-stat" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="reviews:eff"><b>Named by the EFF</b><span>in its guide to local AI</span></a>
+      <a className="rv-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="reviews:eff"><EffCite /></a>
       <ProductHuntBadge placement="reviews" />
     </div>
     <ul className="sr-only">{REVIEWS.map((r, k) => <li key={k}>{r.title ? `${r.title}. ` : ''}{r.text} {[r.by, r.role, REVIEW_SOURCE[r.source].label].filter(Boolean).join(', ')}.</li>)}</ul>
     {reduce ? <div className="rv-still" aria-hidden="true">{REVIEWS.slice(0, 9).map((r, k) => <ReviewCard key={k} r={r} />)}</div>
-      : <div className={`rv-wall ${narrow ? 'rv-rows' : 'rv-cols'}`} aria-hidden="true">{lanes.map((lane, c) =>
-        <Marquee key={c} vertical={!narrow} reverse={c % 2 === 1} pauseOnHover repeat={2} className="rv-lane" style={{ '--duration': `${(narrow ? 70 : 55) + c * 12}s` }}>{lane.map((r, k) => <ReviewCard key={k} r={r} />)}</Marquee>)}</div>}
+      : <div className="rv-stage" aria-hidden="true"><div className="rv-tilt" style={{ transform: TILT }}>{lanes.map((lane, c) =>
+        <Marquee key={c} vertical reverse={c % 2 === 1} pauseOnHover className="rv-lane" style={{ '--duration': `${40 + c * 8}s` }}>{lane.map((r, k) => <ReviewCard key={k} r={r} />)}</Marquee>)}</div></div>}
   </div></section>;
+}
+// The EFF's guide to opting out of Big Tech AI names Off Grid AI Desktop. The quote stays word for word.
+export function EffCite() {
+  return <span className="eff-cite"><span className="eff-q">“…the chat and image tool Off Grid AI Desktop.”</span><span className="eff-src">Electronic Frontier Foundation, opt-out guide <ArrowUpRight size={13} /></span></span>;
 }
 function PrivacySection() {
   const [prompt, setPrompt] = useState(SAMPLE_PROMPTS[0]); const [n, setN] = useState(0); const [draft, setDraft] = useState('');

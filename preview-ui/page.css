@@ -2143,25 +2143,24 @@ li.scene-card{list-style:none}
 .announcement-bar-tag[data-slot=badge]{border:1px solid rgb(var(--og-rgb-primary)/.25);border-radius:var(--og-radius-md);padding:var(--og-space-xs) var(--og-space-sm);background:rgb(var(--og-rgb-primary)/.06)}
 @media(max-width:700px){.announcement-offer-percent{display:none}.announcement-bar-tag[data-slot=badge]{font-size:8px;letter-spacing:.05em;padding:var(--og-space-xs)}.pp-offer-explainer{padding:var(--og-space-lg)}}
 
-/* Reviews: the proof row (checkable numbers plus the Product Hunt badge), then the drifting wall. */
-.rv-proof{display:flex;flex-wrap:wrap;align-items:center;gap:16px 40px;margin-bottom:40px}
-.rv-stat{display:flex;flex-direction:column;gap:4px;color:var(--og-text-secondary);font-size:13px;line-height:1.4}
-.rv-stat b{font-size:20px;font-weight:400;letter-spacing:-.02em;color:var(--og-text)}
-.rv-stat:hover span{color:var(--og-text)}
-.ph-badge{display:inline-flex;margin-left:auto}
+/* Reviews: the proof row (the EFF line and the Product Hunt badge), then Magic UI's 3D marquee. */
+.rv-proof{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;margin-bottom:24px}
+.eff-cite{display:flex;flex-direction:column;gap:6px}
+.eff-q{font-size:clamp(18px,1.8vw,22px);font-weight:300;letter-spacing:-.015em;line-height:1.35;color:var(--og-text)}
+.eff-src{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--og-text-secondary)}
+.rv-eff:hover .eff-src{color:var(--og-text)}
+.ph-badge{display:inline-flex}
 .ph-badge img{width:220px;height:auto}
-.rv-wall{position:relative}
-.rv-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;height:640px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
-.rv-cols .rv-lane{--gap:20px;padding:0;height:100%}
-.rv-rows{display:flex;flex-direction:column;gap:14px;margin-inline:-16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.rv-rows .rv-lane{--gap:14px;padding:0}
-.rv-rows .rv-card{width:280px}
+.rv-stage{position:relative;display:flex;align-items:center;justify-content:center;height:640px;overflow:hidden;perspective:600px;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent),linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent),linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.rv-tilt{display:flex;flex-direction:row;align-items:center;gap:18px}
+.rv-lane{--gap:18px;padding:0;height:1200px}
+.rv-lane .rv-card{width:240px}
 .rv-still{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.rv-card{margin:0}
-.rv-card .scene-card-in{display:flex;flex-direction:column;gap:12px;padding:24px}
+.rv-card{margin:0;display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:14px;border:1px solid var(--line);background:var(--og-surface-light);box-shadow:0 1px 0 rgb(255 255 255/.04) inset,0 18px 40px -24px rgb(0 0 0/.6);transition:background .2s}
+.rv-card:hover{background:var(--og-surface)}
 .rv-stars{display:flex;gap:2px;color:rgb(var(--og-rgb-primary))}
-.rv-title{font-size:15px;font-weight:500;color:var(--og-text)}
-.rv-text{margin:0;font-size:15px;line-height:1.6;color:var(--og-text-secondary)}
+.rv-title{font-size:14px;font-weight:500;color:var(--og-text)}
+.rv-text{margin:0;font-size:14px;line-height:1.55;color:var(--og-text-secondary)}
 .rv-by{display:flex;align-items:center;gap:10px;margin-top:4px;color:var(--og-text-muted)}
 .rv-by span{display:flex;flex-direction:column;line-height:1.35}
 .rv-by b{font-size:13px;font-weight:500;color:var(--og-text)}
@@ -2170,10 +2169,14 @@ li.scene-card{list-style:none}
 .footer-tag .ph-badge{margin-left:0}
 .footer-tag .ph-badge img{width:200px}
 @media (max-width:860px){
-  .rv-proof{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:28px}
-  .rv-stat b{font-size:18px}
-  .ph-badge{margin-left:0;grid-column:1/-1}
-  .rv-rows .rv-card .scene-card-in{padding:20px}
-  .rv-text{font-size:14px}
+  .rv-proof{flex-direction:column;align-items:flex-start;gap:20px}
+  .rv-stage{height:520px;margin-inline:-16px;perspective:420px}
+  .rv-tilt{gap:12px}
+  .rv-lane{--gap:12px;height:900px}
+  .rv-lane .rv-card{width:190px}
+  .rv-card{padding:16px}
+  .rv-text{font-size:13px}
   .footer-tag{align-items:flex-start;text-align:left}
 }
+.ethos-eff{display:block;margin-top:28px}
+.pp-trust-side .rv-eff{display:block;margin-bottom:8px}

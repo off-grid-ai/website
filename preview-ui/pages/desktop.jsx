@@ -6,7 +6,8 @@ import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
-import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner, EffCite } from '../shared.jsx';
+import { EFF_URL } from '../reviews.js';
 import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene, livePulse, useLiveRegion, Checks } from './_product.jsx';
 
 const V = '0.0.54';
@@ -173,7 +174,7 @@ export default function DesktopPage({ data }) {
         <div className="sec-head"><Kicker>WHY YOU CAN TRUST IT</Kicker><h2 id="why-you-can-trust-it" className="pp-h2"><span className="t-line">Why you can trust it.</span><span className="t-line t-dim">Read the code.</span></h2></div>
         <div className="pp-trust-body">
           <Checks items={['Local models process your prompts on your computer.', 'Your database is encrypted at rest.', 'Connected tools and remote models use the connections you choose.', 'The code is open source.']} />
-          <div className="pp-trust-side" data-og-reveal=""><Dl {...GITHUB} className="dl-main" /></div>
+          <div className="pp-trust-side" data-og-reveal=""><a className="rv-eff" href={EFF_URL} target="_blank" rel="noopener" data-analytics-event="proof_click" data-analytics-placement="desktop:trust"><EffCite /></a><Dl {...GITHUB} className="dl-main" /></div>
         </div>
       </div>
     </section>
