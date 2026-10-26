@@ -8,6 +8,9 @@ published_at: "2026-10-26T09:56:31Z"
 article_topic: "Models & performance"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4920821
+devto_url: "https://dev.to/alichherawalla/how-to-clean-up-ollama-and-lm-studio-models-taking-up-space-on-your-mac-in-2026-267e"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fmodels-text-light-960.webp"
 ---
 Your Mac's disk is filling up, and part of the reason is the models you downloaded in LM Studio and Ollama last year. They sit in hidden folders, they are several gigabytes each, and neither app makes it easy to see them all in one place. Off Grid AI Desktop finds them for you, shows each one with its size, and lets you remove the ones you no longer use. LM Studio files go to the Trash, so you can still get one back. Ollama models stay under Ollama's control, and the app tells you how to remove them without breaking Ollama.
 
