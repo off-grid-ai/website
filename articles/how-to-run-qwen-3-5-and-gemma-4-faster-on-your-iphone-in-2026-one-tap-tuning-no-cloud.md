@@ -8,6 +8,8 @@ published_at: "2026-10-26T17:06:48.000Z"
 article_topic: "Models & performance"
 article_platform: "iPhone"
 devto_article: true
+devto_id: 4923160
+devto_url: "https://dev.to/alichherawalla/how-to-run-qwen-35-and-gemma-4-faster-on-your-iphone-in-2026-one-tap-tuning-no-cloud-4he4"
 ---
 You run Qwen 3.5 or Gemma 4 on your iPhone and you want replies to come faster. You do not want to learn what Metal offload, batch size or a KV cache is before you get there. Off Grid AI Mobile (OGAM) has one button for this. Tap **Use fastest settings**, and the app puts the model on the iPhone GPU with Metal and sets the thread count, batch size and cache to the values the Off Grid team measured fastest on iPhone. It takes one tap, and the model keeps running on your phone with no account and no network.
 
