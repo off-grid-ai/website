@@ -8,6 +8,8 @@ published_at: "2026-10-26T06:30:00.000Z"
 article_topic: "Images & vision"
 article_platform: "Mac"
 devto_article: true
+devto_id: 4919307
+devto_url: "https://dev.to/alichherawalla/how-to-watch-ai-images-form-step-by-step-on-your-mac-in-2026-qwen-image-21-turbo-offline-2e2h"
 ---
 You type a prompt and wait for an image. With most local image tools on a Mac you see a spinner until the last step, and only then find out the composition is wrong. In Off Grid AI Desktop (OGAD) the image now forms in the chat while it runs. Each sampling step draws a new rough frame, so you can see the layout settle and stop a bad image before it finishes. With Qwen-Image 2.1 Turbo, that is 8 steps from prompt to picture, all on your Mac.
 
