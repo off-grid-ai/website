@@ -8,6 +8,8 @@ published_at: "2026-10-26T12:50:27.000Z"
 article_topic: "Models & performance"
 article_platform: "iPhone"
 devto_article: true
+devto_id: 4921848
+devto_url: "https://dev.to/alichherawalla/how-to-pick-the-best-local-ai-model-on-your-iphone-in-2026-fast-balanced-or-best-no-cloud-293n"
 ---
 You want a local AI model that runs well on your iPhone, and you do not want to compare quantization names to find it. Off Grid AI Mobile (OGAM) now opens the Models screen with three picks worked out for your iPhone's memory: **Fast**, **Balanced** and **Best**. Tap one, it downloads, and it becomes the model your chats use. After the download, the model runs on your iPhone, on the GPU through Metal, and nothing you type leaves the phone.
 
