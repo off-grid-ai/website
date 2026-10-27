@@ -8,6 +8,8 @@ published_at: "2026-10-27T09:49:17Z"
 article_topic: "Models & performance"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4927314
+devto_url: "https://dev.to/alichherawalla/how-to-use-a-remote-ollama-or-llamacpp-server-from-a-desktop-ai-app-on-windows-in-2026-40pa"
 ---
 Your Windows laptop has 16 GB of memory and integrated graphics. The tower in the next room has an NVIDIA RTX card and already runs Ollama or `llama-server` with a 30B model loaded. You want to chat with that model from the laptop, with chat history and a thinking switch, without copying a 20 GB file to a machine that cannot run it. Off Grid AI Desktop connects your laptop to that server. Its models show up next to your local ones, and the chat tells you which server answers and what it is waiting for.
 
