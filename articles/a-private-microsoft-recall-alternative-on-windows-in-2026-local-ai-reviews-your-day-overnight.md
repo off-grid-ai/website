@@ -8,6 +8,8 @@ published_at: "2026-10-27T06:53:18Z"
 article_topic: "Privacy & control"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4926313
+devto_url: "https://dev.to/alichherawalla/a-private-microsoft-recall-alternative-on-windows-in-2026-local-ai-reviews-your-day-overnight-jbn"
 ---
 You want a searchable memory of your workday on Windows. Microsoft Recall does that, but it runs only on Copilot+ PCs, and you may not want a model reading screenshots while you work. Off Grid AI Desktop Pro saves your screen as you work and leaves the heavy part, the AI analysis, for the night. By default it runs from 03:00 to 08:00, it can wake your PC to do it, and the model runs on the PC itself. In the morning your **Day** view has the journal, timeline and to-dos from yesterday.
 
