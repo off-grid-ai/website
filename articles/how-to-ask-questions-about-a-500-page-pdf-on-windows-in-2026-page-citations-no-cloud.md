@@ -8,6 +8,8 @@ published_at: "2026-10-27T22:20:34Z"
 article_topic: "Documents & research"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4931118
+devto_url: "https://dev.to/alichherawalla/how-to-ask-questions-about-a-500-page-pdf-on-windows-in-2026-page-citations-no-cloud-4991"
 ---
 You have a 500-page contract, tender document or textbook as a PDF on your Windows PC. You want to ask "what does it say about penalties for late delivery?" and get an answer you can check against the source. Off Grid AI Desktop reads the whole file on your PC, answers from it, and puts a small page chip such as **p. 212** next to each claim. Click the chip and the PDF opens at that page, beside the chat. The file never leaves your PC, and there is no page limit and no file size cap.
 
