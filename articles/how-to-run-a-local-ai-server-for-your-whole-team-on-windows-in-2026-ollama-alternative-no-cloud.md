@@ -8,6 +8,8 @@ published_at: "2026-10-27T03:50:11Z"
 article_topic: "Automation & tools"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4925435
+devto_url: "https://dev.to/alichherawalla/how-to-run-a-local-ai-server-for-your-whole-team-on-windows-in-2026-ollama-alternative-no-cloud-2ch6"
 ---
 You have one Windows PC with a good NVIDIA card and a team that wants local AI, without sending your code and documents to a cloud API. Off Grid AI Desktop can turn that one PC into a shared AI server. Its gateway has a **Team** mode that answers several people at once, gives each person their own API key, and keeps the PC awake while it works. Every request stays on your network.
 
