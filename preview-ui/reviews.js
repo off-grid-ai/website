@@ -49,3 +49,36 @@ export const HERO_REVIEWS = [
   { source: 'ios', by: 'Johnnypotato', text: 'This is the one! I deleted the others!' },
   { source: 'ios', by: 'Admiral Tolwyn', text: 'The source code is a gold mine as well.' },
 ];
+
+// The quote line under each product page's call to action, picked for the doubt that page answers
+// (worth paying for, runs on my phone, works on my computer, safe to install). Cut from the quotes above.
+export const PAGE_REVIEWS = {
+  pro: [
+    { source: 'ios', by: 'coreclears', text: '…Pro is 100% worth it imo' },
+    { source: 'reddit', by: 'Top-Preference-1355', text: "I'm a pro user and I love it." },
+    { source: 'email', role: 'Pro customer', text: 'Off Grid was the only one that worked reliably.' },
+    { source: 'email', role: 'Doctor, runs medical clinics', text: 'I already paid for your product and think it’s great' },
+    { source: 'reddit', by: 'Top-Preference-1355', text: 'I was just about to go buy a Mac for JUST this' },
+  ],
+  mobile: [
+    { source: 'ios', by: 'Gazta', text: '…the only app that seems to allow local Edge AI to work on my 7 year old iPhone XR' },
+    { source: 'slack', text: '…the best local LLM chat app for iOS by far!' },
+    { source: 'ios', by: 'ucguy4u', text: 'Local AI works fast and feels private because processing stays on device.' },
+    { source: 'reddit', by: 'LightweightSuperHero', text: "…works when I'm on an international flight" },
+    { source: 'android', by: 'Jason Schwartzenburg', text: 'Works fantastic, to remotely connect to my PC running ollama, local models!' },
+    { source: 'ios', by: 'Johnnypotato', text: 'This is the one! I deleted the others!' },
+  ],
+  desktop: [
+    { source: 'slack', role: 'Fractional exec', text: 'OGAD and OGAM [Desktop and Mobile] take notes, transcribe meetings…' },
+    { source: 'android', by: 'Nathaniel Boyd', text: '…the non-mac desktop app works so that … the conversations fully auto sync.' },
+    { source: 'ios', by: 'Admiral Tolwyn', text: 'The source code is a gold mine as well.' },
+    { source: 'ios', by: 'Keslok', text: 'Insanely good App for it to be completely free' },
+  ],
+  download: [
+    { source: 'ios', by: 'coreclears', text: '…the greatest local AI app ive ever used BY FAR.' },
+    { source: 'github', by: 'sj-dev-afk', text: 'The install and setup was flawless…' },
+    { source: 'github', by: 'hardbrocklife', text: 'Everything just worked.' },
+    { source: 'email', role: 'Pro customer', text: 'Off Grid was the only one that worked reliably.' },
+    { source: 'ios', by: 'Johnnypotato', text: 'This is the one! I deleted the others!' },
+  ],
+};
