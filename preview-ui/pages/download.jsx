@@ -4,7 +4,8 @@ import { usePricing } from '../pricing.js';
 import { Badge } from '@radix-ui/themes';
 import { ArrowRight, ArrowUpRight, ArrowDown, PuzzlePiece, ArrowsClockwise, CursorClick, ShieldCheck, Flask, GithubLogo } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, MobileRail, PlatformIcon, Shot, ShotSeq, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, MobileRail, PlatformIcon, Shot, ShotSeq, useNarrow, CmdBar, CmdScope, ReviewLine } from '../shared.jsx';
+import { PAGE_REVIEWS } from '../reviews.js';
 import { Proof, livePulse, LiveList } from './_product.jsx';
 import { ListRow } from '@offgrid-ui/list-row';
 import { installClickTracking } from './_track.js';
@@ -101,6 +102,7 @@ function Hero({ dev }) {
           <a className="dn-other" href="#all-platforms">Other platforms <ArrowDown size={13} /></a>
         </div>
         <Proof />
+        <ReviewLine quotes={PAGE_REVIEWS.download} placement="download:hero" />
       </div>
       <SceneCard className="dn-hero-shot"><CmdScope chapter="download" cmd="brief me, Ares">{(text, seq) => <><CmdBar text={text} seq={seq} className="tour-cmd-card" /><div className="dn-frame"><ShotSeq push={false} shots={[
             ['god', 'Off Grid AI God: the 8:50 AM briefing, with three approvals waiting.', 3400],

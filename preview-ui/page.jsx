@@ -1525,22 +1525,37 @@ function ReviewCard({ r }) {
     <figcaption className="rv-by"><src.Icon size={16} weight="fill" aria-hidden="true" /><span><b>{r.by || r.role || src.label}</b>{(r.by || r.role) && <small>{r.by ? r.role || src.label : src.label}</small>}</span></figcaption>
   </figure>;
 }
-// The first screen's proof: the Product Hunt pill or badge, then one quote at a time (stars on store reviews), swapping
-// with a soft blur. It pauses under the pointer; reduced motion keeps the first quote still.
-function HeroReviews({ reduce }) {
+// One quote at a time (stars on store reviews), swapping with a soft blur. It pauses under the pointer;
+// reduced motion keeps the first quote still. On the homepage it links down to the wall; on product
+// pages it sits under the call to action and reports once when seen (review_view).
+function useQuoteCycle(quotes, reduce) {
   const [k, setK] = useState(0); const [hold, setHold] = useState(false);
-  useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % HERO_REVIEWS.length), 4200); return () => clearInterval(t); }, [reduce, hold]);
-  const r = HERO_REVIEWS[k]; const src = REVIEW_SOURCE[r.source];
+  useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % quotes.length), 4200); return () => clearInterval(t); }, [reduce, hold, quotes]);
+  return { k, hold: { onPointerEnter: () => setHold(true), onPointerLeave: () => setHold(false) } };
+}
+function QuoteSlot({ quotes, k }) {
+  const r = quotes[k]; const src = REVIEW_SOURCE[r.source];
+  return <>
+    <ul className="sr-only">{quotes.map((x, i) => <li key={i}>{x.text} {x.by || x.role}, {REVIEW_SOURCE[x.source].label}.</li>)}</ul>
+    <span className="hr-slot" aria-hidden="true"><AnimatePresence mode="wait" initial={false}>
+      <motion.span key={k} className="hr-line" initial={{ opacity: 0, y: 6, filter: 'blur(6px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -6, filter: 'blur(6px)' }} transition={{ duration: .45, ease: [.2, .8, .2, 1] }}>
+        {(r.source === 'ios' || r.source === 'android') && <span className="hr-stars">{[0, 1, 2, 3, 4].map(i => <Star key={i} size={13} weight="fill" />)}</span>}
+        <q>{r.text}</q><span className="hr-by"><src.Icon size={12} weight="fill" />{r.by || r.role || src.label}</span>
+      </motion.span>
+    </AnimatePresence></span>
+  </>;
+}
+export function ReviewLine({ quotes, placement }) {
+  const { k, hold } = useQuoteCycle(quotes, useReducedMotion());
+  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}><QuoteSlot quotes={quotes} k={k} /></figure>;
+}
+// The first screen's proof: the Product Hunt pill or badge, then the quote line.
+function HeroReviews({ reduce }) {
+  const { k, hold } = useQuoteCycle(HERO_REVIEWS, reduce);
   return <div className="hero-social">
     <ProductHuntBadge placement="hero" />
-    <ul className="sr-only">{HERO_REVIEWS.map((x, i) => <li key={i}>{x.text} {x.by || x.role}, {REVIEW_SOURCE[x.source].label}.</li>)}</ul>
-    <a className="hr-quote" href="#reviews" aria-label="Read the reviews" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)} data-analytics-event="nav_click" data-analytics-placement="hero:reviews">
-      <span className="hr-slot" aria-hidden="true"><AnimatePresence mode="wait" initial={false}>
-        <motion.span key={k} className="hr-line" initial={{ opacity: 0, y: 6, filter: 'blur(6px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -6, filter: 'blur(6px)' }} transition={{ duration: .45, ease: [.2, .8, .2, 1] }}>
-          {(r.source === 'ios' || r.source === 'android') && <span className="hr-stars">{[0, 1, 2, 3, 4].map(i => <Star key={i} size={13} weight="fill" />)}</span>}
-          <q>{r.text}</q><span className="hr-by"><src.Icon size={12} weight="fill" />{r.by || r.role}</span>
-        </motion.span>
-      </AnimatePresence></span>
+    <a className="hr-quote" href="#reviews" aria-label="Read the reviews" {...hold} data-analytics-event="nav_click" data-analytics-placement="hero:reviews">
+      <QuoteSlot quotes={HERO_REVIEWS} k={k} />
       <span className="hr-more">All reviews <ArrowDown size={12} /></span>
     </a>
   </div>;

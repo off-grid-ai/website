@@ -6,7 +6,8 @@ import { ArrowUpRight, LockKey, Check, CheckCircle } from '@phosphor-icons/react
 import { Terminal, AnimatedSpan, TypingAnimation as TermTyping } from '@magicui/terminal';
 import Button from '@smoothui/smooth-button';
 import { Safari } from '@magicui/safari';
-import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner, EffCite } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, Shot, PlatformIcon, useSteps, CmdBar, CmdScope, ZoomCtx, useZoomOwner, EffCite, ReviewLine } from '../shared.jsx';
+import { PAGE_REVIEWS } from '../reviews.js';
 import { EFF_URL } from '../reviews.js';
 import { useBetaLinks, Proof, Dl, AppWindow, Explorer, Framed, Seq, Fit, Loop, Wipe, AutoCtl, FreeVsPro, Faq, OfflineScene, livePulse, useLiveRegion, Checks } from './_product.jsx';
 
@@ -64,6 +65,7 @@ function Hero() {
         <Lede className="pp-lede">Free on the computer you own. Pro adds memory and actions you approve.</Lede>
         <OsPick os={os} />
         <Proof />
+        <ReviewLine quotes={PAGE_REVIEWS.desktop} placement="desktop:hero" />
       </div>
       <AppWindow chapters={CHAPTERS} label="Desktop app views" />
     </div>

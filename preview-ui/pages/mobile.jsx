@@ -3,7 +3,8 @@ import { usePricing } from '../pricing.js';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
-import { PageShell, Kicker, Title, Lede, SceneCard, PlatformIcon, useNarrow, CmdBar, CmdScope } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, PlatformIcon, useNarrow, CmdBar, CmdScope, ReviewLine } from '../shared.jsx';
+import { PAGE_REVIEWS } from '../reviews.js';
 import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Checks } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
@@ -96,6 +97,7 @@ export default function MobilePage({ data }) {
           <Lede className="pp-lede">Free. Works offline.</Lede>
           <div className="pp-dl-row mp-stores"><Dl {...IOS} className="dl-main" /><Dl {...ANDROID} /></div>
           <Proof />
+          <ReviewLine quotes={PAGE_REVIEWS.mobile} placement="mobile:hero" />
         </div>
         <HeroPhone />
       </div>
