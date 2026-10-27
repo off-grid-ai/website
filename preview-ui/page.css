@@ -67,15 +67,15 @@
   --font-mono: var(--og-font-mono);
 }
 
-/* Orbit reads the per-item --duration, so its value must be inlined into the utility: a :root
-   variable holding var(--duration) is invalid at :root and the orbit would never move. */
+/* Orbit and Marquee read the per-element --duration, so their values must be inlined into the
+   utility: a :root variable holding var(--duration) is invalid at :root and nothing would move. */
 @theme inline {
   --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 /* Keyframes the Magic UI components expect (from their registry install notes). */
 @theme {
-  --animate-marquee: marquee var(--duration) infinite linear;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --animate-shiny-text: shiny-text 8s infinite;
   --animate-shine: shine var(--duration) infinite linear;
   --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * .2s) infinite;
@@ -1297,10 +1297,13 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
    their animation still works. Children: accessible copy, word, space, word, space... */
 .whitespace-pre-wrap>.sr-only~span.whitespace-pre:nth-child(odd){display:inline!important;white-space:normal!important}
 /* Header actions: Get Pro (secondary) + Download (primary) */
+.header-pro{height:36px!important;font-size:13px!important;border-color:var(--line-2)!important;color:var(--og-text)!important;background-color:transparent!important}
+.header-pro:hover{border-color:var(--og-primary)!important}
+@media (max-width:1000px){.header-pro{display:none!important}}
 /* Full header down to 900px (the founder reviews at ~1000px) */
 @media (min-width:901px) and (max-width:1000px){
   .desktop-nav{display:flex!important}.desktop-nav a{padding:8px 10px}
-  .hide-sm{display:inline-flex!important}
+  .hide-sm{display:inline-flex!important}.header-pro{display:inline-flex!important}
   .menu-trigger{display:none!important}
   .header-inner{gap:14px}
 }
@@ -1450,7 +1453,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 @media(max-width:700px){.sync-card.sync-shot{width:58%!important}.sync-tag{white-space:normal;max-width:94%;text-align:center}}
 
 .cmd-vanish .rt-TextFieldRoot{width:100%;height:100%;box-shadow:none;background-color:transparent}
-.cmd-vanish input[readonly]{cursor:pointer}
+.cmd-vanish input[readonly]{cursor:text}
 
 .cmd-vanish button{min-width:44px;min-height:44px}
 
@@ -2030,7 +2033,10 @@ html[data-theme=light]{--og-ghost-text:color-mix(in srgb,var(--og-text) 44%,var(
   .walk-hero .cmd-chips ul{flex-wrap:nowrap!important;justify-content:flex-start!important;padding:4px 20px;width:max-content}
 }
 /* The prompt field: the library's input-control slot, so focus runs the emerald beam around its edge. */
-.cmd-field{position:relative;border-radius:8px}
+/* One edge: the slot owns the border, glow and beam; the form inside fills it and draws none. */
+.cmd-field{position:relative;border-radius:8px;border:1px solid var(--line-2);background-color:var(--og-background)}
+.cmd-field:focus-within{border-color:transparent}
+.cmd-vanish .cmd-field form{max-width:none!important;height:50px!important;border:0!important;border-radius:7px!important}
 
 /* ── Home: alive pass ─────────────────────────────────────────────────────
    Layout and colour only; motion, light, entrances and press come from the library. */
@@ -2139,3 +2145,69 @@ li.scene-card{list-style:none}
 .announcement-bar strong{color:var(--og-text);font-weight:500}
 .announcement-bar-tag[data-slot=badge]{border:1px solid rgb(var(--og-rgb-primary)/.25);border-radius:var(--og-radius-md);padding:var(--og-space-xs) var(--og-space-sm);background:rgb(var(--og-rgb-primary)/.06)}
 @media(max-width:700px){.announcement-offer-percent{display:none}.announcement-bar-tag[data-slot=badge]{font-size:8px;letter-spacing:.05em;padding:var(--og-space-xs)}.pp-offer-explainer{padding:var(--og-space-lg)}}
+
+/* Reviews: the proof row (the EFF line and the Product Hunt badge), then Magic UI's 3D marquee. */
+.rv-proof{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;margin-bottom:24px}
+.eff-cite{display:flex;flex-direction:column;gap:6px}
+.eff-q{font-size:clamp(18px,1.8vw,22px);font-weight:300;letter-spacing:-.015em;line-height:1.35;color:var(--og-text)}
+.eff-src{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--og-text-secondary)}
+.rv-eff:hover .eff-src{color:var(--og-text)}
+.ph-badge{display:inline-flex}
+.ph-badge img{width:220px;height:auto}
+.rv-stage{position:relative;display:flex;align-items:center;justify-content:center;height:640px;overflow:hidden;perspective:600px;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent),linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent),linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.rv-tilt{display:flex;flex-direction:row;align-items:center;gap:18px}
+.rv-lane{--gap:18px;padding:0;height:1200px}
+.rv-lane .rv-card{width:240px}
+.rv-still{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.rv-card{margin:0;display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:14px;border:1px solid var(--line);background:var(--og-surface-light);box-shadow:0 1px 0 rgb(255 255 255/.04) inset,0 18px 40px -24px rgb(0 0 0/.6);transition:background .2s}
+.rv-card:hover{background:var(--og-surface)}
+.rv-stars{display:flex;gap:2px;color:rgb(var(--og-rgb-primary))}
+.rv-title{font-size:14px;font-weight:500;color:var(--og-text)}
+.rv-text{margin:0;font-size:14px;line-height:1.55;color:var(--og-text-secondary)}
+.rv-by{display:flex;align-items:center;gap:10px;margin-top:4px;color:var(--og-text-muted)}
+.rv-by span{display:flex;flex-direction:column;line-height:1.35}
+.rv-by b{font-size:13px;font-weight:500;color:var(--og-text)}
+.rv-by small{font-size:12px}
+.footer-tag{display:flex;flex-direction:column;align-items:flex-end;gap:16px;text-align:right}
+.footer-tag .ph-badge{margin-left:0}
+.footer-tag .ph-badge img{width:200px}
+@media (max-width:860px){
+  .rv-proof{flex-direction:column;align-items:flex-start;gap:20px}
+  .rv-stage{height:520px;margin-inline:-16px;perspective:420px}
+  .rv-tilt{gap:12px}
+  .rv-lane{--gap:12px;height:900px}
+  .rv-lane .rv-card{width:190px}
+  .rv-card{padding:16px}
+  .rv-text{font-size:13px}
+  .footer-tag{align-items:flex-start;text-align:left}
+}
+.ethos-eff{display:block;margin-top:28px}
+.pp-trust-side .rv-eff{display:block;margin-bottom:8px}
+.rv-eff,.rv-eff *{text-decoration:none!important}
+.eff-cite{max-width:600px}
+
+/* Hero proof: the EFF line in the strip, then the Product Hunt pill and one rotating quote. */
+.hero-eff{display:inline-flex;align-items:center;gap:4px;color:var(--og-text-muted)}
+.hero-eff b{font-weight:400;color:var(--og-text)}
+.hero-eff:hover b{text-decoration:underline;text-underline-offset:3px}
+.hero-social{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px;width:100%}
+.ph-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 6px 6px 8px;border-radius:999px;border:1px solid rgb(255 97 84/.35);background:rgb(255 97 84/.07);font-size:13px;color:var(--og-text-secondary);transition:border-color .2s,background .2s}
+.ph-pill b{font-weight:500;color:var(--og-text)}
+.ph-pill:hover{border-color:rgb(255 97 84/.6);background:rgb(255 97 84/.12)}
+.ph-pill-cta{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;background:#FF6154;color:#fff;font-weight:500}
+.hero-social .ph-badge img{width:190px}
+.hr-quote{display:flex;align-items:center;justify-content:center;gap:12px;line-height:1.4;max-width:min(860px,100%);min-height:28px;font-size:14px;color:var(--og-text-secondary)}
+.hr-stars{display:inline-flex;gap:1px;align-self:center;color:rgb(var(--og-rgb-primary));flex:none}
+.hr-slot{display:inline-grid;min-width:0}
+.hr-line{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.hr-line q{color:var(--og-text);quotes:"\201C" "\201D"}
+.hr-by{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--og-text-muted)}
+.hr-more{display:inline-flex;align-items:center;gap:4px;flex:none;font-size:12px;color:var(--og-text-muted);border-left:1px solid var(--line);padding-left:12px}
+.hr-quote:hover .hr-more{color:var(--og-text)}
+.footer-tag .ph-pill{font-size:12px}
+@media (max-width:700px){
+  .hero-social{gap:12px;margin-top:18px}
+  .ph-pill{font-size:12px;gap:8px}
+  .hr-quote{flex-direction:column;gap:6px;font-size:13px;padding-inline:8px;min-height:84px;justify-content:flex-start}
+  .hr-more{border:0;padding:0}
+}

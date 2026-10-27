@@ -8,7 +8,8 @@ import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
 import { orchestra } from '@offgrid-ui/alive';
-import { PageShell, Kicker, Title, Lede, SceneCard } from '../shared.jsx';
+import { PageShell, Kicker, Title, Lede, SceneCard, ReviewLine } from '../shared.jsx';
+import { PAGE_REVIEWS } from '../reviews.js';
 import { installClickTracking } from './_track.js';
 import { Explorer, Seq, Fit, Loop, VideoScene } from './_product.jsx';
 import { usePricing } from '../pricing.js';
@@ -33,6 +34,7 @@ function Hero({ pricing }) {
         <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
       </div>
       <Proof />
+      <ReviewLine quotes={PAGE_REVIEWS.pro} placement="pro:hero" />
     </div>
   </section>;
 }
