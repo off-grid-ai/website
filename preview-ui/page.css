@@ -325,6 +325,8 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 
 /* ── Pricing ──────────────────────────────────────────── */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+/* Lifetime and monthly, nothing else: two cards, centred. */
+.plans-two{grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto}
 .plan-mc{border-radius:8px!important;height:100%}
 .plan-mc .plan{padding:32px;height:100%}
 .plan-hero{padding:32px!important}
