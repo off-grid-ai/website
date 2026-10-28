@@ -102,7 +102,7 @@ Video Studio makes short films from your prompts and photos. It runs on your pho
 
 **Safety check.** Before a film is made, a small check runs on your device. It is designed to block content that shows a minor, and content that puts a real person in a film without their consent. It cannot catch everything, and you stay responsible for what you make (see our Terms of Service). The check runs locally. Its result is not logged, and it is not sent to us or to anyone else.
 
-**AI-generated label.** Every film you export carries a label that says it was made with AI. The label is a C2PA content credential and matching file metadata. We add it so that people who watch your film can tell it is AI-generated, as the EU AI Act (Article 50) requires.
+**AI-generated label.** Every film you export is marked as made with AI in its file information. Where the app can, it also adds a C2PA content credential. We add these so that people who watch your film can tell it is AI-generated. Do not remove them (see our Terms of Service).
 
 **After Pro ends.** If your Pro plan ends, the films you made stay on your devices and you can still watch and share them. You cannot make new films without Pro.
 
