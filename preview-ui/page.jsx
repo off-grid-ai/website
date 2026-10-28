@@ -1527,7 +1527,7 @@ function ReviewCard({ r }) {
 }
 // One quote at a time (stars on store reviews), swapping with a soft blur. It pauses under the pointer;
 // reduced motion keeps the first quote still. On the homepage it links down to the wall; on product
-// pages it sits under the call to action and reports once when seen (review_view).
+// pages it sits under the call to action, reports once when seen (review_view) and links to the wall.
 function useQuoteCycle(quotes, reduce) {
   const [k, setK] = useState(0); const [hold, setHold] = useState(false);
   useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % quotes.length), 4200); return () => clearInterval(t); }, [reduce, hold, quotes]);
@@ -1547,7 +1547,10 @@ function QuoteSlot({ quotes, k }) {
 }
 export function ReviewLine({ quotes, placement }) {
   const { k, hold } = useQuoteCycle(quotes, useReducedMotion());
-  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}><QuoteSlot quotes={quotes} k={k} /></figure>;
+  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}>
+    <QuoteSlot quotes={quotes} k={k} />
+    <a className="hr-more" href="/#reviews" data-analytics-event="nav_click" data-analytics-placement={`${placement}:reviews`}>All reviews <ArrowRight size={12} /></a>
+  </figure>;
 }
 // The first screen's proof: the Product Hunt pill or badge, then the quote line.
 function HeroReviews({ reduce }) {
