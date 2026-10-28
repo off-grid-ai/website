@@ -65,7 +65,7 @@ An earlier version of this essay said a Personal AI OS should send no telemetry 
 People asked us for it. When a model fails to load on one phone, or a download stalls on one network, we had no way to see it unless someone wrote in. Many people would rather tap a switch than write a bug report. So Off Grid AI now has anonymous usage data and crash reports, with four rules:
 
 - **Off by default.** Nothing is sent until you turn it on. You can turn it off at any time.
-- **Never your content.** No prompts, replies, transcripts, file names, search terms, or IP addresses. Not in usage events, not in crash reports.
+- **Never your content.** No prompts, replies, transcripts, file names, or search terms. Not in usage events, not in crash reports. Your IP address is discarded on arrival, never saved with them.
 - **Anonymous.** A random ID made by the app, never linked to an account or email, reset when you turn it off.
 - **Public.** The full list of what we collect, and what we never collect, is in the open-source code. You can check it against the network traffic.
 

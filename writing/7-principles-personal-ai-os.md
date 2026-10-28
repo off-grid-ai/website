@@ -39,7 +39,7 @@ Your queries, your context, and your files never leave your device. That part is
 
 An earlier version of this principle went further: no telemetry of any kind, not even opt-in. We changed it. People asked for a way to tell us what breaks without writing a bug report, and we had no other way to see a model that fails to load on one phone.
 
-So the principle is now this. Anonymous usage data and crash reports are off until you turn them on. Opt-in, never opt-out. They never carry your prompts, replies, file names, search terms, or IP address. The ID is random, not linked to an account, and resets when you turn it off. And the full list of what is collected is public, so you can check it against the code and the network traffic.
+So the principle is now this. Anonymous usage data and crash reports are off until you turn them on. Opt-in, never opt-out. They never carry your prompts, replies, file names, or search terms, and your IP address is discarded on arrival, never saved with them. The ID is random, not linked to an account, and resets when you turn it off. And the full list of what is collected is public, so you can check it against the code and the network traffic.
 
 Anything less is not compliance. "We anonymise before sending" with the switch already on is still collection you did not choose.
 
