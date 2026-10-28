@@ -50,7 +50,7 @@ Your chats and files never leave your device. In ordinary use of the local appli
 - your screen captures, audio, transcripts, memory, or clipboard contents;
 - your files, file names, or document names;
 - your search terms;
-- your IP address (it is not stored, including when optional analytics is on);
+- your IP address (with optional analytics on, it reaches our analytics provider but is discarded on arrival and never saved with your events; see section 4);
 - your device's hardware identifiers;
 - the data from any third-party services you connect.
 
