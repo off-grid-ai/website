@@ -8,6 +8,8 @@ published_at: "2026-10-28T09:52:15Z"
 article_topic: "Work & organization"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4933618
+devto_url: "https://dev.to/alichherawalla/how-to-get-to-dos-from-your-workday-with-the-exact-quote-behind-each-one-on-windows-in-2026-2l96"
 ---
 Someone asks you for the deck in a Teams chat, a client asks for a revised quote on a call, and you promise a colleague a review while dictating a note. By evening those asks are scattered across three apps. Off Grid AI Desktop Pro on Windows reads your day with a model on your PC and turns those asks into to-dos. Each to-do carries the exact words that created it, so you can check where it came from before you act on it.
 
