@@ -8,6 +8,8 @@ published_at: "2026-10-28T05:40:00Z"
 article_topic: "Models & performance"
 article_platform: "iPhone"
 devto_article: true
+devto_id: 4932270
+devto_url: "https://dev.to/alichherawalla/how-to-speed-up-local-ai-replies-with-mtp-on-your-iphone-in-2026-no-setup-kf5"
 ---
 You run a model like Gemma 4 on your iPhone and the reply comes out one word at a time. You want the same answer sooner, without dropping to a smaller model and without learning what a draft model is. Off Grid AI Mobile (OGAM) supports MTP, multi-token prediction. A model built for it guesses a few words ahead, checks them in one pass, and keeps the ones it would have written anyway. You turn it on with one switch, and the app fetches the extra file the model needs.
 
