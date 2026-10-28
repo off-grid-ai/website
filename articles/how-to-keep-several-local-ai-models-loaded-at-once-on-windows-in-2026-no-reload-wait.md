@@ -8,6 +8,8 @@ published_at: "2026-10-28T07:15:00Z"
 article_topic: "Models & performance"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4932639
+devto_url: "https://dev.to/alichherawalla/how-to-keep-several-local-ai-models-loaded-at-once-on-windows-in-2026-no-reload-wait-3mgi"
 ---
 You run a small model for code completion and a bigger one for chat. Every time a tool asks for the other one, your PC unloads a model, loads the next, and you wait. Off Grid AI Desktop on Windows can keep several chat models in memory at the same time. A request that names one of them goes straight to it, already loaded. Before you save, the app sizes the set against your graphics card's VRAM and your RAM, and tells you if it will not fit.
 
