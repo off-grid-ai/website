@@ -78,7 +78,7 @@ That data remains on your devices. This is true whether or not you turn on optio
 
 **Anonymous ID.** The app creates a random anonymous ID for each install. It is never linked to an account, a license, or an email address. When you turn analytics off, the ID is reset and any data still waiting to be sent is dropped.
 
-**IP addresses.** Our analytics provider is set to discard your IP address. It is not stored, and we do not use it to work out your location.
+**IP addresses.** Your device's IP address reaches our analytics provider when the data is sent, as with any internet connection. The provider discards it on arrival. It is never saved with your events, and we do not use it to work out your location. Your internet provider and other networks along the way can still see it, as they can for anything you send.
 
 **Legal basis.** We process this data on the basis of your consent. You give it when you turn analytics on, and you can withdraw it at any time in Settings.
 
