@@ -170,7 +170,7 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
-  const [embedOpen, setEmbedOpen] = useState(false); const embedUi = useRef(null);
+  const [embedOpen, setEmbedOpen] = useState(false); const embedUi = useRef(null); const loadingStripe = useRef(null);
   // Mounted Stripe UIs have to be destroyed, or a second open throws and the buyer is stuck.
   useEffect(() => () => { try { embedUi.current?.destroy(); } catch {} }, []);
   const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
@@ -188,7 +188,13 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     if (input.current && input.current.value !== email) setEmail(input.current.value);
     if (typeof IntersectionObserver !== 'function' || !form.current) return;
     const io = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { reportOnce('pro_buy_form_viewed'); io.disconnect(); }
+      if (entries.some(e => e.isIntersecting)) {
+        reportOnce('pro_buy_form_viewed');
+        // Fetch Stripe.js while they are still reading. Cold, it can lose the race against the first click and send
+        // them to the hosted page instead; warm, the form opens at once.
+        if (stripe) stripeJs().catch(() => {});
+        io.disconnect();
+      }
     }, { threshold: 0.4 });
     io.observe(form.current);
     return () => io.disconnect();
@@ -213,12 +219,18 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
     window.location.assign(target.href);
   };
-  // Stripe.js must come from Stripe itself; the embedded form will not mount from a copy.
-  const stripeJs = () => window.Stripe ? Promise.resolve(window.Stripe) : new Promise((resolve, reject) => {
-    const s = document.createElement('script'); s.src = 'https://js.stripe.com/v3/';
-    s.onload = () => resolve(window.Stripe); s.onerror = () => reject(new Error('Stripe.js blocked'));
-    document.head.appendChild(s);
-  });
+  // Stripe.js must come from Stripe itself; the embedded form will not mount from a copy. It is fetched once and the
+  // same attempt is shared, so a second click cannot start a second download or race the first.
+  const stripeJs = () => {
+    if (window.Stripe) return Promise.resolve(window.Stripe);
+    if (!loadingStripe.current) loadingStripe.current = new Promise((resolve, reject) => {
+      const s = document.createElement('script'); s.src = 'https://js.stripe.com/v3/';
+      s.onload = () => resolve(window.Stripe);
+      s.onerror = () => { loadingStripe.current = null; reject(new Error('Stripe.js blocked')); };
+      document.head.appendChild(s);
+    });
+    return loadingStripe.current;
+  };
   // Stripe's page is headed with the company that owns the Stripe account, not Off Grid AI, and most people who
   // reached it left without typing anything. The form opens here instead, on the page they already trust.
   const openEmbedded = async (plan) => {
@@ -308,7 +320,7 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     {/* The form opens here, on this page. It stays in the document so Stripe always has somewhere to mount. */}
     <div id="pp-embed" className="pp-embed" hidden={!embedOpen} />
     {stripe && embedOpen &&
-      <p className="pp-quiet pp-embed-alt">Would rather pay on Stripe's own page?{' '}
+      <p className="pp-quiet pp-embed-alt">Would you rather pay on Stripe's own page?{' '}
         <a href="#buy" onClick={(e) => { e.preventDefault(); payOnStripe(primary[0]); }}>Open it there instead</a>.</p>}
     <ul className="pp-trust">
       <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
