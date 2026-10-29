@@ -8,6 +8,8 @@ published_at: "2026-10-29T21:50:15Z"
 article_topic: "Documents & research"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4943515
+devto_url: "https://dev.to/alichherawalla/how-to-ask-questions-about-a-500-page-pdf-on-linux-in-2026-page-citations-no-cloud-1fa0"
 ---
 You have a 500-page spec, standard, contract or textbook as a PDF on your Linux machine. You want to ask "what does section 7 say about failover?" and get an answer you can check against the source. Off Grid AI Desktop reads the whole file on your computer, answers from it, and puts a small page chip such as **p. 212** next to each claim. Click the chip and the PDF opens at that page, beside the chat. The file stays on your machine, and there is no page limit and no file size cap.
 
