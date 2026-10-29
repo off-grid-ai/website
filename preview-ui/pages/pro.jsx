@@ -111,10 +111,6 @@ function Ladder({ pricing, count, failed, tier }) {
     {offer
       ? <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime} instead of ${offer.original_price} for a limited time. The ${offer.amount_off.toFixed(2)} discount is already applied at checkout. One key for up to {pricing.devices} devices.</p>
       : <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>}
-    {count != null && <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
-      <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>
-    </p>}
-    {count == null && failed && <p className="pp-count"><span className="pp-muted">Customer count unavailable.</span></p>}
     {/* The price history, left to right. Radix Themes Progress draws how far it has climbed;
         hidden from assistive tech because the prices and labels already say it. */}
     <div className="pp-tiers" ref={rail} style={{ '--n': n, '--cols': cols }}>

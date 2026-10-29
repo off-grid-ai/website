@@ -52,9 +52,6 @@
 .pp-pay-status a{text-decoration:underline;text-underline-offset:3px}
 .pp-fine{font-size:11.5px;line-height:1.6;color:var(--og-text-muted)}
 .pp-buy-side{display:flex;flex-direction:column;gap:36px}
-.pp-count{font-size:13px;line-height:1.6;color:var(--og-text-secondary);min-height:1.6em}
-.pp-count b{font-weight:400;color:var(--og-primary)}
-.pp-muted{color:var(--og-text-muted)}
 /* The ladder: a Radix Themes Progress from the first tier's centre to the last, the tiers below it. */
 .pp-ladder{display:flex;flex-direction:column;gap:10px}
 .pp-ladder-lede{font-size:13.5px;line-height:1.65;color:var(--og-text-secondary)}
