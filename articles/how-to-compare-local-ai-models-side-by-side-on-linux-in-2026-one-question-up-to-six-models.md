@@ -8,6 +8,8 @@ published_at: "2026-10-29T09:49:02Z"
 article_topic: "Models & performance"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4940139
+devto_url: "https://dev.to/alichherawalla/how-to-compare-local-ai-models-side-by-side-on-linux-in-2026-one-question-up-to-six-models-3p90"
 ---
 You run Ollama, LM Studio or a llama.cpp server on your Linux box, you have pulled a handful of models, and you want to know which one writes the best answer for your own prompts. Off Grid AI Desktop splits its chat into two to six panes. Each pane runs on its own model, one question goes to all of them, and the answers stream in next to each other in one window.
 
