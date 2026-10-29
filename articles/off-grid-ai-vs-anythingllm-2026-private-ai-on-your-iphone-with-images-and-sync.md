@@ -8,6 +8,9 @@ published_at: "2026-10-29T10:15:00Z"
 article_topic: "Compare apps"
 article_platform: "Across devices"
 devto_article: true
+devto_id: 4938349
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-anythingllm-2026-private-ai-on-your-iphone-with-images-and-sync-fg9"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fmobile%2Fimagegen-ios-1-light-640.webp"
 faq:
   - q: Is there an AnythingLLM app for iPhone?
     a: AnythingLLM's site lists a mobile app for Android only. Off Grid AI Mobile runs on iPhone and Android, with models running on the phone itself.

@@ -8,6 +8,9 @@ published_at: "2026-10-29T10:05:00Z"
 article_topic: "Compare apps"
 article_platform: "Computer"
 devto_article: true
+devto_id: 4938364
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-jan-2026-local-ai-that-makes-images-talks-back-and-runs-on-your-phone-4270"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fimagegen-chat-dark-1760.webp"
 faq:
   - q: Does Jan generate images?
     a: Jan's README lists local models, assistants, an OpenAI-compatible API and MCP. It does not list image generation. Off Grid AI Desktop generates images on your own GPU, offline, from the same chat window.

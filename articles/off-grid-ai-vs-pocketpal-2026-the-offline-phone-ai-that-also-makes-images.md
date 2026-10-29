@@ -8,6 +8,9 @@ published_at: "2026-10-29T10:00:00Z"
 article_topic: "Compare apps"
 article_platform: "Phone"
 devto_article: true
+devto_id: 4938601
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-pocketpal-2026-the-offline-phone-ai-that-also-makes-images-40nh"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fmobile%2Fimagegen-ios-1-light-640.webp"
 faq:
   - q: Does PocketPal generate images?
     a: PocketPal's own README lists on-device chat, Pals, read-aloud and benchmarks. It does not list image generation. Off Grid AI Mobile generates images on your phone with Stable Diffusion, offline, after a one-time model download.

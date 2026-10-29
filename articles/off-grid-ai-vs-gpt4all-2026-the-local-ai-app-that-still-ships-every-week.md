@@ -8,6 +8,9 @@ published_at: "2026-10-29T10:10:00Z"
 article_topic: "Compare apps"
 article_platform: "Computer"
 devto_article: true
+devto_id: 4938360
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-gpt4all-2026-the-local-ai-app-that-still-ships-every-week-2fea"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fapp%2Fchat-dark-1760.webp"
 faq:
   - q: Is GPT4All still being updated?
     a: GPT4All's latest GitHub release is v3.10.0, published on 25 February 2025, and the repository's last code push was in May 2025. Off Grid AI Desktop shipped 12 releases in October 2026 alone.

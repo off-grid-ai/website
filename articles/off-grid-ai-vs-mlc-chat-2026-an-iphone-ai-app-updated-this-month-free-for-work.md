@@ -8,6 +8,9 @@ published_at: "2026-10-29T10:25:00Z"
 article_topic: "Compare apps"
 article_platform: "iPhone"
 devto_article: true
+devto_id: 4938581
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-mlc-chat-2026-an-iphone-ai-app-updated-this-month-free-for-work-506b"
+image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto/https%3A%2F%2Fgetoffgridai.co%2Fassets%2Fimg%2Fhome%2Fmobile%2Fimagegen-ios-1-light-640.webp"
 faq:
   - q: When was MLC Chat last updated?
     a: MLC Chat's App Store listing shows version 1.6, released on 27 September 2024. Off Grid AI Mobile released version 0.0.118 on 23 October 2026 and shipped 8 mobile releases that month.
