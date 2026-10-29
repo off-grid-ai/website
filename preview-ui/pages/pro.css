@@ -58,6 +58,16 @@
 .pp-embed-back:hover{color:var(--og-text)}
 /* Stripe draws its form on its own light sheet; rounding it makes the sheet sit in the card rather than cut across it. */
 .pp-embed{border-radius:12px;overflow:hidden}
+/* Loading unseen behind the plan: laid out at full width so Stripe renders, but invisible, untouchable, and out of flow. */
+.pp-form{position:relative}
+.pp-embed.is-staged{position:absolute;left:0;right:0;top:0;opacity:0;pointer-events:none}
+/* The three-dot wave from ui-library's LoadingDots (OGAD main.css), in the button's own text colour. */
+.og-dots{display:inline-flex;align-items:center;gap:5px;height:1em}
+.og-dots i{width:6px;height:6px;border-radius:50%;background:currentColor;animation:og-dot-wave .9s ease-in-out infinite}
+.og-dots i:nth-child(2){animation-delay:.15s}.og-dots i:nth-child(3){animation-delay:.3s}
+@keyframes og-dot-wave{0%,100%{transform:translateY(0)}16.667%,50%{transform:translateY(-5px)}66.667%{transform:translateY(0)}}
+@keyframes og-dot-fade{0%,100%{opacity:.35}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.og-dots i{animation-name:og-dot-fade}}
 /* Fine print, so its link is plain text: the card styles every other link as a button. */
 .pp-embed-alt{margin:2px 0 0}
 .pp-pay-status.ea-status-error{color:var(--og-error)}

@@ -68,7 +68,7 @@ export default function MissionPage() {
       </div>
       <Proof />
       <div className="ideas-ctas">
-        <Cta primary href="/pro/">Get Off Grid AI Pro</Cta>
+        <Cta primary href="/pro/#buy">Get Off Grid AI Pro</Cta>
         <Cta href="/vision/">See the vision</Cta>
       </div>
       <Text as="p" className="fine">Open source. No account. No telemetry. <a href={`${GITHUB}github`} target="_blank" rel="noopener">View on GitHub</a> · <a href={SLACK} target="_blank" rel="noopener">Join the community</a> · <a href="/download/">Get the apps</a></Text>

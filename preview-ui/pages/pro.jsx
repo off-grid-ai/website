@@ -1,5 +1,6 @@
 import { LifetimePrice } from '../lifetime-price.jsx';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
@@ -14,7 +15,16 @@ import { installClickTracking } from './_track.js';
 import { Explorer, Seq } from './_product.jsx';
 import { usePricing } from '../pricing.js';
 
-const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
+// Every buy button off the pricing card brings the buyer to the card with its form already opening, so there is one
+// place to pay and nobody taps "Own Pro" twice. On this page that is a scroll and an event; from any other page it is
+// a link to /pro/#buy, which opens the form on arrival (see Checkout).
+const OPEN_CHECKOUT = 'pp:open-checkout';
+const toBuy = (label, section, plan = 'lifetime') => {
+  proCta('#buy', label, section);
+  document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' });
+  history.replaceState(null, '', '#buy');
+  window.dispatchEvent(new CustomEvent(OPEN_CHECKOUT, { detail: { plan } }));
+};
 
 /* ───────── Hero: the product, large ───────── */
 
@@ -31,7 +41,7 @@ function Hero({ pricing }) {
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
-        <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
+        <a className="pp-quiet" href="#buy" onClick={(e) => { e.preventDefault(); toBuy(e.currentTarget.textContent.trim(), 'Hero', 'monthly'); }}>or ${pricing.monthly}/month</a>
       </div>
       <Proof />
       <ReviewLine quotes={PAGE_REVIEWS.pro} placement="pro:hero" />
@@ -161,7 +171,37 @@ function useScript(src) {
   }, [src]);
 }
 
+// The three-dot wave every Off Grid surface uses for "working on it" (ui-library LoadingDots, OGAD main.css). The
+// website does not carry the library, so this is the same markup and the same wave; it takes the button's text colour.
+function LoadingDots() {
+  return <span className="og-dots" aria-hidden="true"><i /><i /><i /></span>;
+}
+
+// Plan to form and back as one motion: the outgoing part fades, the card eases to its new height, the incoming part
+// fades in. Heights are measured and animated directly, not scaled, so Stripe's iframe never stretches mid-move.
+const EASE_OUT = 'cubic-bezier(.2,.8,.2,1)', EASE_IN = 'cubic-bezier(.4,0,1,1)';
+// An animation's `finished` waits for frames, and a page in a background tab gets none. The hand-over must never wait
+// on that, so every step also ends on a timer a little after its own length.
+const settled = (anim, ms) => Promise.race([anim.finished.catch(() => {}), new Promise((r) => setTimeout(r, ms + 120))]);
+const fade = (els, from, to, ms, easing, delay = 0) => Promise.all(els.filter(Boolean).map((el) =>
+  // 'both': an incoming part holds its start state through the delay, so it never flashes in before it fades.
+  settled(el.animate([from, to], { duration: ms, easing, delay, fill: 'both' }), ms + delay)));
+async function morph(card, swap, outgoing, incoming) {
+  const h0 = card.offsetHeight;
+  await fade(outgoing(), { opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-6px)' }, 160, EASE_IN);
+  swap();
+  for (const el of outgoing()) el.getAnimations().forEach((a) => a.cancel());
+  const h1 = card.offsetHeight;
+  card.style.overflow = 'hidden';
+  const grow = card.animate([{ height: `${h0}px` }, { height: `${h1}px` }], { duration: 320, easing: EASE_OUT });
+  await Promise.all([settled(grow, 320),
+    fade(incoming(), { opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }, 260, EASE_OUT, 60)]);
+  for (const el of incoming()) el.getAnimations().forEach((a) => a.cancel());
+  card.style.overflow = '';
+}
+
 function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
+  const reduceMotion = useReducedMotion();
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
   const stripe = pricing.checkout_provider === 'stripe';
@@ -172,6 +212,8 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
   // The plan the open form is for, or null. The form takes the card's place while it is open.
   const [embedPlan, setEmbedPlan] = useState(null); const embedOpen = embedPlan !== null;
+  // The plan whose button is working (three dots), and whether Stripe's form is loading unseen inside the card.
+  const [opening, setOpening] = useState(null); const [staged, setStaged] = useState(false);
   const embedUi = useRef(null); const loadingStripe = useRef(null);
   // Mounted Stripe UIs have to be destroyed, or a second open throws and the buyer is stuck.
   useEffect(() => () => { try { embedUi.current?.destroy(); } catch {} }, []);
@@ -238,6 +280,30 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
   // Stripe allows one embedded form on a page at a time: a second one throws, and the throw used to send the buyer to
   // Stripe's own page. So any open form is destroyed before another is made.
   const destroyEmbedded = () => { try { embedUi.current?.destroy(); } catch {} embedUi.current = null; };
+  // The parts of the card that are the plan, and the parts that are the form. Queried live: which exist depends on state.
+  const card = () => form.current?.closest('.plan-hero');
+  const planParts = () => [...(card()?.querySelectorAll('.pp-plan-top,.pp-plan-row,.pp-get,.pp-buy,.pp-pay-status') || [])];
+  const formParts = () => [...(form.current?.querySelectorAll('.pp-embed-back,#pp-embed,.pp-embed-alt') || [])];
+  // Bring the card's top into view only if it is above the screen: the form replaces the card, it does not extend it.
+  const showCard = () => { const c = form.current?.closest('.plan-card'); if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); };
+  // Stripe's form is ready when its frame stops resizing. Measured: the frame appears at a default height, loads about
+  // half a second later, then resizes as the form draws and settles about a second after that. Its load event alone
+  // fires before anything is drawn, so waiting on it showed an empty box. This waits, unseen, for 200 ms of quiet after
+  // the last resize; a frame that never resizes counts as drawn a second after it loads; and nobody is held on the
+  // dots for more than six seconds.
+  const stripeReady = () => new Promise((resolve) => {
+    const frame = document.querySelector('#pp-embed iframe');
+    if (!frame || typeof ResizeObserver !== 'function') return resolve();
+    let h = frame.getBoundingClientRect().height, quiet = null;
+    const finish = () => { ro.disconnect(); clearTimeout(quiet); clearTimeout(cap); resolve(); };
+    const ro = new ResizeObserver(() => {
+      const now = frame.getBoundingClientRect().height;
+      if (Math.abs(now - h) > 1) { h = now; clearTimeout(quiet); quiet = setTimeout(finish, 200); }
+    });
+    ro.observe(frame);
+    frame.addEventListener('load', () => { if (quiet === null) quiet = setTimeout(finish, 1000); }, { once: true });
+    const cap = setTimeout(finish, 6000);
+  });
   const openEmbedded = async (plan) => {
     const { clientSecret, publishableKey, url } = await session(plan, 'embedded');
     if (!clientSecret) return toStripe(url); // the worker has no publishable key yet
@@ -245,15 +311,21 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     destroyEmbedded();
     const checkoutUi = await Stripe(publishableKey).initEmbeddedCheckout({ clientSecret });
     embedUi.current = checkoutUi;
+    flushSync(() => setStaged(true));
     checkoutUi.mount('#pp-embed');
-    setEmbedPlan(plan); onPaying?.(true);
-    // The form replaces the card's contents, so bring the card's top into view, not the bottom of the old buttons.
-    form.current?.closest('.plan-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    await stripeReady();
+    const swap = () => flushSync(() => { setStaged(false); setEmbedPlan(plan); onPaying?.(true); });
+    showCard();
+    if (reduceMotion || !card()) swap(); else await morph(card(), swap, planParts, formParts);
   };
-  // Back to the plans: the form goes, the price and buttons come back where they were.
-  const closeEmbedded = () => {
-    destroyEmbedded(); setEmbedPlan(null); onPaying?.(false);
-    form.current?.closest('.plan-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Back to the plans: the same motion reversed. The form is destroyed once it is out of sight.
+  const closeEmbedded = async () => {
+    if (submitting.current) return; // mid-move: a second Back would measure a card that is still changing size
+    submitting.current = true;
+    const swap = () => { destroyEmbedded(); flushSync(() => { setEmbedPlan(null); onPaying?.(false); }); };
+    showCard();
+    if (reduceMotion || !card()) swap(); else await morph(card(), swap, formParts, planParts);
+    submitting.current = false;
   };
   // Some people would rather finish on Stripe's own page, and a blocked or broken embed must never cost the sale.
   const payOnStripe = async (plan) => {
@@ -265,15 +337,17 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     if (stripe) {
       // Stripe Checkout asks for the email the key is sent to, so this page does not.
       if (submitting.current || !ready || failed) return;
-      submitting.current = true; setBusy(true); setStatus(null);
+      submitting.current = true; setBusy(true); setStatus(null); setOpening(plan);
       try {
         try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
         await openEmbedded(plan);
-        submitting.current = false; setBusy(false);
+        submitting.current = false; setBusy(false); setOpening(null);
       } catch {
-        // The form could not open: fall through to Stripe's page rather than showing an error.
+        // The form could not open: fall through to Stripe's page rather than showing an error. The dots stay on the
+        // button until the page leaves, so the buyer still sees that something is happening.
+        destroyEmbedded(); setStaged(false);
         try { await payOnStripe(plan); } catch {
-          setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
+          setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' }); setOpening(null);
         }
         submitting.current = false; setBusy(false);
       }
@@ -303,7 +377,32 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     // The success line holds a link, so the conductor does not settle it: the form ripples instead.
     if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
   };
-  const off = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed || busy;
+  // Unusable for a reason the buyer can fix or must wait out; working on their tap is not one (that shows dots instead).
+  const offIdle = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed;
+  const off = offIdle || busy;
+  // Opened from elsewhere: another buy button on this page (the event), or arriving at /pro/#buy from another page or
+  // the mobile app. The form can only open once the live price has loaded, so a request made earlier waits for it.
+  const live = useRef({}); live.current = { ready, failed, embedOpen, buy };
+  const pending = useRef(null);
+  const openPending = () => {
+    const l = live.current; if (!pending.current || !l.ready || l.failed) return;
+    const p = pending.current; pending.current = null;
+    if (!l.embedOpen) l.buy(p);
+  };
+  useEffect(() => {
+    if (!stripe) return;
+    const onOpen = (e) => { pending.current = e.detail?.plan === 'monthly' ? 'monthly' : 'lifetime'; openPending(); };
+    window.addEventListener(OPEN_CHECKOUT, onOpen);
+    if (location.hash === '#buy') pending.current = new URLSearchParams(location.search).get('plan') === 'monthly' ? 'monthly' : 'lifetime';
+    return () => window.removeEventListener(OPEN_CHECKOUT, onOpen);
+  }, []);
+  useEffect(() => { openPending(); }, [ready, failed]);
+  // Back from Stripe's own page can restore this one exactly as it was left, dots and all.
+  useEffect(() => {
+    const onShow = (e) => { if (e.persisted) { setOpening(null); setBusy(false); submitting.current = false; } };
+    window.addEventListener('pageshow', onShow);
+    return () => window.removeEventListener('pageshow', onShow);
+  }, []);
   // The buy buttons wake when they become usable: the field answers from the primary one.
   const wasOff = useRef(off);
   useEffect(() => {
@@ -324,15 +423,18 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
         <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
       </TextField.Root>
     </>}
-    <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
-    <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
+    {/* The tapped button keeps its colour and shows the dots; the other steps back. Fading both read as "disabled". */}
+    {[[primary, 'solid', 'pro-shimmer pp-shimmer pp-buy', 'primary'], [secondary, 'outline', 'ihb pp-buy', 'secondary']].map(([[p, label], variant, cls, role]) =>
+      <Button key={role} data-site-button={role} variant={variant} type="button" data-plan={p} className={cls}
+        disabled={offIdle || (opening !== null && opening !== p)} aria-busy={opening === p} aria-label={opening === p ? 'Opening secure checkout' : undefined}
+        onClick={() => buy(p)}>{opening === p ? <LoadingDots /> : label}</Button>)}
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
-      {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
+      {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
     {/* While the form is open it is the card: the price, list and buttons hide (.is-paying), and Back brings them back. */}
     {embedOpen && <button type="button" className="pp-embed-back" onClick={closeEmbedded}><ArrowLeft size={14} />Back to plans</button>}
-    {/* It stays in the document so Stripe always has somewhere to mount. */}
-    <div id="pp-embed" className="pp-embed" hidden={!embedOpen} />
+    {/* It stays in the document so Stripe always has somewhere to mount. Staged, it loads unseen behind the plan. */}
+    <div id="pp-embed" className={`pp-embed${staged ? ' is-staged' : ''}`} hidden={!embedOpen && !staged} />
     {stripe && embedOpen &&
       <p className="pp-fine pp-embed-alt">Prefer Stripe's own page?{' '}
         <a href="#buy" onClick={(e) => { e.preventDefault(); destroyEmbedded(); payOnStripe(embedPlan); }}>Pay there instead</a></p>}
