@@ -8,6 +8,8 @@ published_at: "2026-10-29T16:46:02Z"
 article_topic: "Privacy & control"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4942423
+devto_url: "https://dev.to/alichherawalla/a-private-microsoft-recall-alternative-on-linux-in-2026-local-ai-reviews-your-day-overnight-14kf"
 ---
 You want a searchable memory of your workday, and you use Linux. Microsoft Recall is Windows only, and it needs a Copilot+ PC. Off Grid AI Desktop Pro gives you the same kind of record on your Linux computer. It saves your screen as you work and leaves the heavy part, the AI analysis, for the night. By default the analysis runs from 03:00 to 08:00. A systemd timer can wake the computer from suspend to do it, and the model runs on the computer itself. In the morning, your **Day** view has the journal, timeline and to-dos from yesterday.
 
