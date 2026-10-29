@@ -234,14 +234,22 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     const io = new IntersectionObserver((entries) => {
       if (entries.some(e => e.isIntersecting)) {
         reportOnce('pro_buy_form_viewed');
-        // Fetch Stripe.js while they are still reading. Cold, it can lose the race against the first click and send
-        // them to the hosted page instead; warm, the form opens at once.
-        if (stripe) stripeJs().catch(() => {});
         io.disconnect();
       }
     }, { threshold: 0.4 });
     io.observe(form.current);
     return () => io.disconnect();
+  }, []);
+  // Warm everything a buy tap needs as the page loads, not when the tap comes: the connections to Stripe and to the
+  // Worker, and Stripe.js itself. Waiting for the card to scroll into view left the first tap paying for all three.
+  useEffect(() => {
+    if (!stripe) return;
+    for (const origin of ['https://js.stripe.com', 'https://api.stripe.com', new URL(pricing.stripe_endpoint).origin]) {
+      if (document.querySelector(`link[rel="preconnect"][href="${origin}"]`)) continue;
+      const link = document.createElement('link'); link.rel = 'preconnect'; link.href = origin; link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+    stripeJs().catch(() => {});
   }, []);
   const onInput = (e) => {
     const v = e.target.value; setEmail(v);
@@ -298,21 +306,32 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     const finish = () => { ro.disconnect(); clearTimeout(quiet); clearTimeout(cap); resolve(); };
     const ro = new ResizeObserver(() => {
       const now = frame.getBoundingClientRect().height;
-      if (Math.abs(now - h) > 1) { h = now; clearTimeout(quiet); quiet = setTimeout(finish, 200); }
+      if (Math.abs(now - h) > 1) { h = now; clearTimeout(quiet); quiet = setTimeout(finish, 120); }
     });
     ro.observe(frame);
     frame.addEventListener('load', () => { if (quiet === null) quiet = setTimeout(finish, 1000); }, { once: true });
     const cap = setTimeout(finish, 6000);
   });
+  // The session request and Stripe's own loading run side by side. They used to run one after the other: the Worker
+  // made the session, then Stripe set up, then its frame loaded, then it drew. Now Stripe asks for the session when
+  // it needs it, so its frame is loading while the Worker is still working.
   const openEmbedded = async (plan) => {
-    const { clientSecret, publishableKey, url } = await session(plan, 'embedded');
-    if (!clientSecret) return toStripe(url); // the worker has no publishable key yet
+    const pending = session(plan, 'embedded');
+    const pk = pricing.stripe_publishable_key;
+    if (!pk) { const s = await pending; if (!s.clientSecret) return toStripe(s.url); } // an older page config
     const Stripe = await stripeJs();
     destroyEmbedded();
-    const checkoutUi = await Stripe(publishableKey).initEmbeddedCheckout({ clientSecret });
+    const init = Stripe(pk || (await pending).publishableKey).initEmbeddedCheckout({
+      fetchClientSecret: () => pending.then((s) => { if (!s.clientSecret) throw new Error('hosted'); return s.clientSecret; }),
+    });
+    let checkoutUi;
+    // A Worker without a publishable key answers with Stripe's own page instead: go there.
+    try { checkoutUi = await init; } catch (e) { const s = await pending; if (!s.clientSecret) return toStripe(s.url); throw e; }
     embedUi.current = checkoutUi;
     flushSync(() => setStaged(true));
     checkoutUi.mount('#pp-embed');
+    const s = await pending;
+    if (!s.clientSecret) { destroyEmbedded(); flushSync(() => setStaged(false)); return toStripe(s.url); }
     await stripeReady();
     const swap = () => flushSync(() => { setStaged(false); setEmbedPlan(plan); onPaying?.(true); });
     showCard();

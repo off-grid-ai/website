@@ -74,3 +74,6 @@ tiers:
 # Stripe prices and the deployed Worker were verified on 2026-10-16.
 checkout_provider: stripe
 stripe_endpoint: "https://license.getoffgridai.co/stripe"
+# Public by design (it ships in every page that takes a payment). Knowing it up front lets Stripe load its form
+# while the Worker is still creating the session, instead of after; the Worker holds the same key.
+stripe_publishable_key: "pk_live_51OfKEyCfLaxt9BREBel5ZDYbjIor0gwXKR9vFvu8qy7RxK5kP02JiSz9PFNJIreUGR3uGuLPxt36gAXZcdDBdQb800xRwqRe1V"
