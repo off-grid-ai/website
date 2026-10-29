@@ -14,10 +14,12 @@
 #     founders are grandfathered and untouched.
 #   - Customers keep the price that applies when they buy or subscribe.
 
-# First-cohort defaults and final ladder prices. Current purchase copy uses
-# the shared helper; it waits for the count instead of displaying these defaults.
-monthly: 4.99        # USD/month - current monthly price
-lifetime: 69         # USD - current lifetime price
+# The current prices. Every page shows these as they are: nothing is fetched before a buyer can pay, and the
+# ladder marks the step these prices belong to. Change them here when the price changes. The Worker checks before
+# every checkout that Stripe charges exactly these (119.00 lifetime, 7.99 monthly, the offer's coupon), so a page
+# and Stripe can never disagree; with the lifetime offer on, lifetime shows as 119 less the offer.
+monthly: 7.99        # USD/month - current monthly price
+lifetime: 119        # USD - current lifetime price, before the lifetime offer
 top_monthly: 9.99    # USD/month - final monthly price
 top_lifetime: 149    # USD - final lifetime price
 devices: 5

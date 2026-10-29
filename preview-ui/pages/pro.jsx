@@ -49,7 +49,7 @@ function Hero({ pricing }) {
   </section>;
 }
 
-/* ───────── Price ladder (live tier from the customer count) ───────── */
+/* ───────── Price ladder (the step the current prices belong to; pricing.yml) ───────── */
 
 function Ladder({ pricing, count, failed, tier }) {
   const tiers = pricing.tiers;
