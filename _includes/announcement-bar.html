@@ -40,3 +40,17 @@
   })();
 </script>
 {% endif %}
+<script>
+  // The bar stays on screen: the header, sticky sub-bars and anchor jumps sit under it at its live height.
+  (function () {
+    var bars = document.querySelectorAll('.announcement-bar');
+    if (!bars.length) return;
+    var set = function () {
+      var h = 0;
+      bars.forEach(function (b) { h += b.offsetHeight; });
+      document.documentElement.style.setProperty('--og-bar-h', h + 'px');
+    };
+    set();
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(set); bars.forEach(function (b) { ro.observe(b); }); }
+  })();
+</script>

@@ -108,16 +108,18 @@
   --og-glass-edge:inset 0 0 0 1px rgb(var(--og-rgb-text)/.08),inset 0 1px 0 rgb(var(--og-rgb-text)/.05);
   --og-glass-shadow:0 30px 80px -40px rgb(0 0 0/.85),0 2px 8px -4px rgb(0 0 0/.4);
   --og-card-radius:12px;
-  /* Sticky bars sit under the header: 68px plus its hairline (60px on phones). */
-  --og-header-h:69px;
+  /* Sticky bars sit under the header: 68px plus its hairline (60px on phones), plus the announcement
+     bar above it (--og-bar-h, its live height, set by announcement-bar.html). */
+  --og-bar-h:0px;
+  --og-header-h:calc(69px + var(--og-bar-h));
 }
-@media (max-width:700px){:root{--og-header-h:61px}}
+@media (max-width:700px){:root{--og-header-h:calc(61px + var(--og-bar-h))}}
 /* Kept apart: the minifier wraps color-mix values in @supports, which the critical-CSS pass drops. */
 :root{--og-card-bg:var(--og-surface);--og-glass:color-mix(in oklab,var(--og-surface) 72%,transparent);--og-glass-dense:color-mix(in oklab,var(--og-surface) 94%,transparent)}
 html[data-theme=light]{--og-card-bg:#fff;--og-glass:color-mix(in oklab,#fff 80%,transparent);--og-glass-dense:color-mix(in oklab,#fff 95%,transparent);--og-glass-shadow:0 30px 80px -40px rgb(0 0 0/.28),0 1px 3px rgb(0 0 0/.06)}
 
 /* ── Base ─────────────────────────────────────────────── */
-html{scroll-behavior:smooth;scroll-padding-top:88px;background-color:var(--og-background)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(88px + var(--og-bar-h));background-color:var(--og-background)}
 /* body stays transparent: html paints the page colour, and the living field (fixed, z -10) sits between them. */
 body{margin:0;background-color:transparent;color:var(--og-text);font-family:var(--og-font-sans);font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 *{box-sizing:border-box}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto}p,h1,h2,h3,ul,ol,dl,dd{margin:0}ul,ol{padding:0;list-style:none}
@@ -139,7 +141,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .skip-link{position:fixed;left:16px;top:-80px;z-index:300;background-color:var(--og-primary);color:var(--og-background);padding:12px 16px;border-radius:8px}.skip-link:focus{top:16px}
 
 /* ── Header ───────────────────────────────────────────── */
-.site-header{position:sticky;top:0;z-index:90;backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);background-color:rgb(var(--og-rgb-background)/.72);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:var(--og-bar-h);z-index:90;backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);background-color:rgb(var(--og-rgb-background)/.72);border-bottom:1px solid var(--line)}
 .header-inner{width:min(1280px,calc(100% - 40px));margin:auto;height:68px;display:flex;align-items:center;gap:24px}
 .wordmark{display:inline-flex;align-items:center;gap:10px;font-size:15px;white-space:nowrap}
 /* The wordmark is a brand mark, not reading text: Geist Mono, medium, slightly tightened, sized to the chip. */
@@ -1426,7 +1428,8 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .doc-news-status.error{color:var(--og-error)}.doc-news-status.success{color:var(--og-primary)}
 
 /* ── Announcement bar (design partner offer), above the header ── */
-.announcement-bar{position:relative;z-index:91;background-color:var(--og-background);border-bottom:1px solid rgb(var(--og-rgb-text)/.09);font-family:var(--og-font-sans)}
+/* The offer stays on screen while the page scrolls; the header sits under it. */
+.announcement-bar{position:sticky;top:0;z-index:91;background-color:var(--og-background);border-bottom:1px solid rgb(var(--og-rgb-text)/.09);font-family:var(--og-font-sans)}
 .announcement-bar-inner{width:min(1200px,calc(100% - 48px));margin-inline:auto;display:flex;align-items:center;gap:14px;min-height:40px;padding:8px 0;font-size:12px;line-height:1.5;color:var(--og-text-secondary)}
 .announcement-bar-tag{flex:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--og-primary)}
 .announcement-bar-text{flex:1;min-width:0}
