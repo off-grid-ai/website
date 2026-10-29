@@ -15,9 +15,23 @@ export function loadPricing(pricing) {
       .then(response => response.ok ? response.json() : Promise.reject(new Error('Pricing unavailable')))
       .then(current => {
         if (!Number.isFinite(current.lifetime) || !Number.isFinite(current.monthly) || current.lifetime <= 0 || current.monthly <= 0) throw new Error('Invalid pricing');
-        return { count: null, tier: null, pricing: { ...pricing, ...current } };
+        // Stripe is the price. The count only fills the ladder and the spots-left line, so losing it never blocks a purchase.
+        return customerCount(pricing).catch(() => null)
+          .then(count => ({ count, tier: null, pricing: { ...pricing, ...current } }));
       });
   }
+  return customerCount(pricing).then(count => {
+    const tier = count >= pricing.tiers[0].until ? 1 : 0;
+    return {
+      count,
+      tier,
+      pricing: { ...pricing, lifetime: lifetimePrice({ ...pricing, lifetime: pricing.tiers[tier].lifetime }), monthly: pricing.tiers[tier].monthly },
+    };
+  });
+}
+
+// One count request per endpoint, shared by every caller on the page.
+function customerCount(pricing) {
   const endpoint = pricing.count_endpoint;
   if (!endpoint) return Promise.reject(new Error('Customer count endpoint missing'));
   if (!counts.has(endpoint)) {
@@ -37,12 +51,5 @@ export function loadPricing(pricing) {
         .then(() => clearTimeout(timeout));
     }));
   }
-  return counts.get(endpoint).then(count => {
-    const tier = count >= pricing.tiers[0].until ? 1 : 0;
-    return {
-      count,
-      tier,
-      pricing: { ...pricing, lifetime: lifetimePrice({ ...pricing, lifetime: pricing.tiers[tier].lifetime }), monthly: pricing.tiers[tier].monthly },
-    };
-  });
+  return counts.get(endpoint);
 }

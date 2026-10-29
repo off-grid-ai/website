@@ -358,8 +358,8 @@ export function Lede({ children, className }) {
 }
 const SHINE = ['rgb(52 211 153)', 'rgb(110 231 183)', 'rgb(16 185 129)'];
 export const FOOTER = [
-  ['PRODUCTS', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Browser extension', '/browser-extension/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Download', '/download/']]],
-  ['PRO AND BOOST', [['Pro', '/pro/'], ['Pricing', '/pro/#buy'], ['Boost', '/boost/']]],
+  ['PRODUCTS', [['Desktop', '/desktop/'], ['Mobile', '/mobile/'], ['Browser extension', '/browser-extension/'], ['Recorder', '/mobile/recorder/'], ['Hardware', '/ogap/'], ['Boost', '/boost/'], ['Download', '/download/']]],
+  ['PRO', [['Pro', '/pro/'], ['Pricing', '/pro/#buy']]],
   ['LEARN', [['Quick start', '/quick-start/'], ['Guides', '/guides/'], ['Articles', '/articles/'], ['Writing', '/writing/']]],
   ['RELEASES', [['Desktop', '/desktop/releases/'], ['Mobile', '/mobile/releases/']]],
   ['COMPANY', [['Ethos', '/ethos/'], ['Mission', '/mission/'], ['Vision', '/vision/'], ['Wednesday Solutions', 'https://www.wednesday.is/']]],
@@ -1527,7 +1527,7 @@ function ReviewCard({ r }) {
 }
 // One quote at a time (stars on store reviews), swapping with a soft blur. It pauses under the pointer;
 // reduced motion keeps the first quote still. On the homepage it links down to the wall; on product
-// pages it sits under the call to action and reports once when seen (review_view).
+// pages it sits under the call to action, reports once when seen (review_view) and links to the wall.
 function useQuoteCycle(quotes, reduce) {
   const [k, setK] = useState(0); const [hold, setHold] = useState(false);
   useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % quotes.length), 4200); return () => clearInterval(t); }, [reduce, hold, quotes]);
@@ -1547,7 +1547,10 @@ function QuoteSlot({ quotes, k }) {
 }
 export function ReviewLine({ quotes, placement }) {
   const { k, hold } = useQuoteCycle(quotes, useReducedMotion());
-  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}><QuoteSlot quotes={quotes} k={k} /></figure>;
+  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}>
+    <QuoteSlot quotes={quotes} k={k} />
+    <a className="hr-more" href="/#reviews" data-analytics-event="nav_click" data-analytics-placement={`${placement}:reviews`}>All reviews <ArrowRight size={12} /></a>
+  </figure>;
 }
 // The first screen's proof: the Product Hunt pill or badge, then the quote line.
 function HeroReviews({ reduce }) {
@@ -1898,11 +1901,8 @@ function HomeSections({ pricing }) {
       <Suspense><section id="pricing" className="chapter" aria-labelledby="price-heading"><div className="section-shell">
         {/* rough-notation draws into the word's parent: the positioned wrapper keeps the line under the
             word after the section's reveal transform ends. */}
-        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Start free.</span><span className="t-line t-dim">Own Pro forever, or go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>monthly</Highlighter></span>.</span></Heading></div>
-        <MobileRail className="plans" start={1} labels={['Free', 'Lifetime', 'Monthly']}>
-          <SceneCard className="plan-card"><div className="plan"><Kicker>LOCAL AI</Kicker><Heading as="h3">Free</Heading><div className="price"><span className="amt">$0</span><small>forever</small></div>
-            <ul>{['Local models', 'Files, voice, images', 'Offline', 'No account'].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Button data-site-button="secondary" asChild variant="outline" size="lg" className="plan-btn"><a href="/download/">Download free</a></Button></div></SceneCard>
+        <div className="sec-head" data-og-reveal=""><Kicker>PRICING</Kicker><Heading as="h2" id="price-heading"><span className="t-line">Own Pro forever.</span><span className="t-line t-dim">Or go <span className="relative inline-block"><Highlighter action="underline" color="#34D399" strokeWidth={2} padding={2} isView>monthly</Highlighter></span>.</span></Heading></div>
+        <MobileRail className="plans plans-two" start={0} labels={['Lifetime', 'Monthly']}>
           <SceneCard className="plan-card plan-card-hero" innerRef={heroPlan}><div className="plan plan-hero"><Kicker>BEST VALUE · ONE PAYMENT</Kicker><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} />
             <ul>{['Memory and search', 'Actions you approve', 'Sync', `${pricing.devices} devices`].map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
             <Button data-site-button="primary" variant="solid" className="pro-shimmer" onClick={() => { window.OffGridAnalytics?.capture('cta_click', { label: `Own Pro for $${pricing.lifetime}`, href: '/pro/#buy', page: location.pathname }); location.href = '/pro/#buy'; }}>Own Pro for ${pricing.lifetime}</Button>

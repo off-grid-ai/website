@@ -74,3 +74,38 @@ test('Stripe pricing works without a RevenueCat count and fails closed', async t
   assert.equal(result.count, null);
   await assert.rejects(loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/unavailable` }));
 });
+
+test('the price history is display-only and reads low to high through the live ladder', () => {
+  // The stepper renders history then tiers: $10, $30, $50, then $69, $119, $149.
+  const steps = [...pricing.history, ...pricing.tiers].map(s => s.lifetime);
+  assert.deepEqual(steps, [10, 30, 50, 69, 119, 149]);
+  for (let i = 1; i < steps.length; i++) assert.ok(steps[i] > steps[i - 1], `step ${i} must rise`);
+  // History carries a price and a seat count only: it can never be sold or picked as the live tier.
+  for (const step of pricing.history) assert.deepEqual(Object.keys(step).sort(), ['lifetime', 'until']);
+  // One cumulative axis across history and the ladder, shared with the count worker, so the
+  // derived "first N / next N" labels always add up. Only the final tier is uncapped.
+  const caps = [...pricing.history, ...pricing.tiers].map(s => s.until);
+  assert.equal(caps.at(-1), 0, 'only the last step is uncapped');
+  for (let i = 1; i < caps.length - 1; i++) assert.ok(caps[i] > caps[i - 1], `step ${i} must close after the one before it`);
+  assert.equal(caps.slice(0, -1).filter(c => !c).length, 0, 'every step but the last closes at a count');
+  // The offer runs inside one of the live cohorts, and costs less than that cohort's regular price.
+  const cohort = pricing.tiers.find(t => t.lifetime === pricing.lifetime_offer.original_price);
+  assert.ok(cohort, 'the lifetime offer must scratch a cohort that is on the ladder');
+  assert.ok(lifetimePrice(pricing) < cohort.lifetime);
+});
+
+test('Stripe pricing carries the customer count so the ladder still fills', async t => {
+  const server = createServer((req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    if (req.url === '/stripe/pricing') { res.end(JSON.stringify({ lifetime: 79.99, monthly: 7.99 })); return; }
+    if (req.url === '/count') { res.end(JSON.stringify({ count: 1532, updated: new Date().toISOString() })); return; }
+    res.writeHead(503); res.end('{}');
+  });
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const endpoint = `http://127.0.0.1:${server.address().port}`;
+  const result = await loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/stripe`, count_endpoint: `${endpoint}/count` });
+  assert.equal(result.count, 1532);
+  assert.equal(result.pricing.lifetime, 79.99);
+});

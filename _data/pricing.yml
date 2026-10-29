@@ -30,20 +30,38 @@ lifetime_offer:
   original_price: 119
   amount_off: 39.01
 
+# Cohorts that sold out before the current ladder began, oldest → newest.
+# Display only: the price-history stepper renders these ahead of `tiers`, and
+# nothing here is ever used for checkout or for the live tier.
+# `until` counts on the same axis as the live ladder and as count.getoffgridai.co:
+# RevenueCat's cumulative `customers_new` since the 2026-01-01 inception, so every
+# early buyer is already inside the number the worker returns.
+# Read off RevenueCat at the date each lifetime product opened, rounded to the
+# nearest 50: 55 when $30 opened (16 Jun), 156 when $50 opened (17 Jun),
+# 588 when $69 opened (1 Jul), 1,485 when $119 opened (8 Oct).
+history:
+  - lifetime: 10
+    until: 50
+  - lifetime: 30
+    until: 150
+  - lifetime: 50
+    until: 600
+
 # The ladder, low → high. `until` = cumulative customer count at which this
-# lifetime tier closes (0 = final, no cap). These are regular prices, before offers.
+# lifetime tier closes (0 = final, no cap), counted across `history` too. The seats
+# in a cohort are the gap to the step before it, so the stepper's labels are derived
+# and can never drift from the counts. These are regular prices, before offers.
+# A live `lifetime_offer` scratches its cohort price in the stepper and shows the
+# offer price in its place.
 tiers:
   - lifetime: 69
     monthly: 4.99
-    label: "first 1,500"
     until: 1500
   - lifetime: 119
     monthly: 7.99
-    label: "next 5,000"
     until: 6500
   - lifetime: 149
     monthly: 9.99
-    label: "after that"
     until: 0
 
 # Switch only after Stripe prices, secrets, webhook, and billing portal are ready.

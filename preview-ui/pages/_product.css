@@ -31,6 +31,9 @@
 .pp-hero-copy .pp-reviews .hr-by,.dn-hero-copy .pp-reviews .hr-by{flex-basis:100%}
 .pp-hero-copy .pp-reviews,.dn-hero-copy .pp-reviews{min-height:64px;align-items:flex-start}
 @media (max-width:700px){.pp-reviews{align-items:flex-start;padding-inline:0}}
+/* "All reviews" sits on its own line under the quote, so it never squeezes the quote. */
+.pp-reviews{flex-wrap:wrap;row-gap:6px}
+.pp-reviews .hr-more{flex-basis:100%;border:0;padding:0}
 
 /* App window */
 .pp-app{min-width:0}
@@ -236,6 +239,7 @@
 .pp-hero-stack .pp-reviews .hr-by{flex-basis:auto}
 .pp-hero-stack .pp-reviews{min-height:28px;align-items:center}
 @media (max-width:700px){.pp-hero-stack .pp-reviews{align-items:center}}
+.pp-hero-stack .pp-reviews .hr-more{justify-content:center}
 .pp-hero-stack .pp-app{width:min(1120px,100%)}
 .pp-hint{font-size:11.5px;color:var(--og-text-muted);margin:10px 16px 0}
 .pp-hint-c{text-align:center;margin:8px 0 0}
