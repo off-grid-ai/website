@@ -96,3 +96,10 @@ Thinking mode (Qwen 3.5, Gemma 4) works particularly well on iPhone because Meta
 - [Which model should I use?]({{ '/guides/which-model' | relative_url }})
 - [How to Run Stable Diffusion on Your iPhone]({{ '/guides/stable-diffusion-iphone' | relative_url }})
 - [Vision AI - Analyse Images On-Device]({{ '/guides/vision-ai' | relative_url }})
+
+## How Off Grid AI compares
+
+- [Off Grid AI vs PocketPal]({{ '/articles/off-grid-ai-vs-pocketpal-2026-the-offline-phone-ai-that-also-makes-images/' | relative_url }})
+- [Off Grid AI vs Google AI Edge Gallery]({{ '/articles/off-grid-ai-vs-google-ai-edge-gallery-2026-stable-offline-ai-with-any-gguf-model/' | relative_url }})
+- [Off Grid AI vs MLC Chat]({{ '/articles/off-grid-ai-vs-mlc-chat-2026-an-iphone-ai-app-updated-this-month-free-for-work/' | relative_url }})
+- [Off Grid AI vs Private LLM]({{ '/articles/off-grid-ai-vs-private-llm-2026-free-open-source-and-on-android-and-windows-too/' | relative_url }})

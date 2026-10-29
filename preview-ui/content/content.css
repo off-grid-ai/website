@@ -193,6 +193,11 @@
   .doc-body th,.doc-body td{padding:9px 11px}
   .doc-body table{width:max-content;min-width:100%}
   .doc-body td{min-width:0;max-width:220px}
+  /* A comparison is read across one row, so it fits the screen and wraps instead of scrolling sideways. */
+  .doc-body table.vs-table{width:100%;table-layout:fixed}
+  .doc-body table.vs-table th,.doc-body table.vs-table td{max-width:none;padding:9px 8px;font-size:12.5px;overflow-wrap:anywhere}
+  .doc-body table.vs-table th{white-space:normal;letter-spacing:.04em}
+  .doc-body table.vs-table th:first-child,.doc-body table.vs-table td:first-child{width:38%}
   .doc-body .faq-item{padding:12px 14px}
   .doc-body .faq-item>strong:first-child{font-size:14.5px}
   .doc-end{margin-inline:-4px;padding:20px 4px}

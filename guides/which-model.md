@@ -114,3 +114,10 @@ Gemma 4 E4B (6GB RAM) or Qwen 3.5 9B (8GB RAM). Both have thinking mode.
 - [How to Run LLMs Locally on Your Android Phone in 2026]({{ '/guides/run-llms-locally-android' | relative_url }})
 - [How to Run LLMs Locally on Your iPhone in 2026]({{ '/guides/run-llms-locally-iphone' | relative_url }})
 - [Vision AI - Analyse Images and Documents]({{ '/guides/vision-ai' | relative_url }})
+
+## How Off Grid AI compares
+
+- [Off Grid AI vs Jan]({{ '/articles/off-grid-ai-vs-jan-2026-local-ai-that-makes-images-talks-back-and-runs-on-your-phone/' | relative_url }})
+- [Off Grid AI vs GPT4All]({{ '/articles/off-grid-ai-vs-gpt4all-2026-the-local-ai-app-that-still-ships-every-week/' | relative_url }})
+- [Off Grid AI vs AnythingLLM]({{ '/articles/off-grid-ai-vs-anythingllm-2026-private-ai-on-your-iphone-with-images-and-sync/' | relative_url }})
+- [Off Grid AI vs Open WebUI]({{ '/articles/off-grid-ai-vs-open-webui-2026-private-chatgpt-on-your-own-device-no-server-to-run/' | relative_url }})

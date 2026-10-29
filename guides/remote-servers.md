@@ -128,3 +128,8 @@ Off Grid AI warns you before connecting to a public internet endpoint (non-priva
 - [How to Use Off Grid AI Desktop From Your Phone in 2026]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})
 - [Which Model Should I Use?]({{ '/guides/which-model' | relative_url }})
 - [Tool Calling]({{ '/guides/tool-calling' | relative_url }})
+
+## How Off Grid AI compares
+
+- [Off Grid AI vs Open WebUI]({{ '/articles/off-grid-ai-vs-open-webui-2026-private-chatgpt-on-your-own-device-no-server-to-run/' | relative_url }})
+- [Off Grid AI vs Jan]({{ '/articles/off-grid-ai-vs-jan-2026-local-ai-that-makes-images-talks-back-and-runs-on-your-phone/' | relative_url }})

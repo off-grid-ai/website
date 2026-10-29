@@ -20,3 +20,5 @@
   description: Let local AI use tools and handle repeat tasks.
 - name: Everyday tasks
   description: Use local AI for common questions and daily plans.
+- name: Compare apps
+  description: See what Off Grid AI does that other local AI apps do not.
