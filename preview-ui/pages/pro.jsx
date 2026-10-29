@@ -1,7 +1,7 @@
 import { LifetimePrice } from '../lifetime-price.jsx';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { Highlighter } from '@magicui/highlighter';
@@ -47,21 +47,36 @@ function Ladder({ pricing, count, failed, tier }) {
   const past = pricing.history || [];
   // The history, the live ladder, and one step for what nobody has decided yet.
   const steps = [...past.map(h => ({ ...h, closed: true })), ...tiers, { unknown: true }];
-  // Seats in a cohort = the gap to the step before it, so the labels always add up.
-  const size = (i) => steps[i].until - (i ? steps[i - 1].until : 0);
-  // The step people can still buy says how many seats are actually left, not its size.
-  const seats = (i) => steps[i].unknown ? '\u00a0' : !steps[i].until ? 'after that'
-    : i === cur && count != null ? `${Math.max(0, steps[i].until - count).toLocaleString()} left`
-    : `${i ? 'next' : 'first'} ${size(i).toLocaleString()}`;
-  // Each step is as wide as its cohort is big, dampened so the first 50 stay legible
-  // beside the 5,000 still to sell. Uncapped steps take the narrowest width.
-  const widths = steps.map((s, i) => {
+  // Every cohort is labelled with the seats it was sold in. The stepper shows where the count is;
+  // the page never prints how many seats are left.
+  const seats = (i) => steps[i].unknown ? '\u00a0' : !steps[i].until ? 'after that' : <><b>{steps[i].seats.toLocaleString()}</b> seats</>;
+  // Each step is as wide as its cohort is big, dampened so the first 100 stay legible
+  // beside the 5,000. Uncapped steps take the narrowest width.
+  const widths = steps.map((s) => {
     if (!s.until) return 1;
-    return Math.min(4, Math.cbrt(size(i)) / Math.cbrt(size(0)));
+    return Math.min(4, Math.cbrt(s.seats) / Math.cbrt(steps[0].seats));
   });
   const cols = widths.map(w => `${w.toFixed(3)}fr`).join(' ');
   const n = steps.length;
   const rail = useRef(null);
+  // Below the fold, the track waits to climb until the ladder scrolls into view; on screen at
+  // load (or with reduced motion) it is already where it belongs, so nothing blinks.
+  const reduce = useReducedMotion();
+  const [held, setHeld] = useState(false);
+  useLayoutEffect(() => { if (!reduce && rail.current?.getBoundingClientRect().top > innerHeight) setHeld(true); }, [reduce]);
+  const inView = useInView(rail, { once: true, margin: '0px 0px -20% 0px' });
+  // The column fades in first (the conductor's reveal); the climb starts once it has arrived.
+  const [seen, setSeen] = useState(false);
+  useEffect(() => { if (!inView) return; const id = setTimeout(() => setSeen(true), 650); return () => clearTimeout(id); }, [inView]);
+  // Hovering a cohort lifts its checkpoint on the track.
+  const [hot, setHot] = useState(-1);
+  // Left alone, the lift travels on its own: first checkpoint, then the next, up to the live one,
+  // a beat of rest, and round again. A hover takes over; off screen or with reduced motion it rests.
+  const [wave, setWave] = useState(-1);
+  const onScreen = useInView(rail);
+  const climbed = !held || seen;
+  // The library's alive layer gives progress indicators their travelling sheen and glow by data-slot.
+  useLayoutEffect(() => { rail.current?.querySelector('.rt-ProgressIndicator')?.setAttribute('data-slot', 'progress-indicator'); }, []);
   // The live count fills the track on its own; when it lands, the field answers from the current tier
   // (strong enough that the ring reaches the checkout card beside it).
   const landed = () => { const at = rail.current?.querySelector('.pp-tier.cur .pp-tier-price'); if (at) orchestra.pulseFrom(at, 'change', 0.8); };
@@ -82,6 +97,14 @@ function Ladder({ pricing, count, failed, tier }) {
   const monthly = t === tiers.length - 1 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month.`
     : t === tiers.length - 2 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}.`
     : `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}, then $${tiers[tiers.length - 1].monthly}.`;
+  useEffect(() => {
+    setWave(-1);
+    if (reduce || !seen || !onScreen || hot >= 0) return;
+    let k = -1; let tick;
+    // Starts once the climb has landed, then one checkpoint per beat.
+    const start = setTimeout(() => { tick = setInterval(() => { k = (k + 1) % (cur + 2); setWave(k <= cur ? k : -1); }, 1300); }, 1400);
+    return () => { clearTimeout(start); clearInterval(tick); };
+  }, [reduce, seen, onScreen, hot, cur]);
   return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
     <Kicker>{offer ? 'THE LIFETIME OFFER' : 'PRO LIFETIME'}</Kicker>
     <Heading as="h3">One payment. Every Pro feature.</Heading>
@@ -95,16 +118,22 @@ function Ladder({ pricing, count, failed, tier }) {
     {/* The price history, left to right. Radix Themes Progress draws how far it has climbed;
         hidden from assistive tech because the prices and labels already say it. */}
     <div className="pp-tiers" ref={rail} style={{ '--n': n, '--cols': cols }}>
-      <Progress className="pp-progress" variant="soft" value={Math.round(fill * 100)} max={100} aria-hidden="true"
+      <Progress className="pp-progress" variant="soft" value={climbed ? Math.round(fill * 100) : 0} max={100} aria-hidden="true"
         style={{ left: `${railStart * 100}%`, right: `${(1 - railEnd) * 100}%` }}
         onTransitionEnd={(e) => { if (e.propertyName === 'transform') landed(); }} />
       <div className="pp-nodes" aria-hidden="true">
-        {steps.map((s, i) => <span key={i} className={`pp-dot ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`} />)}
+        {/* The library timeline's checkpoints: a sold-out cohort fills with a check, the live one is a
+            breathing ring, the rest wait hollow. Each arrives as the climbing fill reaches it (--at). */}
+        {steps.map((s, i) => <span key={i} style={{ '--at': Math.max(0, (centre(i) - railStart) / (railEnd - railStart)).toFixed(3) }}
+          className={`pp-dot ${climbed && i < cur ? 'past' : ''} ${climbed && i === cur ? 'cur' : ''} ${i === hot || (hot < 0 && i === wave) ? 'hot' : ''}`}>
+          {climbed && i < cur && <svg viewBox="0 0 10 10" fill="none"><path d="M2.2 5.2 4.2 7.1 7.8 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+          {climbed && i === cur && <span className="pp-dot-core" />}
+        </span>)}
       </div>
       {steps.map((s, i) => {
         // The cohort the offer runs in shows its regular price scratched and the offer price in its place.
         const offered = offer && s.lifetime === offer.original_price;
-        return <div key={i} className={`pp-tier ${s.closed ? 'pp-tier-past' : ''} ${s.unknown ? 'pp-tier-unknown' : ''} ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`}>
+        return <div key={i} data-og-living="" onPointerEnter={() => setHot(i)} onPointerLeave={() => setHot(-1)} className={`pp-tier ${s.closed ? 'pp-tier-past' : ''} ${s.unknown ? 'pp-tier-unknown' : ''} ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`}>
           <span className={`pp-tier-price ${offered ? 'pp-tier-offered' : ''}`}>
             {offered && <s className="pp-tier-was"><span className="sr-only">Regular price </span>${s.lifetime}</s>}
             <span>{s.unknown ? <abbr title="Nobody knows yet">?</abbr>
@@ -114,7 +143,6 @@ function Ladder({ pricing, count, failed, tier }) {
         </div>;
       })}
     </div>
-    {count != null && tiers[t].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[t].until - count).toLocaleString()}</b> spots left at ${pricing.lifetime} for life before the price jumps to ${tiers[t + 1].lifetime}.</p>}
     <p className="pp-monthly" id="og-monthly">{monthly}</p>
   </div>;
 }
