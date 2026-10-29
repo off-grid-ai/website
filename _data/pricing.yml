@@ -39,26 +39,32 @@ lifetime_offer:
 # Read off RevenueCat at the date each lifetime product opened, rounded to the
 # nearest 50: 55 when $30 opened (16 Jun), 156 when $50 opened (17 Jun),
 # 588 when $69 opened (1 Jul), 1,485 when $119 opened (8 Oct).
+# `seats` is the size each cohort was sold as, and is what the stepper labels and sizes by.
 history:
   - lifetime: 10
+    seats: 100
     until: 50
   - lifetime: 30
+    seats: 150
     until: 150
   - lifetime: 50
+    seats: 250
     until: 600
 
 # The ladder, low → high. `until` = cumulative customer count at which this
-# lifetime tier closes (0 = final, no cap), counted across `history` too. The seats
-# in a cohort are the gap to the step before it, so the stepper's labels are derived
-# and can never drift from the counts. These are regular prices, before offers.
+# lifetime tier closes (0 = final, no cap), counted across `history` too; it picks the
+# live tier and fills the stepper's track. `seats` is the cohort size the stepper labels
+# (display only; the final tier has none). These are regular prices, before offers.
 # A live `lifetime_offer` scratches its cohort price in the stepper and shows the
 # offer price in its place.
 tiers:
   - lifetime: 69
     monthly: 4.99
+    seats: 1500
     until: 1500
   - lifetime: 119
     monthly: 7.99
+    seats: 5000
     until: 6500
   - lifetime: 149
     monthly: 9.99

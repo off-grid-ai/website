@@ -68,9 +68,24 @@
 .pp-tier-was{font-size:.52em;color:var(--og-text-muted);text-decoration-thickness:1px}
 /* A checkpoint on the track for every step: filled behind the count, ringed at the live cohort. */
 .pp-nodes{position:absolute;top:1px;left:0;right:0;display:grid;grid-template-columns:var(--cols,repeat(var(--n),1fr));gap:4px;pointer-events:none}
-.pp-dot{justify-self:center;width:14px;height:14px;box-sizing:border-box;border-radius:50%;transform:translateY(-50%);background:var(--og-background);border:1.5px solid var(--line-2);transition:background .3s ease,border-color .3s ease}
+/* Checkpoints as the library's timeline draws them (CheckpointMark): done fills with a check,
+   active is a ring around a core that breathes, pending waits hollow. */
+.pp-dot{justify-self:center;display:grid;place-items:center;width:14px;height:14px;box-sizing:border-box;border-radius:50%;transform:translateY(-50%);background:var(--og-background);border:1.5px solid var(--line-2);color:var(--og-background);transition:background .3s ease calc(var(--at,0) * .8s),border-color .3s ease calc(var(--at,0) * .8s),box-shadow .3s ease,scale .42s var(--og-ease-spring,cubic-bezier(.34,1.56,.64,1))}
+.pp-dot svg{width:8px;height:8px}
 .pp-dot.past{background:var(--og-primary);border-color:var(--og-primary)}
-.pp-dot.cur{width:18px;height:18px;background:var(--og-primary);border-color:var(--og-primary);box-shadow:0 0 0 5px rgba(var(--og-rgb-primary),.18)}
+.pp-dot.cur{width:20px;height:20px;border-color:var(--og-primary);box-shadow:0 0 0 3px rgb(var(--og-rgb-primary) / .14),0 0 12px rgb(var(--og-rgb-primary) / .55)}
+.pp-dot-core{width:6px;height:6px;border-radius:50%;background:var(--og-primary)}
+.pp-dot.hot{scale:1.3}
+.pp-dot.past.hot{box-shadow:0 0 0 4px rgb(var(--og-rgb-primary) / .16)}
+@media (prefers-reduced-motion:no-preference){
+  /* A checkpoint waits hollow, fills as the climb reaches it, and its check (or the live core) pops
+     in; the live one then breathes. */
+  .pp-dot svg,.pp-dot-core{animation:og-alive-pop 520ms var(--og-ease-spring,cubic-bezier(.34,1.56,.64,1)) calc(var(--at,0) * .8s) backwards}
+  .pp-dot.cur{animation:og-checkpoint-breathe 2.2s ease-in-out calc(var(--at,0) * .8s + .5s) infinite}
+}
+/* Each cohort joins the alive layer (data-og-living) so hovering one eases the others back. The
+   layer's card edge and light are for surfaces; on bare prices they read as boxes, so they stay off. */
+.pp-tier[data-og-living]{outline:none;background-image:none}
 /* Where the ladder goes after $149 is not ours to claim yet. */
 .pp-tier-unknown .pp-tier-price{color:var(--og-text-muted)}
 .pp-tier-unknown abbr{text-decoration:none;cursor:help}
@@ -81,8 +96,10 @@
 /* Phones: six steps on one line. The card above already says "once". */
 @media (max-width:560px){
   .pp-tiers{gap:2px}
-  .pp-dot{width:10px;height:10px}
-  .pp-dot.cur{width:14px;height:14px;box-shadow:0 0 0 3px rgba(var(--og-rgb-primary),.18)}
+  .pp-dot{width:12px;height:12px}
+  .pp-dot svg{width:6px;height:6px}
+  .pp-dot.cur{width:16px;height:16px}
+  .pp-dot-core{width:5px;height:5px}
   .pp-tier{gap:6px}
   .pp-tier-price small{display:none}
   .pp-tier-label{font-size:9.5px;line-height:1.3}
@@ -90,10 +107,10 @@
 .pp-tier-price small{font-size:10px;letter-spacing:0;color:var(--og-text-muted);text-decoration:none}
 .pp-tier.past .pp-tier-price{color:var(--og-text-muted);text-decoration:line-through}
 .pp-tier.cur .pp-tier-price{color:var(--og-primary)}
-.pp-tier-label{font-size:11px;color:var(--og-text-muted)}
+.pp-tier-label{font-size:11px;line-height:1.35;color:var(--og-text-muted)}
+/* The seat count over the word "seats", the same two lines on every cohort however narrow. */
+.pp-tier-label b{display:block;font-weight:400;font-variant-numeric:tabular-nums}
 .pp-tier.cur .pp-tier-label{color:var(--og-text)}
-.pp-spots{font-size:12.5px;color:var(--og-text-secondary);margin-top:24px}
-.pp-spots b{font-weight:400;color:var(--og-primary)}
 .pp-monthly{font-size:12px;color:var(--og-text-muted);margin-top:8px}
 .pp-sure{display:grid;gap:12px;font-size:13px;color:var(--og-text-secondary);padding-top:28px;border-top:1px solid var(--line)}
 .pp-sure li{display:flex;gap:10px;align-items:center}
