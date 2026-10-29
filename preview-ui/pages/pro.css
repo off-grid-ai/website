@@ -68,9 +68,10 @@
 .pp-tier-was{font-size:.52em;color:var(--og-text-muted);text-decoration-thickness:1px}
 /* A checkpoint on the track for every step: filled behind the count, ringed at the live cohort. */
 .pp-nodes{position:absolute;top:1px;left:0;right:0;display:grid;grid-template-columns:var(--cols,repeat(var(--n),1fr));gap:4px;pointer-events:none}
-/* Checkpoints as the library's timeline draws them (CheckpointMark): done fills with a check,
-   active is a ring around a core that breathes, pending waits hollow. */
-.pp-dot{justify-self:center;display:grid;place-items:center;width:14px;height:14px;box-sizing:border-box;border-radius:50%;transform:translateY(-50%);background:var(--og-background);border:1.5px solid var(--line-2);color:var(--og-background);transition:background .3s ease calc(var(--at,0) * .8s),border-color .3s ease calc(var(--at,0) * .8s),box-shadow .3s ease,scale .42s var(--og-ease-spring,cubic-bezier(.34,1.56,.64,1))}
+/* Checkpoints as the library's timeline draws them (CheckpointMark). `translate` (not transform) centres
+   them on the track, so the lift's `scale` grows each one around the line instead of pushing it up.
+   Done fills with a check, active is a ring around a core that breathes, pending waits hollow. */
+.pp-dot{justify-self:center;display:grid;place-items:center;width:14px;height:14px;box-sizing:border-box;border-radius:50%;translate:0 -50%;background:var(--og-background);border:1.5px solid var(--line-2);color:var(--og-background);transition:background .3s ease calc(var(--at,0) * .8s),border-color .3s ease calc(var(--at,0) * .8s),box-shadow .3s ease,scale .42s var(--og-ease-spring,cubic-bezier(.34,1.56,.64,1))}
 .pp-dot svg{width:8px;height:8px}
 .pp-dot.past{background:var(--og-primary);border-color:var(--og-primary)}
 .pp-dot.cur{width:20px;height:20px;border-color:var(--og-primary);box-shadow:0 0 0 3px rgb(var(--og-rgb-primary) / .14),0 0 12px rgb(var(--og-rgb-primary) / .55)}
