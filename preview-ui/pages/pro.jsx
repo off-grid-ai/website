@@ -170,6 +170,9 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
+  const [embedOpen, setEmbedOpen] = useState(false); const embedUi = useRef(null);
+  // Mounted Stripe UIs have to be destroyed, or a second open throws and the buyer is stuck.
+  useEffect(() => () => { try { embedUi.current?.destroy(); } catch {} }, []);
   const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
     ...(pricing.lifetime_offer?.enabled ? { lifetime: checkout.nextLinks.lifetime } : {}) };
   const PLAN_VALUES = { monthly: Number(pricing.monthly), lifetime: Number(pricing.lifetime) };
@@ -194,25 +197,60 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     const v = e.target.value; setEmail(v);
     if (status && status.kind === 'error') setStatus(null);
   };
+  // Ask the worker for a session. `ui` picks the embedded form or Stripe's own page; the worker falls back to the
+  // hosted page whenever it has no publishable key, so this asks for embedded and takes whatever comes back.
+  const session = async (plan, ui) => {
+    const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plan, ui, checkout_id: crypto.randomUUID() }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!response.ok) throw new Error('Checkout unavailable');
+    return response.json();
+  };
+  const toStripe = (url) => {
+    const target = new URL(url);
+    if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
+    window.location.assign(target.href);
+  };
+  // Stripe.js must come from Stripe itself; the embedded form will not mount from a copy.
+  const stripeJs = () => window.Stripe ? Promise.resolve(window.Stripe) : new Promise((resolve, reject) => {
+    const s = document.createElement('script'); s.src = 'https://js.stripe.com/v3/';
+    s.onload = () => resolve(window.Stripe); s.onerror = () => reject(new Error('Stripe.js blocked'));
+    document.head.appendChild(s);
+  });
+  // Stripe's page is headed with the company that owns the Stripe account, not Off Grid AI, and most people who
+  // reached it left without typing anything. The form opens here instead, on the page they already trust.
+  const openEmbedded = async (plan) => {
+    const { clientSecret, publishableKey, url } = await session(plan, 'embedded');
+    if (!clientSecret) return toStripe(url); // the worker has no publishable key yet
+    const Stripe = await stripeJs();
+    const checkoutUi = await Stripe(publishableKey).initEmbeddedCheckout({ clientSecret });
+    setEmbedOpen(true);
+    embedUi.current = checkoutUi;
+    checkoutUi.mount('#pp-embed');
+    document.getElementById('pp-embed')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  // Some people would rather finish on Stripe's own page, and a blocked or broken embed must never cost the sale.
+  const payOnStripe = async (plan) => {
+    setBusy(true);
+    try { toStripe((await session(plan, 'hosted')).url); }
+    catch { setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' }); setBusy(false); }
+  };
   const buy = async (plan) => {
     if (stripe) {
       // Stripe Checkout asks for the email the key is sent to, so this page does not.
       if (submitting.current || !ready || failed) return;
       submitting.current = true; setBusy(true); setStatus(null);
       try {
-        const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan, checkout_id: crypto.randomUUID() }),
-          signal: AbortSignal.timeout(20000),
-        });
-        if (!response.ok) throw new Error('Checkout unavailable');
-        const session = await response.json();
-        const target = new URL(session.url);
-        if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
         try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
-        window.location.assign(target.href);
+        await openEmbedded(plan);
+        submitting.current = false; setBusy(false);
       } catch {
-        setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
+        // The form could not open: fall through to Stripe's page rather than showing an error.
+        try { await payOnStripe(plan); } catch {
+          setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
+        }
         submitting.current = false; setBusy(false);
       }
       return;
@@ -267,6 +305,11 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
+    {/* The form opens here, on this page. It stays in the document so Stripe always has somewhere to mount. */}
+    <div id="pp-embed" className="pp-embed" hidden={!embedOpen} />
+    {stripe && embedOpen &&
+      <p className="pp-quiet pp-embed-alt">Would rather pay on Stripe's own page?{' '}
+        <a href="#buy" onClick={(e) => { e.preventDefault(); payOnStripe(primary[0]); }}>Open it there instead</a>.</p>}
     <ul className="pp-trust">
       <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
       <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>

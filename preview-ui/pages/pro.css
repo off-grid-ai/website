@@ -47,6 +47,10 @@
 .pp-buy:disabled{opacity:.45;cursor:not-allowed}
 .pp-buy.ihb{font-weight:400!important;font-size:14px}
 .pp-pay-status{min-height:1.2em;font-size:12.5px;line-height:1.6;margin:0}
+/* Stripe's embedded form, opened in place of leaving for Stripe's own page. Its own iframe sets the height. */
+.pp-embed{margin-top:4px}
+.pp-embed[hidden]{display:none}
+.pp-embed-alt{margin:2px 0 0;font-size:12.5px}
 .pp-pay-status.ea-status-error{color:var(--og-error)}
 .pp-pay-status.ea-status-success{color:var(--og-primary)}
 .pp-pay-status a{text-decoration:underline;text-underline-offset:3px}
