@@ -50,6 +50,14 @@
 /* Stripe's embedded form, opened in place of leaving for Stripe's own page. Its own iframe sets the height. */
 .pp-embed{margin-top:4px}
 .pp-embed[hidden]{display:none}
+/* While Stripe's form is open it is the card: the plan, its list and the buy buttons step aside, and Back returns them. */
+.plan-hero.is-paying .pp-plan-top,.plan-hero.is-paying .pp-plan-row,.plan-hero.is-paying .pp-get,
+.plan-hero.is-paying .pp-buy,.plan-hero.is-paying .pp-pay-status{display:none}
+.pp-embed-back{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:none;border:0;padding:0;margin:0 0 4px;
+  font:inherit;font-size:13px;color:var(--og-text-secondary);cursor:pointer}
+.pp-embed-back:hover{color:var(--og-text)}
+/* Stripe draws its form on its own light sheet; rounding it makes the sheet sit in the card rather than cut across it. */
+.pp-embed{border-radius:12px;overflow:hidden}
 /* Fine print, so its link is plain text: the card styles every other link as a button. */
 .pp-embed-alt{margin:2px 0 0}
 .pp-pay-status.ea-status-error{color:var(--og-error)}

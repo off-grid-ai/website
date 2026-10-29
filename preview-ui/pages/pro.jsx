@@ -3,7 +3,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
@@ -161,7 +161,7 @@ function useScript(src) {
   }, [src]);
 }
 
-function Checkout({ pricing, checkout, count, failed, tier, ready }) {
+function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
   const stripe = pricing.checkout_provider === 'stripe';
@@ -170,7 +170,9 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
-  const [embedOpen, setEmbedOpen] = useState(false); const embedUi = useRef(null); const loadingStripe = useRef(null);
+  // The plan the open form is for, or null. The form takes the card's place while it is open.
+  const [embedPlan, setEmbedPlan] = useState(null); const embedOpen = embedPlan !== null;
+  const embedUi = useRef(null); const loadingStripe = useRef(null);
   // Mounted Stripe UIs have to be destroyed, or a second open throws and the buyer is stuck.
   useEffect(() => () => { try { embedUi.current?.destroy(); } catch {} }, []);
   const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
@@ -233,15 +235,25 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   };
   // Stripe's page is headed with the company that owns the Stripe account, not Off Grid AI, and most people who
   // reached it left without typing anything. The form opens here instead, on the page they already trust.
+  // Stripe allows one embedded form on a page at a time: a second one throws, and the throw used to send the buyer to
+  // Stripe's own page. So any open form is destroyed before another is made.
+  const destroyEmbedded = () => { try { embedUi.current?.destroy(); } catch {} embedUi.current = null; };
   const openEmbedded = async (plan) => {
     const { clientSecret, publishableKey, url } = await session(plan, 'embedded');
     if (!clientSecret) return toStripe(url); // the worker has no publishable key yet
     const Stripe = await stripeJs();
+    destroyEmbedded();
     const checkoutUi = await Stripe(publishableKey).initEmbeddedCheckout({ clientSecret });
-    setEmbedOpen(true);
     embedUi.current = checkoutUi;
     checkoutUi.mount('#pp-embed');
-    document.getElementById('pp-embed')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setEmbedPlan(plan); onPaying?.(true);
+    // The form replaces the card's contents, so bring the card's top into view, not the bottom of the old buttons.
+    form.current?.closest('.plan-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  // Back to the plans: the form goes, the price and buttons come back where they were.
+  const closeEmbedded = () => {
+    destroyEmbedded(); setEmbedPlan(null); onPaying?.(false);
+    form.current?.closest('.plan-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   // Some people would rather finish on Stripe's own page, and a blocked or broken embed must never cost the sale.
   const payOnStripe = async (plan) => {
@@ -317,11 +329,13 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
       {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
-    {/* The form opens here, on this page. It stays in the document so Stripe always has somewhere to mount. */}
+    {/* While the form is open it is the card: the price, list and buttons hide (.is-paying), and Back brings them back. */}
+    {embedOpen && <button type="button" className="pp-embed-back" onClick={closeEmbedded}><ArrowLeft size={14} />Back to plans</button>}
+    {/* It stays in the document so Stripe always has somewhere to mount. */}
     <div id="pp-embed" className="pp-embed" hidden={!embedOpen} />
     {stripe && embedOpen &&
       <p className="pp-fine pp-embed-alt">Prefer Stripe's own page?{' '}
-        <a href="#buy" onClick={(e) => { e.preventDefault(); payOnStripe(primary[0]); }}>Pay there instead</a></p>}
+        <a href="#buy" onClick={(e) => { e.preventDefault(); destroyEmbedded(); payOnStripe(embedPlan); }}>Pay there instead</a></p>}
     <ul className="pp-trust">
       <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
       <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
@@ -335,6 +349,8 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
 const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p.devices} devices, desktop and mobile`, 'Every update'];
 
 function Buy({ pricing, checkout, count, failed, tier, ready }) {
+  // True while Stripe's form is open: it takes the card's place instead of hanging below the buttons.
+  const [paying, setPaying] = useState(false);
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
@@ -343,11 +359,11 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
       <div className="pp-buy-grid">
         {/* Busy only while the live price loads; when it lands the card settles once. */}
         <SceneCard className="plan-card plan-card-hero pp-checkout" busy={!ready && !failed}>
-          <div className="plan plan-hero">
+          <div className={`plan plan-hero${paying ? ' is-paying' : ''}`}>
             <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
             <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} /></div>
             <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
+            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} onPaying={setPaying} />
           </div>
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
