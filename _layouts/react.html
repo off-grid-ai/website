@@ -102,6 +102,9 @@
   }
   </script>
 
+  {% include organization-schema.html %}
+  {% include app-schema.html %}
+
   <!-- WebPage schema -->
   <script type="application/ld+json">
   {
@@ -170,7 +173,14 @@
       api_host: 'https://us.i.posthog.com',
       defaults: '2026-01-30',
       person_profiles: 'identified_only',
+      // Replay is off everywhere by default and switched on below for the buying pages only. Without it, when the
+      // checkout started losing people there was nothing to watch: only counts, which say that it happened and never
+      // what the buyer saw. Inputs are masked, so no email, card or name is ever recorded.
+      disable_session_recording: true,
+      session_recording: { maskAllInputs: true },
     });
+    // The pages where money is decided. Everything else stays unrecorded.
+    if (/^\/(pro|thank-you)\//.test(location.pathname)) posthog.startSessionRecording();
   </script>
   <script src="{{ '/assets/js/site-analytics.js' | relative_url }}"></script>
   <!-- Carry the Google Ads click id past the landing page, so a purchase can be

@@ -9,17 +9,15 @@ export function lifetimePrice(pricing) {
     : pricing.lifetime;
 }
 
+// With Stripe the site's own prices are the prices: nothing is fetched. Fetching them from the Worker and then a
+// customer count kept every buy button off for 1-1.5 s on each visit, and the count stopped moving when checkout
+// left RevenueCat. The Worker checks Stripe against these before every checkout.
+export function currentPricing(pricing) {
+  return { count: null, tier: null, pricing: { ...pricing, lifetime: lifetimePrice(pricing), monthly: pricing.monthly } };
+}
+
 export function loadPricing(pricing) {
-  if (pricing.checkout_provider === 'stripe') {
-    return fetch(`${pricing.stripe_endpoint}/pricing`, { signal: AbortSignal.timeout(8000) })
-      .then(response => response.ok ? response.json() : Promise.reject(new Error('Pricing unavailable')))
-      .then(current => {
-        if (!Number.isFinite(current.lifetime) || !Number.isFinite(current.monthly) || current.lifetime <= 0 || current.monthly <= 0) throw new Error('Invalid pricing');
-        // Stripe is the price. The count only fills the ladder and the spots-left line, so losing it never blocks a purchase.
-        return customerCount(pricing).catch(() => null)
-          .then(count => ({ count, tier: null, pricing: { ...pricing, ...current } }));
-      });
-  }
+  if (pricing.checkout_provider === 'stripe') return Promise.resolve(currentPricing(pricing));
   return customerCount(pricing).then(count => {
     const tier = count >= pricing.tiers[0].until ? 1 : 0;
     return {

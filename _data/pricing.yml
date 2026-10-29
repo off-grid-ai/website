@@ -14,10 +14,12 @@
 #     founders are grandfathered and untouched.
 #   - Customers keep the price that applies when they buy or subscribe.
 
-# First-cohort defaults and final ladder prices. Current purchase copy uses
-# the shared helper; it waits for the count instead of displaying these defaults.
-monthly: 4.99        # USD/month - current monthly price
-lifetime: 69         # USD - current lifetime price
+# The current prices. Every page shows these as they are: nothing is fetched before a buyer can pay, and the
+# ladder marks the step these prices belong to. Change them here when the price changes. The Worker checks before
+# every checkout that Stripe charges exactly these (119.00 lifetime, 7.99 monthly, the offer's coupon), so a page
+# and Stripe can never disagree; with the lifetime offer on, lifetime shows as 119 less the offer.
+monthly: 7.99        # USD/month - current monthly price
+lifetime: 119        # USD - current lifetime price, before the lifetime offer
 top_monthly: 9.99    # USD/month - final monthly price
 top_lifetime: 149    # USD - final lifetime price
 devices: 5
@@ -39,26 +41,32 @@ lifetime_offer:
 # Read off RevenueCat at the date each lifetime product opened, rounded to the
 # nearest 50: 55 when $30 opened (16 Jun), 156 when $50 opened (17 Jun),
 # 588 when $69 opened (1 Jul), 1,485 when $119 opened (8 Oct).
+# `seats` is the size each cohort was sold as, and is what the stepper labels and sizes by.
 history:
   - lifetime: 10
+    seats: 100
     until: 50
   - lifetime: 30
+    seats: 150
     until: 150
   - lifetime: 50
+    seats: 250
     until: 600
 
 # The ladder, low → high. `until` = cumulative customer count at which this
-# lifetime tier closes (0 = final, no cap), counted across `history` too. The seats
-# in a cohort are the gap to the step before it, so the stepper's labels are derived
-# and can never drift from the counts. These are regular prices, before offers.
+# lifetime tier closes (0 = final, no cap), counted across `history` too; it picks the
+# live tier and fills the stepper's track. `seats` is the cohort size the stepper labels
+# (display only; the final tier has none). These are regular prices, before offers.
 # A live `lifetime_offer` scratches its cohort price in the stepper and shows the
 # offer price in its place.
 tiers:
   - lifetime: 69
     monthly: 4.99
+    seats: 1500
     until: 1500
   - lifetime: 119
     monthly: 7.99
+    seats: 5000
     until: 6500
   - lifetime: 149
     monthly: 9.99
@@ -68,3 +76,6 @@ tiers:
 # Stripe prices and the deployed Worker were verified on 2026-10-16.
 checkout_provider: stripe
 stripe_endpoint: "https://license.getoffgridai.co/stripe"
+# Public by design (it ships in every page that takes a payment). Knowing it up front lets Stripe load its form
+# while the Worker is still creating the session, instead of after; the Worker holds the same key.
+stripe_publishable_key: "pk_live_51OfKEyCfLaxt9BREBel5ZDYbjIor0gwXKR9vFvu8qy7RxK5kP02JiSz9PFNJIreUGR3uGuLPxt36gAXZcdDBdQb800xRwqRe1V"

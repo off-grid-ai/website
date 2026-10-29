@@ -80,10 +80,12 @@ test('the price history is display-only and reads low to high through the live l
   const steps = [...pricing.history, ...pricing.tiers].map(s => s.lifetime);
   assert.deepEqual(steps, [10, 30, 50, 69, 119, 149]);
   for (let i = 1; i < steps.length; i++) assert.ok(steps[i] > steps[i - 1], `step ${i} must rise`);
-  // History carries a price and a seat count only: it can never be sold or picked as the live tier.
-  for (const step of pricing.history) assert.deepEqual(Object.keys(step).sort(), ['lifetime', 'until']);
-  // One cumulative axis across history and the ladder, shared with the count worker, so the
-  // derived "first N / next N" labels always add up. Only the final tier is uncapped.
+  // History carries a price, its cohort size and a count only: it can never be sold or picked as the live tier.
+  for (const step of pricing.history) assert.deepEqual(Object.keys(step).sort(), ['lifetime', 'seats', 'until']);
+  // The stepper labels every capped cohort with the seats it was sold as, never with seats left.
+  assert.deepEqual([...pricing.history, ...pricing.tiers].filter(s => s.until).map(s => s.seats), [100, 150, 250, 1500, 5000]);
+  // One cumulative axis across history and the ladder, shared with the count worker, picks the
+  // live tier and fills the track. Only the final tier is uncapped.
   const caps = [...pricing.history, ...pricing.tiers].map(s => s.until);
   assert.equal(caps.at(-1), 0, 'only the last step is uncapped');
   for (let i = 1; i < caps.length - 1; i++) assert.ok(caps[i] > caps[i - 1], `step ${i} must close after the one before it`);

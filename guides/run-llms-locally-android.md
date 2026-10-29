@@ -114,3 +114,10 @@ Off Grid AI uses llama.cpp on ARM64 with NEON, i8mm, and dotprod SIMD instructio
 - [How to Use Ollama From Your Android Phone in 2026]({{ '/guides/ollama-android' | relative_url }})
 - [How to Use Off Grid AI Desktop From Your Phone in 2026]({{ '/guides/off-grid-ai-desktop-from-your-phone' | relative_url }})
 - [Vision AI - Analyse Images On-Device]({{ '/guides/vision-ai' | relative_url }})
+
+## How Off Grid AI compares
+
+- [Off Grid AI vs PocketPal]({{ '/articles/off-grid-ai-vs-pocketpal-2026-the-offline-phone-ai-that-also-makes-images/' | relative_url }})
+- [Off Grid AI vs Google AI Edge Gallery]({{ '/articles/off-grid-ai-vs-google-ai-edge-gallery-2026-stable-offline-ai-with-any-gguf-model/' | relative_url }})
+- [Off Grid AI vs AnythingLLM]({{ '/articles/off-grid-ai-vs-anythingllm-2026-private-ai-on-your-iphone-with-images-and-sync/' | relative_url }})
+- [Off Grid AI vs Private LLM]({{ '/articles/off-grid-ai-vs-private-llm-2026-free-open-source-and-on-android-and-windows-too/' | relative_url }})

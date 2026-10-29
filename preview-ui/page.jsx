@@ -1527,7 +1527,7 @@ function ReviewCard({ r }) {
 }
 // One quote at a time (stars on store reviews), swapping with a soft blur. It pauses under the pointer;
 // reduced motion keeps the first quote still. On the homepage it links down to the wall; on product
-// pages it sits under the call to action and reports once when seen (review_view).
+// pages it sits under the call to action, reports once when seen (review_view) and links to the wall.
 function useQuoteCycle(quotes, reduce) {
   const [k, setK] = useState(0); const [hold, setHold] = useState(false);
   useEffect(() => { if (reduce || hold) return; const t = setInterval(() => setK(v => (v + 1) % quotes.length), 4200); return () => clearInterval(t); }, [reduce, hold, quotes]);
@@ -1547,7 +1547,10 @@ function QuoteSlot({ quotes, k }) {
 }
 export function ReviewLine({ quotes, placement }) {
   const { k, hold } = useQuoteCycle(quotes, useReducedMotion());
-  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}><QuoteSlot quotes={quotes} k={k} /></figure>;
+  return <figure className="hr-quote pp-reviews" {...hold} data-analytics-view="review_view" data-analytics-placement={placement}>
+    <QuoteSlot quotes={quotes} k={k} />
+    <a className="hr-more" href="/#reviews" data-analytics-event="nav_click" data-analytics-placement={`${placement}:reviews`}>All reviews <ArrowRight size={12} /></a>
+  </figure>;
 }
 // The first screen's proof: the Product Hunt pill or badge, then the quote line.
 function HeroReviews({ reduce }) {
@@ -1799,7 +1802,7 @@ export function PageShell({ children, feedback = true }) {
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" data-analytics-event="nav_click" data-analytics-placement={`footer:${head}`} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
-      <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
+      <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a>. Not affiliated with offgridai.us.</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer></Suspense>
   </AliveProvider></Theme></PlayCtx.Provider></MotionConfig>;
 }

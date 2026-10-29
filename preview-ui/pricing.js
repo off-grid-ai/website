@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
-import { loadPricing, lifetimePrice } from '../assets/js/pro-pricing.js';
+import { loadPricing, lifetimePrice, currentPricing } from '../assets/js/pro-pricing.js';
 
-// React adapter for the same helper used by the Liquid layouts.
+// React adapter for the same helper used by the Liquid layouts. With Stripe the prices are the site's own, known at
+// render time, so the page is built with them and the buy buttons work from the first paint: no "$..." placeholder,
+// no wait.
 export function usePricing(initialPricing) {
-  const [result, setResult] = useState(null);
+  const stripe = initialPricing.checkout_provider === 'stripe';
+  const [result, setResult] = useState(() => (stripe ? currentPricing(initialPricing) : null));
   const [failed, setFailed] = useState(false);
   useEffect(() => {
+    if (stripe) return;
     let active = true;
     loadPricing(initialPricing)
       .then(value => { if (active) setResult(value); })

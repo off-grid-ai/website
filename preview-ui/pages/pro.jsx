@@ -1,9 +1,10 @@
 import { LifetimePrice } from '../lifetime-price.jsx';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Heading, Text, TextField, Badge, Progress } from '@radix-ui/themes';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile, FilmStrip } from '@phosphor-icons/react';
+import { ArrowLeft, FilmStrip, ArrowRight, ArrowUpRight, Check, LockKey, Brain, ChartBar, CheckCircle, Sparkle, ShieldCheck, ArrowsClockwise, PaperPlaneTilt, EnvelopeSimple, Plus, Key, ClipboardText, DeviceMobile } from '@phosphor-icons/react';
 import { Highlighter } from '@magicui/highlighter';
 import { AnimatedShinyText } from '@magicui/animated-shiny-text';
 import Button from '@smoothui/smooth-button';
@@ -14,7 +15,16 @@ import { installClickTracking } from './_track.js';
 import { Explorer, Seq, Fit, Loop, VideoScene } from './_product.jsx';
 import { usePricing } from '../pricing.js';
 
-const toBuy = (label, section) => { proCta('#buy', label, section); document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#buy'); };
+// Every buy button off the pricing card brings the buyer to the card with its form already opening, so there is one
+// place to pay and nobody taps "Own Pro" twice. On this page that is a scroll and an event; from any other page it is
+// a link to /pro/#buy, which opens the form on arrival (see Checkout).
+const OPEN_CHECKOUT = 'pp:open-checkout';
+const toBuy = (label, section, plan = 'lifetime') => {
+  proCta('#buy', label, section);
+  document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' });
+  history.replaceState(null, '', '#buy');
+  window.dispatchEvent(new CustomEvent(OPEN_CHECKOUT, { detail: { plan } }));
+};
 
 /* ───────── Hero: the product, large ───────── */
 
@@ -31,7 +41,7 @@ function Hero({ pricing }) {
       <div className="pp-cta">
         <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
           onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Hero')}>Own Pro for ${pricing.lifetime}</Button>
-        <a className="pp-quiet" href="#buy" data-cta="">or ${pricing.monthly}/month</a>
+        <a className="pp-quiet" href="#buy" onClick={(e) => { e.preventDefault(); toBuy(e.currentTarget.textContent.trim(), 'Hero', 'monthly'); }}>or ${pricing.monthly}/month</a>
       </div>
       <Proof />
       <ReviewLine quotes={PAGE_REVIEWS.pro} placement="pro:hero" />
@@ -39,7 +49,7 @@ function Hero({ pricing }) {
   </section>;
 }
 
-/* ───────── Price ladder (live tier from the customer count) ───────── */
+/* ───────── Price ladder (the step the current prices belong to; pricing.yml) ───────── */
 
 function Ladder({ pricing, count, failed, tier }) {
   const tiers = pricing.tiers;
@@ -47,21 +57,36 @@ function Ladder({ pricing, count, failed, tier }) {
   const past = pricing.history || [];
   // The history, the live ladder, and one step for what nobody has decided yet.
   const steps = [...past.map(h => ({ ...h, closed: true })), ...tiers, { unknown: true }];
-  // Seats in a cohort = the gap to the step before it, so the labels always add up.
-  const size = (i) => steps[i].until - (i ? steps[i - 1].until : 0);
-  // The step people can still buy says how many seats are actually left, not its size.
-  const seats = (i) => steps[i].unknown ? '\u00a0' : !steps[i].until ? 'after that'
-    : i === cur && count != null ? `${Math.max(0, steps[i].until - count).toLocaleString()} left`
-    : `${i ? 'next' : 'first'} ${size(i).toLocaleString()}`;
-  // Each step is as wide as its cohort is big, dampened so the first 50 stay legible
-  // beside the 5,000 still to sell. Uncapped steps take the narrowest width.
-  const widths = steps.map((s, i) => {
+  // Every cohort is labelled with the seats it was sold in. The stepper shows where the count is;
+  // the page never prints how many seats are left.
+  const seats = (i) => steps[i].unknown ? '\u00a0' : !steps[i].until ? 'after that' : <><b>{steps[i].seats.toLocaleString()}</b> seats</>;
+  // Each step is as wide as its cohort is big, dampened so the first 100 stay legible
+  // beside the 5,000. Uncapped steps take the narrowest width.
+  const widths = steps.map((s) => {
     if (!s.until) return 1;
-    return Math.min(4, Math.cbrt(size(i)) / Math.cbrt(size(0)));
+    return Math.min(4, Math.cbrt(s.seats) / Math.cbrt(steps[0].seats));
   });
   const cols = widths.map(w => `${w.toFixed(3)}fr`).join(' ');
   const n = steps.length;
   const rail = useRef(null);
+  // Below the fold, the track waits to climb until the ladder scrolls into view; on screen at
+  // load (or with reduced motion) it is already where it belongs, so nothing blinks.
+  const reduce = useReducedMotion();
+  const [held, setHeld] = useState(false);
+  useLayoutEffect(() => { if (!reduce && rail.current?.getBoundingClientRect().top > innerHeight) setHeld(true); }, [reduce]);
+  const inView = useInView(rail, { once: true, margin: '0px 0px -20% 0px' });
+  // The column fades in first (the conductor's reveal); the climb starts once it has arrived.
+  const [seen, setSeen] = useState(false);
+  useEffect(() => { if (!inView) return; const id = setTimeout(() => setSeen(true), 650); return () => clearTimeout(id); }, [inView]);
+  // Hovering a cohort lifts its checkpoint on the track.
+  const [hot, setHot] = useState(-1);
+  // Left alone, the lift travels on its own: first checkpoint, then the next, up to the live one,
+  // a beat of rest, and round again. A hover takes over; off screen or with reduced motion it rests.
+  const [wave, setWave] = useState(-1);
+  const onScreen = useInView(rail);
+  const climbed = !held || seen;
+  // The library's alive layer gives progress indicators their travelling sheen and glow by data-slot.
+  useLayoutEffect(() => { rail.current?.querySelector('.rt-ProgressIndicator')?.setAttribute('data-slot', 'progress-indicator'); }, []);
   // The live count fills the track on its own; when it lands, the field answers from the current tier
   // (strong enough that the ring reaches the checkout card beside it).
   const landed = () => { const at = rail.current?.querySelector('.pp-tier.cur .pp-tier-price'); if (at) orchestra.pulseFrom(at, 'change', 0.8); };
@@ -82,29 +107,39 @@ function Ladder({ pricing, count, failed, tier }) {
   const monthly = t === tiers.length - 1 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month.`
     : t === tiers.length - 2 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}.`
     : `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}, then $${tiers[tiers.length - 1].monthly}.`;
+  useEffect(() => {
+    setWave(-1);
+    if (reduce || !seen || !onScreen || hot >= 0) return;
+    let k = -1; let tick;
+    // Starts once the climb has landed, then one checkpoint per beat.
+    const start = setTimeout(() => { tick = setInterval(() => { k = (k + 1) % (cur + 2); setWave(k <= cur ? k : -1); }, 1300); }, 1400);
+    return () => { clearTimeout(start); clearInterval(tick); };
+  }, [reduce, seen, onScreen, hot, cur]);
   return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
     <Kicker>{offer ? 'THE LIFETIME OFFER' : 'PRO LIFETIME'}</Kicker>
     <Heading as="h3">One payment. Every Pro feature.</Heading>
     {offer
       ? <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime} instead of ${offer.original_price} for a limited time. The ${offer.amount_off.toFixed(2)} discount is already applied at checkout. One key for up to {pricing.devices} devices.</p>
       : <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>}
-    {count != null && <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
-      <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>
-    </p>}
-    {count == null && failed && <p className="pp-count"><span className="pp-muted">Customer count unavailable.</span></p>}
     {/* The price history, left to right. Radix Themes Progress draws how far it has climbed;
         hidden from assistive tech because the prices and labels already say it. */}
     <div className="pp-tiers" ref={rail} style={{ '--n': n, '--cols': cols }}>
-      <Progress className="pp-progress" variant="soft" value={Math.round(fill * 100)} max={100} aria-hidden="true"
+      <Progress className="pp-progress" variant="soft" value={climbed ? Math.round(fill * 100) : 0} max={100} aria-hidden="true"
         style={{ left: `${railStart * 100}%`, right: `${(1 - railEnd) * 100}%` }}
         onTransitionEnd={(e) => { if (e.propertyName === 'transform') landed(); }} />
       <div className="pp-nodes" aria-hidden="true">
-        {steps.map((s, i) => <span key={i} className={`pp-dot ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`} />)}
+        {/* The library timeline's checkpoints: a sold-out cohort fills with a check, the live one is a
+            breathing ring, the rest wait hollow. Each arrives as the climbing fill reaches it (--at). */}
+        {steps.map((s, i) => <span key={i} style={{ '--at': Math.max(0, (centre(i) - railStart) / (railEnd - railStart)).toFixed(3) }}
+          className={`pp-dot ${climbed && i < cur ? 'past' : ''} ${climbed && i === cur ? 'cur' : ''} ${i === hot || (hot < 0 && i === wave) ? 'hot' : ''}`}>
+          {climbed && i < cur && <svg viewBox="0 0 10 10" fill="none"><path d="M2.2 5.2 4.2 7.1 7.8 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+          {climbed && i === cur && <span className="pp-dot-core" />}
+        </span>)}
       </div>
       {steps.map((s, i) => {
         // The cohort the offer runs in shows its regular price scratched and the offer price in its place.
         const offered = offer && s.lifetime === offer.original_price;
-        return <div key={i} className={`pp-tier ${s.closed ? 'pp-tier-past' : ''} ${s.unknown ? 'pp-tier-unknown' : ''} ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`}>
+        return <div key={i} data-og-living="" onPointerEnter={() => setHot(i)} onPointerLeave={() => setHot(-1)} className={`pp-tier ${s.closed ? 'pp-tier-past' : ''} ${s.unknown ? 'pp-tier-unknown' : ''} ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`}>
           <span className={`pp-tier-price ${offered ? 'pp-tier-offered' : ''}`}>
             {offered && <s className="pp-tier-was"><span className="sr-only">Regular price </span>${s.lifetime}</s>}
             <span>{s.unknown ? <abbr title="Nobody knows yet">?</abbr>
@@ -114,7 +149,6 @@ function Ladder({ pricing, count, failed, tier }) {
         </div>;
       })}
     </div>
-    {count != null && tiers[t].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[t].until - count).toLocaleString()}</b> spots left at ${pricing.lifetime} for life before the price jumps to ${tiers[t + 1].lifetime}.</p>}
     <p className="pp-monthly" id="og-monthly">{monthly}</p>
   </div>;
 }
@@ -137,7 +171,39 @@ function useScript(src) {
   }, [src]);
 }
 
-function Checkout({ pricing, checkout, count, failed, tier, ready }) {
+// The three-dot wave every Off Grid surface uses for "working on it" (ui-library LoadingDots, OGAD main.css). The
+// website does not carry the library, so this is the same markup and the same wave; it takes the button's text colour.
+function LoadingDots() {
+  return <span className="og-dots" aria-hidden="true"><i /><i /><i /></span>;
+}
+
+// Plan to form and back as one motion: the outgoing part fades, the card eases to its new height, the incoming part
+// fades in. Heights are measured and animated directly, not scaled, so Stripe's iframe never stretches mid-move.
+const EASE_OUT = 'cubic-bezier(.2,.8,.2,1)', EASE_IN = 'cubic-bezier(.4,0,1,1)';
+// About 0.1 s end to end: long enough to read as one change, short enough that nobody waits on it.
+const OUT_MS = 30, GROW_MS = 80, IN_MS = 80;
+// An animation's `finished` waits for frames, and a page in a background tab gets none. The hand-over must never wait
+// on that, so every step also ends on a timer a little after its own length.
+const settled = (anim, ms) => Promise.race([anim.finished.catch(() => {}), new Promise((r) => setTimeout(r, ms + 120))]);
+const fade = (els, from, to, ms, easing, delay = 0) => Promise.all(els.filter(Boolean).map((el) =>
+  // 'both': an incoming part holds its start state through the delay, so it never flashes in before it fades.
+  settled(el.animate([from, to], { duration: ms, easing, delay, fill: 'both' }), ms + delay)));
+async function morph(card, swap, outgoing, incoming) {
+  const h0 = card.offsetHeight;
+  await fade(outgoing(), { opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-6px)' }, OUT_MS, EASE_IN);
+  swap();
+  for (const el of outgoing()) el.getAnimations().forEach((a) => a.cancel());
+  const h1 = card.offsetHeight;
+  card.style.overflow = 'hidden';
+  const grow = card.animate([{ height: `${h0}px` }, { height: `${h1}px` }], { duration: GROW_MS, easing: EASE_OUT });
+  await Promise.all([settled(grow, GROW_MS),
+    fade(incoming(), { opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }, IN_MS, EASE_OUT)]);
+  for (const el of incoming()) el.getAnimations().forEach((a) => a.cancel());
+  card.style.overflow = '';
+}
+
+function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
+  const reduceMotion = useReducedMotion();
   useScript('/assets/js/revenuecat-link.js');
   useScript('/assets/js/checkout-plan.js');
   const stripe = pricing.checkout_provider === 'stripe';
@@ -146,6 +212,13 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState(null);
   const form = useRef(null); const input = useRef(null); const fired = useRef({});
+  // The plan the open form is for, or null. The form takes the card's place while it is open.
+  const [embedPlan, setEmbedPlan] = useState(null); const embedOpen = embedPlan !== null;
+  // The plan whose button is working (three dots), and whether Stripe's form is loading unseen inside the card.
+  const [opening, setOpening] = useState(null); const [staged, setStaged] = useState(false);
+  const embedUi = useRef(null); const loadingStripe = useRef(null);
+  // Mounted Stripe UIs have to be destroyed, or a second open throws and the buyer is stuck.
+  useEffect(() => () => { try { embedUi.current?.destroy(); } catch {} }, []);
   const LINKS = { ...(tier === 1 ? checkout.nextLinks : checkout.links),
     ...(pricing.lifetime_offer?.enabled ? { lifetime: checkout.nextLinks.lifetime } : {}) };
   const PLAN_VALUES = { monthly: Number(pricing.monthly), lifetime: Number(pricing.lifetime) };
@@ -161,34 +234,133 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     if (input.current && input.current.value !== email) setEmail(input.current.value);
     if (typeof IntersectionObserver !== 'function' || !form.current) return;
     const io = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { reportOnce('pro_buy_form_viewed'); io.disconnect(); }
+      if (entries.some(e => e.isIntersecting)) {
+        reportOnce('pro_buy_form_viewed');
+        io.disconnect();
+      }
     }, { threshold: 0.4 });
     io.observe(form.current);
     return () => io.disconnect();
+  }, []);
+  // Warm everything a buy tap needs as the page loads, not when the tap comes: the connections to Stripe and to the
+  // Worker, and Stripe.js itself. Waiting for the card to scroll into view left the first tap paying for all three.
+  useEffect(() => {
+    if (!stripe) return;
+    for (const origin of ['https://js.stripe.com', 'https://api.stripe.com', new URL(pricing.stripe_endpoint).origin]) {
+      if (document.querySelector(`link[rel="preconnect"][href="${origin}"]`)) continue;
+      const link = document.createElement('link'); link.rel = 'preconnect'; link.href = origin; link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+    stripeJs().catch(() => {});
   }, []);
   const onInput = (e) => {
     const v = e.target.value; setEmail(v);
     if (status && status.kind === 'error') setStatus(null);
   };
+  // Ask the worker for a session. `ui` picks the embedded form or Stripe's own page; the worker falls back to the
+  // hosted page whenever it has no publishable key, so this asks for embedded and takes whatever comes back.
+  const session = async (plan, ui) => {
+    const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plan, ui, checkout_id: crypto.randomUUID() }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!response.ok) throw new Error('Checkout unavailable');
+    return response.json();
+  };
+  const toStripe = (url) => {
+    const target = new URL(url);
+    if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
+    window.location.assign(target.href);
+  };
+  // Stripe.js must come from Stripe itself; the embedded form will not mount from a copy. It is fetched once and the
+  // same attempt is shared, so a second click cannot start a second download or race the first.
+  const stripeJs = () => {
+    if (window.Stripe) return Promise.resolve(window.Stripe);
+    if (!loadingStripe.current) loadingStripe.current = new Promise((resolve, reject) => {
+      const s = document.createElement('script'); s.src = 'https://js.stripe.com/v3/';
+      s.onload = () => resolve(window.Stripe);
+      s.onerror = () => { loadingStripe.current = null; reject(new Error('Stripe.js blocked')); };
+      document.head.appendChild(s);
+    });
+    return loadingStripe.current;
+  };
+  // Stripe's page is headed with the company that owns the Stripe account, not Off Grid AI, and most people who
+  // reached it left without typing anything. The form opens here instead, on the page they already trust.
+  // Stripe allows one embedded form on a page at a time: a second one throws, and the throw used to send the buyer to
+  // Stripe's own page. So any open form is destroyed before another is made.
+  const destroyEmbedded = () => { try { embedUi.current?.destroy(); } catch {} embedUi.current = null; };
+  // The parts of the card that are the plan, and the parts that are the form. Queried live: which exist depends on state.
+  const card = () => form.current?.closest('.plan-hero');
+  const planParts = () => [...(card()?.querySelectorAll('.pp-plan-top,.pp-plan-row,.pp-get,.pp-buy,.pp-pay-status') || [])];
+  const formParts = () => [...(form.current?.querySelectorAll('.pp-embed-back,#pp-embed,.pp-embed-alt') || [])];
+  // Bring the card's top into view only if it is above the screen: the form replaces the card, it does not extend it.
+  const showCard = () => { const c = form.current?.closest('.plan-card'); if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); };
+  // Timeline marks (pp-checkout:*), read with performance.getEntriesByType('mark'), so the wait can be measured on the
+  // live site instead of guessed at. They cost nothing and never throw.
+  const mark = (name) => { try { performance.mark(`pp-checkout:${name}`); } catch {} };
+  // The session request and Stripe's own loading run side by side. They used to run one after the other: the Worker
+  // made the session, then Stripe set up, then its frame loaded, then it drew. Now Stripe asks for the session when
+  // it needs it, so its frame is loading while the Worker is still working.
+  const openEmbedded = async (plan) => {
+    mark('tap');
+    const pending = session(plan, 'embedded');
+    const pk = pricing.stripe_publishable_key;
+    if (!pk) { const s = await pending; if (!s.clientSecret) return toStripe(s.url); } // an older page config
+    const Stripe = await stripeJs();
+    destroyEmbedded();
+    const init = Stripe(pk || (await pending).publishableKey).initEmbeddedCheckout({
+      fetchClientSecret: () => pending.then((s) => { if (!s.clientSecret) throw new Error('hosted'); return s.clientSecret; }),
+    });
+    let checkoutUi;
+    // A Worker without a publishable key answers with Stripe's own page instead: go there.
+    try { checkoutUi = await init; } catch (e) { const s = await pending; if (!s.clientSecret) return toStripe(s.url); throw e; }
+    embedUi.current = checkoutUi;
+    flushSync(() => setStaged(true));
+    checkoutUi.mount('#pp-embed');
+    const s = await pending;
+    mark('session');
+    if (!s.clientSecret) { destroyEmbedded(); flushSync(() => setStaged(false)); return toStripe(s.url); }
+    // The form takes the card the moment the session is here. Waiting for Stripe to finish drawing was a guess made
+    // from its frame resizing, and arriving from another page Stripe had already sized the frame while it waited, so
+    // the guess never came true and the buyer sat on the dots until a six-second cap. Stripe's own loading placeholder
+    // shows for the moment it still needs, and the frame's growth to full size is animated (pro.css).
+    const swap = () => flushSync(() => { setStaged(false); setEmbedPlan(plan); onPaying?.(true); });
+    showCard();
+    if (reduceMotion || !card()) swap(); else await morph(card(), swap, planParts, formParts);
+    mark('shown');
+  };
+  // Back to the plans: the same motion reversed. The form is destroyed once it is out of sight.
+  const closeEmbedded = async () => {
+    if (submitting.current) return; // mid-move: a second Back would measure a card that is still changing size
+    submitting.current = true;
+    const swap = () => { destroyEmbedded(); flushSync(() => { setEmbedPlan(null); onPaying?.(false); }); };
+    showCard();
+    if (reduceMotion || !card()) swap(); else await morph(card(), swap, formParts, planParts);
+    submitting.current = false;
+  };
+  // Some people would rather finish on Stripe's own page, and a blocked or broken embed must never cost the sale.
+  const payOnStripe = async (plan) => {
+    setBusy(true);
+    try { toStripe((await session(plan, 'hosted')).url); }
+    catch { setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' }); setBusy(false); }
+  };
   const buy = async (plan) => {
     if (stripe) {
       // Stripe Checkout asks for the email the key is sent to, so this page does not.
       if (submitting.current || !ready || failed) return;
-      submitting.current = true; setBusy(true); setStatus(null);
+      submitting.current = true; setBusy(true); setStatus(null); setOpening(plan);
       try {
-        const response = await fetch(`${pricing.stripe_endpoint}/checkout`, {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan, checkout_id: crypto.randomUUID() }),
-          signal: AbortSignal.timeout(20000),
-        });
-        if (!response.ok) throw new Error('Checkout unavailable');
-        const session = await response.json();
-        const target = new URL(session.url);
-        if (target.protocol !== 'https:' || target.hostname !== 'checkout.stripe.com') throw new Error('Invalid checkout');
         try { window.posthog?.capture('pro_checkout_started', { plan, provider: 'stripe' }); } catch {}
-        window.location.assign(target.href);
+        await openEmbedded(plan);
+        submitting.current = false; setBusy(false); setOpening(null);
       } catch {
-        setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' });
+        // The form could not open: fall through to Stripe's page rather than showing an error. The dots stay on the
+        // button until the page leaves, so the buyer still sees that something is happening.
+        destroyEmbedded(); setStaged(false);
+        try { await payOnStripe(plan); } catch {
+          setStatus({ kind: 'error', text: 'Checkout is unavailable. Please try again.' }); setOpening(null);
+        }
         submitting.current = false; setBusy(false);
       }
       return;
@@ -217,7 +389,32 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     // The success line holds a link, so the conductor does not settle it: the form ripples instead.
     if (form.current) orchestra.pulseFrom(form.current, 'change', 0.8);
   };
-  const off = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed || busy;
+  // Unusable for a reason the buyer can fix or must wait out; working on their tap is not one (that shows dots instead).
+  const offIdle = (!stripe && email.trim() === '') || (stripe ? !ready : count === null) || failed;
+  const off = offIdle || busy;
+  // Opened from elsewhere: another buy button on this page (the event), or arriving at /pro/#buy from another page or
+  // the mobile app. The form can only open once the live price has loaded, so a request made earlier waits for it.
+  const live = useRef({}); live.current = { ready, failed, embedOpen, buy };
+  const pending = useRef(null);
+  const openPending = () => {
+    const l = live.current; if (!pending.current || !l.ready || l.failed) return;
+    const p = pending.current; pending.current = null;
+    if (!l.embedOpen) l.buy(p);
+  };
+  useEffect(() => {
+    if (!stripe) return;
+    const onOpen = (e) => { pending.current = e.detail?.plan === 'monthly' ? 'monthly' : 'lifetime'; openPending(); };
+    window.addEventListener(OPEN_CHECKOUT, onOpen);
+    if (location.hash === '#buy') pending.current = new URLSearchParams(location.search).get('plan') === 'monthly' ? 'monthly' : 'lifetime';
+    return () => window.removeEventListener(OPEN_CHECKOUT, onOpen);
+  }, []);
+  useEffect(() => { openPending(); }, [ready, failed]);
+  // Back from Stripe's own page can restore this one exactly as it was left, dots and all.
+  useEffect(() => {
+    const onShow = (e) => { if (e.persisted) { setOpening(null); setBusy(false); submitting.current = false; } };
+    window.addEventListener('pageshow', onShow);
+    return () => window.removeEventListener('pageshow', onShow);
+  }, []);
   // The buy buttons wake when they become usable: the field answers from the primary one.
   const wasOff = useRef(off);
   useEffect(() => {
@@ -238,11 +435,21 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
         <TextField.Slot><EnvelopeSimple size={16} /></TextField.Slot>
       </TextField.Root>
     </>}
-    <Button data-site-button="primary" variant="solid" type="button" data-plan={primary[0]} disabled={off} onClick={() => buy(primary[0])} className="pro-shimmer pp-shimmer pp-buy">{primary[1]}</Button>
-    <Button data-site-button="secondary" variant="outline" type="button" data-plan={secondary[0]} disabled={off} onClick={() => buy(secondary[0])} className="ihb pp-buy">{secondary[1]}</Button>
+    {/* The tapped button keeps its colour and shows the dots; the other steps back. Fading both read as "disabled". */}
+    {[[primary, 'solid', 'pro-shimmer pp-shimmer pp-buy', 'primary'], [secondary, 'outline', 'ihb pp-buy', 'secondary']].map(([[p, label], variant, cls, role]) =>
+      <Button key={role} data-site-button={role} variant={variant} type="button" data-plan={p} className={cls}
+        disabled={offIdle || (opening !== null && opening !== p)} aria-busy={opening === p} aria-label={opening === p ? 'Opening secure checkout' : undefined}
+        onClick={() => buy(p)}>{opening === p ? <LoadingDots /> : label}</Button>)}
     <p className={`ea-status pp-pay-status ${err ? 'ea-status-error' : ''} ${status && status.kind === 'success' ? 'ea-status-success' : ''}`} id="payStatus" aria-live="polite">
-      {busy ? 'Opening secure checkout...' : err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
+      {err ? status.text : status && status.kind === 'success' ? <>Checkout opened in a new tab. <a href={status.url} target="_blank" rel="noopener">Reopen it</a> if your browser blocked the popup.</> : (stripe ? !ready : count === null) ? (failed ? 'Pricing unavailable. Reload this page to try again.' : 'Loading current pricing...') : null}
     </p>
+    {/* While the form is open it is the card: the price, list and buttons hide (.is-paying), and Back brings them back. */}
+    {embedOpen && <button type="button" className="pp-embed-back" onClick={closeEmbedded}><ArrowLeft size={14} />Back to plans</button>}
+    {/* It stays in the document so Stripe always has somewhere to mount. Staged, it loads unseen behind the plan. */}
+    <div id="pp-embed" className={`pp-embed${staged ? ' is-staged' : ''}`} hidden={!embedOpen && !staged} />
+    {stripe && embedOpen &&
+      <p className="pp-fine pp-embed-alt">Prefer Stripe's own page?{' '}
+        <a href="#buy" onClick={(e) => { e.preventDefault(); destroyEmbedded(); payOnStripe(embedPlan); }}>Pay there instead</a></p>}
     <ul className="pp-trust">
       <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
       <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
@@ -256,6 +463,8 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
 const GET = (p) => ['Memory and search', 'Actions you approve', 'Pro Sync', `${p.devices} devices, desktop and mobile`, 'Every update'];
 
 function Buy({ pricing, checkout, count, failed, tier, ready }) {
+  // True while Stripe's form is open: it takes the card's place instead of hanging below the buttons.
+  const [paying, setPaying] = useState(false);
   return <section id="buy" className="pp-sec pp-buy-sec" data-section="Get Pro" aria-labelledby="buy-h">
     <div className="section-shell">
       <div className="pp-head pp-head-c" data-og-reveal=""><Kicker>GET PRO</Kicker>
@@ -264,11 +473,11 @@ function Buy({ pricing, checkout, count, failed, tier, ready }) {
       <div className="pp-buy-grid">
         {/* Busy only while the live price loads; when it lands the card settles once. */}
         <SceneCard className="plan-card plan-card-hero pp-checkout" busy={!ready && !failed}>
-          <div className="plan plan-hero">
+          <div className={`plan plan-hero${paying ? ' is-paying' : ''}`}>
             <div className="pp-plan-top"><Kicker>RECOMMENDED · ONE PAYMENT</Kicker></div>
             <div className="pp-plan-row"><Heading as="h3">Pro lifetime</Heading><LifetimePrice pricing={pricing} /></div>
             <ul className="pp-get">{GET(pricing).map(x => <li key={x}><Check size={14} />{x}</li>)}</ul>
-            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} />
+            <Checkout pricing={pricing} checkout={checkout} count={count} failed={failed} tier={tier} ready={ready} onPaying={setPaying} />
           </div>
         </SceneCard>
         <div className="pp-buy-side" id="do-the-math" data-og-reveal="">
