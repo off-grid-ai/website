@@ -37,7 +37,9 @@ function fixture(sdk = 'normal', pageSize = '8') {
   results.querySelectorAll = () => items;
   results.contains = item => items.includes(item);
   const hub = new Element(pageSize ? { pageSize } : {});
-  hub.querySelector = () => panel;
+  // As _includes/article-hub.html renders it: the search row declares where the hub sits, and the script reads it.
+  const searchRow = new Element({ analyticsPlacement: pageSize ? 'home_resources' : 'articles' });
+  hub.querySelector = selector => (selector === '.article-search-row' ? searchRow : panel);
   hub.querySelectorAll = selector => selector === '.article-topic' ? topics : items;
   const impression = new Element({ analyticsView: 'design_partner_offer_viewed', analyticsPlacement: 'home_card' });
   const events = [];
@@ -116,8 +118,10 @@ for (const pageSize of ['8', '']) {
   f.view(); f.view();
   assert.equal(f.events.filter(e => e.name === 'design_partner_offer_viewed').length, 1);
   for (const name of ['design_partner_offer_clicked', 'design_partner_email_clicked']) {
-    f.handlers['document-click']({ target: { closest: () => ({ dataset: { analyticsEvent: name, analyticsPlacement: 'test' } }) } });
+    const link = { dataset: { analyticsEvent: name, analyticsPlacement: 'test' }, getAttribute: attr => (attr === 'href' ? 'mailto:partners@getoffgridai.co' : null) };
+    f.handlers['document-click']({ target: { closest: () => link } });
     assert.equal(f.events.at(-1).name, name);
+    assert.equal(f.events.at(-1).properties.href, 'mailto:partners@getoffgridai.co');
   }
   const payloads = JSON.stringify(f.events);
   assert.ok(!payloads.includes('android sync'));

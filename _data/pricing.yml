@@ -15,9 +15,10 @@
 #   - Customers keep the price that applies when they buy or subscribe.
 
 # The current prices. Every page shows these as they are: nothing is fetched before a buyer can pay, and the
-# ladder marks the step these prices belong to. Change them here when the price changes. The Worker checks before
-# every checkout that Stripe charges exactly these (119.00 lifetime, 7.99 monthly, the offer's coupon), so a page
-# and Stripe can never disagree; with the lifetime offer on, lifetime shows as 119 less the offer.
+# ladder marks the step these prices belong to. Change them here when the price changes, together with the Stripe
+# prices and test/pro_pricing_test.js. Stripe's checkout form shows the buyer the real price before they pay; the
+# Worker's /stripe/pricing compares Stripe with 119.00 lifetime and 7.99 monthly on request. With the lifetime offer
+# on, lifetime shows as 119 less the offer.
 monthly: 7.99        # USD/month - current monthly price
 lifetime: 119        # USD - current lifetime price, before the lifetime offer
 top_monthly: 9.99    # USD/month - final monthly price

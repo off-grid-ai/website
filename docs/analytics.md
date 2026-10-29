@@ -75,7 +75,7 @@ or a partner was accepted. A page load alone does not count as an offer view.
 
 Source review and `git diff --check` cover these changes. Browser interaction
 checks and tests remain pending user review. The existing focused check is
-`node test/site_analytics_test.js`; it has not been run for this change.
+`node test/site_analytics_test.cjs`; it has not been run for this change.
 The site must remain usable when
 analytics is unavailable; the capture helper must not change navigation or
 checkout behavior.

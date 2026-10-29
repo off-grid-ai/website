@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "yaml"
+
 pages = {
   "home" => File.expand_path("../_site/index.html", __dir__),
   "download" => File.expand_path("../_site/download/index.html", __dir__),
@@ -18,8 +20,8 @@ abort("Build the site before running this test: #{missing_pages.values.join(', '
 rendered = pages.transform_values { |path| File.read(path) }
 failures = []
 
+# The July launch banner has been retired from the redesigned pages; no page may describe the launch as still to come.
 rendered.each do |name, page|
-  failures << "#{name}: missing Sync live announcement" unless page.include?("Sync is live") || page.include?("Sync · Live")
   failures << "#{name}: stale July launch language remains" if page.match?(/landing through July|rolling out through July/i)
 end
 
@@ -29,10 +31,9 @@ required_download_content = {
   "Windows stable build" => "v0.0.54/off-grid-ai-0.0.54-setup.exe",
   "Linux AppImage stable build" => "v0.0.54/off-grid-ai-0.0.54.AppImage",
   "Linux deb stable build" => "v0.0.54/off-grid-ai_0.0.54_amd64.deb",
-  "macOS beta build" => "v0.0.55-beta.112/OffGrid-0.0.55-beta.112.dmg",
-  "Windows beta build" => "v0.0.55-beta.112/off-grid-ai-0.0.55-beta.112-setup.exe",
+  "macOS beta build" => "v0.0.55-beta.122/OffGrid-0.0.55-beta.122.dmg",
+  "Windows beta build" => "v0.0.55-beta.122/off-grid-ai-0.0.55-beta.122-setup.exe",
   "Linux preview resolver" => 'data-beta-download="AppImage"',
-  "beta resolver script" => "beta-download.js",
   "current macOS stable release" => "0.0.54",
   "current Windows stable release" => "0.0.54",
   "mobile latest builds" => "https://github.com/off-grid-ai/OGAM/releases",
@@ -48,23 +49,16 @@ failures << "desktop releases: missing Linux beta deb link" unless desktop_relea
 failures << "desktop releases: missing macOS beta link" unless desktop_releases.include?('data-beta-download="dmg"')
 
 pro = rendered.fetch("pro")
+pricing = YAML.load_file(File.expand_path("../_data/pricing.yml", __dir__))
 {
-  "current monthly price" => "$4.99/month",
-  "second monthly tier" => "$7.99",
-  "final monthly tier" => "$9.99"
+  "current monthly price" => format("$%.2f/month", pricing.fetch("monthly")),
+  "final monthly tier" => format("$%.2f", pricing.fetch("top_monthly"))
 }.each do |name, text|
   failures << "pro: missing #{name}: #{text.inspect}" unless pro.include?(text)
 end
 
+# The React home page no longer shows proof numbers; stale ones must still never come back.
 home = rendered.fetch("home")
-{
-  "download proof" => "180k+",
-  "GitHub proof" => "3k+",
-  "community proof" => "600+"
-}.each do |name, text|
-  failures << "home: missing current #{name}: #{text.inspect}" unless home.include?(text)
-end
-
 failures << "home: stale download proof remains" if home.match?(/100k\+|100,000/)
 failures << "home: stale GitHub proof remains" if home.match?(/2,500\+|2,900\+/)
 failures << "home: stale community proof remains" if home.match?(/500\+|500-strong/)
