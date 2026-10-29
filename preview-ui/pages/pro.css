@@ -50,7 +50,8 @@
 /* Stripe's embedded form, opened in place of leaving for Stripe's own page. Its own iframe sets the height. */
 .pp-embed{margin-top:4px}
 .pp-embed[hidden]{display:none}
-.pp-embed-alt{margin:2px 0 0;font-size:12.5px}
+/* Fine print, so its link is plain text: the card styles every other link as a button. */
+.pp-embed-alt{margin:2px 0 0}
 .pp-pay-status.ea-status-error{color:var(--og-error)}
 .pp-pay-status.ea-status-success{color:var(--og-primary)}
 .pp-pay-status a{text-decoration:underline;text-underline-offset:3px}

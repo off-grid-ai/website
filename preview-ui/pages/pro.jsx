@@ -320,8 +320,8 @@ function Checkout({ pricing, checkout, count, failed, tier, ready }) {
     {/* The form opens here, on this page. It stays in the document so Stripe always has somewhere to mount. */}
     <div id="pp-embed" className="pp-embed" hidden={!embedOpen} />
     {stripe && embedOpen &&
-      <p className="pp-quiet pp-embed-alt">Would you rather pay on Stripe's own page?{' '}
-        <a href="#buy" onClick={(e) => { e.preventDefault(); payOnStripe(primary[0]); }}>Open it there instead</a>.</p>}
+      <p className="pp-fine pp-embed-alt">Prefer Stripe's own page?{' '}
+        <a href="#buy" onClick={(e) => { e.preventDefault(); payOnStripe(primary[0]); }}>Pay there instead</a></p>}
     <ul className="pp-trust">
       <li><Key size={13} />{stripe ? 'Your key goes to the email you pay with. Enter it in the app.' : 'Your key arrives by email. Enter it in the app.'}</li>
       <li><LockKey size={13} />{pricing.lifetime_offer?.enabled ? 'Secure checkout. Lifetime discount applied automatically.' : stripe ? 'Secure checkout by Stripe.' : 'Secure checkout by RevenueCat. Promo codes go in there.'}</li>
