@@ -8,6 +8,8 @@ published_at: "2026-10-29T18:50:00Z"
 article_topic: "Models & performance"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4943018
+devto_url: "https://dev.to/alichherawalla/how-to-use-a-remote-ollama-or-llamacpp-server-from-a-desktop-ai-app-on-linux-in-2026-9dc"
 ---
 Your Linux laptop has 16 GB of memory and no dedicated GPU. The box under your desk has an NVIDIA card and already runs Ollama or `llama-server` with a 30B model loaded. You want to chat with that model from the laptop, with chat history and a thinking switch, instead of a `curl` command or a browser tab. Off Grid AI Desktop connects your laptop to that server. Its models show up next to your local ones, and the chat tells you which server answers and what it is waiting for.
 
