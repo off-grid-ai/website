@@ -102,7 +102,7 @@ function Ladder({ pricing, count, failed, tier }) {
     if (reduce || !seen || !onScreen || hot >= 0) return;
     let k = -1; let tick;
     // Starts once the climb has landed, then one checkpoint per beat.
-    const start = setTimeout(() => { tick = setInterval(() => { k = (k + 1) % (cur + 2); setWave(k <= cur ? k : -1); }, 650); }, 1400);
+    const start = setTimeout(() => { tick = setInterval(() => { k = (k + 1) % (cur + 2); setWave(k <= cur ? k : -1); }, 1300); }, 1400);
     return () => { clearTimeout(start); clearInterval(tick); };
   }, [reduce, seen, onScreen, hot, cur]);
   return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
