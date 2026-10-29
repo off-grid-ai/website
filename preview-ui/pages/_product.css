@@ -31,9 +31,7 @@
 .pp-hero-copy .pp-reviews .hr-by,.dn-hero-copy .pp-reviews .hr-by{flex-basis:100%}
 .pp-hero-copy .pp-reviews,.dn-hero-copy .pp-reviews{min-height:64px;align-items:flex-start}
 @media (max-width:700px){.pp-reviews{align-items:flex-start;padding-inline:0}}
-/* "All reviews" sits on its own line under the quote, so it never squeezes the quote. */
-.pp-reviews{flex-wrap:wrap;row-gap:6px}
-.pp-reviews .hr-more{flex-basis:100%;border:0;padding:0}
+/* "All reviews" sits on the quote's line after a divider, as on the home page; phones stack it (page.css). */
 
 /* App window */
 .pp-app{min-width:0}
