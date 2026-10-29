@@ -294,28 +294,14 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
   const formParts = () => [...(form.current?.querySelectorAll('.pp-embed-back,#pp-embed,.pp-embed-alt') || [])];
   // Bring the card's top into view only if it is above the screen: the form replaces the card, it does not extend it.
   const showCard = () => { const c = form.current?.closest('.plan-card'); if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); };
-  // Stripe's form is ready when its frame stops resizing. Measured: the frame appears at a default height, loads about
-  // half a second later, then resizes as the form draws and settles about a second after that. Its load event alone
-  // fires before anything is drawn, so waiting on it showed an empty box. This waits, unseen, for 200 ms of quiet after
-  // the last resize; a frame that never resizes counts as drawn a second after it loads; and nobody is held on the
-  // dots for more than six seconds.
-  const stripeReady = () => new Promise((resolve) => {
-    const frame = document.querySelector('#pp-embed iframe');
-    if (!frame || typeof ResizeObserver !== 'function') return resolve();
-    let h = frame.getBoundingClientRect().height, quiet = null;
-    const finish = () => { ro.disconnect(); clearTimeout(quiet); clearTimeout(cap); resolve(); };
-    const ro = new ResizeObserver(() => {
-      const now = frame.getBoundingClientRect().height;
-      if (Math.abs(now - h) > 1) { h = now; clearTimeout(quiet); quiet = setTimeout(finish, 120); }
-    });
-    ro.observe(frame);
-    frame.addEventListener('load', () => { if (quiet === null) quiet = setTimeout(finish, 1000); }, { once: true });
-    const cap = setTimeout(finish, 6000);
-  });
+  // Timeline marks (pp-checkout:*), read with performance.getEntriesByType('mark'), so the wait can be measured on the
+  // live site instead of guessed at. They cost nothing and never throw.
+  const mark = (name) => { try { performance.mark(`pp-checkout:${name}`); } catch {} };
   // The session request and Stripe's own loading run side by side. They used to run one after the other: the Worker
   // made the session, then Stripe set up, then its frame loaded, then it drew. Now Stripe asks for the session when
   // it needs it, so its frame is loading while the Worker is still working.
   const openEmbedded = async (plan) => {
+    mark('tap');
     const pending = session(plan, 'embedded');
     const pk = pricing.stripe_publishable_key;
     if (!pk) { const s = await pending; if (!s.clientSecret) return toStripe(s.url); } // an older page config
@@ -331,11 +317,16 @@ function Checkout({ pricing, checkout, count, failed, tier, ready, onPaying }) {
     flushSync(() => setStaged(true));
     checkoutUi.mount('#pp-embed');
     const s = await pending;
+    mark('session');
     if (!s.clientSecret) { destroyEmbedded(); flushSync(() => setStaged(false)); return toStripe(s.url); }
-    await stripeReady();
+    // The form takes the card the moment the session is here. Waiting for Stripe to finish drawing was a guess made
+    // from its frame resizing, and arriving from another page Stripe had already sized the frame while it waited, so
+    // the guess never came true and the buyer sat on the dots until a six-second cap. Stripe's own loading placeholder
+    // shows for the moment it still needs, and the frame's growth to full size is animated (pro.css).
     const swap = () => flushSync(() => { setStaged(false); setEmbedPlan(plan); onPaying?.(true); });
     showCard();
     if (reduceMotion || !card()) swap(); else await morph(card(), swap, planParts, formParts);
+    mark('shown');
   };
   // Back to the plans: the same motion reversed. The form is destroyed once it is out of sight.
   const closeEmbedded = async () => {
