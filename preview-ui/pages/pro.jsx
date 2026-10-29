@@ -180,6 +180,8 @@ function LoadingDots() {
 // Plan to form and back as one motion: the outgoing part fades, the card eases to its new height, the incoming part
 // fades in. Heights are measured and animated directly, not scaled, so Stripe's iframe never stretches mid-move.
 const EASE_OUT = 'cubic-bezier(.2,.8,.2,1)', EASE_IN = 'cubic-bezier(.4,0,1,1)';
+// About 0.1 s end to end: long enough to read as one change, short enough that nobody waits on it.
+const OUT_MS = 30, GROW_MS = 80, IN_MS = 80;
 // An animation's `finished` waits for frames, and a page in a background tab gets none. The hand-over must never wait
 // on that, so every step also ends on a timer a little after its own length.
 const settled = (anim, ms) => Promise.race([anim.finished.catch(() => {}), new Promise((r) => setTimeout(r, ms + 120))]);
@@ -188,14 +190,14 @@ const fade = (els, from, to, ms, easing, delay = 0) => Promise.all(els.filter(Bo
   settled(el.animate([from, to], { duration: ms, easing, delay, fill: 'both' }), ms + delay)));
 async function morph(card, swap, outgoing, incoming) {
   const h0 = card.offsetHeight;
-  await fade(outgoing(), { opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-6px)' }, 160, EASE_IN);
+  await fade(outgoing(), { opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-6px)' }, OUT_MS, EASE_IN);
   swap();
   for (const el of outgoing()) el.getAnimations().forEach((a) => a.cancel());
   const h1 = card.offsetHeight;
   card.style.overflow = 'hidden';
-  const grow = card.animate([{ height: `${h0}px` }, { height: `${h1}px` }], { duration: 320, easing: EASE_OUT });
-  await Promise.all([settled(grow, 320),
-    fade(incoming(), { opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }, 260, EASE_OUT, 60)]);
+  const grow = card.animate([{ height: `${h0}px` }, { height: `${h1}px` }], { duration: GROW_MS, easing: EASE_OUT });
+  await Promise.all([settled(grow, GROW_MS),
+    fade(incoming(), { opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }, IN_MS, EASE_OUT)]);
   for (const el of incoming()) el.getAnimations().forEach((a) => a.cancel());
   card.style.overflow = '';
 }

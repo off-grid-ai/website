@@ -59,7 +59,7 @@
 /* Stripe draws its form on its own light sheet; rounding it makes the sheet sit in the card rather than cut across it. */
 .pp-embed{border-radius:12px;overflow:hidden}
 /* Stripe sets its frame's height as the form draws; easing it lets the card grow into the form instead of jumping. */
-.pp-embed iframe{transition:height .28s cubic-bezier(.2,.8,.2,1)}
+.pp-embed iframe{transition:height .1s cubic-bezier(.2,.8,.2,1)}
 @media (prefers-reduced-motion:reduce){.pp-embed iframe{transition:none}}
 /* Loading unseen behind the plan: laid out at full width so Stripe renders, but invisible, untouchable, and out of flow. */
 .pp-form{position:relative}
