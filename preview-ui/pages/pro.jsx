@@ -42,46 +42,80 @@ function Hero({ pricing }) {
 /* ───────── Price ladder (live tier from the customer count) ───────── */
 
 function Ladder({ pricing, count, failed, tier }) {
-  const tiers = pricing.tiers; const n = tiers.length;
+  const tiers = pricing.tiers;
+  // The cohorts that sold out before the current ladder, then the ladder itself: one price history.
+  const past = pricing.history || [];
+  // The history, the live ladder, and one step for what nobody has decided yet.
+  const steps = [...past.map(h => ({ ...h, closed: true })), ...tiers, { unknown: true }];
+  // Seats in a cohort = the gap to the step before it, so the labels always add up.
+  const size = (i) => steps[i].until - (i ? steps[i - 1].until : 0);
+  // The step people can still buy says how many seats are actually left, not its size.
+  const seats = (i) => steps[i].unknown ? '\u00a0' : !steps[i].until ? 'after that'
+    : i === cur && count != null ? `${Math.max(0, steps[i].until - count).toLocaleString()} left`
+    : `${i ? 'next' : 'first'} ${size(i).toLocaleString()}`;
+  // Each step is as wide as its cohort is big, dampened so the first 50 stay legible
+  // beside the 5,000 still to sell. Uncapped steps take the narrowest width.
+  const widths = steps.map((s, i) => {
+    if (!s.until) return 1;
+    return Math.min(4, Math.cbrt(size(i)) / Math.cbrt(size(0)));
+  });
+  const cols = widths.map(w => `${w.toFixed(3)}fr`).join(' ');
+  const n = steps.length;
   const rail = useRef(null);
   // The live count fills the track on its own; when it lands, the field answers from the current tier
   // (strong enough that the ring reaches the checkout card beside it).
   const landed = () => { const at = rail.current?.querySelector('.pp-tier.cur .pp-tier-price'); if (at) orchestra.pulseFrom(at, 'change', 0.8); };
-  const cur = tier ?? 0;
-  const start = cur > 0 ? tiers[cur - 1].until : 0; const end = tiers[cur].until;
-  const frac = count != null && end > start ? Math.min(1, Math.max(0, (count - start) / (end - start))) : 0;
-  const fill = count == null ? 0 : (cur + frac) / (n - 1);
-  const monthly = cur === n - 1 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month.`
-    : cur === n - 2 ? `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}.`
-    : `Prefer a subscription? Pay $${tiers[cur].monthly}/month before it rises to $${tiers[cur + 1].monthly}, then $${tiers[n - 1].monthly}.`;
-  if (pricing.checkout_provider === 'stripe' && !pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
-    <Kicker>PRO LIFETIME</Kicker><Heading as="h3">One payment. Every Pro feature.</Heading>
-    <p>Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>
-    <p>Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
-  </div>;
-  if (pricing.lifetime_offer?.enabled) return <div className="pp-ladder pp-offer-explainer">
-    <Kicker>THE LIFETIME OFFER</Kicker>
-    <Heading as="h3">One payment. Every Pro feature.</Heading>
-    <p>Lifetime access is ${pricing.lifetime} instead of ${pricing.lifetime_offer.original_price} for a limited time. The ${pricing.lifetime_offer.amount_off.toFixed(2)} discount is already applied at checkout.</p>
-    <p>No code to enter. No subscription. One key for up to {pricing.devices} devices.</p>
-    <p className="pp-monthly">Prefer monthly? ${pricing.monthly}/month, cancel any time.</p>
-  </div>;
+  // Stripe serves the live price instead of a customer count: read the cohort back off the price.
+  const live = pricing.lifetime_offer?.enabled ? pricing.lifetime_offer.original_price : pricing.lifetime;
+  const t = tier ?? Math.max(0, tiers.findIndex(x => x.lifetime === live));
+  const cur = past.length + t;
+  const from = t > 0 ? tiers[t - 1].until : 0; const to = tiers[t].until;
+  const frac = count != null && to > from ? Math.min(1, Math.max(0, (count - from) / (to - from))) : 0;
+  // The track runs between the first and last checkpoint; with uneven columns both the
+  // rail's ends and the fill come off the same widths.
+  const total = widths.reduce((a, b) => a + b, 0);
+  const centre = (i) => (widths.slice(0, i).reduce((a, b) => a + b, 0) + widths[i] / 2) / total;
+  const railStart = centre(0); const railEnd = centre(n - 1);
+  const here = centre(cur) + frac * (centre(Math.min(n - 1, cur + 1)) - centre(cur));
+  const fill = Math.min(1, Math.max(0, (here - railStart) / (railEnd - railStart)));
+  const offer = pricing.lifetime_offer?.enabled ? pricing.lifetime_offer : null;
+  const monthly = t === tiers.length - 1 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month.`
+    : t === tiers.length - 2 ? `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}.`
+    : `Prefer a subscription? Pay $${tiers[t].monthly}/month before it rises to $${tiers[t + 1].monthly}, then $${tiers[tiers.length - 1].monthly}.`;
   return <div className="pp-ladder" id="og-ladder" data-endpoint={pricing.count_endpoint}>
-    <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
-      {count == null ? <span className="pp-muted">{failed ? 'Customer count unavailable.' : 'Loading customer count...'}</span>
-        : <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>}
-    </p>
-    <div className="pp-tiers" ref={rail} style={{ '--n': n }}>
-      {/* Radix Themes Progress: how far the count has climbed through the tiers. Hidden from assistive tech: the count line above says it. */}
+    <Kicker>{offer ? 'THE LIFETIME OFFER' : 'PRO LIFETIME'}</Kicker>
+    <Heading as="h3">One payment. Every Pro feature.</Heading>
+    {offer
+      ? <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime} instead of ${offer.original_price} for a limited time. The ${offer.amount_off.toFixed(2)} discount is already applied at checkout. One key for up to {pricing.devices} devices.</p>
+      : <p className="pp-ladder-lede">Lifetime access is ${pricing.lifetime}. One key for up to {pricing.devices} devices.</p>}
+    {count != null && <p className="pp-count" id="og-count-line" role="status" aria-live="polite">
+      <span><b>{count.toLocaleString()}</b> people own Pro. The price rises as more join.</span>
+    </p>}
+    {count == null && failed && <p className="pp-count"><span className="pp-muted">Customer count unavailable.</span></p>}
+    {/* The price history, left to right. Radix Themes Progress draws how far it has climbed;
+        hidden from assistive tech because the prices and labels already say it. */}
+    <div className="pp-tiers" ref={rail} style={{ '--n': n, '--cols': cols }}>
       <Progress className="pp-progress" variant="soft" value={Math.round(fill * 100)} max={100} aria-hidden="true"
-        onTransitionEnd={(e) => { if (e.propertyName === 'transform' && count != null) landed(); }} />
-      {tiers.map((t, i) => <div key={t.label} className={`pp-tier ${count != null && i < cur ? 'past' : ''} ${count != null && i === cur ? 'cur' : ''}`}>
-        <span className="pp-tier-price">${t.lifetime}<small> once</small></span>
-        <span className="pp-tier-label">{t.label}</span>
-      </div>)}
+        style={{ left: `${railStart * 100}%`, right: `${(1 - railEnd) * 100}%` }}
+        onTransitionEnd={(e) => { if (e.propertyName === 'transform') landed(); }} />
+      <div className="pp-nodes" aria-hidden="true">
+        {steps.map((s, i) => <span key={i} className={`pp-dot ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`} />)}
+      </div>
+      {steps.map((s, i) => {
+        // The cohort the offer runs in shows its regular price scratched and the offer price in its place.
+        const offered = offer && s.lifetime === offer.original_price;
+        return <div key={i} className={`pp-tier ${s.closed ? 'pp-tier-past' : ''} ${s.unknown ? 'pp-tier-unknown' : ''} ${i < cur ? 'past' : ''} ${i === cur ? 'cur' : ''}`}>
+          <span className={`pp-tier-price ${offered ? 'pp-tier-offered' : ''}`}>
+            {offered && <s className="pp-tier-was"><span className="sr-only">Regular price </span>${s.lifetime}</s>}
+            <span>{s.unknown ? <abbr title="Nobody knows yet">?</abbr>
+              : <>{offered && <span className="sr-only">Offer price </span>}${offered ? pricing.lifetime : s.lifetime}</>}</span>
+          </span>
+          <span className="pp-tier-label">{seats(i)}</span>
+        </div>;
+      })}
     </div>
-    {count != null && tiers[cur].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[cur].until - count).toLocaleString()}</b> spots left at ${tiers[cur].lifetime} for life before the price jumps to ${tiers[cur + 1].lifetime}.</p>}
-    <p className="pp-monthly" id="og-monthly">{count == null ? `Prefer a subscription? Pay $${pricing.monthly}/month before it rises to $7.99, then $${pricing.top_monthly}.` : monthly}</p>
+    {count != null && tiers[t].until > count && <p className="pp-spots" id="og-spots"><b>{Math.max(0, tiers[t].until - count).toLocaleString()}</b> spots left at ${pricing.lifetime} for life before the price jumps to ${tiers[t + 1].lifetime}.</p>}
+    <p className="pp-monthly" id="og-monthly">{monthly}</p>
   </div>;
 }
 
