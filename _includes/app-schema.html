@@ -1,0 +1,48 @@
+{%- comment -%} What each app is, for search and answer engines: platforms, price, where to get it, licence and
+what it does. The rating and version are left out on purpose: the store rating is low and the version changes weekly.
+{%- endcomment -%}
+{%- if page.react == "mobile" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "@id": "{{ site.url }}/mobile/#app",
+  "name": "Off Grid AI Mobile",
+  "alternateName": "OGAM",
+  "url": "{{ site.url }}/mobile/",
+  "description": "A private AI app that runs on your phone. Chat with local models such as Qwen, Llama, Gemma and Phi, generate images, ask about photos, use voice input and get cited answers from your files, offline after a model downloads. No account.",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "ProductivityApplication",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ site.url }}/mobile/"},
+  "downloadUrl": ["https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882", "https://play.google.com/store/apps/details?id=ai.offgridmobile"],
+  "sameAs": ["https://apps.apple.com/us/app/off-grid-ai-private-local-ai/id6759299882", "https://play.google.com/store/apps/details?id=ai.offgridmobile", "https://github.com/off-grid-ai/OGAM"],
+  "license": "https://opensource.org/license/mit",
+  "featureList": ["Offline chat with local models", "On-device image generation", "Vision and voice input", "Projects with cited answers", "Use a larger model on your own network", "Pro: voice mode, approved drafts and Sync"],
+  "screenshot": "{{ site.url }}/assets/img/home/mobile/imagegen-ios-1-light-640.webp",
+  "publisher": {"@id": "{{ site.url }}/#organization"}
+}
+</script>
+{%- elsif page.react == "desktop" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "{{ site.url }}/desktop/#app",
+  "name": "Off Grid AI Desktop",
+  "alternateName": "OGAD",
+  "url": "{{ site.url }}/desktop/",
+  "description": "A private AI app that runs on your computer. Chat with local text and vision models, generate images on your GPU, talk and listen with Whisper and Kokoro, get cited answers from your files, and use a local OpenAI-compatible API, offline after a model downloads. No account.",
+  "operatingSystem": "macOS (Apple silicon), Windows, Linux",
+  "applicationCategory": "ProductivityApplication",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "{{ site.url }}/download/"},
+  "downloadUrl": "{{ site.url }}/download/",
+  "sameAs": ["https://github.com/off-grid-ai/OGAD"],
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "featureList": ["Offline chat with local text and vision models", "Image generation on your GPU", "Voice input and spoken answers", "Projects with cited answers", "Local OpenAI-compatible API and MCP connectors", "Pro: memory, meetings, approved actions and Sync"],
+  "screenshot": "{{ site.url }}/assets/img/home/app/imagegen-chat-dark-1760.webp",
+  "publisher": {"@id": "{{ site.url }}/#organization"}
+}
+</script>
+{%- endif -%}
