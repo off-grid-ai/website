@@ -1,7 +1,0 @@
-{%- assign pricing = site.data.pricing -%}
-{%- assign offer = pricing.lifetime_offer -%}
-{%- if page.article_platform == "Android" or page.article_platform == "iPhone" or page.article_platform == "Phone" -%}{%- assign pro_lead = "Pro on your phone and computer." -%}{%- assign pro_line = "Voice mode, drafts you approve, and Sync." -%}{%- else -%}{%- assign pro_lead = "Off Grid AI Pro." -%}{%- assign pro_line = "Memory, meetings and voice mode, on your computer and phone." -%}{%- endif -%}
-<aside class="doc-cta doc-pro-card" aria-label="Off Grid AI Pro" data-pagefind-ignore data-analytics-view="pro_card_viewed" data-analytics-placement="article_card">
-  <div><strong>{{ pro_lead }}</strong>{{ pro_line }} One license, up to {{ pricing.devices }} devices. {% if offer.enabled %}<span class="sr-only">Regular price </span><s>${{ offer.original_price }}</s> {% endif %}<span data-pro-price="lifetime">...</span> once.</div>
-  <a href="{{ '/pro' | relative_url }}#buy" data-analytics-event="pro_cta_click" data-analytics-placement="article_card">Get Pro</a>
-</aside>
