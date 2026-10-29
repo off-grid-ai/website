@@ -1801,7 +1801,7 @@ export function PageShell({ children, feedback = true }) {
       <div className="footer-links">
         {FOOTER.map(([head, links]) => <div key={head}><Kicker>{head}</Kicker><div className="foot-col"><AnimatedBackground enableHover className="foot-hover">{links.map(([l, h]) => <a key={h} data-id={h} href={h} data-slot="button" data-variant="link" data-analytics-event="nav_click" data-analytics-placement={`footer:${head}`} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l}</a>)}</AnimatedBackground></div></div>)}
       </div>
-      <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a></span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
+      <div className="footer-bottom"><span>Off Grid AI is built by <a href="https://www.wednesday.is/" target="_blank" rel="noopener">Wednesday Solutions</a>. Not affiliated with offgridai.us.</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
     </div></footer></Suspense>
   </AliveProvider></Theme></PlayCtx.Provider></MotionConfig>;
 }
