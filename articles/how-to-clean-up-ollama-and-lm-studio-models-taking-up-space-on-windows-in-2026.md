@@ -8,6 +8,8 @@ published_at: "2026-10-29T06:49:39Z"
 article_topic: "Models & performance"
 article_platform: "Windows"
 devto_article: true
+devto_id: 4939065
+devto_url: "https://dev.to/alichherawalla/how-to-clean-up-ollama-and-lm-studio-models-taking-up-space-on-windows-in-2026-3211"
 ---
 Your C: drive is red in File Explorer, and a good part of it is AI models you pulled into LM Studio and Ollama months ago. Each one is several gigabytes, they live in folders you never open, and neither app shows you everything in one list. Off Grid AI Desktop finds them for you, shows each one with its size, and lets you remove the ones you no longer use. LM Studio files go to the Recycle Bin, so you can still restore one. Ollama models stay under Ollama's control, and the app gives you the command that removes them without breaking Ollama.
 
