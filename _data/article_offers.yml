@@ -8,7 +8,8 @@
 # `match_anywhere` words count on every platform.
 # One page can override the sort in its front matter: `article_offer: download` or `article_offer: <feature id>`.
 # Lines are the /pro page's own (preview-ui/pages/pro.jsx CAPS and SYNC), so a card never promises what Pro does not.
-# A comparison reader is choosing an app, so a comparison always gets the download card.
+# A comparison reader is choosing an app, so a comparison gets the download card. A comparison with a paid rival of a
+# Pro feature (Granola, Otter, Wispr Flow, Rize...) sets `article_offer:` to that feature instead.
 download_when: '\bvs\.?\s'
 pro:
   - id: meetings
