@@ -16,7 +16,7 @@ Every time you type something into ChatGPT, Gemini, or Copilot, your conversatio
 
 Most people don't think about this. But think about what you actually ask AI. Health questions. Relationship problems. Financial worries. Work notes with proprietary information. Legal questions. Journal entries. Stuff you wouldn't say out loud in a crowded room.
 
-There's a way to use AI on your Android phone without any of that. No tracking, no accounts, no servers. Everything runs on your phone and your chats never leave it.
+There's a way to use AI on your Android phone without any of that. No accounts, no servers. Everything runs on your phone and your chats never leave it.
 
 ## What Actually Happens to Your Data When You Use Cloud AI
 
@@ -41,8 +41,6 @@ Here's what "completely on your device" actually means:
 **No account.** You never sign up for anything. No email, no phone number, no Google sign-in. You open the app and start using it.
 
 **No network requests for your chats.** After the initial model download from HuggingFace, chatting with a local model makes zero calls to any server. You can verify this by enabling airplane mode. Everything works.
-
-**No telemetry unless you opt in.** Anonymous usage data and crash reports are off until you turn them on in Settings. When they are on, they never include your prompts, replies, or file names, and the data is not linked to you.
 
 **No data stored anywhere except your phone.** Your conversations live in the app's local storage on your device. Not on a cloud server. Not in a backup that syncs somewhere. On your phone.
 

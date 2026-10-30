@@ -96,7 +96,7 @@ Off Grid AI uses llama.cpp on ARM64 with NEON, i8mm, and dotprod SIMD instructio
 
 ## Why run LLMs locally instead of using the cloud?
 
-**Privacy.** Your queries never leave your device. Anonymous usage data and crash reports are off until you turn them on.
+**Privacy.** Your queries never leave your device.
 
 **No cost.** No API fees, no subscription. The model is free to download and runs forever.
 

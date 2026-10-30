@@ -42,7 +42,7 @@ A Personal AI OS should not have these properties.
 
 The alternative is direct device-to-device sync over your local network.
 
-When your phone and laptop are on the same WiFi network, at home or at an office, they communicate directly. Context built on your phone transfers to your laptop over the local network connection. Context built on your laptop transfers back. No server involved. No data leaves your network perimeter.
+When your phone and laptop are on the same WiFi network, at home or at an office, they communicate directly. Context built on your phone transfers to your laptop over the local network connection. Context built on your laptop transfers back. No server involved. Your context never leaves your network.
 
 This is not a theoretical future capability. The protocols exist. Local network discovery (mDNS/Bonjour), direct device communication, encrypted transport: all of this is standard infrastructure on modern platforms.
 

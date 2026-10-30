@@ -32,7 +32,7 @@ The dominant framework across most jurisdictions today is triggered by the proce
 
 An on-device AI processes personal data, but it processes it locally, on your own hardware, under your own control. The question of whether these frameworks apply to this processing, where you are essentially processing your own data for your own purposes, is nuanced, but the core compliance risks they address (third-party access, cross-border transfer, consent for commercial processing) largely don't apply.
 
-For a cloud AI product, compliance requires data processing agreements, consent management, data subject rights infrastructure, transfer mechanisms for cross-border data flows, and breach notification processes. For an on-device AI with no cloud infrastructure, where any telemetry is opt-in and anonymous, most of these requirements either don't apply or are much smaller in scope. Opt-in analytics still needs a consent switch, a processor agreement, and a clear privacy policy.
+For a cloud AI product, compliance requires data processing agreements, consent management, data subject rights infrastructure, transfer mechanisms for cross-border data flows, and breach notification processes. For an on-device AI with no cloud infrastructure, most of these requirements either don't apply or are much smaller in scope. Opt-in analytics still needs a consent switch, a processor agreement, and a clear privacy policy.
 
 ## AI-specific regulation and transparency requirements
 
@@ -68,4 +68,4 @@ The products that built their architecture around on-device processing from the 
 
 This is not the primary argument for building on-device AI. The primary argument is that it's better for you. But in a regulatory environment that's moving in one direction, the architecture that's right for users also happens to be the architecture that ages well.
 
-*Off Grid AI processes your chats and files on-device. No cloud. No telemetry unless you opt in. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI processes your chats and files on-device. No cloud. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

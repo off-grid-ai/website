@@ -78,7 +78,7 @@ This checkpoint rewards structure. A few practical pointers.
 
 NovelAI runs on their servers behind a subscription, and your generations pass through their infrastructure. Off Grid AI Desktop flips that.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no telemetry unless you opt in, no API key, no content pipeline you do not control. The app is open source, so you can read the source. Disconnect from the internet and it keeps generating.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. No account, no API key, no content pipeline you do not control. The app is open source, so you can read the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -124,7 +124,7 @@ Yes. The same engine runs on Metal on Apple Silicon. 16 GB unified memory is the
 
 ### Q: Is my data private?
 
-Prompts and images stay on your disk. No account, no telemetry unless you opt in, no server we own ever sees them.
+Prompts and images stay on your disk. No account, no server we own ever sees them.
 
 Run character and illustration generation on your own hardware, for free.
 

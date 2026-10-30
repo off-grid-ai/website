@@ -61,7 +61,7 @@ Off Grid scans for active servers on common ports (11434 for Ollama, 1234 for LM
 
 ### Step 3: Pick a model and start chatting
 
-Tap a model. Start typing. Responses stream in over your local network. No internet involved. No data leaves your house.
+Tap a model. Start typing. Responses stream in over your local network. No internet involved. Your chats never leave your house.
 
 That is the entire setup.
 

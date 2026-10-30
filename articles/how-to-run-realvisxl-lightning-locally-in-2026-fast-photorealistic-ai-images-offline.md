@@ -81,7 +81,7 @@ Lightning is already fast. These tips keep it that way.
 
 DALL-E runs on OpenAI's servers. Your prompts pass through their API, get logged, and are subject to their content filters. Off Grid AI Desktop inverts that.
 
-Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no telemetry unless you opt in, no API key. The app is open source, so you can audit the source. Disconnect from the internet and it keeps generating.
+Your prompt never leaves the machine. The image is computed locally and written to your disk. No account, no API key. The app is open source, so you can audit the source. Disconnect from the internet and it keeps generating.
 
 ## Getting Started
 
@@ -128,7 +128,7 @@ Yes. The same engine runs on Metal on Apple Silicon. 16 GB unified memory is the
 
 ### Q: Is my data private?
 
-Prompts and images stay on your disk. No account, no telemetry unless you opt in, no server we own ever sees them.
+Prompts and images stay on your disk. No account, no server we own ever sees them.
 
 Run fast photorealistic image generation on your own hardware, for free.
 

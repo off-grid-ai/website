@@ -78,7 +78,7 @@ Quantization is what makes a large SDXL checkpoint runnable. The GGUF build trim
 
 A hosted photoreal tool sees every face you generate and every prompt you write. It logs them, and many train on what you upload. With realistic images of people, that exposure is not abstract.
 
-Off Grid AI Desktop runs the model on your machine. No account, no telemetry unless you opt in, no prompts sent anywhere. Your prompts and your images stay on the device. The app is open source, so you can verify the behavior yourself. With photorealism, local is not a preference. It is the responsible default.
+Off Grid AI Desktop runs the model on your machine. No account, no prompts sent anywhere. Your prompts and your images stay on the device. The app is open source, so you can verify the behavior yourself. With photorealism, local is not a preference. It is the responsible default.
 
 ## Getting Started
 
@@ -118,7 +118,7 @@ Both. Macs use Metal with unified memory. Windows uses CUDA or Vulkan, with a CP
 
 ### Q: Is my data private?
 
-Yes. Everything runs locally. No account, no telemetry unless you opt in, no images or prompts sent to a server.
+Yes. Everything runs locally. No account, no images or prompts sent to a server.
 
 Run RealVisXL 5.0 on your own hardware, offline, today.
 

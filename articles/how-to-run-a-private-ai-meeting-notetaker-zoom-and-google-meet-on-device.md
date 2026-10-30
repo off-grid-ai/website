@@ -16,7 +16,7 @@ When you invite a cloud notetaker to a call, a bot joins, records everyone, and 
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API key, no telemetry unless you opt in.
+Free, open-source, runs offline. No account, no API key.
 
 
 ![A recorded Zoom meeting in Off Grid AI Desktop: the on-device summary, frames of what was on screen and the decisions made during the call.](/assets/img/home/app/meetings-summary-light-1760.webp)
@@ -58,7 +58,7 @@ The summary does not just sit in a folder. It folds into your private memory and
 
 Cloud notetakers like Otter and Fireflies route your meeting audio and video through their servers. The recording, transcript, and summary live in their account, under their retention policy, with their access. Off Grid AI Desktop keeps all of it on your machine, because nothing in the pipeline touches a server.
 
-It is open source, so the code is auditable rather than a black box. There is no account to breach and no telemetry unless you opt in. On an air-gapped machine, every part still works.
+It is open source, so the code is auditable rather than a black box. There is no account to breach. On an air-gapped machine, every part still works.
 
 | | Cloud notetaker | Off Grid AI Desktop |
 |---|---|---|

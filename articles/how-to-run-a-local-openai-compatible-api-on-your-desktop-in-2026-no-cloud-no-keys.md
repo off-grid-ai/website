@@ -16,7 +16,7 @@ The laptop on your desk has a GPU that can run a 7B model and a diffusion model 
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no telemetry unless you opt in, no API key.
+Free, open-source, runs offline. No account, no API key.
 
 
 ![The Gateway in Off Grid AI Desktop: one local OpenAI-compatible API at 127.0.0.1:7878, with copyable curl, Python and JavaScript examples.](/assets/img/home/app/gateway-dark-1760.webp)
@@ -164,7 +164,7 @@ Because the gateway loads one model per modality on demand and offloads after, y
 
 A hosted OpenAI-compatible endpoint sees every prompt, every file, and every image you send. It logs them, it bills you per token, and it requires an account tied to your identity.
 
-This gateway sees none of that, because there is nothing to send. The server is on `127.0.0.1`. It has no outbound calls for inference. There is no telemetry unless you opt in. The code is open, so you can read exactly what it does. You can pull the network cable and every endpoint above still answers.
+This gateway sees none of that, because there is nothing to send. The server is on `127.0.0.1`. It has no outbound calls for inference. The code is open, so you can read exactly what it does. You can pull the network cable and every endpoint above still answers.
 
 ## Getting Started
 
@@ -204,7 +204,7 @@ Yes, for the OpenAI-compatible routes. Change `base_url` to `http://127.0.0.1:78
 
 ### Q: Is my data private?
 
-The server is bound to `127.0.0.1` and makes no outbound inference calls. No telemetry unless you opt in, no logging to a third party, no account. The source is open, so you can verify it.
+The server is bound to `127.0.0.1` and makes no outbound inference calls. No logging to a third party, no account. The source is open, so you can verify it.
 
 Point your code at your own machine.
 

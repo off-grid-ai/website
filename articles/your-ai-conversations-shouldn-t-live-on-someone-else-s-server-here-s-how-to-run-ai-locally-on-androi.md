@@ -36,7 +36,7 @@ Your Android phone has enough processing power to run AI locally. Modern Snapdra
 
 Off Grid is a free, open-source app that runs AI entirely on your phone. After you download a model once, your chats never touch a server. Turn on airplane mode and everything works.
 
-There is no server. There is no account. Your chats never leave your phone. Anonymous usage data and crash reports are off until you turn them on, and even then they never include what you type.
+There is no server. There is no account. Your chats never leave your phone.
 
 The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read every line yourself.
 

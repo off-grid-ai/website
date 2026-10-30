@@ -27,7 +27,7 @@ Free, open-source, runs offline.
 
 You drop a folder of contracts, meeting notes, or research papers into a project. The app reads them, builds embeddings on-device, and stores them in a local vector index. Then you ask questions in plain language and get answers with citations pointing back to the exact source.
 
-Nothing uploads. No file leaves the machine. No account, no key, no telemetry unless you opt in.
+Nothing uploads. No file leaves the machine. No account, no key.
 
 ## What You Need
 
@@ -88,7 +88,7 @@ Watch your context window. The retrieved chunks plus your question have to fit i
 
 A cloud RAG product uploads your documents to a server, embeds them there, and stores the vectors on infrastructure you do not control. Even with good intentions, your contracts and notes now live somewhere else.
 
-Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create and no telemetry unless you opt in. The code is open, so you can read exactly what it does with your files.
+Off Grid AI Desktop inverts that. The documents stay on disk. The embeddings stay on disk. The chat happens on disk. There is no account to create. The code is open, so you can read exactly what it does with your files.
 
 For anything covered by an NDA, a privacy regulation, or just your own preference, on-device is the difference between "trust us" and "verify it yourself."
 
@@ -130,7 +130,7 @@ Yes. Macs use Metal, Windows uses CUDA or Vulkan with a CPU fallback.
 
 ### Q: Is my data private?
 
-Your files never leave the machine. No account, no telemetry unless you opt in, and the source is open so you can confirm it.
+Your files never leave the machine. No account, and the source is open so you can confirm it.
 
 Download it and chat with your own documents, offline.
 

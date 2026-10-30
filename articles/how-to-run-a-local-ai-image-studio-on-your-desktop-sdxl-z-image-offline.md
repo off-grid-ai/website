@@ -16,7 +16,7 @@ The GPU in a modern laptop can run the same image models that power paid service
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no API key, no telemetry unless you opt in.
+Free, open-source, runs offline. No account, no API key.
 
 
 ![An image generated on-device in Off Grid AI Desktop, with no cloud involved.](/assets/img/home/gen-realvis.webp)

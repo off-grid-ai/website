@@ -111,7 +111,7 @@ Close other GPU-hungry apps before a long image-generation run. The GPU is share
 
 A cloud assistant sends your prompts, your uploads, and your voice to a remote server. You trust a retention policy you cannot inspect.
 
-Off Grid AI Desktop sends none of your chats anywhere. There is no account, no telemetry unless you opt in, and no API key. Your chats, images, and documents live on your disk. The code is open, so you can read exactly what it does. Pull the network cable and it keeps working.
+Off Grid AI Desktop sends none of your chats anywhere. There is no account, and no API key. Your chats, images, and documents live on your disk. The code is open, so you can read exactly what it does. Pull the network cable and it keeps working.
 
 ## Getting Started
 
@@ -148,7 +148,7 @@ Yes. Both run open-weight GGUF models from families like Gemma and Qwen. Use the
 Yes, both. Macs use Metal, Windows uses CUDA or Vulkan with CPU fallback.
 
 ### Q: Is my data private?
-Yes. No account, no telemetry unless you opt in, no servers. Your data stays on your machine.
+Yes. No account, no servers. Your data stays on your machine.
 
 Run local AI with a real interface, image gen, voice, and document chat, all on-device.
 
