@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: vault
 devto_article: true
+devto_id: 4946787
+devto_url: "https://dev.to/alichherawalla/bitwarden-alternative-how-to-keep-passwords-on-your-mac-or-pc-in-2026-no-server-copy-2ahl"
 image: "https://getoffgridai.co/assets/img/home/app/vault-open-light-1760.webp"
 faq:
   - q: Is Bitwarden free?

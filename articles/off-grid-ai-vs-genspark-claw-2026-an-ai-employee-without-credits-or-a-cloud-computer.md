@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946707
+devto_url: "https://dev.to/alichherawalla/genspark-claw-alternative-how-to-run-an-ai-employee-on-your-computer-in-2026-no-credits-3ocl"
 image: "https://getoffgridai.co/assets/img/home/app/god-waiting-light-1760.webp"
 faq:
   - q: What is Genspark Claw?

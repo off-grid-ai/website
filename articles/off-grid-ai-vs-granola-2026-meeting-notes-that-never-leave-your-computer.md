@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946710
+devto_url: "https://dev.to/alichherawalla/granola-alternative-how-to-get-private-meeting-notes-on-your-mac-or-pc-in-2026-no-bot-no-cloud-5gcb"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-summary-light-1760.webp"
 faq:
   - q: Is there a Granola alternative that runs locally?

@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946822
+devto_url: "https://dev.to/alichherawalla/omi-alternative-how-to-get-meeting-memory-on-your-mac-or-pc-in-2026-no-wearable-needed-4878"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp"
 faq:
   - q: How much does Omi cost?

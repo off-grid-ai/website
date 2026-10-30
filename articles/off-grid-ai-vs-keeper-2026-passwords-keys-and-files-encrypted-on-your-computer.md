@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: vault
 devto_article: true
+devto_id: 4946725
+devto_url: "https://dev.to/alichherawalla/keeper-alternative-how-to-keep-passwords-and-files-on-your-computer-in-2026-no-cloud-530d"
 image: "https://getoffgridai.co/assets/img/home/app/vault-file-light-1760.webp"
 faq:
   - q: How much does Keeper cost?

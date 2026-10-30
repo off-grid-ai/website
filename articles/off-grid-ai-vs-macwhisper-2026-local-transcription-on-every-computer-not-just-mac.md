@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4946741
+devto_url: "https://dev.to/alichherawalla/macwhisper-alternative-how-to-transcribe-locally-on-windows-and-linux-in-2026-paid-once-58gk"
 image: "https://getoffgridai.co/assets/img/home/app/models-transcription-light-1760.webp"
 faq:
   - q: Is MacWhisper available for Windows or Linux?

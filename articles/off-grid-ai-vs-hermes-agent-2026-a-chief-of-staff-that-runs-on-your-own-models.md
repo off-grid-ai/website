@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946763
+devto_url: "https://dev.to/alichherawalla/hermes-agent-alternative-how-to-run-a-chief-of-staff-on-your-computer-in-2026-no-yaml-2gi0"
 image: "https://getoffgridai.co/assets/img/home/app/god-routines-light-1760.webp"
 faq:
   - q: Is Hermes Agent free?

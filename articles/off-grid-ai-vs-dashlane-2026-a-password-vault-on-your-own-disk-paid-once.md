@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: vault
 devto_article: true
+devto_id: 4946771
+devto_url: "https://dev.to/alichherawalla/dashlane-alternative-how-to-keep-passwords-on-your-own-computer-in-2026-no-account-4okm"
 image: "https://getoffgridai.co/assets/img/home/app/vault-typing-light-1760.webp"
 faq:
   - q: How much does Dashlane cost?

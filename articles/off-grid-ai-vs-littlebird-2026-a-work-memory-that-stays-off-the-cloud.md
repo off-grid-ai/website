@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946799
+devto_url: "https://dev.to/alichherawalla/littlebird-alternative-how-to-keep-a-work-memory-on-your-own-computer-in-2026-no-cloud-3149"
 image: "https://getoffgridai.co/assets/img/home/app/god-light-1760.webp"
 faq:
   - q: Where does Littlebird store my data?

@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4946853
+devto_url: "https://dev.to/alichherawalla/microsoft-recall-alternative-how-to-search-your-screen-on-a-mac-or-pc-in-2026-no-npu-32ek"
 image: "https://getoffgridai.co/assets/img/home/app/search-light-1760.webp"
 faq:
   - q: Does Microsoft Recall send my snapshots to Microsoft?

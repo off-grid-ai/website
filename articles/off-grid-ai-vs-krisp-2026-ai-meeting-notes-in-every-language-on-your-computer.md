@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946778
+devto_url: "https://dev.to/alichherawalla/krisp-alternative-how-to-transcribe-any-language-on-your-mac-or-pc-in-2026-on-device-1kio"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-followups-light-1760.webp"
 faq:
   - q: Does Krisp transcribe meetings on my device?

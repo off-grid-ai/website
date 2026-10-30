@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946862
+devto_url: "https://dev.to/alichherawalla/otterai-alternative-how-to-transcribe-calls-on-your-mac-or-pc-in-2026-no-bot-no-cap-32je"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-transcript-light-1760.webp"
 faq:
   - q: What is a free or cheaper Otter.ai alternative?

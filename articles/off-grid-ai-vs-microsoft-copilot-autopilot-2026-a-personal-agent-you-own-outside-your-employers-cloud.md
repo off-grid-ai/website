@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946767
+devto_url: "https://dev.to/alichherawalla/copilot-autopilot-alternative-how-to-run-an-ai-agent-on-your-own-computer-in-2026-today-44di"
 image: "https://getoffgridai.co/assets/img/home/app/god-waiting-light-1760.webp"
 faq:
   - q: What is Microsoft Copilot Autopilot?

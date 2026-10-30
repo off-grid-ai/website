@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946858
+devto_url: "https://dev.to/alichherawalla/goose-alternative-how-to-run-a-local-agent-with-memory-on-your-mac-or-pc-in-2026-asks-first-4g99"
 image: "https://getoffgridai.co/assets/img/home/app/approval-light-1760.webp"
 faq:
   - q: What is Goose?

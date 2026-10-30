@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946737
+devto_url: "https://dev.to/alichherawalla/lindy-alternative-how-to-run-an-ai-assistant-on-your-own-computer-in-2026-you-approve-nn3"
 image: "https://getoffgridai.co/assets/img/home/app/act-approvals-light-1760.webp"
 faq:
   - q: How much does Lindy cost?

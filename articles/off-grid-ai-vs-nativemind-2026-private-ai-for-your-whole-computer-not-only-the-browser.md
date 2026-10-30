@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: download
 devto_article: true
+devto_id: 4946870
+devto_url: "https://dev.to/alichherawalla/nativemind-alternative-how-to-run-private-ai-on-your-whole-computer-in-2026-no-ollama-n1b"
 image: "https://getoffgridai.co/assets/img/home/app/chat-light-1760.webp"
 faq:
   - q: What is NativeMind?

@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946844
+devto_url: "https://dev.to/alichherawalla/gemini-spark-alternative-how-to-run-an-ai-agent-on-your-mac-or-pc-in-2026-no-google-ai-4foa"
 image: "https://getoffgridai.co/assets/img/home/app/god-routines-light-1760.webp"
 faq:
   - q: What do I need to use Gemini Spark?

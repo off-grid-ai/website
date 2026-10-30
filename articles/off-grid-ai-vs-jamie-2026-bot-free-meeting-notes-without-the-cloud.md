@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946875
+devto_url: "https://dev.to/alichherawalla/jamie-alternative-how-to-get-bot-free-meeting-notes-on-your-mac-or-pc-in-2026-no-cloud-2180"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-list-light-1760.webp"
 faq:
   - q: Does Jamie process meetings in the cloud?

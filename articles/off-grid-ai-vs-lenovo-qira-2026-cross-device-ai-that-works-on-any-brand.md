@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: sync
 devto_article: true
+devto_id: 4946872
+devto_url: "https://dev.to/alichherawalla/lenovo-qira-alternative-how-to-sync-ai-across-your-phone-and-computer-in-2026-any-brand-20bf"
 image: "https://getoffgridai.co/assets/img/home/app/sync-devices-light-1760.webp"
 faq:
   - q: Which devices does Lenovo Qira work on?

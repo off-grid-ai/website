@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4946793
+devto_url: "https://dev.to/alichherawalla/msty-alternative-how-to-run-private-ai-on-your-mac-or-pc-in-2026-7999-once-not-349-1mkp"
 image: "https://getoffgridai.co/assets/img/home/app/today-bento-light-1760.webp"
 faq:
   - q: How much does Msty cost?
