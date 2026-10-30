@@ -155,33 +155,6 @@
       }
     }
 
-    // Meta Pixel "Purchase". A bare visit to this page fires nothing.
-    // Require checkout-return details and the selected plan;
-    // these browser values do not verify that a payment settled.
-    // AND the plan must resolve to lifetime Pro with its real price.
-    // Monthly is sent by the RevenueCat webhook Worker with the event ID; its
-    // browser ID differs, so firing both would double-count that purchase.
-    // The OGAP pre-order is deliberately excluded.
-    // The payload is value/currency/plan only - the buyer's email never goes
-    // to Meta: the head scrubber removed app_user_id from the URL the pixel
-    // sees, and here it is only hashed into the guard key and the eventID.
-    var FB_PLANS = { lifetime: true };
-    var fbEvidence = checkoutReturn;
-    var fbGuardKey = 'og_fb_purchase_' + (appUserId ? hash(appUserId) : 'anon');
-    if (fbEvidence && !purchaseAlreadyFired && FB_PLANS[plan] && value > 0 &&
-        typeof fbq === 'function' && !alreadyFired(fbGuardKey)) {
-      try {
-        // txnId is stable per buyer+plan, so Meta also dedups a return visit
-        // that outlives this tab's sessionStorage guard (and a future CAPI
-        // event for the same sale).
-        fbq('track', 'Purchase',
-          { value: value, currency: 'USD', content_name: plan },
-          txnId ? { eventID: txnId } : undefined);
-      } catch (err) {
-        console.warn('Meta Purchase failed:', err);
-      }
-    }
-
     // The PostHog snippet lives at the END of the layout, thousands of bytes
     // after this script, so 'posthog' does NOT exist yet on a page like this
     // one that reports at load time rather than from a click handler. Firing
