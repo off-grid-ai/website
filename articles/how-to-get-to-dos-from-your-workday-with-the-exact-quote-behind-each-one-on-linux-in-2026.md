@@ -8,6 +8,8 @@ published_at: "2026-10-30T12:49:35Z"
 article_topic: "Work & organization"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4947506
+devto_url: "https://dev.to/alichherawalla/how-to-get-to-dos-from-your-workday-with-the-exact-quote-behind-each-one-on-linux-in-2026-eo0"
 ---
 A teammate asks for the release notes in Slack, a client asks for a revised estimate on a call, and you promise a review in a Thunderbird reply. By the end of the day those asks sit in three apps and one of them gets lost. Off Grid AI Desktop Pro on Linux reads your day with a model on your own computer and turns those asks into to-dos. Each to-do carries the exact sentence that created it, so you can see where it came from before you act on it.
 
