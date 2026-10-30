@@ -30,7 +30,7 @@ You control your content. You are responsible for securing your devices and back
 
 - **Purchases.** Your email, your plan and your transaction details. A payment processor or app store handles payment. We never see your full card number.
 - **Your licence.** Your licence key and, for each device you activate, a device ID and device name. We use this to check your plan and manage your device limit.
-- **Optional app analytics.** These are off until you turn them on (section 3).
+- **Optional anonymous stats and crash reports.** These are off until you turn them on (section 3).
 - **Website visits.** See section 4.
 - **Messages you send us.** This includes emails, newsletter sign-ups and problem reports. A problem report includes a debug log, and you see the log before you send it.
 - **Downloads and updates.** When the apps download a model or an update, the server that sends the file sees your IP address and which file you asked for.
@@ -39,20 +39,20 @@ We never sell your content. We never use your content to train models.
 
 ---
 
-## 3. Optional app analytics and crash reports
+## 3. Optional anonymous stats and crash reports
 
 **Off until you turn them on.** You can turn them off at any time in Settings. Each device has its own setting.
 
 **What they include:**
 
 - your device type, operating system, app version, memory size and language, and whether you have Pro;
-- which screens and features you use;
+- how many times each screen and feature is used;
 - model downloads and how well models run;
 - crash reports, with file paths and typed text removed.
 
 **What they never include:** your prompts, replies, files, file names, search terms, web addresses, email, licence key or device ID.
 
-**Anonymous.** Each install uses a random ID. We do not link that ID to you, your email or your licence. When you turn analytics off, the ID is reset. Because the data is not linked to you, we cannot find, copy or delete one person's data.
+**Anonymous.** Each install uses a random ID. We do not link that ID to you, your email or your licence. When you turn them off, the ID is reset. Because the data is not linked to you, we cannot find, copy or delete one person's data.
 
 **Who processes it.** An analytics provider processes this data for us in the European Union. Your IP address reaches the provider, as with any internet connection. We do not use it to identify or locate you.
 
@@ -114,7 +114,7 @@ We also share data when the law requires it, to protect our rights, or as part o
 
 ## 8. How long we keep data
 
-- **App analytics:** 12 months.
+- **Anonymous stats and crash reports:** 12 months.
 - **Purchase and licence data:** while your licence is active, and after that for as long as tax and accounting law requires.
 - **Other data:** only as long as we need it for the purposes above.
 
