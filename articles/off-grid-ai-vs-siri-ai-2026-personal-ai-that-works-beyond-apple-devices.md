@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4947000
+devto_url: "https://dev.to/alichherawalla/siri-ai-alternative-how-to-run-personal-ai-on-any-phone-or-computer-in-2026-any-brand-3j8p"
 image: "https://getoffgridai.co/assets/img/home/app/ask-chat-light-1760.webp"
 faq:
   - q: Does Siri AI run entirely on my device?

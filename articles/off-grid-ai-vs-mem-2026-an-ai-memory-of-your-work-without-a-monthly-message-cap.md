@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4946997
+devto_url: "https://dev.to/alichherawalla/mem-alternative-how-to-keep-an-ai-memory-of-your-work-on-your-computer-in-2026-no-cap-14lh"
 image: "https://getoffgridai.co/assets/img/home/app/people-why-light-1760.webp"
 faq:
   - q: How much does Mem cost?

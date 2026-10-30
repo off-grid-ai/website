@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4947065
+devto_url: "https://dev.to/alichherawalla/raycast-ai-alternative-how-to-get-local-ai-on-windows-and-linux-in-2026-no-credits-37a"
 image: "https://getoffgridai.co/assets/img/home/app/clipboard-quick-light-1760.webp"
 faq:
   - q: How much does Raycast AI cost?

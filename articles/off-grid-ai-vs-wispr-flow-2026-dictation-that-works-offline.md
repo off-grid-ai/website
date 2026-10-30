@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4947108
+devto_url: "https://dev.to/alichherawalla/wispr-flow-alternative-how-to-dictate-offline-on-your-mac-or-pc-in-2026-no-cloud-upload-2kjg"
 image: "https://getoffgridai.co/assets/img/home/app/voice-settings-light-1760.webp"
 faq:
   - q: Does Wispr Flow work offline?

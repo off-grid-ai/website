@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: reflect
 devto_article: true
+devto_id: 4947103
+devto_url: "https://dev.to/alichherawalla/rize-vs-rescuetime-vs-timing-in-2026-automatic-time-trackers-that-keep-your-day-private-3j02"
 image: "https://getoffgridai.co/assets/img/home/app/reflect-day-light-1760.webp"
 faq:
   - q: Which automatic time tracker keeps my activity on my computer?

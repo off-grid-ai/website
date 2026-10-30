@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4947070
+devto_url: "https://dev.to/alichherawalla/read-ai-alternative-how-to-get-unlimited-meeting-notes-on-your-mac-or-pc-in-2026-no-bot-5f1d"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-list-light-1760.webp"
 faq:
   - q: What is a free or cheaper Read AI alternative?

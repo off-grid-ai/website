@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4947129
+devto_url: "https://dev.to/alichherawalla/wispr-flow-vs-superwhisper-vs-macwhisper-in-2026-offline-dictation-apps-compared-f6h"
 image: "https://getoffgridai.co/assets/img/home/app/voice-clean-light-1760.webp"
 faq:
   - q: Which dictation app works offline?

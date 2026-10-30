@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4947123
+devto_url: "https://dev.to/alichherawalla/rewind-vs-microsoft-recall-vs-screenpipe-vs-pieces-in-2026-screen-memory-that-stays-put-3onh"
 image: "https://getoffgridai.co/assets/img/home/app/day-timeline-light-1760.webp"
 faq:
   - q: What is the best Rewind AI replacement in 2026?

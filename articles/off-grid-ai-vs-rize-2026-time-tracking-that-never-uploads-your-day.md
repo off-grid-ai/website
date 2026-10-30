@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: reflect
 devto_article: true
+devto_id: 4947072
+devto_url: "https://dev.to/alichherawalla/rize-alternative-how-to-track-your-time-on-your-mac-or-pc-in-2026-nothing-uploaded-46ai"
 image: "https://getoffgridai.co/assets/img/home/app/reflect-light-1760.webp"
 faq:
   - q: Does Rize send my activity to AI companies?

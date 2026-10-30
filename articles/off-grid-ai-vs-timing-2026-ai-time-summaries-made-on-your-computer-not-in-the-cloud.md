@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: reflect
 devto_article: true
+devto_id: 4947117
+devto_url: "https://dev.to/alichherawalla/timing-app-alternative-how-to-get-ai-time-summaries-on-your-mac-or-pc-in-2026-local-ai-170j"
 image: "https://getoffgridai.co/assets/img/home/app/reflect-apps-light-1760.webp"
 faq:
   - q: Does Timing send my data to the cloud?

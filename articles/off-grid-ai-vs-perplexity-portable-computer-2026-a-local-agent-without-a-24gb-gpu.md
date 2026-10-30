@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946989
+devto_url: "https://dev.to/alichherawalla/perplexity-portable-computer-alternative-how-to-run-local-ai-on-your-pc-in-2026-no-24-gb-gpu-3i9"
 image: "https://getoffgridai.co/assets/img/home/app/act-approvals-light-1760.webp"
 faq:
   - q: What is Perplexity Portable Computer?

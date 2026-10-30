@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4946936
+devto_url: "https://dev.to/alichherawalla/luci-alternative-how-to-keep-local-work-memory-on-your-mac-or-pc-in-2026-it-acts-too-3emk"
 image: "https://getoffgridai.co/assets/img/home/app/day-light-1760.webp"
 faq:
   - q: Is LUCI local?

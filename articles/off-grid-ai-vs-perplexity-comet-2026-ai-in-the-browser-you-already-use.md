@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4947015
+devto_url: "https://dev.to/alichherawalla/perplexity-comet-alternative-how-to-use-ai-in-chrome-on-your-mac-or-pc-in-2026-local-ai-3e20"
 image: "https://getoffgridai.co/assets/img/home/app/web-plan-light-1760.webp"
 faq:
   - q: Is there a Perplexity Comet alternative that runs locally?

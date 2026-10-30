@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4947010
+devto_url: "https://dev.to/alichherawalla/twinmind-alternative-how-to-transcribe-meetings-on-your-mac-or-pc-in-2026-no-bot-local-31ba"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-light-1760.webp"
 faq:
   - q: Where does TwinMind store my transcripts?

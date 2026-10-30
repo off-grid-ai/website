@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4947060
+devto_url: "https://dev.to/alichherawalla/simular-sai-alternative-how-to-automate-your-computer-with-local-ai-in-2026-no-credits-31ip"
 image: "https://getoffgridai.co/assets/img/home/app/web-takeover-light-1760.webp"
 faq:
   - q: How much does Simular Sai cost?

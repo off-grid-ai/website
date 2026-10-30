@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: download
 devto_article: true
+devto_id: 4946959
+devto_url: "https://dev.to/alichherawalla/ollama-alternative-how-to-run-a-local-ai-api-on-your-mac-or-pc-in-2026-images-speech-e90"
 image: "https://getoffgridai.co/assets/img/home/app/gateway-light-1760.webp"
 faq:
   - q: Is Ollama free?

@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4947077
+devto_url: "https://dev.to/alichherawalla/superwhisper-alternative-how-to-dictate-offline-on-mac-windows-and-linux-in-2026-one-price-fa4"
 image: "https://getoffgridai.co/assets/img/home/app/voice-light-1760.webp"
 faq:
   - q: Does Superwhisper work offline?

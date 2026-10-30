@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4947115
+devto_url: "https://dev.to/alichherawalla/rewind-ai-alternative-how-to-search-what-you-saw-on-your-mac-or-pc-in-2026-rewind-shut-down-1cbf"
 image: "https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp"
 faq:
   - q: Is Rewind AI shut down?

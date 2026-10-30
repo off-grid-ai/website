@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946955
+devto_url: "https://dev.to/alichherawalla/notion-ai-meeting-notes-alternative-how-to-record-calls-on-your-computer-in-2026-offline-2ba5"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-decisions-light-1760.webp"
 faq:
   - q: Which Notion plan includes AI Meeting Notes?

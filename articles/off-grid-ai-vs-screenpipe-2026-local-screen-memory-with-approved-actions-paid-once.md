@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4947100
+devto_url: "https://dev.to/alichherawalla/screenpipe-alternative-how-to-keep-screen-memory-on-your-mac-or-pc-in-2026-paid-once-38c1"
 image: "https://getoffgridai.co/assets/img/home/app/replay-light-1760.webp"
 faq:
   - q: Is Screenpipe local?

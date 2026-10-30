@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: memory
 devto_article: true
+devto_id: 4947051
+devto_url: "https://dev.to/alichherawalla/pieces-alternative-how-to-keep-a-private-work-memory-on-your-mac-or-pc-in-2026-local-ai-3fci"
 image: "https://getoffgridai.co/assets/img/home/app/ask-open-source-light-1760.webp"
 faq:
   - q: Does Pieces send my data to the cloud?

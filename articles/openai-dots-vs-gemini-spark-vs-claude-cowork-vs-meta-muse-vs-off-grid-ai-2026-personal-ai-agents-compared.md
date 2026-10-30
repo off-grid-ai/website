@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4947053
+devto_url: "https://dev.to/alichherawalla/openai-dots-vs-gemini-spark-vs-claude-cowork-vs-meta-muse-in-2026-which-asks-first-52ln"
 image: "https://getoffgridai.co/assets/img/home/app/god-prep-light-1760.webp"
 faq:
   - q: Which personal AI agent keeps my data on my own computer?

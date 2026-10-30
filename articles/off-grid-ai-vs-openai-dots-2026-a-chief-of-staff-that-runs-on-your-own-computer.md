@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946982
+devto_url: "https://dev.to/alichherawalla/openai-dots-alternative-how-to-run-a-chief-of-staff-on-your-mac-or-pc-in-2026-paid-once-1dmk"
 image: "https://getoffgridai.co/assets/img/home/app/god-light-1760.webp"
 faq:
   - q: What is OpenAI dots?

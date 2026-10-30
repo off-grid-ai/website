@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4947041
+devto_url: "https://dev.to/alichherawalla/reclaim-ai-alternative-how-to-prep-every-meeting-on-your-computer-in-2026-stays-local-51l3"
 image: "https://getoffgridai.co/assets/img/home/app/god-prep-light-1760.webp"
 faq:
   - q: Does Off Grid AI replace Reclaim.ai?

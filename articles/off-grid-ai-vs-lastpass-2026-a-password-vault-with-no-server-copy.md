@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: vault
 devto_article: true
+devto_id: 4946943
+devto_url: "https://dev.to/alichherawalla/lastpass-alternative-how-to-keep-your-passwords-on-your-own-computer-in-2026-no-server-copy-cbc"
 image: "https://getoffgridai.co/assets/img/home/app/vault-locked-light-1760.webp"
 faq:
   - q: How much does LastPass cost?

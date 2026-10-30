@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: god
 devto_article: true
+devto_id: 4946949
+devto_url: "https://dev.to/alichherawalla/motion-alternative-how-to-get-ai-notes-and-chat-on-your-mac-or-pc-in-2026-no-credits-f0i"
 image: "https://getoffgridai.co/assets/img/home/app/god-light-1760.webp"
 faq:
   - q: How much does Motion cost?

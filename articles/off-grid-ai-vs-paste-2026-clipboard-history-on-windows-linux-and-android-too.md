@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: clipboard
 devto_article: true
+devto_id: 4947008
+devto_url: "https://dev.to/alichherawalla/paste-alternative-how-to-get-clipboard-history-on-windows-and-linux-in-2026-paid-once-b6n"
 image: "https://getoffgridai.co/assets/img/home/app/clipboard-all-light-1760.webp"
 faq:
   - q: Is there a Paste alternative for Windows and Linux?

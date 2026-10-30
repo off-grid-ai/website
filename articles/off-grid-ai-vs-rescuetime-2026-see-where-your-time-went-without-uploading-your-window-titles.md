@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: reflect
 devto_article: true
+devto_id: 4946974
+devto_url: "https://dev.to/alichherawalla/rescuetime-alternative-how-to-track-your-time-on-your-mac-or-pc-in-2026-stays-local-48of"
 image: "https://getoffgridai.co/assets/img/home/app/reflect-week-light-1760.webp"
 faq:
   - q: What does RescueTime collect?

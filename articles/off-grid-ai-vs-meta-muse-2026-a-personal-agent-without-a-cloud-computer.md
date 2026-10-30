@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946946
+devto_url: "https://dev.to/alichherawalla/meta-muse-alternative-how-to-run-a-personal-agent-on-your-mac-or-pc-in-2026-asks-first-3f28"
 image: "https://getoffgridai.co/assets/img/home/app/act-approvals-light-1760.webp"
 faq:
   - q: Where does Meta Muse run?

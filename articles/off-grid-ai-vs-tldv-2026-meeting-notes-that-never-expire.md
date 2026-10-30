@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4947075
+devto_url: "https://dev.to/alichherawalla/tldv-alternative-how-to-keep-meeting-notes-forever-on-your-mac-or-pc-in-2026-no-expiry-3mga"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-followups-light-1760.webp"
 faq:
   - q: What is a tl;dv alternative with no meeting limits?
