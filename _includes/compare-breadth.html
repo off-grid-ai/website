@@ -1,0 +1,45 @@
+{%- comment -%}
+Every comparison page (article_topic "Compare apps") shows this before its FAQ, from _layouts/content.html: a rival
+usually does one job, and Off Grid AI does all of these in one app, on your own devices. Keep each line to what the
+/pro page and the feature guides already promise.
+{%- endcomment -%}
+{%- assign pricing = site.data.pricing -%}
+{%- assign price = pricing.lifetime -%}
+{%- if pricing.lifetime_offer.enabled -%}{%- assign price = pricing.lifetime | minus: pricing.lifetime_offer.amount_off | round: 2 -%}{%- endif -%}
+<section class="doc-breadth" aria-labelledby="everything-in-one-app" data-pagefind-ignore data-analytics-view="breadth_viewed" data-analytics-placement="compare_breadth">
+  <h2 id="everything-in-one-app">Everything in one app</h2>
+  <p>Most apps on this page do one job. Off Grid AI does all of these, on your own computer and phone, in one app.</p>
+  <div class="doc-breadth-grid">
+    <div>
+      <p class="doc-breadth-k">Free, on every device</p>
+      <ul>
+        <li><strong>Local chat</strong> with open models, no account</li>
+        <li><strong>Answers from your files</strong>, with the source shown</li>
+        <li><strong>Images</strong> made on your own GPU</li>
+        <li><strong>Voice</strong> in and out</li>
+        <li><strong>A local API</strong> for your own tools</li>
+        <li><strong>iPhone and Android</strong> with on-device models</li>
+      </ul>
+    </div>
+    <div>
+      <p class="doc-breadth-k">Pro, ${{ price }} once</p>
+      <ul>
+        <li><strong>Memory</strong> of your screens, meetings, mail and docs</li>
+        <li><strong>Meetings</strong> recorded without a bot, summarised locally</li>
+        <li><strong>Dictation</strong> into any app on your computer</li>
+        <li><strong>Actions</strong> in Gmail, Linear, Jira and Notion, only with your yes</li>
+        <li><strong>God</strong>, a chief of staff that briefs you and preps your meetings</li>
+        <li><strong>Web Use and Computer Use</strong> for tasks in your own browser and apps</li>
+        <li><strong>Reflect</strong>: where your time went, by project and person</li>
+        <li><strong>Vault, Clipboard and Sync</strong> on up to {{ pricing.devices }} devices</li>
+      </ul>
+    </div>
+  </div>
+  <p class="doc-breadth-k">They work together</p>
+  <ul class="doc-breadth-flow">
+    <li>A call becomes a transcript. Its decisions become to-dos. The follow-up email waits in Actions for your yes.</li>
+    <li>God's morning brief draws on all of it: yesterday's screens, today's meetings, what people owe you.</li>
+    <li>Vault fills logins in the same browser where Web Use runs a task, so the agent signs in and your password never goes to a model.</li>
+  </ul>
+  <p>That is a notetaker, a dictation app, a time tracker, a password manager, a clipboard manager and an AI assistant, for one price. <a href="{{ '/pro/' | relative_url }}#buy" data-analytics-event="pro_cta_click" data-analytics-placement="compare_breadth" data-analytics-offer="pro">Get Pro for ${{ price }} once</a></p>
+</section>

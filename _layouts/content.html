@@ -194,7 +194,7 @@
     <div class="doc-grid{% if has_toc %} has-toc{% endif %}">
       <article class="doc-body" data-pagefind-body>
         {% if has_toc %}<details class="doc-toc-m" data-pagefind-ignore><summary>On this page</summary><ol>{{ toc_items }}</ol></details>{% endif %}
-        {% if page.article_card %}{% comment %}The article card (Pro or download, see _plugins/article_offer.rb) follows the first section, or the article when it has only one.{% endcomment %}{% if toc_parts.size > 2 %}{{ toc_parts[0] }}<h2 id="{{ toc_parts[1] }}{% include article-card.html %}{% for part in toc_parts offset:2 %}<h2 id="{{ part }}{% endfor %}{% else %}{{ content }}{% include article-card.html %}{% endif %}{% else %}{{ content }}{% endif %}
+        {% capture doc_html %}{% if page.article_card %}{% comment %}The article card (Pro or download, see _plugins/article_offer.rb) follows the first section, or the article when it has only one.{% endcomment %}{% if toc_parts.size > 2 %}{{ toc_parts[0] }}<h2 id="{{ toc_parts[1] }}{% include article-card.html %}{% for part in toc_parts offset:2 %}<h2 id="{{ part }}{% endfor %}{% else %}{{ content }}{% include article-card.html %}{% endif %}{% else %}{{ content }}{% endif %}{% endcapture %}{% if page.article_topic == "Compare apps" and doc_html contains '<h2 id="faq">' %}{% capture breadth %}{% include compare-breadth.html %}{% endcapture %}{{ doc_html | replace_first: '<h2 id="faq">', breadth | append: '<h2 id="faq">' }}{% else %}{{ doc_html }}{% endif %}
       </article>
       {% if has_toc %}<nav class="doc-toc" aria-label="On this page" data-pagefind-ignore><span class="eyebrow">On this page</span><ol>{{ toc_items }}</ol></nav>{% endif %}
     </div>
