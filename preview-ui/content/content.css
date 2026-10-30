@@ -16,7 +16,7 @@
    reading column on wide screens, so its inset keeps it on the column's right edge (--doc-w). */
 .doc-page{--doc-w:700px}
 @media (min-width:1100px){.doc-page:has(.doc.has-toc){--doc-w:980px}}
-.doc-tools{position:absolute;top:22px;right:max(clamp(16px,4.4vw,64px),calc((100% - var(--doc-w))/2));z-index:4}
+.doc-tools{position:absolute;top:34px;right:max(clamp(16px,4.4vw,64px),calc((100% - var(--doc-w))/2));z-index:4}
 .doc-search{height:32px!important;gap:8px!important;font-size:12px!important;color:var(--og-text-secondary)!important;border-color:var(--line-2)!important;background-color:transparent!important;border-radius:8px!important;padding-inline:10px!important}
 .doc-search:hover{color:var(--og-text)!important;border-color:rgb(var(--og-rgb-primary)/.5)!important}
 .doc-search kbd{font:inherit;font-size:10px;padding:1px 5px;border:1px solid var(--line-2);border-radius:4px;color:var(--og-text-muted)}
@@ -176,7 +176,7 @@
 }
 @media (max-width:700px){
   .doc-page{padding:14px 4px 0}
-  .doc-tools{top:12px;right:4px}
+  .doc-tools{top:14px;right:4px}
   .doc-search .doc-search-label,.doc-search kbd{display:none}
   .doc-search{width:44px!important;height:44px!important;padding:0!important;justify-content:center}
   .doc-crumbs{padding-right:56px;font-size:11.5px}
