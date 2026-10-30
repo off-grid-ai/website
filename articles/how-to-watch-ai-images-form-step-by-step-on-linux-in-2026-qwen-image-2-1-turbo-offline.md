@@ -8,6 +8,8 @@ published_at: "2026-10-30T15:49:49.000Z"
 article_topic: "Images & vision"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4948401
+devto_url: "https://dev.to/alichherawalla/how-to-watch-ai-images-form-step-by-step-on-linux-in-2026-qwen-image-21-turbo-offline-4ii7"
 ---
 You type a prompt, wait, and only at the end find out the subject is in the wrong corner. In Off Grid AI Desktop (OGAD) on Linux, the image now forms in the chat while it runs. Every sampling step draws a new rough frame, so you see the layout settle and can stop a bad image before it finishes. With Qwen-Image 2.1 Turbo that is 8 steps from prompt to picture, on your own machine.
 
