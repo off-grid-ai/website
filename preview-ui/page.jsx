@@ -1010,9 +1010,9 @@ const intentOf = (text) => { const i = matchPrompt(text); if (i >= 0) return PRO
 
 // The hero prompt and its chips are one instrument with one source of truth (k): the vanish input types
 // PROMPTS[k] on its own, and the chip for the question in the input carries the light (Motion Primitives
-// AnimatedBackground, the upstream gliding highlight, controlled by the input). Clicking into the field
-// lets the visitor type; the light then follows the best match. Enter on an empty field opens the
-// question shown; clicking a chip shows its question and opens its chapter.
+// AnimatedBackground, the upstream gliding highlight, controlled by the input). The field is not for
+// typing: clicking it (or Enter) opens the question it shows; clicking a chip shows its question and
+// opens its chapter.
 function HeroPrompt({ onRun, active }) {
   const reduce = useContext(PlayCtx).reducedMotion;
   const [k, setK] = useState(0); const [typing, setTyping] = useState(false); const [q, setQ] = useState('');
@@ -1061,16 +1061,13 @@ function HeroPrompt({ onRun, active }) {
       if (rr.bottom > 0 && rr.top < innerHeight) r.scrollTo({ left: r.scrollLeft + (cr.left - rr.left) - (r.clientWidth - cr.width) / 2, behavior: reduce ? 'auto' : 'smooth' });
     }
   }, [lit]);
-  const startTyping = () => { flushSync(() => setTyping(true)); field.current?.querySelector('input')?.focus(); };
   const stopTyping = () => { setTyping(false); setQ(''); };
   const one = useMemo(() => [PROMPTS[k].label], [k]);
   const pick = (i) => { stopTyping(); setK(i); onRun(PROMPTS[i].to); };
   return <>
     <div className="cmd-vanish" aria-label="Off Grid AI demo">
       <div className="cmd-field" data-slot="input-control" ref={field}
-        onPointerDownCapture={(e) => { if (typing || e.button !== 0 || e.target.closest('button')) return; e.preventDefault(); startTyping(); }}
-        onFocusCapture={(e) => { if (typing || e.target.tagName !== 'INPUT') return; e.stopPropagation(); startTyping(); }}
-        onBlurCapture={(e) => { if (!typing || q.trim() || field.current?.contains(e.relatedTarget)) return; stopTyping(); }}
+        onPointerDownCapture={(e) => { if (e.button !== 0 || e.target.closest('button')) return; e.preventDefault(); pick(k); }}
         onSubmitCapture={() => livePulse(field.current, 'change', .9)}>
         <PresetVanishInput key={typing ? 'type' : 'preset'} placeholders={one} presetMode={!typing} reducedMotion={reduce}
           label={typing ? 'Ask the demo a question' : 'Open the example shown'} submitLabel="Open example chapter"
@@ -1078,7 +1075,7 @@ function HeroPrompt({ onRun, active }) {
           onSubmit={() => { if (typing && !q.trim()) pick(k); }}
           onVanishComplete={(text) => { stopTyping(); onRun(intentOf(text)); }} />
       </div>
-      <p className="cmd-note">Press Enter, or pick one below.</p>
+      <p className="cmd-note">Click it, or pick one below.</p>
     </div>
     {/* The chips cascade in centre-out (the AISuggestions timing). Each chip is a slot (motion span) for
         AnimatedBackground: the highlight sits in the slot behind the site ghost button, and the button's
