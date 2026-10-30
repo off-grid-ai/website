@@ -8,6 +8,8 @@ published_at: "2026-10-30T06:55:00Z"
 article_topic: "Work & organization"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4945434
+devto_url: "https://dev.to/alichherawalla/how-to-prepare-for-every-meeting-automatically-on-linux-in-2026-private-local-ai-2fap"
 ---
 You have a call in five minutes. You want to know who is on it, which company or project it is about, what you talked about last time, and what you still owe them. On Linux, Off Grid AI Desktop Pro puts all of that next to the meeting in your calendar. Click **Prep** and it is there. You do not write a prep document. The app builds the context from the mail, chats and calls it has already seen on your computer.
 
