@@ -153,7 +153,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .header-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
 .icon-link{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;color:var(--og-text-secondary)}.icon-link:hover{color:var(--og-text);background-color:var(--og-surface-light)}
 .huggingface-icon{display:block;width:20px;height:20px;background-color:currentColor;mask:url("/assets/img/huggingface.svg?v=3") center/contain no-repeat;-webkit-mask:url("/assets/img/huggingface.svg?v=3") center/contain no-repeat}
-.header-download{height:36px!important;font-size:13px!important;background-color:var(--og-primary)!important;color:#03140c!important;border:0!important}
+.header-pro{height:36px!important;font-size:13px!important;background-color:var(--og-primary)!important;color:#03140c!important;border:0!important}
 .menu-trigger{display:none!important}
 .nav-overlay{position:fixed;inset:0;z-index:200;background-color:var(--og-overlay)}
 .mobile-nav{position:fixed;inset:12px;z-index:201;padding:24px;background-color:var(--og-background);color:var(--og-text);font-family:var(--og-font-sans);border:1px solid var(--line-2);border-radius:8px;overflow:auto}
@@ -374,7 +374,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 
 /* ── Light theme refinements ──────────────────────────── */
 .light .hero-horizon{box-shadow:0 -2px 0 rgb(var(--og-rgb-primary)/.6),0 -30px 120px rgb(var(--og-rgb-primary)/.18),0 -90px 260px rgb(var(--og-rgb-primary)/.08)}
-.light .header-download,.light .hero-primary,.light .hero-primary>a,.light .plan-hero a{color:#fff!important}
+.light .header-pro,.light .hero-primary,.light .hero-primary>a,.light .plan-hero a{color:#fff!important}
 .light .app-card,.light .src,.light .dev-desk{box-shadow:inset 0 0 0 1px var(--line-2),0 20px 50px -24px rgb(0 0 0/.18)!important}
 
 /* ── Responsive ───────────────────────────────────────── */
@@ -398,7 +398,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
   .section-shell{width:calc(100% - 32px)}
   .header-inner{width:calc(100% - 24px);height:60px;gap:8px}
   .story-pin{top:60px;height:calc(100svh - 60px);width:calc(100% - 24px)}
-  .header-download{padding-inline:12px!important}
+  .header-pro,.header-download{padding-inline:12px!important}
   .hero-title{font-size:clamp(36px,11.2vw,60px);margin:22px 0 18px}
   .hero-horizon{display:none}
   .hero>div:not(.hero-grid):not(.hero-horizon){height:auto!important;padding-bottom:56px!important}
@@ -519,7 +519,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 .hero-frame .shot{border-radius:6px}
 .hero-shot{border-radius:6px;overflow:hidden;background-color:var(--og-background)}
 .hero-primary,.hero-primary>a{box-shadow:none!important}
-.hero-primary,.hero-primary>a,.header-download,.plan-hero a{border-radius:8px!important}
+.hero-primary,.hero-primary>a,.header-pro,.header-download,.plan-hero a{border-radius:8px!important}
 .story-stage{background-color:var(--og-surface)!important}
 .story-stage::before{display:none}
 .pro{background-color:var(--og-background)!important}
@@ -1300,14 +1300,13 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
    starts with an indent. Spaces become inline and collapse at line breaks; words stay inline-block so
    their animation still works. Children: accessible copy, word, space, word, space... */
 .whitespace-pre-wrap>.sr-only~span.whitespace-pre:nth-child(odd){display:inline!important;white-space:normal!important}
-/* Header actions: Get Pro (secondary) + Download (primary) */
-.header-pro{height:36px!important;font-size:13px!important;border-color:var(--line-2)!important;color:var(--og-text)!important;background-color:transparent!important}
-.header-pro:hover{border-color:var(--og-primary)!important}
-@media (max-width:1000px){.header-pro{display:none!important}}
+/* Header actions: Get Pro (primary) + Download (secondary), at every width */
+.header-download{height:36px!important;font-size:13px!important;border-color:var(--line-2)!important;color:var(--og-text)!important;background-color:transparent!important}
+.header-download:hover{border-color:var(--og-primary)!important}
 /* Full header down to 900px (the founder reviews at ~1000px) */
 @media (min-width:901px) and (max-width:1000px){
   .desktop-nav{display:flex!important}.desktop-nav a{padding:8px 10px}
-  .hide-sm{display:inline-flex!important}.header-pro{display:inline-flex!important}
+  .hide-sm{display:inline-flex!important}
   .menu-trigger{display:none!important}
   .header-inner{gap:14px}
 }
@@ -1326,9 +1325,12 @@ button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}
 @media (max-width:700px){
   .header-inner{gap:6px!important}
   .theme-ctl button,.menu-trigger{width:44px!important;height:44px!important}
-  .header-download{height:44px!important;padding-inline:12px!important}
+  .header-pro,.header-download{height:44px!important;padding-inline:12px!important}
+  .header-actions>.theme-ctl{display:none}
 }
-@media (max-width:360px){.wordmark>span:not(.logo){display:none}.header-download{padding-inline:10px!important;font-size:12px!important}}
+/* Phones: both buttons stay, so the wordmark gives way to the logo; the theme lives in the menu */
+@media (max-width:440px){.wordmark>span:not(.logo){display:none}}
+@media (max-width:360px){.header-pro,.header-download{padding-inline:10px!important;font-size:12px!important}}
 /* The orbital dial controls chapters on desktop and mobile. */
 .chap-nav{display:none}
 /* P1.5 rails: named tabs, previous/next and dots with real touch areas */

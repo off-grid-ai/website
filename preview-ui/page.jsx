@@ -1496,10 +1496,12 @@ const REVIEW_SOURCE = {
   slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
   email: { label: 'Email to the team', Icon: EnvelopeSimple },
 };
-// 'pre' until the launch day, 'live' on it, 'post' after. The server renders 'pre'; the visitor's clock decides.
+// 'pre' until the launch day, 'live' on it, 'post' after. The build's clock picks the first paint, so a page
+// built after the launch never shows the countdown; the visitor's clock decides after that.
+const launchPhase = (now) => now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post';
 function useLaunchPhase() {
-  const [phase, setPhase] = useState('pre');
-  useEffect(() => { const now = Date.now(); setPhase(now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post'); }, []);
+  const [phase, setPhase] = useState(() => launchPhase(Date.now()));
+  useEffect(() => { setPhase(launchPhase(Date.now())); }, []);
   return phase;
 }
 const PH_MARK = <svg className="ph-mark" width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#FF6154" /><path fill="#fff" d="M22.7 20H17v-6h5.7a3 3 0 0 1 0 6Zm0-10H13v20h4v-6h5.7a7 7 0 0 0 0-14Z" /></svg>;
@@ -1772,14 +1774,14 @@ export function PageShell({ children, feedback = true }) {
           <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         </span>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
-        <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
-        <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
+        <Button data-site-button="primary" asChild className="header-pro"><a href="/pro/#buy">Get Pro</a></Button>
+        <Button data-site-button="secondary" asChild variant="outline" className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" data-slot="dialog-overlay" /><Dialog.Content className="mobile-nav" data-slot="dialog-content" data-og-alive="">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button data-site-button="secondary" variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <MobileMenu />
-            <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
+            <div className="mnav-ctas"><Button data-site-button="primary" asChild><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="secondary" asChild variant="outline"><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" role="group" aria-label="Community links and appearance">
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>

@@ -508,7 +508,6 @@ function Faq({ pricing }) {
             <Accordion.Content className="pp-faq-a"><p>{a}</p></Accordion.Content>
           </Accordion.Item>)}
         </Accordion.Root>
-        <p className="pp-before" data-analytics-placement="pro_payment_form">Team under 50 people? You could get Pro free. <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_payment_form">Read the offer</a></p>
       </div>
     </div>
   </section>;
@@ -632,7 +631,6 @@ function Final({ pricing }) {
       <Button data-site-button="primary" variant="solid" className="pro-shimmer pp-shimmer"
         onClick={(e) => toBuy(e.currentTarget.textContent.trim(), 'Get Pro')}>Own Pro for ${pricing.lifetime}</Button>
       <p className="pp-final-links">
-        <a href="/design-partners/" data-analytics-event="design_partner_offer_clicked" data-analytics-placement="pro_card">Small team? Get Pro free <ArrowRight size={13} /></a>
         <a href="/vision/" data-cta="">Read the vision <ArrowUpRight size={13} /></a>
       </p>
     </div>
