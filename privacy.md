@@ -3,161 +3,155 @@ layout: content
 title: Privacy Policy
 nav_order: 11
 nav_group: Learn
-description: How Off Grid AI handles data. Your chats and files never leave your device. Anonymous usage data and crash reports are off until you turn them on.
+description: What Off Grid AI receives, what it never receives, and the choices you have.
 ---
 
 # Privacy Policy
 
-**Last updated: 26 October 2026**
+**Last updated: 30 October 2026**
 
-This Policy applies to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of this Policy in effect at the time of that use.
-
-This Privacy Policy explains how Wednesday Solutions ("Off Grid AI", "we", "us") handles information in connection with the OGAD (Off Grid AI Desktop) and OGAM (Off Grid AI Mobile) applications, the `@offgrid/*` software, and our websites (together, the "Service").
-
-**By using the Service, you agree to this Policy.** If you do not agree, do not use the Service.
+This Policy covers the Off Grid AI desktop app, mobile app and browser extension, Off Grid AI Pro, and our websites (the "Service"). The Service is provided by Wednesday Solutions ("we", "us").
 
 ---
 
-## 1. Our core principle: local by architecture
+## 1. Your content stays on your devices
 
-Off Grid AI is built so that the data you capture, store, and process - screen captures, audio, transcripts, memory, clipboard, files, and the content you connect - stays on your own devices. This is privacy by architecture, not merely by promise.
+The apps run AI on your own devices. Your chats, prompts, files, recordings, memory, photos and videos are stored on your devices. We do not receive them.
 
-We do not receive, store, or have access to your captured content in the ordinary operation of the local applications. Where data syncs between your own devices, it is designed to move directly between devices you control.
+Sync moves data directly between your own devices. It does not pass through our servers.
 
-Because the content lives on your devices, **you are the controller of that data and you are responsible for securing your devices and any backups.**
+Your content leaves your devices only when you send it somewhere yourself. For example: when you use a cloud model, connect another service, or send us a problem report.
 
----
-
-## 2. Information we may process
-
-While the Service is local-first, limited information may be processed in the following situations:
-
-- **Account, license, and payment data.** If you purchase a paid plan, our payment and licensing providers process your email, license key, and transaction details to deliver and manage your purchase. We do not store full card numbers.
-- **Website analytics.** Our website uses privacy-conscious analytics to understand aggregate usage (e.g., page views). It is intended to be aggregated and not to identify you personally.
-- **Optional product analytics and crash reports.** The OGAM and OGAD apps send anonymous usage data and crash reports only if you turn them on. They are off by default. Section 4 explains exactly what this covers.
-- **Communications.** If you email us, join our community, or subscribe to updates, we process the contact details and content you provide.
-- **Problem reports you choose to send.** "Report a problem" in the apps opens your own email app with a debug log attached. You see the log before you send it, and we receive only what you choose to email. The debug log does not contain your chats. We use it only to investigate the issue.
-
-We do not sell your personal information, and we do not use your captured content to train models.
+You control your content. You are responsible for securing your devices and backups.
 
 ---
 
-## 3. Information we do NOT collect
+## 2. What we receive
 
-Your chats and files never leave your device. In ordinary use of the local applications, we do not collect:
+- **Purchases.** Your email, your plan and your transaction details. A payment processor or app store handles payment. We never see your full card number.
+- **Your licence.** Your licence key and, for each device you activate, a device ID and device name. We use this to check your plan and manage your device limit.
+- **Optional app analytics.** These are off until you turn them on (section 3).
+- **Website visits.** See section 4.
+- **Messages you send us.** This includes emails, newsletter sign-ups and problem reports. A problem report includes a debug log, and you see the log before you send it.
+- **Downloads and updates.** When the apps download a model or an update, the server that sends the file sees your IP address and which file you asked for.
 
-- your prompts, the model's replies, or your messages;
-- your screen captures, audio, transcripts, memory, or clipboard contents;
-- your files, file names, or document names;
-- your search terms;
-- your IP address (with optional analytics on, it reaches our analytics provider but is discarded on arrival and never saved with your events; see section 4);
-- your device's hardware identifiers;
-- the data from any third-party services you connect.
-
-That data remains on your devices. This is true whether or not you turn on optional analytics.
+We never sell your content. We never use your content to train models.
 
 ---
 
-## 4. Optional product analytics and crash reports
+## 3. Optional app analytics and crash reports
 
-**Off by default.** The OGAM and OGAD apps can send anonymous usage data and crash reports to help us fix what breaks. This is a separate opt-in in the app. Until you turn it on, the apps send nothing to our analytics provider. You can turn it off at any time in Settings. Turning it on or off on one device does not change your other devices.
+**Off until you turn them on.** You can turn them off at any time in Settings. Each device has its own setting.
 
-**Who processes it.** We use PostHog Cloud EU (PostHog Inc., with data stored in Frankfurt, Germany) as our processor for this data.
+**What they include:**
 
-**What we collect when it is on:**
+- your device type, operating system, app version, memory size and language, and whether you have Pro;
+- which screens and features you use;
+- model downloads and how well models run;
+- crash reports, with file paths and typed text removed.
 
-- basic app context: platform (for example iOS, Android, macOS, Windows, Linux), app version, release channel, whether you have Pro, device class (phone, tablet, desktop), total RAM rounded to whole gigabytes, operating system version, and app language;
-- which screens you open and how long the app takes to start;
-- model events: which public model you download or load (or "custom" for a model you imported), its size range, download speed, load time, and the engine and processor type used;
-- generation performance: speed, time to first word, a rough context size range, battery level rounded to 10%, whether you are charging, and whether a reply finished, was stopped, or failed;
-- counts of actions, such as starting a chat, sending a message (with only whether it had an image or document), adding a document (file type and size range only), and which features you use;
-- the steps of setup flows, such as onboarding or connecting a device, so we can see where people get stuck;
-- crash reports: the error type, the code file name, line and function. We remove file paths and any quoted text before the report is sent.
+**What they never include:** your prompts, replies, files, file names, search terms, web addresses, email, licence key or device ID.
 
-**What we never collect, even when it is on:** your prompts, replies, transcripts, or tool results; file names, document names, paths, URLs, or addresses; search terms; names of models, repositories, or connectors you added yourself; your email, account, or license key; your device hardware identifiers.
+**Anonymous.** Each install uses a random ID. We do not link that ID to you, your email or your licence. When you turn analytics off, the ID is reset. Because the data is not linked to you, we cannot find, copy or delete one person's data.
 
-**Anonymous ID.** The app creates a random anonymous ID for each install. It is never linked to an account, a license, or an email address. When you turn analytics off, the ID is reset and any data still waiting to be sent is dropped.
+**Who processes it.** An analytics provider processes this data for us in the European Union. Your IP address reaches the provider, as with any internet connection. We do not use it to identify or locate you.
 
-**IP addresses.** Your device's IP address reaches our analytics provider when the data is sent, as with any internet connection. The provider discards it on arrival. It is never saved with your events, and we do not use it to work out your location. Your internet provider and other networks along the way can still see it, as they can for anything you send.
+**Legal basis.** Your consent. You can withdraw it at any time in Settings.
 
-**Legal basis.** We process this data on the basis of your consent. You give it when you turn analytics on, and you can withdraw it at any time in Settings.
+**Retention.** 12 months, then the data is deleted.
 
-**Retention.** We keep this data for 12 months, then it is deleted.
-
-**Your rights for this data.** Because this data is not linked to you, we cannot find the events of one person, so we cannot give you a copy of them or delete them on request. Turning analytics off stops all future collection from that device.
-
-**App stores.** Google Play and the Apple App Store may collect crash data from our apps under your own device settings. They do this under their own privacy policies, and that is separate from our opt-in.
-
-The full list of events we collect is public in our source code.
+App stores can also collect crash data under your device settings and their own policies.
 
 ---
 
-## 5. Video Studio (Off Grid AI Pro)
+## 4. Our websites
 
-Video Studio makes short films from your prompts and photos. It runs on your phone, on your computer, or on your phone using your own computer for the heavy work. The film is made on your devices.
+Our websites use cookies and similar tools. We use them to understand how people use the site and to measure our ads.
 
-**Character photos.** A saved character is a name and 1 to 4 photos. These photos never leave your devices. They move only between your own devices, through encrypted sync, when you turn sync on. We do not receive them.
+- If you sign up or buy, we can link your visits to your email.
+- When you buy, we share limited purchase data with our advertising partners. This data is a hashed email, the purchase, and the browser and network details of the visit. We share it to measure whether our ads work.
 
-**Prompts and films.** Your video prompts, storyboards, narration, captions and films stay on your devices, the same as your chats and files (see section 3).
-
-**Safety check.** Before a film is made, a small check runs on your device. It is designed to block content that shows a minor, and content that puts a real person in a film without their consent. It cannot catch everything, and you stay responsible for what you make (see our Terms of Service). The check runs locally. Its result is not logged, and it is not sent to us or to anyone else.
-
-**AI-generated label.** Every film you export is marked as made with AI in its file information. Where the app can, it also adds a C2PA content credential. We add these so that people who watch your film can tell it is AI-generated. Do not remove them (see our Terms of Service).
-
-**After Pro ends.** If your Pro plan ends, the films you made stay on your devices and you can still watch and share them. You cannot make new films without Pro.
-
-**Optional analytics.** If you turned on optional analytics (section 4), we count that a video was made, the model and engine used, how long it took, and whether it finished. We never receive your prompt, your photos, or the film.
+You can block cookies in your browser settings. The site still works without them.
 
 ---
 
-## 6. Third-party services
+## 5. Video Studio (Pro)
 
-When you choose to connect a third-party service (for example a calendar, email, or model provider) or install the Service through an app store or payment processor, those parties process information under their own privacy policies. We are not responsible for the practices of third-party services. Connecting them is your choice and your responsibility.
-
----
-
-## 7. How we use the limited information we process
-
-Where we process the information described above, we use it to: provide and maintain the Service; process payments and manage licenses; respond to your requests; understand aggregate usage to improve the Service; ensure security and prevent abuse; and comply with legal obligations.
+- Videos are made on your devices. Your prompts, photos, characters and videos stay on your devices.
+- A safety check runs on your device before a video is made. We do not receive its result.
+- Exported videos carry an AI-generated label in their file information. Our [Terms](/terms/) forbid removing it.
+- If your Pro plan ends, you keep the videos you made.
 
 ---
 
-## 8. Data retention
+## 6. Other services you choose
 
-We retain the limited information we process only as long as needed for the purposes above or as required by law. Optional product analytics and crash reports are kept for 12 months (see section 4). Content stored locally on your devices is retained according to your own settings, and you can delete it at any time by removing it from your devices.
+Some services work under their own privacy policies:
+
+- cloud models;
+- connected apps and accounts;
+- app stores;
+- payment processors.
+
+When you use one, it receives what you send it. We are not responsible for how they handle data.
+
+---
+
+## 7. Who we share data with
+
+We share data only with service providers who work for us:
+
+- payment processing;
+- licensing;
+- email;
+- hosting;
+- analytics;
+- advertising measurement.
+
+We also share data when the law requires it, to protect our rights, or as part of a merger or sale of our business.
+
+---
+
+## 8. How long we keep data
+
+- **App analytics:** 12 months.
+- **Purchase and licence data:** while your licence is active, and after that for as long as tax and accounting law requires.
+- **Other data:** only as long as we need it for the purposes above.
 
 ---
 
 ## 9. Security
 
-We take reasonable measures to protect the limited information we process. However, no method of storage or transmission is completely secure, and we cannot guarantee absolute security. Because most data stays on your devices, the security of that data depends primarily on you keeping your devices and backups secure.
+We protect the data we hold with reasonable measures. No system is completely secure. Your content's security depends mostly on your own devices.
 
 ---
 
-## 10. Children
+## 10. Your rights
 
-The Service is not directed to children under 13 (or the minimum age of digital consent in your jurisdiction), and we do not knowingly collect personal information from them.
+Depending on where you live, you can ask to access, correct, delete or export the personal data we hold. You can also object to or restrict how we use it. Email us to make a request. You can also complain to your local data protection authority.
 
----
-
-## 11. Your rights
-
-Depending on where you live, you may have rights to access, correct, delete, or restrict processing of personal information we hold about you, or to object to or port it. Because most content stays on your devices, you can exercise much of this directly by managing or deleting data locally. For the limited information we process, contact us at the address below and we will respond as required by applicable law. Optional analytics data is anonymous and cannot be traced to you; section 4 explains how to stop it.
+You manage the content on your devices yourself. Delete it there.
 
 ---
 
-## 12. International users
+## 11. International transfers
 
-Optional product analytics and crash reports are stored in the European Union (Frankfurt, Germany). Other limited information we process may be handled in countries other than your own. By using the Service, you consent to such processing in accordance with this Policy.
+We and our providers can process data outside your country, including in the European Union and the United States. Where the law requires it, we use safeguards for these transfers.
 
 ---
 
-## 13. Changes to this Policy
+## 12. Children
 
-We may update this Policy at any time by posting the revised version. Changes are effective when posted. Your continued use of the Service after changes are posted means you accept the updated Policy.
+The Service is not for children under 13, or under the age of digital consent where you live. We do not knowingly collect data from them.
+
+---
+
+## 13. Changes
+
+We can update this Policy. We post the new version here, with a new date. If a change is material, we tell you in the app or by email before it applies.
 
 ---
 
 ## 14. Contact
 
-Questions about this Policy or your data? Email the Off Grid AI Support Team at **support@getoffgridai.co**.
+Email **support@getoffgridai.co**.
