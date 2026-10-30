@@ -8,6 +8,8 @@ published_at: "2026-10-30T09:30:00Z"
 article_topic: "Models & performance"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4946540
+devto_url: "https://dev.to/alichherawalla/how-to-keep-several-local-ai-models-loaded-at-once-on-linux-in-2026-no-reload-wait-27lc"
 ---
 Your editor plugin talks to a small coding model. Your chat client talks to a bigger one. A script on the same box wants a third. Every switch means one model unloads, the next loads from disk, and you wait. Off Grid AI Desktop on Linux keeps several chat models in memory at the same time. A request that names one of them goes straight to it, already loaded. Before anything loads, the app sizes the set against your GPU's VRAM, your RAM and your CPU quota, and tells you if it will not fit.
 
