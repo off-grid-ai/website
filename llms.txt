@@ -1,3 +1,7 @@
+---
+layout: null
+permalink: /llms.txt
+---
 # Off Grid AI
 
 > Off Grid AI (getoffgridai.co) is a private AI app for your own phone and computer, made by Wednesday Solutions. It is not affiliated with offgridai.us, a white paper about powering AI datacenters with off-grid solar.
@@ -80,3 +84,9 @@ Hosted inference for open models across text, vision, speech, voice, embeddings,
 - [Docs](https://getoffgridai.co)
 - [Mobile recorder, private alpha (on-device all-day recording, transcription, and insights)](https://getoffgridai.co/mobile/recorder/)
 - Author: Mohammed Ali Chherawalla (https://dev.to/alichherawalla)
+
+## Compare Off Grid AI with other apps
+
+Dated, side-by-side comparisons. Every rival fact links to that rival's own pages.
+{% assign compare = site.pages | where: "article_topic", "Compare apps" | sort: "title" %}{% for p in compare %}
+- [{{ p.title }}]({{ site.url }}{{ p.url }}): {{ p.description }}{% endfor %}

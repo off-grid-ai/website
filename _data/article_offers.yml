@@ -1,0 +1,75 @@
+# The card each article and guide shows, sorted at build time by _plugins/article_offer.rb.
+# An article about a Pro feature gets that feature's Pro card. Every other article is about the free app and gets
+# the download card for its platform.
+#
+# A feature wins when its words are in the title, or at least twice in the description. Title words count 3, description
+# words 1; the highest score wins and a tie goes to the feature listed first. `platforms` limits a desktop feature to
+# desktop articles: on an "Any device" article, meeting notes or a recording are written notes in the free app.
+# `match_anywhere` words count on every platform.
+# One page can override the sort in its front matter: `article_offer: download` or `article_offer: <feature id>`.
+# Lines are the /pro page's own (preview-ui/pages/pro.jsx CAPS and SYNC), so a card never promises what Pro does not.
+# A comparison reader is choosing an app, so a comparison gets the download card. A comparison with a paid rival of a
+# Pro feature (Granola, Otter, Wispr Flow, Rize...) sets `article_offer:` to that feature instead.
+download_when: '\bvs\.?\s'
+pro:
+  - id: meetings
+    name: Meetings
+    line: Meetings are recorded, transcribed and summarised on your computer, with the decisions and who owes what.
+    platforms: [Mac, Windows, Linux, Computer]
+    match: '\bmeetings?\b|\brecord(ed|ing)? (a |the |your )?(workshop|talk|brainstorm|call|interview|lecture|session)s?\b|\brecorded\b'
+    match_anywhere: '\bzoom\b|\bgoogle meet\b|\bteams meeting|\bnotetaker\b|\bmeeting bot\b'
+  - id: memory
+    name: Memory
+    line: Screens, meetings, mail and docs become one local memory you can search and ask.
+    platforms: [Mac, Windows, Linux, Computer]
+    match: '\bsaved (mac )?activity\b|\bsomething you saw\b|\bwithout taking notes\b|\byou worked on earlier\b|\b(page|what) you (saw|read|did)\b|\bwhat you decided\b|\brecall past\b|\bremember (what|everything|about your work)\b|\bpeople you work with\b'
+    match_anywhere: '\bscreen (history|activity)\b|\bbackground capture\b|\breplay\b'
+  - id: actions
+    name: Actions
+    line: Replies, issues and docs through Gmail, Linear, Jira and Notion. Nothing runs without your yes.
+    match: '\bconnectors?\b|\bgmail\b|\boutlook\b|\binbox\b|\bemail replies\b|\bemails (across|from)\b|\bcalendars?\b|\blinear\b|\bjira\b|\bnotion\b|\bapprov(e|al|als)\b|\bpending (ai )?actions\b|\bto-dos?\b|\btasks you assign\b'
+  - id: god
+    name: God, your chief of staff
+    line: It briefs you, runs your routines and lines up work for your yes.
+    platforms: [Mac, Windows, Linux, Computer]
+    match: '\bbriefings?\b|\bdaily brief\b|\bmorning brief\b|\broutines?\b|\bchief of staff\b|\bend of (each|the) day\b|\bunfinished work\b|\bmeeting prep\b'
+  - id: reflect
+    name: Reflect
+    line: Where your day went. Time by project, app and person. No timers.
+    platforms: [Mac, Windows, Linux, Computer]
+    match: '\bproject time\b|\btime tracking\b|\btrack (your )?time\b|\bwhere (your|my) (time|day) went\b|\bcontext.switching\b|\bfocus\b|\bworkday\b|\btimesheets?\b'
+  - id: vault
+    name: Vault
+    line: Passwords, keys, notes and files, encrypted. Unlocked only by you.
+    match: '\bvault\b|\bpasswords?\b|\blogins?\b|\bsaved addresses\b|\bfill (online )?forms\b|\bapi keys securely\b|\bsensitive files\b'
+  - id: clipboard
+    name: Clipboard
+    line: Text, links, images and files you copy, searchable on your disk.
+    match: '\bclipboard\b|\bwhat (you|I) copied\b'
+  - id: video
+    name: Video Studio
+    line: One sentence becomes a storyboard, then a film with your character in every shot. Every film carries an AI label.
+    match: '\bvideo studio\b|\bfilms?\b|\bstoryboards?\b|\bmake a video\b|\bai video\b|\bvideo generation\b'
+  - id: sync
+    name: Sync
+    line: Start on your computer, finish on your phone. Encrypted, device to device; no server keeps a copy.
+    match: '\bsync\b|\bsyncing\b|\bpaired devices?\b|\bbetween your (iphone|android|phone) and (mac|pc|computer)\b'
+  - id: pro
+    name: Off Grid AI Pro
+    line: Memory, meetings, Vault, Sync and actions you approve, on your computer and phone.
+    match: '\brequires? pro\b|\bpro licen[cs]e\b|\bfree (vs|or|and) pro\b'
+
+# The free app's download card, by the article's platform. Pages without a platform, or for any device, link to the
+# download page; a script on the page then sends a phone visitor straight to its store.
+download:
+  play: https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=article_card
+  app_store: https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=article_card
+  platforms:
+    Android: { line: "Everything here runs on your Android phone. No account, no cloud.", links: [play] }
+    iPhone: { line: "Everything here runs on your iPhone. No account, no cloud.", links: [app_store] }
+    Phone: { line: "Everything here runs on your phone. No account, no cloud.", links: [play, app_store] }
+    Mac: { line: "Everything here runs on your Mac. No account, no cloud.", links: [computer], label: Download for Mac }
+    Windows: { line: "Everything here runs on your Windows PC. No account, no cloud.", links: [computer], label: Download for Windows }
+    Linux: { line: "Everything here runs on your Linux machine. No account, no cloud.", links: [computer], label: Download for Linux }
+    Computer: { line: "Everything here runs on your computer. No account, no cloud.", links: [computer] }
+    default: { line: "Everything here runs on your own devices. No account, no cloud.", links: [any] }

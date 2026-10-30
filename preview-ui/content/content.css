@@ -16,7 +16,7 @@
    reading column on wide screens, so its inset keeps it on the column's right edge (--doc-w). */
 .doc-page{--doc-w:700px}
 @media (min-width:1100px){.doc-page:has(.doc.has-toc){--doc-w:980px}}
-.doc-tools{position:absolute;top:22px;right:max(clamp(16px,4.4vw,64px),calc((100% - var(--doc-w))/2));z-index:4}
+.doc-tools{position:absolute;top:34px;right:max(clamp(16px,4.4vw,64px),calc((100% - var(--doc-w))/2));z-index:4}
 .doc-search{height:32px!important;gap:8px!important;font-size:12px!important;color:var(--og-text-secondary)!important;border-color:var(--line-2)!important;background-color:transparent!important;border-radius:8px!important;padding-inline:10px!important}
 .doc-search:hover{color:var(--og-text)!important;border-color:rgb(var(--og-rgb-primary)/.5)!important}
 .doc-search kbd{font:inherit;font-size:10px;padding:1px 5px;border:1px solid var(--line-2);border-radius:4px;color:var(--og-text-muted)}
@@ -151,6 +151,7 @@
 .doc-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border:1px solid rgb(var(--og-rgb-primary)/.35);border-radius:var(--og-card-radius);background-color:rgb(var(--og-rgb-primary)/.05);font-size:13.5px;line-height:1.6;color:var(--og-text-secondary)}
 .doc-cta strong{display:block;color:var(--og-text);font-weight:400;font-size:15px}
 .doc-cta a{flex:none;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:8px;background-color:var(--og-primary);color:#03140c;font-size:13px;white-space:nowrap}
+.doc-cta-links{flex:none;display:flex;flex-wrap:wrap;gap:8px}
 .light .doc-cta a{color:#fff;background-color:var(--og-primary-dark,#059669)}
 .doc-pager{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .doc-pager a{display:flex;flex-direction:column;gap:4px;min-height:72px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--og-card-radius);background-color:var(--og-surface)}
@@ -175,7 +176,7 @@
 }
 @media (max-width:700px){
   .doc-page{padding:14px 4px 0}
-  .doc-tools{top:12px;right:4px}
+  .doc-tools{top:14px;right:4px}
   .doc-search .doc-search-label,.doc-search kbd{display:none}
   .doc-search{width:44px!important;height:44px!important;padding:0!important;justify-content:center}
   .doc-crumbs{padding-right:56px;font-size:11.5px}
@@ -203,6 +204,7 @@
   .doc-end{margin-inline:-4px;padding:20px 4px}
   .doc-cta{flex-direction:column;align-items:stretch;padding:16px}
   .doc-cta a{justify-content:center;min-height:44px}
+  .doc-cta-links{flex-direction:column}
   .doc-pager{grid-template-columns:1fr}
   .doc-pager .next{grid-column:1}
   .doc-more-grid{grid-template-columns:1fr;gap:8px}
@@ -220,3 +222,12 @@
 /* Reading pages have no backdrop of their own: the living field (PageShell) is the one background,
    and the reading column covers it (.doc.og-solid above). */
 #og-content-root{position:relative;isolation:isolate}
+/* Comparison pages: everything in one app, before the FAQ (_includes/compare-breadth.html). */
+.doc-breadth{margin:40px 0;padding:24px;border:1px solid var(--line-2);border-radius:var(--og-card-radius);background-color:rgb(var(--og-rgb-primary)/.04)}
+.doc-breadth h2{margin-top:0!important}
+.doc-breadth-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;margin:16px 0}
+.doc-breadth-k{font-family:var(--og-font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--og-text-muted);margin:0 0 8px}
+.doc-breadth ul{margin:0;padding-left:18px}
+.doc-breadth li{margin:4px 0}
+.doc-breadth-flow{margin-bottom:16px!important}
+@media (max-width:700px){.doc-breadth{padding:18px 16px}.doc-breadth-grid{grid-template-columns:1fr}}

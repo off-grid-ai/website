@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Jan (2026): Local AI That Makes Images, Talks Back and Runs on Your Phone"
-description: "Jan runs local chat on your computer. Off Grid AI adds image generation, voice, cited answers from your files and a phone app."
+title: "Jan AI Alternative: How to Run Local AI on Your Mac or PC in 2026 (Images, Voice, Phone)"
+description: "Off Grid AI is free, open-source local AI with image generation, voice, cited file answers and a phone app. Jan runs local chat on your computer."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-jan-2026-local-ai-that-makes-images-talks-back-and-runs-on-your-phone/
 published_at: "2026-10-29T10:05:00Z"

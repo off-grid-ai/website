@@ -13,7 +13,7 @@
   document.addEventListener('click', function (event) {
     var link = event.target.closest('a[data-analytics-event]');
     if (!link) return;
-    capture(link.dataset.analyticsEvent, { placement: link.dataset.analyticsPlacement, href: link.getAttribute('href') });
+    capture(link.dataset.analyticsEvent, { placement: link.dataset.analyticsPlacement, offer: link.dataset.analyticsOffer, href: link.getAttribute('href') });
   });
 
   if (typeof IntersectionObserver !== 'function') return;
@@ -24,7 +24,7 @@
       var element = entry.target;
       if (viewed.has(element)) return;
       viewed.add(element);
-      capture(element.dataset.analyticsView, { placement: element.dataset.analyticsPlacement });
+      capture(element.dataset.analyticsView, { placement: element.dataset.analyticsPlacement, offer: element.dataset.analyticsOffer });
       observer.unobserve(element);
     });
   }, { threshold: 0.4 });

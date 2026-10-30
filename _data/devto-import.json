@@ -2429,6 +2429,344 @@
       "id": 4941183,
       "url": "https://getoffgridai.co/articles/how-to-run-a-local-ai-server-for-your-whole-team-on-linux-in-2026-ollama-alternative-no-cloud/",
       "devto_url": "https://dev.to/alichherawalla/how-to-run-a-local-ai-server-for-your-whole-team-on-linux-in-2026-ollama-alternative-no-cloud-4g68"
+    },
+    {
+      "id": 4942423,
+      "url": "https://getoffgridai.co/articles/a-private-microsoft-recall-alternative-on-linux-in-2026-local-ai-reviews-your-day-overnight/",
+      "devto_url": "https://dev.to/alichherawalla/a-private-microsoft-recall-alternative-on-linux-in-2026-local-ai-reviews-your-day-overnight-14kf"
+    },
+    {
+      "id": 4943018,
+      "url": "https://getoffgridai.co/articles/how-to-use-a-remote-ollama-or-llamacpp-server-from-a-desktop-ai-app-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-use-a-remote-ollama-or-llamacpp-server-from-a-desktop-ai-app-on-linux-in-2026-9dc"
+    },
+    {
+      "id": 4943515,
+      "url": "https://getoffgridai.co/articles/how-to-ask-questions-about-a-500-page-pdf-on-linux-in-2026-page-citations-no-cloud/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-ask-questions-about-a-500-page-pdf-on-linux-in-2026-page-citations-no-cloud-1fa0"
+    },
+    {
+      "id": 4945434,
+      "url": "https://getoffgridai.co/articles/how-to-prepare-for-every-meeting-automatically-on-linux-in-2026-private-local-ai/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-prepare-for-every-meeting-automatically-on-linux-in-2026-private-local-ai-2fap"
+    },
+    {
+      "id": 4946540,
+      "url": "https://getoffgridai.co/articles/how-to-keep-several-local-ai-models-loaded-at-once-on-linux-in-2026-no-reload-wait/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-keep-several-local-ai-models-loaded-at-once-on-linux-in-2026-no-reload-wait-27lc"
+    },
+    {
+      "id": 4946403,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-agent-zero-2026-a-private-agent-without-docker-or-a-linux-sandbox/"
+    },
+    {
+      "id": 4946426,
+      "url": "https://getoffgridai.co/articles/best-ai-meeting-notetakers-without-a-bot-in-2026-private-and-paid-once/"
+    },
+    {
+      "id": 4946431,
+      "url": "https://getoffgridai.co/articles/best-ai-apps-with-a-lifetime-deal-in-2026-no-subscription/"
+    },
+    {
+      "id": 4946435,
+      "url": "https://getoffgridai.co/articles/best-local-ai-apps-for-your-phone-and-computer-in-2026-chat-images-and-voice-offline/"
+    },
+    {
+      "id": 4946446,
+      "url": "https://getoffgridai.co/articles/best-otter-ai-alternatives-in-2026-no-minute-caps-no-meeting-bot/"
+    },
+    {
+      "id": 4946455,
+      "url": "https://getoffgridai.co/articles/best-granola-alternatives-in-2026-meeting-notes-that-stay-on-your-computer/"
+    },
+    {
+      "id": 4946458,
+      "url": "https://getoffgridai.co/articles/best-rewind-ai-and-microsoft-recall-alternatives-in-2026-screen-memory-that-stays-local/"
+    },
+    {
+      "id": 4946462,
+      "url": "https://getoffgridai.co/articles/best-private-ai-chief-of-staff-apps-in-2026-personal-agents-that-ask-before-they-act/"
+    },
+    {
+      "id": 4946484,
+      "url": "https://getoffgridai.co/articles/best-wispr-flow-alternatives-in-2026-dictation-apps-worth-paying-for/"
+    },
+    {
+      "id": 4946489,
+      "url": "https://getoffgridai.co/articles/granola-vs-otter-vs-fathom-vs-fireflies-vs-off-grid-ai-2026-which-meeting-notetaker-keeps-your-calls-private/"
+    },
+    {
+      "id": 4946492,
+      "url": "https://getoffgridai.co/articles/lm-studio-vs-ollama-vs-msty-vs-jan-vs-off-grid-ai-2026-local-ai-apps-compared/"
+    },
+    {
+      "id": 4946494,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-1password-2026-a-password-vault-that-lives-only-on-your-computer/"
+    },
+    {
+      "id": 4946503,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-bluedot-2026-unlimited-meeting-notes-that-stay-on-your-computer/"
+    },
+    {
+      "id": 4946507,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-chatgpt-plus-2026-an-ai-assistant-with-memory-that-stays-on-your-computer/"
+    },
+    {
+      "id": 4946511,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-claude-cowork-2026-tasks-you-approve-with-memory-on-your-own-computer/"
+    },
+    {
+      "id": 4946534,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-fathom-2026-meeting-notes-without-a-bot-in-the-call/"
+    },
+    {
+      "id": 4946536,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-dia-2026-a-work-assistant-that-reads-your-tabs-on-your-computer/"
+    },
+    {
+      "id": 4946539,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-chatgpt-atlas-2026-an-atlas-alternative-that-works-in-chrome/"
+    },
+    {
+      "id": 4946545,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-fireflies-2026-meeting-notes-with-no-bot-and-no-storage-cap/"
+    },
+    {
+      "id": 4946550,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-fellou-2026-browser-automation-with-a-local-model/"
+    },
+    {
+      "id": 4946554,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-genspark-ai-browser-2026-local-ai-without-switching-browsers/"
+    },
+    {
+      "id": 4946707,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-genspark-claw-2026-an-ai-employee-without-credits-or-a-cloud-computer/"
+    },
+    {
+      "id": 4946710,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-granola-2026-meeting-notes-that-never-leave-your-computer/"
+    },
+    {
+      "id": 4946725,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-keeper-2026-passwords-keys-and-files-encrypted-on-your-computer/"
+    },
+    {
+      "id": 4946737,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-lindy-2026-an-ai-assistant-for-email-and-meetings-that-asks-before-it-acts/"
+    },
+    {
+      "id": 4946741,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-macwhisper-2026-local-transcription-on-every-computer-not-just-mac/"
+    },
+    {
+      "id": 4946763,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-hermes-agent-2026-a-chief-of-staff-that-runs-on-your-own-models/"
+    },
+    {
+      "id": 4946767,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-microsoft-copilot-autopilot-2026-a-personal-agent-you-own-outside-your-employers-cloud/"
+    },
+    {
+      "id": 4946771,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-dashlane-2026-a-password-vault-on-your-own-disk-paid-once/"
+    },
+    {
+      "id": 4946778,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-krisp-2026-ai-meeting-notes-in-every-language-on-your-computer/"
+    },
+    {
+      "id": 4946787,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-bitwarden-2026-a-local-vault-plus-memory-meetings-and-actions-in-one-app/"
+    },
+    {
+      "id": 4946793,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-msty-2026-a-private-ai-workspace-for-79-once-not-349/"
+    },
+    {
+      "id": 4946799,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-littlebird-2026-a-work-memory-that-stays-off-the-cloud/"
+    },
+    {
+      "id": 4946822,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-omi-2026-meeting-memory-without-a-wearable-or-a-subscription/"
+    },
+    {
+      "id": 4946835,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-manus-browser-operator-2026-a-browser-agent-that-thinks-on-your-computer/"
+    },
+    {
+      "id": 4946844,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-gemini-spark-2026-a-chief-of-staff-without-a-google-subscription/"
+    },
+    {
+      "id": 4946847,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-openclaw-2026-a-personal-agent-with-no-setup-that-asks-before-it-acts/"
+    },
+    {
+      "id": 4946853,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-microsoft-recall-2026-private-screen-memory-on-any-pc-mac-or-linux/"
+    },
+    {
+      "id": 4946858,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-goose-2026-a-local-agent-that-remembers-your-work-and-waits-for-your-yes/"
+    },
+    {
+      "id": 4946862,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-otter-2026-no-meeting-bot-no-minute-limits-no-cloud/"
+    },
+    {
+      "id": 4946870,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-nativemind-2026-private-ai-for-your-whole-computer-not-only-the-browser/"
+    },
+    {
+      "id": 4946872,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-lenovo-qira-2026-cross-device-ai-that-works-on-any-brand/"
+    },
+    {
+      "id": 4946875,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-jamie-2026-bot-free-meeting-notes-without-the-cloud/"
+    },
+    {
+      "id": 4946936,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-luci-2026-local-memory-that-does-the-work-itself/"
+    },
+    {
+      "id": 4946943,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-lastpass-2026-a-password-vault-with-no-server-copy/"
+    },
+    {
+      "id": 4946946,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-meta-muse-2026-a-personal-agent-without-a-cloud-computer/"
+    },
+    {
+      "id": 4946949,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-motion-2026-ai-meeting-notes-and-chat-without-a-49-a-month-plan/"
+    },
+    {
+      "id": 4946955,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-notion-ai-meeting-notes-2026-no-business-plan-no-cloud-ai/"
+    },
+    {
+      "id": 4946956,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-open-interpreter-2026-an-assistant-for-your-workday-not-your-terminal/"
+    },
+    {
+      "id": 4946959,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-ollama-2026-one-local-api-for-chat-images-and-speech-plus-an-app/"
+    },
+    {
+      "id": 4946965,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-opera-neon-2026-browser-tasks-without-sending-pages-to-openai/"
+    },
+    {
+      "id": 4946971,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-lm-studio-2026-local-models-plus-memory-and-actions-for-79-once/"
+    },
+    {
+      "id": 4946974,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-rescuetime-2026-see-where-your-time-went-without-uploading-your-window-titles/"
+    },
+    {
+      "id": 4946982,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-openai-dots-2026-a-chief-of-staff-that-runs-on-your-own-computer/"
+    },
+    {
+      "id": 4946989,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-perplexity-portable-computer-2026-a-local-agent-without-a-24gb-gpu/"
+    },
+    {
+      "id": 4946997,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-mem-2026-an-ai-memory-of-your-work-without-a-monthly-message-cap/"
+    },
+    {
+      "id": 4947000,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-siri-ai-2026-personal-ai-that-works-beyond-apple-devices/"
+    },
+    {
+      "id": 4947008,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-paste-2026-clipboard-history-on-windows-linux-and-android-too/"
+    },
+    {
+      "id": 4947010,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-twinmind-2026-meeting-memory-transcribed-on-your-own-computer/"
+    },
+    {
+      "id": 4947015,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-perplexity-comet-2026-ai-in-the-browser-you-already-use/"
+    },
+    {
+      "id": 4947041,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-reclaim-ai-2026-meeting-prep-and-a-morning-brief-next-to-your-calendar/"
+    },
+    {
+      "id": 4947051,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-pieces-2026-work-memory-read-by-a-model-on-your-computer/"
+    },
+    {
+      "id": 4947053,
+      "url": "https://getoffgridai.co/articles/openai-dots-vs-gemini-spark-vs-claude-cowork-vs-meta-muse-vs-off-grid-ai-2026-personal-ai-agents-compared/"
+    },
+    {
+      "id": 4947057,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-plaud-2026-no-recorder-to-buy-no-minutes-to-count/"
+    },
+    {
+      "id": 4947060,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-simular-sai-2026-computer-use-on-your-own-models-for-a-one-time-price/"
+    },
+    {
+      "id": 4947065,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-raycast-ai-2026-ai-clipboard-and-memory-on-mac-windows-and-linux/"
+    },
+    {
+      "id": 4947070,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-read-ai-2026-unlimited-meeting-notes-on-your-own-computer/"
+    },
+    {
+      "id": 4947072,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-rize-2026-time-tracking-that-never-uploads-your-day/"
+    },
+    {
+      "id": 4947075,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-tldv-2026-meeting-notes-that-never-expire/"
+    },
+    {
+      "id": 4947077,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-superwhisper-2026-local-dictation-plus-meetings-memory-and-linux/"
+    },
+    {
+      "id": 4947100,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-screenpipe-2026-local-screen-memory-with-approved-actions-paid-once/"
+    },
+    {
+      "id": 4947103,
+      "url": "https://getoffgridai.co/articles/rize-vs-rescuetime-vs-timing-vs-off-grid-ai-2026-automatic-time-trackers-compared/"
+    },
+    {
+      "id": 4947108,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-wispr-flow-2026-dictation-that-works-offline/"
+    },
+    {
+      "id": 4947115,
+      "url": "https://getoffgridai.co/articles/rewind-ai-alternative-2026-rewind-is-gone-here-is-a-private-replacement/"
+    },
+    {
+      "id": 4947117,
+      "url": "https://getoffgridai.co/articles/off-grid-ai-vs-timing-2026-ai-time-summaries-made-on-your-computer-not-in-the-cloud/"
+    },
+    {
+      "id": 4947123,
+      "url": "https://getoffgridai.co/articles/rewind-vs-microsoft-recall-vs-screenpipe-vs-pieces-vs-off-grid-ai-2026-screen-memory-compared/"
+    },
+    {
+      "id": 4947129,
+      "url": "https://getoffgridai.co/articles/wispr-flow-vs-superwhisper-vs-macwhisper-vs-off-grid-ai-2026-dictation-compared/"
+    },
+    {
+      "id": 4947506,
+      "url": "https://getoffgridai.co/articles/how-to-get-to-dos-from-your-workday-with-the-exact-quote-behind-each-one-on-linux-in-2026/",
+      "devto_url": "https://dev.to/alichherawalla/how-to-get-to-dos-from-your-workday-with-the-exact-quote-behind-each-one-on-linux-in-2026-eo0"
     }
   ],
   "already_on_site": [

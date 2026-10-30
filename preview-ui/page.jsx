@@ -1010,9 +1010,9 @@ const intentOf = (text) => { const i = matchPrompt(text); if (i >= 0) return PRO
 
 // The hero prompt and its chips are one instrument with one source of truth (k): the vanish input types
 // PROMPTS[k] on its own, and the chip for the question in the input carries the light (Motion Primitives
-// AnimatedBackground, the upstream gliding highlight, controlled by the input). Clicking into the field
-// lets the visitor type; the light then follows the best match. Enter on an empty field opens the
-// question shown; clicking a chip shows its question and opens its chapter.
+// AnimatedBackground, the upstream gliding highlight, controlled by the input). The field is not for
+// typing: clicking it (or Enter) opens the question it shows; clicking a chip shows its question and
+// opens its chapter.
 function HeroPrompt({ onRun, active }) {
   const reduce = useContext(PlayCtx).reducedMotion;
   const [k, setK] = useState(0); const [typing, setTyping] = useState(false); const [q, setQ] = useState('');
@@ -1061,16 +1061,13 @@ function HeroPrompt({ onRun, active }) {
       if (rr.bottom > 0 && rr.top < innerHeight) r.scrollTo({ left: r.scrollLeft + (cr.left - rr.left) - (r.clientWidth - cr.width) / 2, behavior: reduce ? 'auto' : 'smooth' });
     }
   }, [lit]);
-  const startTyping = () => { flushSync(() => setTyping(true)); field.current?.querySelector('input')?.focus(); };
   const stopTyping = () => { setTyping(false); setQ(''); };
   const one = useMemo(() => [PROMPTS[k].label], [k]);
   const pick = (i) => { stopTyping(); setK(i); onRun(PROMPTS[i].to); };
   return <>
     <div className="cmd-vanish" aria-label="Off Grid AI demo">
       <div className="cmd-field" data-slot="input-control" ref={field}
-        onPointerDownCapture={(e) => { if (typing || e.button !== 0 || e.target.closest('button')) return; e.preventDefault(); startTyping(); }}
-        onFocusCapture={(e) => { if (typing || e.target.tagName !== 'INPUT') return; e.stopPropagation(); startTyping(); }}
-        onBlurCapture={(e) => { if (!typing || q.trim() || field.current?.contains(e.relatedTarget)) return; stopTyping(); }}
+        onPointerDownCapture={(e) => { if (e.button !== 0 || e.target.closest('button')) return; e.preventDefault(); pick(k); }}
         onSubmitCapture={() => livePulse(field.current, 'change', .9)}>
         <PresetVanishInput key={typing ? 'type' : 'preset'} placeholders={one} presetMode={!typing} reducedMotion={reduce}
           label={typing ? 'Ask the demo a question' : 'Open the example shown'} submitLabel="Open example chapter"
@@ -1078,7 +1075,7 @@ function HeroPrompt({ onRun, active }) {
           onSubmit={() => { if (typing && !q.trim()) pick(k); }}
           onVanishComplete={(text) => { stopTyping(); onRun(intentOf(text)); }} />
       </div>
-      <p className="cmd-note">Press Enter, or pick one below.</p>
+      <p className="cmd-note">Click it, or pick one below.</p>
     </div>
     {/* The chips cascade in centre-out (the AISuggestions timing). Each chip is a slot (motion span) for
         AnimatedBackground: the highlight sits in the slot behind the site ghost button, and the button's
@@ -1496,10 +1493,12 @@ const REVIEW_SOURCE = {
   slack: { label: 'Slack community', Icon: SlackLogo, href: SLACK },
   email: { label: 'Email to the team', Icon: EnvelopeSimple },
 };
-// 'pre' until the launch day, 'live' on it, 'post' after. The server renders 'pre'; the visitor's clock decides.
+// 'pre' until the launch day, 'live' on it, 'post' after. The build's clock picks the first paint, so a page
+// built after the launch never shows the countdown; the visitor's clock decides after that.
+const launchPhase = (now) => now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post';
 function useLaunchPhase() {
-  const [phase, setPhase] = useState('pre');
-  useEffect(() => { const now = Date.now(); setPhase(now < PH_LAUNCH.start ? 'pre' : now < PH_LAUNCH.end ? 'live' : 'post'); }, []);
+  const [phase, setPhase] = useState(() => launchPhase(Date.now()));
+  useEffect(() => { setPhase(launchPhase(Date.now())); }, []);
   return phase;
 }
 const PH_MARK = <svg className="ph-mark" width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#FF6154" /><path fill="#fff" d="M22.7 20H17v-6h5.7a3 3 0 0 1 0 6Zm0-10H13v20h4v-6h5.7a7 7 0 0 0 0-14Z" /></svg>;
@@ -1773,14 +1772,14 @@ export function PageShell({ children, feedback = true }) {
           <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link hide-sm header-social" href={SLACK} target="_blank" rel="noopener" aria-label="Join the Off Grid AI Slack community" title="Slack"><SlackLogo size={18} /></a>
         </span>
         <span className="theme-ctl"><ThemeToggle variant="sun-moon" size="sm" showSystem={false} theme={theme} onThemeChange={changeTheme} /></span>
-        <Button data-site-button="secondary" asChild variant="outline" className="header-pro hide-sm"><a href="/pro/#buy">Get Pro</a></Button>
-        <Button data-site-button="primary" asChild className="header-download"><a href="/download/">Download</a></Button>
+        <Button data-site-button="primary" asChild className="header-pro"><a href="/pro/#buy">Get Pro</a></Button>
+        <Button data-site-button="secondary" asChild variant="outline" className="header-download"><a href="/download/">Download</a></Button>
         <Dialog.Root><Dialog.Trigger asChild><Button data-site-button="secondary" variant="ghost" className="menu-trigger" aria-label="Open navigation"><List size={22} /></Button></Dialog.Trigger>
           <Dialog.Portal><Dialog.Overlay className="nav-overlay" data-slot="dialog-overlay" /><Dialog.Content className="mobile-nav" data-slot="dialog-content" data-og-alive="">
             <Dialog.Title className="eyebrow">OFF GRID AI</Dialog.Title><Dialog.Description className="sr-only">Site navigation</Dialog.Description>
             <Dialog.Close asChild><Button data-site-button="secondary" variant="ghost" className="nav-close" aria-label="Close navigation"><X size={22} /></Button></Dialog.Close>
             <MobileMenu />
-            <div className="mnav-ctas"><Button data-site-button="secondary" asChild variant="outline"><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="primary" asChild><a href="/download/">Download</a></Button></div>
+            <div className="mnav-ctas"><Button data-site-button="primary" asChild><a href="/pro/#buy">Get Pro</a></Button><Button data-site-button="secondary" asChild variant="outline"><a href="/download/">Download</a></Button></div>
             <div className="mobile-community" role="group" aria-label="Community links and appearance">
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://github.com/off-grid-ai" target="_blank" rel="noopener" aria-label="Off Grid AI on GitHub"><GithubLogo size={18} /></a>
               <a data-slot="button" data-variant="ghost" data-size="icon" className="icon-link" href="https://huggingface.co/off-grid-ai/" target="_blank" rel="noopener" aria-label="Off Grid AI on Hugging Face" title="Hugging Face"><span className="huggingface-icon" aria-hidden="true" /></a>

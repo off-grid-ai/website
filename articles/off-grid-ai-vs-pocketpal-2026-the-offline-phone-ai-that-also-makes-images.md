@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs PocketPal (2026): The Offline Phone AI That Also Makes Images"
-description: "PocketPal chats offline. Off Grid AI also makes images, answers from your files with sources, and syncs to your computer."
+title: "PocketPal Alternative: How to Run Local AI on Your iPhone or Android Phone in 2026 (Images, Voice, No Cloud)"
+description: "Off Grid AI runs offline on your phone, and also makes images, answers from your files and syncs to your computer, free. PocketPal chats offline."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-pocketpal-2026-the-offline-phone-ai-that-also-makes-images/
 published_at: "2026-10-29T10:00:00Z"

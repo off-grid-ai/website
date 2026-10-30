@@ -1,0 +1,39 @@
+{%- comment -%}
+The card after an article's first section, as _plugins/article_offer.rb sorted the page (_data/article_offers.yml):
+an article about a Pro feature names that feature and opens checkout; an article about the free app offers the app
+for its platform.
+{%- endcomment -%}
+{%- assign card = page.article_card -%}
+{%- if card.kind == "pro" -%}
+{%- assign pricing = site.data.pricing -%}
+{%- assign offer = pricing.lifetime_offer -%}
+<aside class="doc-cta doc-pro-card" aria-label="{{ card.feature.name }} in Off Grid AI Pro" data-pagefind-ignore data-analytics-view="pro_card_viewed" data-analytics-placement="article_card" data-analytics-offer="{{ card.feature.id }}">
+  <div><strong>{% if card.feature.id == "pro" %}Off Grid AI Pro.{% else %}{{ card.feature.name }} is part of Off Grid AI Pro.{% endif %}</strong>{{ card.feature.line }} One license, up to {{ pricing.devices }} devices. {% if offer.enabled %}<span class="sr-only">Regular price </span><s>${{ offer.original_price }}</s> {% endif %}<span data-pro-price="lifetime">...</span> once.</div>
+  <a href="{{ '/pro/' | relative_url }}#buy" data-analytics-event="pro_cta_click" data-analytics-placement="article_card" data-analytics-offer="{{ card.feature.id }}">Get Pro</a>
+</aside>
+{%- else -%}
+{%- assign store = site.data.article_offers.download -%}
+{%- assign fit = store.platforms[page.article_platform] | default: store.platforms.default -%}
+<aside class="doc-cta doc-download-card" aria-label="Get Off Grid AI free" data-pagefind-ignore data-analytics-view="download_card_viewed" data-analytics-placement="article_card" data-analytics-offer="download">
+  <div><strong>Off Grid AI is free.</strong>{{ fit.line }}</div>
+  <span class="doc-cta-links">
+    {%- for link in fit.links -%}
+    {%- if link == "play" -%}<a href="{{ store.play | escape }}" data-analytics-event="download_card_click" data-analytics-placement="article_card" data-analytics-offer="download">Get it on Google Play</a>
+    {%- elsif link == "app_store" -%}<a href="{{ store.app_store | escape }}" data-analytics-event="download_card_click" data-analytics-placement="article_card" data-analytics-offer="download">Download on the App Store</a>
+    {%- elsif link == "computer" -%}<a href="{{ '/download/' | relative_url }}#on-your-computer" data-analytics-event="download_card_click" data-analytics-placement="article_card" data-analytics-offer="download">{{ fit.label | default: "Download for your computer" }}</a>
+    {%- else -%}<a href="{{ '/download/' | relative_url }}" data-offer-device data-analytics-event="download_card_click" data-analytics-placement="article_card" data-analytics-offer="download">Get the free app</a>
+    {%- endif -%}
+    {%- endfor -%}
+  </span>
+  {%- if fit.links contains "any" %}
+  <script>
+    // A phone visitor goes straight to its store; everyone else picks a platform on the download page.
+    (function (link) {
+      var agent = navigator.userAgent;
+      if (/Android/i.test(agent)) { link.href = {{ store.play | jsonify }}; link.textContent = 'Get it on Google Play'; }
+      else if (/iPhone|iPad|iPod/.test(agent) || (/Macintosh/.test(agent) && navigator.maxTouchPoints > 1)) { link.href = {{ store.app_store | jsonify }}; link.textContent = 'Download on the App Store'; }
+    })(document.currentScript.parentNode.querySelector('[data-offer-device]'));
+  </script>
+  {%- endif %}
+</aside>
+{%- endif -%}

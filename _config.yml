@@ -17,6 +17,8 @@ plugins:
   - jekyll-sitemap
 
 posthog_token: "phc_u7cnV9P3cTovsfPTE2nhB7g5G4qdtZJ5dgMzv7ryfKWs"
+# PostHog events go through our own domain (tools/ingest-proxy), so tracker blockers do not hide visits and sales.
+posthog_host: "https://e.getoffgridai.co"
 
 # Google Ads. The base tag (in _layouts/default.html) fires a page view on every
 # page - that powers remarketing audiences, but on its own it counts NOTHING as a

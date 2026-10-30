@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs AnythingLLM (2026): Private AI on Your iPhone, With Images and Sync"
-description: "AnythingLLM has no iPhone app. Off Grid AI runs on iPhone, Android and your computer, makes images on-device and syncs between them."
+title: "AnythingLLM Alternative: How to Run Private AI on Your iPhone in 2026 (Images, Sync, Free)"
+description: "Off Grid AI runs on iPhone, Android and your computer, makes images on-device and syncs between them, free. AnythingLLM has no iPhone app."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-anythingllm-2026-private-ai-on-your-iphone-with-images-and-sync/
 published_at: "2026-10-29T10:15:00Z"

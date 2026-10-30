@@ -1,0 +1,8 @@
+# PostHog reverse proxy for getoffgridai.co. Deploy from this folder: npx wrangler deploy
+name = "offgrid-ingest-proxy"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+
+routes = [
+  { pattern = "e.getoffgridai.co", custom_domain = true }
+]

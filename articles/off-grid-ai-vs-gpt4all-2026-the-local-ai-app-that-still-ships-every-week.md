@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs GPT4All (2026): The Local AI App That Still Ships Every Week"
-description: "GPT4All's last release was February 2025. Off Grid AI shipped 12 desktop releases in October 2026, plus images, voice and a phone app."
+title: "GPT4All Alternative: How to Run Local AI on Your Mac or PC in 2026 (Updated Weekly, Free)"
+description: "Off Grid AI is free local AI that shipped 12 desktop releases in October 2026, with images and voice. GPT4All's last release was February 2025."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-gpt4all-2026-the-local-ai-app-that-still-ships-every-week/
 published_at: "2026-10-29T10:10:00Z"
