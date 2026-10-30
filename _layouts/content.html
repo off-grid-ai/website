@@ -218,6 +218,17 @@
       </nav>
       {% endif %}
     {% elsif page.devto_article and page.article_topic %}
+      {% comment %}Comparisons for the same feature: every article links to the comparison pages its card points at, so none is an orphan.{% endcomment %}
+      {% if page.article_card.kind == "pro" %}{% assign offer_id = page.article_card.feature.id %}{% else %}{% assign offer_id = "download" %}{% endif %}
+      {% assign rivals = site.pages | where: "article_topic", "Compare apps" | where: "article_offer", offer_id | sort: "published_at" | reverse %}
+      {% assign shown = 0 %}
+      {% capture rival_links %}{% for m in rivals %}{% if m.url != page.url and shown < 6 %}{% assign shown = shown | plus: 1 %}<a href="{{ m.url | relative_url }}"><span class="m">Compare</span><span class="t">{{ m.title | escape }}</span></a>{% endif %}{% endfor %}{% endcapture %}
+      {% if shown > 0 %}
+      <section class="doc-more" aria-label="Compared with other apps">
+        <span class="eyebrow">Compared with other apps</span>
+        <div class="doc-more-grid">{{ rival_links }}</div>
+      </section>
+      {% endif %}
       {% assign more = site.pages | where: "article_topic", page.article_topic | where: "devto_article", true | sort: "published_at" | reverse %}
       {% assign shown = 0 %}
       <section class="doc-more" aria-label="More on {{ page.article_topic }}">
