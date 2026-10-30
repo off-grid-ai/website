@@ -9,7 +9,8 @@
 @import '../../node_modules/@radix-ui/themes/src/components/segmented-control.css';
 @source '../../node_modules/.cache/offgrid-preview/component-library-48e4937/src/sourced/alive/list-row.tsx';
 
-.hub-hero.chapter{padding-block:clamp(48px,6vw,88px) clamp(28px,3vw,40px)!important}
+/* Beats page.css's site-wide section padding, which is more specific than .hub-hero.chapter. */
+html body section.chapter.hub-hero{padding-block:clamp(28px,3vw,44px) clamp(16px,1.6vw,24px)!important}
 .hub-hero .sec-head{margin-bottom:0!important}
 .hub-hero h1{font-weight:300;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.05em}
 
@@ -132,7 +133,7 @@
   .setup-groups{grid-template-columns:1fr}
 }
 @media (max-width:700px){
-  .hub-hero.chapter{padding-block:32px 20px!important}
+  html body section.chapter.hub-hero{padding-block:20px 14px!important}
   .hub-hero h1{font-size:26px}
   .setup{margin-top:24px}
   .setup-head{margin-bottom:10px}
