@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Notion AI Meeting Notes (2026): No Business Plan, No Cloud AI"
-description: "Notion AI Meeting Notes needs the Business plan, streams audio to AI sub-processors and doesn't work offline. Off Grid AI Pro records and summarises calls on your own computer, for $79.99 once."
+title: "Notion AI Meeting Notes Alternative: How to Record Calls on Your Computer in 2026 (Offline)"
+description: "Off Grid AI Pro records and summarises calls on your computer, offline, $79.99 once. Notion AI Meeting Notes needs the Business plan and an internet link."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-notion-ai-meeting-notes-2026-no-business-plan-no-cloud-ai/
 published_at: "2026-10-30T17:10:00Z"

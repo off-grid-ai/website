@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Superwhisper (2026): Local Dictation, Plus Meetings, Memory and Linux"
-description: "Superwhisper is a good local dictation app for Mac, Windows and phones. Off Grid AI Pro also dictates offline, adds Linux, meetings on every computer and a memory of your work, for $79.99 once."
+title: "Superwhisper Alternative: How to Dictate Offline on Mac, Windows and Linux in 2026 (One Price)"
+description: "Off Grid AI Pro dictates offline on Mac, Windows and Linux and adds meetings and memory, $79.99 once. Superwhisper runs on Mac and Windows, not Linux."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-superwhisper-2026-local-dictation-plus-meetings-memory-and-linux/
 published_at: "2026-10-30T16:10:00Z"

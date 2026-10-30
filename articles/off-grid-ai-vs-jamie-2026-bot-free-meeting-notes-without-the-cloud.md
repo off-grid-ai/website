@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Jamie (2026): Bot-Free Meeting Notes Without the Cloud"
-description: "Jamie records without a bot but streams your audio for transcription and keeps notes on EU servers, with 10 free notes a month. Off Grid AI Pro does it all on your own computer, for $79.99 once."
+title: "Jamie Alternative: How to Get Bot-Free Meeting Notes on Your Mac or PC in 2026 (No Cloud)"
+description: "Off Grid AI Pro transcribes and summarises calls on your computer, no note cap, $79.99 once. Jamie streams audio out, and Free is 10 notes a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-jamie-2026-bot-free-meeting-notes-without-the-cloud/
 published_at: "2026-10-30T17:30:00Z"

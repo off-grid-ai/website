@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs TwinMind (2026): Meeting Memory Transcribed on Your Own Computer"
-description: "TwinMind keeps transcripts in its cloud and uses OpenAI, Anthropic, Google and others for AI and speech-to-text. Off Grid AI Pro records meetings without a bot and transcribes them on your computer, for $79.99 once."
+title: "TwinMind Alternative: How to Transcribe Meetings on Your Mac or PC in 2026 (No Bot, Local)"
+description: "Off Grid AI Pro records meetings without a bot and transcribes them on your computer, $79.99 once. TwinMind keeps transcripts in its cloud."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-twinmind-2026-meeting-memory-transcribed-on-your-own-computer/
 published_at: "2026-10-30T12:35:00Z"

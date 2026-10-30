@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Reclaim.ai (2026): Meeting Prep and a Morning Brief Next to Your Calendar"
-description: "Reclaim.ai finds time on your calendar for tasks, habits and focus. Off Grid AI Pro preps your meetings and briefs you each morning from work that stays on your computer. They do different jobs, and they work well together."
+title: "Reclaim AI Alternative: How to Prep Every Meeting on Your Computer in 2026 (Stays Local)"
+description: "Off Grid AI Pro preps meetings and briefs you each morning from work on your computer. Reclaim.ai schedules your calendar, from $10 a seat. Use both."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-reclaim-ai-2026-meeting-prep-and-a-morning-brief-next-to-your-calendar/
 published_at: "2026-10-30T17:35:00Z"

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Raycast AI (2026): AI, Clipboard and Memory on Mac, Windows and Linux"
-description: "Raycast Pro is $10 a month for AI in a Mac launcher. Off Grid AI runs local AI for free and adds memory, meetings and a searchable clipboard on Mac, Windows and Linux, for $79.99 once."
+title: "Raycast AI Alternative: How to Get Local AI on Windows and Linux in 2026 (No Credits)"
+description: "Off Grid AI runs local AI free; Pro adds memory, meetings and a clipboard on Mac, Windows and Linux, $79.99 once. Raycast Pro is $10 a month for AI."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-raycast-ai-2026-ai-clipboard-and-memory-on-mac-windows-and-linux/
 published_at: "2026-10-30T16:35:00Z"

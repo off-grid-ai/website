@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Msty (2026): A Private AI Workspace for $79.99 Once, Not $349"
-description: "Msty Studio Aurum costs $149 per user a year or $349 per user once. Off Grid AI Pro is $79.99 once for up to 5 devices, and adds memory of your work, approved actions and on-device phone apps."
+title: "Msty Alternative: How to Run Private AI on Your Mac or PC in 2026 ($79.99 Once, Not $349)"
+description: "Off Grid AI Pro is $79.99 once for up to 5 devices, with memory, approved actions and phone apps. Msty Studio Aurum is $149 a year or $349 once per user."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-msty-2026-a-private-ai-workspace-for-79-once-not-349/
 published_at: "2026-10-30T11:45:00Z"

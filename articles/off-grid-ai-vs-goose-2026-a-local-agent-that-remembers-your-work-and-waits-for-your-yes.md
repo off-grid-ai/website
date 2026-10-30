@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Goose (2026): A Local Agent That Remembers Your Work and Waits for Your Yes"
-description: "Goose is a free, open-source agent for your desktop and terminal, with built-in local inference. Off Grid AI adds a local memory of your meetings and mail, actions you approve, and a phone app, with Pro at $79.99 once."
+title: "Goose Alternative: How to Run a Local Agent With Memory on Your Mac or PC in 2026 (Asks First)"
+description: "Off Grid AI adds local memory of your meetings and mail, approved actions and a phone app, Pro $79.99 once. Goose is a free open-source desktop agent."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-goose-2026-a-local-agent-that-remembers-your-work-and-waits-for-your-yes/
 published_at: "2026-10-30T13:45:00Z"

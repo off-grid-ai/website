@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs MacWhisper (2026): Local Transcription on Every Computer, Not Just Mac"
-description: "MacWhisper is a fine local transcription app for the Mac, at €64 once. Off Grid AI Pro also transcribes on your computer, runs on Windows and Linux too, and turns calls into memory and follow-ups, for $79.99 once."
+title: "MacWhisper Alternative: How to Transcribe Locally on Windows and Linux in 2026 (Paid Once)"
+description: "Off Grid AI Pro transcribes locally on Mac, Windows and Linux and turns calls into follow-ups, $79.99 once. MacWhisper is Mac only, at €64 once."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-macwhisper-2026-local-transcription-on-every-computer-not-just-mac/
 published_at: "2026-10-30T16:30:00Z"

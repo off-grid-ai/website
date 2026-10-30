@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs LUCI (2026): Local Memory That Does the Work Itself"
-description: "LUCI is a free, local screen and meeting memory for Mac and Windows that feeds agents like Claude Code and Codex. Off Grid AI Pro keeps the memory local and does the follow-up work itself, with your approval, on Mac, Windows and Linux."
+title: "LUCI Alternative: How to Keep Local Work Memory on Your Mac or PC in 2026 (It Acts Too)"
+description: "Off Grid AI Pro keeps memory local and does the follow-up itself, with your approval, on Mac, Windows and Linux. LUCI hands memory to agents."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-luci-2026-local-memory-that-does-the-work-itself/
 published_at: "2026-10-30T13:05:00Z"

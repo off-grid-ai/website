@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Pieces (2026): Work Memory Read by a Model on Your Computer"
-description: "Pieces stores your work memory on your device, but its docs say AI features run in the cloud. Off Grid AI Pro keeps both the memory and the model on your computer, for $79.99 once instead of $18.99 a month."
+title: "Pieces Alternative: How to Keep a Private Work Memory on Your Mac or PC in 2026 (Local AI)"
+description: "Off Grid AI Pro keeps both memory and model on your computer, $79.99 once. Pieces stores memory on your device, but LLM features run in the cloud."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-pieces-2026-work-memory-read-by-a-model-on-your-computer/
 published_at: "2026-10-30T11:35:00Z"

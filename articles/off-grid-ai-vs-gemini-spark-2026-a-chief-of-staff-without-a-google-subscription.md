@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Gemini Spark (2026): A Chief of Staff Without a Google Subscription"
-description: "Gemini Spark runs your tasks in Google's cloud and needs Google AI Pro or Ultra. Off Grid AI Pro briefs you and acts with your approval from your own computer, for $79.99 once."
+title: "Gemini Spark Alternative: How to Run an AI Agent on Your Mac or PC in 2026 (No Google AI)"
+description: "Off Grid AI Pro briefs you and acts with your approval from your own computer, $79.99 once. Gemini Spark runs in Google's cloud and needs Google AI Pro."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-gemini-spark-2026-a-chief-of-staff-without-a-google-subscription/
 published_at: "2026-10-30T13:00:00Z"

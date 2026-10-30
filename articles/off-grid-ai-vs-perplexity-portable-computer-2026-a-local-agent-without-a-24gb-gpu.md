@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Perplexity Portable Computer (2026): A Local Agent Without a 24 GB GPU"
-description: "Perplexity Portable Computer needs a Pro or Max plan and at least 24 GB of GPU memory. Off Grid AI runs on ordinary Macs and PCs, picks models that fit, and Pro costs $79.99 once."
+title: "Perplexity Portable Computer Alternative: How to Run Local AI on Your PC in 2026 (No 24 GB GPU)"
+description: "Off Grid AI runs on ordinary Macs and PCs and picks models that fit, Pro $79.99 once. Perplexity Portable Computer needs Pro or Max and a 24 GB GPU."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-perplexity-portable-computer-2026-a-local-agent-without-a-24gb-gpu/
 published_at: "2026-10-30T12:45:00Z"

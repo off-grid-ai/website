@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Opera Neon (2026): Browser Tasks Without Sending Pages to OpenAI"
-description: "Opera Neon costs $19.90 a month and sends webpage content to Opera's and OpenAI's servers. Off Grid AI runs browser tasks in Chrome with a local model, for $79.99 once."
+title: "Opera Neon Alternative: How to Run Browser Tasks on Your Mac or PC in 2026 (Local Model)"
+description: "Off Grid AI runs browser tasks in Chrome with a local model, $79.99 once. Opera Neon is $19.90 a month and sends page content to Opera and OpenAI."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-opera-neon-2026-browser-tasks-without-sending-pages-to-openai/
 published_at: "2026-10-30T17:05:00Z"

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs tl;dv (2026): Meeting Notes That Never Expire"
-description: "tl;dv's free plan gives full AI notes for your first 10 meetings and keeps recordings for 3 months. Off Grid AI Pro writes notes on your own computer and keeps them as long as you want, for $79.99 once."
+title: "tl;dv Alternative: How to Keep Meeting Notes Forever on Your Mac or PC in 2026 (No Expiry)"
+description: "Off Grid AI Pro writes notes for every meeting on your computer and keeps them, $79.99 once. tl;dv Free gives full AI notes for your first 10 meetings."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-tldv-2026-meeting-notes-that-never-expire/
 published_at: "2026-10-30T11:50:00Z"

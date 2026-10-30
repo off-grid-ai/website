@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Rize (2026): Time Tracking That Never Uploads Your Day"
-description: "Rize sends your app names, window titles and URLs to Gemini, Anthropic and OpenAI. Off Grid AI Pro shows where your day went from data that stays on your computer, for $79.99 once."
+title: "Rize Alternative: How to Track Your Time on Your Mac or PC in 2026 (Nothing Uploaded)"
+description: "Off Grid AI Pro shows where your day went from data on your computer, $79.99 once. Rize sends your app names, window titles and URLs to AI companies."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-rize-2026-time-tracking-that-never-uploads-your-day/
 published_at: "2026-10-30T09:50:00Z"

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs ChatGPT Atlas (2026): An Atlas Alternative That Works in Chrome"
-description: "OpenAI has retired ChatGPT Atlas. Off Grid AI brings an AI assistant and browser tasks to the Chrome you already use, with a model on your own computer."
+title: "ChatGPT Atlas Alternative: How to Get AI in Chrome on Your Mac or PC in 2026 (Local Model)"
+description: "Off Grid AI brings an AI assistant and browser tasks to Chrome, with a model on your own computer. OpenAI has retired ChatGPT Atlas."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-chatgpt-atlas-2026-an-atlas-alternative-that-works-in-chrome/
 published_at: "2026-10-30T16:25:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946539
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-chatgpt-atlas-2026-an-atlas-alternative-that-works-in-chrome-253m"
 image: "https://getoffgridai.co/assets/img/home/app/web-step-light-1760.webp"
 faq:
   - q: Is ChatGPT Atlas still available?

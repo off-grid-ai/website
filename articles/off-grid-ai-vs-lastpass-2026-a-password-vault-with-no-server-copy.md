@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs LastPass (2026): A Password Vault With No Server Copy"
-description: "LastPass keeps your encrypted vault on its servers, from $3.00 a month billed yearly. Off Grid AI Pro includes Vault, an encrypted store for passwords, keys, notes and files that stays on your computer with no account, for $79.99 once."
+title: "LastPass Alternative: How to Keep Your Passwords on Your Own Computer in 2026 (No Server Copy)"
+description: "Off Grid AI Pro's Vault keeps passwords, keys and files on your computer, no account, $79.99 once. LastPass stores your vault on its servers."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-lastpass-2026-a-password-vault-with-no-server-copy/
 published_at: "2026-10-30T23:05:00Z"

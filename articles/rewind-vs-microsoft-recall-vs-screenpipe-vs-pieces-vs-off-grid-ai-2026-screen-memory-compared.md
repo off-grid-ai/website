@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Rewind vs Microsoft Recall vs Screenpipe vs Pieces vs Off Grid AI (2026): Screen Memory Compared"
-description: "Rewind stopped capturing, Recall needs a Copilot+ PC, Screenpipe charges $250 a year and Pieces sends LLM work to the cloud. Off Grid AI Pro keeps screen memory local on Mac, Windows and Linux, with actions you approve, for $79.99 once."
+title: "Rewind vs Microsoft Recall vs Screenpipe vs Pieces in 2026 (Screen Memory That Stays Put)"
+description: "Off Grid AI Pro keeps screen memory local on Mac, Windows and Linux, $79.99 once. Rewind stopped, Recall needs Copilot+ and Screenpipe costs $250 a year."
 date: "2026-10-30"
 permalink: /articles/rewind-vs-microsoft-recall-vs-screenpipe-vs-pieces-vs-off-grid-ai-2026-screen-memory-compared/
 published_at: "2026-10-30T20:52:00Z"

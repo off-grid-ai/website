@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Google AI Edge Gallery (2026): Stable Offline AI With Any GGUF Model"
-description: "Google calls AI Edge Gallery an experimental beta. Off Grid AI is a stable offline AI app with any GGUF model, images and cited answers."
+title: "Google AI Edge Gallery Alternative: How to Run Offline AI on Your Phone in 2026 (Stable)"
+description: "Off Grid AI is a stable offline AI app for iPhone and Android with any GGUF model and images. Google calls AI Edge Gallery an experimental beta."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-google-ai-edge-gallery-2026-stable-offline-ai-with-any-gguf-model/
 published_at: "2026-10-29T10:20:00Z"

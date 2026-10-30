@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Rewind AI Alternative (2026): Rewind Is Gone. Here Is a Private Replacement"
-description: "Meta bought Limitless, and the Rewind app stopped capturing on 19 December 2025. Off Grid AI Pro remembers your screens and meetings on your own Mac, Windows or Linux computer, for $79.99 once."
+title: "Rewind AI Alternative: How to Search What You Saw on Your Mac or PC in 2026 (Rewind Shut Down)"
+description: "Off Grid AI Pro remembers your screens and meetings on your Mac, Windows or Linux computer, $79.99 once. Rewind stopped capturing on 19 December 2025."
 date: "2026-10-30"
 permalink: /articles/rewind-ai-alternative-2026-rewind-is-gone-here-is-a-private-replacement/
 published_at: "2026-10-30T09:40:00Z"

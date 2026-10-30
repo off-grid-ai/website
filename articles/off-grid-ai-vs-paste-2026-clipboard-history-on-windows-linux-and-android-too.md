@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Paste (2026): Clipboard History on Windows, Linux and Android Too"
-description: "Paste keeps your clipboard on Mac, iPhone and iPad for $29.99 a year. Off Grid AI Pro keeps a searchable clipboard on Mac, Windows and Linux, syncs text from your phone device to device, and adds AI, memory and meetings, for $79.99 once."
+title: "Paste Alternative: How to Get Clipboard History on Windows and Linux in 2026 (Paid Once)"
+description: "Off Grid AI Pro keeps a searchable clipboard on Mac, Windows and Linux, with phone sync, $79.99 once. Paste is Apple-only, at $29.99 a year."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-paste-2026-clipboard-history-on-windows-linux-and-android-too/
 published_at: "2026-10-30T18:15:00Z"

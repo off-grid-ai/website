@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Perplexity Comet (2026): AI in the Browser You Already Use"
-description: "Comet asks you to move to a new browser and sends your prompts to Perplexity. Off Grid AI works in Chrome with a local model on your computer, and Pro costs $79.99 once."
+title: "Perplexity Comet Alternative: How to Use AI in Chrome on Your Mac or PC in 2026 (Local AI)"
+description: "Off Grid AI works in Chrome with a local model on your computer, Pro $79.99 once. Comet needs a new browser and sends your prompts to Perplexity."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-perplexity-comet-2026-ai-in-the-browser-you-already-use/
 published_at: "2026-10-30T16:05:00Z"

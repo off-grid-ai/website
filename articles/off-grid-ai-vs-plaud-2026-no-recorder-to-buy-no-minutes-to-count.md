@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Plaud (2026): No Recorder to Buy, No Minutes to Count"
-description: "Plaud's NotePin costs $159, then 300 cloud transcription minutes a month unless you subscribe. Off Grid AI Pro records and transcribes meetings on the computer you already own, with no minute cap, for $79.99 once."
+title: "Plaud Alternative: How to Transcribe Meetings on Your Mac or PC in 2026 (No Recorder)"
+description: "Off Grid AI Pro transcribes meetings on your computer, no minute cap, $79.99 once. Plaud's NotePin costs $159, then 300 cloud minutes a month free."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-plaud-2026-no-recorder-to-buy-no-minutes-to-count/
 published_at: "2026-10-30T18:10:00Z"

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Hermes Agent (2026): A Chief of Staff That Runs on Your Own Models"
-description: "Hermes Agent is a free MIT agent you configure with YAML, a .env file and a model provider. Off Grid AI is a finished app with local models, local memory and actions that wait for your yes."
+title: "Hermes Agent Alternative: How to Run a Chief of Staff on Your Computer in 2026 (No YAML)"
+description: "Off Grid AI is a finished app with local models, local memory and actions that wait for your yes. Hermes Agent needs YAML, a .env file and a provider."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-hermes-agent-2026-a-chief-of-staff-that-runs-on-your-own-models/
 published_at: "2026-10-30T12:40:00Z"

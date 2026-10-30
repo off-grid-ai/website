@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs MLC Chat (2026): An iPhone AI App Updated This Month, Free for Work"
-description: "MLC Chat's App Store build dates from September 2024 and is for non-commercial use. Off Grid AI shipped this month and is free for work."
+title: "MLC Chat Alternative: How to Run Local AI on Your iPhone in 2026 (Free for Work, Images)"
+description: "Off Grid AI shipped 8 releases in October 2026, is free for work and makes images. MLC Chat's App Store build dates from 2024 and is non-commercial only."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-mlc-chat-2026-an-iphone-ai-app-updated-this-month-free-for-work/
 published_at: "2026-10-29T10:25:00Z"

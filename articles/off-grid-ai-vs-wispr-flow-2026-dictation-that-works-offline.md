@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Wispr Flow (2026): Dictation That Works Offline"
-description: "Wispr Flow says transcription always happens in the cloud. Off Grid AI Pro dictates into any app on your Mac, Windows or Linux computer with a local Whisper model, offline, for $79.99 once."
+title: "Wispr Flow Alternative: How to Dictate Offline on Your Mac or PC in 2026 (No Cloud Upload)"
+description: "Off Grid AI Pro dictates into any app with a local Whisper model, offline, $79.99 once. Wispr Flow says its transcription always happens in the cloud."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-wispr-flow-2026-dictation-that-works-offline/
 published_at: "2026-10-30T09:30:00Z"

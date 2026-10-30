@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Fellou (2026): Browser Automation With a Local Model"
-description: "Fellou is an agentic browser with plans from $19 a month and task credits. Off Grid AI runs browser tasks in Chrome with a model on your computer, and Pro costs $79.99 once."
+title: "Fellou Alternative: How to Automate Chrome on Your Computer in 2026 (Local AI, No Credits)"
+description: "Off Grid AI runs browser tasks in Chrome with a model on your computer, Pro $79.99 once. Fellou plans start at $19 a month, plus task credits."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-fellou-2026-browser-automation-with-a-local-model/
 published_at: "2026-10-30T17:25:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: actions
 devto_article: true
+devto_id: 4946550
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-fellou-2026-browser-automation-with-a-local-model-4bna"
 image: "https://getoffgridai.co/assets/img/home/app/web-tasks-light-1760.webp"
 faq:
   - q: Is there a Fellou alternative that runs locally?

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Omi (2026): Meeting Memory Without a Wearable or a Subscription"
-description: "Omi is a $169 pendant, and its Pro plan for all-day recording is $29.99 a month. Off Grid AI Pro records and summarizes meetings on the computer you already own, for $79.99 once."
+title: "Omi Alternative: How to Get Meeting Memory on Your Mac or PC in 2026 (No Wearable Needed)"
+description: "Off Grid AI Pro records and summarises meetings on your computer, $79.99 once. Omi is a $169 pendant, and all-day recording is $29.99 a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-omi-2026-meeting-memory-without-a-wearable-or-a-subscription/
 published_at: "2026-10-30T12:50:00Z"

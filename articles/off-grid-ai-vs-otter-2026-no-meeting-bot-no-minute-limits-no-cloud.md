@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Otter.ai (2026): No Meeting Bot, No Minute Limits, No Cloud"
-description: "Otter's free plan stops at 300 minutes a month and stores your calls on AWS. Off Grid AI Pro records and transcribes on your own computer, with no minute cap, for $79.99 once."
+title: "Otter.ai Alternative: How to Transcribe Calls on Your Mac or PC in 2026 (No Bot, No Cap)"
+description: "Off Grid AI Pro records and transcribes on your computer, no bot, no minute cap, $79.99 once. Otter Free stops at 300 minutes a month, stored on AWS."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-otter-2026-no-meeting-bot-no-minute-limits-no-cloud/
 published_at: "2026-10-30T09:10:00Z"

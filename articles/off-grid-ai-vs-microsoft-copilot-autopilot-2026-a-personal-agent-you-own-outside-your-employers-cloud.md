@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Microsoft Copilot Autopilot (2026): A Personal Agent You Own, Outside Your Employer's Cloud"
-description: "Copilot Autopilot is an always-on agent inside your company's Microsoft 365 tenant, in private preview. Off Grid AI Pro is a chief of staff you can use today on your own computer, for $79.99 once."
+title: "Copilot Autopilot Alternative: How to Run an AI Agent on Your Own Computer in 2026 (Today)"
+description: "Off Grid AI Pro is a chief of staff you can use today on your own computer, $79.99 once. Copilot Autopilot lives in your employer's Microsoft 365."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-microsoft-copilot-autopilot-2026-a-personal-agent-you-own-outside-your-employers-cloud/
 published_at: "2026-10-30T15:00:00Z"

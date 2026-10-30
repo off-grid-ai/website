@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Granola (2026): Meeting Notes That Never Leave Your Computer"
-description: "Granola sends your meeting audio to Deepgram or AssemblyAI and your notes to OpenAI or Anthropic. Off Grid AI Pro transcribes and summarises on your own computer, for $79.99 once."
+title: "Granola Alternative: How to Get Private Meeting Notes on Your Mac or PC in 2026 (No Bot, No Cloud)"
+description: "Off Grid AI Pro transcribes and summarises calls on your computer, no bot, $79.99 once. Granola sends audio to Deepgram or AssemblyAI and notes to OpenAI."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-granola-2026-meeting-notes-that-never-leave-your-computer/
 published_at: "2026-10-30T09:00:00Z"

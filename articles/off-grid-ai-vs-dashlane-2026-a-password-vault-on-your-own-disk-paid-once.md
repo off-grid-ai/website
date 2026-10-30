@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Dashlane (2026): A Password Vault on Your Own Disk, Paid Once"
-description: "Dashlane stores your encrypted vault on its servers, from $5.42 a month billed yearly. Off Grid AI Pro includes Vault, an encrypted store for passwords, keys, notes and files that stays on your computer with no account, for $79.99 once."
+title: "Dashlane Alternative: How to Keep Passwords on Your Own Computer in 2026 (No Account)"
+description: "Off Grid AI Pro's Vault keeps passwords, keys and files on your own disk, no account, $79.99 once. Dashlane stores your vault on its servers."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-dashlane-2026-a-password-vault-on-your-own-disk-paid-once/
 published_at: "2026-10-30T23:15:00Z"

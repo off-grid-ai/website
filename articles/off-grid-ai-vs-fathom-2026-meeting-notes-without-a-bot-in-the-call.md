@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Fathom (2026): Meeting Notes Without a Bot in the Call"
-description: "Fathom sends a bot into your calls and keeps the recordings in its cloud. Off Grid AI Pro records quietly on your Mac, Windows or Linux computer and writes the notes there, for $79.99 once."
+title: "Fathom Alternative: How to Get Meeting Notes on Your Mac or PC in 2026 (No Bot, No Cloud)"
+description: "Off Grid AI Pro records without a bot and writes notes on your computer, $79.99 once. Fathom sends a bot into your call and keeps recordings in its cloud."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-fathom-2026-meeting-notes-without-a-bot-in-the-call/
 published_at: "2026-10-30T09:20:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946534
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-fathom-2026-meeting-notes-without-a-bot-in-the-call-36cl"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-decisions-light-1760.webp"
 faq:
   - q: Is there a Fathom alternative without a bot?

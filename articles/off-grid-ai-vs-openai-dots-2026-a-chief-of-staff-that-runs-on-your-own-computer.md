@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs OpenAI dots (2026): A Chief of Staff That Runs on Your Own Computer"
-description: "OpenAI dots works on its own cloud computer and comes with ChatGPT Pro, from $100 a month. Off Grid AI Pro keeps your memory on your devices, asks before it acts, and costs $79.99 once."
+title: "OpenAI dots Alternative: How to Run a Chief of Staff on Your Mac or PC in 2026 (Paid Once)"
+description: "Off Grid AI Pro keeps your memory on your devices and asks before it acts, $79.99 once. OpenAI dots runs on a cloud computer and needs ChatGPT Pro."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-openai-dots-2026-a-chief-of-staff-that-runs-on-your-own-computer/
 published_at: "2026-10-30T11:00:00Z"

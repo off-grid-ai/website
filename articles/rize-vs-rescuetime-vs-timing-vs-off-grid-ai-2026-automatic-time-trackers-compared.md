@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Rize vs RescueTime vs Timing vs Off Grid AI (2026): Automatic Time Trackers Compared"
-description: "Rize sends your activity to Gemini, Anthropic and OpenAI. RescueTime stores your window titles. Timing's AI summaries run on Google's Vertex AI. Off Grid AI Pro shows your time by project, app and person from data on your own computer, for $79.99 once."
+title: "Rize vs RescueTime vs Timing in 2026 (Automatic Time Trackers That Keep Your Day Private)"
+description: "Off Grid AI keeps your time data and AI on your computer, $79.99 once. Rize and Timing send activity to AI firms; RescueTime stores window titles."
 date: "2026-10-30"
 permalink: /articles/rize-vs-rescuetime-vs-timing-vs-off-grid-ai-2026-automatic-time-trackers-compared/
 published_at: "2026-10-30T21:52:00Z"

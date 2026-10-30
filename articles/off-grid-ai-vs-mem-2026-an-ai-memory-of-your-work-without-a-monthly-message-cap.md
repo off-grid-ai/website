@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Mem (2026): An AI Memory of Your Work Without a Monthly Message Cap"
-description: "Mem Pro is $29 a month for 100 messages and 100 new notes. Off Grid AI Pro builds a local memory of your screens, meetings, mail and documents, with no message cap, for $79.99 once."
+title: "Mem Alternative: How to Keep an AI Memory of Your Work on Your Computer in 2026 (No Cap)"
+description: "Off Grid AI Pro builds a local memory of your screens, meetings and mail, no message cap, $79.99 once. Mem Pro is $29 a month for 100 messages."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-mem-2026-an-ai-memory-of-your-work-without-a-monthly-message-cap/
 published_at: "2026-10-30T17:55:00Z"

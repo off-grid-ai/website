@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Screenpipe (2026): Local Screen Memory With Approved Actions, Paid Once"
-description: "Screenpipe and Off Grid AI both keep your screen history on your own computer. Screenpipe charges $250 a year for full history. Off Grid AI Pro adds meetings, approved actions and a chief of staff for $79.99 once."
+title: "Screenpipe Alternative: How to Keep Screen Memory on Your Mac or PC in 2026 (Paid Once)"
+description: "Off Grid AI Pro keeps screen history on your computer and adds meetings and approved actions, $79.99 once. Screenpipe charges $250 a year for full history."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-screenpipe-2026-local-screen-memory-with-approved-actions-paid-once/
 published_at: "2026-10-30T11:05:00Z"

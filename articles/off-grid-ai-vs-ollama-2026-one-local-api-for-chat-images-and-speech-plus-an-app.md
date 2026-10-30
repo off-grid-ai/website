@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Ollama (2026): One Local API for Chat, Images and Speech, Plus an App"
-description: "Ollama is a great local model runtime with a simple app. Off Grid AI Desktop gives you a free OpenAI-compatible API for chat, images, speech and embeddings, a team mode with keys, and a phone app."
+title: "Ollama Alternative: How to Run a Local AI API on Your Mac or PC in 2026 (Images, Speech)"
+description: "Off Grid AI Desktop gives you a free local OpenAI-compatible API for chat, images and speech, plus an app. Ollama is a great runtime with a simple app."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-ollama-2026-one-local-api-for-chat-images-and-speech-plus-an-app/
 published_at: "2026-10-30T12:15:00Z"

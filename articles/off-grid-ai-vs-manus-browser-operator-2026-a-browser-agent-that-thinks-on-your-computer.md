@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Manus Browser Operator (2026): A Browser Agent That Thinks on Your Computer"
-description: "Manus Browser Operator connects your signed-in browser to the Manus agent, on plans from $20 a month. Off Grid AI runs the agent's model on your own computer, for $79.99 once."
+title: "Manus Alternative: How to Run a Browser Agent on Your Mac or PC in 2026 (Local Model)"
+description: "Off Grid AI runs the browser agent's model on your own computer, $79.99 once. Manus Browser Operator links your browser to Manus, from $20 a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-manus-browser-operator-2026-a-browser-agent-that-thinks-on-your-computer/
 published_at: "2026-10-30T17:45:00Z"

@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Lenovo Qira (2026): Cross-Device AI That Works on Any Brand"
-description: "Lenovo and Motorola Qira is built for Lenovo PCs and Motorola phones. Off Grid AI syncs your AI across Mac, Windows, Linux, iPhone and Android, device to device, with your own models."
+title: "Lenovo Qira Alternative: How to Sync AI Across Your Phone and Computer in 2026 (Any Brand)"
+description: "Off Grid AI syncs your AI across Mac, Windows, Linux, iPhone and Android with your own models. Lenovo Qira works only on Lenovo PCs and Motorola phones."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-lenovo-qira-2026-cross-device-ai-that-works-on-any-brand/
 published_at: "2026-10-30T13:50:00Z"

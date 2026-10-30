@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Dia (2026): A Work Assistant That Reads Your Tabs on Your Computer"
-description: "Dia sends your AI requests through its servers to AI partners, from $10 a month. Off Grid AI reads your pages in Chrome with a local model, and Pro costs $79.99 once."
+title: "Dia Browser Alternative: How to Get AI for Your Tabs on Your Mac or PC in 2026 (Local AI)"
+description: "Off Grid AI reads your pages in Chrome with a local model, Pro $79.99 once. Dia sends AI requests through its servers to AI partners, from $10 a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-dia-2026-a-work-assistant-that-reads-your-tabs-on-your-computer/
 published_at: "2026-10-30T16:45:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: pro
 devto_article: true
+devto_id: 4946536
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-dia-2026-a-work-assistant-that-reads-your-tabs-on-your-computer-2o37"
 image: "https://getoffgridai.co/assets/img/home/app/web-compare-light-1760.webp"
 faq:
   - q: Is there a Dia browser alternative that runs locally?

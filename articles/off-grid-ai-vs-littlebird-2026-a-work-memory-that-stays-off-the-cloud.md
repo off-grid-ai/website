@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Littlebird (2026): A Work Memory That Stays Off the Cloud"
-description: "Littlebird stores your memory on AWS and sends context to AI providers. Off Grid AI Pro keeps your screen memory, meetings and chief of staff on your own computer, for $79.99 once."
+title: "Littlebird Alternative: How to Keep a Work Memory on Your Own Computer in 2026 (No Cloud)"
+description: "Off Grid AI Pro keeps your screen memory, meetings and chief of staff on your computer, $79.99 once. Littlebird stores memory on AWS for individual users."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-littlebird-2026-a-work-memory-that-stays-off-the-cloud/
 published_at: "2026-10-30T12:05:00Z"

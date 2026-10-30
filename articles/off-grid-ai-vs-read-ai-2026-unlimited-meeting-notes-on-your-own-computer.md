@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Read AI (2026): Unlimited Meeting Notes on Your Own Computer"
-description: "Read AI's free plan stops at 5 meeting transcripts a month, 1 hour each. Off Grid AI Pro transcribes and summarizes every meeting on your own computer, with no bot and no cap, for $79.99 once."
+title: "Read AI Alternative: How to Get Unlimited Meeting Notes on Your Mac or PC in 2026 (No Bot)"
+description: "Off Grid AI Pro transcribes and summarises every meeting on your computer, no bot, no cap, $79.99 once. Read AI Free stops at 5 transcripts a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-read-ai-2026-unlimited-meeting-notes-on-your-own-computer/
 published_at: "2026-10-30T12:20:00Z"

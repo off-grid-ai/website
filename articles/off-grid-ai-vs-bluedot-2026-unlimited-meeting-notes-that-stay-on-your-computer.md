@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Bluedot (2026): Unlimited Meeting Notes That Stay on Your Computer"
-description: "Bluedot's free plan ends after 5 meetings, and your recordings are stored in AWS. Off Grid AI Pro records without a bot and writes the notes on your own computer, with no meeting limit, for $79.99 once."
+title: "Bluedot Alternative: How to Get Unlimited Meeting Notes on Your Mac or PC in 2026 (No Bot)"
+description: "Off Grid AI Pro records without a bot and writes notes on your computer, no meeting limit, $79.99 once. Bluedot's free plan ends after 5 meetings."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-bluedot-2026-unlimited-meeting-notes-that-stay-on-your-computer/
 published_at: "2026-10-30T17:50:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946503
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-bluedot-2026-unlimited-meeting-notes-that-stay-on-your-computer-5aob"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-onscreen-light-1760.webp"
 faq:
   - q: How many meetings does Bluedot's free plan include?

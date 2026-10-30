@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs RescueTime (2026): See Where Your Time Went Without Uploading Your Window Titles"
-description: "RescueTime records app names, website URLs and window titles for its reports. Off Grid AI Pro shows your time by project, app and person from data that stays on your computer, for $79.99 once."
+title: "RescueTime Alternative: How to Track Your Time on Your Mac or PC in 2026 (Stays Local)"
+description: "Off Grid AI Pro shows your time by project, app and person from data on your computer, $79.99 once. RescueTime records app names, URLs and window titles."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-rescuetime-2026-see-where-your-time-went-without-uploading-your-window-titles/
 published_at: "2026-10-30T18:35:00Z"

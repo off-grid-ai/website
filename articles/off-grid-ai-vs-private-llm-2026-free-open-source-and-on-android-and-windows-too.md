@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Private LLM (2026): Free, Open Source, and on Android and Windows Too"
-description: "Private LLM costs $4.99 and runs only on Apple devices. Off Grid AI is free, open source and runs on iPhone, Android, Mac, Windows and Linux."
+title: "Private LLM Alternative: How to Run Local AI on Your Phone or PC in 2026 (Free, Any Brand)"
+description: "Off Grid AI is free, open source and runs on iPhone, Android, Mac, Windows and Linux. Private LLM costs $4.99 and runs only on Apple devices."
 date: "2026-10-29"
 permalink: /articles/off-grid-ai-vs-private-llm-2026-free-open-source-and-on-android-and-windows-too/
 published_at: "2026-10-29T10:30:00Z"

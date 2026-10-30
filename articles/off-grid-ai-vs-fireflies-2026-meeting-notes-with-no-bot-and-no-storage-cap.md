@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Fireflies.ai (2026): Meeting Notes With No Bot and No Storage Cap"
-description: "Fireflies' free plan keeps 400 minutes of storage per team and limits AI summaries. Off Grid AI Pro records and summarizes calls on your own computer, with no bot and no cap, for $79.99 once."
+title: "Fireflies Alternative: How to Get Meeting Notes on Your Mac or PC in 2026 (No Bot, No Cap)"
+description: "Off Grid AI Pro records and summarises calls on your computer, no bot, no cap, $79.99 once. Fireflies' free plan keeps 400 minutes of storage per team."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-fireflies-2026-meeting-notes-with-no-bot-and-no-storage-cap/
 published_at: "2026-10-30T11:20:00Z"
@@ -9,6 +9,8 @@ article_topic: "Compare apps"
 article_platform: "Computer"
 article_offer: meetings
 devto_article: true
+devto_id: 4946545
+devto_url: "https://dev.to/alichherawalla/off-grid-ai-vs-firefliesai-2026-meeting-notes-with-no-bot-and-no-storage-cap-1bjk"
 image: "https://getoffgridai.co/assets/img/home/app/meetings-summary-light-1760.webp"
 faq:
   - q: What is a cheaper Fireflies.ai alternative?

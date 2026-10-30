@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Lindy (2026): An AI Assistant for Email and Meetings That Asks Before It Acts"
-description: "Lindy runs your inbox, calendar and meetings in the cloud from $49.99 a month per user. Off Grid AI Pro drafts replies, preps meetings and records calls on your own computer, and sends nothing without your yes, for $79.99 once."
+title: "Lindy Alternative: How to Run an AI Assistant on Your Own Computer in 2026 (You Approve)"
+description: "Off Grid AI Pro drafts replies, preps meetings and records calls on your computer, sending nothing without your yes, $79.99 once. Lindy is $49.99 a month."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-lindy-2026-an-ai-assistant-for-email-and-meetings-that-asks-before-it-acts/
 published_at: "2026-10-30T16:55:00Z"

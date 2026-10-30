@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Motion (2026): AI Meeting Notes and Chat Without a $49-a-Month Plan"
-description: "Motion bundles AI chat, a meeting notetaker and auto-scheduling from $29 a month. Off Grid AI Pro gives you local AI chat, meetings without a bot and a morning brief on your own computer, for $79.99 once. It does not auto-schedule your calendar."
+title: "Motion Alternative: How to Get AI Notes and Chat on Your Mac or PC in 2026 (No Credits)"
+description: "Off Grid AI Pro gives you local AI chat, meetings without a bot and a morning brief, $79.99 once. Motion's AI plan is $29 a month and auto-schedules too."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-motion-2026-ai-meeting-notes-and-chat-without-a-49-a-month-plan/
 published_at: "2026-10-30T17:15:00Z"

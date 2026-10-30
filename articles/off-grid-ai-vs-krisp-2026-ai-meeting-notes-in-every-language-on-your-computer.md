@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Krisp (2026): AI Meeting Notes in Every Language, on Your Computer"
-description: "Krisp transcribes English on your device but sends 15 other languages to its servers, on a monthly plan. Off Grid AI Pro transcribes and summarises every call on your own computer, for $79.99 once."
+title: "Krisp Alternative: How to Transcribe Any Language on Your Mac or PC in 2026 (On-Device)"
+description: "Off Grid AI Pro transcribes and summarises calls in every language on your computer, $79.99 once. Krisp sends non-English audio to its servers."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-krisp-2026-ai-meeting-notes-in-every-language-on-your-computer/
 published_at: "2026-10-30T16:50:00Z"

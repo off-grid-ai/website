@@ -1,7 +1,7 @@
 ---
 layout: content
-title: "Off Grid AI vs Timing (2026): AI Time Summaries Made on Your Computer, Not in the Cloud"
-description: "Timing is a strong Mac time tracker, but its AI summaries run on Google's Vertex AI and can see your window titles. Off Grid AI Pro writes its time summaries with a local model on Mac, Windows and Linux, for $79.99 once."
+title: "Timing App Alternative: How to Get AI Time Summaries on Your Mac or PC in 2026 (Local AI)"
+description: "Off Grid AI Pro writes time summaries with a local model on Mac, Windows and Linux, $79.99 once. Timing's AI summaries run on Google's Vertex AI."
 date: "2026-10-30"
 permalink: /articles/off-grid-ai-vs-timing-2026-ai-time-summaries-made-on-your-computer-not-in-the-cloud/
 published_at: "2026-10-30T18:55:00Z"
