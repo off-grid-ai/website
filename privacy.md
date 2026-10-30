@@ -46,7 +46,7 @@ We never sell your content. We never use your content to train models.
 **What they include:**
 
 - your device type, operating system, app version, memory size and language, and whether you have Pro;
-- how many times each screen and feature is used;
+- which screens, features and buttons are used, how often, and for how long;
 - model downloads and how well models run;
 - crash reports, with file paths and typed text removed.
 
