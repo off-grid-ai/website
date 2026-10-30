@@ -3,139 +3,170 @@ layout: content
 title: Terms of Service
 nav_order: 10
 nav_group: Learn
-description: The terms that govern your use of Off Grid AI software, apps, and services. By using Off Grid AI you agree to these terms.
+description: The terms for using Off Grid AI apps, Off Grid AI Pro and our websites.
 ---
 
 # Terms of Service
 
-**Last updated: 26 October 2026**
+**Last updated: 30 October 2026**
 
-These Terms apply to all use of the Service, including by anyone who began using it before this date. Your use of the Service - whenever it began - means you accept the version of these Terms in effect at the time of that use.
+These Terms are an agreement between you and Wednesday Solutions ("we", "us"). They cover the Off Grid AI desktop app, mobile app and browser extension, Off Grid AI Pro, and our websites (the "Service").
 
-These Terms of Service ("Terms") are a legal agreement between you and Wednesday Solutions ("Off Grid AI", "we", "us", or "our") covering the OGAD (Off Grid AI Desktop) and OGAM (Off Grid AI Mobile) applications, the `@offgrid/*` software, our websites, and any related services (together, the "Service").
-
-**By downloading, installing, accessing, or using any part of the Service, you agree to be bound by these Terms.** If you do not agree, do not use the Service. Your continued use of the Service after any change to these Terms constitutes acceptance of the updated Terms.
+**When you use the Service, you agree to these Terms.** If you do not agree, do not use it.
 
 ---
 
-## 1. Eligibility and acceptance
+## 1. Who can use it
 
-You must be at least 13 years old (or the minimum age of digital consent in your jurisdiction) and capable of forming a binding contract to use the Service. If you use the Service on behalf of an organization, you represent that you are authorized to bind that organization, and "you" includes that organization.
-
-Use of the Service is itself your agreement to these Terms, whether or not you create an account. No signature, click, or further action is required.
+You must be at least 13, or the age of digital consent where you live. To buy Pro, you must be an adult or have a parent's or guardian's consent. If you use the Service for an organisation, you confirm that you can bind it to these Terms.
 
 ---
 
 ## 2. The Service
 
-Off Grid AI provides local-first software that runs on your own devices. Where the Service processes data, it is designed to do so on your devices. Features, availability, and behavior may change, be added, or be removed at any time without notice. We do not guarantee that any particular feature will be available, continue to be offered, or function in any particular way. Optional diagnostics and anonymous usage analytics, which are off unless you turn them on, are covered by our [Privacy Policy](/privacy/).
-
-**Feedback.** If you send us feedback, a suggestion, or a bug report, we may use it to improve the Service without any obligation to you.
-
-The Service is provided as a tool. It is not a substitute for professional advice (legal, medical, financial, or otherwise), and you are solely responsible for any decisions you make using it.
-
----
-
-## 3. Your responsibilities
-
-You are solely responsible for:
-
-- your use of the Service and any data you capture, store, process, sync, or transmit with it;
-- complying with all laws that apply to your use, including privacy, recording, wiretapping, consent, and data-protection laws in your jurisdiction and the jurisdictions of anyone whose information you capture;
-- obtaining any consents required before recording, capturing, or processing any person, screen, audio, or communication;
-- maintaining the security of your devices, credentials, and license keys; and
-- any content or activity that occurs through your use of the Service.
-
-You agree not to use the Service for any unlawful, infringing, or harmful purpose, or in any way that violates the rights of others.
+- We can change, add or remove features at any time.
+- We can stop offering any part of the Service at any time.
+- AI output can be wrong, incomplete or offensive. Check it before you rely on it.
+- The Service does not give professional advice: legal, medical, financial or any other kind.
 
 ---
 
-## 4. Acceptable use
+## 3. Your content
 
-You agree not to:
+Your content is yours. It stays on your devices, and we do not claim any rights to it.
 
-- use the Service to violate any law or the rights of any third party;
-- reverse engineer paid or proprietary components except to the extent that restriction is prohibited by applicable law or expressly permitted by the open-source license;
-- resell, sublicense, or commercially redistribute the Service except as permitted by its license;
-- circumvent device limits, license enforcement, or paid-feature gating;
-- use the Service to build a competing product using our proprietary code in violation of its license;
-- use Video Studio to show a real person who has not agreed to it, to show a minor, or to impersonate or deceive anyone; or
-- remove or change the AI-generated label (content credentials or metadata) on a film so that people think it is real.
-
-You are responsible for the films you make and share, and for having the consent of every real person who appears in them.
-
-We may suspend or terminate access to paid or hosted features if you materially breach these Terms.
+If you send us feedback, we can use it freely and without paying you.
 
 ---
 
-## 5. Licensing and open source
+## 4. Your responsibilities
 
-Portions of the Service are open source and provided under the GNU Affero General Public License v3.0 (AGPL-3.0) or other licenses identified in the relevant repositories. Your use of those portions is governed by the applicable open-source license, and in the event of a conflict with these Terms, the open-source license governs for that code.
+You are responsible for:
 
-Paid and proprietary features are licensed, not sold, to you for use subject to these Terms and any applicable plan limits (including device caps). We reserve all rights not expressly granted.
-
----
-
-## 6. Payments
-
-Paid plans, license keys, and subscriptions are billed through our payment providers. Except where required by law, fees are non-refundable. We may change pricing prospectively. You are responsible for any taxes associated with your purchase.
+- what you create, capture, store and share with the Service;
+- getting consent before you record or capture anyone, where the law requires it;
+- following the laws that apply to you, including privacy and recording laws;
+- following the licence terms of any models and third-party services you use;
+- keeping your devices and your licence key secure.
 
 ---
 
-## 7. Third-party services
+## 5. What you must not do
 
-The Service may interoperate with third-party software, models, app stores, payment processors, and services that you choose to connect or install. We are not responsible for third-party services, and your use of them is governed by their own terms. Connecting a third-party service is at your own risk.
+- Break the law or violate anyone's rights.
+- Copy, resell, share or sublicense Pro or a licence key.
+- Get around licence checks, device limits or paid features.
+- Reverse engineer Pro, except where the law allows it.
+- Use Video Studio to show a real person without their consent, or to show a minor.
+- Use the Service to impersonate, deceive or harass anyone.
+- Remove or change the AI-generated label on a video.
 
----
-
-## 8. No warranty
-
-THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT.
-
-We do not warrant that the Service will be uninterrupted, error-free, secure, or free of data loss, or that any output is accurate, complete, or reliable. You use the Service at your own risk and are responsible for maintaining your own backups.
-
----
-
-## 9. Limitation of liability
-
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL OFF GRID, WEDNESDAY SOLUTIONS, OR ITS OWNERS, EMPLOYEES, OR CONTRIBUTORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF DATA, PROFITS, REVENUE, GOODWILL, OR BUSINESS, ARISING OUT OF OR RELATED TO YOUR USE OF (OR INABILITY TO USE) THE SERVICE, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR ANY OTHER THEORY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS RELATING TO THE SERVICE WILL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID US FOR THE SERVICE IN THE TWELVE MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM, OR (B) USD $50.
-
-Some jurisdictions do not allow certain limitations, so some of the above may not apply to you. In that case our liability is limited to the smallest extent permitted by law.
+We can suspend or end your access if you break these rules.
 
 ---
 
-## 10. Indemnification
+## 6. Off Grid AI Pro
 
-You agree to indemnify, defend, and hold harmless Off Grid AI, Wednesday Solutions, and its owners, employees, and contributors from and against any claims, damages, liabilities, losses, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your content or data, or your violation of these Terms or of any law or third-party right.
-
----
-
-## 11. Termination
-
-You may stop using the Service at any time. We may suspend or terminate your access to paid or hosted features at any time, with or without cause. Sections that by their nature should survive termination (including ownership, disclaimers, limitation of liability, and indemnification) will survive.
-
----
-
-## 12. Changes to these Terms
-
-We may update these Terms at any time by posting the revised version. Changes are effective when posted. It is your responsibility to review the Terms periodically. Your continued use of the Service after changes are posted means you accept the updated Terms.
+- Pro is licensed to you, not sold to you. The licence is personal and non-transferable.
+- Each licence covers a set number of devices. If you add a device beyond your limit, the device you used least recently can be removed.
+- Subscriptions renew until you cancel. When you cancel, Pro stays on until the end of the period you paid for.
+- A payment processor or app store bills you. You pay any taxes that apply.
+- Fees are non-refundable, except where the law or the app store's policy requires a refund.
+- We can change prices. A change to a subscription price applies from your next renewal, and we tell you before it does.
+- "Lifetime" means for as long as we offer Pro.
+- If you get a chargeback or break these Terms, we can cancel your licence without a refund.
 
 ---
 
-## 13. Governing law and disputes
+## 7. Our rights
 
-These Terms are governed by the laws of the jurisdiction in which Wednesday Solutions is established, without regard to conflict-of-law rules. To the extent permitted by law, you agree that any dispute will be resolved on an individual basis and you waive any right to participate in a class action. Where permitted, disputes will be subject to the exclusive jurisdiction of the courts of that location.
+The Service, its name and its logos belong to us. These Terms give you no rights except the ones they state.
 
----
-
-## 14. Miscellaneous
-
-If any provision of these Terms is found unenforceable, the remaining provisions remain in effect. Our failure to enforce any provision is not a waiver. These Terms, together with any applicable open-source licenses and plan terms, are the entire agreement between you and us regarding the Service.
+Parts of the Service are open source. Their open-source licences govern that code. If one of those licences conflicts with these Terms, the open-source licence wins for that code.
 
 ---
 
-## 15. Contact
+## 8. Other services
 
-Questions about these Terms? Email the Off Grid AI Support Team at **support@getoffgridai.co**.
+The Service works with things that we do not control:
+
+- models from other people;
+- cloud model providers;
+- connected apps;
+- app stores;
+- payment processors.
+
+Their own terms apply to them, and we are not responsible for them.
+
+If you got an app from an app store, the store's terms also apply. The store is not responsible for the app.
+
+---
+
+## 9. No warranty
+
+THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE". TO THE FULLEST EXTENT THE LAW ALLOWS, WE GIVE NO WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. THIS INCLUDES ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PURPOSE, ACCURACY OR NON-INFRINGEMENT.
+
+We do not promise that the Service will be error-free, uninterrupted or secure, or that it will keep your data safe from loss. Keep your own backups.
+
+---
+
+## 10. Limits on our liability
+
+TO THE FULLEST EXTENT THE LAW ALLOWS:
+
+- WE ARE NOT LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES. WE ARE ALSO NOT LIABLE FOR LOSS OF DATA, PROFITS, REVENUE OR BUSINESS.
+- OUR TOTAL LIABILITY FOR ALL CLAIMS IS LIMITED TO THE GREATER OF: WHAT YOU PAID US IN THE 12 MONTHS BEFORE THE CLAIM, OR USD 50.
+
+These limits also protect our owners, staff and contributors. These Terms do not limit any liability that the law does not allow us to limit, for example liability for fraud, or for death or personal injury that our negligence causes.
+
+---
+
+## 11. Indemnity
+
+You will defend and compensate us, our owners, staff and contributors against any claim, loss or cost, including reasonable legal fees, that comes from:
+
+- your use of the Service;
+- your content;
+- your breach of these Terms or of the law.
+
+---
+
+## 12. Ending
+
+You can stop using the Service at any time.
+
+We can suspend or end your access to the Service or to Pro at any time. If we end Pro for a reason other than your breach, we refund the part of a prepaid subscription that you have not used.
+
+The sections that should continue after the end, continue. These include sections 3, 7 and 9 to 14.
+
+---
+
+## 13. Changes to these Terms
+
+We can update these Terms. We post the new version here, with a new date. If a change is material, we tell you in the app or by email before it applies. If you keep using the Service after a change applies, you accept it.
+
+---
+
+## 14. Law and disputes
+
+- The laws of India govern these Terms.
+- The courts of Pune, Maharashtra, India have exclusive jurisdiction over any dispute.
+- Before you start a claim, email us. Give us 30 days to resolve it.
+- Disputes are brought individually, not as a class action, where the law allows.
+- If you are a consumer, you keep any rights that the law of your country does not let a contract take away.
+
+---
+
+## 15. General
+
+- These Terms and the Privacy Policy are the whole agreement between us.
+- If a court finds one part unenforceable, the rest still applies.
+- If we do not enforce a term at once, we can still enforce it later.
+- We can transfer these Terms to a company that takes over the Service. You cannot transfer them.
+- We are not liable for delays or failures caused by events that we cannot reasonably control.
+
+---
+
+## 16. Contact
+
+Email **support@getoffgridai.co**.
