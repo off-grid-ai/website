@@ -48,7 +48,7 @@ export default function MissionPage() {
       <Points featured items={[
         [GithubLogo, 'Open source.', 'If you can\'t audit it, you can\'t trust it. Anyone can verify what the software does.'],
         [UserCircleMinus, 'No account.', ''],
-        [EyeSlash, 'No telemetry unless you opt in.', 'Anonymous usage data and crash reports are off until you turn them on. The list of what we collect is public.'],
+        [EyeSlash, 'We never see your chats.', 'Your prompts, replies and files stay on your device.'],
       ]} />
     </Chapter>
 
@@ -71,7 +71,7 @@ export default function MissionPage() {
         <Cta primary href="/pro/#buy">Get Off Grid AI Pro</Cta>
         <Cta href="/vision/">See the vision</Cta>
       </div>
-      <Text as="p" className="fine">Open source. No account. No telemetry unless you opt in. <a href={`${GITHUB}github`} target="_blank" rel="noopener">View on GitHub</a> · <a href={SLACK} target="_blank" rel="noopener">Join the community</a> · <a href="/download/">Get the apps</a></Text>
+      <Text as="p" className="fine">Open source. No account. <a href={`${GITHUB}github`} target="_blank" rel="noopener">View on GitHub</a> · <a href={SLACK} target="_blank" rel="noopener">Join the community</a> · <a href="/download/">Get the apps</a></Text>
     </div></section>
   </div></PageShell>;
 }

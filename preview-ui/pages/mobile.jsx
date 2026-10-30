@@ -84,7 +84,6 @@ function HeroPhone() {
 const FAQ = (p) => [
   ['Is it really free?', 'Yes. Chat, images, vision and documents are free. Pro adds memory, voice mode, approvals, Sync and Video Studio.'],
   ['Which phones?', 'iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.'],
-  ['Does it phone home?', 'Only if you turn on anonymous usage data and crash reports. They are off by default, and your chats never leave your device.'],
   ['Can my phone make videos?', 'Yes, with Pro. Your phone makes short clips on its own. For longer films it can use your own computer over Wi-Fi. Every film carries an AI-generated label.'],
   ['What models can I run?', 'Qwen, Gemma, Llama, Phi and other GGUF models that fit your memory.'],
 ];

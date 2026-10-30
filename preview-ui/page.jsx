@@ -1605,7 +1605,7 @@ function PrivacySection() {
     <div className="sec-head" data-og-reveal=""><Kicker>WHERE YOUR DATA GOES</Kicker><Title id="priv-heading" lead="Type something private." dim="Watch where it goes." /><Lede>An illustration. Same question, two places to send it.</Lede></div>
     <div className="priv-input"><PlaceholdersAndVanishInput placeholders={SAMPLE_PROMPTS} onChange={(e) => setDraft(e.target.value)} onSubmit={send} /></div>
     {lanes}
-    <Text as="p" className="fine">Your chats and files never leave your device. Anonymous usage data and crash reports are off until you turn them on. <a href="/privacy/">Privacy policy</a></Text>
+    <Text as="p" className="fine">Your chats and files never leave your device. <a href="/privacy/">Privacy policy</a></Text>
   </div></section>;
 }
 
