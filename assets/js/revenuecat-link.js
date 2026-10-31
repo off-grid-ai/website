@@ -8,7 +8,7 @@
 //
 //   https://pay.rev.cat/<token>/<urlEncodedEmail>?email=<urlEncodedEmail>
 //
-// This file is loaded as a browser global by /pay/ and imported directly by the
+// This file is loaded as a browser global by /pro/ and imported directly by the
 // unit test, so it has no dependencies and works in both environments.
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
