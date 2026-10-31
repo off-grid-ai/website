@@ -8,6 +8,8 @@ published_at: "2026-10-31T03:37:45Z"
 article_topic: "Models & performance"
 article_platform: "Linux"
 devto_article: true
+devto_id: 4950579
+devto_url: "https://dev.to/alichherawalla/how-to-clean-up-ollama-and-lm-studio-models-taking-up-space-on-linux-in-2026-4fl6"
 ---
 `df -h` says your home partition is almost full, and `du` points at two hidden folders: `~/.lmstudio` and `~/.ollama`. Every model you tried in LM Studio or pulled with Ollama is still there, several gigabytes each, and neither app shows the other's models. Off Grid AI Desktop lists them all in one place with their sizes and lets you remove the ones you no longer use. LM Studio files go to your desktop's Trash, so you can still restore one. Ollama models stay under Ollama's control, and the app tells you the command that removes them without breaking Ollama.
 
