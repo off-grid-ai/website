@@ -14,7 +14,7 @@ image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,grav
 ---
 You don't need Midjourney. You don't need a $20/month subscription. You don't need to upload your prompts to someone else's server. Your Android phone can run Stable Diffusion entirely on device and generate images in 5 to 10 seconds.
 
-Off Grid is a free, open-source app that runs AI image generation on your phone's hardware. After you download a model once, the app never contacts any server again. Your prompts and your images exist only on your phone.
+Off Grid is a free, open-source app that runs AI image generation on your phone's hardware. After you download a model once, your prompts and images never touch a server. Your prompts and your images exist only on your phone.
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 
@@ -102,7 +102,7 @@ Every image you generate on cloud services is stored on their servers. Your prom
 
 With Off Grid, your prompts and images exist only on your phone. There's no server, no logging, no possibility of your creative process being used to improve someone else's product. For professional artists, designers, or anyone who values creative privacy, this matters.
 
-Open source. No analytics, no telemetry, no accounts.
+Open source. No accounts.
 
 ## Getting Started
 

@@ -13,7 +13,7 @@ const BUILT = [
   [Devices, 'Five platforms, live today.', 'Mac, Windows, Linux, iPhone and Android, plus a Chrome extension.'],
   [Receipt, 'Revenue from day one.', 'Pro sells monthly and lifetime. Boost, hosted inference for teams, is onboarding its first cohort.'],
   [Cpu, 'Almost nothing to serve.', 'The models run on each user\'s own phone or laptop, so a new user adds no server bill.'],
-  [GithubLogo, '250,000+ downloads.', 'And 3,300+ GitHub stars. Open source, so anyone can check that their data never leaves the device.'],
+  [GithubLogo, '250,000+ downloads.', 'And 3,300+ GitHub stars. Open source, so anyone can check that their chats never leave the device.'],
 ];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

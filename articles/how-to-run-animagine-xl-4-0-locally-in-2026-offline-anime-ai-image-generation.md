@@ -75,7 +75,7 @@ A few habits make local generation feel quick.
 
 A hosted anime generator sees every prompt you type and every image you make. It keeps logs. It often trains on what you submit. You agree to terms you did not read.
 
-Off Grid AI Desktop runs the model on your machine. There is no account and no telemetry. Your prompts and images never leave the device. The app is open source, so you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
+Off Grid AI Desktop runs the model on your machine. There is no account. Your prompts and images never leave the device. The app is open source, so you can read exactly what it does. The difference is not a setting you toggle. It is the architecture.
 
 ## Getting Started
 
@@ -115,7 +115,7 @@ Both. Macs use Metal. Windows uses CUDA or Vulkan, with a CPU fallback.
 
 ### Q: Is my data private?
 
-Yes. Nothing leaves your machine. No account, no telemetry, no prompt logging on a server.
+Yes. Your prompts never leave your machine. No account, no prompt logging on a server.
 
 Run Animagine XL 4.0 on your own hardware, offline, today.
 

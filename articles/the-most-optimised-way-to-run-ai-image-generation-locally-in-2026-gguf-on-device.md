@@ -87,7 +87,7 @@ If a model feels slow, check two things before blaming your hardware: your step 
 
 A hosted image service sees every prompt and every image you make, and many keep or train on them. There is usually a filter deciding what you are allowed to generate, and a subscription deciding how much.
 
-Off Grid AI Desktop runs on-device. No account. No telemetry. No API keys. Your prompts and images stay in a local folder on your own machine. The app is open source, so you can read the source. Once a model is downloaded you can work with no network connection at all. No subscription, no per-image cost, no rate limit.
+Off Grid AI Desktop runs on-device. No account. No API keys. Your prompts and images stay in a local folder on your own machine. The app is open source, so you can read the source. Once a model is downloaded you can work with no network connection at all. No subscription, no per-image cost, no rate limit.
 
 ## Getting Started
 

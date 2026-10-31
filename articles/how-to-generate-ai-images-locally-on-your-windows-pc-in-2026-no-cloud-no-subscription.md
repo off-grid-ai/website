@@ -87,7 +87,7 @@ Keep the model inside VRAM. If you see generation crawl, drop to a smaller or mo
 
 A cloud image service uploads your prompt and stores the output. Many train on what users make. Most gate generation behind a paid plan and a logged-in account.
 
-Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no telemetry, no credit meter. The code is open, so you can read exactly how it handles your data. Pull the network cable and it still generates.
+Off Grid AI Desktop does the work on your own GPU. Nothing uploads. There is no account, no credit meter. The code is open, so you can read exactly how it handles your data. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -123,6 +123,6 @@ SDXL, SDXL-Lightning, SD 1.5, SD 2.1, and Z-Image-Turbo. Pick and download them 
 8GB runs SDXL-Lightning and Z-Image-Turbo smoothly. 12GB or more makes full SDXL and larger sizes comfortable. 4-6GB handles SD 1.5 and low-step output.
 
 ### Q: Is my data private?
-Yes. Prompts and images never leave your PC. No telemetry, no account, and the source is open to inspect.
+Yes. Prompts and images never leave your PC. No account, and the source is open to inspect.
 
 Generate images on the PC you already own. **[github.com/off-grid-ai/desktop](https://github.com/off-grid-ai/desktop)**

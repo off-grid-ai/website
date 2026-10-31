@@ -16,7 +16,7 @@ Your editor, your terminal scripts, and half the AI tools you installed last mon
 
 **[GitHub ->](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no telemetry, no API key.
+Free, open-source, runs offline. No account, no API key.
 
 
 ![The Gateway in Off Grid AI Desktop: the local base URL any OpenAI client can point at, no API key needed.](/assets/img/home/app/gateway-dark-1760.webp)
@@ -152,7 +152,7 @@ The models themselves are quantized GGUF files at levels like q8_0 and Q4_K, whi
 
 When your IDE talks to a hosted AI service, your source code goes to that service. It is logged, billed per token, and tied to an account.
 
-When your IDE talks to `127.0.0.1:7878`, the code goes to a process on your own machine and stops there. The gateway makes no outbound calls for inference. There is no telemetry and no account. The whole app is open source, so you can read what it does before you trust it with your repository. Disconnect from the network and every example above keeps working.
+When your IDE talks to `127.0.0.1:7878`, the code goes to a process on your own machine and stops there. The gateway makes no outbound calls for inference. There is no account. The whole app is open source, so you can read what it does before you trust it with your repository. Disconnect from the network and every example above keeps working.
 
 ## Getting Started
 
@@ -192,7 +192,7 @@ Anything that speaks the OpenAI HTTP API, including `openai-python` and `openai-
 
 ### Q: Is my code private?
 
-The endpoint is bound to `127.0.0.1` and makes no outbound inference calls. No telemetry, no account, open source. Your repository stays on your disk.
+The endpoint is bound to `127.0.0.1` and makes no outbound inference calls. No account, open source. Your repository stays on your disk.
 
 Give your whole machine a private inference backend.
 

@@ -62,7 +62,7 @@ iPhone 12/13 users: start with **Qwen 3.5 2B**. iPhone 15 Pro / 16 users: try **
 3. Tap **Load** - the model loads via Metal (Apple's GPU framework)
 4. Open **Chat**
 
-You're now running inference locally on Apple Silicon. Nothing leaves your phone.
+You're now running inference locally on Apple Silicon. Your chats never leave your phone.
 
 ---
 

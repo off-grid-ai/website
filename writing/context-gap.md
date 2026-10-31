@@ -74,7 +74,7 @@ The context gap is closable. It requires three things.
 
 **A unified context layer.** Software that aggregates context from multiple apps and data sources into a single model the AI can query, rather than the fragmented, sandboxed access model of current platform AI.
 
-**An architecture that earns trust.** The reason platforms have been cautious about building systems with deep personal knowledge is that cloud architectures create real privacy risk. On-device architecture removes that risk. The data stays local, the model runs in your phone's memory, and nothing leaves the device.
+**An architecture that earns trust.** The reason platforms have been cautious about building systems with deep personal knowledge is that cloud architectures create real privacy risk. On-device architecture removes that risk. The data stays local, the model runs in your phone's memory, and your context never leaves the device.
 
 All three are available now. The context gap is not a technology problem waiting for a breakthrough. It is a product and architecture problem waiting for someone to build the right thing.
 

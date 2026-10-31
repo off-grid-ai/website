@@ -58,23 +58,20 @@ test('old and new purchase links retain the encoded email user ID', async () => 
   }
 });
 
-test('Stripe pricing works without a RevenueCat count and fails closed', async t => {
-  const server = createServer((req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    if (req.url !== '/stripe/pricing') { res.writeHead(503); res.end('{}'); return; }
-    res.end(JSON.stringify({ lifetime: 79.99, monthly: 7.99, lifetime_offer: { enabled: true, original_price: 119, amount_off: 39.01 } }));
-  });
+test('Stripe pricing is the site\'s own: no price or count request, ready at once', async t => {
+  // Fetching the price from the Worker and then a customer count kept every buy button off for 1-1.5 s.
+  let requests = 0;
+  const server = createServer((req, res) => { requests++; res.writeHead(503); res.end('{}'); });
   server.listen(0, '127.0.0.1');
   await once(server, 'listening');
   t.after(() => new Promise(resolve => server.close(resolve)));
   const endpoint = `http://127.0.0.1:${server.address().port}`;
-  const result = await loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/stripe`, count_endpoint: `${endpoint}/unavailable` });
-  assert.equal(result.pricing.lifetime, 79.99);
-  assert.equal(result.pricing.monthly, 7.99);
+  const result = await loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/stripe`, count_endpoint: `${endpoint}/count` });
+  assert.equal(result.pricing.lifetime, lifetimePrice(pricing));
+  assert.equal(result.pricing.monthly, pricing.monthly);
   assert.equal(result.count, null);
-  await assert.rejects(loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/unavailable` }));
+  assert.equal(requests, 0);
 });
-
 test('the price history is display-only and reads low to high through the live ladder', () => {
   // The stepper renders history then tiers: $10, $30, $50, then $69, $119, $149.
   const steps = [...pricing.history, ...pricing.tiers].map(s => s.lifetime);
@@ -96,18 +93,10 @@ test('the price history is display-only and reads low to high through the live l
   assert.ok(lifetimePrice(pricing) < cohort.lifetime);
 });
 
-test('Stripe pricing carries the customer count so the ladder still fills', async t => {
-  const server = createServer((req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    if (req.url === '/stripe/pricing') { res.end(JSON.stringify({ lifetime: 79.99, monthly: 7.99 })); return; }
-    if (req.url === '/count') { res.end(JSON.stringify({ count: 1532, updated: new Date().toISOString() })); return; }
-    res.writeHead(503); res.end('{}');
-  });
-  server.listen(0, '127.0.0.1');
-  await once(server, 'listening');
-  t.after(() => new Promise(resolve => server.close(resolve)));
-  const endpoint = `http://127.0.0.1:${server.address().port}`;
-  const result = await loadPricing({ ...pricing, checkout_provider: 'stripe', stripe_endpoint: `${endpoint}/stripe`, count_endpoint: `${endpoint}/count` });
-  assert.equal(result.count, 1532);
-  assert.equal(result.pricing.lifetime, 79.99);
+test('the current prices in pricing.yml are what Stripe sells', () => {
+  // The page shows these as they are, so they must match Stripe: 119.00 lifetime (79.99 with the offer) and 7.99
+  // monthly. When the price changes, this and pricing.yml change together.
+  assert.equal(pricing.lifetime, 119);
+  assert.equal(pricing.monthly, 7.99);
+  assert.equal(lifetimePrice(pricing), pricing.lifetime_offer.enabled ? 79.99 : 119);
 });

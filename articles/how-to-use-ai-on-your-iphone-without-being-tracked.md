@@ -16,7 +16,7 @@ You probably assume your iPhone keeps things private. Apple markets privacy as a
 
 Every prompt you type. Every personal question you ask. Every document you upload. It all gets logged, stored, and in many cases used to train the next version of the model. Apple's privacy architecture can't protect you from data you voluntarily hand to a third party.
 
-There's a way to use AI on your iPhone where nothing ever leaves. No servers, no accounts, no tracking. Everything runs on your phone's own processor.
+There's a way to use AI on your iPhone where your chats never leave your phone. No servers, no accounts. Everything runs on your phone's own processor.
 
 ## What Cloud AI Services Actually Do With Your iPhone Data
 
@@ -40,9 +40,7 @@ Here's what that actually means in practice:
 
 **No account.** No Apple ID sign-in, no email, no phone number. Open the app and use it.
 
-**No network requests.** After the initial model download, Off Grid contacts no server. Ever. Verify it yourself in airplane mode.
-
-**No analytics or telemetry.** No crash reporting, no usage tracking, no behavioral data collection. The App Store privacy label says it plainly: the developer does not collect any data from this app.
+**No network requests for your chats.** After the initial model download, chatting with a local model contacts no server. Verify it yourself in airplane mode.
 
 **No cloud backup of conversations.** Your chats live in the app's local storage on your device. Not in iCloud. Not on a sync server. On your phone.
 
@@ -93,7 +91,7 @@ This isn't a demo or a proof of concept. Off Grid runs six AI capabilities on yo
 
 Most people self-censor with cloud AI without realizing it. You hesitate before typing a health question. You rephrase a personal problem to be vague. You don't upload the actual document because it has client names in it.
 
-When nothing leaves your phone, that hesitation disappears.
+When your chats never leave your phone, that hesitation disappears.
 
 **Health questions.** "What does this symptom mean?" "Is this medication interaction safe?" "What are early signs of [condition]?" On cloud AI, these questions are now part of your permanent profile on someone's server. Locally, they exist only on your phone.
 

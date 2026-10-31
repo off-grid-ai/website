@@ -24,7 +24,7 @@ The legislative approach is to require transparency, consent, and accountability
 
 These requirements make sense for systems that collect personal data on remote servers. They create meaningful obligations for companies that would otherwise have no accountability for how they handle user information.
 
-On-device AI sidesteps the underlying problem. If no data leaves the device, there is no third-party collection to regulate.
+On-device AI sidesteps the underlying problem. If your personal data never leaves the device, there is no third-party collection of it to regulate.
 
 ## Data protection law and the personal data question
 
@@ -32,7 +32,7 @@ The dominant framework across most jurisdictions today is triggered by the proce
 
 An on-device AI processes personal data, but it processes it locally, on your own hardware, under your own control. The question of whether these frameworks apply to this processing, where you are essentially processing your own data for your own purposes, is nuanced, but the core compliance risks they address (third-party access, cross-border transfer, consent for commercial processing) largely don't apply.
 
-For a cloud AI product, compliance requires data processing agreements, consent management, data subject rights infrastructure, transfer mechanisms for cross-border data flows, and breach notification processes. For an on-device AI with no telemetry and no cloud infrastructure, these requirements either don't apply or are trivially satisfied.
+For a cloud AI product, compliance requires data processing agreements, consent management, data subject rights infrastructure, transfer mechanisms for cross-border data flows, and breach notification processes. For an on-device AI with no cloud infrastructure, most of these requirements either don't apply or are much smaller in scope. Opt-in analytics still needs a consent switch, a processor agreement, and a clear privacy policy.
 
 ## AI-specific regulation and transparency requirements
 
@@ -56,7 +56,7 @@ The pattern across privacy regulations globally is consistent.
 
 Each regulation defines compliance obligations triggered by third-party collection and processing of personal data. Each regulation creates overhead: consent management, data subject rights, breach notification, cross-border transfer mechanisms. Each regulation creates legal risk for products that fail to comply.
 
-On-device AI is not exempt from regulation. But the architecture dramatically reduces the surface area that regulations are targeting. The obligations that require the most compliance investment (cross-border transfers, third-party processing agreements, large-scale personal data handling) mostly don't apply to a system that processes data locally and sends nothing to external servers.
+On-device AI is not exempt from regulation. But the architecture dramatically reduces the surface area that regulations are targeting. The obligations that require the most compliance investment (cross-border transfers, third-party processing agreements, large-scale personal data handling) mostly don't apply to a system that processes data locally and sends no personal data to external servers.
 
 Every new privacy regulation is a tailwind for on-device AI. Not because the regulatory environment is hostile to cloud AI specifically, but because the on-device architecture is inherently aligned with what regulators are trying to achieve.
 
@@ -68,4 +68,4 @@ The products that built their architecture around on-device processing from the 
 
 This is not the primary argument for building on-device AI. The primary argument is that it's better for you. But in a regulatory environment that's moving in one direction, the architecture that's right for users also happens to be the architecture that ages well.
 
-*Off Grid AI processes all data on-device. No cloud. No telemetry. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI processes your chats and files on-device. No cloud. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

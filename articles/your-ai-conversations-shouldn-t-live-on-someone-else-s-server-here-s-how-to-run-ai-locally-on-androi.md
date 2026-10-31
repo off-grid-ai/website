@@ -34,9 +34,9 @@ The question isn't whether you trust a specific company right now. It's whether 
 
 Your Android phone has enough processing power to run AI locally. Modern Snapdragon chips have dedicated AI accelerators sitting mostly idle while you pay subscriptions to run AI on someone else's hardware.
 
-Off Grid is a free, open-source app that runs AI entirely on your phone. After you download a model once, the app never contacts any server again. Turn on airplane mode and everything works.
+Off Grid is a free, open-source app that runs AI entirely on your phone. After you download a model once, your chats never touch a server. Turn on airplane mode and everything works.
 
-There is no server. There is no account. There is no analytics, telemetry, or usage tracking. Not a single data packet leaves your phone. Not anonymous data, not personalized data. Nothing.
+There is no server. There is no account. Your chats never leave your phone.
 
 The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). You don't have to trust a privacy policy. You can read every line yourself.
 

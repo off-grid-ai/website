@@ -8,7 +8,7 @@ nav_order: 4
 description: Run Qwen 3.5, Gemma 4, Mistral and other large language models directly on your Android phone with no internet, no API key, and no subscription. Complete guide for 2026.
 faq:
   - q: Can I run LLMs on Android without an internet connection?
-    a: Yes. Once the model is downloaded, Off Grid AI runs entirely offline. No internet, no server calls, no cloud.
+    a: Yes. Once the model is downloaded, Off Grid AI runs entirely offline. No internet, no cloud, and your chats make no server calls.
   - q: Do I need an account to run LLMs locally on Android?
     a: No. Off Grid AI requires no account, no login, and no API key. Download the app and a model and you're done.
   - q: What Android phones can run LLMs locally in 2026?
@@ -21,7 +21,7 @@ faq:
 
 Every time you ask ChatGPT a question, it's logged on a server. Your query, the response, the time, your account. It's stored indefinitely. That data is used to improve models, inform advertising, comply with law enforcement requests.
 
-Off Grid AI removes that entire layer. The model runs in your phone's RAM via llama.cpp on ARM64. Nothing is sent anywhere.
+Off Grid AI removes that entire layer. The model runs in your phone's RAM via llama.cpp on ARM64. Your prompts are not sent anywhere.
 
 Here's how to set it up.
 

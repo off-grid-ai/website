@@ -96,7 +96,7 @@ Check the audit log periodically. It is your record of what the assistant has do
 
 A cloud AI assistant that connects your work tools sends your tickets, docs, and board data to a server to be reasoned over. The vendor sees your roadmap. You trust their retention policy and their access controls.
 
-Off Grid AI Desktop keeps the reasoning local. The connectors pull data to your machine, the on-device model reasons over it, and nothing routes through a server we own. No account, no telemetry. The code is open, so you can verify what each connector sends and where.
+Off Grid AI Desktop keeps the reasoning local. The connectors pull data to your machine, the on-device model reasons over it, and nothing routes through a server we own. No account. The code is open, so you can verify what each connector sends and where.
 
 You still send credentials to the third-party services you connect, that is unavoidable for any integration. What changes is that the AI layer sits on your hardware, not someone else's.
 

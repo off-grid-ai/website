@@ -1,7 +1,7 @@
 ---
 layout: content
 title: "Fully Open Source, Fully Private: How Off Grid AI Desktop Keeps Your AI On-Device"
-description: "Open source, everything on-device, no account, no telemetry, no API keys. What private actually means, and why open source is the proof."
+description: "Open source, everything on-device, no account, no API keys. What private actually means, and why open source is the proof."
 date: "2026-06-25"
 permalink: /articles/fully-open-source-fully-private-how-off-grid-ai-desktop-keeps-your-ai-on-device/
 published_at: "2026-06-25T05:13:33.405Z"
@@ -16,7 +16,7 @@ Most "private AI" apps ask you to trust a privacy policy you cannot read and a s
 
 **[GitHub →](https://github.com/off-grid-ai/desktop)**
 
-Free, open-source, runs offline. No account, no telemetry.
+Free, open-source, runs offline. No account.
 
 
 ![Off Grid AI Desktop chat answering from your own meetings and documents, with a local model and nothing sent out.](/assets/img/home/app/chat-dark-1760.webp)
@@ -49,7 +49,7 @@ There is no sign-up, no login, no email. That is not a convenience feature. It i
 
 No account means no central profile that ties your prompts to your identity. No password to breach. No "export my data" request to file, because the data was never collected. You open the app and it works, the way a text editor works.
 
-There is also no telemetry. The app does not count your sessions, time your generations, or report crashes to us. And there are no API keys, because there is no third party to authenticate against.
+There are no API keys, because there is no third party to authenticate against.
 
 ## How capture stays honest
 
@@ -108,7 +108,7 @@ Off Grid ships an OpenAI-compatible API at `http://127.0.0.1:7878/v1`. Your own 
 Yes. The source is public and you can build from it.
 
 ### Q: Does anything leave my machine?
-No. The local stack here runs offline. No telemetry, no account, no API keys.
+Your chats and files do not. The local stack here runs offline. No account, no API keys.
 
 ### Q: How do I know capture is not always on?
 It is opt-in per device and shows a visible indicator while running. It is off by default.

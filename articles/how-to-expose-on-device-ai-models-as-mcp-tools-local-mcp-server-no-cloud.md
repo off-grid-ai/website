@@ -122,7 +122,7 @@ Repeated calls to the same tool keep that model warm. A cold call pays a short l
 
 ## Privacy: stronger than a hosted tool server
 
-A hosted MCP server sees every argument you pass and every result it returns. It needs credentials and it logs traffic. The Off Grid AI Desktop MCP endpoint binds to `127.0.0.1`, so it answers only your machine. There is no telemetry, no account, no key. The code is open, so the behavior is auditable. Your prompts, images, and recordings stay on disk.
+A hosted MCP server sees every argument you pass and every result it returns. It needs credentials and it logs traffic. The Off Grid AI Desktop MCP endpoint binds to `127.0.0.1`, so it answers only your machine. There is no account and no key. The code is open, so the behavior is auditable. Your prompts, images, and recordings stay on disk.
 
 ## Getting started
 

@@ -61,7 +61,7 @@ Since 0.0.55, OGAD's AI engines (llama.cpp, whisper.cpp and stable-diffusion.cpp
 
 Open WebUI's docs connect image generation through GPT-Image, Gemini or ComfyUI. Two of those are cloud services. The third is another server to run.
 
-OGAD draws images on your graphics card with models such as RealVisXL V5.0 Lightning. The picture above took 6 steps at 1024 by 1024. Off Grid AI Mobile (OGAM) draws images on the phone with Stable Diffusion. Nothing leaves the device.
+OGAD draws images on your graphics card with models such as RealVisXL V5.0 Lightning. The picture above took 6 steps at 1024 by 1024. Off Grid AI Mobile (OGAM) draws images on the phone with Stable Diffusion. The images never leave the phone.
 
 ## AI that lives on your phone
 

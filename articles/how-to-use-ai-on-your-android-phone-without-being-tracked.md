@@ -16,7 +16,7 @@ Every time you type something into ChatGPT, Gemini, or Copilot, your conversatio
 
 Most people don't think about this. But think about what you actually ask AI. Health questions. Relationship problems. Financial worries. Work notes with proprietary information. Legal questions. Journal entries. Stuff you wouldn't say out loud in a crowded room.
 
-There's a way to use AI on your Android phone without any of that. No tracking, no data collection, no accounts, no servers. Everything runs on your phone and nothing ever leaves.
+There's a way to use AI on your Android phone without any of that. No accounts, no servers. Everything runs on your phone and your chats never leave it.
 
 ## What Actually Happens to Your Data When You Use Cloud AI
 
@@ -40,13 +40,11 @@ Here's what "completely on your device" actually means:
 
 **No account.** You never sign up for anything. No email, no phone number, no Google sign-in. You open the app and start using it.
 
-**No network requests.** After the initial model download from HuggingFace, Off Grid makes zero calls to any server. You can verify this by enabling airplane mode. Everything works.
-
-**No analytics or telemetry.** No usage tracking, no crash reporting phoning home, no behavioral data collection. Nothing.
+**No network requests for your chats.** After the initial model download from HuggingFace, chatting with a local model makes zero calls to any server. You can verify this by enabling airplane mode. Everything works.
 
 **No data stored anywhere except your phone.** Your conversations live in the app's local storage on your device. Not on a cloud server. Not in a backup that syncs somewhere. On your phone.
 
-**Open source.** You don't have to take anyone's word for any of this. The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). Read it yourself. Apple's App Store privacy label for Off Grid states: "The developer does not collect any data from this app."
+**Open source.** You don't have to take anyone's word for any of this. The code is on [GitHub](https://github.com/alichherawalla/off-grid-mobile). Read it yourself, including the public list of what optional analytics collects.
 
 [Play Store](https://play.google.com/store/apps/details?id=ai.offgridmobile) | [GitHub](https://github.com/alichherawalla/off-grid-mobile)
 

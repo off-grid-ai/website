@@ -45,7 +45,7 @@ All of these models show up in one model selector. Tap to switch. Continue chatt
 
 **Testing your prompts.** If you write prompts for work or for a product, you need to know how different models respond. Paste a prompt, try it with Qwen 3.5 9B, switch to Llama 3.1, switch to Mistral. Same conversation, immediate comparison.
 
-**Privacy escalation.** You are asking general questions and the on-device model is fine. Then the conversation gets personal - medical, legal, financial. Switch to the on-device model for those parts. Nothing leaves your phone. Then switch back to the remote model when you are past the sensitive section.
+**Privacy escalation.** You are asking general questions and the on-device model is fine. Then the conversation gets personal - medical, legal, financial. Switch to the on-device model for those parts. Those messages never leave your phone. Then switch back to the remote model when you are past the sensitive section.
 
 **Graceful degradation.** You are at home using the 9B on your Mac. You leave the house. The remote model becomes unavailable. Instead of losing your conversation, switch to the on-device 2B and keep going. The quality drops, but the conversation does not stop.
 

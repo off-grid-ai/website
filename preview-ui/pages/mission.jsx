@@ -43,12 +43,12 @@ export default function MissionPage() {
     </Chapter>
 
     <Chapter id="privacy-is-not-a-feature-its-an-architecture-decision" n="04" kicker="PRIVACY" title="Privacy is not a feature. It's an architecture decision."
-      pull="The only guarantee your data stays yours is that it never leaves your device.">
+      pull="The only guarantee your chats stay yours is that they never leave your device.">
       <p>"We anonymise before storing." "You can opt out in settings." Policies change when the company does. Not a toggle. Not a promise. <strong>Architecture.</strong></p>
       <Points featured items={[
         [GithubLogo, 'Open source.', 'If you can\'t audit it, you can\'t trust it. Anyone can verify what the software does.'],
         [UserCircleMinus, 'No account.', ''],
-        [EyeSlash, 'No telemetry.', 'No analytics. No data collection of any kind.'],
+        [EyeSlash, 'We never see your chats.', 'Your prompts, replies and files stay on your device.'],
       ]} />
     </Chapter>
 
@@ -56,7 +56,7 @@ export default function MissionPage() {
       pull="For two hundred years, a private intelligence layer belonged to the wealthy and the senior.">
       <p>A secretary knew your priorities, handled correspondence, prepared every meeting and tracked commitments, so you could do the work only you can do.</p>
       <p><strong>A Personal AI OS changes that.</strong> One intelligence layer across your phone and laptop, over your own network, no server in between. It preps your meetings before you ask and surfaces only what can't wait. It acts with your approval.</p>
-      <p>On devices billions already carry. On models that cost nothing to run. With data that never leaves your hands.</p>
+      <p>On devices billions already carry. On models that cost nothing to run. With chats and files that never leave your hands.</p>
     </Chapter>
 
     <Statement label="The mission">Democratize intelligence. Personal. Private. Ambient. On the hardware people already own.</Statement>
@@ -71,7 +71,7 @@ export default function MissionPage() {
         <Cta primary href="/pro/#buy">Get Off Grid AI Pro</Cta>
         <Cta href="/vision/">See the vision</Cta>
       </div>
-      <Text as="p" className="fine">Open source. No account. No telemetry. <a href={`${GITHUB}github`} target="_blank" rel="noopener">View on GitHub</a> · <a href={SLACK} target="_blank" rel="noopener">Join the community</a> · <a href="/download/">Get the apps</a></Text>
+      <Text as="p" className="fine">Open source. No account. <a href={`${GITHUB}github`} target="_blank" rel="noopener">View on GitHub</a> · <a href={SLACK} target="_blank" rel="noopener">Join the community</a> · <a href="/download/">Get the apps</a></Text>
     </div></section>
   </div></PageShell>;
 }

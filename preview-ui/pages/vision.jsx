@@ -52,7 +52,7 @@ export default function VisionPage() {
     <Chapter id="private-by-architecture-always" n="04" kicker="PRIVATE" title="Private by architecture. Always."
       pull="Not because we say so. Because the system has no mechanism to do otherwise.">
       <p>Privacy isn't a setting. It's the output of the architecture. Messages, health data, money, relationships, midnight thoughts: processed locally, stored locally, never transmitted.</p>
-      <p><strong>Open source, so anyone can check what leaves the device. The answer is nothing.</strong></p>
+      <p><strong>Open source, so anyone can check what leaves the device. Your chats and files never do.</strong></p>
     </Chapter>
 
     <Chapter id="intelligence-for-everyone" n="05" kicker="FOR EVERYONE" title="Intelligence for everyone."

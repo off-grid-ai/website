@@ -460,6 +460,18 @@ export function OfflineScene({ where = 'this device' }) {
   </div>;
 }
 
+// Video Studio (Pro): one sentence becomes a storyboard written by the local model, then a labelled film.
+export function VideoScene({ where = 'this device' }) {
+  const [text, streaming] = useStream(`Four shots, 20 seconds, Portrait. 1: Mara climbs the lighthouse stairs. 2: A dog shivers on the rocks. 3: She wraps it in her coat. 4: Morning, both asleep by the lamp. Quick draft now, the final film tonight, made on ${where}.`, { start: 1300 });
+  const live = useScene();
+  return <div className="ms" ref={live}>
+    <SceneHead title="Video Studio" badge="AI-generated label" />
+    <div className="ms-tools">{['Character: Mara', 'Portrait', 'Narration', 'Captions'].map(t => <span key={t} className="chip">{t}</span>)}</div>
+    <AIMessage from="user">A lighthouse keeper finds a lost dog in a storm.</AIMessage>
+    <AIResponse isStreaming={streaming} text={text} />
+  </div>;
+}
+
 export function ToolsScene() {
   const [done, setDone] = useState(false);
   useEffect(() => { const t = setTimeout(() => setDone(true), 1600); return () => clearTimeout(t); }, []);

@@ -19,7 +19,7 @@ faq:
 
 Each Off Grid AI project can have its own knowledge base. Upload PDFs, text files, or code - the app processes them entirely on-device and makes them searchable in your conversations.
 
-This is Retrieval-Augmented Generation (RAG) running completely locally. No document leaves your device.
+This is Retrieval-Augmented Generation (RAG) running completely locally. No document leaves your device, and optional analytics never includes file names.
 
 ---
 

@@ -89,7 +89,7 @@ Start a fresh chat for a new topic. A long history is re-read on every turn. Cle
 
 You can use Gemma through Google's cloud. Your prompts travel to Google, get logged, and may train future models.
 
-Off Grid AI Desktop is the opposite. The model runs on your disk. There is no account and no telemetry. The code is open, so anyone can read it and confirm nothing phones home. Pull the network cable and Gemma still answers.
+Off Grid AI Desktop is the opposite. The model runs on your disk. There is no account. The code is open, so anyone can read it and confirm your prompts never leave. Pull the network cable and Gemma still answers.
 
 ## Getting Started
 
@@ -130,7 +130,7 @@ The app bundles a Gemma vision model and lets you download other compatible Gemm
 Both. Mac uses Metal on Apple Silicon. Windows uses CUDA or Vulkan, with a CPU fallback.
 
 ### Q: Is my data private?
-Yes. Prompts and replies never leave your machine. No account, no telemetry, open code.
+Yes. Prompts and replies never leave your machine. No account, open code.
 
 Run Gemma on your own hardware, with no cloud in the loop.
 

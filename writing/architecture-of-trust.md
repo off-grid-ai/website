@@ -5,7 +5,7 @@ parent: Perspectives
 article_topic: "Privacy & control"
 article_platform: "Any device"
 nav_order: 11
-description: Trust in AI comes from two sources - policy and architecture. Only one of them is durable. Here's why on-device, open-source, no-telemetry is the only architecture that deserves access to your full context.
+description: Trust in AI comes from two sources - policy and architecture. Only one of them is durable. Here's why on-device and open-source is the architecture that deserves access to your full context.
 ---
 
 # The Architecture of Trust: How a Personal AI OS Earns the Right to Your Data
@@ -36,8 +36,6 @@ An architecture that earns trust for personal AI has three properties.
 
 **On-device inference.** The model runs on your hardware. Your queries and context never become network traffic. There is no server that receives them, logs them, or is breached with them. The guarantee - "we can't access your data because it never came to us" - is verifiable by design.
 
-**No telemetry.** The software sends nothing to external servers. Not usage statistics, not crash logs that contain query fragments, not aggregate patterns. Nothing. This is a stronger commitment than "we anonymise before sending" - it means the architecture was built to produce no outbound data at all. Verifiable by inspecting network traffic.
-
 **Open source code.** The application is inspectable. Anyone can read the code, verify what it does, and confirm that it doesn't contain hidden data paths. Trust through transparency rather than through assertion. You don't have to take anyone's word for it.
 
 These three properties together create an architecture that earns the right to your full context. Not because the company is trustworthy - though it should be - but because the architecture makes the question of trust less load-bearing.
@@ -52,19 +50,9 @@ This matters most at the edges. What happens when you delete your data? What hap
 
 For a system with access to your messages and health data, "trust but verify" is better than "trust because they said so." Open source is what makes verification possible.
 
-## The no-telemetry requirement
-
-Telemetry is the category of data that software sends home about itself: usage patterns, error rates, feature adoption, performance metrics.
-
-Most software collects this. It is typically anonymised. It is used to improve the product. Most users accept it without thinking about it because the data collected seems low-risk.
-
-Personal AI changes the risk profile. A language model processes your queries as natural language. Even "anonymised" aggregate statistics about queries can carry personal information that is difficult to fully strip. And the infrastructure that handles telemetry - the servers, the pipelines, the data stores - expands the attack surface.
-
-A Personal AI OS should send no telemetry. Not anonymised telemetry. Not opt-in telemetry. None. The software should be designed from the start to produce no outbound data. The cost is less visibility for the developer. The benefit is an architecture that can't leak by accident.
-
 ## Earning the right to full context
 
-A Personal AI OS that meets these properties - on-device inference, no telemetry, open source - is the only architecture that deserves access to your full context.
+A Personal AI OS that meets these properties - on-device inference, open source - is the architecture that deserves access to your full context.
 
 Not because it is built by better people. Because the architecture removes the need for the question. You don't have to trust that the company will protect your health data, because your health data is on your device and the code that accesses it is inspectable.
 

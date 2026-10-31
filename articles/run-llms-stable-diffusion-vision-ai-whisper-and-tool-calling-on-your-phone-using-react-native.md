@@ -12,7 +12,7 @@ devto_id: 3285579
 devto_url: "https://dev.to/alichherawalla/run-llms-stable-diffusion-vision-ai-whisper-and-tool-calling-on-your-phone-44dd"
 image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F198t8u0jsh1h7esrk4pb.png"
 ---
-## The complete technical reference for on-device AI in React Native -- architecture, acceleration, and patterns you can extract for your own apps. Free and open source. No Cloud. No API Key. No Data Leaves Your Device.
+## The complete technical reference for on-device AI in React Native -- architecture, acceleration, and patterns you can extract for your own apps. Free and open source. No Cloud. No API Key. Your Chats Stay on Your Device.
 
 ---
 Think about what you type into AI. Not the casual stuff. The real stuff.

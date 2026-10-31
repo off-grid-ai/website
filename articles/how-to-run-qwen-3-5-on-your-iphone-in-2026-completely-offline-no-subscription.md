@@ -45,7 +45,7 @@ Off Grid is a free, open-source app that runs Qwen 3.5 and other GGUF models ent
 
 ## How This Compares to Apple Intelligence
 
-Apple Intelligence uses Apple's own models, routes some tasks to their cloud, and doesn't let you choose your model. Qwen 3.5 running on Off Grid is entirely local, open source, and cross-platform. You pick the model, you verify the code, and nothing leaves your device.
+Apple Intelligence uses Apple's own models, routes some tasks to their cloud, and doesn't let you choose your model. Qwen 3.5 running on Off Grid is entirely local, open source, and cross-platform. You pick the model, you verify the code, and your chats never leave your device.
 
 ## Getting Started
 

@@ -207,7 +207,7 @@ export default function OgapPage({ data }) {
         <div className="sec-head" data-og-reveal=""><Kicker>WHY HARDWARE, AND WHY US</Kicker><Title id="why-h" lead="We put the load there." dim="So we carry the fix." /></div>
         <div className="og-why-copy">
           <Text as="p">Run <a href="/mobile/">Off Grid AI</a> all day, with <a href="/mobile/recorder/">the recorder</a> on, and battery and heat are the first limits you hit.</Text>
-          <Text as="p">Nothing else changes: nothing leaves your device, and the software works with or without OGAP.</Text>
+          <Text as="p">Nothing else changes: your chats never leave your device, and the software works with or without OGAP.</Text>
         </div>
       </div>
     </section>

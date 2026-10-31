@@ -5,7 +5,7 @@ import { CheckCircle } from '@phosphor-icons/react';
 import Button from '@smoothui/smooth-button';
 import { PageShell, Kicker, Title, Lede, SceneCard, PlatformIcon, useNarrow, CmdBar, CmdScope, ReviewLine } from '../shared.jsx';
 import { PAGE_REVIEWS } from '../reviews.js';
-import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Checks } from './_product.jsx';
+import { Proof, Dl, Explorer, Seq, Wipe, AutoCtl, PhoneShots, FreeVsPro, Faq, Phone, Checks, Loop, VideoScene } from './_product.jsx';
 
 const UTM = 'utm_source=offgrid-docs&utm_medium=website&utm_campaign=mobile';
 const IOS = { id: 'ios', href: `https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?${UTM}`, aria: 'Download for iOS', small: 'Download on the', label: 'App Store', external: true };
@@ -54,6 +54,8 @@ const PRO = [
   ['approve', 'Draft, then approve', 'It drafts. You approve before anything is sent.'],
   ['sync', 'Sync is live', 'Phone and computer, encrypted, over your own Wi-Fi.'],
 ].map(([id, title, line]) => ({ id, cmd: FEATURE_CMDS[id], title, line, visual: inPhone(id) }));
+// Video Studio has no app screens on the site yet: a composed scene stands in.
+PRO.push({ id: 'video', cmd: 'make a film about a lost dog', title: 'Video Studio', line: 'One sentence becomes a short film, made on your phone.', visual: (compact) => <div className={compact ? 'mp-card-phone' : 'mp-stage-phone'}><Phone status="Pro"><Loop><VideoScene where="your phone" /></Loop></Phone></div> });
 // The same Pro also runs on your computer: those features, shown on the Mac.
 const PRO_DESKTOP = [
   ['god', 'God', 'brief me, Ares', 'A morning brief on your computer, with work lined up for your yes.', [['god', 'Off Grid AI God: the 8:50 AM briefing from Ares, with three approvals waiting.'], ['god-prep', 'Off Grid AI God: prep for the Northwind board meeting, with sources.'], ['god-waiting', 'Off Grid AI God: what is waiting for you, and what Priya and Tom owe you.']]],
@@ -80,9 +82,9 @@ function HeroPhone() {
 }
 
 const FAQ = (p) => [
-  ['Is it really free?', 'Yes. Chat, images, vision and documents are free. Pro adds memory, voice mode, approvals and Sync.'],
+  ['Is it really free?', 'Yes. Chat, images, vision and documents are free. Pro adds memory, voice mode, approvals, Sync and Video Studio.'],
   ['Which phones?', 'iPhone 12 or newer on iOS 17+, and Android 10+ with 4GB of RAM or more.'],
-  ['Does it phone home?', 'No. Local models run on your phone. Pro activates with a key.'],
+  ['Can my phone make videos?', 'Yes, with Pro. Your phone makes short clips on its own. For longer films it can use your own computer over Wi-Fi. Every film carries an AI-generated label.'],
   ['What models can I run?', 'Qwen, Gemma, Llama, Phi and other GGUF models that fit your memory.'],
 ];
 
@@ -133,7 +135,7 @@ export default function MobilePage({ data }) {
     {/* Phones open the plans on Pro: the hero already offers the free download. */}
     <FreeVsPro pricing={p} start={1}
       free={['Chat with Qwen, Llama, Gemma and Phi', 'Image generation, with enhanced prompts', 'Vision and voice input', 'Projects with cited answers', 'Tools and larger models on your network', 'Offline, prompts stay on your phone']}
-      pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'God, meetings and memory on your computer', 'Tasks, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
+      pro={['Voice mode with Kokoro', 'Drafts you approve', 'Sync across your devices', 'Video Studio, with an AI label on every film', 'God, meetings and memory on your computer', 'Tasks, Clipboard and Vault on your computer', `Up to ${p.devices} devices`]}
       freeCta={<FreeDownload />} />
 
     <Faq items={FAQ(p)} />

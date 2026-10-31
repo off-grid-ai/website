@@ -65,8 +65,8 @@ If privacy is an architecture decision, it has to be made at the beginning: in t
 
 A product that runs inference in the cloud and adds privacy controls on top is a cloud AI with privacy features.
 
-A product that runs inference on-device, stores context locally, and sends nothing to external servers is a private AI by architecture. There is no feature to ship, no toggle to add, no policy to write. The privacy guarantee is in the design.
+A product that runs inference on-device, stores context locally, and sends none of your content to external servers is a private AI by architecture. There is no feature to ship, no toggle to add, no policy to write. The privacy guarantee is in the design.
 
 This is the only version of personal AI that deserves access to your full context. Not because the company behind it is more trustworthy. But because the architecture makes trust irrelevant. The data never left your device.
 
-*Off Grid AI runs every model locally. No data leaves your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*
+*Off Grid AI runs every model locally. Your chats and files never leave your device. [Download for iPhone](https://apps.apple.com/us/app/off-grid-local-ai/id6759299882?utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing) or [Android](https://play.google.com/store/apps/details?id=ai.offgridmobile&utm_source=offgrid-docs&utm_medium=website&utm_campaign=writing).*

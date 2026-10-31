@@ -103,7 +103,7 @@ Off Grid is free and open source.
 - Android: grab the latest APK from [GitHub Releases](https://github.com/alichherawalla/off-grid-mobile/releases)
 - iOS: available on the App Store (search "Off Grid AI")
 
-If you have not set up LM Studio yet, it takes about five minutes. Download it, search for "Qwen 3.5 9B" in the model browser, download, load, and start the server. Then open Off Grid and scan. You will be chatting with a model that rivals cloud AI - from your phone, on your own network, with zero data leaving your house.
+If you have not set up LM Studio yet, it takes about five minutes. Download it, search for "Qwen 3.5 9B" in the model browser, download, load, and start the server. Then open Off Grid and scan. You will be chatting with a model that rivals cloud AI - from your phone, on your own network, with your chats never leaving your house.
 
 The hardware you already own is enough. You just need the software to unlock it.
 

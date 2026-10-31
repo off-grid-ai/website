@@ -78,7 +78,7 @@ A few habits keep all three engines responsive.
 
 Cloud AI services send your words, your images, and your voice to a remote server, where they are logged and may train the next model. With Off Grid AI Desktop, all of it stays on your Mac. The prompt, the picture, the recording: none of it leaves the machine.
 
-No account. No telemetry. No API key. The app is open source, so the full source is on GitHub for you to read. There is nothing to log in to and nothing phoning home.
+No account. No API key. The app is open source, so the full source is on GitHub for you to read. There is nothing to log in to and nothing phoning home unless you opt in.
 
 ## Getting Started
 

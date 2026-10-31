@@ -87,7 +87,7 @@ Use img2img to refine. Rather than re-rolling text-to-image and hoping, take a r
 
 A cloud image service uploads your prompt and stores your output. Many reserve the right to train on what you make. Some require a paid plan before you can generate anything at all.
 
-Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no account, no telemetry, and no credit meter. The code is open, so the privacy claim is something you can check rather than trust. Turn off Wi-Fi and it still generates.
+Off Grid AI Desktop does the work on your GPU. Nothing uploads. There is no account and no credit meter. The code is open, so the privacy claim is something you can check rather than trust. Turn off Wi-Fi and it still generates.
 
 ## Getting Started
 
@@ -123,6 +123,6 @@ SDXL, SDXL-Lightning, SD 1.5, SD 2.1, and Z-Image-Turbo. Pick and download them 
 Yes. Drop in an image and steer it with a prompt. There are also style presets and a live per-step preview.
 
 ### Q: Is my data private?
-Yes. Prompts and images never leave your Mac. No telemetry, no account, and the source is open.
+Yes. Prompts and images never leave your Mac. No account, and the source is open.
 
 Generate images on the Mac you already own. **[github.com/off-grid-ai/desktop](https://github.com/off-grid-ai/desktop)**

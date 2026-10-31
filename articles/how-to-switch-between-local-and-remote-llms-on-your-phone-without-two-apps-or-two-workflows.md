@@ -43,7 +43,7 @@ Here is how the pieces fit together:
 
 **Remote models** connect to any OpenAI-compatible server on your local network. Ollama, LM Studio, LocalAI. Off Grid auto-discovers servers and pulls their model lists. Responses stream over your WiFi.
 
-**You pick which model to use, and you can switch mid-conversation.** Starting a conversation about something sensitive? Use the on-device model. Nothing leaves your phone. Need to analyze a 50-page PDF? Switch to the 9B model on your Mac - in the same chat. The context carries over. You are not starting from scratch every time you change models.
+**You pick which model to use, and you can switch mid-conversation.** Starting a conversation about something sensitive? Use the on-device model. The conversation never leaves your phone. Need to analyze a 50-page PDF? Switch to the 9B model on your Mac - in the same chat. The context carries over. You are not starting from scratch every time you change models.
 
 Off Grid also supports projects with a built-in knowledge base and RAG. Attach your documents and any model - local or remote - can search through them. Tool calling works too: models that support function calling can chain together web search, calculator, date/time, and device info. All private, all on your own hardware.
 

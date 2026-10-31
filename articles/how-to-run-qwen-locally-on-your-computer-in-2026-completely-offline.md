@@ -29,7 +29,7 @@ Qwen is Alibaba's open-weight model family. The weights are public, so you downl
 
 Qwen has two strengths worth naming. It is strong at coding tasks, which makes it useful for explaining functions, sketching scripts, and reviewing snippets. It is also multilingual, trained across many languages, so it handles non-English text better than many open models its size.
 
-You run it through the Models browser in Off Grid AI Desktop. Find a Qwen GGUF on Hugging Face, download it, and chat. Nothing leaves your disk.
+You run it through the Models browser in Off Grid AI Desktop. Find a Qwen GGUF on Hugging Face, download it, and chat. Your chats stay on your disk.
 
 ## What You Need
 
@@ -91,7 +91,7 @@ Trim the context window to the task. A long context slows every token and eats R
 
 A cloud chat service logs your prompts and may use them to train future models. Code you paste, documents you summarize, all of it lands on a server.
 
-Off Grid AI Desktop keeps Qwen on your disk. No account, no telemetry, no API key. The code is open, so you can read it and verify nothing leaves. Disconnect from the internet and Qwen keeps answering.
+Off Grid AI Desktop keeps Qwen on your disk. No account, no API key. The code is open, so you can read it and verify your chats stay put. Disconnect from the internet and Qwen keeps answering.
 
 ## Getting Started
 

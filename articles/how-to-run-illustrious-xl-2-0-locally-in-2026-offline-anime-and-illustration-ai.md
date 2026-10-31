@@ -91,7 +91,7 @@ Generate a couple of test images at each level on your own hardware and judge wi
 
 A hosted anime generator sees every prompt you type and every image you make. Some keep them. Some train on them. Some have a content filter that decides what you are allowed to draw.
 
-Off Grid AI Desktop has none of that. The app runs on-device. There is no account, no telemetry, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is open, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
+Off Grid AI Desktop has none of that. The app runs on-device. There is no account, and no API key. Your prompts and your images stay in a local folder on your own disk. The code is open, so you can read exactly what it does. Offline is not a mode you switch on. It is the only way it runs.
 
 ## Getting Started
 
@@ -133,6 +133,6 @@ Both. Metal on Apple Silicon, CUDA or Vulkan on Windows, with a CPU fallback whe
 
 ### Q: Is my data private?
 
-Yes. No account, no telemetry, no API keys. Prompts and images stay on your disk.
+Yes. No account, no API keys. Prompts and images stay on your disk.
 
 Run Illustrious XL v2.0 on your own hardware, offline. **[Get Off Grid AI Desktop on GitHub →](https://github.com/off-grid-ai/desktop)**

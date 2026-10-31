@@ -81,7 +81,7 @@ A few practical levers, no invented numbers.
 
 Midjourney runs on Discord. Your prompts and your images live on their servers, and the default gallery is public. Off Grid AI Desktop is the opposite arrangement.
 
-Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no telemetry, no API key. The app is open source, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
+Your prompt never leaves your machine. The image is computed locally and saved to your disk. There is no account, no API key. The app is open source, so you can read the source and confirm that for yourself. Pull the network cable and it still generates.
 
 ## Getting Started
 
@@ -123,7 +123,7 @@ Yes. The same engine runs on CUDA, Vulkan, or CPU on Windows. A 12 GB NVIDIA car
 
 ### Q: Is my data private?
 
-Your prompts and images stay on your disk. No account, no telemetry, no server we own ever sees them.
+Your prompts and images stay on your disk. No account, no server we own ever sees them.
 
 ### Q: What is Juggernaut XL good at?
 
